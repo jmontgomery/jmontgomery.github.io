@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-
-<link rel="next" href="measurement-error.html">
+<link rel="prev" href="scales-of-measurement.html">
+<link rel="next" href="installing-r-and-r-studio.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -127,42 +127,82 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Quantitative Political Methods Coursebook</h1>
-<h4 class="author"><em>Jacob Montgomery</em></h4>
+<div id="random-samples" class="section level1">
+<h1><span class="header-section-number">4</span> Random Samples</h1>
+<div id="learning-objectives-2" class="section level2">
+<h2><span class="header-section-number">4.1</span> Learning Objectives</h2>
+<p>1)Understand what a random sample is, and why random samples are important.</p>
+<p>2)Identify simple random samples, systematic random samples, stratified random samples, cluster samples, and multi-stage sampling, and understand why scientists use them.</p>
 </div>
-<div id="class-overview" class="section level1">
-<h1><span class="header-section-number">1</span> Class Overview</h1>
-<div id="learning-objective-1-what-is-the-point-of-all-of-this-group-work" class="section level2">
-<h2><span class="header-section-number">1.1</span> Learning objective #1: What is the point of all of this group work?</h2>
-<p>This year, this course has been revised to incorporate some elements of Team Based Learning. This is an approach to creating permanent groups to work on problems in class, in lab, and out of class throughout the semester.</p>
-<p>We are not going to follow the TBL approach strictly. But we are going to have fewer lectures and more structured group activities. Learn more about Team Based Learning by watching this video.</p>
+<div id="learning-objective-1-random-samples" class="section level2">
+<h2><span class="header-section-number">4.2</span> Learning Objective 1: Random Samples</h2>
+<div id="what-is-a-random-sample" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> What is a random sample?</h3>
+<p>A random sample is a sample where every subject in the population in question has an equal chance of being selected. If there are 6,000 undergrads at WashU, and I want to select 600 to be in my sample, then if my method of selecting subject is random, each undergrad has the same chance of being selected, 10%.</p>
 </div>
-<div id="learning-object-2-what-is-the-point-of-all-of-these-online-activites" class="section level2">
-<h2><span class="header-section-number">1.2</span> Learning object #2: What is the point of all of these online activites?</h2>
-<p>A better question would be what is the point of sitting in a room and watching a professor talk? It’s 2012!</p>
-<p>Moving an increasing amount of teaching resources online is a big trend in education at all levels. But this isn’t just trendy, it appears to be very effective. Preliminary research shows that online learning paired with in-class interactions with faculty is a much more effective than the traditional lecture format.</p>
-<p>Watch this short TED talk by Peter Norvig to learn more:</p>
-<iframe width="560" height="315" src="https://youtube.com/embed/tYclUdcsdeo" frameborder="0" allowfullscreen>
+<div id="why-do-we-care-if-a-sample-is-random" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Why do we care if a sample is random?</h3>
+<p>We want our samples to be representative. In other words, we want our sample to look like the population we’re drawing from, just smaller. If we are conducting a study on how happy they are with their dorm, and 10% of WashU undergrads live in a “traditional” dorm on the South 40, then we want 10% of our sample to be comprised of students living in a traditional dorm on the South 40.</p>
+<p>More technically, random samples are representative in expectation. That means that if we took a lot of different random samples, on average they would be representative. So while any one random sample might be off just a bit, random samples in general will be representative.</p>
+</div>
+<div id="real-life-application-dont-look-ignorant-in-your-newspaper-column" class="section level3">
+<h3><span class="header-section-number">4.2.3</span> Real-life application: Don’t look ignorant in your newspaper column</h3>
+<p>Below is the link to an article by Rodger Simon, Politico’s chief political columnist. In this article, he dismisses polls because they ask so few people what they think. This is a perfectly reasonable argument to make if one has had no background in statistics. What Roger Simon failed to grasp, and the reason why polls work, even though they ask such few people, is that, when they are done well, they are representative of the population as a whole.</p>
+<p><a href="http://www.politico.com/news/stories/1211/70717.html" class="uri">http://www.politico.com/news/stories/1211/70717.html</a></p>
+</div>
+</div>
+<div id="learning-objective-2-types-of-random-samples" class="section level2">
+<h2><span class="header-section-number">4.3</span> Learning Objective 2: Types of Random Samples</h2>
+<p>There are several different types of random samples. In each of these samples, every subject in the population has the same probability of being selected, but the subjects are selected in different ways.</p>
+<div id="simple-random-sample" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> Simple Random Sample:</h3>
+<p>This is the most basic method of sampling. A certain number of subjects are chosen randomly out of a population. An example of this is lotteries. In a lottery, each number has the same chance of being selected.</p>
+<p>Here’s a helpful video that explains simple random samples:</p>
+<iframe width="560" height="315" src="https://youtube.com/embed/yx5KZi5QArQ" frameborder="0" allowfullscreen>
+</iframe>
+<p><strong>If simple random samples are representative, why not just use them for all samples?</strong></p>
+<p>The problem is that it is extremely difficult, if not impossible, to put together a simple random sample for large populations. One challenge is that certain groups have different response rates than other groups. In this case, if we just do a simple random sample, then groups that have a higher response rate will be over-represented.</p>
+<p>Another challenge is that there is no directory with the names and contact information of every single person, so it can be difficult to put together a sample in the first place. Scientists employ more complex sampling methods to remedy these problems.</p>
+</div>
+<div id="systematic-random-sample" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> Systematic Random Sample:</h3>
+<p>In a systematic sample, subjects are selected through some sort of system. For example, I might collect the student id numbers of all WashU undergrads, order them from least to greatest, and then start with the 8th number, and sample every 10th person.</p>
+<p>This is still a random sample, because each person has the same chance of being selected. It’s not, however, a simple random sample, because instead of being selected entirely randomly in no order, there was a system to choosing the people.</p>
+<p>In a simple random sample, every set of people has the same chance of being in the sample. In a systematic random sample, that’s not true. For example, if my student ID number is 1 higher than my roommate’s, then the in a simple random sample it’s possible that both my roommate and I will be in the sample. In the systematic random sample I just described, however, it is impossible that my roommate and I will be in the same sample. Everyone in the sample has a student id number that’s 10 apart.</p>
+<p>Here’s a helpful video that explains systematic random samples:</p>
+<iframe width="560" height="315" src="https://youtube.com/embed/QFoisfSZs8I" frameborder="0" allowfullscreen>
 </iframe>
 </div>
-<div id="learning-objective-3-how-is-this-going-to-work" class="section level2">
-<h2><span class="header-section-number">1.3</span> Learning objective #3: How is this going to work?</h2>
-<p>The approach I am trying to adopt for this class is to help you learn in four basic steps.</p>
-<ol style="list-style-type: decimal">
-<li><p>Initial exposure to materials through self-study.</p></li>
-<li><p>Repeated exposure to materials in short lectures.</p></li>
-<li><p>Use your new knowledge in a collaborative environment where assistance is readily available.</p></li>
-<li><p>Use your new knowledge on your own.</p></li>
-</ol>
-<p>The goal is for you to see and use information in multiple ways to improve learning outcomes. Experience (and research) shows that this approach is far superior to simple lectures in helping you learn more and retain it longer. To help you along this process, each learning component will be broken down as follows.</p>
-<ol style="list-style-type: decimal">
-<li><p>You will read your book and review online materials. Regular online quizzes will help motivate you to stay current.</p></li>
-<li><p>I will begin most classes with a short lecture where I will cover the materials again and answer questions.</p></li>
-<li><p>You will apply your knowledge during in-class team assignments. If you have any questions or run into problems, I will be right there to give you help. To keep the team motivated, these assignments will be graded.</p></li>
-<li><p>You will apply your knowledge on your own (or with friends) in your problem sets.</p></li>
-</ol>
-
+<div id="stratified-random-sample" class="section level3">
+<h3><span class="header-section-number">4.3.3</span> Stratified Random Sample:</h3>
+<p>In a Stratified Random Sample, we first split the population into different groups, or strata. We then select a set number of subjects from each group. The goal is to set up the samples such that the proportion of subjects in the sample from each strata match the proportion of subjects from each strata in the population.</p>
+<p>To return to the example of sampling the undergraduate population of WashU, we might divide undergrads into different strata based on their residential area. If 5% of all WashU undergrads live in Mudd Hall, and we want our sample to be 600 people, then 5% of those 600 people, or 30 people, will be from Mudd Hall. To achieve this, we would do a simple random sample of Mudd residents, choosing 30 subjects. And we would do this for each residential area.</p>
+<p>Here’s a helpful video that explains stratified random sampling:</p>
+<iframe width="560" height="315" src="https://youtube.com/embed/sYRUYJYOpG0" frameborder="0" allowfullscreen>
+</iframe>
+<p><strong>What are the advantages of a stratified random sample?</strong></p>
+<p>Stratified Random Samples can be used to remedy problems of over-sampling, or under-sampling. If different groups have different rates of response, then we can select more subjects from those groups, so the set of people who respond are representative.</p>
+<p>For example, if freshmen respond much less to surveys than upper-classmen, then we might use a stratified random sample, and over-sample freshmen, to correct for this.</p>
+</div>
+<div id="cluster-samples" class="section level3">
+<h3><span class="header-section-number">4.3.4</span> Cluster Samples:</h3>
+<p>In a cluster sample, the population is divided into different clusters. These are organic groupings of people. A simple random sample is run to select several clusters, and then everyone in each selected cluster is surveyed.</p>
+<p>For example, in the WashU undergrad survey, we might “cluster” students by floor. Wheeler 1 would be a cluster, Lopata 3 another, and so on. We would randomly select a few floors, and interview everyone on each floor.</p>
+<p>Here’s a helpful video that explains cluster sampling:</p>
+<iframe width="560" height="315" src="https://youtube.com/embed/QOxXy-I6ogs" frameborder="0" allowfullscreen>
+</iframe>
+<p><strong>What are the advantages of a cluster sample?</strong></p>
+<p>In some ways, cluster samples are easier to execute. If many of the people we are interviewing live close together, it might be easier to reach them.</p>
+<p>Of course, cluster sampling is not without its drawbacks. Because subjects in the same cluster tend to be similar in certain systematic ways, the cluster sampling can lead to over-sampling of certain types of people.</p>
+</div>
+<div id="multi-stage-sampling" class="section level3">
+<h3><span class="header-section-number">4.3.5</span> Multi-Stage Sampling:</h3>
+<p>A multi-stage sample employs several types of random samples. For example, for the undergrad survey, we might first stratify WashU undergrad by whether they live on the South 40, in the Village, or off campus. We might then do a cluster sample within each strata. We could choose 4 floors from each strata, and interview each person on that floor.</p>
+</div>
+</div>
+<div id="what-are-the-takeaways-1" class="section level2">
+<h2><span class="header-section-number">4.4</span> What are the takeaways?</h2>
+<p>Random sampling is the way scientists develop representative samples. There are several different ways of putting together random samples. These include <strong>cluster samples</strong>, <strong>stratified random samples</strong>, <strong>systematic samples</strong>, and <strong>multi-stage samples</strong>, which combine aspects of different sampling methods.</p>
 
 </div>
 </div>
@@ -171,8 +211,8 @@
           </div>
         </div>
       </div>
-
-<a href="measurement-error.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="scales-of-measurement.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="installing-r-and-r-studio.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
