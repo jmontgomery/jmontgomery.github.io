@@ -1,0 +1,66 @@
+
+# Installing R and R Studio
+
+## What is R?
+
+- R can be used for many different purposes. It is a programming language, a letter, a piece of data analysis software, and a community with over 2 million users.
+- R is open source and completely free, so if you ever encounter a problem, you can go online and the R community will try to help you out. 
+
+![](Lab_Files/1.png)
+
+- R's open source nature also means that you can contribute! If you discover or develop something, the R community would love to learn about it. 
+- We will use R in our Lab sections, to complete problem sets, and you will use it to analyze data for the final presentation. 
+- Many large companies use R to analyze data, so this experience will be useful in the long run and we recommend maintaining your R knowledge even after this class is over. 
+
+### Why should you learn this? 
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/u94oFWZCTCU" frameborder="0" allowfullscreen></iframe>
+
+
+
+##Installing R and R Studio on a Mac (would also work for other platforms)
+
+### Let's start with R
+
+1. Close any running applications on your computer.
+
+2. To obtain R, go to The Comprehensive R Archive Network (CRAN) (http://www.r-project.org/)
+
+3. Click "Download R".
+
+4. Scroll down to the USA, choose "CRAN Mirror **United States,Washington University, St. Louis**".
+
+5. You will see versions ofRfor Linux, MacOS, and Windows. Downloadand install the version that corresponds to your operating system.
+
+6. This is what R should look like, once opened: 
+
+![](Lab_Files/2.png)
+
+### Now we need to install R studio
+
+R Studio is a program designed to make using R easier. Businesses have to pay for it.  But we can get it for free.
+RStudio allows you, the user, to run R in a more user-friendly environment. Like R, it is open-source and free. 
+
+1. To obtain RStudio, go to the following link: (http://www.rstudio.com/) 
+
+2. Click on "Download RStudio"
+
+3. Scroll down and choose your operating system (under the Installers block) 
+
+4. This is what Rstudio should look like, once opened: 
+
+![](Lab_Files/3.png) 
+
+
+
+
+### A video to help you install R and R studion on a Mac
+
+<iframe width="560" height="315" src="https://youtube.com/embed/cX532N_XLIs" frameborder="0" allowfullscreen></iframe>
+
+
+### Installing R and R Studio on Windows 
+
+<iframe width="560" height="315" src="https://youtube.com/embed/eD07NznguA4" frameborder="0" allowfullscreen></iframe>
+

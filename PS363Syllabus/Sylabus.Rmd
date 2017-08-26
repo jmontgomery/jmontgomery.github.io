@@ -390,11 +390,13 @@ ____________
 
 ##### Tentative Schedule
 
+Below is a tentative schedule of assignments.  Please note that this is subject to change. Further, additional online readings will be assigned for each course. 
 
 Date| Topic Reading| Assignments| Notes
 -----|-----|-----|-----|-----|
-8/28| Introduction <br> Class overview| AF: Chapter 1
-8/30| NO CLASS <br> APSA Conference
+8/28| Introduction <br> Class overview| AF: Chapter 1 <br> CB: Chapter 1
+8/30| NO CLASS <br> APSA Conference 
+8/31-9/1| Introduction to R | Monogan: Chapter 1 <br> CB: Chapters 2-3 | Lab
 9/4| NO CLASS <bf> Labor Day 
 9/6| 
 9/11|

@@ -1,0 +1,65 @@
+
+# A Brief Introduction to R 
+
+
+Learning objectives:
+
+1. Learn how to assign a value to an object in R.
+
+2. Learn your way around R (using R Studio).
+
+3. Learn how to do simple arithmetic in R.
+
+
+## First follow along with this video
+
+
+<iframe width="560" height="315" src="https://youtube.com/embed/UYclmg1_KLk" frameborder="0" allowfullscreen></iframe>
+
+
+## Now see if you can do this on your own
+
+
+Here are some basic things to try in R: 
+
+- Multiplying, dividing, adding numbers in Rstudio console: 
+
+```{r, eval=FALSE}
+5*3
+5+3
+5/3
+```
+
+- Assigning a value to an object: (This assigns x the value of 6) 
+
+```{r, eval=FALSE}
+x <- 6 
+```
+
+- Install a package:
+
+```{r, eval=F}
+install.packages("foreign")
+```
+
+- Call a package through its library: 
+```{r, eval=F}
+library(foreign)
+```
+
+This CRAN-package, foreign, will come handy when you read data into R next week!
+
+
+## Take it to the next level
+
+[Follow this link to the free data camp for R](https://www.datacamp.com/courses/free-introduction-to-r/?utm_source=blog_launch_new_intro&utm_medium=blog&utm_campaign=launch_new_intro)
+
+1. You should see that the first lesson there is called "Intro to basics"
+2. Click on "View Chapter Details"
+3. Complete the following sections of this chapter
+    - How it works
+    - Arithmetic with R
+    - Variable assignment
+    - Variable assignment (2)
+    - Variable assignment (3)
+
