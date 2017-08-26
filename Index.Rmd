@@ -1,7 +1,7 @@
 ---
 title: "Jacob Montgomery"
-author: "Jacob Montgomery"
-date: "August 26, 2017"
+author:
+date: 
 output: html_document
 ---
 
