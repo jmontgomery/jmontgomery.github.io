@@ -1,0 +1,114 @@
+---
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+<h3 style="text-align: center;" markdown="1">Quantitative Political Methodology</h3>
+<h3 style="text-align: center;" markdown="1">L32 363</h3>
+
+#### Class information
+
+##### Lecture
+Monday and Wednesday  
+1:00 -- 2:00  
+Seigle Hall 304
+
+##### Labs
+
+Seigle Hall L016  
+Lab A: Thursday 9:00--10:00  
+Lab B: Thursday 10:00 -- 11:00  
+Lab C: Friday 9:00 -- 10:00  
+Lab D: Friday 10:00 -- 11:00  
+
+
+#### Instructor Information
+
+Jacob M. Montgomery, Ph.D.  
+Associate Professor, Department of Political Science  
+**Office**: Seigle 285  
+**E-mail**: jacob.montgomery@wustl.edu  
+**Office Hours**: Tues. 1:30-3:30 and by appointment 
+
+
+
+#### Textbooks/Readings
+
+Alan Angresti and Barbara Finlay.  2009.
+*Statistical Methods for the Social Sciences, Fourth Edition*.
+Upper Saddle River, NJ: Prentice Hall.  ISBN: 978-0130272959
+
+James E. Monogan III. 2015. *Political Analysis Using R*. New
+York: Springer. ISBN 978-3-319-23446-8  (An online version of this
+book is available for free through Springer Link in library)
+
+See the [Online Course Book](http://jmontgomery.github.io/PS363CourseBook/) for additional reading materials.
+
+#### Software
+
+You will be using the R statistical package
+(http://www.r-project.org/). This package is widely used in
+political science, economics, psychology, sociology, and
+biostatistics. R is available for every computing platform, and most
+importantly, is free. As such, you need not rely on computer labs to
+complete your assignments. Please feel free to contact Professor
+Montgomery or a TA if you have any questions about software.
+_Please bring your laptops to the first lab session for help
+  installing the program._
+
+#### Course description
+
+We are on the doorstep of a new era of social science. Never before have political scientists had access to so much data
+about the attitudes and actions of individuals, institutions, and
+nations.  Data on everything from the [votes of members of the
+U.S. Senate in 1855](https://voteview.com/search/?congress=34) to [terrorist attacks from around the globe](http://www.start.umd.edu/gtd/) are
+only a few clicks away.
+ 
+This class is designed to make you an active participant in this new
+data-rich world.  The goal is to introduce you to the methods and
+practices by which you can use this data to answer questions that are
+important to us as political scientists and citizens.  What policies
+are most effective at reducing poverty?  Which campaign ads are most
+effective at persuading voters?  Can we affect the behavior of our
+Facebook friends just by sharing our opinions?
+ 
+The purpose of this class is to teach you how to use data to answer
+these kinds of questions.  This class will introduce you to the
+theoretical concepts you need to test claims about the political world
+and the practical skills you will need to conduct and present
+statistical analyses.
+ 
+Although students will certainly be expected to engage with
+mathematics, formulas, and data analysis, the goals of the class are
+primarily conceptual rather than narrowly mathematical. The course
+will focus on helping students to understand the core concepts behind
+statistical tests, understand their uses (and limitations), learn to
+apply them appropriately to substantive problems of interest, and
+learn how to communicate findings to others.  In addition, a major
+component of the course include learning how to collect, manage, and
+analyze data using computer software, and how to effectively
+communicate results to others.
+
+
+##### Learning objectives
+
+By the end of this course, you should be able to:
+
+- Present data using graphics and descriptive statistics in a clear and informative manner
+- Apply basic concepts from probability theory to social science research questions
+- Describe the threats to making causal inferences from observational data and identify how they could change the conclusions of a study
+- Make inferences about the distribution of populations based on a sample 
+- Correctly conduct and interpret hypothesis tests
+- Understand linear regression in theory and practice (i.e., be able to read and interpret regression tables in academic articles)
+- Work collaboratively with other students to complete problem sets that apply concepts from class readings and short lectures
+- Independently gather, analyze, interpret, and present your own data
+
+
+
+fruit| price
+-----|-----:
+apple|2.05
+pear|1.37
+orange|3.09
