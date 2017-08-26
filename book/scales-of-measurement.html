@@ -6,8 +6,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Quantitative Political Methods Coursebook</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="Quantitative Political Methods Coursebook">
-  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
 
   <meta property="og:title" content="Quantitative Political Methods Coursebook" />
   <meta property="og:type" content="book" />
@@ -31,7 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="installing-r-and-r-studio.html">
+<link rel="prev" href="measurement-error.html">
+<link rel="next" href="random-samples.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -52,7 +54,6 @@
 </head>
 
 <body>
-
 
 
   <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
@@ -127,25 +128,94 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="a-brief-introduction-to-r" class="section level1">
-<h1><span class="header-section-number">6</span> A Brief Introduction to R</h1>
-<p>Learning objectives:</p>
-<p>1)Learn how to assign a value to an object in R.</p>
-<p>2)Learn your way around R (using R Studio).</p>
-<p>3)Learn how to do simple arithmetic in R.</p>
-<iframe width="560" height="315" src="https://youtube.com/embed/UYclmg1_KLk" frameborder="0" allowfullscreen>
+<div id="scales-of-measurement" class="section level1">
+<h1><span class="header-section-number">3</span> Scales of Measurement</h1>
+<div id="learning-objectives-1" class="section level2">
+<h2><span class="header-section-number">3.1</span> Learning Objectives:</h2>
+<ol style="list-style-type: decimal">
+<li><p>Learn what ordinal, nominal, and interval scales are. Be able to distinguish between them.</p></li>
+<li><p>Learn what “granularity” means, learn what the two types of granularity, continuous and discrete, mean, and learn how to distinguish them</p></li>
+</ol>
+</div>
+<div id="learning-objective-1-scales" class="section level2">
+<h2><span class="header-section-number">3.2</span> Learning Objective 1: Scales</h2>
+<div id="first-of-all-what-do-we-mean-by-scales" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> First of all, what do we mean by scales?</h3>
+<p>A “scale” is just the way we measure or quantify a variable. There are three different scales with which data can be measured: nominal, ordinal, or interval.</p>
+</div>
+<div id="nominal-scale" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Nominal Scale</h3>
+<p>Variables measured on a nominal scale can be separated into different categories, but they have <em>no natural ordering</em>. We can’t say that one data point is “more something” than another point.</p>
+<p>One example is conenent. It is possible to put countries into different categories based on the continent they’re in. The reason that continent is a nominal variable is that, while we can put countries into different categories, there is no universal, objective way of putting them along a dimension.</p>
+<p><em>Note:</em> Sometimes variables measured on a nominal scale are called “categorical” data.</p>
+</div>
+<div id="ordinal-scale" class="section level3">
+<h3><span class="header-section-number">3.2.3</span> Ordinal Scale:</h3>
+<p>Variables measured on an ordinal scale have a natural ordering, but no natural distances between them. We can put the data points in a conceptual line, but there isn’t a precise (or meaningful) distance between observed values.</p>
+<p>Many survey questions measure opinion on an ordinal scale. For example, in 2012 The Pew research Center asked:</p>
+<blockquote>
+<p>Is your overall opinion of Barack Obama very favorable, mostly favorable, mostly unfavorable, or very unfavorable?</p>
+</blockquote>
+<p>We can be pretty sure that people who respondend “very unfavorable” approved less of President Obama than people who responded “mostly unfavorable.” But how much less? We don’t know exactly, which is why this variable is measured on an ordinal scale. (You can see many more examples of question wordings to measure approval Preisdent Obama <a href="http://www.pollingreport.com/obama_fav.htm">here</a>.)</p>
+</div>
+<div id="interval-scale" class="section level3">
+<h3><span class="header-section-number">3.2.4</span> Interval Scale:</h3>
+<p>Variables measured on an interval scale have both a clear ordering and the difference between numbers has a clear meaning. We can not only put data points in a line, we can also position them within precise distances from each other.</p>
+<p>An easy example is height. We can order everyone in QPM in a line, from tallest to shortest, and we can say precisely how much taller (or shorter) one person is than the others.</p>
+</div>
+<div id="ratio-scale" class="section level3">
+<h3><span class="header-section-number">3.2.5</span> Ratio scale:</h3>
+<p>Ratio scale is a subset of Interval data. In a ratio scale, the zero value signifies that there is none of that variable. Most scales in social science are ratio scales. For example, if we were to measure the proportion of the time a legislator votes with the leadership of a certain party, then a score of 0% means that that legislator cast no votes with the party leadership.</p>
+<p>An example of a scale that is not measured on a ratio scale is temperature measured in Fahrenheit or Celsius. If a room is 0 degrees Fahrenheit or Celsius, that does <em>not</em> mean that there is no warmth.</p>
+</div>
+<div id="focus-on-the-measurement-and-not-the-concept" class="section level3">
+<h3><span class="header-section-number">3.2.6</span> Focus on the measurement and not the concept</h3>
+<p>Certain variables, when measured in different ways, can be measured with different scales. For example, think about political ideology. One way to measure the ideology of a member of Congress would be to ask them if they are “Very liberal, somewhat liberal, somewhat conservative, or very conservative.” This would have an ordinal scale.</p>
+<p>However, there are other ways to measure ideology. For example, we could measure the proportion of votes each member cast that were consistent with the Republican leadership. This would allow us to make a scale of ideology that is interval. (We might find that Nancy Pelosi’s voting record is 70.2% more liberal than John Boehner’s.)</p>
+<p>Below is the link to Congressional rankings released by Americans for Democratic Action, a left-wing political group, and rankings released by the Club for Growth, and right-wing political group.</p>
+<p><a href="http://www.adaction.org/media/votingrecords/2010.pdf" class="uri">http://www.adaction.org/media/votingrecords/2010.pdf</a> <a href="http://www.clubforgrowth.org/projects/" class="uri">http://www.clubforgrowth.org/projects/</a></p>
+</div>
+</div>
+<div id="summary" class="section level2">
+<h2><span class="header-section-number">3.3</span> Summary:</h2>
+<p>Watch this video for a very nice summary of these concepts and some thoughts on how best to plot them.</p>
+<iframe width="560" height="315" src="https://youtube.com/embed/hZxnzfnt5v8" frameborder="0" allowfullscreen>
+</iframe>
+</div>
+<div id="learning-objective-2-granularity" class="section level2">
+<h2><span class="header-section-number">3.4</span> Learning Objective 2: Granularity</h2>
+</div>
+<div id="what-is-granularity" class="section level2">
+<h2><span class="header-section-number">3.5</span> What is granularity?</h2>
+<p>Granularity refers to how answers fit on a scale. If a variable can take on any value along a scale, it is <strong>continuous</strong>. An example of a continuous variable is the proportion of the vote a candidate receives in an election. A candidate can receive 0%, 100%, or any value in between.</p>
+<p>If a variable can only take on certain (countable) values, it is <strong>discrete</strong>. All nominal data are discrete.</p>
+<p>Consider the following survey question, asked in a poll by Rusmussen Reports (full survey <a href="http://www.rasmussenreports.com/public_content/politics/questions/pt_survey_questions/august_2012/questions_health_care_update_august_24_25_2012">here</a>):</p>
+<blockquote>
+<p>A proposal has been made to repeal the health care law and stop it from going into effect. Do you strongly favor, somewhat favor, somewhat oppose or strongly oppose a proposal to repeal the health care law?</p>
+</blockquote>
+<p>In the above question, the results would be discrete, because there are only 5 possible answers. Respondents can strongly favor, somewhat favor, some oppose, or strongly oppose the proposal. There is no possible answer between strongly favor or somewhat favor, for example.</p>
+<p>Here is a video that can help you tell the difference between discrete and continuous data.</p>
+<iframe width="560" height="315" src="https://youtube.com/embed/8yKtrZR9MYo" frameborder="0" allowfullscreen>
+</iframe>
+</div>
+<div id="what-are-the-takeaways" class="section level2">
+<h2><span class="header-section-number">3.6</span> What are the takeaways?</h2>
+<p>Based on whether data have a natural order or natural distance, they can be measured on a <strong>nominal</strong>, <strong>ordinal</strong>, or <strong>interval scale</strong>. A specific type of interval scale is a <strong>ratio</strong> scale. Some variables, measured in different ways, can potentially be measured on several types of scales.</p>
+<p>Based on the space between answers, or <strong>granularity</strong>, scales can either be <strong>continuous</strong>, if variables can take on any value on the scale, or <strong>discrete</strong>, if they can only take on certain values.</p>
+<p>This video will help you keep this all straight.</p>
+<iframe width="560" height="315" src="https://youtube.com/embed/uP3-q7Re_jk" frameborder="0" allowfullscreen>
 </iframe>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="installing-r-and-r-studio.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="measurement-error.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="random-samples.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
-    </div>
-  </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
