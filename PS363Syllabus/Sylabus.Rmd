@@ -58,6 +58,10 @@ Montgomery or a TA if you have any questions about software.
 _Please bring your laptops to the first lab session for help
   installing the program._
 
+____________
+____________
+
+
 #### Course description
 
 We are on the doorstep of a new era of social science. Never before have political scientists had access to so much data
@@ -105,6 +109,9 @@ By the end of this course, you should be able to:
 - Work collaboratively with other students to complete problem sets that apply concepts from class readings and short lectures
 - Independently gather, analyze, interpret, and present your own data
 
+____________
+____________
+
 
 #### Assistants to instructor
 
@@ -130,9 +137,17 @@ Location TBA | Location TBA
 Hours TBD| Hours TBD
 
 
+____________
+____________
+
+
 #### Team Based Learning
 
 This course will feature as little traditional lecturing as I can manage while still ensuring you understand the materials. Students will be expected to learn the basic content of the readings before class so that the majority of class time can be dedicated to discussion, group work, and hands-on demonstrations, which are more likely to facilitate successful learning. We will work in teams throughout the semester to maximize active engagement with the course material. By working in teams, students will not only develop communication and collaboration skills but assist each other in understanding and applying concepts successfully. Early in the semester, you will be assigned to a team of five students.  You will work with this team throughout the semester on both in-class assignments and your final research project. To ensure that each student contributes the group's success, your contributions will be assessed via the self- and peer-evaluation components discussed below.
+
+____________
+____________
+
 
 #### Requirements and Evaluation
 
@@ -279,6 +294,8 @@ You Know Who.
 - Students can also increase their final grade 1% by completing their official online course evaluations for both Professor Montgomery and assistants to the instructor for their lab.  
 - Students may earn up to another 1% for creating a video tutorial or other online content to be added to the course website. The topic of this video must be approved in advance, and the final product must be delivered to me before the final exam. 
 
+____________
+____________
 
 #### Class policies
 
@@ -367,6 +384,9 @@ You can also speak confidentially and learn more about available resources at th
 
 
 
+____________
+____________
+
 
 ##### Tentative Schedule
 
@@ -405,6 +425,9 @@ Date| Topic Reading| Assignments| Notes
 TBD| Final Exam 
 
 
+____________
+____________
+
 
 #### Poster rubric (40 points total)
 
@@ -413,19 +436,57 @@ Score| 5| 4| 3| 2
 Introduction and theory| Precisely identifies null and alternative hypotheses and provides strong substantive and theoretical motivations for research project| Identifies null and alternative hypotheses and provides substantive and theoretical motivations for research project| Hypothesis described but null and/or alternative hypotheses not precisely or correctly specified; substantive and theoretical motivations incomplete or unconvincing| Theory incorrectly or vaguely stated; lacks appropriate substantive and/or theoretical motivation
 Methods| Specifies all important aspects of how study was conducted in detailed and replicable fashion; convincingly motivates and defends key choices in design process| Specifies most important aspects of how study was conducted in relatively clear manner; addresses possible concerns about key choices in design process| Specifies some important aspects of how study was conducted; methods not always well-explained; does not sufficiently address possible concerns about  choices in design process.|Does not provide or clearly explain most important aspects  of how study was conducted; lacks appropriate justification of key design choices
 Results| Figures and tables illustrate findings in an intuitive and easy-to-understand way; text explains results precisely and without statistical errors; investigation of hypothesis thorough and detailed| Figures and tables illustrate findings reasonably clearly; textual explanations of results is clear; statistical approach largely correct and error-free| Figures and tables unappealing or poorly constructed; some imprecision or errors in textual discussion of results; hypotheses not thoroughly investigated| Figures and tables  sloppy or hard to understand; text vague or incorrect; statistical errors in analysis; cursory investigation of hypotheses
-Limitations and conclusions| Perceptive and detailed discussion of limitations of findings, potential explanations for those findings, substantive and theoretical conclusions, and possible future research| Clear and thoughtful discussion of limitations of findings, potential explanations for those findings, substantive and theoretical conclusions, and possible future research| Some useful discussion of limitations of findings, potential explanations for those findings, substantive and theoretical conclusions, and possible future research| Vague, incomplete, or unconvincing discussion of limitations, implications, and conclusions\\
-\hline
-Statistical analysis (poster) & Innovative use of statistical methods  to answer research question; no errors in statistical analysis & Correct use of statistical methods  to answer research question; no or few errors in statistical analysis & Potentially problematic use of statistical methods  to answer research question; some errors in statistical analysis & Flawed use of statistical methods  to answer research question; significant errors in statistical analysis\\
-\hline
-Statistical analysis (R script) & Replicates poster findings exactly from original data; clear, descriptive, and precise comments; correct and error-free statistical analyses and use of  R& Statistical analysis and R code are largely correct; comments relatively clear and descriptive & Some errors in statistical analysis or R code; failure to fully replicate poster or provide appropriate comments & Does not replicate poster; lacks comments; many statistical and/or R errors\\
-\hline
-Graphical design & Exceptionally attractive design and layout; free of formatting problems & Attractive design and layout; no or few formatting problems & Somewhat attractive poster; some formatting problems & Difficult-to-read or messy poster design; many formatting problems\\
-\hline
-Writing quality & Exceptionally well-written---precise, clear, and mistake-free; concise and elegant & Very well-written---clear and articulate; few or no typos; not too long & Moderately well-written; some typos; wordy or vague & Unclear, awkward, or imprecise writing; numerous typos; too long and wordy or too short and vague\\
-\hline
-\end{tabular}
-\end{scriptsize}
-\end{center}
+Limitations and conclusions| Perceptive and detailed discussion of limitations of findings, potential explanations for those findings, substantive and theoretical conclusions, and possible future research| Clear and thoughtful discussion of limitations of findings, potential explanations for those findings, substantive and theoretical conclusions, and possible future research| Some useful discussion of limitations of findings, potential explanations for those findings, substantive and theoretical conclusions, and possible future research| Vague, incomplete, or unconvincing discussion of limitations, implications, and conclusions
+Statistical analysis (poster)| Innovative use of statistical methods  to answer research question; no errors in statistical analysis| Correct use of statistical methods  to answer research question; no or few errors in statistical analysis| Potentially problematic use of statistical methods  to answer research question; some errors in statistical analysis| Flawed use of statistical methods  to answer research question; significant errors in statistical analysis
+Statistical analysis (R script)| Replicates poster findings exactly from original data; clear, descriptive, and precise comments; correct and error-free statistical analyses and use of  R| Statistical analysis and R code are largely correct; comments relatively clear and descriptive| Some errors in statistical analysis or R code; failure to fully replicate poster or provide appropriate comments| Does not replicate poster; lacks comments; many statistical and/or R errors
+Graphical design| Exceptionally attractive design and layout; free of formatting problems| Attractive design and layout; no or few formatting problems| Somewhat attractive poster; some formatting problems| Difficult-to-read or messy poster design; many formatting problems
+Writing quality| Exceptionally well-written---precise, clear, and mistake-free; concise and elegant| Very well-written---clear and articulate; few or no typos; not too long| Moderately well-written; some typos; wordy or vague| Unclear, awkward, or imprecise writing; numerous typos; too long and wordy or too short and vague\\
+
+____________
+____________
+
+#### Peer evaluation form (end of semester)
+
+##### Name/team \#/Poster Title: 
+<br>
+<br>
+<br>
+
+
+
+Please assign scores that reflect how you really feel about the extent to which the other members of your team contributed to your learning and/or your team's performance. This will be your only opportunity to reward the members of your team who worked hard on your behalf. (Note: If you give everyone pretty much the same score, you will be hurting those who did the most and helping those who did the least.)
+
+**Instructions:** In the space below, please rate each of the other members of your team. Each member's peer evaluation score will be the average of the points they receive from the other members of the team. To complete the evaluation you should: 1) List the name of each member of your team in the alphabetical order of their last names and, 2) assign an average of ten points to the other members of your team and, 3) differentiate some in your ratings; for example, you must give at least one score of 11 or higher (maximum = 15) and one score of 9 or lower.
+
+
+Rank | Team member | Score
+-----|--------------------|----------|
+1 |  | 
+2|   |   
+3|    |
+4|    |
+
+
+**Additional feedback**
+
+Please briefly describe the reasons for your highest and lowest ratings in the space below. These comments will be shared anonymously. Note: Your comments should be descriptive, not evaluative; as clear and specific as possible; phrased in constructive terms; and focused on areas in which the student has made especially valuable contributions or could improve in the future. 
+
+Reason(s) for your highest rating(s):
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+Reason(s) for your lowest rating(s):
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 
