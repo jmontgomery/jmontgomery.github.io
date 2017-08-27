@@ -390,40 +390,53 @@ ____________
 
 ##### Tentative Schedule
 
-Below is a tentative schedule of assignments.  Please note that this is subject to change. Further, additional online readings will be assigned for each course. 
+**NOTE:** Below is a tentative schedule of assignments.  Please note that this is subject to change. Only assignments through 9/6 are firm at this point.  There will be assigned readings/online tutorials before every class session.
 
-Date| Topic Reading| Assignments| Notes
------|-----|-----|-----|-----|
-8/28| Introduction <br> Class overview| AF: Chapter 1 <br> CB: Chapter 1
-8/30| NO CLASS <br> APSA Conference 
-8/31-9/1| Introduction to R | Monogan: Chapter 1 <br> CB: Chapters 2-3 | Lab
-9/4| NO CLASS <bf> Labor Day 
-9/6| 
-9/11|
-9/13|
-9/18|
-9/20|
-9/25|
-9/27|
-10/2|
-10/4|
-10/9|
-10/11|
-10/16| NO CLASS <bf> Fall Break
-10/18|
-10/23|
-10/25|
-10/30|
-11/1|
-11/6|
-11/8|
-11/13|
-11/15|
-11/20|
-11/27|
-11/29|
-12/3|
-12/6|
+Date| Topic | Reading | Assignments| Notes
+----------|------------|-------------------|-----------------|---------------|
+8/28| Introduction <br> Class overview| AF: Chapter 1 <br> CB: Chapter 1 | |
+8/30| NO CLASS <br> APSA Conference | | | PS1 Distributed
+8/31-9/1| Introduction to R | Monogan: Chapter 1 <br> CB: Chapters 2-3 | |Lab
+9/4| NO CLASS <br> Labor Day | | | |
+9/6| Measurement <br> Sampling <br> Bias | AF: Chapter 2 <br>  CB: Chapters 4-6 | IPA (in class) |
+9/7-9| Plotting in R <br> Opening data in R <br> Subsetting in R| Monogan: Chapters 2-3 || Lab
+9/11| Descriptive statistics | | IPA  |Bring laptops
+9/13| Basics of probability | | PS1 Due | PS2 Distributed 
+9/14-15| Describing data <br> Data Types | | | | Lab
+9/18| Distributions  
+9/20| Sampling distributions | |IPA
+9/21-22| Working with data
+9/25| Confidence intervals <br> describing a population || IPA
+9/27| Hypothesis testing intro || PS2 Due | PS3 Distributed
+9/28-29| Confidence invervals 
+10/2| Null hypothesis testing | |IPA
+10/4| Poster discussion || PS3 Due | PS4 Distributed
+10/5-6| Functions in R (NHP)
+10/9| Exam review
+10/11| Midterm
+10/16| NO CLASS <br> Fall Break
+10/18| Causality 
+10/19-20| Advanced plotting
+10/23| Experiments: Comparing means | | IPA
+10/25| Experiments: Contingency tables || PS4 Due | PS5 Distributed
+10/26-27| T-tests <bf> Tables
+10/30| Regression and prediction 
+11/1| Regression and inference || PS5 Due | PS6 Distributed
+11/2-3| Regression in R
+11/6| Interactions and dummies || IPA
+11/8| Multiple regression || PS5 Due | PS6 Distributed
+11/9-10| Multiple regression
+11/13| Difference in differences || IPA
+11/15| Regression discontinuity || PS6 Due | PS7 Distributed
+11/16-17| DID and RD
+11/20| Instrumental variables
+11/22| NO CLASS <bf> Thanksgiving
+11/27| Model fit | |IPA
+11/29| Regression diagnostics | | PS7 Due | PS8 Distributed
+11/30-31| Diagnostics in R
+12/4| Slack/catch up
+12/6| Exam review | | PS8 Due 
+12/7-8| Poster presentations
 TBD| Final Exam 
 
 
