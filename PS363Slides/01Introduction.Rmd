@@ -1,0 +1,449 @@
+---
+title: "Lecture 1: Introduction"
+author: "Jacob M. Montgomery"
+date: "Quantitative Political Methodology"
+output: beamer_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+
+```{r, echo=FALSE, out.width=".7\\textwidth", fig.align='center'}
+knitr::include_graphics("LectureGraphics/kc.png", dpi = NA)
+```
+
+
+----
+### Data are everywhere
+
+```{r, echo=FALSE, out.width="1\\textwidth", fig.align='center'}
+knitr::opts_chunk$set(fig.width=10, fig.height=10) 
+knitr::include_graphics("LectureGraphics/flushing2.jpg", dpi = NA)
+```
+
+----
+### Data are everywhere
+
+```{r, echo=FALSE, out.width="1\\textwidth", fig.align='center'}
+knitr::opts_chunk$set(fig.width=10, fig.height=10) 
+knitr::include_graphics("LectureGraphics/flushing.jpg", dpi = NA)
+```
+
+----
+
+### Data are everywhere
+
+```{r, echo=FALSE, out.width=".5\\textwidth", fig.align='center'}
+knitr::opts_chunk$set(fig.width=10, fig.height=10) 
+knitr::include_graphics("LectureGraphics/economist.png", dpi = NA)
+```
+
+(Economist 2010)
+
+----
+
+### But do you know what to do with it?
+
+```{r, echo=FALSE, out.width="1\\textwidth", fig.align='center'}
+knitr::opts_chunk$set(fig.width=10, fig.height=10) 
+knitr::include_graphics("LectureGraphics/thiel", dpi = NA)
+```
+
+(Peter Thiel)
+
+----
+
+### But do you know what to do with it?
+
+```{r, echo=FALSE, out.width=".5\\textwidth", fig.align='center'}
+knitr::opts_chunk$set(fig.width=10, fig.height=10) 
+knitr::include_graphics("LectureGraphics/thiel-chang", dpi = NA)
+```
+(Peter Thiel; Winston Chang)
+
+----
+
+### But do you know what to do with it?
+
+```{r, echo=FALSE, out.width="1\\textwidth", fig.align='center'}
+knitr::opts_chunk$set(fig.width=10, fig.height=10) 
+knitr::include_graphics("LectureGraphics/fig7", dpi = NA)
+```
+
+(Georgetown University Center on Education and the Workforce )
+
+
+----
+
+#### Why quantiative methods?
+
+```{r, echo=FALSE, out.width=".4\\textwidth", fig.align='center'}
+knitr::opts_chunk$set(fig.width=10, fig.height=10) 
+knitr::include_graphics("LectureGraphics/perry", dpi = NA)
+```
+
+(Issenberg 2011/2012)
+
+----
+
+
+#### Why quantiative methods?
+
+\includegraphics[height=3cm]{LectureGraphics/tech-sign}
+
+\includegraphics[height=5cm]{LectureGraphics/obama}\includegraphics[height=5cm]{LectureGraphics/wviral_1119}
+
+
+----
+
+
+\begin{center}
+\begin{columns}[c]
+\begin{column}{0.5\textwidth}
+\includegraphics[height=6cm]{LectureGraphics/datascience}
+\end{column}
+
+\begin{column}{0.5\textwidth}
+\includegraphics[height=2cm]{LectureGraphics/google} \\
+\includegraphics[height=2cm]{LectureGraphics/netflix} \\ 
+\includegraphics[height=2cm]{LectureGraphics/facebook}\\
+\end{column}
+\end{columns}
+\end{center}
+
+----
+
+\begin{center}
+\includegraphics[height=1.5cm]{LectureGraphics/bigdata}\\
+\vspace{.25cm}
+\includegraphics[height=5cm]{LectureGraphics/grads}\\
+\end{center}
+\begin{center}\footnotesize{(Lohr 2009, 2012)}\end{center}
+
+----
+
+\begin{center}
+\includegraphics[height=7cm]{LectureGraphics/simon}\\
+\end{center}
+\begin{center}\footnotesize{(Simon 2011)}\end{center}
+
+
+---- 
+
+
+## Two reasons you may have doubts about this class
+
+`What does this class have to do with ... ?'' \pause
+
+- That is excellent question.  Please ask it often. \pause
+- The short answer is **literacy**
+    - Political science research. \pause
+    - Empirical claims about politics, policy, and the world in general. 
+ 
+----
+
+### Political science is a quantiative discipline
+
+```{r, echo=FALSE, out.width="1\\textwidth", fig.align='center'}
+knitr::opts_chunk$set(fig.width=10, fig.height=10) 
+knitr::include_graphics("LectureGraphics/apsr", dpi = NA)
+```
+
+(Rogowski 2010)
+
+----
+
+#### What you will learn
+
+```{r, echo=FALSE, out.width=".8\\textwidth", fig.align='center'}
+knitr::opts_chunk$set(fig.width=10, fig.height=10) 
+knitr::include_graphics("LectureGraphics/silver", dpi = NA)
+```
+
+(Silver 2011)
+
+----
+
+#### What you will learn
+
+```{r, echo=FALSE, out.width=".4\\textwidth", fig.align='center'}
+knitr::opts_chunk$set(fig.width=10, fig.height=10) 
+knitr::include_graphics("LectureGraphics/fowlert1", dpi = NA)
+```
+
+(Loewen et al. 2013)
+
+----
+
+### Why did Trump win?
+
+
+```{r, echo=FALSE, out.width=".6\\textwidth", fig.align='center'}
+knitr::opts_chunk$set(fig.width=10, fig.height=10) 
+knitr::include_graphics("LectureGraphics/trump-head", dpi = NA)
+```
+
+----
+
+#### Media view of campaigns contradicted by data
+What they say matters:
+
+- Independents 
+- Undecideds
+- Gaffes/``gamechangers''
+- Debates
+- ``Momentum'' \pause
+
+What actually matters most:
+
+- Partisanship
+- Fundamentals
+
+
+
+----
+
+
+```{r, echo=FALSE, out.width="1\\textwidth", fig.align='center'}
+knitr::opts_chunk$set(fig.width=10, fig.height=10) 
+knitr::include_graphics("LectureGraphics/FundamentalsTitle", dpi = NA)
+```
+
+(Dan Drezner)
+
+
+----
+
+#### The most important force in political behavior
+
+
+```{r, echo=FALSE, out.width=".4\\textwidth", fig.align='center'}
+knitr::opts_chunk$set(fig.width=10, fig.height=10) 
+knitr::include_graphics("LectureGraphics/PartyID", dpi = NA)
+```
+
+- Partisanship is (in part) a social identity
+- Serves as a perceptual screen
+- Dominates all other aspects of political behavior
+- It doesn't change
+
+----
+
+```{r, echo=FALSE, out.width=".3\\textwidth", fig.align='center'}
+knitr::opts_chunk$set(fig.width=10, fig.height=10) 
+knitr::include_graphics("LectureGraphics/Taps_logo", dpi = NA)
+```
+
+\pause
+
+- Started in 2011
+- About 2,000 Americans have been interviewed on a monthly basis
+- Standard party identification question has been asked 20 times
+
+
+----
+
+```{r, echo=FALSE, out.width=".8\\textwidth", fig.align='center'}
+knitr::opts_chunk$set(fig.width=10, fig.height=10) 
+knitr::include_graphics("LectureGraphics/PartyTime", dpi = NA)
+```
+
+----
+
+
+```{r, echo=FALSE, out.width=".8\\textwidth", fig.align='center'}
+knitr::opts_chunk$set(fig.width=10, fig.height=10) 
+knitr::include_graphics("LectureGraphics/Change", dpi = NA)
+```
+
+
+
+----
+
+#### Individual level change?
+
+
+Amount of change| Number| Percentage
+-------|-----|------
+$0-0.25$| 635| 34.5
+$0.25-0.5$| 572| 31.1
+$0.5-1$| 394| 21.4
+$1-1.5$| 151| 8.2
+$\ge 1.5$| 88| 4.8
+
+----
+
+#### Most people voted their party
+
+
+```{r, echo=FALSE, out.width="1\\textwidth", fig.align='center'}
+knitr::opts_chunk$set(fig.width=10, fig.height=10) 
+knitr::include_graphics("LectureGraphics/partyIDtab", dpi = NA)
+```
+
+----
+
+### Context matters
+
+
+```{r, echo=FALSE, out.width="1\\textwidth", fig.align='center'}
+knitr::opts_chunk$set(fig.width=10, fig.height=10) 
+knitr::include_graphics("LectureGraphics/Poole", dpi = NA)
+```
+
+----
+
+```{r, echo=FALSE, out.width="1\\textwidth", fig.align='center'}
+knitr::opts_chunk$set(fig.width=10, fig.height=10) 
+knitr::include_graphics("LectureGraphics/AbramsPred2016", dpi = NA)
+```
+
+----
+
+
+```{r, echo=FALSE, out.width="1\\textwidth", fig.align='center'}
+knitr::opts_chunk$set(fig.width=10, fig.height=10) 
+knitr::include_graphics("LectureGraphics/AbramsPred20162", dpi = NA)
+```
+
+
+----
+
+##### Success of Incumbent Party Candidate in Presidential Electios by Type of Election, 1948-2016
+
+Results| First-Term| Second- or Later 
+----|------|-------
+Won| 8| 2 
+Lost| 1| 8 
+Average vote| 55.3| 49.3 
+
+
+----
+
+#### Harnessing the wisdom of crowds
+
+```{r, echo=FALSE, out.width=".9\\textwidth", fig.align='center'}
+knitr::opts_chunk$set(fig.width=10, fig.height=10) 
+knitr::include_graphics("LectureGraphics/PotentialGraph", dpi = NA)
+```
+
+
+- Give more weight to more accurate models
+- Give more weight to models that are right when everyone else is wrong
+
+
+
+
+----
+
+
+```{r, echo=FALSE, out.width="1\\textwidth", fig.align='center'}
+knitr::opts_chunk$set(fig.width=10, fig.height=10) 
+knitr::include_graphics("LectureGraphics/forJacob", dpi = NA)
+```
+
+
+----
+
+##### Trump did worse than expected, but still won
+
+
+```{r, echo=FALSE, out.width=".4\\textwidth", fig.align='center'}
+knitr::opts_chunk$set(fig.width=10, fig.height=10) 
+knitr::include_graphics("LectureGraphics/trump-head", dpi = NA)
+```
+
+- Conditions tilted the playing field towards change
+- There are only two choices \pause
+
+----
+
+### Reason two you have doubts
+
+``I'm not good at math.''
+
+- Everyone feels this way sometimes. \pause
+    - Yes, you are. \pause
+    - This is not a math class ($+$, $-$, $\times$, $\div$, R) \pause
+- You can do it! \pause
+- Be patient---like learning a foreign language or a new sport \pause
+    
+    - Ask questions \pause
+    - Practice! \pause
+    - Don't fall behind
+
+----
+
+## Dramatic reading of the syllabus
+
+https://jmontgomery.github.io/PS363Syllabus/Sylabus.html
+
+```{r, echo=FALSE, out.width="1\\textwidth", fig.align='center'}
+knitr::opts_chunk$set(fig.width=10, fig.height=10) 
+knitr::include_graphics("LectureGraphics/syllabus", dpi = NA)
+```
+
+----
+
+### Approach
+
+Preparation + synthesis + practice = learning
+
+- Reading and videos before class
+- Individual preparedness assessments
+- Mini-lectures on important concepts
+- Group work on problems
+- Review and correct mistakes
+- Individual homework assignments
+
+
+----
+
+### Team based learning
+
+- Balanced groups 
+- Long-term relationships
+- Incentives to invest
+- Different ways to contribute
+
+
+---- 
+
+#### What this means for you
+
+- Preparation so can contribute more
+- Speaking up/participating
+    - Asking questions; don't wait!
+    - Helping to explain clearly
+-Working effectively in teams
+    - Make sure all on same page; don't let scribe do it!
+    - Including everyone; not dominating airtime
+    - Not rushing to next steps
+    - Not getting frustrated when stuck
+
+
+----
+
+
+	
+### The takeaway
+- Data can help us understand politics and political science
+- Statistics skills are valuable 
+\includegraphics[height=4.5cm]{LectureGraphics/kwc}\\
+
+- Preparation and active learning $\rightarrow$ success 
+
+
+----
+
+### For next class
+
+- Read the text and complete online materials
+- Come to your lab with R installed and be ready to work 
+
+
+
+
