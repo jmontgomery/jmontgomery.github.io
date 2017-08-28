@@ -138,7 +138,7 @@ knitr::include_graphics("LectureGraphics/perry", dpi = NA)
 
 `What does this class have to do with ... ?'' \pause
 
-- That is excellent question.  Please ask it often. \pause
+- That is an excellent question.  Please ask it often. \pause
 - The short answer is **literacy**
     - Political science research. \pause
     - Empirical claims about politics, policy, and the world in general. 
@@ -366,6 +366,7 @@ knitr::include_graphics("LectureGraphics/trump-head", dpi = NA)
 ``I'm not good at math.''
 
 - Everyone feels this way sometimes. \pause
+
     - Yes, you are. \pause
     - This is not a math class ($+$, $-$, $\times$, $\div$, R) \pause
 - You can do it! \pause
@@ -418,7 +419,7 @@ Preparation + synthesis + practice = learning
 - Speaking up/participating
     - Asking questions; don't wait!
     - Helping to explain clearly
--Working effectively in teams
+- Working effectively in teams
     - Make sure all on same page; don't let scribe do it!
     - Including everyone; not dominating airtime
     - Not rushing to next steps
@@ -443,7 +444,9 @@ Preparation + synthesis + practice = learning
 
 - Read the text and complete online materials
 - Come to your lab with R installed and be ready to work 
+- These slides are available at:
 
+https://jmontgomery.github.io/PS363Slides/01Introduction.pdf
 
 
 
