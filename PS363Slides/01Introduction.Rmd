@@ -47,7 +47,7 @@ knitr::include_graphics("LectureGraphics/economist.png", dpi = NA)
 
 ### But do you know what to do with it?
 
-```{r, echo=FALSE, out.width="1\\textwidth", fig.align='center'}
+```{r, echo=FALSE, out.width=".95\\textwidth", fig.align='center'}
 knitr::opts_chunk$set(fig.width=10, fig.height=10) 
 knitr::include_graphics("LectureGraphics/thiel", dpi = NA)
 ```
@@ -78,7 +78,7 @@ knitr::include_graphics("LectureGraphics/fig7", dpi = NA)
 
 ----
 
-#### Why quantiative methods?
+#### Why quantitative methods?
 
 ```{r, echo=FALSE, out.width=".4\\textwidth", fig.align='center'}
 knitr::opts_chunk$set(fig.width=10, fig.height=10) 
@@ -90,7 +90,7 @@ knitr::include_graphics("LectureGraphics/perry", dpi = NA)
 ----
 
 
-#### Why quantiative methods?
+#### Why quantitative methods?
 
 \includegraphics[height=3cm]{LectureGraphics/tech-sign}
 
@@ -145,7 +145,7 @@ knitr::include_graphics("LectureGraphics/perry", dpi = NA)
  
 ----
 
-### Political science is a quantiative discipline
+### Political science is a quantitative discipline
 
 ```{r, echo=FALSE, out.width="1\\textwidth", fig.align='center'}
 knitr::opts_chunk$set(fig.width=10, fig.height=10) 
@@ -312,7 +312,7 @@ knitr::include_graphics("LectureGraphics/AbramsPred20162", dpi = NA)
 
 ----
 
-##### Success of Incumbent Party Candidate in Presidential Electios by Type of Election, 1948-2016
+##### Success of Incumbent Party Candidate in Presidential Elections by Type of Election, 1948-2016
 
 Results| First-Term| Second- or Later 
 ----|------|-------
@@ -356,8 +356,8 @@ knitr::opts_chunk$set(fig.width=10, fig.height=10)
 knitr::include_graphics("LectureGraphics/trump-head", dpi = NA)
 ```
 
-- Conditions tilted the playing field towards change
-- There are only two choices \pause
+- Conditions tilted the playing field towards change \pause
+- There are only two choices 
 
 ----
 
