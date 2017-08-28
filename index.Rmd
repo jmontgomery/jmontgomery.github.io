@@ -15,7 +15,7 @@ I have just started the process of building a new website. For the moment, I am 
 
 ### PS 363: Quantitative Political Methods
 
-[Syllabus](https://jmontgomery.github.io/PS363Syllabus/Sylabus.html)  
+[Syllabus](https://jmontgomery.github.io/PS363Syllabus/Syllabus.html)  
 [Online Course Book](http://jmontgomery.github.io/PS363CourseBook/)
 
 

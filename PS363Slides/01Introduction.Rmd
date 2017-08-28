@@ -380,7 +380,7 @@ knitr::include_graphics("LectureGraphics/trump-head", dpi = NA)
 
 ## Dramatic reading of the syllabus
 
-https://jmontgomery.github.io/PS363Syllabus/Sylabus.html
+https://jmontgomery.github.io/PS363Syllabus/Syllabus.html
 
 ```{r, echo=FALSE, out.width="1\\textwidth", fig.align='center'}
 knitr::opts_chunk$set(fig.width=10, fig.height=10) 
