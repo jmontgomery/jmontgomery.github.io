@@ -275,8 +275,7 @@ grade.
 
 ##### Final exam - 25%
 
-A comprehensive final exam will be held December XX at XXXX
-AM. Students will be provided with relevant statistical tables and are
+A comprehensive final exam will be held December 20th at 1:00PM - 3:00PM. Students will be provided with relevant statistical tables and are
 allowed to use a calculator with no information stored in memory.
 
 
@@ -437,7 +436,7 @@ Date| Topic | Reading | Assignments| Notes
 12/4| Slack/catch up
 12/6| Exam review | | PS8 Due 
 12/7-8| Poster presentations
-TBD| Final Exam 
+12/20| Final Exam 
 
 
 ____________
