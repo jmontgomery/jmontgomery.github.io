@@ -1,0 +1,33 @@
+---
+title: "Lecture 1: Introduction"
+author: "Jacob M. Montgomery"
+date: "Quantitative Political Methodology"
+output: beamer_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+
+```{r, echo=FALSE, out.width=".7\\textwidth", fig.align='center'}
+knitr::include_graphics("LectureGraphics/kc.png", dpi = NA)
+```
+
+
+----
+### Getting slides
+
+Last time:
+
+https://jmontgomery.github.io/PS363Slides/01Introduction.pdf
+
+
+This time:
+
+https://jmontgomery.github.io/PS363Slides/02SamplingMeasurement.pdf
+
+
+
+
