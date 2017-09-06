@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="importing-data-into-r.html">
-<link rel="next" href="measures-of-position.html">
+<link rel="prev" href="measures-of-position.html">
+<link rel="next" href="measures-of-dispersion.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -204,45 +204,52 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="visualizing-data-in-r" class="section level1">
-<h1><span class="header-section-number">8</span> Visualizing Data in R</h1>
+<div id="measures-of-central-tendency" class="section level1">
+<h1><span class="header-section-number">10</span> Measures of Central Tendency</h1>
 <p>Learning Objectives:</p>
 <ol style="list-style-type: decimal">
-<li><p>Learn how to create simple plots in R.</p></li>
-<li><p>Learn how to interpret the results.</p></li>
+<li>Learn what a mean is and how to calculate one.</li>
+<li>Learn what a median is and how to calculate one.</li>
+<li>Learn what a mode is and how to calculate one.</li>
+<li>Understand how all of alternative measures differ and why.</li>
 </ol>
-<div id="lets-start-with-a-couple-of-good-videos" class="section level2">
-<h2><span class="header-section-number">8.1</span> Let’s start with a couple of good videos</h2>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Hj1pgap4UOY&amp;t=19s" frameborder="0" allowfullscreen>
+<div id="learning-objective-1-mean" class="section level2">
+<h2><span class="header-section-number">10.1</span> Learning objective 1: Mean</h2>
+<p>$x_1 $ indicates a single observation, or data point. <span class="math inline">\(\bar{x}\)</span> represents the <strong>mean</strong> of all the observations, which is taken by adding up all the observations and dividing them by the number of observations. We call this the arithmetic mean, or average.</p>
+<p>More formally, the equation for the mean is: <span class="math display">\[\bar{x} = \frac{\sum_i^n x_i }{n} \]</span></p>
+<p>The mean is used only for quantitative data and interval data. (For example, if you were to ask respondents on a survey to circle their preferred baseball team, the Cardinals, Cubs, Reds, or Pirates, you couldn’t then add up the teams and divide by four.)</p>
+<p>The mean is highly influenced by outliers, which means that for skewed distributions of data, the mean lies in the direction of the skew.</p>
+<p>The <strong>trimmed mean</strong> is a way of correcting for the effect of outliers on the mean. It involves cutting out a certain percentage of the data from both extremes. For example, a 10% trimmed mean involves throwing out the top 10% and bottom 10% of findings, then calculating the mean from the remaining middle 80% of the data.</p>
+</div>
+<div id="learning-objective-2-median" class="section level2">
+<h2><span class="header-section-number">10.2</span> Learning objective 2: Median</h2>
+<p>The median is a measure of central tendency found by determining the middle value of a set of data. The value of the median is the 50th percentile because 50% of observations fall above the value of the median, and 50% of observations fall below the median.</p>
+<p>The median it is the middle of an ordered sequence. For example, if we look at the numbers 1 2 3 4 5, the middle of that ordered sequence is 3.</p>
+<p>If we have an even number of observations, say 1 2 3 4 5 6, we take the mean of the two middle numbers. So the median here is equal to 3.5.</p>
+<p>The median is used for quantitative, ordinal or interval data. For symmetric distributions (e.g., a normal bell curve), the mean and the median are identical. However, the median is not affected by outliers like the mean is, so if a distribution of data is highly skewed, the median tends to be the preferred measure of center over the mean.</p>
+<div class="figure">
+<img src="1.jpg" alt="This image shows three graphs two skewed and one symmetrical bell curve. Note the way the mean is easily influenced by the skew of the graph, how it is pulled towards the longer tail of a distribution. Comparing the mean and the median is a good way to determine the skew of data without actually making a histogram. Source: http://experimentaltheology.blogspot.com/2012/03/central-tendency-in-skewed.html" />
+<p class="caption">This image shows three graphs two skewed and one symmetrical bell curve. Note the way the mean is easily influenced by the skew of the graph, how it is pulled towards the longer tail of a distribution. Comparing the mean and the median is a good way to determine the skew of data without actually making a histogram. Source: <a href="http://experimentaltheology.blogspot.com/2012/03/central-tendency-in-skewed.html" class="uri">http://experimentaltheology.blogspot.com/2012/03/central-tendency-in-skewed.html</a></p>
+</div>
+</div>
+<div id="learning-objective-3-mode" class="section level2">
+<h2><span class="header-section-number">10.3</span> Learning objective 3: Mode</h2>
+<p>The <strong>mode</strong> is a measure of central tendency that is the value that occurs most frequently. The mode is the most common data point. For example, if you collected the data 1 2 2 3 4, the mode is the number 2.</p>
+<ul>
+<li>Imagine a bar graph of the data. The mode is whichever bar is the tallest.</li>
+<li>For symmetric distributions, the mean, median, and mode are all the same value.</li>
+<li>When data is bimodal, which means that there are two distinct values that tend to occur more frequently (in a histogram, this would mean there are two lumps in the graph), it can indicate polarization around two extremes. An example of a bimodal distribution is shown bewlow.</li>
+</ul>
+<div class="figure">
+<img src="2.png" alt="This histogram shows the change in polarization in the public between 1993 and 2014" />
+<p class="caption">This histogram shows the change in polarization in the public between 1993 and 2014</p>
+</div>
+</div>
+<div id="another-look" class="section level2">
+<h2><span class="header-section-number">10.4</span> Another look:</h2>
+<p>For more information about measures of center, check out this video:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GrynkZB3E7M" frameborder="0" allowfullscreen>
 </iframe>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/FEAS3akVxD8" frameborder="0" allowfullscreen>
-</iframe>
-</div>
-<div id="basic-visulualization" class="section level2">
-<h2><span class="header-section-number">8.2</span> Basic visulualization</h2>
-<p>Now go back to the PSenergy data we used in the last chapter. Follow those instructions to open the data as an object called <code>energyData</code>.</p>
-<div id="making-your-first-plots" class="section level3">
-<h3><span class="header-section-number">8.2.1</span> Making your first plots</h3>
-<p>We use R to create many different kinds of plots:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(energyData$Energy, <span class="dt">xlab=</span><span class="st">&quot;Television Stories&quot;</span>, <span class="dt">main=</span><span class="st">&quot;Title&quot;</span>)
-<span class="kw">boxplot</span>(energyData$Energy, <span class="dt">ylab=</span><span class="st">&quot;Television Stories&quot;</span>, <span class="dt">main=</span><span class="st">&quot;Title&quot;</span>)
-<span class="kw">plot</span>(<span class="dt">y=</span>energyData$Energy, <span class="dt">x=</span>energyData$Approval,<span class="dt">ylab=</span><span class="st">&quot;Television Stories&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Presidential Approval&quot;</span>)
-<span class="kw">plot</span>(<span class="dt">x=</span>energyData$Energy, <span class="dt">ylab=</span><span class="st">&quot;Television Stories&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Month-Year&quot;</span>,<span class="dt">type=</span><span class="st">&quot;l&quot;</span>)</code></pre></div>
-</div>
-<div id="saving-your-plot" class="section level3">
-<h3><span class="header-section-number">8.2.2</span> Saving your plot</h3>
-<p>You can save your plot by re-creating it within a “pdf device.” In essence, R will create the plot as a new file rather than on your screen.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lattice)
-<span class="kw">getwd</span>()
-<span class="kw">pdf</span>(<span class="st">&quot;stories_over_time.pdf&quot;</span>)
-<span class="kw">densityplot</span>(energyData$Energy, <span class="dt">xlab=</span><span class="st">&quot;Television Stories&quot;</span>)
-<span class="kw">dev.off</span>()</code></pre></div>
-<p>Do not forget the <code>dev.off</code> or the file will never be rendered.</p>
-</div>
-</div>
-<div id="try-a-bit-more-on-your-own." class="section level2">
-<h2><span class="header-section-number">8.3</span> Try a bit more on your own.</h2>
-<p>Complete chapter 1 of the datacamp course on <a href="https://www.datacamp.com/courses/data-visualization-in-r">data visualization in R</a>.</p>
 
 </div>
 </div>
@@ -251,8 +258,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="importing-data-into-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="measures-of-position.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="measures-of-position.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="measures-of-dispersion.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="importing-data-into-r.html">
-<link rel="next" href="measures-of-position.html">
+<link rel="prev" href="measures-of-central-tendency.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -204,45 +204,50 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="visualizing-data-in-r" class="section level1">
-<h1><span class="header-section-number">8</span> Visualizing Data in R</h1>
+<div id="measures-of-dispersion" class="section level1">
+<h1><span class="header-section-number">11</span> Measures of Dispersion</h1>
 <p>Learning Objectives:</p>
 <ol style="list-style-type: decimal">
-<li><p>Learn how to create simple plots in R.</p></li>
-<li><p>Learn how to interpret the results.</p></li>
+<li>Understand how to calculate the <strong>range</strong> of a variable and how to calculate it.</li>
+<li>Understand and be able to calculate the <strong>deviation</strong> of specific data point.</li>
+<li>Understand how to calculate the <strong>variance</strong> of variable.</li>
+<li>Understand how to calculate the <strong>standard deviation</strong> of a variable, and its relationship to the variance.</li>
+<li>Understand the <strong>“Empirical Rule”</strong> and how it is related to the standard deviation.</li>
 </ol>
-<div id="lets-start-with-a-couple-of-good-videos" class="section level2">
-<h2><span class="header-section-number">8.1</span> Let’s start with a couple of good videos</h2>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Hj1pgap4UOY&amp;t=19s" frameborder="0" allowfullscreen>
+<div id="learning-objective-1-range" class="section level2">
+<h2><span class="header-section-number">11.1</span> Learning objective 1: Range</h2>
+<p>The <strong>range</strong> is a simple measure of variability that shows how spread out the observations in a data set are.</p>
+<p>Range= (largest observation - smallest observation). Because the range is a measure of distance, the value of the range is always positive.</p>
+<p>The range really doesn’t tell us anything much that is useful.</p>
+</div>
+<div id="learning-objective-2-deviations" class="section level2">
+<h2><span class="header-section-number">11.2</span> Learning objective 2: Deviations</h2>
+<p>A <strong>deviation</strong> is a measure of distance from a measure of center, <span class="math inline">\(|x_1 - \bar{x}|\)</span>. The observation may be greater or lesser than the value of the center, but because deviation is a measure of distance, its value is always positive.</p>
+</div>
+<div id="learning-objective-3-variance" class="section level2">
+<h2><span class="header-section-number">11.3</span> Learning objective 3: Variance</h2>
+<p><strong>Variance</strong> is the average of squared deviations. The value of the variance is a squared value (for instance, inches squared, percentage squared, children squared) which does not necessarily tell us very clearly about how spread out the data is from the mean.</p>
+<p>Variance is calculated by dividing the sum of squared deviations from the value of the population by <span class="math inline">\(n-1\)</span>. This is the equation: <span class="math display">\[s^2=\frac{\sum_i^n (x_i - \bar{x})^2}{n-1}  \]</span></p>
+<p>When variance increases it means the observations are more spread out from the mean.</p>
+</div>
+<div id="learning-objective-4-standard-deviation" class="section level2">
+<h2><span class="header-section-number">11.4</span> Learning objective 4: Standard deviation</h2>
+<p>The <strong>standard deviation</strong> is the square root of the variance.</p>
+<p><span class="math display">\[s=\sqrt{s^2}=\sqrt{\frac{\sum_i^n (x_i -\bar{x})^2}{n-1}}\]</span></p>
+<p>Like the variance, the standard deviation is always a positive number because it represents a distance from the mean. When x is a constant (for example, you have the observations 3 3 3 3 3), the standard deviation is 0 because there is no deviation from the mean. The standard deviation increases as variability increases around the mean.</p>
+<p><em>NOTE</em>: The standard deviation is greatly affected by outliers.</p>
+</div>
+<div id="learning-objective-5-the-empirical-rule" class="section level2">
+<h2><span class="header-section-number">11.5</span> Learning objective 5: The Empirical Rule</h2>
+<p>The <strong>Empirical Rule</strong> is the distribution of observations is the histogram of the data is approximately bell shaped; if it is a normal, symmetrical distribution.</p>
+<p>The Rule says that about 68% of observations ball between <span class="math inline">\(\bar{x}-s\)</span> and <span class="math inline">\(\bar{x}+s\)</span>; that about 95% of observations fall between <span class="math inline">\(\bar{x}-2s\)</span> and <span class="math inline">\(\bar{x}+2s\)</span>; and that nearly all the data in a normal distribution will fall between <span class="math inline">\(\bar{x}-3s\)</span> and <span class="math inline">\(\bar{x}+3s\)</span>.</p>
+<p>The Empirical Rule only works if the data is approximately bell shaped. It does not apply to data that is skewed.</p>
+</div>
+<div id="review-that-all-again" class="section level2">
+<h2><span class="header-section-number">11.6</span> Review that all again</h2>
+<p>For more information about measures of dispersion, check out this video:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/E4HAYd0QnRc" frameborder="0" allowfullscreen>
 </iframe>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/FEAS3akVxD8" frameborder="0" allowfullscreen>
-</iframe>
-</div>
-<div id="basic-visulualization" class="section level2">
-<h2><span class="header-section-number">8.2</span> Basic visulualization</h2>
-<p>Now go back to the PSenergy data we used in the last chapter. Follow those instructions to open the data as an object called <code>energyData</code>.</p>
-<div id="making-your-first-plots" class="section level3">
-<h3><span class="header-section-number">8.2.1</span> Making your first plots</h3>
-<p>We use R to create many different kinds of plots:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(energyData$Energy, <span class="dt">xlab=</span><span class="st">&quot;Television Stories&quot;</span>, <span class="dt">main=</span><span class="st">&quot;Title&quot;</span>)
-<span class="kw">boxplot</span>(energyData$Energy, <span class="dt">ylab=</span><span class="st">&quot;Television Stories&quot;</span>, <span class="dt">main=</span><span class="st">&quot;Title&quot;</span>)
-<span class="kw">plot</span>(<span class="dt">y=</span>energyData$Energy, <span class="dt">x=</span>energyData$Approval,<span class="dt">ylab=</span><span class="st">&quot;Television Stories&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Presidential Approval&quot;</span>)
-<span class="kw">plot</span>(<span class="dt">x=</span>energyData$Energy, <span class="dt">ylab=</span><span class="st">&quot;Television Stories&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Month-Year&quot;</span>,<span class="dt">type=</span><span class="st">&quot;l&quot;</span>)</code></pre></div>
-</div>
-<div id="saving-your-plot" class="section level3">
-<h3><span class="header-section-number">8.2.2</span> Saving your plot</h3>
-<p>You can save your plot by re-creating it within a “pdf device.” In essence, R will create the plot as a new file rather than on your screen.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lattice)
-<span class="kw">getwd</span>()
-<span class="kw">pdf</span>(<span class="st">&quot;stories_over_time.pdf&quot;</span>)
-<span class="kw">densityplot</span>(energyData$Energy, <span class="dt">xlab=</span><span class="st">&quot;Television Stories&quot;</span>)
-<span class="kw">dev.off</span>()</code></pre></div>
-<p>Do not forget the <code>dev.off</code> or the file will never be rendered.</p>
-</div>
-</div>
-<div id="try-a-bit-more-on-your-own." class="section level2">
-<h2><span class="header-section-number">8.3</span> Try a bit more on your own.</h2>
-<p>Complete chapter 1 of the datacamp course on <a href="https://www.datacamp.com/courses/data-visualization-in-r">data visualization in R</a>.</p>
 
 </div>
 </div>
@@ -251,8 +256,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="importing-data-into-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="measures-of-position.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="measures-of-central-tendency.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

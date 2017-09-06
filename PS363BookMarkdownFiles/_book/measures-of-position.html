@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Quantitative Political Methods Coursebook</title>
+  <meta name="description" content="Quantitative Political Methods Coursebook">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Quantitative Political Methods Coursebook" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Quantitative Political Methods Coursebook" />
+  
+  
+  
+
+<meta name="author" content="Jacob Montgomery">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="visualizing-data-in-r.html">
+<link rel="next" href="measures-of-central-tendency.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Placeholder</a></li>
+<li class="chapter" data-level="2" data-path="placeholder-1.html"><a href="placeholder-1.html"><i class="fa fa-check"></i><b>2</b> Placeholder</a></li>
+<li class="chapter" data-level="3" data-path="placeholder-2.html"><a href="placeholder-2.html"><i class="fa fa-check"></i><b>3</b> Placeholder</a></li>
+<li class="chapter" data-level="4" data-path="placeholder-3.html"><a href="placeholder-3.html"><i class="fa fa-check"></i><b>4</b> Placeholder</a></li>
+<li class="chapter" data-level="5" data-path="random-samples.html"><a href="random-samples.html"><i class="fa fa-check"></i><b>5</b> Random Samples</a></li>
+<li class="chapter" data-level="6" data-path="installing-r-and-r-studio.html"><a href="installing-r-and-r-studio.html"><i class="fa fa-check"></i><b>6</b> Installing R and R Studio</a></li>
+<li class="chapter" data-level="7" data-path="a-brief-introduction-to-r.html"><a href="a-brief-introduction-to-r.html"><i class="fa fa-check"></i><b>7</b> A Brief Introduction to R</a></li>
+<li class="chapter" data-level="8" data-path="importing-data-into-r.html"><a href="importing-data-into-r.html"><i class="fa fa-check"></i><b>8</b> Importing data into R</a></li>
+<li class="chapter" data-level="9" data-path="visualizing-data-in-r.html"><a href="visualizing-data-in-r.html"><i class="fa fa-check"></i><b>9</b> Visualizing Data in R</a></li>
+<li class="chapter" data-level="10" data-path="measures-of-position.html"><a href="measures-of-position.html"><i class="fa fa-check"></i><b>10</b> Measures of Position</a><ul>
+<li class="chapter" data-level="10.1" data-path="measures-of-position.html"><a href="measures-of-position.html#percentile"><i class="fa fa-check"></i><b>10.1</b> Percentile</a></li>
+<li class="chapter" data-level="10.2" data-path="measures-of-position.html"><a href="measures-of-position.html#interquartile-range"><i class="fa fa-check"></i><b>10.2</b> Interquartile Range</a></li>
+<li class="chapter" data-level="10.3" data-path="measures-of-position.html"><a href="measures-of-position.html#outliers"><i class="fa fa-check"></i><b>10.3</b> Outliers</a></li>
+<li class="chapter" data-level="10.4" data-path="measures-of-position.html"><a href="measures-of-position.html#skew"><i class="fa fa-check"></i><b>10.4</b> Skew</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html"><i class="fa fa-check"></i><b>11</b> Measures of Central Tendency</a></li>
+<li class="chapter" data-level="12" data-path="measures-of-dispersion.html"><a href="measures-of-dispersion.html"><i class="fa fa-check"></i><b>12</b> Measures of Dispersion</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Quantitative Political Methods Coursebook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="measures-of-position" class="section level1">
+<h1><span class="header-section-number">10</span> Measures of Position</h1>
+<p>Learning Objectives:</p>
+<ol style="list-style-type: decimal">
+<li>Understand and the terms percentale, interquartile range, outliers and skew.</li>
+</ol>
+<div id="percentile" class="section level2">
+<h2><span class="header-section-number">10.1</span> Percentile</h2>
+<p>The nth percentile means that n% of observations fall below (or are equal to) n, and (100-n)% fall above n.</p>
+<p>For example, if you score in the 90th percentile on a test, that means that 90% of students who took the test earned the same or a lower score than you, and 10% scored higher than you.</p>
+<p>The percentile tells us a lot about a specific observation within a data set because it gives us its relative position. The median is the 50th percentile because exactly 50% of observations fall above the median, and 50% of observations fall below the median.</p>
+</div>
+<div id="interquartile-range" class="section level2">
+<h2><span class="header-section-number">10.2</span> Interquartile Range</h2>
+<p>This way of looking at data splits observations into four parts (four quarters). The Interquartile Range (IQR) determines the middle 50% of the data (the middle two quarters).</p>
+<p>IQR= (75th percentile-25th percentile)</p>
+<p>The 25th percentile is the lower quartile (25% of data falls below the 25th percentile) and the 75th percentile is the upper quartile (25% of data falls above the 75th percentile).</p>
+<p>A good way of finding these observations in an ordered set of data is to determine the median, then find the median from the highest data point to the median, and the lowest data point to the median.</p>
+<p>For example, if you had the data 1 2 3 4 5, you could determine by counting in 3 numbers from each side that the median is 3. You could then find the median of 1 2 3 and of 3 4 5. That will tell you that 2 is the value of the lower quartile, and 4 is the value of the upper quartile. 4-2= 2, which means that the IQR= 2.</p>
+</div>
+<div id="outliers" class="section level2">
+<h2><span class="header-section-number">10.3</span> Outliers</h2>
+<p>An outlier is an observation whose value is so much greater or lesser than the other observations that it can be considered an extreme. For example, if you had the data 1 2 3 4 8000, you can easily tell that 8000 is an outlier because it is so much larger than the other values.</p>
+<p>Although there are many definitions, one common definition of an outlier is any observation that falls 1.5(IQR) above the upper quartile, or 1.5(IQR) below the upper quartile. In our above data set, we can determine that the IQR=2. 1.5(2)=3. This means that any value less than -1 or greater than 7 is an outlier, so 8000 is clearly an outlier.</p>
+</div>
+<div id="skew" class="section level2">
+<h2><span class="header-section-number">10.4</span> Skew</h2>
+<p>The skew tells us the tendency of the data.</p>
+<p>To determine skew, you can look at a histogram of the data, or compare the median and the mean of a set of data. If the longer tail of the data is to the left of the mode, the data is skewed to the left. We call this a <strong>negative skew</strong>.</p>
+<p>If that longer tail of the data is to the right, the data is skewed to the right; a <strong>positive skew</strong>.</p>
+<p>In comparing the median and the mean, if the mean is greater than the median, the data is positively skewed, and if the mean is smaller than the median, the data is negatively skewed. We can compare these two measures of center because the mean is more sensitive to outliers than the median.</p>
+<p>For more information about skew, check out this video:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/gzSbAkZE8jw" frameborder="0" allowfullscreen>
+</iframe>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="visualizing-data-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="measures-of-central-tendency.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

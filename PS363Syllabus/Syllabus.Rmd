@@ -397,9 +397,9 @@ Date| Topic | Reading | Assignments| Notes
 8/30| NO CLASS <br> APSA Conference | | | [PS1 Distributed](http://jmontgomery.github.io/ProblemSets/PS1.pdf)
 8/31-9/1| Introduction to R | Monogan: Chapter 1 <br> CB: Chapters 2-3 | |Lab
 9/4| NO CLASS <br> Labor Day | | | |
-9/6| Measurement <br> Sampling <br> Bias | AF: Chapter 2 <br>  CB: Chapters 4-6 | IPA (in class) |
-9/7-9| Plotting in R <br> Opening data in R <br> Subsetting in R| Monogan: Chapters 2-3 || Lab
-9/11| Descriptive statistics | | IPA  |Bring laptops
+9/6| Measurement <br> Sampling <br> Bias | AF: Chapter 2 <br>  CB: Chapters 4-6 |  |
+9/7-9| Plotting in R <br> Opening data in R <br> Subsetting in R| Monogan: Chapters 2-3 <bf> CB: Chapters 7-8 || Lab
+9/11| Descriptive statistics | AF: Chapter 3 <br>CB: Chapters 10-12 | IPA (In class) | **Bring laptops**
 9/13| Basics of probability | | PS1 Due | PS2 Distributed 
 9/14-15| Describing data <br> Data Types | | | | Lab
 9/18| Distributions  
