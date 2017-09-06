@@ -1,5 +1,5 @@
 ---
-title: "Lecture 1: Introduction"
+title: "Lecture 2: Sampling and measurement"
 author: "Jacob M. Montgomery"
 date: "Quantitative Political Methodology"
 output: beamer_presentation
@@ -11,12 +11,15 @@ knitr::opts_chunk$set(echo = FALSE)
 
 
 
-```{r, echo=FALSE, out.width=".7\\textwidth", fig.align='center'}
-knitr::include_graphics("LectureGraphics/kc.png", dpi = NA)
-```
+----
 
+# Lecture 2
 
 ----
+
+
+## Class business
+
 ### Getting slides
 
 Last time:
@@ -29,5 +32,189 @@ This time:
 https://jmontgomery.github.io/PS363Slides/02SamplingMeasurement.pdf
 
 
+----
 
+## Facebook and survey
+
+- Sign up for our Facebook group: https://www.facebook.com/groups/1071702902960687/
+- Take the class survey!  Can't assign teams until you all do.
+
+----
+
+## Statistical methods, measures, sampling, and error
+
+```{r, echo=FALSE, out.width="1\\textwidth", fig.align='center'}
+knitr::include_graphics("LectureGraphics/empirical.png", dpi = NA)
+```
+
+Topics for today
+
+- A (very) broad view of statistical methods in science
+- Brief lecture and group exercise on measures, sampling, and error.
+
+----
+
+
+
+```{r, echo=FALSE, out.width=".7\\textwidth", fig.align='center'}
+knitr::include_graphics("LectureGraphics/population", dpi = NA)
+```
+
+\pause
+*Example*: What percent of this class approves of President Trump?
+
+Using that information, what is the percent of WashU undergraduates that approve?
+
+
+----
+
+### Some big concepts
+
+How it all works:
+
+- Populations \pause have parameters \pause (often denoted $\mu$)
+    - Example? \pause
+    - Why can't we know it?
+- Choose a sample (randomly or otherwise) \pause
+- Gather data from this sample (e.g., ?) \pause
+-  Calculate statistics \pause (e.g., $\bar{x} = \frac{\sum x_i}{n}$) \pause
+    
+    - Is this descriptive or inferential? \pause
+- Use statistics to make a statement about the real world \pause
+
+    - Is this descriptive or inferential?
+
+----
+
+## Sampling
+
+Key concepts:
+
+- Sampling methods
+- Sampling bias
+
+----
+
+
+### How to sample: Simple random sample (SRS)
+
+- All individuals in population have equal chance of being sampled ($1/n$) \pause
+- Sampling error decreases with sample size \pause
+- Often difficult/impossible to achieve in practice \pause
+
+``If you don't believe in random sampling, the next time you have a blood test, tell the doctor to take it all.''
+
+
+----
+
+### Building on the SRS
+
+
+- **Stratified** random sample: SRS *within* pre-specified groups  
+- **Cluster** sample: survey within SRS of population groupings (cities, blocks, etc.) 
+- **Multistage** sample---SRS at multiple levels:
+    - Example: Randomly selecting states, then randomly selecting counties, then randomly selecting households
+
+```{r, echo=FALSE, out.width=".7\\textwidth", fig.align='center'}
+knitr::include_graphics("LectureGraphics/sampling.png", dpi = NA)
+```
+
+----
+
+### Sampling
+
+
+- Sample size (Discuss later)
+- Sampling bias
+    - Convenience vs. random samples
+    
+    - Undercoverage
+		
+    - Nonresponse
+- Response bias
+- Wording effects
+
+
+----
+
+#### Convenience Samples
+
+Maureen Dowd (2/9/03):
+\begin{quote}
+Most Americans are willing to give Mr. Bush his war even though they are dubious that it will curb terror.
+\vspace{10pt}
+A CNN online poll shows that 82 percent think going to war with Iraq will provoke another attack on the U.S., as opposed to 13 percent who think it will prevent one.\end{quote}
+
+---
+
+
+```{r, echo=FALSE, out.width=".6\\textwidth", fig.align='center'}
+knitr::include_graphics("LectureGraphics/edshow", dpi = NA)
+```
+
+---
+### Undercoverage
+
+```{r, echo=FALSE, out.width="1\\textwidth", fig.align='center'}
+knitr::include_graphics("LectureGraphics/cellonly", dpi = NA)
+```
+
+----
+
+
+```{r, echo=FALSE, out.width=".5\\textwidth", fig.align='center'}
+knitr::include_graphics("LectureGraphics/cellonly2", dpi = NA)
+```
+
+----
+
+### Nonresponse
+
+```{r, echo=FALSE, out.width="1\\textwidth", fig.align='center'}
+knitr::include_graphics("LectureGraphics/pewrates", dpi = NA)
+```
+
+
+---- 
+
+
+### Response bias
+	
+"Recalling the last ten traffic lights you drove through, how many of them were red when you entered the intersections?'' 
+
+----
+
+
+### Response bias
+
+Q: ``Did you vote in the elections this November?''  \pause
+\vspace{10pt}
+
+Q: ``In talking to people about elections, we often find that a lot of people were not able to vote because they weren't registered, they were sick, or they just didn't have time.
+How about you--did you vote in the elections this November?''
+
+----
+
+###  Question Wording
+
+```{r, echo=FALSE, out.width=".8\\textwidth", fig.align='center'}
+knitr::include_graphics("LectureGraphics/gallupbank1", dpi = NA)
+```
+
+----
+
+### Question wording: Nationalize
+
+```{r, echo=FALSE, out.width=".8\\textwidth", fig.align='center'}
+knitr::include_graphics("LectureGraphics/gallupbank2", dpi = NA)
+```
+
+
+----
+
+## Big Ideas
+
+- Inferences to populations depend on having a representative sample
+- Wording and context shape survey responses
+- People are sometimes unwilling to share true feelings or beliefs
 
