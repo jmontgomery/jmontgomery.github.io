@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Quantitative Political Methods Coursebook</title>
+  <meta name="description" content="Quantitative Political Methods Coursebook">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Quantitative Political Methods Coursebook" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Quantitative Political Methods Coursebook" />
+  
+  
+  
+
+<meta name="author" content="Jacob Montgomery">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="importing-data-into-r.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Placeholder</a></li>
+<li class="chapter" data-level="2" data-path="placeholder-1.html"><a href="placeholder-1.html"><i class="fa fa-check"></i><b>2</b> Placeholder</a></li>
+<li class="chapter" data-level="3" data-path="placeholder-2.html"><a href="placeholder-2.html"><i class="fa fa-check"></i><b>3</b> Placeholder</a></li>
+<li class="chapter" data-level="4" data-path="placeholder-3.html"><a href="placeholder-3.html"><i class="fa fa-check"></i><b>4</b> Placeholder</a></li>
+<li class="chapter" data-level="5" data-path="random-samples.html"><a href="random-samples.html"><i class="fa fa-check"></i><b>5</b> Random Samples</a></li>
+<li class="chapter" data-level="6" data-path="installing-r-and-r-studio.html"><a href="installing-r-and-r-studio.html"><i class="fa fa-check"></i><b>6</b> Installing R and R Studio</a></li>
+<li class="chapter" data-level="7" data-path="a-brief-introduction-to-r.html"><a href="a-brief-introduction-to-r.html"><i class="fa fa-check"></i><b>7</b> A Brief Introduction to R</a></li>
+<li class="chapter" data-level="8" data-path="importing-data-into-r.html"><a href="importing-data-into-r.html"><i class="fa fa-check"></i><b>8</b> Importing data into R</a></li>
+<li class="chapter" data-level="9" data-path="visualizing-data-in-r.html"><a href="visualizing-data-in-r.html"><i class="fa fa-check"></i><b>9</b> Visualizing Data in R</a><ul>
+<li class="chapter" data-level="9.1" data-path="visualizing-data-in-r.html"><a href="visualizing-data-in-r.html#lets-start-with-a-couple-of-good-videos"><i class="fa fa-check"></i><b>9.1</b> Let’s start with a couple of good videos</a></li>
+<li class="chapter" data-level="9.2" data-path="visualizing-data-in-r.html"><a href="visualizing-data-in-r.html#basic-visulualization"><i class="fa fa-check"></i><b>9.2</b> Basic visulualization</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="visualizing-data-in-r.html"><a href="visualizing-data-in-r.html#making-your-first-plots"><i class="fa fa-check"></i><b>9.2.1</b> Making your first plots</a></li>
+<li class="chapter" data-level="9.2.2" data-path="visualizing-data-in-r.html"><a href="visualizing-data-in-r.html#saving-your-plot"><i class="fa fa-check"></i><b>9.2.2</b> Saving your plot</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="visualizing-data-in-r.html"><a href="visualizing-data-in-r.html#try-a-bit-more-on-your-own."><i class="fa fa-check"></i><b>9.3</b> Try a bit more on your own.</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Quantitative Political Methods Coursebook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="visualizing-data-in-r" class="section level1">
+<h1><span class="header-section-number">9</span> Visualizing Data in R</h1>
+<p>Learning Objectives:</p>
+<ol style="list-style-type: decimal">
+<li><p>Learn how to create simple plots in R.</p></li>
+<li><p>Learn how to interpret the results.</p></li>
+</ol>
+<div id="lets-start-with-a-couple-of-good-videos" class="section level2">
+<h2><span class="header-section-number">9.1</span> Let’s start with a couple of good videos</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Hj1pgap4UOY&amp;t=19s" frameborder="0" allowfullscreen>
+</iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FEAS3akVxD8" frameborder="0" allowfullscreen>
+</iframe>
+</div>
+<div id="basic-visulualization" class="section level2">
+<h2><span class="header-section-number">9.2</span> Basic visulualization</h2>
+<p>Now go back to the PSenergy data we used in the last chapter. Follow those instructions to open the data as an object called <code>energyData</code>.</p>
+<div id="making-your-first-plots" class="section level3">
+<h3><span class="header-section-number">9.2.1</span> Making your first plots</h3>
+<p>We use R to create many different kinds of plots:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(energyData$Energy, <span class="dt">xlab=</span><span class="st">&quot;Television Stories&quot;</span>, <span class="dt">main=</span><span class="st">&quot;Title&quot;</span>)
+<span class="kw">boxplot</span>(energyData$Energy, <span class="dt">ylab=</span><span class="st">&quot;Television Stories&quot;</span>, <span class="dt">main=</span><span class="st">&quot;Title&quot;</span>)
+<span class="kw">plot</span>(<span class="dt">y=</span>energyData$Energy, <span class="dt">x=</span>energyData$Approval,<span class="dt">ylab=</span><span class="st">&quot;Television Stories&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Presidential Approval&quot;</span>)
+<span class="kw">plot</span>(<span class="dt">x=</span>energyData$Energy, <span class="dt">ylab=</span><span class="st">&quot;Television Stories&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Month-Year&quot;</span>,<span class="dt">type=</span><span class="st">&quot;l&quot;</span>)</code></pre></div>
+</div>
+<div id="saving-your-plot" class="section level3">
+<h3><span class="header-section-number">9.2.2</span> Saving your plot</h3>
+<p>You can save your plot by re-creating it within a “pdf device.” In essence, R will create the plot as a new file rather than on your screen.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lattice)
+<span class="kw">getwd</span>()
+<span class="kw">pdf</span>(<span class="st">&quot;stories_over_time.pdf&quot;</span>)
+<span class="kw">densityplot</span>(energyData$Energy, <span class="dt">xlab=</span><span class="st">&quot;Television Stories&quot;</span>)
+<span class="kw">dev.off</span>()</code></pre></div>
+<p>Do not forget the <code>dev.off</code> or the file will never be rendered.</p>
+</div>
+</div>
+<div id="try-a-bit-more-on-your-own." class="section level2">
+<h2><span class="header-section-number">9.3</span> Try a bit more on your own.</h2>
+<p>Complete chapter 1 of the datacamp course on <a href="https://www.datacamp.com/courses/data-visualization-in-r">data visualization in R</a>.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="importing-data-into-r.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

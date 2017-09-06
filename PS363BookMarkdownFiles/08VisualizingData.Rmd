@@ -1,0 +1,52 @@
+
+# Visualizing Data in R
+
+Learning Objectives:
+
+1. Learn how to create simple plots in R.
+
+2. Learn how to interpret the results.
+
+## Let's start with a couple of good videos
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Hj1pgap4UOY&t=19s" frameborder="0" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FEAS3akVxD8" frameborder="0" allowfullscreen></iframe>
+
+
+## Basic visulualization
+
+Now go back to the PSenergy data we used in the last chapter.  Follow those instructions to open the data as an object called <code>energyData</code>.
+
+
+### Making your first plots
+
+We use R to create many different kinds of plots: 
+
+
+```{r, eval=F}
+hist(energyData$Energy, xlab="Television Stories", main="Title")
+boxplot(energyData$Energy, ylab="Television Stories", main="Title")
+plot(y=energyData$Energy, x=energyData$Approval,ylab="Television Stories",xlab="Presidential Approval")
+plot(x=energyData$Energy, ylab="Television Stories",xlab="Month-Year",type="l")
+```
+
+### Saving your plot
+
+You can save your plot by re-creating it within a "pdf device."  In essence, R will create the plot as a new file rather than on your screen.
+
+```{r, eval=F}
+library(lattice)
+getwd()
+pdf("stories_over_time.pdf")
+densityplot(energyData$Energy, xlab="Television Stories")
+dev.off()
+```
+
+Do not forget the <code>dev.off</code> or the file will never be rendered.
+
+
+## Try a bit more on your own.
+
+Complete chapter 1 of the datacamp course on [data visualization in R](https://www.datacamp.com/courses/data-visualization-in-r).

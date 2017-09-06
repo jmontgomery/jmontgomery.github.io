@@ -1,0 +1,103 @@
+# Importing data into R
+
+## Learning Objectives:
+
+1. Learn how to import data into R.
+
+2. Learn how to look at the data.
+
+
+
+## Importing Data 
+
+There are many different kinds of data: there are comma-separated-value files (.csv), text files (.txt), STATA files (.dta), SPSS files (.spss), and some others. We will work primarily with .csv files and some .dta files in this course. 
+
+In order to import data, we need to make sure we set the correct working directory. After downloading the data, make sure the R working directory is set to the location you saved the data. Then once you are working in the correct directory, we can read csv files in by using the "read.csv" function. 
+
+We'll try this with some energy data. Go to: (https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/ARKOTI) and download PESenergy.csv. This is data on TV news coverage about energy policy used in [this study](http://www.psci.unt.edu/~EshbaughSoha/prime-time.pdf). 
+
+
+### Telling R where to look
+
+The first thing you need to do, is make sure R is looking in the right place for the file.  We can use the <code>getwd</code> This shows you R's current working directory 
+
+```{r, eval=F}
+getwd() 
+```
+
+The output from this command always tells you what *directory* R is looking in for files. To change where R is looking, we will use the <code>setwd</code> command.
+
+```{r, eval=FALSE}
+setwd("/Users/yourname/Downloads")
+```
+
+You will have to change the argument inside the parentheses to point to the right folder on your computer.  You can use the <code>dir</code> to list out all of the files in your working directory.
+
+
+```{r, eval=FALSE}
+dir()
+```
+
+### Reading in your first data file
+
+Once you have got R looking in the right place, now you can load the data using the <code>read.csv</code> command.
+
+
+```{r, eval=F}
+data <- read.csv("PESenergy.csv")
+```
+
+This imports PESenergy.csv into a data frame in R. 
+
+Once we have the data in R, we can manipulate in a number of ways. Experiment with the code below: 
+
+```{r, eval=F}
+head(energyData)
+tail(energyData)
+summary(energyData)
+table(energyData$Energy)
+energyData[c(10:20),c("Date","Energy","rmn1173")]
+```
+
+### Summarizing the variables in your dataset
+
+The function <code>summary</code> creates a summary table but for all of the variables. 
+
+```{r, eval=F}
+summary(energyData)
+```
+
+The function <code>summary</code> creates a summary table but for all of the variables. We can also look at just one variable by specifing the column name of a variable like this:
+
+```{r, eval=F}
+summary(energyData$Approval)
+```
+
+### Adding a variable to your data
+
+Let's creates a new variable, which is exactly 0.01 times the Approval variable. 
+
+```{r, eval=F}
+energyData$approvalProp <- energyData$Approval*0.01
+```
+
+We can see this more clearly if we run the summary of our new variable, the output should be exactly 0.01 times the ouptut of the previous summary table: 
+
+
+```{r, eval=F}
+summary(energyData$approvalProp)
+```
+
+
+## Let's go through that all again
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/U4-RnTW5dfw" frameborder="0" allowfullscreen></iframe>
+
+
+## Now let's practice a bit
+
+[Follow this link to datacamp.com.](https://www.datacamp.com/community/tutorials/r-data-import-tutorial#Getting).  You just need to complete the "Read TXT" and "Read CSV" files.  But **note** that there is also a lesson using the <code>XLConnect</code> package for reading in Excel files. Students who prefer working with data in Excel will want to review this material.
+
+
+
