@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="index.html">
-<link rel="next" href="scales-of-measurement.html">
+<link rel="prev" href="a-brief-introduction-to-r.html">
+<link rel="next" href="visualizing-data-in-r.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -184,53 +184,64 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="measurement-error" class="section level1">
-<h1><span class="header-section-number">2</span> Measurement Error</h1>
-<div id="learning-objectives" class="section level2">
-<h2><span class="header-section-number">2.1</span> Learning Objectives</h2>
+<div id="importing-data-into-r" class="section level1">
+<h1><span class="header-section-number">7</span> Importing data into R</h1>
+<div id="learning-objectives-3" class="section level2">
+<h2><span class="header-section-number">7.1</span> Learning Objectives:</h2>
 <ol style="list-style-type: decimal">
-<li>Learn to define the following types of errors: sampling bias, response bias, non-response bias</li>
+<li><p>Learn how to import data into R.</p></li>
+<li><p>Learn how to look at the data.</p></li>
 </ol>
 </div>
-<div id="learning-objective-1-types-of-biases-asdf" class="section level2">
-<h2><span class="header-section-number">2.2</span> Learning Objective 1: Types of Biases asdf</h2>
-<p>If the goal of a survey is to be representative, then anything that causes a survey to deviate from the population is a major problem. Something that causes a survey result to deviate from the population is referred to as bias.</p>
-<p>Bias can be introduced in a number of ways. We will divide biases into three categories: sampling bias, response bias, and non-response bias.</p>
-<div id="sampling-bias" class="section level3">
-<h3><span class="header-section-number">2.2.1</span> Sampling bias</h3>
-<p>Sampling bias occurs when there is a problem in the sampling process. Sometimes, the sample is poorly conducted. For example, in a survey of WashU undergraduates, if we put together a stratified sample, based on residential area, and then selected 50% of our subjects from Shepley Hall, then our survey would not be reflective of the general WashU undergraduate population, because 50% of WashU students do not live in Shepley hall. This is a <strong>sampling error</strong>.</p>
-<p>To give a political example, in telephone surveys, sometimes people do not pick up their phone. In this situation, most polling firms will try calling back later. If a firm does not try to call back when people are out, then they run the risk of introducing sampling error, because younger people are more likely to be out than older people, and younger people are more likely to be liberal.</p>
-<p>Other times, a sample simply isn’t random. Certain groups are systematically left out of a sample. This is called a <strong>selection bias</strong>, or selection effect. In this case, the sample will fail to reflect the population as a whole.</p>
-<p>Although this may sound like an obvious problem, this happens all the time. For example, hosts at various cable news shows sometimes ask viewers to text in what they think about a certain policy, and then display the results as if they are reflective of the general population. But just because 93% of people who texted in think that the President should be re-elected does not mean that the population as a whole agrees. Since it is not a randome sample, it doesn’t even mean that 93% of viewers agree!</p>
-<p>A common situation where sampling error occurs involves phone lines. People without phone lines are excluded from most surveys. That may not be too big of an issue in a country like the United States, where there may not be a substantial difference between people with phone lines, and people without them. But in a country like Afghanistan relying on phone calls to conduct a survey would be a very big problem since phones are only owned by (relatively) wealthy individuals and some areas have no service at all!</p>
-<p>Another example is Geico commercials, where they say that people who switch to Geico on average save money. This is a selection bias, because only people who are offered a cheaper rate will switch. If people were randomly selected and forced to switch to Geico, then they would not be saving 30% or more.</p>
+<div id="importing-data" class="section level2">
+<h2><span class="header-section-number">7.2</span> Importing Data</h2>
+<p>There are many different kinds of data: there are comma-separated-value files (.csv), text files (.txt), STATA files (.dta), SPSS files (.spss), and some others. We will work primarily with .csv files and some .dta files in this course.</p>
+<p>In order to import data, we need to make sure we set the correct working directory. After downloading the data, make sure the R working directory is set to the location you saved the data. Then once you are working in the correct directory, we can read csv files in by using the “read.csv” function.</p>
+<p>We’ll try this with some energy data. Go to: (<a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/ARKOTI" class="uri">https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/ARKOTI</a>) and download PESenergy.csv. This is data on TV news coverage about energy policy used in <a href="http://www.psci.unt.edu/~EshbaughSoha/prime-time.pdf">this study</a>.</p>
+<div id="telling-r-where-to-look" class="section level3">
+<h3><span class="header-section-number">7.2.1</span> Telling R where to look</h3>
+<p>The first thing you need to do, is make sure R is looking in the right place for the file. We can use the <code>getwd</code> This shows you R’s current working directory</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getwd</span>() </code></pre></div>
+<p>The output from this command always tells you what <em>directory</em> R is looking in for files. To change where R is looking, we will use the <code>setwd</code> command.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">setwd</span>(<span class="st">&quot;/Users/yourname/Downloads&quot;</span>)</code></pre></div>
+<p>You will have to change the argument inside the parentheses to point to the right folder on your computer. You can use the <code>dir</code> to list out all of the files in your working directory.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dir</span>()</code></pre></div>
 </div>
-<div id="response-bias" class="section level3">
-<h3><span class="header-section-number">2.2.2</span> Response bias</h3>
-<p>In some surveys, the questions may be poorly worded. The language may be ambiguous, or may be open to different interpretations. So the process of answering the questions may lead to some bias in how the questions are answered.</p>
-<p>In some surveys, something about the survey itself causes subjects to respond differently than they would in real life. For example, if someone is being surveyed on how often they volunteer, and (s)he rarely volunteers, (s)he may feel embarrassed or guilty about this fact, and tell the interviewer that (s)he volunteers frequently. This is called the <strong>social desirability effect</strong>.</p>
-<p>For example, if a survey asks someone if they voted in the last election, and they had not, that person may be more inclined to answer untruthfully, because failing to vote is frowned upon.</p>
-<p>Other times, the ordering of questions might affect responses. For example, if a survey begins by asking subjects numerous questions about terrorism, and then asks them to list the issues most important to them, more subjects might list terrorism than would be the case if the survey had not first asked numerous questions about it. This is referred to as <strong>order effect</strong>.</p>
-<p>An example of order effect occurred in a survey in 1948 that asked,</p>
-<blockquote>
-<p>Q1: Do you think the US should let Communist newspaper reporters from other countries come in here and send back to their papers the news as they see it?</p>
-</blockquote>
-<p>But half of the people were first asked,</p>
-<blockquote>
-<p>Q2: Do you think a communist country like Russia should let American newspaper reporters come in and send back to America the news as they see it?</p>
-</blockquote>
-<p>Among people who were first asked the question about American reporters (Q2), 73.1% said yes to Q1. But, among people who did not first answer Q2, only 36.5% said yes to Q1.</p>
+<div id="reading-in-your-first-data-file" class="section level3">
+<h3><span class="header-section-number">7.2.2</span> Reading in your first data file</h3>
+<p>Once you have got R looking in the right place, now you can load the data using the <code>read.csv</code> command.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;PESenergy.csv&quot;</span>)</code></pre></div>
+<p>This imports PESenergy.csv into a data frame in R.</p>
+<p>Once we have the data in R, we can manipulate in a number of ways. Experiment with the code below:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(energyData)
+<span class="kw">tail</span>(energyData)
+<span class="kw">summary</span>(energyData)
+<span class="kw">table</span>(energyData$Energy)
+energyData[<span class="kw">c</span>(<span class="dv">10</span>:<span class="dv">20</span>),<span class="kw">c</span>(<span class="st">&quot;Date&quot;</span>,<span class="st">&quot;Energy&quot;</span>,<span class="st">&quot;rmn1173&quot;</span>)]</code></pre></div>
 </div>
-<div id="non-response-bias" class="section level3">
-<h3><span class="header-section-number">2.2.3</span> Non-response bias</h3>
-<p>People don’t always respond to surveys. When people who do not respond to surveys differ in some systematic way from people who do respond, then the sample fails to be representative of the general population.</p>
-<p>For example, students who submit course evaluations tend to do so because they either disliked their professor, or loved their professor. In a class, students who do not have strong feelings one way or another are less likely to submit an evaluation, so the evaluation results are likely to indicate that the class is more polarized than it actually is.</p>
-<p>Note: Non-response bias is not the same as selection bias. Selection bias has to do with how the sample was constructed by the researcher. Non-response bias has to do with how individuals chosen to be in the sample behave.</p>
+<div id="summarizing-the-variables-in-your-dataset" class="section level3">
+<h3><span class="header-section-number">7.2.3</span> Summarizing the variables in your dataset</h3>
+<p>The function <code>summary</code> creates a summary table but for all of the variables.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(energyData)</code></pre></div>
+<p>The function <code>summary</code> creates a summary table but for all of the variables. We can also look at just one variable by specifing the column name of a variable like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(energyData$Approval)</code></pre></div>
+</div>
+<div id="adding-a-variable-to-your-data" class="section level3">
+<h3><span class="header-section-number">7.2.4</span> Adding a variable to your data</h3>
+<p>Let’s creates a new variable, which is exactly 0.01 times the Approval variable.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">energyData$approvalProp &lt;-<span class="st"> </span>energyData$Approval*<span class="fl">0.01</span></code></pre></div>
+<p>We can see this more clearly if we run the summary of our new variable, the output should be exactly 0.01 times the ouptut of the previous summary table:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(energyData$approvalProp)</code></pre></div>
 </div>
 </div>
-<div id="whats-the-takeaway" class="section level2">
-<h2><span class="header-section-number">2.3</span> What’s the takeaway?</h2>
-<p>There are several different ways that a survey can fail to reflect the population. The sample itself could not be reflective of the population, which would be a <strong>sampling bias</strong>. Sometimes, something about the survey could prompt people to give answers that don’t reflect what they actually believe or do, which is a <strong>response bias</strong>. Other times, the people who are selected, but don’t respond differ in an important way from people who do respond, causing the results of the survey to be skewed. This is called a <strong>non-response bias</strong>.</p>
+<div id="lets-go-through-that-all-again" class="section level2">
+<h2><span class="header-section-number">7.3</span> Let’s go through that all again</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/U4-RnTW5dfw" frameborder="0" allowfullscreen>
+</iframe>
+</div>
+<div id="now-lets-practice-a-bit" class="section level2">
+<h2><span class="header-section-number">7.4</span> Now let’s practice a bit</h2>
+<p><a href="https://www.datacamp.com/community/tutorials/r-data-import-tutorial#Getting">Follow this link to datacamp.com.</a>. You just need to complete the “Read TXT” and “Read CSV” files. But <strong>note</strong> that there is also a lesson using the <code>XLConnect</code> package for reading in Excel files. Students who prefer working with data in Excel will want to review this material.</p>
 
 </div>
 </div>
@@ -239,8 +250,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="scales-of-measurement.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="a-brief-introduction-to-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="visualizing-data-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
