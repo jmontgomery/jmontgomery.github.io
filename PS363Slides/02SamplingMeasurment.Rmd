@@ -29,7 +29,7 @@ https://jmontgomery.github.io/PS363Slides/01Introduction.pdf
 
 This time:
 
-https://jmontgomery.github.io/PS363Slides/02SamplingMeasurement.pdf
+https://jmontgomery.github.io/PS363Slides/02SamplingMeasurment.pdf
 
 
 ----
@@ -137,11 +137,11 @@ knitr::include_graphics("LectureGraphics/sampling.png", dpi = NA)
 
 ----
 
-#### Convenience Samples
+#### Convenience samples
 
 Maureen Dowd (2/9/03):
 \begin{quote}
-Most Americans are willing to give Mr. Bush his war even though they are dubious that it will curb terror.
+Most Americans are willing to give Mr. Bush his war even though they are dubious that it will curb terror. \\
 \vspace{10pt}
 A CNN online poll shows that 82 percent think going to war with Iraq will provoke another attack on the U.S., as opposed to 13 percent who think it will prevent one.\end{quote}
 
@@ -195,7 +195,7 @@ How about you--did you vote in the elections this November?''
 
 ----
 
-###  Question Wording
+###  Question wording
 
 ```{r, echo=FALSE, out.width=".8\\textwidth", fig.align='center'}
 knitr::include_graphics("LectureGraphics/gallupbank1", dpi = NA)
