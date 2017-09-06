@@ -2,8 +2,10 @@
 #Measurement Error
 
 ##Learning Objectives 
+
 1)   Learn to define the following types of errors: sampling bias, response bias, non-response bias
-##Learning Objective 1:  Types of Biases
+
+## Learning Objective 1:  Types of Biases asdf
 
 If the goal of a survey is to be representative, then anything that causes a survey to deviate from the population is a major problem.  Something that causes a survey result to deviate from the population is referred to as bias. 
 

@@ -1,11 +1,5 @@
 ---
 title: "Jacob Montgomery"
-<<<<<<< Updated upstream:index.Rmd
-author:
-=======
-author: "Jacob Montgomery"
->>>>>>> Stashed changes:Index.Rmd
-date: 
 output: html_document
 ---
 
