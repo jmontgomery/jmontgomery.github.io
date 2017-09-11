@@ -1,0 +1,317 @@
+---
+title: "Lecture 3: Measures of spread and central tendency"
+author: "Jacob M. Montgomery"
+date: "Quantitative Political Methodology"
+output: beamer_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+
+----
+
+# Lecture 3
+
+----
+
+
+## Class business
+
+- Make sure you review online materials before lab
+- Problem set 1 is due on Wed.
+
+
+### Facebook and survey
+
+- Sign up for our Facebook group: https://www.facebook.com/groups/1071702902960687/
+- Take the class survey!  Can't assign teams until you all do.
+
+https://wustl.az1.qualtrics.com/jfe/form/SV_6rpSYD3xxmbRe5v
+
+----
+
+## Roadmap 
+
+Last time: 
+
+- Populations vs. samples
+- Why sample?
+- How to sample
+- Problems in surveys
+
+This time: 
+
+- Visualizing data
+- Measures of central tendency and spread
+
+----
+
+### Pie charts = mostly aweful
+
+
+```{r, echo=FALSE, out.width="1\\textwidth", fig.align='center'}
+knitr::include_graphics("LectureGraphics/klass1", dpi = NA)
+```
+
+(Klass 2012)
+
+----
+
+### Bar charts -- more useful
+
+```{r, echo=FALSE, out.width="1\\textwidth", fig.align='center'}
+knitr::include_graphics("LectureGraphics/klass2", dpi = NA)
+```
+
+---
+#### Histograms -- usually good
+
+```{r, echo=FALSE, out.width=".75\\textwidth", fig.align='center'}
+knitr::include_graphics("LectureGraphics/adams", dpi = NA)
+```
+
+(Adams 1997)
+
+
+----
+
+#### Making a histogram
+
+
+\begin{center}
+\begin{tabular}{rlr}
+  \hline
+ & State & Median Income \\ 
+  \hline
+1 & Alabama & 40489 \\ 
+  2 & Alaska & 66953 \\ 
+  3 & Arizona & 48745 \\ 
+  4 & Arkansas & 37823 \\ 
+  5 & California & 58931 \\ 
+  6 & Colorado & 55430 \\ 
+  7 & Connecticut & 67034 \\ 
+  8 & Delaware & 56860 \\ 
+    & \ldots & \\
+  50 & Wisconsin & 49993 \\ 
+  51 & Wyoming & 52664 \\ 
+  52 & Puerto Rico & 18314 \\ 
+   \hline
+\end{tabular}
+\end{center}
+
+----
+
+### Making a histogram
+
+\begin{center}
+\begin{tabular}{lc}
+	\hline
+	Class & Count \\ \hline
+	\$0-\$9,999 & 0 \\
+	\$10,000-\$19,999 & 1 \\
+	\$20,000-\$29,999 & 0 \\
+	\$30,000-\$39,999 & 3 \\
+	\$40,000-\$49,999 & 27 \\
+	\$50,000-\$59,999 & 14 \\
+	\$60,000-\$69,999 & 7 \\
+	\$70,000-\$79,999 & 0 \\ \hline
+\end{tabular}
+\end{center}
+
+----
+
+### Binning can be evil
+
+\begin{center}
+\includegraphics[width=7.5cm]{./LectureGraphics/schultz1}\\
+\includegraphics[width=7.5cm]{./LectureGraphics/schultz3}\\
+\footnotesize{(Ken Schultz)}\end{center}
+
+----
+
+### Line plots are often useful
+
+```{r, echo=FALSE, out.width=".9\\textwidth", fig.align='center'}
+knitr::include_graphics("LectureGraphics/temps", dpi = NA)
+```
+
+(NASA 2011)
+
+
+----
+
+### Can also be misleading
+
+```{r, echo=FALSE, out.width="1\\textwidth", fig.align='center'}
+knitr::include_graphics("LectureGraphics/bushgraph", dpi = NA)
+```
+
+(Klass 2012)
+
+
+----
+
+
+### Can also be misleading
+
+\begin{center}
+\includegraphics[height=4cm]{./LectureGraphics/bushcorr1}\includegraphics[height=4cm]{./LectureGraphics/bushcorr2}\\
+\footnotesize{(Nyhan 2005)}\end{center}
+
+
+----
+
+## Looking at distributions of data
+
+- General impressions (pattern, deviations)
+- ``Shape'' (symmetric, skewed, ``bell-shaped,'' bimodal, etc.)
+- ``Center'' (``midpoint'')
+- ``Spread'' (range)
+- ``Outliers'' (``outside overall pattern'')
+
+
+----
+
+### Our first statistics -- the mighty mean
+
+
+\begin{tabular}{lrl}
+& $n=$ &Sample size  \\
+& $y_1, y_2, \ldots, y_n = $ &Observations\\
+\end{tabular} \pause
+
+
+$$\bar{y} = \displaystyle\frac{y_1 + y_2 + \ldots + y_n}{n} = \frac{1}{n}\displaystyle\sum_{i=1}^ny_i \pause \equiv \frac{1}{n}\displaystyle\sum y_i$$
+
+----
+
+### Test tip
+
+\begin{tabular}{cc}
+Grand mean of two samples & $\bar{y} =  \frac{n_1\bar{y}_1 +
+  n_2\bar{y_2}}{n_1+n_2} $\\
+\\ \pause
+What if I had j samples? & $\bar{y} = \frac{n_1 \bar{y}_1 +
+  n_2\bar{y}_2+\ldots+n_j \bar{y}_j}{n_1+n_2 +\ldots + n_j}$\\
+\end{tabular}
+
+----
+
+### Finding the median of grouped data
+
+
+```{r, echo=FALSE, out.width=".8\\textwidth", fig.align='center'}
+knitr::include_graphics("LectureGraphics/Stats", dpi = NA)
+```
+
+----
+
+### Test tip: Find the median of grouped data
+
+\begin{center}
+\begin{tabular}{lrrr}
+
+\hline
+Category & Frequency & Percentage & Cumulative \% \\
+ \hline
+  Agree Strongly &   6 & 7.4& 7.69\\ 
+  Agree &   27 & 33.3& 40.7\\ 
+Neither agree nor disagree &  18 & 22.2& 63.0\\ 
+ Disagree &  19 & 23.5& 86.4\\ 
+ Disagree Strongly &   11 & 13.6& 100.00\\ 
+   \hline
+\end{tabular}
+\end{center}
+
+
+----
+
+### Test tips: Standard deviation ($\sqrt{Var}$)
+
+Standard deviation:
+ $$S=\sqrt{S^2} = \ \sqrt{\frac{\sum_{i=1}^n(y_i-\bar{y})^2}{n-1}}$$
+
+\pause
+
+- One standard deviation will be equal to something in original units (e.g., 2 inches) \pause
+- $S\ge 0$ Why? \pause
+- $S=0$ only if $y$ is a constant. 
+
+----
+
+#### Test tip on calculating variance
+
+\begin{center}
+\begin{tabular}{lll}
+$y_i$ & $(y_i - \bar{y})$ & $ (y_i - \bar{y})^2$ \\
+\hline
+0 & -5 & 25 \\
+4 & -1 & 1 \\
+4 & -1 & 1 \\
+5 & 0 & 0 \\
+7 & 2 & 4 \\
+10 & 5 & 25 \\
+$\sum y_i = 30$ &$\sum(y_i-\bar{y}) = 0$&$\sum(y_i-\bar{y})^2 = 56$ \\
+$\bar{y} = 5$ \\
+\hline
+\end{tabular}
+\end{center}
+
+
+- $S^2= \frac{56}{5}=11.2$
+- $S=\sqrt{11.2}=3.3$
+
+
+
+
+----
+
+### A little visulaization
+
+
+```{r, echo=FALSE, out.width=".8\\textwidth", fig.align='center'}
+knitr::include_graphics("LectureGraphics/mmm", dpi = NA)
+```
+
+----
+
+### Quantiles
+
+- (55, 84, 65, 54, 61, 67, 80, 59, 81, 82)
+- 54 55 59 61 65 67 80 81 82 84 \pause
+- Median = $\frac{67-65}{2}$
+- 50\% of the data is at \textit{or above}, and (100-50)\% is at \textit{or below}
+
+----
+
+#### Quantiles in R
+
+It turns out that calculate percentiles is a more nuanced topic than I realized.  
+
+- R includes nine different methods for calculating percentiles \pause
+- We want to use 
+
+```{r mysize=TRUE, size="\\footnotesize", tidy=FALSE, out.width=".7\\textwidth", out.height=".3\\textwidth", fig.align="center", echo=TRUE}
+quantile(c(55, 84, 65, 54, 61, 67, 80, 59, 81, 82), 
+         probs=c(.25, .75), 
+         type=2)
+```
+\pause
+- For more information: 
+tolstoy.newcastle.edu.au/R/e17/help/att-1067/Quartiles_in_R.pdf
+
+
+
+
+----
+
+## Looking forward
+
+
+```{r, echo=FALSE, out.width=".8\\textwidth", fig.align='center'}
+knitr::include_graphics("LectureGraphics/population", dpi = NA)
+```
+
