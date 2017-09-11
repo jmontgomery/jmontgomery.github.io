@@ -29,7 +29,7 @@ For example, if you had the data 1 2 3 4 5, you could determine by counting in 3
 
 An outlier is an observation whose value is so much greater or lesser than the other observations that it can be considered an extreme. For example, if you had the data 1 2 3 4 8000, you can easily tell that 8000 is an outlier because it is so much larger than the other values.
 
-Although there are many definitions, one common definition of an outlier is any observation that falls 1.5(IQR) above the upper quartile, or 1.5(IQR) below the upper quartile. In our above data set, we can determine that the IQR=2. 1.5(2)=3. This means that any value less than -1 or greater than 7 is an outlier, so 8000 is clearly an outlier.
+Although there are many definitions, one common definition of an outlier is any observation that falls 1.5(IQR) above the upper quartile, or 1.5(IQR) below the lower quartile. In our above data set, we can determine that the IQR=2. 1.5(2)=3. This means that any value less than -1 or greater than 7 is an outlier, so 8000 is clearly an outlier.
 
 ##Skew
 

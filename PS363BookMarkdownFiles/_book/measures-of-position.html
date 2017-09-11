@@ -6,8 +6,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Quantitative Political Methods Coursebook</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="Quantitative Political Methods Coursebook">
-  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
 
   <meta property="og:title" content="Quantitative Political Methods Coursebook" />
   <meta property="og:type" content="book" />
@@ -33,6 +34,7 @@
   
 <link rel="prev" href="visualizing-data-in-r.html">
 <link rel="next" href="measures-of-central-tendency.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -52,7 +54,6 @@
 </head>
 
 <body>
-
 
 
   <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
@@ -118,7 +119,7 @@
 <div id="outliers" class="section level2">
 <h2><span class="header-section-number">10.3</span> Outliers</h2>
 <p>An outlier is an observation whose value is so much greater or lesser than the other observations that it can be considered an extreme. For example, if you had the data 1 2 3 4 8000, you can easily tell that 8000 is an outlier because it is so much larger than the other values.</p>
-<p>Although there are many definitions, one common definition of an outlier is any observation that falls 1.5(IQR) above the upper quartile, or 1.5(IQR) below the upper quartile. In our above data set, we can determine that the IQR=2. 1.5(2)=3. This means that any value less than -1 or greater than 7 is an outlier, so 8000 is clearly an outlier.</p>
+<p>Although there are many definitions, one common definition of an outlier is any observation that falls 1.5(IQR) above the upper quartile, or 1.5(IQR) below the lower quartile. In our above data set, we can determine that the IQR=2. 1.5(2)=3. This means that any value less than -1 or greater than 7 is an outlier, so 8000 is clearly an outlier.</p>
 </div>
 <div id="skew" class="section level2">
 <h2><span class="header-section-number">10.4</span> Skew</h2>
@@ -126,7 +127,7 @@
 <p>To determine skew, you can look at a histogram of the data, or compare the median and the mean of a set of data. If the longer tail of the data is to the left of the mode, the data is skewed to the left. We call this a <strong>negative skew</strong>.</p>
 <p>If that longer tail of the data is to the right, the data is skewed to the right; a <strong>positive skew</strong>.</p>
 <p>In comparing the median and the mean, if the mean is greater than the median, the data is positively skewed, and if the mean is smaller than the median, the data is negatively skewed. We can compare these two measures of center because the mean is more sensitive to outliers than the median.</p>
-<p>For more information about skew, check out this video:</p>
+<p>For an easy way to remember skew, check out this video. You’ll never forget it again.</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/gzSbAkZE8jw" frameborder="0" allowfullscreen>
 </iframe>
 
@@ -138,9 +139,8 @@
         </div>
       </div>
 <a href="visualizing-data-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="measures-of-central-tendency.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
-    </div>
-  </div>
+<a href="measures-of-central-tendency.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
