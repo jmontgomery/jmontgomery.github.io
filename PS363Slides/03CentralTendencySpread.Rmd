@@ -282,7 +282,7 @@ knitr::include_graphics("LectureGraphics/mmm", dpi = NA)
 
 - (55, 84, 65, 54, 61, 67, 80, 59, 81, 82)
 - 54 55 59 61 65 67 80 81 82 84 \pause
-- Median = $\frac{67-65}{2}$
+- Median = $\frac{67+65}{2}$
 - 50\% of the data is at \textit{or above}, and (100-50)\% is at \textit{or below}
 
 ----
