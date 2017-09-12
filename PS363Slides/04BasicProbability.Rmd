@@ -1,0 +1,344 @@
+---
+title: "Lecture 4: Probability"
+author: "Jacob M. Montgomery"
+date: "Quantitative Political Methodology"
+output: beamer_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+
+----
+
+# Lecture 4
+
+----
+
+
+## CLass business
+
+- PROBLEM SET 1 IS DUE RIGHT NOW
+- Problem set 2 will be distributed today via the syllabus
+
+
+### Facebook and survey
+
+- Sign up for our Facebook group: https://www.facebook.com/groups/1071702902960687/
+- Take the class survey!  Can't assign teams until you all do.
+
+https://wustl.az1.qualtrics.com/jfe/form/SV_6rpSYD3xxmbRe5v
+
+----
+
+## Roadmap 
+
+Last time: 
+
+- Visualizing data
+- Measures of central tendency and spread
+
+This time: 
+
+- Understand core concepts of probability
+- Understanding concept of a "parameter"
+- Introduce some probability distributions
+
+----
+
+## Why are we studying this?
+
+```{r, echo=FALSE, out.width=".75\\textwidth", fig.align='center'}
+knitr::include_graphics("LectureGraphics/ProbStats.jpg", dpi = NA)
+```
+
+
+----
+
+## Probability defined
+
+Imagine tossing a coin\dots
+
+- Can you predict the outcome of a single coin toss? \pause
+- Can you predict the *overall* outcome of 100 coin tosses? \pause
+
+
+> AF p. 73: "For a particular possible outcome for a random phenomenon, the probability of that outcome is the proportion of times that the outcome would occur in a very long sequence of observations."
+
+
+----
+
+### Example
+
+
+Imagine you were rolling two six-sided dice.
+```{r, echo=FALSE, out.width=".2\\textwidth", fig.align='center'}
+knitr::include_graphics("LectureGraphics/dice1", dpi = NA)
+```
+
+1. Write down all possible scores.
+2. Calculate the probability of each score
+    - What is the probability of rolling a 2?
+
+
+----
+
+36 possible outcomes for the two dice:
+	\begin{center}
+	\begin{tabular}{cccccc}
+	1,1 & 1,2 & 1,3 & 1,4 & 1,5 & 1,6 \\
+	2,1 & 2,2 & 2,3 & 2,4 & 2,5 & 2,6 \\
+	3,1 & 3,2 & 3,3 & 3,4 & 3,5 & 3,6 \\
+	4,1 & 4,2 & 4,3 & 4,4 & 4,5 & 4,6 \\
+	5,1 & 5,2 & 5,3 & 5,4 & 5,5 & 5,6 \\
+	6,1 & 6,2 & 6,3 & 6,4 & 6,5 & 6,6 \\
+	\end{tabular}
+	\end{center}
+
+----
+
+How many outcomes will generate a total score of 2?
+
+\begin{center}
+\begin{tabular}{cccccc}
+\textbf{1,1} & 1,2 & 1,3 & 1,4 & 1,5 & 1,6 \\
+	2,1 & 2,2 & 2,3 & 2,4 & 2,5 & 2,6 \\
+	3,1 & 3,2 & 3,3 & 3,4 & 3,5 & 3,6 \\
+	4,1 & 4,2 & 4,3 & 4,4 & 4,5 & 4,6 \\
+	5,1 & 5,2 & 5,3 & 5,4 & 5,5 & 5,6 \\
+	6,1 & 6,2 & 6,3 & 6,4 & 6,5 & 6,6 \\
+\end{tabular}
+\end{center}
+
+P(roll=2) = $\frac{1}{36} = 0.028$.
+
+
+----
+
+### Putting this all togetheer
+
+\begin{center}
+\begin{tabular}{cc}
+$y_k$ & $Pr(Y = y_k)$ \\
+\hline
+2 & 1/36 \\
+3 & 2/36\\
+\pause
+4 & 3/36\\
+5 & 4/36 \\
+6 & 5/36 \\
+7 & 6/36 \\
+8 & 5/36\\
+9 & 4/36\\
+10 & 3/36\\
+11 & 2/36\\
+12 & 1/36 \\
+\hline
+\end{tabular}
+\end{center}
+
+----
+
+## More formal definition 
+
+> **Probability** is the relative frequency of occurrence for some particular outcome if a
+process is repeated a large number of times under similar conditions
+
+\pause
+
+- If I flip a coin three times, what is the probability that I will get exactly two heads?
+- If I roll two dice, what is the probability of getting a two?
+- If I take a random sample of 100 Wash U students, what is the probability that less than 40\% of the sample will be male?
+
+
+-----
+
+### Frequency distributions
+
+> **Frequency** distribution (discrete probability distribution)} is a probability distribution of a discrete variable $Y$ assigns a probability to each possible outcome. 
+
+\pause
+
+- Let $S=\{y_1, y_2, \ldots, y_k\}$ be the set of all possible outcomes, \pause
+and $Y$ be the realization of the variable.
+
+\pause
+
+- Then, $p(y_k) = Pr(Y=y_k)$, where 
+- $0\le p(y_k) \le 1 ~\forall ~k$ \pause
+- $$ \sum_{k=1}^{K}p(y_k) = 1$$
+
+----
+
+### We already made one of these
+
+\begin{center}
+\begin{tabular}{cc}
+$y_k$ & $Pr(Y = y_k)$ \\
+\hline
+2 & 1/36 \\
+3 & 2/36\\
+4 & 3/36\\
+5 & 4/36 \\
+6 & 5/36 \\
+7 & 6/36 \\
+8 & 5/36\\
+9 & 4/36\\
+10 & 3/36\\
+11 & 2/36\\
+12 & 1/36 \\
+\hline
+\end{tabular}
+\end{center}
+
+\pause
+
+- $p(y_k) = Pr(Y=y_k)$
+- $0\le p(y_k) \le 1 ~\forall ~k$ 
+- $\sum_{k=1}^{K}p(y_k) = 1$
+
+----
+
+## Parameters of distributions
+
+
+- In probability theory we often wish to identify two important characteristics of distribution. \pause
+    - We wish to know the mean ($\mu$), which is sometimes called the expected value.
+    - We wish to know the variance ($\sigma^2$)
+- NOTE: This is **not** the same as $\bar{x}$ and $s^2$.  \pause Why are these greek letters?    
+  
+----
+
+### Expected value
+
+\begin{center}
+\footnotesize
+\begin{tabular}{cc}
+$y_k$ & $Pr(Y = y_k)$ \\
+\hline
+2 & 1/36 \\
+3 & 2/36\\
+4 & 3/36\\
+5 & 4/36 \\
+6 & 5/36 \\
+7 & 6/36 \\
+8 & 5/36\\
+9 & 4/36\\
+10 & 3/36\\
+11 & 2/36\\
+12 & 1/36 \\
+\hline
+\end{tabular}
+\end{center}
+
+Mean of probability distribution (\textbf{expected value})
+
+$\mu = \displaystyle \sum_{k=1}^Ky_k Pr(Y=y_k) \pause = 2(1/36) + 3(2/36) + \ldots +
+12(1/36) \pause = 7$ \pause
+
+-----
+
+### The variance of a distribution
+
+\begin{center}
+\footnotesize
+\begin{tabular}{cc}
+$y_k$ & $Pr(Y = y_k)$ \\
+\hline
+2 & 1/36 \\
+3 & 2/36\\
+4 & 3/36\\
+5 & 4/36 \\
+6 & 5/36 \\
+7 & 6/36 \\
+8 & 5/36\\
+9 & 4/36\\
+10 & 3/36\\
+11 & 2/36\\
+12 & 1/36 \\
+\hline
+\end{tabular}
+\end{center}
+
+
+$\sigma^2 = E(Y-\mu)^2$ \pause {requires extra calculations}
+
+
+----
+
+### A little simulation
+
+```{r mysize=TRUE, size="\\tiny", tidy=FALSE, out.width=".7\\textwidth", out.height=".4\\textwidth", fig.align="center", echo=TRUE}
+posVal<-c(1,2,3,4,5,6)
+numRoll<-10
+die1<-sample(x = posVal, size=numRoll, replace=TRUE)
+die2<-sample(x = posVal, size=numRoll, replace=TRUE)
+total<-die1+die2
+hist(total)
+```
+
+
+----
+
+
+```{r mysize=TRUE, size="\\tiny", tidy=FALSE, out.width=".7\\textwidth", out.height=".4\\textwidth", fig.align="center", echo=TRUE}
+posVal<-c(1,2,3,4,5,6)
+numRoll<-100
+die1<-sample(x = posVal, size=numRoll, replace=TRUE)
+die2<-sample(x = posVal, size=numRoll, replace=TRUE)
+total<-die1+die2
+hist(total)
+```
+
+
+---
+
+```{r mysize=TRUE, size="\\tiny", tidy=FALSE, out.width=".7\\textwidth", out.height=".4\\textwidth", fig.align="center", echo=TRUE}
+posVal<-c(1,2,3,4,5,6)
+numRoll<-1000
+die1<-sample(x = posVal, size=numRoll, replace=TRUE)
+die2<-sample(x = posVal, size=numRoll, replace=TRUE)
+total<-die1+die2
+hist(total)
+```
+
+
+----
+
+
+```{r mysize=TRUE, size="\\tiny", tidy=FALSE, out.width=".7\\textwidth", out.height=".4\\textwidth", fig.align="center", echo=TRUE}
+posVal<-c(1,2,3,4,5,6)
+numRoll<-10000
+die1<-sample(x = posVal, size=numRoll, replace=TRUE)
+die2<-sample(x = posVal, size=numRoll, replace=TRUE)
+total<-die1+die2
+hist(total)
+```
+
+
+
+
+----
+
+### End of part 1
+
+- What is a probability?
+- What is a frequency distribution?
+- What are the two most important parameters for characterizing a distribution?
+
+---
+
+
+
+## Example: The Binomial Distribution
+
+
+
+
+
+
+
+
+
