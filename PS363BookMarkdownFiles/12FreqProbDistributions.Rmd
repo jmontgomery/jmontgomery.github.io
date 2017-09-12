@@ -30,8 +30,6 @@ All of these are asking you to figure out the probability that the variable $Y$ 
 
 In other cases you may see a probability written a more generic form, where the specific data point is replaced by a letter.  Often this will be written in one of several ways depending on the math book you are looking at. 
 $$Pr(Y=y), Pr(Y), P(Y=y), \mbox{ or } P(Y)$$
-This is asking you to figure out how to calculate the probability for all possible 
-
 
 ##Frequency distribution
 

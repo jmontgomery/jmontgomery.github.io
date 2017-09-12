@@ -167,10 +167,10 @@ knitr::include_graphics("LectureGraphics/bushgraph", dpi = NA)
 ## Looking at distributions of data
 
 - General impressions (pattern, deviations)
-- ``Shape'' (symmetric, skewed, ``bell-shaped,'' bimodal, etc.)
-- ``Center'' (``midpoint'')
-- ``Spread'' (range)
-- ``Outliers'' (``outside overall pattern'')
+- *Shape* (symmetric, skewed, bell-shaped, bimodal, etc.)
+- *Center* (midpoint)
+- *Spread* (range)
+- *Outliers* (outside overall pattern)
 
 
 ----

@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="measures-of-dispersion.html">
-<link rel="next" href="some-basic-plotting-in-r.html">
+<link rel="prev" href="frequency-and-probability-distributions.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -214,125 +214,33 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="frequency-and-probability-distributions" class="section level1">
-<h1><span class="header-section-number">12</span> Frequency and Probability Distributions</h1>
-<div id="learning-objectives-4" class="section level2">
-<h2><span class="header-section-number">12.1</span> Learning objectives</h2>
-<p>Learning Objectives:</p>
-<ol style="list-style-type: decimal">
-<li>Define probability.</li>
-<li>Understand the basic properties of a probability.</li>
-<li>Understand the meaning of “frequency distribution.”</li>
-</ol>
-</div>
-<div id="what-is-a-probability" class="section level2">
-<h2><span class="header-section-number">12.2</span> What is a probability?</h2>
-<p>There are many definitions of a probability, but here is one that is easy to understand and that is pretty useful for this class is the <strong>frequency interpretation</strong> of probability. In essence, we imagine doing something (flipping a coin, rolling a dice, taking a random sample).</p>
-<p><strong>Probability (frequency interpretation)</strong></p>
-<blockquote>
-<p>The relative frequency of occurrence for some particular outcome if a process is repeated a large number of times under similar conditions.</p>
-</blockquote>
-<p>Probabilities help us answer questions like:</p>
-<ul>
-<li>If I flip a coin three times, what is the probability that I will get exactly two heads?</li>
-<li>If I roll two dice, what is the probability of getting a two?</li>
-<li>If I take a random sample of 100 Wash U students, what is the probability that less than 40% of the sample will be male?</li>
-</ul>
-<p>If you are asked to find the probability that the variable <span class="math inline">\(Y\)</span> will take on a specific value such as 3, probabilities can be written in several ways. <span class="math display">\[Pr(Y=3) \mbox{ or }P(Y=3)\mbox{ or } P(3)\mbox{ or } Pr(3)\]</span> All of these are asking you to figure out the probability that the variable <span class="math inline">\(Y\)</span> will take on the value of 3.</p>
-<p>In other cases you may see a probability written a more generic form, where the specific data point is replaced by a letter. Often this will be written in one of several ways depending on the math book you are looking at. <span class="math display">\[Pr(Y=y), Pr(Y), P(Y=y), \mbox{ or } P(Y)\]</span></p>
-</div>
-<div id="frequency-distribution" class="section level2">
-<h2><span class="header-section-number">12.3</span> Frequency distribution</h2>
-<p>A probability distribution of a discrete variable, Y, assigns a probability to each possible outcome. As an example, we can write out the frequency distribution for all possible outcomes of flipping two coints.</p>
-<center>
-<table>
-<thead>
-<tr class="header">
-<th align="center">Outcome</th>
-<th align="center">#Heads</th>
-<th align="center">Probability</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">TT</td>
-<td align="center">0</td>
-<td align="center"><span class="math inline">\(\frac{1}{4}\)</span></td>
-</tr>
-<tr class="even">
-<td align="center">TH</td>
-<td align="center">1</td>
-<td align="center"><span class="math inline">\(\frac{1}{4}\)</span></td>
-</tr>
-<tr class="odd">
-<td align="center">HT</td>
-<td align="center">1</td>
-<td align="center"><span class="math inline">\(\frac{1}{4}\)</span></td>
-</tr>
-<tr class="even">
-<td align="center">HH</td>
-<td align="center">2</td>
-<td align="center"><span class="math inline">\(\frac{1}{4}\)</span></td>
-</tr>
-</tbody>
-</table>
-</center>
-<p>In the left column, is the outcome. In the right column is the probability of observing that outcome.</p>
-<p>So, if we want to represent the probability of getting zero heads, one head, or two heads, we would end up with the frequency distribution:</p>
-<table>
-<thead>
-<tr class="header">
-<th align="center">Y</th>
-<th align="center">Probability</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">0</td>
-<td align="center"><span class="math inline">\(\frac{1}{4}\)</span></td>
-</tr>
-<tr class="even">
-<td align="center">1</td>
-<td align="center"><span class="math inline">\(\frac{1}{2}\)</span></td>
-</tr>
-<tr class="odd">
-<td align="center">2</td>
-<td align="center"><span class="math inline">\(\frac{1}{4}\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>Here <span class="math inline">\(Y\)</span> is the random variable of interest. We can think of this table a mapping between inputs (Y) and outputs (probabilities). In more formal notation, this table represents a <em>function</em>, which we can call <span class="math inline">\(P(Y=y)\)</span> or just <span class="math inline">\(P(y)\)</span>. This function is what we call a frequency distribution.</p>
-<div id="probability-and-sets" class="section level3">
-<h3><span class="header-section-number">12.3.1</span> Probability and sets</h3>
-<p>We are going to formalize this kind of thinking another step and define something callled a set, <span class="math inline">\(S= \{y_1, y_2, \ldots, y_k\}\)</span>, which means that S represents the set of all possible outcomes. In our example, the set of possible outcomes is <span class="math inline">\(S=\{0,1,2\}\)</span>.</p>
-</div>
-<div id="what-makes-a-frequency-distribution-special" class="section level3">
-<h3><span class="header-section-number">12.3.2</span> What makes a frequency distribution special?</h3>
-<p>We have defined our frequency distribution <span class="math inline">\(P(Y)\)</span> and the set of possible outcomes <span class="math inline">\(S\)</span>. Now we can turn to thinking about what makes a frequency distribution special.</p>
-<p>First, for all possible outcomes <span class="math inline">\(0 \le P(y \in S) \le 1\)</span>. This looks complicated, but just means that the probability of something happen can’t be negative and can’t be greater than 1. It makes no sense to say that something is 110% likely to happen and it makes no sense to say that something has a negative chance of happening.</p>
-<p>Second, (remembering from above that <span class="math inline">\(S= \{y_1, y_2, \ldots, y_k\}\)</span> <span class="math display">\[\sum_{k=1}^K p(y_k )=1.\]</span> This means that the sum of all the probabilities that an event will occur equals 1.</p>
-</div>
-<div id="external-resources" class="section level3">
-<h3><span class="header-section-number">12.3.3</span> External resources</h3>
-<p>Here are some videos to help:</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3ER8OkqBdpE" frameborder="0" allowfullscreen>
+<div id="some-basic-plotting-in-r" class="section level1">
+<h1><span class="header-section-number">13</span> Some basic plotting in R</h1>
+<p>We have made some videos to help you do some basic plots. These were made especially to help you with the problem set.</p>
+<p>How to plot a normal curve</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/14S5XsHGyqs" frameborder="0" allowfullscreen>
 </iframe>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/6E_NVnboMB8" frameborder="0" allowfullscreen>
+<p>This video shows how to include multiple plots in the same figure.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/w4WWZsvy8Wo" frameborder="0" allowfullscreen>
 </iframe>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Fvi9A_tEmXQ" frameborder="0" allowfullscreen>
+<p>This shows you how to import some data and make a scatter plot.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6_s5-_iF8s4" frameborder="0" allowfullscreen>
 </iframe>
-<p>This last video walks you through the construction of a probability density function.</p>
+<p>This shows you how to include multiple sets of data on the same plot.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xnZaIi35AoY" frameborder="0" allowfullscreen>
+</iframe>
+<p>This shows you how to put two histograms on the same plot and gives you an example of how to subset data.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/W3d1NfmmBnw" frameborder="0" allowfullscreen>
+</iframe>
 
-</div>
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="measures-of-dispersion.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="some-basic-plotting-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="frequency-and-probability-distributions.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
