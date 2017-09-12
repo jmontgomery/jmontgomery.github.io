@@ -1,0 +1,84 @@
+
+# Frequency and Probability Distributions
+
+## Learning objectives
+
+Learning Objectives:
+
+1. Define probability.
+2. Understand the basic properties of a probability.
+3. Understand the meaning of "frequency distribution."
+
+##What is a probability?
+
+There are many definitions of a probability, but here is one that is easy to understand and that is pretty useful for this class is the **frequency interpretation** of probability.  In essence, we imagine doing something (flipping a coin, rolling a dice, taking a random sample). 
+
+**Probability (frequency interpretation)**
+
+> The relative frequency of occurrence for some particular outcome if a process is repeated a large number of times under similar conditions.
+
+Probabilities help us answer questions like:
+
+- If I flip a coin three times, what is the probability that I will get exactly two heads?
+- If I roll two dice, what is the probability of getting a two?
+- If I take a random sample of 100 Wash U students, what is the probability that less than 40% of the sample will be male?
+
+
+If you are asked to find the probability that the variable $Y$ will take on a specific value such as 3, probabilities can be written in several ways.
+$$Pr(Y=3) \mbox{ or }P(Y=3)\mbox{ or } P(3)\mbox{ or } Pr(3)$$
+All of these are asking you to figure out the probability that the variable $Y$ will take on the value of 3.
+
+In other cases you may see a probability written a more generic form, where the specific data point is replaced by a letter.  Often this will be written in one of several ways depending on the math book you are looking at. 
+$$Pr(Y=y), Pr(Y), P(Y=y), \mbox{ or } P(Y)$$
+This is asking you to figure out how to calculate the probability for all possible 
+
+
+##Frequency distribution
+
+A probability distribution of a discrete variable, Y, assigns a probability to each possible outcome. As an example, we can write out the frequency distribution for all possible outcomes of flipping two coints. 
+
+<center>
+Outcome| #Heads| Probability     
+:-:|:---:|:--:
+TT|   0| $\frac{1}{4}$
+TH|   1| $\frac{1}{4}$
+HT|   1| $\frac{1}{4}$
+HH|   2| $\frac{1}{4}$
+</center>
+
+In the left column, is the outcome.  In the right column is the probability of observing that outcome. 
+
+So, if we want to represent the probability of getting zero heads, one head, or two heads, we would end up with the frequency distribution:
+
+Y|  Probability     
+:---:|:--:
+0| $\frac{1}{4}$
+1| $\frac{1}{2}$
+2| $\frac{1}{4}$
+
+Here $Y$ is the random variable of interest. We can think of this table a mapping between inputs (Y) and outputs (probabilities). In more formal notation, this table represents a *function*, which we can call $P(Y=y)$ or just $P(y)$. This function is what we call a frequency distribution.
+
+### Probability and sets
+
+We are going to formalize this kind of thinking another step and define something callled a set, $S= \{y_1, y_2, \ldots, y_k\}$, which means that S represents the set of all possible outcomes. In our example, the set of possible outcomes is $S=\{0,1,2\}$.
+
+### What makes a frequency distribution special?
+
+We have defined our frequency distribution $P(Y)$ and the set of possible outcomes $S$.  Now we can turn to thinking about what makes a frequency distribution special.
+
+First, for all possible outcomes $0 \le P(y \in S) \le 1$.  This looks complicated, but just means that the probability of something happen can't be negative and can't be greater than 1.  It makes no sense to say that something is 110\% likely to happen and it makes no sense to say that something has a negative chance of happening.
+
+Second, (remembering from above that $S= \{y_1, y_2, \ldots, y_k\}$) $$\sum_{k=1}^K p(y_k )=1$$. This means that the sum of all the probabilities that an event will occur equals 1. 
+
+### External resources
+
+Here are some videos to help: 
+
+<iframe width="560" height="315" src="https://youtube.com/embed/3ER8OkqBdpE" frameborder="0" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://youtube.com/embed/6E_NVnboMB8" frameborder="0" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://youtube.com/embed/Fvi9A_tEmXQ" frameborder="0" allowfullscreen></iframe>
+
+
+This last video walks you through the construction of a probability density function. 
