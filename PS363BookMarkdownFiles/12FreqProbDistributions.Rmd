@@ -68,17 +68,18 @@ We have defined our frequency distribution $P(Y)$ and the set of possible outcom
 
 First, for all possible outcomes $0 \le P(y \in S) \le 1$.  This looks complicated, but just means that the probability of something happen can't be negative and can't be greater than 1.  It makes no sense to say that something is 110\% likely to happen and it makes no sense to say that something has a negative chance of happening.
 
-Second, (remembering from above that $S= \{y_1, y_2, \ldots, y_k\}$) $$\sum_{k=1}^K p(y_k )=1$$. This means that the sum of all the probabilities that an event will occur equals 1. 
+Second, (remembering from above that $S= \{y_1, y_2, \ldots, y_k\}$ $$\sum_{k=1}^K p(y_k )=1.$$ This means that the sum of all the probabilities that an event will occur equals 1. 
 
 ### External resources
 
 Here are some videos to help: 
 
-<iframe width="560" height="315" src="https://youtube.com/embed/3ER8OkqBdpE" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3ER8OkqBdpE" frameborder="0" allowfullscreen></iframe>
 
-<iframe width="560" height="315" src="https://youtube.com/embed/6E_NVnboMB8" frameborder="0" allowfullscreen></iframe>
 
-<iframe width="560" height="315" src="https://youtube.com/embed/Fvi9A_tEmXQ" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6E_NVnboMB8" frameborder="0" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Fvi9A_tEmXQ" frameborder="0" allowfullscreen></iframe>
 
 
 This last video walks you through the construction of a probability density function. 

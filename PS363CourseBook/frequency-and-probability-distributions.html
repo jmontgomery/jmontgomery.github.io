@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="measures-of-central-tendency.html">
-<link rel="next" href="frequency-and-probability-distributions.html">
+<link rel="prev" href="measures-of-dispersion.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -213,51 +213,116 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="measures-of-dispersion" class="section level1">
-<h1><span class="header-section-number">11</span> Measures of Dispersion</h1>
+<div id="frequency-and-probability-distributions" class="section level1">
+<h1><span class="header-section-number">12</span> Frequency and Probability Distributions</h1>
+<div id="learning-objectives-4" class="section level2">
+<h2><span class="header-section-number">12.1</span> Learning objectives</h2>
 <p>Learning Objectives:</p>
 <ol style="list-style-type: decimal">
-<li>Understand how to calculate the <strong>range</strong> of a variable and how to calculate it.</li>
-<li>Understand and be able to calculate the <strong>deviation</strong> of specific data point.</li>
-<li>Understand how to calculate the <strong>variance</strong> of variable.</li>
-<li>Understand how to calculate the <strong>standard deviation</strong> of a variable, and its relationship to the variance.</li>
-<li>Understand the <strong>“Empirical Rule”</strong> and how it is related to the standard deviation.</li>
+<li>Define probability.</li>
+<li>Understand the basic properties of a probability.</li>
+<li>Understand the meaning of “frequency distribution.”</li>
 </ol>
-<div id="learning-objective-1-range" class="section level2">
-<h2><span class="header-section-number">11.1</span> Learning objective 1: Range</h2>
-<p>The <strong>range</strong> is a simple measure of variability that shows how spread out the observations in a data set are.</p>
-<p>Range= (largest observation - smallest observation). Because the range is a measure of distance, the value of the range is always positive.</p>
-<p>The range really doesn’t tell us anything much that is useful.</p>
 </div>
-<div id="learning-objective-2-deviations" class="section level2">
-<h2><span class="header-section-number">11.2</span> Learning objective 2: Deviations</h2>
-<p>A <strong>deviation</strong> is a measure of distance from a measure of center, <span class="math inline">\(|x_1 - \bar{x}|\)</span>. The observation may be greater or lesser than the value of the center, but because deviation is a measure of distance, its value is always positive.</p>
+<div id="what-is-a-probability" class="section level2">
+<h2><span class="header-section-number">12.2</span> What is a probability?</h2>
+<p>There are many definitions of a probability, but here is one that is easy to understand and that is pretty useful for this class is the <strong>frequency interpretation</strong> of probability. In essence, we imagine doing something (flipping a coin, rolling a dice, taking a random sample).</p>
+<p><strong>Probability (frequency interpretation)</strong></p>
+<blockquote>
+<p>The relative frequency of occurrence for some particular outcome if a process is repeated a large number of times under similar conditions.</p>
+</blockquote>
+<p>Probabilities help us answer questions like:</p>
+<ul>
+<li>If I flip a coin three times, what is the probability that I will get exactly two heads?</li>
+<li>If I roll two dice, what is the probability of getting a two?</li>
+<li>If I take a random sample of 100 Wash U students, what is the probability that less than 40% of the sample will be male?</li>
+</ul>
+<p>If you are asked to find the probability that the variable <span class="math inline">\(Y\)</span> will take on a specific value such as 3, probabilities can be written in several ways. <span class="math display">\[Pr(Y=3) \mbox{ or }P(Y=3)\mbox{ or } P(3)\mbox{ or } Pr(3)\]</span> All of these are asking you to figure out the probability that the variable <span class="math inline">\(Y\)</span> will take on the value of 3.</p>
+<p>In other cases you may see a probability written a more generic form, where the specific data point is replaced by a letter. Often this will be written in one of several ways depending on the math book you are looking at. <span class="math display">\[Pr(Y=y), Pr(Y), P(Y=y), \mbox{ or } P(Y)\]</span> This is asking you to figure out how to calculate the probability for all possible</p>
 </div>
-<div id="learning-objective-3-variance" class="section level2">
-<h2><span class="header-section-number">11.3</span> Learning objective 3: Variance</h2>
-<p><strong>Variance</strong> is the average of squared deviations. The value of the variance is a squared value (for instance, inches squared, percentage squared, children squared) which does not necessarily tell us very clearly about how spread out the data is from the mean.</p>
-<p>Variance is calculated by dividing the sum of squared deviations from the value of the population by <span class="math inline">\(n-1\)</span>. This is the equation: <span class="math display">\[s^2=\frac{\sum_i^n (x_i - \bar{x})^2}{n-1}  \]</span></p>
-<p>When variance increases it means the observations are more spread out from the mean.</p>
+<div id="frequency-distribution" class="section level2">
+<h2><span class="header-section-number">12.3</span> Frequency distribution</h2>
+<p>A probability distribution of a discrete variable, Y, assigns a probability to each possible outcome. As an example, we can write out the frequency distribution for all possible outcomes of flipping two coints.</p>
+<center>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Outcome</th>
+<th align="center">#Heads</th>
+<th align="center">Probability</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">TT</td>
+<td align="center">0</td>
+<td align="center"><span class="math inline">\(\frac{1}{4}\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">TH</td>
+<td align="center">1</td>
+<td align="center"><span class="math inline">\(\frac{1}{4}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">HT</td>
+<td align="center">1</td>
+<td align="center"><span class="math inline">\(\frac{1}{4}\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">HH</td>
+<td align="center">2</td>
+<td align="center"><span class="math inline">\(\frac{1}{4}\)</span></td>
+</tr>
+</tbody>
+</table>
+</center>
+<p>In the left column, is the outcome. In the right column is the probability of observing that outcome.</p>
+<p>So, if we want to represent the probability of getting zero heads, one head, or two heads, we would end up with the frequency distribution:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Y</th>
+<th align="center">Probability</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">0</td>
+<td align="center"><span class="math inline">\(\frac{1}{4}\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center"><span class="math inline">\(\frac{1}{2}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="center"><span class="math inline">\(\frac{1}{4}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Here <span class="math inline">\(Y\)</span> is the random variable of interest. We can think of this table a mapping between inputs (Y) and outputs (probabilities). In more formal notation, this table represents a <em>function</em>, which we can call <span class="math inline">\(P(Y=y)\)</span> or just <span class="math inline">\(P(y)\)</span>. This function is what we call a frequency distribution.</p>
+<div id="probability-and-sets" class="section level3">
+<h3><span class="header-section-number">12.3.1</span> Probability and sets</h3>
+<p>We are going to formalize this kind of thinking another step and define something callled a set, <span class="math inline">\(S= \{y_1, y_2, \ldots, y_k\}\)</span>, which means that S represents the set of all possible outcomes. In our example, the set of possible outcomes is <span class="math inline">\(S=\{0,1,2\}\)</span>.</p>
 </div>
-<div id="learning-objective-4-standard-deviation" class="section level2">
-<h2><span class="header-section-number">11.4</span> Learning objective 4: Standard deviation</h2>
-<p>The <strong>standard deviation</strong> is the square root of the variance.</p>
-<p><span class="math display">\[s=\sqrt{s^2}=\sqrt{\frac{\sum_i^n (x_i -\bar{x})^2}{n-1}}\]</span></p>
-<p>Like the variance, the standard deviation is always a positive number because it represents a distance from the mean. When x is a constant (for example, you have the observations 3 3 3 3 3), the standard deviation is 0 because there is no deviation from the mean. The standard deviation increases as variability increases around the mean.</p>
-<p><em>NOTE</em>: The standard deviation is greatly affected by outliers.</p>
+<div id="what-makes-a-frequency-distribution-special" class="section level3">
+<h3><span class="header-section-number">12.3.2</span> What makes a frequency distribution special?</h3>
+<p>We have defined our frequency distribution <span class="math inline">\(P(Y)\)</span> and the set of possible outcomes <span class="math inline">\(S\)</span>. Now we can turn to thinking about what makes a frequency distribution special.</p>
+<p>First, for all possible outcomes <span class="math inline">\(0 \le P(y \in S) \le 1\)</span>. This looks complicated, but just means that the probability of something happen can’t be negative and can’t be greater than 1. It makes no sense to say that something is 110% likely to happen and it makes no sense to say that something has a negative chance of happening.</p>
+<p>Second, (remembering from above that <span class="math inline">\(S= \{y_1, y_2, \ldots, y_k\}\)</span> <span class="math display">\[\sum_{k=1}^K p(y_k )=1.\]</span> This means that the sum of all the probabilities that an event will occur equals 1.</p>
 </div>
-<div id="learning-objective-5-the-empirical-rule" class="section level2">
-<h2><span class="header-section-number">11.5</span> Learning objective 5: The Empirical Rule</h2>
-<p>The <strong>Empirical Rule</strong> is the distribution of observations is the histogram of the data is approximately bell shaped; if it is a normal, symmetrical distribution.</p>
-<p>The Rule says that about 68% of observations ball between <span class="math inline">\(\bar{x}-s\)</span> and <span class="math inline">\(\bar{x}+s\)</span>; that about 95% of observations fall between <span class="math inline">\(\bar{x}-2s\)</span> and <span class="math inline">\(\bar{x}+2s\)</span>; and that nearly all the data in a normal distribution will fall between <span class="math inline">\(\bar{x}-3s\)</span> and <span class="math inline">\(\bar{x}+3s\)</span>.</p>
-<p>The Empirical Rule only works if the data is approximately bell shaped. It does not apply to data that is skewed.</p>
-</div>
-<div id="review-that-all-again" class="section level2">
-<h2><span class="header-section-number">11.6</span> Review that all again</h2>
-<p>For more information about measures of dispersion, check out this video:</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/E4HAYd0QnRc" frameborder="0" allowfullscreen>
+<div id="external-resources" class="section level3">
+<h3><span class="header-section-number">12.3.3</span> External resources</h3>
+<p>Here are some videos to help:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3ER8OkqBdpE" frameborder="0" allowfullscreen>
 </iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6E_NVnboMB8" frameborder="0" allowfullscreen>
+</iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Fvi9A_tEmXQ" frameborder="0" allowfullscreen>
+</iframe>
+<p>This last video walks you through the construction of a probability density function.</p>
 
+</div>
 </div>
 </div>
             </section>
@@ -265,8 +330,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="measures-of-central-tendency.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="frequency-and-probability-distributions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="measures-of-dispersion.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
