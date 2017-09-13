@@ -11,14 +11,14 @@ knitr::opts_chunk$set(echo = FALSE)
 
 
 
-----
+
 
 # Lecture 4
 
 ----
 
 
-## CLass business
+## Class business
 
 - PROBLEM SET 1 IS DUE RIGHT NOW
 - Problem set 2 will be distributed today via the syllabus
@@ -27,9 +27,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ### Facebook and survey
 
 - Sign up for our Facebook group: https://www.facebook.com/groups/1071702902960687/
-- Take the class survey!  Can't assign teams until you all do.
-
-https://wustl.az1.qualtrics.com/jfe/form/SV_6rpSYD3xxmbRe5v
+- Take the class survey!  Can't assign teams until you all do. https://wustl.az1.qualtrics.com/jfe/form/SV_6rpSYD3xxmbRe5v
 
 ----
 
@@ -43,7 +41,7 @@ Last time:
 This time: 
 
 - Understand core concepts of probability
-- Understanding concept of a "parameter"
+- Understand concept of a "parameter"
 - Introduce some probability distributions
 
 ----
@@ -117,7 +115,7 @@ P(roll=2) = $\frac{1}{36} = 0.028$.
 
 ----
 
-### Putting this all togetheer
+### Putting this all together
 
 \begin{center}
 \begin{tabular}{cc}
@@ -157,7 +155,7 @@ process is repeated a large number of times under similar conditions
 
 ### Frequency distributions
 
-> **Frequency** distribution (discrete probability distribution)} is a probability distribution of a discrete variable $Y$ assigns a probability to each possible outcome. 
+> **Frequency** distribution (discrete probability distribution) is a probability distribution of a discrete variable $Y$ assigns a probability to each possible outcome. 
 
 \pause
 
@@ -205,9 +203,10 @@ $y_k$ & $Pr(Y = y_k)$ \\
 
 
 - In probability theory we often wish to identify two important characteristics of distribution. \pause
+
     - We wish to know the mean ($\mu$), which is sometimes called the expected value.
     - We wish to know the variance ($\sigma^2$)
-- NOTE: This is **not** the same as $\bar{x}$ and $s^2$.  \pause Why are these greek letters?    
+- NOTE: This is **not** the same as $\bar{x}$ and $s^2$.  \pause Why are these Greek letters?    
   
 ----
 
@@ -334,7 +333,7 @@ hist(total)
 
 ## Example: The Binomial Distribution
 
-Imagin tossing a fair coin in the air three times, where we are interested in the number of heads. 
+Imagine tossing a fair coin in the air three times, where we are interested in the number of heads. 
 
 \begin{center}
 \begin{tabular}{cccc}
@@ -487,7 +486,7 @@ knitr::include_graphics("LectureGraphics/guinness", dpi = NA)
 
 \pause
 
-- 1908 invented by william gosset
+- 1908 invented by William Gosset
 - wanted to quickly test the quality of raw materials, testing small batches
 
 
@@ -542,7 +541,7 @@ legend("topleft",
 ### When will we use these?
 
 
-- Sometimes we will talk about how certain **statistic** are
+- Sometimes we will talk about how certain **statistics** are
   distributed \pause
 
     - Sampling distribution
@@ -558,5 +557,5 @@ legend("topleft",
 
 - Problem set 2 is now posted
 - Review the online materials for lab (VERY IMPORTANT)
-- The reading and online content for Wednesday is *absolutely essential**
+- The reading and online content for Wednesday is *absolutely essential*
 - Questions or concerns?
