@@ -401,10 +401,10 @@ Date| Topic | Reading | Assignments| Notes
 9/6| Measurement <br> Sampling <br> Bias | AF: Chapter 2 <br>  CB: Chapters 4-6 |  |
 9/7-9| Plotting in R <br> Opening data in R <br> Subsetting in R| Monogan: Chapters 2-3 <br> CB: Chapters 7-8 || Lab
 9/11| Descriptive statistics | AF: Chapter 3 <br>CB: Chapters 10-11 |  |
-9/13| Basics of probability | AF Chapter 4 | PS1 Due | [PS2 Distributed](http://jmontgomery.github.io/ProblemSets/PS2.pdf)
-9/14-15| Describing data <br> Data Types | Monogan Chapter 4 <br>  CB: Chapters 12-13 | | | Lab
-9/18| Working with distributions  | Online coursebook |IPA (In class) | **Bring laptops**
-9/20| Sampling distributions | |IPA
+9/13| Basics of probability | AF Chapter 4  <bf> CB: Chapter 12| PS1 Due | [PS2 Distributed](http://jmontgomery.github.io/ProblemSets/PS2.pdf)
+9/14-15| Describing data <br> Data Types | Monogan Chapter 4 <br>  CB: Chapter 13 | | | Lab
+9/18| Sampling distributions  | AF: Chapter 5 <br> CB: Chapters 14-15 |IPA (In class) | **Bring laptops**
+9/20| Working with probability distributions | CB: Chapters 16-18 |IPA
 9/21-22| Working with data
 9/25| Confidence intervals <br> describing a population || IPA
 9/27| Hypothesis testing intro || PS2 Due | PS3 Distributed
