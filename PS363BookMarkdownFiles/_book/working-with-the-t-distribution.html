@@ -6,8 +6,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Quantitative Political Methods Coursebook</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="Quantitative Political Methods Coursebook">
-  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
 
   <meta property="og:title" content="Quantitative Political Methods Coursebook" />
   <meta property="og:type" content="book" />
@@ -31,8 +32,9 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="some-basic-plotting-in-r.html">
-<link rel="next" href="the-binomial-distribution.html">
+<link rel="prev" href="the-binomial-distribution.html">
+
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -48,11 +50,47 @@
 
 
 
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
 
 </head>
 
 <body>
-
 
 
   <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
@@ -75,12 +113,14 @@
 <li class="chapter" data-level="12" data-path="measures-of-dispersion.html"><a href="measures-of-dispersion.html"><i class="fa fa-check"></i><b>12</b> Measures of Dispersion</a></li>
 <li class="chapter" data-level="13" data-path="frequency-and-probability-distributions.html"><a href="frequency-and-probability-distributions.html"><i class="fa fa-check"></i><b>13</b> Frequency and Probability Distributions</a></li>
 <li class="chapter" data-level="14" data-path="some-basic-plotting-in-r.html"><a href="some-basic-plotting-in-r.html"><i class="fa fa-check"></i><b>14</b> Some basic plotting in R</a></li>
-<li class="chapter" data-level="15" data-path="working-with-the-t-distribution.html"><a href="working-with-the-t-distribution.html"><i class="fa fa-check"></i><b>15</b> Working with the T-distribution</a><ul>
-<li class="chapter" data-level="15.1" data-path="working-with-the-t-distribution.html"><a href="working-with-the-t-distribution.html#a-bit-about-the-t-distribution"><i class="fa fa-check"></i><b>15.1</b> A bit about the t-distribution</a></li>
-<li class="chapter" data-level="15.2" data-path="working-with-the-t-distribution.html"><a href="working-with-the-t-distribution.html#finding-probabilities"><i class="fa fa-check"></i><b>15.2</b> Finding probabilities</a></li>
-</ul></li>
+<li class="chapter" data-level="15" data-path="working-with-the-normal-distribution.html"><a href="working-with-the-normal-distribution.html"><i class="fa fa-check"></i><b>15</b> Working with the Normal Distribution</a></li>
 <li class="chapter" data-level="16" data-path="the-binomial-distribution.html"><a href="the-binomial-distribution.html"><i class="fa fa-check"></i><b>16</b> The Binomial Distribution</a></li>
-<li class="chapter" data-level="17" data-path="working-with-the-normal-distribution.html"><a href="working-with-the-normal-distribution.html"><i class="fa fa-check"></i><b>17</b> Working with the Normal Distribution</a></li>
+<li class="chapter" data-level="17" data-path="working-with-the-t-distribution.html"><a href="working-with-the-t-distribution.html"><i class="fa fa-check"></i><b>17</b> Working with the T-distribution</a><ul>
+<li class="chapter" data-level="17.1" data-path="working-with-the-t-distribution.html"><a href="working-with-the-t-distribution.html#a-bit-about-the-t-distribution"><i class="fa fa-check"></i><b>17.1</b> A bit about the t-distribution</a></li>
+<li class="chapter" data-level="17.2" data-path="working-with-the-t-distribution.html"><a href="working-with-the-t-distribution.html#finding-probabilities"><i class="fa fa-check"></i><b>17.2</b> Finding probabilities</a><ul>
+<li class="chapter" data-level="17.2.1" data-path="working-with-the-t-distribution.html"><a href="working-with-the-t-distribution.html#finding-quantiles-given-a-probability"><i class="fa fa-check"></i><b>17.2.1</b> Finding quantiles given a probability</a></li>
+</ul></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -99,20 +139,43 @@
 
             <section class="normal" id="section-">
 <div id="working-with-the-t-distribution" class="section level1">
-<h1><span class="header-section-number">15</span> Working with the T-distribution</h1>
+<h1><span class="header-section-number">17</span> Working with the T-distribution</h1>
 <p>Learning objectives</p>
-<p>Get a general idea about the t-distribution. Learn how to find areas under the curve for the t-distribution using a table.</p>
+<ol style="list-style-type: decimal">
+<li>Get a general idea about the t-distribution.</li>
+<li>Learn how to find areas under the curve for the t-distribution using a table.</li>
+</ol>
 <div id="a-bit-about-the-t-distribution" class="section level2">
-<h2><span class="header-section-number">15.1</span> A bit about the t-distribution</h2>
+<h2><span class="header-section-number">17.1</span> A bit about the t-distribution</h2>
 <p>The t distribution is a theoretical probability distribution. It is symmetrical, bell-shaped, and similar to the standard normal curve. It differs from the standard normal curve, however, in that it has different parameter, called degrees of freedom, which changes its shape. This is usually labled <span class="math inline">\(df\)</span> or <span class="math inline">\(\nu\)</span>.</p>
 <p>Note that the smaller the df, the flatter the shape of the distribution, resulting in greater area in the tails of the distribution. The t distribution is useful for distributions with degrees of freedom less than 30. It is a more accurate way of describing distributions with relatively low degrees of freedom. As df approaches infinity, the t distribution becomes more like the normal distribution.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x&lt;-<span class="kw">seq</span>(<span class="dt">from=</span>-<span class="dv">5</span>, <span class="dt">to=</span><span class="dv">5</span>, <span class="dt">by=</span>.<span class="dv">1</span>)
+<span class="kw">plot</span>(x, <span class="kw">dnorm</span>(x), <span class="dt">lwd=</span><span class="dv">3</span>, <span class="dt">type=</span><span class="st">&quot;l&quot;</span>, <span class="dt">col=</span><span class="dv">1</span>, <span class="dt">lty=</span><span class="dv">1</span>)
+<span class="kw">lines</span>(x, <span class="kw">dt</span>(x, <span class="dt">df=</span><span class="dv">10</span>), <span class="dt">lwd=</span><span class="dv">3</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, .<span class="dv">4</span>), <span class="dt">col=</span><span class="dv">2</span>, <span class="dt">lty=</span><span class="dv">2</span>)
+<span class="kw">lines</span>(x, <span class="kw">dt</span>(x, <span class="dt">df=</span><span class="dv">5</span>), <span class="dt">lwd=</span><span class="dv">3</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, .<span class="dv">4</span>), <span class="dt">col=</span><span class="dv">3</span>, <span class="dt">lty=</span><span class="dv">3</span>)
+<span class="kw">lines</span>(x, <span class="kw">dt</span>(x, <span class="dt">df=</span><span class="dv">1</span>), <span class="dt">lwd=</span><span class="dv">3</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, .<span class="dv">4</span>), <span class="dt">col=</span><span class="dv">4</span>, <span class="dt">lty=</span><span class="dv">4</span>)
+<span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>, 
+       <span class="kw">c</span>(<span class="st">&quot;n(0,1)&quot;</span>, <span class="st">&quot;t(df=10)&quot;</span>, <span class="st">&quot;t(df=5)&quot;</span>, <span class="st">&quot;t(df=1)&quot;</span>), 
+       <span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>), <span class="dt">col=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>), <span class="dt">bty=</span><span class="st">&quot;n&quot;</span>)</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="finding-probabilities" class="section level2">
-<h2><span class="header-section-number">15.2</span> Finding probabilities</h2>
-<p>For the time being, I only want you learn how know how to use a t-table, which you can find <a href="https://pages.wustl.edu/files/pages/imce/montgomery/t_distribution.pdf">here</a>. This is really best shown using an example.</p>
-<p>For a distribution with <span class="math inline">\(n = 10\)</span>, find the probability of <span class="math inline">\(t \ge 0.1\)</span>.</p>
-<p>First, we need to determine the degrees of freedom (10-1 = 9). Once we have established the degrees of freedom as 9, we can use the t value to find the probability <span class="math inline">\(P (t \ge 0.1)\)</span>. That is, we can now use our t-value in conjunction with our t table in order to find our probability. Once we have located how many degrees of freedom we have on our table (9, row 1, column 9) we can scan the columns for the right t-value to the first column, lableed <span class="math inline">\(t_{.100}\)</span>. The corresponding probability is 1.38. Note that this value corresponds to the probability to the right of the t-value. So if we want the area to the left, we will have to use some of the tricks shown on the normal distribution page.</p>
+<h2><span class="header-section-number">17.2</span> Finding probabilities</h2>
+<p>For the time being, <a href="https://pages.wustl.edu/files/pages/imce/montgomery/t_distribution.pdf">I only want you learn how know how to use a t-table, which you can find here</a>. This is really best shown using an example.</p>
+<p>For a distribution with <span class="math inline">\(n = 10\)</span>, find the probability of <span class="math inline">\(t \ge 1.38\)</span>.</p>
+<p>In R this can be done with</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pt</span>(<span class="fl">1.38</span>, <span class="dt">df=</span><span class="dv">9</span>, <span class="dt">lower.tail=</span><span class="ot">FALSE</span>)</code></pre></div>
+<pre><code>## [1] 0.1004493</code></pre>
+<p>But what if we are doing this on a test? First, we need to determine the degrees of freedom (10-1 = 9). Once we have established the degrees of freedom as 9, we can use the t value to find the probability <span class="math inline">\(P (t \ge 0.1)\)</span>. That is, we can now use our t-value in conjunction with our t table in order to find our probability. Once we have located how many degrees of freedom we have, we can go to our table and look in the row labeled 9 on the left. Now, we want to find the column that is closest to our value. In this case, we see that the first column has 1.363, which is pretty close to the number we have. We then look up at the column header and see <span class="math inline">\(t_{.100}\)</span>, so corresponding probability is approximately 0.100.</p>
+<p>Sometimes you have to guestimate between two values. Don’t worry to much about this. As long as you put a number between the two values, we will mark it as correct on the exam. (But you should just use R for the problem sets.)</p>
+<div id="finding-quantiles-given-a-probability" class="section level3">
+<h3><span class="header-section-number">17.2.1</span> Finding quantiles given a probability</h3>
+<p>Sometimes we may ask you to reverse this process. We may tell you that the probability to the right is <span class="math inline">\(0.025\)</span> and we have 16 degrees of freedom. In this case, we just go to the right column (labeled 16) and go to the column labeled <span class="math inline">\(t_{0.025}\)</span>. You shoudl see that the cell is lableed 2.120, which is the right answer.</p>
+<p>In R this can be done with:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qt</span>(<span class="fl">0.025</span>, <span class="dt">df=</span><span class="dv">16</span>, <span class="dt">lower.tail=</span><span class="ot">FALSE</span>)</code></pre></div>
+<pre><code>## [1] 2.119905</code></pre>
 
+</div>
 </div>
 </div>
             </section>
@@ -120,10 +183,9 @@
           </div>
         </div>
       </div>
-<a href="some-basic-plotting-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="the-binomial-distribution.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
-    </div>
-  </div>
+<a href="the-binomial-distribution.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
@@ -166,7 +228,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
     if (location.protocol !== "file:" && /^https?:/.test(script.src))
       script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);

@@ -1,0 +1,53 @@
+
+# Working with the T-distribution
+
+Learning objectives
+
+1. Get a general idea about the t-distribution.
+2. Learn how to find areas under the curve for the t-distribution using a table.
+
+##A bit about the t-distribution
+
+The t distribution is a theoretical probability distribution. It is symmetrical, bell-shaped, and similar to the standard normal curve. It differs from the standard normal curve, however, in that it has different parameter, called degrees of freedom, which changes its shape. This is usually labled $df$ or $\nu$.
+
+Note that the smaller the df, the flatter the shape of the distribution, resulting in greater area in the tails of the distribution. The t distribution is useful for distributions with degrees of freedom less than 30. It is a more accurate way of describing distributions with relatively low degrees of freedom. As df approaches infinity, the t distribution becomes more like the normal distribution.    
+
+
+```{r, tidy=FALSE,size="\\tiny", fig.align="center", echo=TRUE}
+x<-seq(from=-5, to=5, by=.1)
+plot(x, dnorm(x), lwd=3, type="l", col=1, lty=1)
+lines(x, dt(x, df=10), lwd=3, ylim=c(0, .4), col=2, lty=2)
+lines(x, dt(x, df=5), lwd=3, ylim=c(0, .4), col=3, lty=3)
+lines(x, dt(x, df=1), lwd=3, ylim=c(0, .4), col=4, lty=4)
+legend("topleft", 
+       c("n(0,1)", "t(df=10)", "t(df=5)", "t(df=1)"), 
+       lty=c(1,2,3,4), col=c(1,2,3,4), bty="n")
+```
+
+
+
+##Finding probabilities
+
+For the time being, [I only want you learn how  know how to use a t-table, which you can find here](https://pages.wustl.edu/files/pages/imce/montgomery/t_distribution.pdf). This is really best shown using an example.
+
+For a distribution with $n = 10$, find the probability of $t \ge 1.38$. 
+
+In R this can be done with
+```{r}
+pt(1.38, df=9, lower.tail=FALSE)
+```
+
+But what if we are doing this on a test? First, we need to determine the degrees of freedom (10-1 = 9).
+Once we have established the degrees of freedom as 9, we can use the t value to find the probability $P (t \ge 0.1)$.  That is, we can now use our t-value in conjunction with our t table in order to find our probability. Once we have located how many degrees of freedom we have, we can go to our table and look in the row labeled 9 on the left.  Now, we want to find the column that is closest to our value. In this case, we see that the first column has 1.363, which is pretty close to the number we have.  We then look up at the column header and see $t_{.100}$, so corresponding probability is approximately 0.100. 
+
+Sometimes you have to guestimate between two values.  Don't worry to much about this. As long as you put a number between the two values, we will mark it as correct on the exam.  (But you should just use R for the problem sets.)
+
+
+### Finding quantiles given a probability
+
+Sometimes we may ask you to reverse this process.  We may tell you that the probability to the right is $0.025$ and we have 16 degrees of freedom.  In this case, we just go to the right column (labeled 16) and go to the column labeled $t_{0.025}$.  You shoudl see that the cell is lableed 2.120, which is the right answer.
+
+In R this can be done with:
+```{r}
+qt(0.025, df=16, lower.tail=FALSE)
+```

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Quantitative Political Methods Coursebook</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Quantitative Political Methods Coursebook">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Quantitative Political Methods Coursebook" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Quantitative Political Methods Coursebook" />
+  
+  
+  
+
+<meta name="author" content="Jacob Montgomery">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="some-basic-plotting-in-r.html">
+<link rel="next" href="sampling-distributions-pt-2.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Class Overview</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#learning-objective-1-what-is-the-point-of-all-of-this-group-work"><i class="fa fa-check"></i><b>1.1</b> Learning objective #1: What is the point of all of this group work?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#learning-object-2-what-is-the-point-of-all-of-these-online-activites"><i class="fa fa-check"></i><b>1.2</b> Learning object #2: What is the point of all of these online activites?</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#learning-objective-3-how-is-this-going-to-work"><i class="fa fa-check"></i><b>1.3</b> Learning objective #3: How is this going to work?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="measurement-error.html"><a href="measurement-error.html"><i class="fa fa-check"></i><b>2</b> Measurement Error</a><ul>
+<li class="chapter" data-level="2.1" data-path="measurement-error.html"><a href="measurement-error.html#learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="measurement-error.html"><a href="measurement-error.html#learning-objective-1-types-of-biases-asdf"><i class="fa fa-check"></i><b>2.2</b> Learning Objective 1: Types of Biases asdf</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="measurement-error.html"><a href="measurement-error.html#sampling-bias"><i class="fa fa-check"></i><b>2.2.1</b> Sampling bias</a></li>
+<li class="chapter" data-level="2.2.2" data-path="measurement-error.html"><a href="measurement-error.html#response-bias"><i class="fa fa-check"></i><b>2.2.2</b> Response bias</a></li>
+<li class="chapter" data-level="2.2.3" data-path="measurement-error.html"><a href="measurement-error.html#non-response-bias"><i class="fa fa-check"></i><b>2.2.3</b> Non-response bias</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="measurement-error.html"><a href="measurement-error.html#whats-the-takeaway"><i class="fa fa-check"></i><b>2.3</b> What’s the takeaway?</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="scales-of-measurement.html"><a href="scales-of-measurement.html"><i class="fa fa-check"></i><b>3</b> Scales of Measurement</a><ul>
+<li class="chapter" data-level="3.1" data-path="scales-of-measurement.html"><a href="scales-of-measurement.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1</b> Learning Objectives:</a></li>
+<li class="chapter" data-level="3.2" data-path="scales-of-measurement.html"><a href="scales-of-measurement.html#learning-objective-1-scales"><i class="fa fa-check"></i><b>3.2</b> Learning Objective 1: Scales</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="scales-of-measurement.html"><a href="scales-of-measurement.html#first-of-all-what-do-we-mean-by-scales"><i class="fa fa-check"></i><b>3.2.1</b> First of all, what do we mean by scales?</a></li>
+<li class="chapter" data-level="3.2.2" data-path="scales-of-measurement.html"><a href="scales-of-measurement.html#nominal-scale"><i class="fa fa-check"></i><b>3.2.2</b> Nominal Scale</a></li>
+<li class="chapter" data-level="3.2.3" data-path="scales-of-measurement.html"><a href="scales-of-measurement.html#ordinal-scale"><i class="fa fa-check"></i><b>3.2.3</b> Ordinal Scale:</a></li>
+<li class="chapter" data-level="3.2.4" data-path="scales-of-measurement.html"><a href="scales-of-measurement.html#interval-scale"><i class="fa fa-check"></i><b>3.2.4</b> Interval Scale:</a></li>
+<li class="chapter" data-level="3.2.5" data-path="scales-of-measurement.html"><a href="scales-of-measurement.html#ratio-scale"><i class="fa fa-check"></i><b>3.2.5</b> Ratio scale:</a></li>
+<li class="chapter" data-level="3.2.6" data-path="scales-of-measurement.html"><a href="scales-of-measurement.html#focus-on-the-measurement-and-not-the-concept"><i class="fa fa-check"></i><b>3.2.6</b> Focus on the measurement and not the concept</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="scales-of-measurement.html"><a href="scales-of-measurement.html#summary"><i class="fa fa-check"></i><b>3.3</b> Summary:</a></li>
+<li class="chapter" data-level="3.4" data-path="scales-of-measurement.html"><a href="scales-of-measurement.html#learning-objective-2-granularity"><i class="fa fa-check"></i><b>3.4</b> Learning Objective 2: Granularity</a></li>
+<li class="chapter" data-level="3.5" data-path="scales-of-measurement.html"><a href="scales-of-measurement.html#what-is-granularity"><i class="fa fa-check"></i><b>3.5</b> What is granularity?</a></li>
+<li class="chapter" data-level="3.6" data-path="scales-of-measurement.html"><a href="scales-of-measurement.html#what-are-the-takeaways"><i class="fa fa-check"></i><b>3.6</b> What are the takeaways?</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="random-samples.html"><a href="random-samples.html"><i class="fa fa-check"></i><b>4</b> Random Samples</a><ul>
+<li class="chapter" data-level="4.1" data-path="random-samples.html"><a href="random-samples.html#learning-objectives-2"><i class="fa fa-check"></i><b>4.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="random-samples.html"><a href="random-samples.html#learning-objective-1-random-samples"><i class="fa fa-check"></i><b>4.2</b> Learning Objective 1: Random Samples</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="random-samples.html"><a href="random-samples.html#what-is-a-random-sample"><i class="fa fa-check"></i><b>4.2.1</b> What is a random sample?</a></li>
+<li class="chapter" data-level="4.2.2" data-path="random-samples.html"><a href="random-samples.html#why-do-we-care-if-a-sample-is-random"><i class="fa fa-check"></i><b>4.2.2</b> Why do we care if a sample is random?</a></li>
+<li class="chapter" data-level="4.2.3" data-path="random-samples.html"><a href="random-samples.html#real-life-application-dont-look-ignorant-in-your-newspaper-column"><i class="fa fa-check"></i><b>4.2.3</b> Real-life application: Don’t look ignorant in your newspaper column</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="random-samples.html"><a href="random-samples.html#learning-objective-2-types-of-random-samples"><i class="fa fa-check"></i><b>4.3</b> Learning Objective 2: Types of Random Samples</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="random-samples.html"><a href="random-samples.html#simple-random-sample"><i class="fa fa-check"></i><b>4.3.1</b> Simple Random Sample:</a></li>
+<li class="chapter" data-level="4.3.2" data-path="random-samples.html"><a href="random-samples.html#systematic-random-sample"><i class="fa fa-check"></i><b>4.3.2</b> Systematic Random Sample:</a></li>
+<li class="chapter" data-level="4.3.3" data-path="random-samples.html"><a href="random-samples.html#stratified-random-sample"><i class="fa fa-check"></i><b>4.3.3</b> Stratified Random Sample:</a></li>
+<li class="chapter" data-level="4.3.4" data-path="random-samples.html"><a href="random-samples.html#cluster-samples"><i class="fa fa-check"></i><b>4.3.4</b> Cluster Samples:</a></li>
+<li class="chapter" data-level="4.3.5" data-path="random-samples.html"><a href="random-samples.html#multi-stage-sampling"><i class="fa fa-check"></i><b>4.3.5</b> Multi-Stage Sampling:</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="random-samples.html"><a href="random-samples.html#what-are-the-takeaways-1"><i class="fa fa-check"></i><b>4.4</b> What are the takeaways?</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="installing-r-and-r-studio.html"><a href="installing-r-and-r-studio.html"><i class="fa fa-check"></i><b>5</b> Installing R and R Studio</a><ul>
+<li class="chapter" data-level="5.1" data-path="installing-r-and-r-studio.html"><a href="installing-r-and-r-studio.html#installing-r-and-r-studio-on-a-mac-would-also-work-for-other-platforms"><i class="fa fa-check"></i><b>5.1</b> Installing R and R Studio on a Mac (would also work for other platforms)</a></li>
+<li class="chapter" data-level="5.2" data-path="installing-r-and-r-studio.html"><a href="installing-r-and-r-studio.html#installing-r-and-r-studio-on-windows"><i class="fa fa-check"></i><b>5.2</b> Installing R and R Studio on Windows</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="a-brief-introduction-to-r.html"><a href="a-brief-introduction-to-r.html"><i class="fa fa-check"></i><b>6</b> A Brief Introduction to R</a></li>
+<li class="chapter" data-level="7" data-path="importing-data-into-r.html"><a href="importing-data-into-r.html"><i class="fa fa-check"></i><b>7</b> Importing data into R</a><ul>
+<li class="chapter" data-level="7.1" data-path="importing-data-into-r.html"><a href="importing-data-into-r.html#learning-objectives-3"><i class="fa fa-check"></i><b>7.1</b> Learning Objectives:</a></li>
+<li class="chapter" data-level="7.2" data-path="importing-data-into-r.html"><a href="importing-data-into-r.html#importing-data"><i class="fa fa-check"></i><b>7.2</b> Importing Data</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="importing-data-into-r.html"><a href="importing-data-into-r.html#telling-r-where-to-look"><i class="fa fa-check"></i><b>7.2.1</b> Telling R where to look</a></li>
+<li class="chapter" data-level="7.2.2" data-path="importing-data-into-r.html"><a href="importing-data-into-r.html#reading-in-your-first-data-file"><i class="fa fa-check"></i><b>7.2.2</b> Reading in your first data file</a></li>
+<li class="chapter" data-level="7.2.3" data-path="importing-data-into-r.html"><a href="importing-data-into-r.html#summarizing-the-variables-in-your-dataset"><i class="fa fa-check"></i><b>7.2.3</b> Summarizing the variables in your dataset</a></li>
+<li class="chapter" data-level="7.2.4" data-path="importing-data-into-r.html"><a href="importing-data-into-r.html#adding-a-variable-to-your-data"><i class="fa fa-check"></i><b>7.2.4</b> Adding a variable to your data</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="importing-data-into-r.html"><a href="importing-data-into-r.html#lets-go-through-that-all-again"><i class="fa fa-check"></i><b>7.3</b> Let’s go through that all again</a></li>
+<li class="chapter" data-level="7.4" data-path="importing-data-into-r.html"><a href="importing-data-into-r.html#now-lets-practice-a-bit"><i class="fa fa-check"></i><b>7.4</b> Now let’s practice a bit</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="visualizing-data-in-r.html"><a href="visualizing-data-in-r.html"><i class="fa fa-check"></i><b>8</b> Visualizing Data in R</a><ul>
+<li class="chapter" data-level="8.1" data-path="visualizing-data-in-r.html"><a href="visualizing-data-in-r.html#lets-start-with-a-couple-of-good-videos"><i class="fa fa-check"></i><b>8.1</b> Let’s start with a couple of good videos</a></li>
+<li class="chapter" data-level="8.2" data-path="visualizing-data-in-r.html"><a href="visualizing-data-in-r.html#basic-visulualization"><i class="fa fa-check"></i><b>8.2</b> Basic visulualization</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="visualizing-data-in-r.html"><a href="visualizing-data-in-r.html#making-your-first-plots"><i class="fa fa-check"></i><b>8.2.1</b> Making your first plots</a></li>
+<li class="chapter" data-level="8.2.2" data-path="visualizing-data-in-r.html"><a href="visualizing-data-in-r.html#saving-your-plot"><i class="fa fa-check"></i><b>8.2.2</b> Saving your plot</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="visualizing-data-in-r.html"><a href="visualizing-data-in-r.html#try-a-bit-more-on-your-own."><i class="fa fa-check"></i><b>8.3</b> Try a bit more on your own.</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="measures-of-position.html"><a href="measures-of-position.html"><i class="fa fa-check"></i><b>9</b> Measures of Position</a><ul>
+<li class="chapter" data-level="9.1" data-path="measures-of-position.html"><a href="measures-of-position.html#percentile"><i class="fa fa-check"></i><b>9.1</b> Percentile</a></li>
+<li class="chapter" data-level="9.2" data-path="measures-of-position.html"><a href="measures-of-position.html#interquartile-range"><i class="fa fa-check"></i><b>9.2</b> Interquartile Range</a></li>
+<li class="chapter" data-level="9.3" data-path="measures-of-position.html"><a href="measures-of-position.html#outliers"><i class="fa fa-check"></i><b>9.3</b> Outliers</a></li>
+<li class="chapter" data-level="9.4" data-path="measures-of-position.html"><a href="measures-of-position.html#skew"><i class="fa fa-check"></i><b>9.4</b> Skew</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html"><i class="fa fa-check"></i><b>10</b> Measures of Central Tendency</a><ul>
+<li class="chapter" data-level="10.1" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#learning-objective-1-mean"><i class="fa fa-check"></i><b>10.1</b> Learning objective 1: Mean</a></li>
+<li class="chapter" data-level="10.2" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#learning-objective-2-median"><i class="fa fa-check"></i><b>10.2</b> Learning objective 2: Median</a></li>
+<li class="chapter" data-level="10.3" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#learning-objective-3-mode"><i class="fa fa-check"></i><b>10.3</b> Learning objective 3: Mode</a></li>
+<li class="chapter" data-level="10.4" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#another-look"><i class="fa fa-check"></i><b>10.4</b> Another look:</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="measures-of-dispersion.html"><a href="measures-of-dispersion.html"><i class="fa fa-check"></i><b>11</b> Measures of Dispersion</a><ul>
+<li class="chapter" data-level="11.1" data-path="measures-of-dispersion.html"><a href="measures-of-dispersion.html#learning-objective-1-range"><i class="fa fa-check"></i><b>11.1</b> Learning objective 1: Range</a></li>
+<li class="chapter" data-level="11.2" data-path="measures-of-dispersion.html"><a href="measures-of-dispersion.html#learning-objective-2-deviations"><i class="fa fa-check"></i><b>11.2</b> Learning objective 2: Deviations</a></li>
+<li class="chapter" data-level="11.3" data-path="measures-of-dispersion.html"><a href="measures-of-dispersion.html#learning-objective-3-variance"><i class="fa fa-check"></i><b>11.3</b> Learning objective 3: Variance</a></li>
+<li class="chapter" data-level="11.4" data-path="measures-of-dispersion.html"><a href="measures-of-dispersion.html#learning-objective-4-standard-deviation"><i class="fa fa-check"></i><b>11.4</b> Learning objective 4: Standard deviation</a></li>
+<li class="chapter" data-level="11.5" data-path="measures-of-dispersion.html"><a href="measures-of-dispersion.html#learning-objective-5-the-empirical-rule"><i class="fa fa-check"></i><b>11.5</b> Learning objective 5: The Empirical Rule</a></li>
+<li class="chapter" data-level="11.6" data-path="measures-of-dispersion.html"><a href="measures-of-dispersion.html#review-that-all-again"><i class="fa fa-check"></i><b>11.6</b> Review that all again</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="frequency-and-probability-distributions.html"><a href="frequency-and-probability-distributions.html"><i class="fa fa-check"></i><b>12</b> Frequency and Probability Distributions</a><ul>
+<li class="chapter" data-level="12.1" data-path="frequency-and-probability-distributions.html"><a href="frequency-and-probability-distributions.html#learning-objectives-4"><i class="fa fa-check"></i><b>12.1</b> Learning objectives</a></li>
+<li class="chapter" data-level="12.2" data-path="frequency-and-probability-distributions.html"><a href="frequency-and-probability-distributions.html#what-is-a-probability"><i class="fa fa-check"></i><b>12.2</b> What is a probability?</a></li>
+<li class="chapter" data-level="12.3" data-path="frequency-and-probability-distributions.html"><a href="frequency-and-probability-distributions.html#frequency-distribution"><i class="fa fa-check"></i><b>12.3</b> Frequency distribution</a><ul>
+<li class="chapter" data-level="12.3.1" data-path="frequency-and-probability-distributions.html"><a href="frequency-and-probability-distributions.html#probability-and-sets"><i class="fa fa-check"></i><b>12.3.1</b> Probability and sets</a></li>
+<li class="chapter" data-level="12.3.2" data-path="frequency-and-probability-distributions.html"><a href="frequency-and-probability-distributions.html#what-makes-a-frequency-distribution-special"><i class="fa fa-check"></i><b>12.3.2</b> What makes a frequency distribution special?</a></li>
+<li class="chapter" data-level="12.3.3" data-path="frequency-and-probability-distributions.html"><a href="frequency-and-probability-distributions.html#external-resources"><i class="fa fa-check"></i><b>12.3.3</b> External resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="some-basic-plotting-in-r.html"><a href="some-basic-plotting-in-r.html"><i class="fa fa-check"></i><b>13</b> Some basic plotting in R</a></li>
+<li class="chapter" data-level="14" data-path="sampling-distributions-pt-1.html"><a href="sampling-distributions-pt-1.html"><i class="fa fa-check"></i><b>14</b> Sampling Distributions, Pt. 1</a><ul>
+<li class="chapter" data-level="14.1" data-path="sampling-distributions-pt-1.html"><a href="sampling-distributions-pt-1.html#lets-review"><i class="fa fa-check"></i><b>14.1</b> Let’s review</a></li>
+<li class="chapter" data-level="14.2" data-path="sampling-distributions-pt-1.html"><a href="sampling-distributions-pt-1.html#what-is-a-sampling-distribution"><i class="fa fa-check"></i><b>14.2</b> What is a sampling distribution?</a></li>
+<li class="chapter" data-level="14.3" data-path="sampling-distributions-pt-1.html"><a href="sampling-distributions-pt-1.html#how-is-a-sampling-distribution-different-from-the-sample-distribution-or-the-population-distribution"><i class="fa fa-check"></i><b>14.3</b> How is a sampling distribution different from the sample distribution or the population distribution?</a></li>
+<li class="chapter" data-level="14.4" data-path="sampling-distributions-pt-1.html"><a href="sampling-distributions-pt-1.html#what-are-the-takeaways-2"><i class="fa fa-check"></i><b>14.4</b> What are the takeaways?</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="sampling-distributions-pt-2.html"><a href="sampling-distributions-pt-2.html"><i class="fa fa-check"></i><b>15</b> Sampling Distributions, Pt. 2</a><ul>
+<li class="chapter" data-level="15.1" data-path="sampling-distributions-pt-2.html"><a href="sampling-distributions-pt-2.html#lets-review-1"><i class="fa fa-check"></i><b>15.1</b> Let’s review</a></li>
+<li class="chapter" data-level="15.2" data-path="sampling-distributions-pt-2.html"><a href="sampling-distributions-pt-2.html#how-do-we-know-what-the-shape-of-a-sampling-distribution-is-when-the-sample-size-is-large"><i class="fa fa-check"></i><b>15.2</b> How do we know what the shape of a sampling distribution is when the sample size is large?</a></li>
+<li class="chapter" data-level="15.3" data-path="sampling-distributions-pt-2.html"><a href="sampling-distributions-pt-2.html#take-a-step-back"><i class="fa fa-check"></i><b>15.3</b> Take a step back</a></li>
+<li class="chapter" data-level="15.4" data-path="sampling-distributions-pt-2.html"><a href="sampling-distributions-pt-2.html#how-do-we-know-what-the-mean-of-a-sampling-distribution-is"><i class="fa fa-check"></i><b>15.4</b> How do we know what the <em>mean</em> of a sampling distribution is?</a></li>
+<li class="chapter" data-level="15.5" data-path="sampling-distributions-pt-2.html"><a href="sampling-distributions-pt-2.html#how-do-we-know-what-the-standard-error-is"><i class="fa fa-check"></i><b>15.5</b> How do we know what the <em>standard error</em> is?</a><ul>
+<li class="chapter" data-level="15.5.1" data-path="sampling-distributions-pt-2.html"><a href="sampling-distributions-pt-2.html#if-we-know-the-population-variance"><i class="fa fa-check"></i><b>15.5.1</b> If we know the population variance:</a></li>
+<li class="chapter" data-level="15.5.2" data-path="sampling-distributions-pt-2.html"><a href="sampling-distributions-pt-2.html#if-we-dont-know-the-population-variance-and-the-sample-size-is-large"><i class="fa fa-check"></i><b>15.5.2</b> If we don’t know the population variance AND the sample size is large:</a></li>
+</ul></li>
+<li class="chapter" data-level="15.6" data-path="sampling-distributions-pt-2.html"><a href="sampling-distributions-pt-2.html#some-notes-on-notation"><i class="fa fa-check"></i><b>15.6</b> Some notes on notation</a></li>
+<li class="chapter" data-level="15.7" data-path="sampling-distributions-pt-2.html"><a href="sampling-distributions-pt-2.html#whats-the-takeaway-1"><i class="fa fa-check"></i><b>15.7</b> What’s the takeaway?</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="working-with-the-normal-distribution.html"><a href="working-with-the-normal-distribution.html"><i class="fa fa-check"></i><b>16</b> Working with the Normal Distribution</a><ul>
+<li class="chapter" data-level="16.1" data-path="working-with-the-normal-distribution.html"><a href="working-with-the-normal-distribution.html#the-standard-normal-distribution"><i class="fa fa-check"></i><b>16.1</b> The Standard Normal Distribution</a><ul>
+<li class="chapter" data-level="16.1.1" data-path="working-with-the-normal-distribution.html"><a href="working-with-the-normal-distribution.html#example"><i class="fa fa-check"></i><b>16.1.1</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="working-with-the-normal-distribution.html"><a href="working-with-the-normal-distribution.html#z-scores"><i class="fa fa-check"></i><b>16.2</b> Z-scores</a></li>
+<li class="chapter" data-level="16.3" data-path="working-with-the-normal-distribution.html"><a href="working-with-the-normal-distribution.html#whats-the-point-of-the-z-score"><i class="fa fa-check"></i><b>16.3</b> What’s the point of the z-score?</a></li>
+<li class="chapter" data-level="16.4" data-path="working-with-the-normal-distribution.html"><a href="working-with-the-normal-distribution.html#examples"><i class="fa fa-check"></i><b>16.4</b> Examples</a><ul>
+<li class="chapter" data-level="16.4.1" data-path="working-with-the-normal-distribution.html"><a href="working-with-the-normal-distribution.html#example-1-finding-the-area-to-the-left-when-xmu"><i class="fa fa-check"></i><b>16.4.1</b> Example 1: Finding the area to the left, when <span class="math inline">\(x&lt;\mu\)</span></a></li>
+<li class="chapter" data-level="16.4.2" data-path="working-with-the-normal-distribution.html"><a href="working-with-the-normal-distribution.html#example-2-finding-the-area-to-the-right-when-x-le-mu."><i class="fa fa-check"></i><b>16.4.2</b> Example 2: Finding the area to the right when <span class="math inline">\(x \le \mu\)</span>.</a></li>
+<li class="chapter" data-level="16.4.3" data-path="working-with-the-normal-distribution.html"><a href="working-with-the-normal-distribution.html#example-3-finding-the-point-given-an-area"><i class="fa fa-check"></i><b>16.4.3</b> Example 3: Finding the point given an area</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="the-binomial-distribution.html"><a href="the-binomial-distribution.html"><i class="fa fa-check"></i><b>17</b> The Binomial Distribution</a><ul>
+<li class="chapter" data-level="17.1" data-path="the-binomial-distribution.html"><a href="the-binomial-distribution.html#the-binomial-distribution-1"><i class="fa fa-check"></i><b>17.1</b> The Binomial Distribution</a></li>
+<li class="chapter" data-level="17.2" data-path="the-binomial-distribution.html"><a href="the-binomial-distribution.html#calculating-probabilities-using-a-table"><i class="fa fa-check"></i><b>17.2</b> Calculating probabilities using a table</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="working-with-the-t-distribution.html"><a href="working-with-the-t-distribution.html"><i class="fa fa-check"></i><b>18</b> Working with the T-distribution</a><ul>
+<li class="chapter" data-level="18.1" data-path="working-with-the-t-distribution.html"><a href="working-with-the-t-distribution.html#a-bit-about-the-t-distribution"><i class="fa fa-check"></i><b>18.1</b> A bit about the t-distribution</a></li>
+<li class="chapter" data-level="18.2" data-path="working-with-the-t-distribution.html"><a href="working-with-the-t-distribution.html#finding-probabilities"><i class="fa fa-check"></i><b>18.2</b> Finding probabilities</a><ul>
+<li class="chapter" data-level="18.2.1" data-path="working-with-the-t-distribution.html"><a href="working-with-the-t-distribution.html#finding-quantiles-given-a-probability"><i class="fa fa-check"></i><b>18.2.1</b> Finding quantiles given a probability</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Quantitative Political Methods Coursebook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="sampling-distributions-pt.-1" class="section level1">
+<h1><span class="header-section-number">14</span> Sampling Distributions, Pt. 1</h1>
+<p>Learning Objectives:</p>
+<ol style="list-style-type: decimal">
+<li>Understand what a sampling distribution is, and how it is different from a sample distribution, or the population distribution.</li>
+<li>Understand the difference between a standard deviation and a sandard error.</li>
+</ol>
+<div id="lets-review" class="section level2">
+<h2><span class="header-section-number">14.1</span> Let’s review</h2>
+<p>Thus far, we’ve dealt primarily with two distributions: <em>samples</em>, and <em>populations</em>, with samples being a subset of the population. Often times, it can be difficult to know the exact parameters of a population, so we use samples to estimate them.</p>
+<p>But samples are not perfect. Even a good random sample may have some error. That is, the statistics calculated from the sample may not exactly match up with the population parameters. So, for instance, the sample mean may not exactly match the population mean.</p>
+<p>We want to know how much error there will likely be in our sample statistics. To do this, we use the <strong>sampling distribution</strong>. The sampling distribution uses probability theory to describe how sample <em>statistics</em> will vary.</p>
+<p>For example, imagine we are running a study on the average household income in the United States. It would be infeasible to collect data for every single household, so we decide to do a survey. Let’s say we decide that our survey will have 2,000 households. We know that the sample mean might be slightly different from the actual population mean. But how different might it be? What is the probability that your sample will be off by 1,000? By 3,000? By 10,000?</p>
+<p>To answer this question, we use the sampling distribution, which tells us the expected results of a sample if we were to (theoretically) collect a sample of that size many, many times.</p>
+</div>
+<div id="what-is-a-sampling-distribution" class="section level2">
+<h2><span class="header-section-number">14.2</span> What is a sampling distribution?</h2>
+<blockquote>
+<p>A sampling tells us how the <strong>sample statistics</strong> would be distributed if we took a random sample from the poppulation many times.</p>
+</blockquote>
+<p>In other words, if you were to draw large samples from a population repeatedly, and graph the resulting sample means, the sampling distribution is what that graph would look like.</p>
+<p>In the samples we’ve been dealing with so far, the <strong>standard deviation</strong> is a measure of how far individuals in a population tend to be from the population mean. It is a measure of how spread out individuals are in the population. In a sampling distribution, the <strong>standard error</strong> is a measure of how far a sample mean or proportion tends to be from the true population mean or proportion. (NOTE: Read this paragraph a few times and make sure you understand the difference. DO NOT CONFUSE STANDARD DEVIATIONS WITH STANDARD ERRORS.)</p>
+<p>To distinguish between samples, sampling distributions, and populations, it may help to think of this using college terms. Below are the college equivalents to these terms.</p>
+<ul>
+<li>Populations:
+<ul>
+<li>Population: Students at Wash U</li>
+<li>Population parameter (<span class="math inline">\(\mu\)</span>): Average GPA at Wash U</li>
+</ul></li>
+<li>Sample: the students in one course
+<ul>
+<li>Sample mean (<span class="math inline">\(\bar{x}\)</span>): The mean GPA in that one course</li>
+</ul></li>
+<li>Sampling distribution: the hypothetical distribution of mean course GPAs for all classes at Wash U.
+<ul>
+<li>Standard error: a measure of spread between a hypothetical mean course GPA and the school GPA</li>
+</ul></li>
+</ul>
+<p>Below is a short video describing a sampling distribution. (Don’t worry about the exact formulas yet. Just try and get the concept.)</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/uPX0NBrJfRI" frameborder="0" allowfullscreen>
+</iframe>
+</div>
+<div id="how-is-a-sampling-distribution-different-from-the-sample-distribution-or-the-population-distribution" class="section level2">
+<h2><span class="header-section-number">14.3</span> How is a sampling distribution different from the sample distribution or the population distribution?</h2>
+<p>The distribution of the sample (sometimes confusingly called the sample distribution) is the distribution of a single sample. In our example of household income, each point in the sample distribution represents one household that we surveyed.</p>
+<p>The sampl<strong>ing</strong> distribution shows the results of repeated samples, and each point in the sampling distribution represents one sample mean.</p>
+<p>The population distribution (if we could ever see it, which we cannot) shows every single possible data point in the population, and each data point represents one household.</p>
+</div>
+<div id="what-are-the-takeaways-2" class="section level2">
+<h2><span class="header-section-number">14.4</span> What are the takeaways?</h2>
+<p>A sampling distribution is the theoretical distribution of sample statistics. Each point on the sampling distribution represents a sample statistic.</p>
+<p>The standard error the sampling statistic is an indicator of how far a sample statistic is likely to be from the actual population parameter.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="some-basic-plotting-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sampling-distributions-pt-2.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
