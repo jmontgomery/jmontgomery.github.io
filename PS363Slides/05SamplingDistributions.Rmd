@@ -20,7 +20,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Class business
 
-- Problem set 2 will be distributed today via the syllabus
+- Problem set 2 is available via the syllabus.
 - Groups will be assigned this week.
 
 --------
@@ -38,7 +38,7 @@ This time:
 
 - Understanding the concept of a sampling distribution
 - Understand the concept of a standard error
-- See how the CLT allows us to know the distribution of certain sample statistics.
+- See how the CLT allows us to know the distribution of certain sample statistics
 
 ----
 
@@ -60,13 +60,14 @@ For random sampling with a **large** sample size $n$, the sampling distribution 
 
 
 
-- $\sigma/\sqrt{n}$ is called the standard error. \pause
+- $\sigma/\sqrt{n}$ is called the standard error.\pause
+
     - It is the standard deviation of the sampling distribution.
     - Note that the formula includes the population standard deviation $\sigma$.
     - Pay attention or you will get them mixed up. \pause
 - As $n \rightarrow \infty$, the standard error is going to get smaller and smaller.\pause
-- **This** is why the normal distribution is so very important.   \pause
-- Usually n=30 is ``good enough'', but it will depend on the distribution. \pause
+- **This** is why the normal distribution is very important.   \pause
+- Usually n=30 is ``good enough'', but it will depend on the distribution.
 
 
 ----
@@ -99,7 +100,7 @@ plot(density(x, bw = .5), main="A crazy distribution")
 \footnotesize
 ```{r mysize=TRUE, size="\\tiny", tidy=FALSE, out.width="1\\textwidth", out.height=".7\\textheight", fig.align="center", echo=TRUE}
 
-# We are going to take 500 random samples 
+# We are going to take 1000 random samples 
 n.samples<-1000
 # The sample size is 20
 sample.size<-20
@@ -108,13 +109,13 @@ sample.size<-20
 # sample statistics
 
 # Create a vector filled with NA (missing data) 
-# vector is of length 200
-x.bars<-rep(NA, n.samples) 
-# Now we are going to "loop" over the vector 1, 2, ..., 200
+# vector is of length 20
+x.bars<-rep(NA, sample.size) 
+# Now we are going to "loop" over the vector 1, 2, ..., 20
 # in each iteration the variable "i" will increment up on value
-for(i in 1:n.samples){
+for(i in 1:sample.size){
   # Draw a random sample
-  this.sample<-sample(x, size = sample.size, replace=F) 
+  this.sample<-sample(x, size = n.samples, replace=F) 
   # Calculate the mean and add it to the vector
   x.bars[i]<-mean(this.sample)
 }
@@ -135,7 +136,7 @@ plot(density(x.bars),
 \footnotesize
 ```{r mysize=TRUE, size="\\tiny", tidy=FALSE, out.width="1\\textwidth", out.height=".7\\textheight", fig.align="center", echo=TRUE}
 
-# We are going to take 500 random samples 
+# We are going to take 1000 random samples 
 n.samples<-1000
 # The sample size is 2000
 sample.size<-2000
@@ -144,13 +145,13 @@ sample.size<-2000
 # sample statistics
 
 # Create a vector filled with NA (missing data) 
-# vector is of length 200
-x.bars<-rep(NA, n.samples) 
-# Now we are going to "loop" over the vector 1, 2, ..., 200
+# vector is of length 2000
+x.bars<-rep(NA, sample.size) 
+# Now we are going to "loop" over the vector 1, 2, ..., 2000
 # in each iteration the variable "i" will increment up on value
-for(i in 1:n.samples){
+for(i in 1:sample.size){
   # Draw a random sample
-  this.sample<-sample(x, size = sample.size, replace=F) 
+  this.sample<-sample(x, size = n.samples, replace=F) 
   # Calculate the mean and add it to the vector
   x.bars[i]<-mean(this.sample)
 }
@@ -161,7 +162,7 @@ for(i in 1:n.samples){
 
 ```{r mysize=TRUE, size="\\tiny", tidy=FALSE, out.width=".7\\textwidth", out.height=".4\\textwidth", fig.align="center", echo=TRUE}
 plot(density(x.bars), 
-     main="Sampling distribution of x.bar with n=20")
+     main="Sampling distribution of x.bar with n=2000")
 ```
 
 ----
