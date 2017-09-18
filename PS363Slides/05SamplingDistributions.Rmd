@@ -109,13 +109,13 @@ sample.size<-20
 # sample statistics
 
 # Create a vector filled with NA (missing data) 
-# vector is of length 20
-x.bars<-rep(NA, sample.size) 
-# Now we are going to "loop" over the vector 1, 2, ..., 20
+# vector is of length 1000
+x.bars<-rep(NA, n.samples) 
+# Now we are going to "loop" over the vector 1, 2, ..., 1000
 # in each iteration the variable "i" will increment up on value
-for(i in 1:sample.size){
+for(i in 1:n.samples){
   # Draw a random sample
-  this.sample<-sample(x, size = n.samples, replace=F) 
+  this.sample<-sample(x, size = sample.size, replace=F) 
   # Calculate the mean and add it to the vector
   x.bars[i]<-mean(this.sample)
 }
@@ -145,13 +145,13 @@ sample.size<-2000
 # sample statistics
 
 # Create a vector filled with NA (missing data) 
-# vector is of length 2000
-x.bars<-rep(NA, sample.size) 
-# Now we are going to "loop" over the vector 1, 2, ..., 2000
+# vector is of length 1000
+x.bars<-rep(NA, n.samples) 
+# Now we are going to "loop" over the vector 1, 2, ..., 1000
 # in each iteration the variable "i" will increment up on value
 for(i in 1:sample.size){
   # Draw a random sample
-  this.sample<-sample(x, size = n.samples, replace=F) 
+  this.sample<-sample(x, size = sample.size, replace=F) 
   # Calculate the mean and add it to the vector
   x.bars[i]<-mean(this.sample)
 }
