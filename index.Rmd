@@ -20,11 +20,15 @@ I have just started the process of building a new website. For the moment, I am 
 #### Lecture slides
 [Lecture1](https://jmontgomery.github.io/PS363Slides/01Introduction.pdf)
 
-[Lecture2](https://jmontgomery.github.io/PS3…/02SamplingMeasurement.pdf)
+[Lecture2](https://jmontgomery.github.io/PS363Slides/02SamplingMeasurement.pdf)
 
-[Lecture3](https://jmontgomery.github.io/P…/03CentralTendencySpread.pdf)
+[Lecture3](https://jmontgomery.github.io/PS363Slides/03CentralTendencySpread.pdf)
 
 [Lecture4](https://jmontgomery.github.io/PS363Slides/04BasicProbability.pdf)
+
+[Lecture5](https://jmontgomery.github.io/PS363Slides/05SamplingDistributions.pdf)
+
+[Lecture6](https://jmontgomery.github.io/PS363Slides/06FindingProbabilities.pdf)
 
 #### Labs
 [Lab1](https://jmontgomery.github.io/Lab/Lab1.zip)
