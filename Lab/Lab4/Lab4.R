@@ -79,7 +79,7 @@ qnorm(c(0.025, 0.975), mean=0, sd=1)
 
 
 
-## 4. Subsetting data
+## 5. Subsetting data
 
 ## == means "equal to"
 ## >, <, >=, <=
