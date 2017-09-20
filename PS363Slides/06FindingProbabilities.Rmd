@@ -22,6 +22,14 @@ knitr::opts_chunk$set(echo = FALSE)
 Let's try this
 
 
+```{r mysize=TRUE, echo=TRUE, eval=FALSE}
+install.packages("swirl")
+library("swirl")
+
+install_course_github("jmontgomery", "QPMSwirl")
+swirl()
+```
+
 
 -----
 
