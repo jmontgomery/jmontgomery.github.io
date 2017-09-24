@@ -410,9 +410,9 @@ Date| Topic | Reading | Assignments| Notes
 9/27| Hypothesis testing intro |AF: Chapter 6 <br> CB: Chapters 21 - ? | PS2 Due | PS3 Distributed
 9/28-29| Confidence invervals 
 10/2| Null hypothesis testing | AF: CHapter 6 |IPA
-10/4| Poster discussion || PS3 Due | PS4 Distributed
+10/4| Poster discussion ||  | PS4 Distributed
 10/5-6| Functions in R (NHP)
-10/9| Exam review
+10/9| Exam review | | PS3 Due
 10/11| Midterm
 10/16| NO CLASS <br> Fall Break
 10/18| Causality 

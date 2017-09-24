@@ -1,5 +1,5 @@
 ---
-title: "Lecture 6: Calculating probabilities"
+title: "Lecture 7: Confidence intervals"
 author: "Jacob M. Montgomery"
 date: "Quantitative Political Methodology"
 output: beamer_presentation
@@ -13,93 +13,199 @@ knitr::opts_chunk$set(echo = FALSE)
 
 
 
-# Lecture 6: Calculating probabilities
+# Lecture 7: Confidence intervals
 
 ----
 
-## IPA
+## Class business
 
-Let's try this
-
-
-```{r mysize=TRUE, echo=TRUE, eval=FALSE}
-install.packages("swirl")
-library("swirl")
-
-install_course_github("jmontgomery", "QPMSwirl")
-swirl()
-```
+- We will be working on CIs today and hypothesis tests on Wednesday
+- Next Monday we will talk about posters and do some catch up
+- PS2 due next class
+- PS3 due on 10/9
+- Midterm on 10/11
 
 
 -----
 
-## Roadmap
+## Learning objectives
 
-Last time: 
+- Defining: Estimates, confidence intervals, confidence levels
+- Calculating confidence intervals
+- Place confidence intervals int the larger story of this class
 
-- Understanding the concept of a sampling distribution
-- Understand the concept of a standard error
-- See how the CLT allows us to know the distribution of certain sample statistics
+------
 
-This time:
+### The story so far ...
 
-- How to find probabilities from a binomial table
-- How to find probabilities using a Z-distribution table
-- How to find "critical values."
-- Extend this logic to the t-distribution (online only)
+- We are hunting population parameters [$\mu$, $\sigma$]. \pause
+
+    - What percentage of Americans approve of President Obama? \pause
+    - How much carbon is emmitted from cars on I-64? \pause
+    - What is the swage gap for women in America?
+
+- We sample the population and calculate sample statistics [$\bar{y}, s$] \pause
+- Today we are going to show how to use *sample statistics* to estimate *population parameters*. \pause
+- How?  Probability theory and sampling distributions. \pause
+-  $\displaystyle \bar{y} \sim N\left(\mu, \frac{\sigma}{\sqrt{n}}\right)$ \pause
+- This will be our first true statistical inference.
 
 
+-----
+
+### Estimation basics
+
+> A **point estimate** is a *sample statistics* that gives a good guess about a *population parameter*.
+
+- **Example**: Point estimation for population mean ($\hat\mu$)
+    - $\displaystyle \bar{y} = \frac{1}{n} \sum_{i=1}^n y_i$
+    - $\displaystyle med(y_1, y_2, \ldots, y_n)$ \pause
+    
+- **Example**: Point estimate for population standard deviation ($\hat{\sigma}$)
+    - $S =  \displaystyle \sqrt{\frac{\sum (y_i-\bar{y})^2}{n-1}}$
 
 
-----
+-----
 
-### Motivation
+### Estimation basics
 
-#### Castaneda v. Partida
+How do we choose among possible estimators? 
 
-- The true number of Mexican-Americans was 79.1\% of the population.
-- Individuals were selected for jury participation using the ``key man'' system.
-- 45.5\% of the members of the grand jury were Mexican-American.
+We want our estimators to be:
+
+- Unbiased (i.e., accurate), \pause $E(\hat{\mu}) = \mu$ with repeated sampling
+- Efficient (i.e, precise), $\sigma_{\hat{\mu}}$ is small(er)
+- Consistent (as $n \rightarrow \infty$ then $E(\hat{\mu}) \rightarrow \mu$)
 
 \pause
 
-How likely was this to happen by chance if the jury was of size $n=60$?  
+Notes:
+
+- Sometimes there are tradeoffs between these (e.g., median)
+- **This** is why there is such a funny equation for $S$.
 
 -----
 
-### Question 1
+### Summary
 
-Which fraction represents the probability of obtaining exactly eight heads in ten tosses of a fair coin? 
+The point estimates for populations parameters $\mu$ and $\sigma$ are:
+
+- denote $\hat{\mu}$ and $\hat{\sigma}$ \pause
+- "best" estimated by $\bar{y}$ and $S$ \pause
+- They are "best" in terms of bias and efficiency. \pause
+
+
+**Note**: We are not assuming that the population is normal.  We
+are just assuming that our real goal is to find a good estimate of
+$\mu$ and that $n$ is large.
+
+
+-----
+
+#### Class discussion
+
+You are the campaign manager for a candidate who is deciding whether or not to publish a new deficit reduction proposal.  You commission a poll of voters in the district to find out whether they approve or disapprove of this proposal. Which of the following statements would you find most useful from your pollster?
+
+\pause 
+
+1. We can be 25\% confident that between 54 and 55 percent of
+  voters approve of the plan.
+2. We can be 95\% confident that between 48.5 and 59.5 percent of
+  voters approve of the plan.  
+3. We can be 99\% confident that between 45.75 and and 62.25
+  percent of voters approve of the plan.
+4. We can be 100\% confident that between 0 and 100 percent of
+  voters approve of the plan.
+
+
+
+-----
+
+## Confidence intervals: Some terms
+
+A point estimate is OK, but it is not very useful without knowing how
+much confidence to have it. \pause  Solution -- interval estimation. \pause
+
+
+> A **confidence interval** for a population parameter is a range of numbers within which a parameter is believed to fall.
+
+>The **confidence coefficient** is the probability that an interval would contain the parameter with repeated sampling.
+\pause
+
+- 0.95 $\rightarrow$ 95\% confidence interval \pause
+- 0.70 $\rightarrow$ 70\% confidence interval
+
+
+
+------
+
+### Confidence interval for population means (large samples) 
+
+
+
+We can use the sampling distribution of $\bar{y}$ (assuming a large sample) to calculate a confidence interval for the population mean.
+
+- Parameter: $\mu$
+- Estimator: $\hat{\mu} =  \pause \bar{y} \sim \pause N(\mu_{\bar{y}}, \sigma_{\bar{y}})$
+- Remember  that $\sigma_{\bar{y}} = \displaystyle \frac{\sigma}{\sqrt{n}}$ and \pause $\hat{\sigma}_{\bar{y}} = \displaystyle \frac{S}{\sqrt{n}}$
 
 
 ----
 
-### Question 2
 
-For a normal distribution with $\mu = 50$ and $\sigma = 3$, find the probability that an observation falls:
+#### Basic idea:
 
-1. At or below the value of 56
-2. Between the values of 45 and 56
+- We plug in the **estimated** value of $\sigma$ to get $\hat{\sigma}_{\bar{y}}$. \pause
+- We use $\bar{y}$ to **estimate** $\mu$, which is sometimes denoted $\hat{\mu}$ \pause
+- Now we have an **estimated** sampling distribution, $N(\bar{y}, \hat{\sigma}_{\bar{y}})$ \pause
+    
+    - We use our knowledge of the normal distribution to find a CI
+    - E.g., we  want 2.5$\%$ of the probability to be outside of our interval on each side.
 
-
-
------
-
-### Question 3
-
-Suppose that for exam grades $\mu$ = 75 and $\sigma$ = 15. 
-
-1. What is the probability of receiving an exam grade of 90 or better?
-2. What about a 60 or worse?
-3. If the probability of doing better than you is .05, then what is  your score?  
 
 ----
 
-### Question 4 (not on your form)
+#### Steps:
+
+1. Calculate $\bar{y}$
+2. Calculate $S$ \pause and then $\hat{\sigma}_{\bar{y}} = \displaystyle
+  \frac{S}{\sqrt{n}}$ \pause
+3. How much area do we need under the curve to the right? \pause (1-Confidence Coefficient)/2. \pause How much area do we need under the curve to the left? \pause (Confidence Coefficient)/2.
+4. Find the z-score associated with that number. \pause
+5. Use these values to calculate $\bar{y} \pm Z \times \hat{\sigma}_{\bar{y}}$
 
 
-If you have a t-distributed variable with 21 degrees of freedom.
+----
 
-- What is the probability of a value above 1.721?
-- .05\% of the distribution is greater than what critical value?
+**Exercise**: If $\bar{y}=9.6$, $n=100$, and $S=4, what is the 99\% confidence interval for $\mu$?
+
+
+----
+
+1. Find values for $L$ and $R$ on the \textit{standard normal distribution} such that:
+$$Pr(L \le  \mu \le R) = 0.95$$ \pause
+2. Plug in our estimates, and see that $\bar{y} \sim N(\mu, \sigma_{\bar{y}}) \approx N(\bar{y},\displaystyle \frac{S}{\sqrt{n}})$
+3. $L=\bar{y} - (Z \times \hat{\sigma}_{\bar{y}}), R=\bar{y} + (Z \times \hat{\sigma}_{\bar{y}})$ \pause
+4. Look for $(0.95)/2 = .025$ on the z-table \pause 1.96
+
+**Answer**: $\bar{y} \pm 1.96 \times \hat{\sigma}_{\bar{y}}$ \pause $= 9.6 \pm 1.96 \times \frac{4}{10} = [8.816, 10.384]$
+
+
+----
+
+### Reprise:
+
+How to calculate a confidence interval:
+
+1. Calculate $\bar{y}$ and $\sigma_{\bar{y}}=\displaystyle \frac{S}{\sqrt{n}}$
+2. How much area do we need under the curve to the left? 
+    - Example: For a 95\% confidence interval we need .025 under the curve.
+    - (confidence coefficient)/2
+3. Find the z-score associated with that number
+4. Use these values to calculate $\bar{y} \pm Z \times \sigma_{\bar{y}}$
+
+\pause
+Team time!
+
+
 
