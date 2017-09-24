@@ -9,6 +9,12 @@ output:
   bookdown::pdf_book: default
 ---
 
+```{r opts, echo = FALSE}
+knitr::opts_chunk$set(
+  fig.path = "images/"
+)
+```
+
 
 #Class Overview 
 

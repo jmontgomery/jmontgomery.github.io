@@ -279,7 +279,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x&lt;-<span class="kw">seq</span>(<span class="dt">from=</span>-<span class="dv">5</span>, <span class="dt">to=</span><span class="dv">5</span>, <span class="dt">by=</span>.<span class="dv">1</span>)
 y&lt;-<span class="kw">dnorm</span>(x, <span class="dt">mean=</span><span class="dv">0</span>, <span class="dt">sd=</span><span class="dv">1</span>)
 <span class="kw">plot</span>(x,y, <span class="dt">type=</span><span class="st">&quot;l&quot;</span>, <span class="dt">main=</span><span class="st">&quot;The standard normal distribution&quot;</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><img src="images/unnamed-chunk-12-1.png" width="672" /></p>
 <p>Any normal distributions can be transformed to standard normal distributions using the following formula:</p>
 <p><span class="math display">\[Z = \frac{x-\mu}{\sigma}.\]</span></p>
 <p>That is, if <span class="math inline">\(x \sim N(\mu, \sigma)\)</span> and we apply the formula above we will have a new variable <span class="math inline">\(z\)</span> that corresponds to the standard normal distribution.</p>
@@ -296,7 +296,7 @@ y&lt;-<span class="kw">dnorm</span>(x, <span class="dt">mean=</span><span class=
 cord.x &lt;-<span class="st"> </span><span class="kw">c</span>(-<span class="dv">2</span>,<span class="kw">seq</span>(-<span class="dv">3</span>,<span class="dv">6</span>,<span class="fl">0.01</span>),<span class="dv">6</span>) 
  cord.y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">dnorm</span>(<span class="kw">seq</span>(-<span class="dv">3</span>,<span class="dv">6</span>,<span class="fl">0.01</span>), <span class="dt">mean=</span><span class="dv">5</span>, <span class="dt">sd=</span><span class="dv">2</span>), <span class="dv">0</span>) 
  <span class="kw">polygon</span>(cord.x,cord.y,<span class="dt">col=</span><span class="st">&#39;skyblue&#39;</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="images/unnamed-chunk-14-1.png" width="672" /></p>
 <p>But could get this same number by calculating a new value:</p>
 <p><span class="math display">\[Z=\frac{6-5}{2}=0.5\]</span></p>
 <p>We can then look up the probability on the <em>standard normal</em> distribution</p>
@@ -310,7 +310,7 @@ y&lt;-<span class="kw">dnorm</span>(x, <span class="dt">mean=</span><span class=
 cord.x &lt;-<span class="st"> </span><span class="kw">c</span>(-<span class="dv">4</span>,<span class="kw">seq</span>(-<span class="dv">4</span>,<span class="fl">0.5</span>,<span class="fl">0.01</span>),<span class="fl">0.5</span>) 
  cord.y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">dnorm</span>(<span class="kw">seq</span>(-<span class="dv">4</span>,<span class="fl">0.5</span>,<span class="fl">0.01</span>), <span class="dt">mean=</span><span class="dv">0</span>, <span class="dt">sd=</span><span class="dv">1</span>), <span class="dv">0</span>) 
  <span class="kw">polygon</span>(cord.x,cord.y,<span class="dt">col=</span><span class="st">&#39;skyblue&#39;</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><img src="images/unnamed-chunk-16-1.png" width="672" /></p>
 <p>Since the arguments <code>mean=0</code> and <code>sd=1</code> are the default settings for the <code>pnorm</code> function, we can get the same answer by just coding:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pnorm</span>(.<span class="dv">5</span>)</code></pre></div>
 <pre><code>## [1] 0.6914625</code></pre>
@@ -346,7 +346,7 @@ y&lt;-<span class="kw">dnorm</span>(x, <span class="dt">mean=</span><span class=
 cord.x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">48</span>,<span class="kw">seq</span>(<span class="dv">48</span>,<span class="fl">52.75</span>,<span class="fl">0.01</span>),<span class="fl">52.75</span>) 
  cord.y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">dnorm</span>(<span class="kw">seq</span>(<span class="dv">48</span>,<span class="fl">52.75</span>,<span class="fl">0.01</span>) , <span class="dt">mean=</span><span class="dv">55</span>, <span class="dt">sd=</span><span class="dv">3</span>), <span class="dv">0</span>) 
  <span class="kw">polygon</span>(cord.x,cord.y,<span class="dt">col=</span><span class="st">&#39;skyblue&#39;</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p><img src="images/unnamed-chunk-19-1.png" width="672" /></p>
 <p>To find the z-score, plug in the mean and standard deviation into <span class="math inline">\(Z = (x-\mu)/\sigma\)</span> The variables describing this normal distribution will be converted into a z score that can will used as part of a standard normal distribution <span class="math display">\[P(x \le 52.75)=P(z \le (52.75-55)/3))=P(z \le -0.75)\]</span></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x&lt;-<span class="kw">seq</span>(<span class="dt">from=</span>-<span class="dv">4</span>, <span class="dt">to=</span><span class="dv">4</span>, <span class="dt">by=</span>.<span class="dv">1</span>)
 y&lt;-<span class="kw">dnorm</span>(x, <span class="dt">mean=</span><span class="dv">0</span>, <span class="dt">sd=</span><span class="dv">1</span>)
@@ -355,7 +355,7 @@ y&lt;-<span class="kw">dnorm</span>(x, <span class="dt">mean=</span><span class=
 cord.x &lt;-<span class="st"> </span><span class="kw">c</span>(-<span class="dv">4</span>,<span class="kw">seq</span>(-<span class="dv">4</span>,-<span class="fl">0.75</span>,<span class="fl">0.01</span>),-<span class="fl">0.75</span>) 
  cord.y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">dnorm</span>(<span class="kw">seq</span>(-<span class="dv">4</span>,-<span class="fl">0.75</span>,<span class="fl">0.01</span>), <span class="dt">mean=</span><span class="dv">0</span>, <span class="dt">sd=</span><span class="dv">1</span>), <span class="dv">0</span>) 
  <span class="kw">polygon</span>(cord.x,cord.y,<span class="dt">col=</span><span class="st">&#39;skyblue&#39;</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p><img src="images/unnamed-chunk-20-1.png" width="672" /></p>
 <p>Now, we use our calculated z score in conjunction with the z table above to find our probability. However, the table does not include negative values for z because <strong>the table is for the area to the right</strong>.</p>
 <p>So what should we do? The key is to remember that the standard normal distribution is symmetric around 0. This means that <span class="math inline">\(P(z \le -0.75)=P(z \ge 0.75)\)</span>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x&lt;-<span class="kw">seq</span>(<span class="dt">from=</span>-<span class="dv">4</span>, <span class="dt">to=</span><span class="dv">4</span>, <span class="dt">by=</span>.<span class="dv">1</span>)
@@ -365,7 +365,7 @@ y&lt;-<span class="kw">dnorm</span>(x, <span class="dt">mean=</span><span class=
 cord.x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.75</span>,<span class="kw">seq</span>(<span class="fl">0.75</span>, <span class="dv">4</span>,<span class="fl">0.01</span>),<span class="dv">4</span>) 
  cord.y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">dnorm</span>(<span class="kw">seq</span>(<span class="fl">0.75</span>,<span class="dv">4</span>,<span class="fl">0.01</span>), <span class="dt">mean=</span><span class="dv">0</span>, <span class="dt">sd=</span><span class="dv">1</span>), <span class="dv">0</span>) 
  <span class="kw">polygon</span>(cord.x,cord.y,<span class="dt">col=</span><span class="st">&#39;skyblue&#39;</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p><img src="images/unnamed-chunk-21-1.png" width="672" /></p>
 <p>Notice the change from “less than” to “greater than.”</p>
 <p>Since the distribution is symmetric, we can multiply the equation by -1 to get a value for the side of the table that we want. After doing so, our equation changes from <span class="math inline">\(P(z \le -0.75)\)</span> to <span class="math inline">\(P(z \ge 0.75)\)</span>. Next we find the z score we just calculated on the corresponding z score table above. The first decimal place holds a 7; the 2nd decimal place holds a 5. When we locate the .7 (row 7 column 1) and then move over to the .05 column, we find the corresponding probability to be about 0.227.</p>
 <p>Remember that this probability refers to the area below the curve to the <strong>right</strong> of the z score we calculated (as shown by the graphic above the table). Lucky for us, this is exactly what the equation tells us to find <span class="math inline">\((P(z\ge0.75))\)</span>. Our answer, therefore, for <span class="math inline">\(P(x \le 52.75)\)</span> = 0.227.</p>
@@ -385,7 +385,7 @@ y&lt;-<span class="kw">dnorm</span>(x, <span class="dt">mean=</span><span class=
 cord.x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">52.75</span>,<span class="kw">seq</span>(<span class="fl">52.75</span>,<span class="dv">63</span>,<span class="fl">0.01</span>), <span class="dv">63</span>) 
  cord.y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">dnorm</span>(<span class="kw">seq</span>(<span class="fl">52.75</span>,<span class="dv">63</span>,<span class="fl">0.01</span>) , <span class="dt">mean=</span><span class="dv">55</span>, <span class="dt">sd=</span><span class="dv">3</span>), <span class="dv">0</span>) 
  <span class="kw">polygon</span>(cord.x,cord.y,<span class="dt">col=</span><span class="st">&#39;skyblue&#39;</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p><img src="images/unnamed-chunk-23-1.png" width="672" /></p>
 <p>To find the z-score, plug in the mean and standard deviation into <span class="math inline">\(Z = (x-\mu)/\sigma\)</span>. The variables describing this normal distribution can be converted into a z score that can be used as part of a standard normal distribution</p>
 <p><span class="math display">\[P(x \ge 52.75) = P(z\ge(52.75-55)/3)) = P(z \ge -0.75)\]</span> We are looking for an area to the right, just like the table expects, but there are no negative values on our table, so what should we do?</p>
 <p>Again, we have to alter our equation so that we have a can use our z score in conjunction with the z table. The key is to realize that <span class="math inline">\(P(z\ge-0.75) = 1-P(z\le-0.75)\)</span>. This is true because the total area under the normal curve always sums to 1. So, for any point x, the area to the right is always one minus the area to the left. If this doesn’t make sense, draw yourself a picture.</p>
