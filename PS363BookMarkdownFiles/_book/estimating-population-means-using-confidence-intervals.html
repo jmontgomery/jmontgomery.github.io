@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Quantitative Political Methods Coursebook</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Quantitative Political Methods Coursebook">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Quantitative Political Methods Coursebook" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Quantitative Political Methods Coursebook" />
+  
+  
+  
+
+<meta name="author" content="Jacob Montgomery">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="working-with-the-t-distribution.html">
+
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Placeholder</a></li>
+<li class="chapter" data-level="2" data-path="placeholder-1.html"><a href="placeholder-1.html"><i class="fa fa-check"></i><b>2</b> Placeholder</a></li>
+<li class="chapter" data-level="3" data-path="placeholder-2.html"><a href="placeholder-2.html"><i class="fa fa-check"></i><b>3</b> Placeholder</a></li>
+<li class="chapter" data-level="4" data-path="placeholder-3.html"><a href="placeholder-3.html"><i class="fa fa-check"></i><b>4</b> Placeholder</a></li>
+<li class="chapter" data-level="5" data-path="random-samples.html"><a href="random-samples.html"><i class="fa fa-check"></i><b>5</b> Random Samples</a></li>
+<li class="chapter" data-level="6" data-path="installing-r-and-r-studio.html"><a href="installing-r-and-r-studio.html"><i class="fa fa-check"></i><b>6</b> Installing R and R Studio</a></li>
+<li class="chapter" data-level="7" data-path="a-brief-introduction-to-r.html"><a href="a-brief-introduction-to-r.html"><i class="fa fa-check"></i><b>7</b> A Brief Introduction to R</a></li>
+<li class="chapter" data-level="8" data-path="importing-data-into-r.html"><a href="importing-data-into-r.html"><i class="fa fa-check"></i><b>8</b> Importing data into R</a></li>
+<li class="chapter" data-level="9" data-path="visualizing-data-in-r.html"><a href="visualizing-data-in-r.html"><i class="fa fa-check"></i><b>9</b> Visualizing Data in R</a></li>
+<li class="chapter" data-level="10" data-path="measures-of-position.html"><a href="measures-of-position.html"><i class="fa fa-check"></i><b>10</b> Measures of Position</a></li>
+<li class="chapter" data-level="11" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html"><i class="fa fa-check"></i><b>11</b> Measures of Central Tendency</a></li>
+<li class="chapter" data-level="12" data-path="measures-of-dispersion.html"><a href="measures-of-dispersion.html"><i class="fa fa-check"></i><b>12</b> Measures of Dispersion</a></li>
+<li class="chapter" data-level="13" data-path="frequency-and-probability-distributions.html"><a href="frequency-and-probability-distributions.html"><i class="fa fa-check"></i><b>13</b> Frequency and Probability Distributions</a></li>
+<li class="chapter" data-level="14" data-path="some-basic-plotting-in-r.html"><a href="some-basic-plotting-in-r.html"><i class="fa fa-check"></i><b>14</b> Some basic plotting in R</a></li>
+<li class="chapter" data-level="15" data-path="sampling-distributions-pt-1.html"><a href="sampling-distributions-pt-1.html"><i class="fa fa-check"></i><b>15</b> Sampling Distributions, Pt. 1</a></li>
+<li class="chapter" data-level="16" data-path="sampling-distributions-pt-2.html"><a href="sampling-distributions-pt-2.html"><i class="fa fa-check"></i><b>16</b> Sampling Distributions, Pt. 2</a></li>
+<li class="chapter" data-level="17" data-path="working-with-the-normal-distribution.html"><a href="working-with-the-normal-distribution.html"><i class="fa fa-check"></i><b>17</b> Working with the Normal Distribution</a></li>
+<li class="chapter" data-level="18" data-path="the-binomial-distribution.html"><a href="the-binomial-distribution.html"><i class="fa fa-check"></i><b>18</b> The Binomial Distribution</a></li>
+<li class="chapter" data-level="19" data-path="working-with-the-t-distribution.html"><a href="working-with-the-t-distribution.html"><i class="fa fa-check"></i><b>19</b> Working with the T-distribution</a></li>
+<li class="chapter" data-level="20" data-path="estimating-population-means-using-confidence-intervals.html"><a href="estimating-population-means-using-confidence-intervals.html"><i class="fa fa-check"></i><b>20</b> Estimating population means using confidence intervals</a><ul>
+<li class="chapter" data-level="20.1" data-path="estimating-population-means-using-confidence-intervals.html"><a href="estimating-population-means-using-confidence-intervals.html#statistical-inference-is-how-we-draw-conclusions-from-the-data."><i class="fa fa-check"></i><b>20.1</b> Statistical inference is how we draw conclusions from the data.</a></li>
+<li class="chapter" data-level="20.2" data-path="estimating-population-means-using-confidence-intervals.html"><a href="estimating-population-means-using-confidence-intervals.html#we-make-statistical-inferences-by-using-sample-statistics-to-estimate-population-parameters."><i class="fa fa-check"></i><b>20.2</b> We make statistical inferences by using sample statistics to estimate population parameters.</a></li>
+<li class="chapter" data-level="20.3" data-path="estimating-population-means-using-confidence-intervals.html"><a href="estimating-population-means-using-confidence-intervals.html#the-method-we-use-to-make-statistical-inferences-using-sample-statistics-is-called-estimation."><i class="fa fa-check"></i><b>20.3</b> The method we use to make statistical inferences using sample statistics is called estimation.</a></li>
+<li class="chapter" data-level="20.4" data-path="estimating-population-means-using-confidence-intervals.html"><a href="estimating-population-means-using-confidence-intervals.html#constructing-confidence-intervals-to-make-statistical-inferences."><i class="fa fa-check"></i><b>20.4</b> Constructing confidence intervals to make statistical inferences.</a></li>
+<li class="chapter" data-level="20.5" data-path="estimating-population-means-using-confidence-intervals.html"><a href="estimating-population-means-using-confidence-intervals.html#remember-that-we-already-learned-about-the-standard-error-."><i class="fa fa-check"></i><b>20.5</b> Remember that we already learned about the standard error ….</a></li>
+<li class="chapter" data-level="20.6" data-path="estimating-population-means-using-confidence-intervals.html"><a href="estimating-population-means-using-confidence-intervals.html#remember-that-we-already-learned-about-the-z-score-."><i class="fa fa-check"></i><b>20.6</b> Remember that we already learned about the z-score ….</a></li>
+<li class="chapter" data-level="20.7" data-path="estimating-population-means-using-confidence-intervals.html"><a href="estimating-population-means-using-confidence-intervals.html#example."><i class="fa fa-check"></i><b>20.7</b> Example.</a></li>
+<li class="chapter" data-level="20.8" data-path="estimating-population-means-using-confidence-intervals.html"><a href="estimating-population-means-using-confidence-intervals.html#conclusion."><i class="fa fa-check"></i><b>20.8</b> Conclusion.</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Quantitative Political Methods Coursebook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="estimating-population-means-using-confidence-intervals" class="section level1">
+<h1><span class="header-section-number">20</span> Estimating population means using confidence intervals</h1>
+<p>Learning Objectives</p>
+<ol style="list-style-type: decimal">
+<li>Understand what statistical inference is</li>
+<li>Understand how we make statistical inferences using sample statistics to estimate population parameters</li>
+<li>Understand what kind of estimate a confidence interval is</li>
+<li>Understand how to do a simple confidence interval calculation</li>
+</ol>
+<div id="statistical-inference-is-how-we-draw-conclusions-from-the-data." class="section level2">
+<h2><span class="header-section-number">20.1</span> Statistical inference is how we draw conclusions from the data.</h2>
+<p><strong>Statistical inference</strong> is the process that we use to draw conclusions from a data. A set of data is a <em>sample</em> from our population. The <strong>sample</strong> is a subset of the <strong>population</strong>. Inference involves using statistics we calculate from the sample to make and informed guess about population.</p>
+<p>When we do statistical inference we are interested in drawing conclusions from a set of data (sample) so that we can estimate <strong>population parameters</strong>. (Population parameters are the characteristics of the population in which we are interested.) Parameters of the population include things like the mean, standard deviation, and variance.</p>
+<p>Statistical inference is the process by which we use sample statistics to make inferences about population parameters. Figure 1 and Table 1 describe the relationship between sample statistics and population parameters.</p>
+<center>
+<img src="5.png" />
+</center>
+<table>
+<thead>
+<tr class="header">
+<th align="center">English term</th>
+<th align="center">Sample Statistic</th>
+<th align="center">Population parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Mean</td>
+<td align="center"><span class="math inline">\(\bar{x}\)</span></td>
+<td align="center"><span class="math inline">\(\mu\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">Standard deviation</td>
+<td align="center"><span class="math inline">\(s\)</span></td>
+<td align="center"><span class="math inline">\(\sigma\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">Variance</td>
+<td align="center"><span class="math inline">\(s^2\)</span></td>
+<td align="center"><span class="math inline">\(\sigma^2\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="we-make-statistical-inferences-by-using-sample-statistics-to-estimate-population-parameters." class="section level2">
+<h2><span class="header-section-number">20.2</span> We make statistical inferences by using sample statistics to estimate population parameters.</h2>
+<p>Using sample statistics we can make estimates about population parameters. There are two types of estimates of parameters: <strong>point estimates</strong> and <strong>interval estimates</strong>. A point estimate is a single number that is the best guess for the parameter. An interval estimate is an interval of numbers around the point estimate, within which the parameter value is believed to fall.</p>
+</div>
+<div id="the-method-we-use-to-make-statistical-inferences-using-sample-statistics-is-called-estimation." class="section level2">
+<h2><span class="header-section-number">20.3</span> The method we use to make statistical inferences using sample statistics is called estimation.</h2>
+<p>The term <strong>estimator</strong> refers to a particular type of statistic for estimating a parameter. This is conceptual. The term <strong>estimate</strong> is a noun that refers to the value of that particular statistic. For example, the sample mean is an estimator of a population mean. If the sample mean of a particular sample 75 then the value 75 is the estimate for the population mean.</p>
+<p>Just as there are multiple possible sample statistics, there are are many possible estimators. If we are interested, for example, in the population’s mean, then we could use the mean, the median, or the mode of the sample as our estimator. How do statisticians decide which estimator is best?</p>
+<p>Good estimators usually have two qualities: they are <strong>unbiased</strong> and <strong>efficient</strong>. An unbiased estimator has its sampling distribution “centered” around the parameter; in other words, the expected value of the statistic is identical to the population parameter. An efficient estimator has a relatively small standard error, meaning that the variance of the sampling distribution is small. Unbiased and efficient estimators give us accurate and precise estimates of population parameters. The point estimators we teach you in this class have been shown to be the most efficient unbiased estimators possible.</p>
+</div>
+<div id="constructing-confidence-intervals-to-make-statistical-inferences." class="section level2">
+<h2><span class="header-section-number">20.4</span> Constructing confidence intervals to make statistical inferences.</h2>
+<p>A truly informative statistical inference, however, should provide not only a point estimate but should also indicate how confident we can be that the estimate is correct. So, rather than a single value, we often prefer to use a range of values. This is what is known as an interval estimate: an interval of numbers (usually centered around some point estimate) within which the parameter value is believed to fall. Another name for interval estimates is confidence intervals, because they contain the parameter with a certain degree of confidence.</p>
+<p>Confidence intervals have the following form:</p>
+<p>Point estimate <span class="math inline">\(\pm\)</span> Margin of Error.</p>
+<p>Specifically, we can calculate confidene intervals for the sample mean ….</p>
+<p>Under certain circumstances, confidence intervals for means take the following formula:</p>
+<p><span class="math display">\[\bar{y} \pm z (\frac{s}{\sqrt{n}}) \]</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(\bar{y}\)</span> = sample mean</li>
+<li><span class="math inline">\(z\)</span> = z-score corresponding to confidence level</li>
+<li><span class="math inline">\(s\)</span> = sample standard deviation</li>
+<li>and, <span class="math inline">\(n\)</span> = sample size,</li>
+</ul>
+<p>The point estimate of the population mean <span class="math inline">\(\mu\)</span> is the sample mean <span class="math inline">\(\bar{y}\)</span>. For large random samples, by the Central Limit Theorem, the sampling distribution of is approximately normal. So, for large samples, we can find a margin of error by multiplying a z-score from the normal distribution by the standard error.</p>
+</div>
+<div id="remember-that-we-already-learned-about-the-standard-error-." class="section level2">
+<h2><span class="header-section-number">20.5</span> Remember that we already learned about the standard error ….</h2>
+<p>The standard error of the sample mean is given by the following equation:</p>
+<p><span class="math display">\[\sigma_\bar{y} = \frac{\sigma}{\sqrt{n}} \]</span></p>
+<p>In the above equation, <span class="math inline">\(\sigma\)</span> is the population standard deviation. But like <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> is an unknown parameter. In practice, we estimate <span class="math inline">\(\sigma\)</span> using the sample standard deviation <span class="math inline">\(s\)</span>. So, in practice, confidence intervals use the estimated standard error. This is how we end up with the equation for confidence intervals:</p>
+<p><span class="math display">\[\hat{\sigma}_\bar{y} = \frac{s}{\sqrt{n}} \]</span></p>
+</div>
+<div id="remember-that-we-already-learned-about-the-z-score-." class="section level2">
+<h2><span class="header-section-number">20.6</span> Remember that we already learned about the z-score ….</h2>
+<p>When we are calculating a confidence interval for a mean, our point estimate is our sample mean. Our standard error is calculated by dividing the sample standard deviation by the square root of the sample size. We have yet to understand where the z-score comes from.</p>
+<p>The z-score corresponds to the confidence level we are interested in. We choose a <strong>confidence level</strong> before we go about constructing our <strong>confidence interval</strong>. We try to choose confidence levels that are close to (but not exactly) 100%. The higher the confidence level, the more confident we can be that our unknown parameter falls within the interval estimate.</p>
+<p>The z-score indicates what our confidence interval is. Recall that 95% of the normal distribution falls within 1.96 standard deviations of the mean. We use the same logic to calculate the z-score for our confidence intervals. If we are interested in a 95% confidence interval, then our z-score is 1.96; if we are interested in a 99% confidence level, then our z-score is 2.575.</p>
+<p>In general, in order to find the z-score that corresponds to our confidence level, we take</p>
+<p><span class="math display">\[(1-\mbox{confidence coefficient)}/2.\]</span></p>
+<p>The z-score that corresponds with the resulting probability is the z-score that we use when we construct our confidence interval.</p>
+<p>NOTE: The confidence coefficient is often denoted by the Greek letter <span class="math inline">\(\alpha\)</span></p>
+</div>
+<div id="example." class="section level2">
+<h2><span class="header-section-number">20.7</span> Example.</h2>
+<p>Let’s do a quick example.</p>
+<p>Let’s suppose we have a sample in which the sample mean is 10 and the standard error is <span class="math inline">\(\frac{s}{\sqrt{n}}=2\)</span>. We want to calculate a 95% confidence interval. We use the following formula:</p>
+<p><span class="math display">\[\bar{y}\pm z(\frac{s}{\sqrt{n}}) = 10 \pm z(2) \]</span></p>
+<p>In this case, the z-score that corresponds to a 95% confidence interval is <span class="math inline">\(z=1.96\)</span>. How do I know that? Because <span class="math display">\[\frac{1-0.95}{2}=.025\]</span>. I can find the corresponding z-statistics by coding the following.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qnorm</span>(<span class="fl">0.025</span>, <span class="dt">lower.tail=</span><span class="ot">FALSE</span>)</code></pre></div>
+<pre><code>## [1] 1.959964</code></pre>
+<p>I can then find the confidence interval using the above formula.</p>
+<p><span class="math display">\[10 \pm 1.96(2) = 10 \pm 3.92\]</span></p>
+<p>Note that the formula above is only representative of our confidence interval. It shows our original point estimate and margin error. Our confidence interval must be a range of numbers In this case, it is: [6.08, 13.92]. What does this mean? It means, (kind of) that according to our calculations, we can say with 95% confidence that our population mean falls between 6.08 and 13.92.</p>
+<p>Technically, however, that interpretation is not quite right. The 95% confidence level means that if we took many, many samples and calculated many, many confidence intervals according the procedures above, 95% of the time the true population parameter would fall within those many, many 95% confidence intervals. We actually don’t know the probabilyt that <span class="math inline">\(\mu\)</span> falls within the particualr interval [6.08, 13.92]. This is a bit confusing to think about, and most of the time you can think of it using the sentence in the last paragraph. But, keep in mind that the actual interpretation is a bit muddier.</p>
+<p>Here is a nice video that goes through another example and explains the relationship between the confidence interval and the normal distribution:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dNfpsVLaaEE" frameborder="0" allowfullscreen>
+</iframe>
+</div>
+<div id="conclusion." class="section level2">
+<h2><span class="header-section-number">20.8</span> Conclusion.</h2>
+<p>In this section we learned that we make statistical inferences to make conclusions from our data. Statistical inference requires that we estimate population parameters using sample statistics.</p>
+<p>One way we can make a statistical inference is by constructing confidence intervals. Confidence intervals give us an interval of numbers around the point estimate within which the parameter value is believed to fall.</p>
+<p>Although confidence intervals can be constructed for means or proportions, in this article, we learned that how to construct a confidence interval for a population mean (parameter) using the sample mean and sample standard deviation (sample statistics).</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="working-with-the-t-distribution.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
