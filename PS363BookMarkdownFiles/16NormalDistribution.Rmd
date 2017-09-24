@@ -12,7 +12,7 @@ The standard normal distribution is a normal distribution with a mean of $\mu=0$
 
 
 **NOTE: I am going to provide some examples of how to plot the normal distribution. These are here to provide some examples of how to plot it, but the code itself is not critical for understanding this chapter.**
-```{r}
+```{r,  echo=TRUE}
 x<-seq(from=-5, to=5, by=.1)
 y<-dnorm(x, mean=0, sd=1)
 plot(x,y, type="l", main="The standard normal distribution")
@@ -36,7 +36,7 @@ pnorm(6, mean=5, sd=2)
 
 
 We can look at this visually as the shaded area in the plot below:
-```{r}
+```{r, echo=TRUE}
 x<-seq(from=-2, to=12, by=.1)
 y<-dnorm(x, mean=5, sd=2)
 plot(x,y, type="l", main="P(X<6) ; X~N(5,2)")
