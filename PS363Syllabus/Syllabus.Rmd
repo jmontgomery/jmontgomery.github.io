@@ -406,10 +406,10 @@ Date| Topic | Reading | Assignments| Notes
 9/18| Sampling distributions  | AF: Chapter 5 <br> CB: Chapters 14-15 |IPA (In class) | **Bring laptops**
 9/20| Working with probability distributions | CB: Chapters 16-18 |IPA
 9/21-22| Working with data
-9/25| Confidence intervals <br> describing a population || IPA
-9/27| Hypothesis testing intro || PS2 Due | PS3 Distributed
+9/25| Confidence intervals <br> describing a population | AF: Chapter 5 <bf> CB: Chapter 19 | 
+9/27| Hypothesis testing intro |AF: Chapter 6 <br> CB: Chapters 21 - ? | PS2 Due | PS3 Distributed
 9/28-29| Confidence invervals 
-10/2| Null hypothesis testing | |IPA
+10/2| Null hypothesis testing | AF: CHapter 6 |IPA
 10/4| Poster discussion || PS3 Due | PS4 Distributed
 10/5-6| Functions in R (NHP)
 10/9| Exam review
