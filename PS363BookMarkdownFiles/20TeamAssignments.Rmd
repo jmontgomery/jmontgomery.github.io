@@ -11,20 +11,18 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Team Assignment
 
-
 Team number | Member 1 | Membeer 2 | Member 3 | Member 4 | Member 5
 :------:|:------:|:------:|:------:|:------:|:------:
-1 | 441596 | 451129 | 443530 | 444810
-2 | 450252 | 444383 | 444385 | 438021
-3 | 441660 | 448776 |436415 |451152
-4 | 444558 | 445416 |436985 |443175
-5 | 442068 |441970 | 444040 |443849
-6 | 430883  |443522 |  448171 |  443847  
-7 |  441963 | 445175 | 435600 | 442105 
-8 |  450759 |  444765 | 450817 | 444014 
-9 | 448360 | 444534  | 483082 
-10 | 450818 |  443170 | 442787 | 451485 | 437064 
-11 | 444770 | 441687 |451048 |441771 | 435247
-12 | 444402 |444499 |448317 |  443968 
-13 | 443448 | 451223 | 442838 | 450368
-
+1 | Kelly Ryan | William Scerpella | Henry Nguyen | Sydney Welter
+2 | Ashlee Chung | Aliza Astrow | Nicole Ferzoco | Nathan Praeger
+3 | Ilana Engel | Kalen Davison | Nate Lowis | Kristen Lau
+4 | Stephanie Wright | Monye Pitt | Andrew Englund | Jack Broitman
+5 | Joey Vettiankal | Hannah Schanzer | Sydney Curtis | Amanda Mendelsohn
+6 | Claire Thomas | Carter Paterson | Rishi Patel | Pilar Gonzalez
+7 | Camilo Haller | Mikaela Adwar | Emily Garner | Massil Adnani
+8 | Drew McPike | Josh LaFianza | Giulia Neaher | Nicholas Castriz
+9 | Noah Gordon | David McGarr | Joe Gorman
+10 | Zach Vincent | Aidan Strassmann | Tom Hutchison | Andrea Tam | Zachary Virgilio 
+11 | Shreya Tripathy | Brian Adler | Hannah Daniels | Jack Ploshnick | Alex Cheung
+12 | Robert Stoffa | Joel Brown | Kevin Si | Serina Karkhanis
+13 | Jon Wingens | Dugan Marieb | Sarah Paul | Carolyn Perlmutter
