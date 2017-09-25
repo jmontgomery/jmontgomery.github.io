@@ -32,7 +32,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 - Defining: Estimates, confidence intervals, confidence levels
 - Calculating confidence intervals
-- Place confidence intervals int the larger story of this class
+- Place confidence intervals into the larger story of this class
 
 ------
 
@@ -40,9 +40,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 - We are hunting population parameters [$\mu$, $\sigma$]. \pause
 
-    - What percentage of Americans approve of President Obama? \pause
+    - What percentage of Americans approve of President Trump? \pause
     - How much carbon is emmitted from cars on I-64? \pause
-    - What is the swage gap for women in America?
+    - What is the wage gap for women in America?
 
 - We sample the population and calculate sample statistics [$\bar{y}, s$] \pause
 - Today we are going to show how to use *sample statistics* to estimate *population parameters*. \pause
@@ -177,7 +177,7 @@ We can use the sampling distribution of $\bar{y}$ (assuming a large sample) to c
 
 ----
 
-**Exercise**: If $\bar{y}=9.6$, $n=100$, and $S=4, what is the 99\% confidence interval for $\mu$?
+**Exercise**: If $\bar{y}=9.6$, $n=100$, and $S=4$, what is the 99\% confidence interval for $\mu$?
 
 
 ----
