@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="sampling-distributions-pt-2.html">
-<link rel="next" href="the-binomial-distribution.html">
+<link rel="prev" href="type-i-and-type-ii-errors.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -293,148 +293,52 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="working-with-the-normal-distribution" class="section level1">
-<h1><span class="header-section-number">16</span> Working with the Normal Distribution</h1>
-<p><strong>Learning Objectives</strong></p>
-<ol style="list-style-type: decimal">
-<li>Understand the characteristics of a standard normal distribution, and how it relates to any normal distribution.</li>
-<li>Learn how to find the area under the normal curve for any interval.</li>
-</ol>
-<div id="the-standard-normal-distribution" class="section level2">
-<h2><span class="header-section-number">16.1</span> The Standard Normal Distribution</h2>
-<p>The standard normal distribution is a normal distribution with a mean of <span class="math inline">\(\mu=0\)</span> and a standard deviation of <span class="math inline">\(\sigma=1\)</span>.</p>
-<p><strong>NOTE: I am going to provide some examples of how to plot the normal distribution. These are here to provide some examples of how to plot it, but the code itself is not critical for understanding this chapter.</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x&lt;-<span class="kw">seq</span>(<span class="dt">from=</span>-<span class="dv">5</span>, <span class="dt">to=</span><span class="dv">5</span>, <span class="dt">by=</span>.<span class="dv">1</span>)
-y&lt;-<span class="kw">dnorm</span>(x, <span class="dt">mean=</span><span class="dv">0</span>, <span class="dt">sd=</span><span class="dv">1</span>)
-<span class="kw">plot</span>(x,y, <span class="dt">type=</span><span class="st">&quot;l&quot;</span>, <span class="dt">main=</span><span class="st">&quot;The standard normal distribution&quot;</span>)</code></pre></div>
-<p><img src="images/unnamed-chunk-12-1.png" width="672" /></p>
-<p>Any normal distributions can be transformed to standard normal distributions using the following formula:</p>
-<p><span class="math display">\[Z = \frac{x-\mu}{\sigma}.\]</span></p>
-<p>That is, if <span class="math inline">\(x \sim N(\mu, \sigma)\)</span> and we apply the formula above we will have a new variable <span class="math inline">\(z\)</span> that corresponds to the standard normal distribution.</p>
-<div id="example" class="section level3">
-<h3><span class="header-section-number">16.1.1</span> Example</h3>
-<p>The probability <span class="math inline">\(P(X&lt;x)\)</span> for a normal probability distribution in R is given by the <code>pnorm()</code> function. So assume we have a normal distribution with <span class="math inline">\(\mu=5\)</span>, and <span class="math inline">\(\sigma=2\)</span> (which means that <span class="math inline">\(\sigma^2=4\)</span>). The are to the left <span class="math inline">\(X=6\)</span> for the normal curve is found by coding:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pnorm</span>(<span class="dv">6</span>, <span class="dt">mean=</span><span class="dv">5</span>, <span class="dt">sd=</span><span class="dv">2</span>)</code></pre></div>
-<pre><code>## [1] 0.6914625</code></pre>
-<p>We can look at this visually as the shaded area in the plot below:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x&lt;-<span class="kw">seq</span>(<span class="dt">from=</span>-<span class="dv">2</span>, <span class="dt">to=</span><span class="dv">12</span>, <span class="dt">by=</span>.<span class="dv">1</span>)
-y&lt;-<span class="kw">dnorm</span>(x, <span class="dt">mean=</span><span class="dv">5</span>, <span class="dt">sd=</span><span class="dv">2</span>)
-<span class="kw">plot</span>(x,y, <span class="dt">type=</span><span class="st">&quot;l&quot;</span>, <span class="dt">main=</span><span class="st">&quot;P(X&lt;6) ; X~N(5,2)&quot;</span>)
-### The code below is for shading in an area under the curve
-cord.x &lt;-<span class="st"> </span><span class="kw">c</span>(-<span class="dv">2</span>,<span class="kw">seq</span>(-<span class="dv">3</span>,<span class="dv">6</span>,<span class="fl">0.01</span>),<span class="dv">6</span>) 
- cord.y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">dnorm</span>(<span class="kw">seq</span>(-<span class="dv">3</span>,<span class="dv">6</span>,<span class="fl">0.01</span>), <span class="dt">mean=</span><span class="dv">5</span>, <span class="dt">sd=</span><span class="dv">2</span>), <span class="dv">0</span>) 
- <span class="kw">polygon</span>(cord.x,cord.y,<span class="dt">col=</span><span class="st">&#39;skyblue&#39;</span>)</code></pre></div>
-<p><img src="images/unnamed-chunk-14-1.png" width="672" /></p>
-<p>But could get this same number by calculating a new value:</p>
-<p><span class="math display">\[Z=\frac{6-5}{2}=0.5\]</span></p>
-<p>We can then look up the probability on the <em>standard normal</em> distribution</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pnorm</span>(.<span class="dv">5</span>, <span class="dt">mean=</span><span class="dv">0</span>, <span class="dt">sd=</span><span class="dv">1</span>)</code></pre></div>
-<pre><code>## [1] 0.6914625</code></pre>
-<p>Again we can see this visually by looking at:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x&lt;-<span class="kw">seq</span>(<span class="dt">from=</span>-<span class="dv">4</span>, <span class="dt">to=</span><span class="dv">4</span>, <span class="dt">by=</span>.<span class="dv">1</span>)
-y&lt;-<span class="kw">dnorm</span>(x, <span class="dt">mean=</span><span class="dv">0</span>, <span class="dt">sd=</span><span class="dv">1</span>)
-<span class="kw">plot</span>(x,y, <span class="dt">type=</span><span class="st">&quot;l&quot;</span>, <span class="dt">main=</span><span class="st">&quot;P(X&lt;.5) ; X~N(0,1)&quot;</span>)
-### The code below is for shading in an area under the curve
-cord.x &lt;-<span class="st"> </span><span class="kw">c</span>(-<span class="dv">4</span>,<span class="kw">seq</span>(-<span class="dv">4</span>,<span class="fl">0.5</span>,<span class="fl">0.01</span>),<span class="fl">0.5</span>) 
- cord.y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">dnorm</span>(<span class="kw">seq</span>(-<span class="dv">4</span>,<span class="fl">0.5</span>,<span class="fl">0.01</span>), <span class="dt">mean=</span><span class="dv">0</span>, <span class="dt">sd=</span><span class="dv">1</span>), <span class="dv">0</span>) 
- <span class="kw">polygon</span>(cord.x,cord.y,<span class="dt">col=</span><span class="st">&#39;skyblue&#39;</span>)</code></pre></div>
-<p><img src="images/unnamed-chunk-16-1.png" width="672" /></p>
-<p>Since the arguments <code>mean=0</code> and <code>sd=1</code> are the default settings for the <code>pnorm</code> function, we can get the same answer by just coding:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pnorm</span>(.<span class="dv">5</span>)</code></pre></div>
-<pre><code>## [1] 0.6914625</code></pre>
+<div id="hypothesis-testing-for-small-sample-quantitative-data" class="section level1">
+<h1><span class="header-section-number">24</span> Hypothesis Testing for Small Sample Quantitative Data</h1>
+<div id="learning-objective-1" class="section level2">
+<h2><span class="header-section-number">24.1</span> Learning Objective:</h2>
+<p>Learn how to conduct a hypothesis test with a small number of observations for quantitative data.</p>
 </div>
+<div id="hypothesis-test" class="section level2">
+<h2><span class="header-section-number">24.2</span> Hypothesis Test</h2>
+<div id="step-1-make-assumptions-about-your-data" class="section level3">
+<h3><span class="header-section-number">24.2.1</span> Step 1: Make assumptions about your data</h3>
+<ul>
+<li>For these tests, we assume that our data is quantitative and that the population is normally distributed. We also know that our sample size is going to be relatively small, which means that we will be referencing the t table rather than the z table.</li>
+</ul>
 </div>
-<div id="z-scores" class="section level2">
-<h2><span class="header-section-number">16.2</span> Z-scores</h2>
-<p>A z-score is what we obtain after we apply the above equation. So, for istance, if we are looking at a normal distribution with <span class="math inline">\(\mu = 2\)</span> and <span class="math inline">\(\sigma=2\)</span> we can calculate the z-score of the point <span class="math inline">\(x=4\)</span> as</p>
-<p><span class="math display">\[Z = \frac{x-\mu}{\sigma}=\frac{4-2}{2} = 1.\]</span></p>
-<p>A z-score of 1 means that the the point <span class="math inline">\(x=4\)</span> is on standard deviation above the mean. Likewise, a z-score of 2.4 would mean that <span class="math inline">\(x\)</span> is 2.4 standard deviations above the mean.</p>
+<div id="step-2-formulate-null-and-alternative-hypotheses" class="section level3">
+<h3><span class="header-section-number">24.2.2</span> Step 2: Formulate null and alternative hypotheses</h3>
+<ul>
+<li><p>Just like with other types of hypothesis testing, the null is what a determined skeptic would believe about what we are going to measure, and the alternative hypothesis is our research hypothesis based on the data collected.</p></li>
+<li><p>As with other types of hypothesis testing, this test can be either one-sided or two-sided. Make sure you keep in mind how you intend to test the data.</p></li>
+</ul>
 </div>
-<div id="whats-the-point-of-the-z-score" class="section level2">
-<h2><span class="header-section-number">16.3</span> What’s the point of the z-score?</h2>
-<p>Once a z score has been calculated, it is very easy to calculate probabilities (areas under the curve) for <em>any</em> normal distribution just using a table for the standard normal distribution.</p>
-<p>If a dataset follows a normal distribution, then about 68% of the observations will fall within one standard deviation of the mean, about 95% of the observations will fall within two standard deviations of the mean, and about 99.7% of the observations will fall within 3 standard deviations of the mean.(Remember the empirical rule? If not, go back and review.)</p>
-<p>An explanation of an example problem is posted below in the examples section. But first watch this video. It is a bit long, but this is something you really need to be good at for the test. So it is totally worth your time. <a href="https://pages.wustl.edu/files/pages/imce/montgomery/zscores.pdf">Click here to see the table we will use in class</a> so you can follow along with the examples. (There are some more examples below).</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/U4d-dhPT53A" frameborder="0" allowfullscreen>
+<div id="step-3-calculate-a-test-statistic" class="section level3">
+<h3><span class="header-section-number">24.2.3</span> Step 3: Calculate a Test Statistic</h3>
+<ul>
+<li><p>This statistic summarizes how much our alternative hypothesis differs from the rest of the data if the null was true. Here is the formula, which we’ve used many times before:</p></li>
+<li><p><span class="math display">\[t^\ast= \frac{\bar{x}-\mu_0}{\frac{s}{\sqrt{n}}}\]</span></p></li>
+<li><p>Don’t forget to note the degrees of freedom!</p></li>
+<li><p>d.f.= n-1</p></li>
+</ul>
+</div>
+<div id="step-4-calculate-a-p-value" class="section level3">
+<h3><span class="header-section-number">24.2.4</span> Step 4: Calculate a p-value</h3>
+<ul>
+<li><p>Remember, a p-value is a measure of surprise, so small p-values more strongly contradict the null because that means it would be extremely surprising to see the results of our alternative hypothesis if the null were true.</p></li>
+<li><p>To find the p-value, go to this t table (click here), or we can use R. Keep in mind the confidence interval, the degrees of freedom, and if the hypothesis is one or two-sided.</p></li>
+</ul>
+</div>
+<div id="step-5-draw-a-conclusion" class="section level3">
+<h3><span class="header-section-number">24.2.5</span> Step 5: Draw a conclusion</h3>
+<ul>
+<li><p>Are the results statistically significant given the pre-determined <span class="math inline">\(\alpha\)</span> level (usually is the p value &lt; 0.05)?</p></li>
+<li><p>If p&lt;<span class="math inline">\(\alpha\)</span>, we reject the null and conclude that the evidence supports the alternative hypothesis. If <span class="math inline">\(p&gt;\alpha\)</span>, we fail to reject the null.</p></li>
+</ul>
+<p>For more help, watch this video from the Khan Academy, which will walk you through a small-sample t-test step-by-step:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/D2sMsmL0ScQ" frameborder="0" allowfullscreen>
 </iframe>
-</div>
-<div id="examples" class="section level2">
-<h2><span class="header-section-number">16.4</span> Examples</h2>
-<p>Below are some examples showing how to use the standard normal distribution and the z table in order to solve for probabilities.You should use the Agresti table when you try these example problems. This is what you will be using on the rest of the exams and homeworks for this course-so pay attention.</p>
-<div id="example-1-finding-the-area-to-the-left-when-xmu" class="section level3">
-<h3><span class="header-section-number">16.4.1</span> Example 1: Finding the area to the left, when <span class="math inline">\(x&lt;\mu\)</span></h3>
-<p>For a normal distribution with <span class="math inline">\(\mu = 55\)</span> and <span class="math inline">\(\sigma = 3,\)</span> find the probability that an observation falls at or below the value 52.75.</p>
-<p>In R we could just type in</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pnorm</span>(<span class="fl">52.75</span>, <span class="dt">mean=</span><span class="dv">55</span>, <span class="dt">sd=</span><span class="dv">3</span>)</code></pre></div>
-<pre><code>## [1] 0.2266274</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x&lt;-<span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">48</span>, <span class="dt">to=</span><span class="dv">62</span>, <span class="dt">by=</span>.<span class="dv">1</span>)
-y&lt;-<span class="kw">dnorm</span>(x, <span class="dt">mean=</span><span class="dv">55</span>, <span class="dt">sd=</span><span class="dv">3</span>)
-<span class="kw">plot</span>(x,y, <span class="dt">type=</span><span class="st">&quot;l&quot;</span>, <span class="dt">main=</span><span class="st">&quot;P(X&lt;52.75) ; X~N(55,3)&quot;</span>)
-### The code below is for shading in an area under the curve
-cord.x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">48</span>,<span class="kw">seq</span>(<span class="dv">48</span>,<span class="fl">52.75</span>,<span class="fl">0.01</span>),<span class="fl">52.75</span>) 
- cord.y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">dnorm</span>(<span class="kw">seq</span>(<span class="dv">48</span>,<span class="fl">52.75</span>,<span class="fl">0.01</span>) , <span class="dt">mean=</span><span class="dv">55</span>, <span class="dt">sd=</span><span class="dv">3</span>), <span class="dv">0</span>) 
- <span class="kw">polygon</span>(cord.x,cord.y,<span class="dt">col=</span><span class="st">&#39;skyblue&#39;</span>)</code></pre></div>
-<p><img src="images/unnamed-chunk-19-1.png" width="672" /></p>
-<p>To find the z-score, plug in the mean and standard deviation into <span class="math inline">\(Z = (x-\mu)/\sigma\)</span> The variables describing this normal distribution will be converted into a z score that can will used as part of a standard normal distribution <span class="math display">\[P(x \le 52.75)=P(z \le (52.75-55)/3))=P(z \le -0.75)\]</span></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x&lt;-<span class="kw">seq</span>(<span class="dt">from=</span>-<span class="dv">4</span>, <span class="dt">to=</span><span class="dv">4</span>, <span class="dt">by=</span>.<span class="dv">1</span>)
-y&lt;-<span class="kw">dnorm</span>(x, <span class="dt">mean=</span><span class="dv">0</span>, <span class="dt">sd=</span><span class="dv">1</span>)
-<span class="kw">plot</span>(x,y, <span class="dt">type=</span><span class="st">&quot;l&quot;</span>, <span class="dt">main=</span><span class="st">&quot;P(X&lt;-0.75) ; X~N(0,1)&quot;</span>)
-### The code below is for shading in an area under the curve
-cord.x &lt;-<span class="st"> </span><span class="kw">c</span>(-<span class="dv">4</span>,<span class="kw">seq</span>(-<span class="dv">4</span>,-<span class="fl">0.75</span>,<span class="fl">0.01</span>),-<span class="fl">0.75</span>) 
- cord.y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">dnorm</span>(<span class="kw">seq</span>(-<span class="dv">4</span>,-<span class="fl">0.75</span>,<span class="fl">0.01</span>), <span class="dt">mean=</span><span class="dv">0</span>, <span class="dt">sd=</span><span class="dv">1</span>), <span class="dv">0</span>) 
- <span class="kw">polygon</span>(cord.x,cord.y,<span class="dt">col=</span><span class="st">&#39;skyblue&#39;</span>)</code></pre></div>
-<p><img src="images/unnamed-chunk-20-1.png" width="672" /></p>
-<p>Now, we use our calculated z score in conjunction with the z table above to find our probability. However, the table does not include negative values for z because <strong>the table is for the area to the right</strong>.</p>
-<p>So what should we do? The key is to remember that the standard normal distribution is symmetric around 0. This means that <span class="math inline">\(P(z \le -0.75)=P(z \ge 0.75)\)</span>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x&lt;-<span class="kw">seq</span>(<span class="dt">from=</span>-<span class="dv">4</span>, <span class="dt">to=</span><span class="dv">4</span>, <span class="dt">by=</span>.<span class="dv">1</span>)
-y&lt;-<span class="kw">dnorm</span>(x, <span class="dt">mean=</span><span class="dv">0</span>, <span class="dt">sd=</span><span class="dv">1</span>)
-<span class="kw">plot</span>(x,y, <span class="dt">type=</span><span class="st">&quot;l&quot;</span>, <span class="dt">main=</span><span class="st">&quot;P(X &gt; 0.75) ; X~N(0,1)&quot;</span>)
-### The code below is for shading in an area under the curve
-cord.x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.75</span>,<span class="kw">seq</span>(<span class="fl">0.75</span>, <span class="dv">4</span>,<span class="fl">0.01</span>),<span class="dv">4</span>) 
- cord.y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">dnorm</span>(<span class="kw">seq</span>(<span class="fl">0.75</span>,<span class="dv">4</span>,<span class="fl">0.01</span>), <span class="dt">mean=</span><span class="dv">0</span>, <span class="dt">sd=</span><span class="dv">1</span>), <span class="dv">0</span>) 
- <span class="kw">polygon</span>(cord.x,cord.y,<span class="dt">col=</span><span class="st">&#39;skyblue&#39;</span>)</code></pre></div>
-<p><img src="images/unnamed-chunk-21-1.png" width="672" /></p>
-<p>Notice the change from “less than” to “greater than.”</p>
-<p>Since the distribution is symmetric, we can multiply the equation by -1 to get a value for the side of the table that we want. After doing so, our equation changes from <span class="math inline">\(P(z \le -0.75)\)</span> to <span class="math inline">\(P(z \ge 0.75)\)</span>. Next we find the z score we just calculated on the corresponding z score table above. The first decimal place holds a 7; the 2nd decimal place holds a 5. When we locate the .7 (row 7 column 1) and then move over to the .05 column, we find the corresponding probability to be about 0.227.</p>
-<p>Remember that this probability refers to the area below the curve to the <strong>right</strong> of the z score we calculated (as shown by the graphic above the table). Lucky for us, this is exactly what the equation tells us to find <span class="math inline">\((P(z\ge0.75))\)</span>. Our answer, therefore, for <span class="math inline">\(P(x \le 52.75)\)</span> = 0.227.</p>
-</div>
-<div id="example-2-finding-the-area-to-the-right-when-x-le-mu." class="section level3">
-<h3><span class="header-section-number">16.4.2</span> Example 2: Finding the area to the right when <span class="math inline">\(x \le \mu\)</span>.</h3>
-<p>For a normal distribution with <span class="math inline">\(\mu = 55\)</span> and <span class="math inline">\(\sigma = 3\)</span>, find the probability that an observation falls at or above the value of 52.75.</p>
-<p>In R we could just type in</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pnorm</span>(<span class="fl">52.75</span>, <span class="dt">mean=</span><span class="dv">55</span>, <span class="dt">sd=</span><span class="dv">3</span>, <span class="dt">lower.tail=</span><span class="ot">FALSE</span>)</code></pre></div>
-<pre><code>## [1] 0.7733726</code></pre>
-<p>Noe that we had to use the <code>lower.tail=FALSE</code> argument, which means we want to measure the area under the curve to the <em>right</em>.</p>
-<p>This corresponds to the following plot:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x&lt;-<span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">48</span>, <span class="dt">to=</span><span class="dv">62</span>, <span class="dt">by=</span>.<span class="dv">1</span>)
-y&lt;-<span class="kw">dnorm</span>(x, <span class="dt">mean=</span><span class="dv">55</span>, <span class="dt">sd=</span><span class="dv">3</span>)
-<span class="kw">plot</span>(x,y, <span class="dt">type=</span><span class="st">&quot;l&quot;</span>, <span class="dt">main=</span><span class="st">&quot;P(X&gt;52.75) ; X~N(55,3)&quot;</span>)
-### The code below is for shading in an area under the curve
-cord.x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">52.75</span>,<span class="kw">seq</span>(<span class="fl">52.75</span>,<span class="dv">63</span>,<span class="fl">0.01</span>), <span class="dv">63</span>) 
- cord.y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">dnorm</span>(<span class="kw">seq</span>(<span class="fl">52.75</span>,<span class="dv">63</span>,<span class="fl">0.01</span>) , <span class="dt">mean=</span><span class="dv">55</span>, <span class="dt">sd=</span><span class="dv">3</span>), <span class="dv">0</span>) 
- <span class="kw">polygon</span>(cord.x,cord.y,<span class="dt">col=</span><span class="st">&#39;skyblue&#39;</span>)</code></pre></div>
-<p><img src="images/unnamed-chunk-23-1.png" width="672" /></p>
-<p>To find the z-score, plug in the mean and standard deviation into <span class="math inline">\(Z = (x-\mu)/\sigma\)</span>. The variables describing this normal distribution can be converted into a z score that can be used as part of a standard normal distribution</p>
-<p><span class="math display">\[P(x \ge 52.75) = P(z\ge(52.75-55)/3)) = P(z \ge -0.75)\]</span> We are looking for an area to the right, just like the table expects, but there are no negative values on our table, so what should we do?</p>
-<p>Again, we have to alter our equation so that we have a can use our z score in conjunction with the z table. The key is to realize that <span class="math inline">\(P(z\ge-0.75) = 1-P(z\le-0.75)\)</span>. This is true because the total area under the normal curve always sums to 1. So, for any point x, the area to the right is always one minus the area to the left. If this doesn’t make sense, draw yourself a picture.</p>
-<p>So to complete this problem, all we need to do is find <span class="math inline">\(P(z\le -0.75)\)</span>. But this is exactly what we found in the last problem! So we find the area to the right of positive 0.75 just like before, which is 0.227. The probability value we find is the same as the above value: 0.227. However, note that this value designates the probability to the right of the z score-and we want probability to the left of the z score. In this case, we take (1-) the probability to the right of the z score to get the probability to the left of the z score. So 1 - 0.227 gives us our answer: 0.773.</p>
-</div>
-<div id="example-3-finding-the-point-given-an-area" class="section level3">
-<h3><span class="header-section-number">16.4.3</span> Example 3: Finding the point given an area</h3>
-<p>For a normal distribution with <span class="math inline">\(\mu = 55\)</span> and <span class="math inline">\(\sigma = 3\)</span>, I want to find the point where the area under the curve to the right is equal to 0.0985.</p>
-<p>In R, we can use the <code>qnorm()</code> function like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qnorm</span>(<span class="fl">0.0985</span>, <span class="dt">mean=</span><span class="dv">55</span>, <span class="dt">sd=</span><span class="dv">3</span>, <span class="dt">lower.tail=</span><span class="ot">FALSE</span>)</code></pre></div>
-<pre><code>## [1] 58.87044</code></pre>
-<p>Note again we used the <code>lower.tail=FALSE</code> argument because we are looking for the area to the <strong>right</strong>.</p>
-<p>But what if you don’t have R? Don’t panic. The first thing to realize is that this is basically just an algebra problem. You are pretty good at Algebra, right? First, set up the equation based on the formulas below.</p>
-<p><span class="math display">\[P(Z&gt;\frac{x-\mu}{\sigma})=0.0985 \rightarrow P(Z&gt;\frac{x-55}{3})=0.0985\]</span> So this looks bad. It looks like there is only one equation above, but there are two unknowns, <span class="math inline">\(Z\)</span> and <span class="math inline">\(x\)</span>. The trick is to realize that we can use the table to find the correct value of <span class="math inline">\(Z\)</span>.</p>
-<p>For these kinds of problems, <strong>we just need to look around the Z-table until we find a value that is as close as possible to 0.0985</strong>. Somtimes, you will have to guesstimate when the exact number you are looking for isn’t there. In this case, the number is right there in the row that starts with 1.2 in the column labled .09. This means that the z-value we plug into the equation above is 1.29!</p>
-<p><span class="math display">\[P(1.29&gt;\frac{x-55}{3})=0.0985\]</span></p>
-<p>In fact, now that we have found the value of <span class="math inline">\(z\)</span>, we don’t even need most of this formula. All we need to do is solve the equation below for <span class="math inline">\(x\)</span>.</p>
-<p><span class="math display">\[1.29 =\frac{x-55}{3}\]</span></p>
-<p>So, after a few easy steps with algebra, we see that</p>
-<p><span class="math display">\[3\times1.29=x-55\]</span> <span class="math display">\[3\times1.29+55=x\]</span></p>
-<p><span class="math display">\[x=58.87.\]</span></p>
 
 </div>
 </div>
@@ -444,8 +348,8 @@ cord.x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">
           </div>
         </div>
       </div>
-<a href="sampling-distributions-pt-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="the-binomial-distribution.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="type-i-and-type-ii-errors.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
