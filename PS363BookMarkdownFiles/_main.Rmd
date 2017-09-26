@@ -1,0 +1,1652 @@
+---
+title: "Quantitative Political Methods Coursebook"
+author: "Jacob Montgomery"
+devtools: install_github("rstudio/bookdown")
+site: bookdown::bookdown_site
+documentclass: book
+output:
+  bookdown::gitbook: default
+  bookdown::pdf_book: default
+---
+
+```{r opts, echo = FALSE}
+knitr::opts_chunk$set(
+  fig.path = "images/"
+)
+```
+
+
+#Class Overview 
+
+##Learning objective #1: What is the point of all of this group work?
+
+This year, this course has been revised to incorporate some elements of Team Based Learning. This is an approach to creating permanent groups to work on problems in class, in lab, and out of class throughout the semester.  
+
+We are not going to follow the TBL approach strictly. But we are going to have fewer lectures and more structured group activities.  Learn more about Team Based Learning by watching this video.
+
+##Learning object #2: What is the point of all of these online activites?
+
+A better question would be what is the point of sitting in a room and watching a professor talk? It's 2017!
+
+Moving an increasing amount of teaching resources online is a big trend in education at all levels.  But this isn't just trendy, it appears to be very effective. Preliminary research shows that online learning paired with in-class interactions with faculty is a much more effective than the traditional lecture format.
+
+Watch this short TED talk by Peter Norvig to learn more:
+
+<iframe width="560" height="315" src="https://youtube.com/embed/tYclUdcsdeo" frameborder="0" allowfullscreen></iframe>
+
+
+
+##Learning objective #3:  How is this going to work?
+
+The approach I am trying to adopt for this class is to help you learn in four basic steps.  
+
+1. Initial exposure to materials through self-study.
+
+2. Repeated exposure to materials in short lectures.
+
+3. Use your new knowledge in a collaborative environment where assistance is readily available.
+
+4. Use your new knowledge on your own.
+
+The goal is for you to see and use information in multiple ways to improve learning outcomes.  Experience (and research) shows that this approach is far superior to simple lectures in helping you learn more and retain it longer.  To help you along this process, each learning component will be broken down as follows.
+
+1. You will read your book and review online materials.  Regular online quizzes will help motivate you to stay current.
+
+2. I will begin most classes with a short lecture where I will cover the materials again and answer questions.
+
+3. You will apply your knowledge during in-class team assignments.  If you have any questions or run into problems, I will be right there to give you help.  To keep the team motivated, these assignments will be graded.
+
+4. You will apply your knowledge on your own (or with friends) in your problem sets.
+
+
+<!--chapter:end:index.Rmd-->
+
+
+
+<!--chapter:end:01Overview.Rmd-->
+
+
+#Measurement Error
+
+##Learning Objectives 
+
+1)   Learn to define the following types of errors: sampling bias, response bias, non-response bias
+
+## Learning Objective 1:  Types of Biases asdf
+
+If the goal of a survey is to be representative, then anything that causes a survey to deviate from the population is a major problem.  Something that causes a survey result to deviate from the population is referred to as bias. 
+
+Bias can be introduced in a number of ways.  We will divide biases into three categories: sampling bias, response bias, and non-response bias.
+
+###Sampling bias
+
+Sampling bias occurs when there is a problem in the sampling process.  Sometimes, the sample is poorly conducted.  For example, in a survey of WashU undergraduates, if we put together a stratified sample, based on residential area, and then selected 50% of our subjects from Shepley Hall, then our survey would not be reflective of the general WashU undergraduate population, because 50% of WashU  students do not live in Shepley hall.  This is a **sampling error**. 
+
+To give a political example, in telephone surveys, sometimes people do not pick up their phone.  In this situation, most polling firms will try calling back later.  If a firm does not try to call back when people are out, then they run the risk of introducing sampling error, because younger people are more likely to be out than older people, and younger people are more likely to be liberal. 
+
+Other times, a sample simply isn't random.  Certain groups are systematically left out of a sample.   This is called a **selection bias**, or selection effect.  In this case, the sample will fail to reflect the population as a whole. 
+
+Although this may sound like an obvious problem, this happens all the time.  For example, hosts at various cable news shows sometimes ask viewers to text in what they think about a certain policy, and then display the results as if they are reflective of the general population.  But just because 93% of people who texted in think that the President should be re-elected does not mean that the population as a whole agrees.  Since it is not a randome sample, it doesn't even mean that 93% of viewers agree!
+
+A common situation where sampling error occurs involves phone lines.  People without phone lines are excluded from most surveys.  That may not be too big of an issue in a country like the United States, where there may not be a substantial difference  between people with phone lines, and people without them.   But in a country like Afghanistan relying on phone calls to conduct a survey would be a very big problem since phones are only owned by (relatively) wealthy individuals and some areas have no service at all!
+
+Another example is Geico commercials, where they say that people who switch to Geico on average save money.  This is a selection bias, because only people who are offered a cheaper rate will switch.  If people were randomly selected and forced to switch to Geico, then they would not be saving 30% or more.
+
+###Response bias
+
+In some surveys, the questions may be poorly worded.  The language may be ambiguous, or may be open to different interpretations. So the process of answering the questions may lead to some bias in how the questions are answered.  
+
+In some surveys, something about the survey itself causes subjects to respond differently than they would in real life.  For example, if someone is being surveyed on how often they volunteer, and (s)he rarely volunteers, (s)he may feel embarrassed or guilty about this fact, and tell the interviewer that (s)he volunteers frequently.   This is called the **social desirability effect**.
+
+For example, if a survey asks someone if they voted in the last election, and they had not, that person may be more inclined to answer untruthfully, because failing to vote is frowned upon. 
+
+Other times, the ordering of questions might affect responses.  For example, if a survey begins by asking subjects numerous questions about terrorism, and then asks them to list the issues most important to them, more subjects might list terrorism than would be the case if the survey had not first asked numerous questions about it.  This is referred to as **order effect**. 
+
+An example of order effect occurred in a survey in 1948 that asked, 
+
+>Q1: Do you think the US should let Communist newspaper reporters from other countries come in here and send back to their papers the news as they see it?
+
+But half of the people were first asked,  
+
+>Q2: Do you think a communist country like Russia should let American newspaper reporters come in and send back to America the news as they see it?
+
+Among people who were first asked the question about American reporters (Q2), 73.1% said yes to Q1.   But, among people who did not first answer Q2, only 36.5% said yes to Q1. 
+
+###Non-response bias
+
+People don't always respond to surveys.  When people who do not respond to surveys differ in some systematic way from people who do respond, then the sample fails to be representative of the general population. 
+
+For example, students who submit course evaluations tend to do so because they either disliked their professor, or loved their professor.  In a class, students who do not have strong feelings one way or another are less likely to submit an evaluation, so the evaluation results are likely to indicate that the class is more polarized than it actually is. 
+
+Note: Non-response bias is not the same as selection bias.  Selection bias has to do with how the sample was constructed by the researcher.  Non-response bias has to do with how individuals chosen to be in the sample behave.
+
+##What's the takeaway?
+
+There are several different ways that a survey can fail to reflect the population. The sample itself could not be reflective of the population, which would be a **sampling bias**.  Sometimes, something about the survey could prompt people to give answers that don't reflect what they actually believe or do, which is a **response bias**.  Other times, the people who are selected, but don't respond differ in an important way from people who do respond, causing the results of the survey to be skewed.  This is called a **non-response bias**. 
+
+<!--chapter:end:02MeasurementError.Rmd-->
+
+
+#Scales of Measurement
+
+##Learning Objectives:
+
+1) Learn what ordinal, nominal, and interval scales are. Be able to distinguish between them. 
+
+2) Learn what "granularity" means, learn what the two types of granularity, continuous and discrete, mean, and learn how to distinguish them
+
+##Learning Objective 1: Scales
+
+###First of all, what do we mean by scales?
+
+A "scale" is just the way we measure or quantify a variable.  There are three different scales with which data can be measured: nominal, ordinal, or interval. 
+
+###Nominal Scale
+
+Variables measured on a nominal scale  can be separated into different categories, but they have *no natural ordering*.  We can't say that one data point is "more something" than another point.
+
+One example is conenent.   It is possible to put countries into different categories based on the continent they're in.  The reason that continent is a nominal variable is that, while we can put countries into different categories, there is no universal, objective way of putting them along a dimension.
+
+*Note:* Sometimes variables measured on a nominal scale are called "categorical" data.
+
+###Ordinal Scale:
+
+Variables measured on an ordinal scale have a natural ordering, but no natural distances between them.  We can put the data points in a conceptual line, but there isn't a precise (or meaningful) distance between observed values.
+
+Many survey questions measure opinion on an ordinal scale.  For example,  in 2012 The Pew research Center asked:
+
+>Is your overall opinion of Barack Obama very favorable, mostly favorable, mostly unfavorable, or very unfavorable?  
+
+We can be pretty sure  that people who respondend "very unfavorable" approved less of President Obama than people who responded "mostly unfavorable."  But how much less?  We don't know exactly, which is why this variable is measured on an ordinal scale. (You can see many more examples of question wordings to measure approval Preisdent Obama [here](http://www.pollingreport.com/obama_fav.htm).)
+
+###Interval Scale:
+
+Variables measured on an interval scale have both a clear ordering and the difference between numbers has a clear meaning.  We can not only put data points in a line, we can also position them within precise distances from each other. 
+
+An easy example is height. We can order everyone in QPM in a line, from tallest to shortest, and we can say precisely how much taller (or shorter) one person is than the others. 
+
+###Ratio scale:
+
+Ratio scale is a subset of Interval data.  In a ratio scale, the zero value signifies that there is none of that variable.  Most scales in social science are ratio scales.  For example, if we were to measure the proportion of the time a legislator votes with the leadership of a certain party, then a score of 0% means that that legislator cast no votes with the party leadership.  
+
+An example of a scale that is not measured on a ratio scale is temperature measured in Fahrenheit or Celsius.  If a room is 0 degrees Fahrenheit or Celsius, that does *not* mean that there is no warmth.
+
+###Focus on the measurement and not the concept
+
+Certain variables, when measured in different ways, can be measured with different scales.  For example, think about political ideology.  One way to measure the ideology of a member of Congress would be to ask them if they are "Very liberal, somewhat liberal, somewhat conservative, or very conservative."    This would have an ordinal scale.  
+
+However, there are other ways to measure ideology.  For example, we could measure the proportion of votes each member cast that were consistent with the Republican leadership.  This would allow us to make a scale of ideology that is interval.  (We might find that Nancy Pelosi's voting record is 70.2% more liberal than John Boehner's.)
+
+Below is the link to Congressional rankings released by Americans for Democratic Action, a left-wing political group, and rankings released by the Club for Growth, and right-wing political group. 
+
+http://www.adaction.org/media/votingrecords/2010.pdf
+http://www.clubforgrowth.org/projects/
+
+##Summary:
+
+Watch this video for a very nice summary of these concepts and some thoughts on how best to plot them.
+
+<iframe width="560" height="315" src="https://youtube.com/embed/hZxnzfnt5v8" frameborder="0" allowfullscreen></iframe>
+
+##Learning Objective 2: Granularity
+
+##What is granularity?
+
+Granularity refers to how answers fit on a scale.  If a variable can take on any value along a scale, it is **continuous**.  An example of a continuous variable is the proportion of the vote a candidate receives in an election.  A candidate can receive 0%, 100%, or any value in between. 
+
+If a variable can only take on certain (countable) values, it is **discrete**.  All nominal data are discrete. 
+
+Consider the following survey question, asked in a poll by Rusmussen Reports (full survey [here](http://www.rasmussenreports.com/public_content/politics/questions/pt_survey_questions/august_2012/questions_health_care_update_august_24_25_2012)): 
+
+>A proposal has been made to repeal the health care law and stop it from going into effect. Do you strongly favor, somewhat favor, somewhat oppose or strongly oppose a proposal to repeal the health care law?
+
+In the above question, the results would be discrete, because there are only 5 possible answers.  Respondents can strongly favor, somewhat favor, some oppose, or strongly oppose the proposal.  There is no possible answer between strongly favor or somewhat favor, for example. 
+
+Here is a video that can help you tell the difference between discrete and continuous data.
+
+<iframe width="560" height="315" src="https://youtube.com/embed/8yKtrZR9MYo" frameborder="0" allowfullscreen></iframe>
+
+##What are the takeaways?
+
+Based on whether data have a natural order or natural distance, they can be measured on a **nominal**, **ordinal**, or **interval scale**.  A specific type of interval scale is a **ratio** scale.  Some variables, measured in different ways, can potentially be measured on several types of scales. 
+
+Based on the space between answers, or **granularity**, scales can either be **continuous**, if variables can take on any value on the scale, or **discrete**, if they can only take on certain values.  
+
+This video will help you keep this all straight.
+
+<iframe width="560" height="315" src="https://youtube.com/embed/uP3-q7Re_jk" frameborder="0" allowfullscreen></iframe>
+
+<!--chapter:end:03MeasurementScales.Rmd-->
+
+
+
+# Random Samples
+
+##Learning Objectives 
+
+1)Understand what a random sample is, and why random samples are important.
+
+2)Identify simple random samples, systematic random samples, stratified random samples, cluster samples, and multi-stage sampling, and understand why scientists use them.
+
+##Learning Objective 1: Random Samples 
+
+###What is a random sample?
+
+A random sample is a sample where every subject in the population in question has an equal chance of being selected.  If there are 6,000 undergrads at WashU, and I want to select 600 to be in my sample, then if my method of selecting subject is random, each undergrad has the same chance of being selected, 10%. 
+
+###Why do we care if a sample is random?
+
+We want our samples to be representative.  In other words, we want our sample to look like the population we're drawing from, just smaller.  If we are conducting a study on how happy they are with their dorm, and 10% of WashU undergrads live in a "traditional" dorm on the South 40, then we want 10% of our sample to be comprised of students living in a traditional dorm on the South 40. 
+
+More technically, random samples are  representative in expectation. That means that if we took a lot of different random samples, on average they would be representative.  So while any one random sample might be off just a bit, random samples in general will be representative.
+
+###Real-life application: Don't look ignorant in your newspaper column
+
+Below is the link to an article by Rodger Simon, Politico's chief political columnist.  In this article, he dismisses polls because they ask so few people what they think.  This is a perfectly reasonable argument to make if one has had no background in statistics.  What Roger Simon failed to grasp, and the reason why polls work, even though they ask such few people, is that, when they are done well, they are representative of the population as a whole.
+
+<http://www.politico.com/news/stories/1211/70717.html>
+
+##Learning Objective 2: Types of Random Samples
+
+There are several different types of random samples.  In each of these samples, every subject in the population has the same probability of being selected, but the subjects are selected in different ways.
+
+###Simple Random Sample:
+
+This is the most basic method of sampling.  A certain number of subjects are chosen randomly out of a population.   An example of this is lotteries.  In a lottery, each number has the same chance of being selected.  
+
+Here's a helpful video that explains simple random samples:
+
+<iframe width="560" height="315" src="https://youtube.com/embed/yx5KZi5QArQ" frameborder="0" allowfullscreen></iframe>
+
+**If simple random samples are representative, why not just use them for all samples?**
+
+The problem is that it is extremely difficult, if not impossible, to put together a simple random sample for large populations.  One challenge is that certain groups have different response rates than other groups.  In this case, if we just do a simple random sample, then groups that have a higher response rate will be over-represented. 
+
+Another challenge is that there is no directory with the names and contact information of every single person, so it can be difficult to put together a sample in the first place.  Scientists employ more complex sampling methods to remedy these problems.
+
+###Systematic Random Sample:
+
+In a systematic sample, subjects are selected through some sort of system.  For example, I might collect the student id numbers of all WashU undergrads, order them from least to greatest, and then start with the 8th number, and sample every 10th person. 
+
+This is still a random sample, because each person has the same chance of being selected. It's not, however, a simple random sample, because instead of being selected entirely randomly in no order, there was a system to choosing the people. 
+
+In a simple random sample, every set of people has the same chance of being in the sample.  In a systematic random sample, that's not true.   For example, if my student ID number is 1 higher than my roommate's, then the in a simple random sample it's possible that both my roommate and I will be in the sample.  In the systematic random sample I just described, however, it is impossible that my roommate and I will be in the same sample. Everyone in the sample has a student id number that's 10 apart. 
+
+Here's a helpful video that explains systematic random samples:
+
+<iframe width="560" height="315" src="https://youtube.com/embed/QFoisfSZs8I" frameborder="0" allowfullscreen></iframe>
+
+###Stratified Random Sample:
+
+In a Stratified Random Sample, we first split the population into different groups, or strata.  We then select a set number of subjects from each group.  The goal is to set up the samples such that the proportion of subjects in the sample from each strata match the proportion of subjects from each strata in the population.
+
+To return to the example of sampling the undergraduate population of WashU, we might divide undergrads into different strata based on their residential area.  If 5% of all WashU undergrads live in Mudd Hall, and we want our sample to be 600 people, then 5% of those 600 people, or 30 people, will be from Mudd Hall.  To achieve this, we would do a simple random sample of Mudd residents, choosing 30 subjects.  And we would do this for each residential area.
+
+Here's a helpful video that explains stratified random sampling:
+
+<iframe width="560" height="315" src="https://youtube.com/embed/sYRUYJYOpG0" frameborder="0" allowfullscreen></iframe>
+
+**What are the advantages of a stratified random sample?**
+
+Stratified Random Samples can be used to remedy problems of over-sampling, or under-sampling.  If different groups have different rates of response, then we can select more subjects from those groups, so the set of people who respond are representative.
+
+For example, if freshmen respond much less to surveys than upper-classmen, then we might use a stratified random sample, and over-sample freshmen, to correct for this.
+
+###Cluster Samples:
+
+In a cluster sample, the population is divided into different clusters.  These are organic groupings of people.  A simple random sample is run to select several clusters, and then everyone in each selected cluster is surveyed.
+
+For example, in the WashU undergrad survey, we might "cluster" students by floor.  Wheeler 1 would be a cluster, Lopata 3 another, and so on.  We would randomly select a few floors, and interview everyone on each floor. 
+
+Here's a helpful video that explains cluster sampling:
+
+<iframe width="560" height="315" src="https://youtube.com/embed/QOxXy-I6ogs" frameborder="0" allowfullscreen></iframe>
+
+**What are the advantages of a cluster sample?**
+
+In some ways, cluster samples are easier to execute.  If many of the people we are interviewing live close together, it might be easier to reach them. 
+
+Of course, cluster sampling is not without its drawbacks.  Because subjects in the same cluster tend to be similar in certain systematic ways, the cluster sampling can lead to over-sampling of certain types of people. 
+
+###Multi-Stage Sampling:
+
+A multi-stage sample employs several types of random samples.  For example, for the undergrad survey, we might first stratify WashU undergrad by whether they live on the South 40, in the Village, or off campus.  We might then do a cluster sample within each strata.  We could choose 4 floors from each strata, and interview each person on that floor.
+
+##What are the takeaways?
+
+Random sampling is the way scientists develop representative samples.  There are several different ways of putting together random samples.  These include **cluster samples**, **stratified random samples**, **systematic samples**, and **multi-stage samples**, which combine aspects of different sampling methods. 
+
+ 
+
+
+
+<!--chapter:end:04RandomSampling.Rmd-->
+
+
+# Installing R and R Studio
+
+##Installing R and R Studio on a Mac (would also work for other platforms)
+
+<iframe width="560" height="315" src="https://youtube.com/embed/cX532N_XLIs" frameborder="0" allowfullscreen></iframe>
+
+##Installing R and R Studio on Windows 
+
+<iframe width="560" height="315" src="https://youtube.com/embed/eD07NznguA4" frameborder="0" allowfullscreen></iframe>
+
+<!--chapter:end:05Installation.Rmd-->
+
+
+# A Brief Introduction to R 
+
+
+Learning objectives:
+
+1)Learn how to assign a value to an object in R.
+
+2)Learn your way around R (using R Studio).
+
+3)Learn how to do simple arithmetic in R.
+
+
+<iframe width="560" height="315" src="https://youtube.com/embed/UYclmg1_KLk" frameborder="0" allowfullscreen></iframe>
+
+<!--chapter:end:06IntrotoR.Rmd-->
+
+# Importing data into R
+
+## Learning Objectives:
+
+1. Learn how to import data into R.
+
+2. Learn how to look at the data.
+
+
+
+## Importing Data 
+
+There are many different kinds of data: there are comma-separated-value files (.csv), text files (.txt), STATA files (.dta), SPSS files (.spss), and some others. We will work primarily with .csv files and some .dta files in this course. 
+
+In order to import data, we need to make sure we set the correct working directory. After downloading the data, make sure the R working directory is set to the location you saved the data. Then once you are working in the correct directory, we can read csv files in by using the "read.csv" function. 
+
+We'll try this with some energy data. Go to: (https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/ARKOTI) and download PESenergy.csv. This is data on TV news coverage about energy policy used in [this study](http://www.psci.unt.edu/~EshbaughSoha/prime-time.pdf). 
+
+
+### Telling R where to look
+
+The first thing you need to do, is make sure R is looking in the right place for the file.  We can use the <code>getwd</code> This shows you R's current working directory 
+
+```{r, eval=F}
+getwd() 
+```
+
+The output from this command always tells you what *directory* R is looking in for files. To change where R is looking, we will use the <code>setwd</code> command.
+
+```{r, eval=FALSE}
+setwd("/Users/yourname/Downloads")
+```
+
+You will have to change the argument inside the parentheses to point to the right folder on your computer.  You can use the <code>dir</code> to list out all of the files in your working directory.
+
+
+```{r, eval=FALSE}
+dir()
+```
+
+### Reading in your first data file
+
+Once you have got R looking in the right place, now you can load the data using the <code>read.csv</code> command.
+
+
+```{r, eval=F}
+data <- read.csv("PESenergy.csv")
+```
+
+This imports PESenergy.csv into a data frame in R. 
+
+Once we have the data in R, we can manipulate in a number of ways. Experiment with the code below: 
+
+```{r, eval=F}
+head(energyData)
+tail(energyData)
+summary(energyData)
+table(energyData$Energy)
+energyData[c(10:20),c("Date","Energy","rmn1173")]
+```
+
+### Summarizing the variables in your dataset
+
+The function <code>summary</code> creates a summary table but for all of the variables. 
+
+```{r, eval=F}
+summary(energyData)
+```
+
+The function <code>summary</code> creates a summary table but for all of the variables. We can also look at just one variable by specifing the column name of a variable like this:
+
+```{r, eval=F}
+summary(energyData$Approval)
+```
+
+### Adding a variable to your data
+
+Let's creates a new variable, which is exactly 0.01 times the Approval variable. 
+
+```{r, eval=F}
+energyData$approvalProp <- energyData$Approval*0.01
+```
+
+We can see this more clearly if we run the summary of our new variable, the output should be exactly 0.01 times the ouptut of the previous summary table: 
+
+
+```{r, eval=F}
+summary(energyData$approvalProp)
+```
+
+
+## Let's go through that all again
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/U4-RnTW5dfw" frameborder="0" allowfullscreen></iframe>
+
+
+## Now let's practice a bit
+
+[Follow this link to datacamp.com.](https://www.datacamp.com/community/tutorials/r-data-import-tutorial#Getting).  You just need to complete the "Read TXT" and "Read CSV" files.  But **note** that there is also a lesson using the <code>XLConnect</code> package for reading in Excel files. Students who prefer working with data in Excel will want to review this material.
+
+
+
+
+<!--chapter:end:07ImportingAndVisualizingData.Rmd-->
+
+
+# Visualizing Data in R
+
+Learning Objectives:
+
+1. Learn how to create simple plots in R.
+
+2. Learn how to interpret the results.
+
+## Let's start with a couple of good videos
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Hj1pgap4UOY&t=19s" frameborder="0" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FEAS3akVxD8" frameborder="0" allowfullscreen></iframe>
+
+
+## Basic visulualization
+
+Now go back to the PSenergy data we used in the last chapter.  Follow those instructions to open the data as an object called <code>energyData</code>.
+
+
+### Making your first plots
+
+We use R to create many different kinds of plots: 
+
+
+```{r, eval=F}
+hist(energyData$Energy, xlab="Television Stories", main="Title")
+boxplot(energyData$Energy, ylab="Television Stories", main="Title")
+plot(y=energyData$Energy, x=energyData$Approval,ylab="Television Stories",xlab="Presidential Approval")
+plot(x=energyData$Energy, ylab="Television Stories",xlab="Month-Year",type="l")
+```
+
+### Saving your plot
+
+You can save your plot by re-creating it within a "pdf device."  In essence, R will create the plot as a new file rather than on your screen.
+
+```{r, eval=F}
+library(lattice)
+getwd()
+pdf("stories_over_time.pdf")
+densityplot(energyData$Energy, xlab="Television Stories")
+dev.off()
+```
+
+Do not forget the <code>dev.off</code> or the file will never be rendered.
+
+
+## Try a bit more on your own.
+
+Complete chapter 1 of the datacamp course on [data visualization in R](https://www.datacamp.com/courses/data-visualization-in-r).
+
+<!--chapter:end:08VisualizingData.Rmd-->
+
+
+# Measures of Position
+
+Learning Objectives:
+
+1) Understand and the terms percentale, interquartile range, outliers and skew.  
+
+##Percentile
+
+The nth percentile means that n% of observations fall below (or are equal to) n, and (100-n)% fall above n.
+
+For example, if you score in the 90th percentile on a test, that means that 90% of students who took the test earned the same or a lower score than you, and 10% scored higher than you.
+
+The percentile tells us a lot about a specific observation within a data set because it gives us its relative position. The median is the 50th percentile because exactly 50% of observations fall above the median, and 50% of observations fall below the median.
+
+##Interquartile Range
+
+This way of looking at data splits observations into four parts (four quarters). The Interquartile Range (IQR) determines the middle 50% of the data (the middle two quarters).
+
+IQR= (75th percentile-25th percentile)
+
+The 25th percentile is the lower quartile (25% of data falls below the 25th percentile) and the 75th percentile is the upper quartile (25% of data falls above the 75th percentile).
+
+A good way of finding these observations in an ordered set of data is to determine the median, then find the median from the highest data point to the median, and the lowest data point to the median.
+
+For example, if you had the data 1 2 3 4 5, you could determine by counting in 3 numbers from each side that the median is 3. You could then find the median of 1 2 3 and of 3 4 5. That will tell you that 2 is the value of the lower quartile, and 4 is the value of the upper quartile. 4-2= 2, which means that the IQR= 2.
+
+##Outliers
+
+An outlier is an observation whose value is so much greater or lesser than the other observations that it can be considered an extreme. For example, if you had the data 1 2 3 4 8000, you can easily tell that 8000 is an outlier because it is so much larger than the other values.
+
+Although there are many definitions, one common definition of an outlier is any observation that falls 1.5(IQR) above the upper quartile, or 1.5(IQR) below the lower quartile. In our above data set, we can determine that the IQR=2. 1.5(2)=3. This means that any value less than -1 or greater than 7 is an outlier, so 8000 is clearly an outlier.
+
+##Skew
+
+The skew tells us the tendency of the data.
+
+To determine skew, you can look at a histogram of the data, or compare the median and the mean of a set of data. If the longer tail of the data is to the left of the mode, the data is skewed to the left. We call this a **negative skew**.
+
+If that longer tail of the data is to the right, the data is skewed to the right; a **positive skew**.
+
+In comparing the median and the mean, if the mean is greater than the median, the data is positively skewed, and if the mean is smaller than the median, the data is negatively skewed. We can compare these two measures of center because the mean is more sensitive to outliers than the median.
+
+For an easy way to remember skew, check out this video.  You'll never forget it again.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/gzSbAkZE8jw" frameborder="0" allowfullscreen></iframe>
+
+<!--chapter:end:09MeasuresofPosition.Rmd-->
+
+
+# Measures of Central Tendency
+Learning Objectives:
+
+1) Learn what a mean is and how to calculate one.
+2) Learn what a median is and how to calculate one.
+3) Learn what a mode is and how to calculate one.
+4) Understand how all of alternative measures differ and why.
+
+##Learning objective 1: Mean
+
+$x_1 $ indicates a single observation, or data point. $\bar{x}$ represents the **mean** of all the observations, which is taken by adding up all the observations and dividing them by the number of observations. We call this the arithmetic mean, or average.
+
+More formally, the equation for the mean is: $$\bar{x} = \frac{\sum_i^n x_i }{n} $$
+
+The mean is used only for quantitative data and interval data. (For example, if you were to ask respondents on a survey to circle their preferred baseball team, the Cardinals, Cubs, Reds, or Pirates, you couldn't then add up the teams and divide by four.)
+
+The mean is highly influenced by outliers, which means that for skewed distributions of data, the mean lies in the direction of the skew.
+
+The **trimmed mean** is a way of correcting for the effect of outliers on the mean. It involves cutting out a certain percentage of the data from both extremes. For example, a 10% trimmed mean involves throwing out the top 10% and bottom 10% of findings, then calculating the mean from the remaining middle 80% of the data.
+
+##Learning objective 2: Median
+
+The median is a measure of central tendency found by determining the middle value of a set of data. The value of the median is the 50th percentile because 50% of observations fall above the value of the median, and 50% of observations fall below the median.
+
+The median it is the middle of an ordered sequence. For example, if we look at the numbers 1 2 3 4 5, the middle of that ordered sequence is 3.
+
+If we have an even number of observations, say 1 2 3 4 5 6, we take the mean of the two middle numbers.  So the median here is equal to 3.5.
+
+The median is used for quantitative, ordinal or interval data. For symmetric distributions (e.g., a normal bell curve), the mean and the median are identical. However, the median is not affected by outliers like the mean is, so if a distribution of data is highly skewed, the median tends to be the preferred measure of center over the mean.
+
+
+![This image shows three graphs two skewed and one symmetrical bell curve. Note the way the mean is easily influenced by the skew of the graph, how it is pulled towards the longer tail of a distribution. Comparing the mean and the median is a good way to determine the skew of data without actually making a histogram.  Source: http://experimentaltheology.blogspot.com/2012/03/central-tendency-in-skewed.html](1.jpg)
+
+##Learning objective 3: Mode
+
+The **mode** is a measure of central tendency that is the value that occurs most frequently. The mode is the most common data point. For example, if you collected the data 1 2 2 3 4, the mode is the number 2.
+
+- Imagine a bar graph of the data. The mode is whichever bar is the tallest.
+- For symmetric distributions, the mean, median, and mode are all the same value.
+- When data is bimodal, which means that there are two distinct values that tend to occur more frequently (in a histogram, this would mean there are two lumps in the graph), it can indicate polarization around two extremes. An example of a bimodal distribution is shown bewlow.
+ 
+
+![This histogram shows the change in polarization in the public between 1993 and 2014](2.png)
+
+## Another look:
+
+For more information about measures of center, check out this video:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GrynkZB3E7M" frameborder="0" allowfullscreen></iframe>
+
+<!--chapter:end:10CentralTendency.Rmd-->
+
+
+# Measures of Dispersion
+Learning Objectives:
+
+1) Understand how to calculate the **range** of a variable and how to calculate it.
+2) Understand and be able to calculate the **deviation** of specific data point.
+3) Understand how to calculate the **variance** of variable.
+4) Understand how to calculate the **standard deviation** of a variable, and its relationship to the variance.
+5) Understand the **"Empirical Rule"** and how it is related to the standard deviation.
+
+##Learning objective 1: Range
+
+The **range** is a simple measure of variability that shows how spread out the observations in a data set are.
+
+Range= (largest observation - smallest observation). Because the range is a measure of distance, the value of the range is always positive.
+
+The range really doesn't tell us anything much that is useful.
+
+##Learning objective 2: Deviations
+
+A **deviation** is a measure of distance from a measure of center, $|x_1 - \bar{x}|$. The observation may be greater or lesser than the value of the center, but because deviation is a measure of distance, its value is always positive.
+
+##Learning objective 3: Variance
+
+**Variance** is the average of squared deviations. The value of the variance is a squared value (for instance, inches squared, percentage squared, children squared) which does not necessarily tell us very clearly about how spread out the data is from the mean.
+
+Variance is calculated by dividing the sum of squared deviations from the value of the population by $n-1$. This is the equation: $$s^2=\frac{\sum_i^n (x_i - \bar{x})^2}{n-1}  $$
+
+ When variance increases it means the observations are more spread out from the mean.
+
+##Learning objective 4: Standard deviation
+
+The **standard deviation** is the square root of the variance.
+
+$$s=\sqrt{s^2}=\sqrt{\frac{\sum_i^n (x_i -\bar{x})^2}{n-1}}$$
+
+Like the variance, the standard deviation is always a positive number because it represents a distance from the mean. When x is a constant (for example, you have the observations 3 3 3 3 3), the standard deviation is 0 because there is no deviation from the mean. The standard deviation increases as variability increases around the mean.
+
+*NOTE*: The standard deviation is greatly affected by outliers.
+
+##Learning objective 5: The Empirical Rule
+
+The **Empirical Rule** is the distribution of observations is the histogram of the data is approximately bell shaped; if it is a normal, symmetrical distribution.
+
+The Rule says that about 68% of observations ball between $\bar{x}-s$ and $\bar{x}+s$; that about 95% of observations fall between $\bar{x}-2s$ and $\bar{x}+2s$; and that nearly all the data in a normal distribution will fall between $\bar{x}-3s$ and $\bar{x}+3s$.
+
+The Empirical Rule only works if the data is approximately bell shaped. It does not apply to data that is skewed.
+
+## Review that all again
+
+For more information about measures of dispersion, check out this video:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/E4HAYd0QnRc" frameborder="0" allowfullscreen></iframe>
+
+<!--chapter:end:11Dispersion.Rmd-->
+
+
+# Frequency and Probability Distributions
+
+## Learning objectives
+
+Learning Objectives:
+
+1. Define probability.
+2. Understand the basic properties of a probability.
+3. Understand the meaning of "frequency distribution."
+
+##What is a probability?
+
+There are many definitions of a probability, but here is one that is easy to understand and that is pretty useful for this class is the **frequency interpretation** of probability.  In essence, we imagine doing something (flipping a coin, rolling a dice, taking a random sample). 
+
+**Probability (frequency interpretation)**
+
+> The relative frequency of occurrence for some particular outcome if a process is repeated a large number of times under similar conditions.
+
+Probabilities help us answer questions like:
+
+- If I flip a coin three times, what is the probability that I will get exactly two heads?
+- If I roll two dice, what is the probability of getting a two?
+- If I take a random sample of 100 Wash U students, what is the probability that less than 40% of the sample will be male?
+
+
+If you are asked to find the probability that the variable $Y$ will take on a specific value such as 3, probabilities can be written in several ways.
+$$Pr(Y=3) \mbox{ or }P(Y=3)\mbox{ or } P(3)\mbox{ or } Pr(3)$$
+All of these are asking you to figure out the probability that the variable $Y$ will take on the value of 3.
+
+In other cases you may see a probability written a more generic form, where the specific data point is replaced by a letter.  Often this will be written in one of several ways depending on the math book you are looking at. 
+$$Pr(Y=y), Pr(Y), P(Y=y), \mbox{ or } P(Y)$$
+
+##Frequency distribution
+
+A probability distribution of a discrete variable, Y, assigns a probability to each possible outcome. As an example, we can write out the frequency distribution for all possible outcomes of flipping two coints. 
+
+<center>
+Outcome| #Heads| Probability     
+:-:|:---:|:--:
+TT|   0| $\frac{1}{4}$
+TH|   1| $\frac{1}{4}$
+HT|   1| $\frac{1}{4}$
+HH|   2| $\frac{1}{4}$
+</center>
+
+In the left column, is the outcome.  In the right column is the probability of observing that outcome. 
+
+So, if we want to represent the probability of getting zero heads, one head, or two heads, we would end up with the frequency distribution:
+
+Y|  Probability     
+:---:|:--:
+0| $\frac{1}{4}$
+1| $\frac{1}{2}$
+2| $\frac{1}{4}$
+
+Here $Y$ is the random variable of interest. We can think of this table a mapping between inputs (Y) and outputs (probabilities). In more formal notation, this table represents a *function*, which we can call $P(Y=y)$ or just $P(y)$. This function is what we call a frequency distribution.
+
+### Probability and sets
+
+We are going to formalize this kind of thinking another step and define something callled a set, $S= \{y_1, y_2, \ldots, y_k\}$, which means that S represents the set of all possible outcomes. In our example, the set of possible outcomes is $S=\{0,1,2\}$.
+
+### What makes a frequency distribution special?
+
+We have defined our frequency distribution $P(Y)$ and the set of possible outcomes $S$.  Now we can turn to thinking about what makes a frequency distribution special.
+
+First, for all possible outcomes $0 \le P(y \in S) \le 1$.  This looks complicated, but just means that the probability of something happen can't be negative and can't be greater than 1.  It makes no sense to say that something is 110\% likely to happen and it makes no sense to say that something has a negative chance of happening.
+
+Second, (remembering from above that $S= \{y_1, y_2, \ldots, y_k\}$ $$\sum_{k=1}^K p(y_k )=1.$$ This means that the sum of all the probabilities that an event will occur equals 1. 
+
+### External resources
+
+Here are some videos to help: 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3ER8OkqBdpE" frameborder="0" allowfullscreen></iframe>
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6E_NVnboMB8" frameborder="0" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Fvi9A_tEmXQ" frameborder="0" allowfullscreen></iframe>
+
+
+This last video walks you through the construction of a probability density function. 
+
+<!--chapter:end:12FreqProbDistributions.Rmd-->
+
+
+# Some basic plotting in R
+
+We have made some videos to help you do some basic plots. These were made especially to help you with the problem set.
+
+How to plot a normal curve
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/14S5XsHGyqs" frameborder="0" allowfullscreen></iframe>
+
+This video shows how to include multiple plots in the same figure.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/w4WWZsvy8Wo" frameborder="0" allowfullscreen></iframe>
+
+This shows you how to import some data and make a scatter plot.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6_s5-_iF8s4" frameborder="0" allowfullscreen></iframe>
+
+This shows you how to include multiple sets of data on the same plot.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xnZaIi35AoY" frameborder="0" allowfullscreen></iframe>
+
+This shows you how to put two histograms on the same plot and gives you an example of how to subset data.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/W3d1NfmmBnw" frameborder="0" allowfullscreen></iframe>
+
+<!--chapter:end:13Plotting.Rmd-->
+
+
+# Sampling Distributions, Pt. 1
+Learning Objectives:
+
+1) Understand what a sampling distribution is, and how it is different from a sample distribution, or the population distribution. 
+2) Understand the difference between a standard deviation and a sandard error.
+
+##Let's review
+
+Thus far, we've dealt primarily with two distributions: *samples*, and *populations*, with samples being a subset of the population.  Often times, it can be difficult to know the exact parameters of a population, so we use samples to estimate them. 
+
+But samples are not perfect.  Even a good random sample may have some error.  That is, the statistics calculated from the sample may not exactly match up with the population parameters.  So, for instance, the sample mean may not exactly match the population mean.
+
+We want to know how much error there will likely be in our sample statistics.  To do this, we use the **sampling distribution**.  The sampling distribution uses probability theory to describe how sample *statistics* will vary. 
+
+For example, imagine we are running a study on the average household income in the United States.  It would be infeasible to collect data for every single household, so we decide to do a survey.  Let's say we decide that our survey will have 2,000 households.  We know that the sample mean might be slightly different from the actual population mean.  But how different might it be?  What is the probability that your sample will be off by 1,000? By 3,000? By 10,000?
+
+To answer this question, we use the sampling distribution, which tells us the expected results of a sample if we were to (theoretically) collect a sample of that size many, many times.
+
+##What is a sampling distribution?
+
+> A sampling tells us how the **sample statistics** would be distributed if we took a random sample from the poppulation many times.  
+
+In other words, if you were to draw large samples from a population repeatedly, and graph the resulting sample means, the sampling distribution is what that graph would look like.
+
+In the samples we've been dealing with so far, the **standard deviation** is a measure of how far individuals in a population tend to be from the population mean.  It is a measure of how spread out individuals are in the population.  In a sampling distribution, the **standard error** is a measure of how far a sample mean or proportion tends to be from the true population mean or proportion. (NOTE: Read this paragraph a few times and make sure you understand the difference. DO NOT CONFUSE STANDARD DEVIATIONS WITH STANDARD ERRORS.)
+
+To distinguish between samples, sampling distributions, and populations, it may help to think of this using college terms.   Below are the college equivalents to these terms.
+
+- Populations:
+    - Population: Students at Wash U
+    - Population parameter ($\mu$): Average GPA at Wash U
+
+
+- Sample: the students in one course
+    - Sample mean ($\bar{x}$): The mean GPA in that one course
+
+- Sampling distribution: the hypothetical distribution of mean course GPAs for all classes at Wash U.
+    - Standard error: a measure of spread between a hypothetical mean course GPA and the school GPA
+
+ Below is a short video describing a sampling distribution. (Don't worry about the exact formulas yet. Just try and get the concept.)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/uPX0NBrJfRI" frameborder="0" allowfullscreen></iframe>
+
+##How is a sampling distribution different from the sample distribution or the population distribution?
+
+The distribution of the sample (sometimes confusingly called the sample distribution) is the distribution of a single sample.  In our example of household income, each point in the sample distribution represents one household that we surveyed.  
+
+The sampl**ing** distribution shows the results of repeated samples, and each point in the sampling distribution represents one sample mean. 
+
+The population distribution (if we could ever see it, which we cannot) shows every single possible data point in the population, and each data point represents one household.
+
+##What are the takeaways?
+
+A sampling distribution is the theoretical distribution of sample statistics.  Each point on the sampling distribution represents a sample statistic. 
+
+The standard error the sampling statistic is an indicator of how far a sample statistic is likely to be from the actual population parameter.
+
+<!--chapter:end:14SamplingDistribution.Rmd-->
+
+
+# Sampling Distributions, Pt. 2
+Learning Objectives
+
+1. Be able to calculate the parameters of the sampling distribution for a sample mean in two circumstances: 
+    - The population variance is known
+    - The population variance must be estimated from our data
+
+2. Understand the notation for the center and spread of the population distribution, sampling distribution, and sample distribution
+
+##Let's review
+
+A **sampling distribution** is the theoretical distribution of sample statistics.  We use sampling distributions to figure out how close a statistic calculated from a sample (e.g., a sample mean) is likely to be to the population parameter we're concerned with.  Each point on a sampling distribution represents a statistic calcualated from a different sample. 
+
+##How do we know what the shape of a sampling distribution is when the sample size is large?  
+
+Due to a rule known as the **Central Limit Theorem**, when the sample sizes are sufficiently large, the resulting sampling distribution will be *normally distributed*, regardless the population distribution.
+
+The videos below offer a good explanation of the Central Limit Theorem and how they relate to calculating sampling distributions.  Seriously . watch them.  No really.  Don't jump ahead.  Don't skip videos.  Don't fast forward. Watch these all the way through.If you find something confusing, watch it twice. This is probably the most important concept we will cover in the entire class.    
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JNm3M9cqWyc" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FXZ2O1Lv-KE" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NYd6wzYkQIM" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/J1twbrHel3o" frameborder="0" allowfullscreen></iframe>
+
+##Take a step back
+
+For this class you need to *really* **(REALLY!)** need understand this, so pay attention. 
+
+1) When the sample size is large, the sampling statistic will be distributed normally *no matter how the population is distributed.* This fact comes from the Central Limit Theorem and is the basis for many of the statistical tests we will cover. 
+
+2) In some other circumstances (that we will discuss in great detail later) the sampling distribution of a sample statistic may be a t-distribution or a binomial distribution (and there are a few others). 
+
+Probably the most confusing thing about this class for many students is understanding what a sampling distribution is and figuring out which sampling distribution to use for different situations.   So do yourself a favor.  If you are still a little hazy about what a sampling distribution is, go and watch those videos again, come to office hours, or find some other resource. 
+
+##How do we know what the *mean* of a sampling distribution is?
+
+So far, we've figured out what the shape of a sampling distribution is when the sample size is large, but we have not yet figured out what the center of the distribution is. 
+
+When we are looking at the sampling distribution of sample means, then the mean of the sampling distribution is the mean of the population, $\mu_\bar{x} = \mu$. Pretty easy huh?  But it's a bit confusing to say.
+
+You may be thinking now, "But we don't know the population mean, $\mu$!"  You are right.  So we are going to estimate the mean of the sampling distribution as $\hat{\mu}_\bar{x} = \bar{x}$.  That is, our best guess for the mean of the sampling distribution is the mean of the sample distribution.  Again, this is pretty easy but can be confusing to keep straight.
+
+##How do we know what the *standard error* is?
+
+The tricky part of finding a sampling distribution is calculating the standard error.
+
+### If we know the population variance:
+
+To calculate the exact standard error for means, we use the population standard deviation.  The formula to calculate the standard error for means is given by:
+
+$$\sigma_\bar{x} = \frac{\sigma}{\sqrt{n}}$$
+
+### If we don't know the population variance AND the sample size is large:
+
+But what happens when we don't know the population standard deviation, which, in all likelihood is the case?  In that event, we estimate the population variance (and hence the variance of the sampling distribution) using the sample standard deviation.  Our estimate of the population variance is:
+
+$$\hat{\sigma}^2= \text{s}^{2}$$
+
+Therefore, our estimate of the standard error (the square root of the variance) of the sampling distribution is:.
+
+$$\hat{\sigma}_\bar{x}=\frac{\hat{\sigma}}{\sqrt{n}}=\text{s}\sqrt{\frac{1}{n}}$$
+
+You should be able to prove this to yourself using just the the two equations above.  Try it for yourself, just to make sure you understand.  Ask about it in class if you cannot quite get it.
+
+##Some notes on notation
+
+There are a lot of moving parts when it comes to samples, populations, and sampling distributions, so it is important to keep all the symbols straight. 
+
+There are a few broad rules when it comes to assigning symbols. 
+
+1. When there is a hat ($\hat{\mu}, \hat{\sigma}, \hat{\pi}$), these  **sample statistics** that we are using to **estimate some population parameter**. 
+
+2. Alphabetic letters ($\bar{x}$, $s$, $p$, $n$) are **sample statistics** that we calculated from our sample. These will often correspond to the "hat" notation above.  
+
+3. Greek letters without hats or subscripts, ($\mu, \sigma, \pi$) are **parameters** of the **population distribution**.
+
+4. Greek letters with subscripts ($\mu_\bar{x}, \sigma_\bar{x}$, etc.) are **parameters** of the **sampling distribution**.
+
+Below is a table of notations for samples, sampling distributions, and populations when we're dealing with means.
+
+	
+Distribution: | Mean: | Standard deviation: | Estimated mean (using our sample):| Estimated standard deviation (using our sample)
+------------- | ------| ------------------- | ------------------------------------------ | ------------------------------------------------------- 
+Sample distribution | $\bar{x}$ | $s$ | N/A | N/A
+Sampling distribution | $\mu_{\bar{x}}$ | $\sigma_\bar{x}$ (Called standard error) | $\hat{\mu}_{\bar{x}}$ | $\hat{\sigma}_{\bar{x}}$
+Population distribution | $\mu$ | $\sigma$ | $\hat{\mu}$ | $\hat{\sigma}$ 
+ 
+##What's the takeaway?
+
+To calculate the shape of the sampling distribution, we look at the size of the sample, and statistics calculated from the sample distribution.  The center of the population distribution is the center of the sampling distribution, and is estimated as the mean of the sample distribution, $\bar{x}$. The standard deviation of the sampling distribution, known as the standard error, is calculated according to the formulas above.
+
+Sometimes we **know** the population standard deviation ($\sigma$), and we use that to calculate the standard error.  
+
+$$\sigma_{\bar{x}}=\frac{\sigma}{\sqrt{n}}$$
+
+Sometiems use the **sample** standard deviation to **estimate** the population standard deviation, when we don't know the population variance.  For the sampling distribution of sample means, the standard error is then:
+
+$$\sigma_{\bar{x}}=\text{s}\sqrt{\frac{1}{n}}$$
+
+<!--chapter:end:15SamplingDistributions.Rmd-->
+
+
+# Working with the Normal Distribution
+
+**Learning Objectives**
+
+1.   Understand the characteristics of a standard normal distribution, and how it relates to any normal distribution.
+2.  Learn how to find the area under the normal curve for any interval.
+
+##The Standard Normal Distribution
+
+The standard normal distribution is a normal distribution with a mean of $\mu=0$ and a standard deviation of $\sigma=1$. 
+
+
+**NOTE: I am going to provide some examples of how to plot the normal distribution. These are here to provide some examples of how to plot it, but the code itself is not critical for understanding this chapter.**
+```{r,  echo=TRUE}
+x<-seq(from=-5, to=5, by=.1)
+y<-dnorm(x, mean=0, sd=1)
+plot(x,y, type="l", main="The standard normal distribution")
+```
+
+
+
+Any normal distributions can be transformed to standard normal distributions using the following formula:
+
+$$Z = \frac{x-\mu}{\sigma}.$$
+
+That is, if $x \sim N(\mu, \sigma)$ and we apply the formula above we will have a new variable $z$ that corresponds to the standard normal distribution.  
+
+### Example
+
+The probability $P(X<x)$ for a normal probability distribution in R is given by the <code>pnorm()</code> function.  So assume we have a normal distribution with $\mu=5$, and $\sigma=2$ (which means that $\sigma^2=4$). The are to the left $X=6$ for the normal curve is found by coding:
+
+```{r}
+pnorm(6, mean=5, sd=2)
+```
+
+
+We can look at this visually as the shaded area in the plot below:
+```{r, echo=TRUE}
+x<-seq(from=-2, to=12, by=.1)
+y<-dnorm(x, mean=5, sd=2)
+plot(x,y, type="l", main="P(X<6) ; X~N(5,2)")
+### The code below is for shading in an area under the curve
+cord.x <- c(-2,seq(-3,6,0.01),6) 
+ cord.y <- c(0,dnorm(seq(-3,6,0.01), mean=5, sd=2), 0) 
+ polygon(cord.x,cord.y,col='skyblue')
+```
+
+
+But could get this same number by calculating a new value:
+
+$$Z=\frac{6-5}{2}=0.5$$
+
+We can then look up the probability on the *standard normal* distribution
+```{r}
+pnorm(.5, mean=0, sd=1)
+```
+
+Again we can see this visually by looking at:
+```{r}
+x<-seq(from=-4, to=4, by=.1)
+y<-dnorm(x, mean=0, sd=1)
+plot(x,y, type="l", main="P(X<.5) ; X~N(0,1)")
+### The code below is for shading in an area under the curve
+cord.x <- c(-4,seq(-4,0.5,0.01),0.5) 
+ cord.y <- c(0,dnorm(seq(-4,0.5,0.01), mean=0, sd=1), 0) 
+ polygon(cord.x,cord.y,col='skyblue')
+```
+
+
+
+Since the arguments <code>mean=0</code> and <code>sd=1</code> are the default settings for the <code>pnorm</code> function, we can get the same answer by just coding:
+```{r}
+pnorm(.5)
+```
+
+
+
+
+
+##Z-scores
+
+A z-score is what we obtain after we apply the above equation.  So, for istance, if we are looking at a normal distribution with $\mu = 2$ and $\sigma=2$ we can calculate the z-score of the point $x=4$ as
+
+$$Z = \frac{x-\mu}{\sigma}=\frac{4-2}{2} = 1.$$
+
+A z-score of 1 means that the the point $x=4$ is on standard deviation above the mean.  Likewise, a z-score of 2.4 would mean that $x$ is 2.4 standard deviations above the mean.  
+
+
+
+##What's the point of the z-score?
+
+Once a z score has been calculated, it is very easy to calculate probabilities (areas under the curve) for *any* normal distribution just using a table for the standard normal distribution. 
+
+If a dataset follows a normal distribution, then about 68% of the observations will fall within one standard deviation of the mean, about 95% of the observations will fall within two standard deviations of the mean, and about 99.7% of the observations will fall within 3 standard deviations of the mean.(Remember the empirical rule?  If not, go back and review.)
+
+An explanation of an example problem is posted below in the examples section.  But first watch this video.  It is a bit long, but this is something you really need to be good at for the test.  So it is totally worth your time.  [Click here to see the table we will use in class](https://pages.wustl.edu/files/pages/imce/montgomery/zscores.pdf) so you can follow along with the examples.  (There are some more examples below).
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/U4d-dhPT53A" frameborder="0" allowfullscreen></iframe>
+
+##Examples
+
+Below are some examples showing how to use the standard normal distribution and the z table in order to solve for probabilities.You should use the Agresti table when you try these example problems. This is what you will be using on the rest of the exams and homeworks for this course-so pay attention.
+
+### Example 1: Finding the area to the left, when $x<\mu$
+
+For a normal distribution with $\mu = 55$ and $\sigma = 3,$ find the probability that an observation falls at or below the value 52.75.
+
+In R we could just type in 
+```{r}
+pnorm(52.75, mean=55, sd=3)
+```
+
+
+```{r}
+x<-seq(from=48, to=62, by=.1)
+y<-dnorm(x, mean=55, sd=3)
+plot(x,y, type="l", main="P(X<52.75) ; X~N(55,3)")
+### The code below is for shading in an area under the curve
+cord.x <- c(48,seq(48,52.75,0.01),52.75) 
+ cord.y <- c(0,dnorm(seq(48,52.75,0.01) , mean=55, sd=3), 0) 
+ polygon(cord.x,cord.y,col='skyblue')
+```
+
+
+
+To find the z-score, plug in the mean and standard deviation into $Z = (x-\mu)/\sigma$ The variables describing this normal distribution will be converted into a z score that can will used as part of a standard normal distribution $$P(x \le 52.75)=P(z \le (52.75-55)/3))=P(z \le -0.75)$$
+
+```{r}
+x<-seq(from=-4, to=4, by=.1)
+y<-dnorm(x, mean=0, sd=1)
+plot(x,y, type="l", main="P(X<-0.75) ; X~N(0,1)")
+### The code below is for shading in an area under the curve
+cord.x <- c(-4,seq(-4,-0.75,0.01),-0.75) 
+ cord.y <- c(0,dnorm(seq(-4,-0.75,0.01), mean=0, sd=1), 0) 
+ polygon(cord.x,cord.y,col='skyblue')
+```
+
+
+Now, we use our calculated z score in conjunction with the z table above to find our probability. However, the table does not include negative values for z because **the table is for the area to the right**.
+
+
+So what should we do?  The key is to remember that the standard normal distribution is symmetric around 0.  This means that $P(z \le -0.75)=P(z \ge 0.75)$. 
+
+```{r}
+x<-seq(from=-4, to=4, by=.1)
+y<-dnorm(x, mean=0, sd=1)
+plot(x,y, type="l", main="P(X > 0.75) ; X~N(0,1)")
+### The code below is for shading in an area under the curve
+cord.x <- c(0.75,seq(0.75, 4,0.01),4) 
+ cord.y <- c(0,dnorm(seq(0.75,4,0.01), mean=0, sd=1), 0) 
+ polygon(cord.x,cord.y,col='skyblue')
+```
+
+Notice the change from "less than" to "greater than."  
+
+Since the distribution is symmetric, we can multiply the equation by -1 to get a value for the side of the table that we want. After doing so, our equation changes from $P(z \le -0.75)$ to $P(z \ge 0.75)$.
+Next we find the z score we just calculated on the corresponding z score table above. The first decimal place holds a 7; the 2nd decimal place holds a 5. When we locate the .7 (row 7 column 1) and then move over to the .05 column, we find the corresponding probability to be about 0.227. 
+
+Remember that this probability refers to the area below the curve to the **right** of the z score we calculated (as shown by the graphic above the table). Lucky for us, this is exactly what the equation tells us to find $(P(z\ge0.75))$. Our answer, therefore, for $P(x \le 52.75)$ = 0.227.  
+
+### Example 2: Finding the area to the right when $x \le \mu$.
+
+For a normal distribution with $\mu = 55$ and $\sigma = 3$, find the probability that an observation falls at or above the value of 52.75.
+
+In R we could just type in 
+```{r}
+pnorm(52.75, mean=55, sd=3, lower.tail=FALSE)
+```
+Noe that we had to use the <code>lower.tail=FALSE</code> argument, which means we want to measure the area under the curve to the *right*.
+
+This corresponds to the following plot:
+```{r}
+x<-seq(from=48, to=62, by=.1)
+y<-dnorm(x, mean=55, sd=3)
+plot(x,y, type="l", main="P(X>52.75) ; X~N(55,3)")
+### The code below is for shading in an area under the curve
+cord.x <- c(52.75,seq(52.75,63,0.01), 63) 
+ cord.y <- c(0,dnorm(seq(52.75,63,0.01) , mean=55, sd=3), 0) 
+ polygon(cord.x,cord.y,col='skyblue')
+```
+
+
+
+To find the z-score, plug in the mean and standard deviation into $Z = (x-\mu)/\sigma$. The variables describing this normal distribution can be converted into a z score that can be used as part of a standard normal distribution
+
+$$P(x \ge 52.75) = P(z\ge(52.75-55)/3)) = P(z \ge -0.75)$$
+We are looking for an area to the right, just like the table expects, but there are no negative values on our table, so what should we do?
+
+Again, we have to alter our equation so that we have a can use our z score in conjunction with the z table.   The key is to realize that $P(z\ge-0.75) = 1-P(z\le-0.75)$.  This is true because the total area under the normal curve always sums to 1.  So, for any point x, the area to the right is always one minus the area to the left.  If this doesn't make sense, draw yourself a picture.
+
+So to complete this problem, all we need to do is find $P(z\le -0.75)$.  But this is exactly what we found in the last problem!  So we find the area to the right of positive 0.75 just like before, which is 0.227.
+The probability value we find is the same as the above value: 0.227. However, note that this value designates the probability to the right of the z score-and we want probability to the left of the z score. In this case, we take (1-) the probability to the right of the z score to get the probability to the left of the z score. So 1 - 0.227 gives us our answer: 0.773.
+
+### Example 3: Finding the point given an area
+
+For a normal distribution with $\mu = 55$ and $\sigma = 3$, I want to find the point where the area under the curve to the right is equal to 0.0985.  
+
+In R, we can use the <code>qnorm()</code> function like this:
+
+```{r}
+qnorm(0.0985, mean=55, sd=3, lower.tail=FALSE)
+```
+Note again we used the <code>lower.tail=FALSE</code> argument because we are looking for the area to the **right**.
+
+But what if you don't have R? Don't panic.  The first thing to realize is that this is basically just an algebra problem.  You are pretty good at Algebra, right?  First, set up the equation based on the formulas below.
+
+$$P(Z>\frac{x-\mu}{\sigma})=0.0985 \rightarrow P(Z>\frac{x-55}{3})=0.0985$$
+So this looks bad.  It looks like there is only one equation above, but there are two unknowns, $Z$ and $x$.    The trick is to realize that we can use the table to find the correct value of $Z$.  
+
+For these kinds of problems, **we just need to look around the Z-table until we find a value that is as close as possible to 0.0985**.  Somtimes, you will have to guesstimate when the exact number you are looking for isn't there.  In this case, the number is right there in the row that starts with 1.2 in the column labled .09.  This means that the z-value we plug into the equation above is 1.29!
+
+$$P(1.29>\frac{x-55}{3})=0.0985$$
+
+In fact, now that we have found the value of $z$, we don't even need most of this formula.  All we need to do is solve the equation below for $x$.
+
+$$1.29 =\frac{x-55}{3}$$
+
+So, after a few easy steps with algebra, we see that 
+
+$$3\times1.29=x-55$$
+$$3\times1.29+55=x$$
+
+$$x=58.87.$$
+
+<!--chapter:end:16NormalDistribution.Rmd-->
+
+
+# The Binomial Distribution
+Learning Objectives
+
+1.    Understand the characteristics of a binomial distribution and how it relates to a normal distribution.
+2.    Understanding how to look up probabilities for the binomial distribution on a table.
+
+##The Binomial Distribution
+
+A binomial random variable is discrete, not continuous. This means that there are only two possible outcomes (examples: heads/tails coin toss, win/lose football game, support Trump/Not Trump). In general, there are certain requirements that must hold for the binomial distribution to be applicable.
+
+1.    n repeated identical independent trials
+2.    two outcomes (success/failure)
+3.    P (success) + P(failure) must be equal to 1
+
+The binomial function for calculating the probability distribution of the binomial for any probability p and number of trials n is as follows:
+
+$$Pr (x = k) = {n \choose k} p^k(1-p)^{n-k}$$
+
+The mean and the variance of the binomial distribution are as follows:
+
+$$\mu= np$$
+
+$$\sigma^2= np(1-p)$$
+
+As useful as the binomial distribution is, it becomes more difficult to use as the values for n get larger. Lucky for us, when p = .5, the binomial distribution closely approximates a continuous density function which results in a smooth, symmetrical, bell-shaped curve called the standard normal distribution. In fact, the standard normal works for any value of p so long as n is large.  
+
+```{r}
+x<-seq(from=100, to=200, by=1)
+y<-dbinom(x, size=500, p=.3)
+plot(x,y, main="Binom(n=500, p=0.5)")
+```
+
+See this video for some detailed examples of how to use the binomial distribution (don't worry, you won't be doing these calculations by hand!)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xNLQuuvE9ug" frameborder="0" allowfullscreen></iframe>
+
+##Calculating probabilities using a table
+
+[Download this table and take a moment to look through it.](https://pages.wustl.edu/files/pages/imce/montgomery/binomialtable.pdf)
+
+With this table, we can find the probability of observing any possible number of successes for many possible values of $n$ and $p$.  The far left column shows the size of the trial $n$, and the second column shows the number of successes.  The other columns show the probability of observing that number of successes for different values of $p$.
+
+If the probability of a success is $p=0.20$ and $n=8$, the probability of observing two successes (r=2) is 0.294.  To see this, you go to the second page of the table linked above.  Look near the top where the column labeled $n$ says 8.  Then look at the row where the column labeled $r$ says 2.  Follow this row along to the column labeled 0.20.  That's the answer. (DO NOT JUST READ THIS WITHOUT TRYING IT. LOOK AT THE TABLE.)
+
+Try this yourself.  If I have 16 trials and p=.55, what is the probability of observing 10 successes?  The answer is 0.168.  If this still doesn't make sense to you, post a question on Facebook or go talk to one of the TAs in office hours.
+
+<!--chapter:end:17BinomialDistribution.Rmd-->
+
+
+# Working with the T-distribution
+
+Learning objectives
+
+1. Get a general idea about the t-distribution.
+2. Learn how to find areas under the curve for the t-distribution using a table.
+
+##A bit about the t-distribution
+
+The t distribution is a theoretical probability distribution. It is symmetrical, bell-shaped, and similar to the standard normal curve. It differs from the standard normal curve, however, in that it has different parameter, called degrees of freedom, which changes its shape. This is usually labled $df$ or $\nu$.
+
+Note that the smaller the df, the flatter the shape of the distribution, resulting in greater area in the tails of the distribution. The t distribution is useful for distributions with degrees of freedom less than 30. It is a more accurate way of describing distributions with relatively low degrees of freedom. As df approaches infinity, the t distribution becomes more like the normal distribution.    
+
+
+```{r, tidy=FALSE,size="\\tiny", fig.align="center", echo=TRUE}
+x<-seq(from=-5, to=5, by=.1)
+plot(x, dnorm(x), lwd=3, type="l", col=1, lty=1)
+lines(x, dt(x, df=10), lwd=3, ylim=c(0, .4), col=2, lty=2)
+lines(x, dt(x, df=5), lwd=3, ylim=c(0, .4), col=3, lty=3)
+lines(x, dt(x, df=1), lwd=3, ylim=c(0, .4), col=4, lty=4)
+legend("topleft", 
+       c("n(0,1)", "t(df=10)", "t(df=5)", "t(df=1)"), 
+       lty=c(1,2,3,4), col=c(1,2,3,4), bty="n")
+```
+
+
+
+##Finding probabilities
+
+For the time being, [I only want you learn how  know how to use a t-table, which you can find here](https://pages.wustl.edu/files/pages/imce/montgomery/t_distribution.pdf). This is really best shown using an example.
+
+For a distribution with $n = 10$, find the probability of $t \ge 1.38$. 
+
+In R this can be done with
+```{r}
+pt(1.38, df=9, lower.tail=FALSE)
+```
+
+But what if we are doing this on a test? First, we need to determine the degrees of freedom (10-1 = 9).
+Once we have established the degrees of freedom as 9, we can use the t value to find the probability $P (t \ge 0.1)$.  That is, we can now use our t-value in conjunction with our t table in order to find our probability. Once we have located how many degrees of freedom we have, we can go to our table and look in the row labeled 9 on the left.  Now, we want to find the column that is closest to our value. In this case, we see that the first column has 1.363, which is pretty close to the number we have.  We then look up at the column header and see $t_{.100}$, so corresponding probability is approximately 0.100. 
+
+Sometimes you have to guestimate between two values.  Don't worry to much about this. As long as you put a number between the two values, we will mark it as correct on the exam.  (But you should just use R for the problem sets.)
+
+
+### Finding quantiles given a probability
+
+Sometimes we may ask you to reverse this process.  We may tell you that the probability to the right is $0.025$ and we have 16 degrees of freedom.  In this case, we just go to the right column (labeled 16) and go to the column labeled $t_{0.025}$.  You shoudl see that the cell is lableed 2.120, which is the right answer.
+
+In R this can be done with:
+```{r}
+qt(0.025, df=16, lower.tail=FALSE)
+```
+
+<!--chapter:end:18tdistributions.Rmd-->
+
+
+#Estimating population means using confidence intervals
+Learning Objectives
+
+1. Understand what statistical inference is
+2. Understand how we make statistical inferences using sample statistics to estimate population parameters
+3. Understand what kind of estimate a confidence interval is
+4. Understand how to do a simple confidence interval calculation
+
+##Statistical inference is how we draw conclusions from the data.
+
+**Statistical inference** is the process that we use to draw conclusions from a data. A set of data is a *sample* from our population. The **sample** is a subset of the **population**.  Inference involves using statistics we calculate from the sample to make and informed guess about population.
+
+When we do statistical inference we are interested in drawing conclusions from a set of data (sample) so that we can estimate **population parameters**. (Population parameters are the characteristics of the population in which we are interested.) Parameters of the population include things like the mean, standard deviation, and variance.
+
+Statistical inference is the process by which we use sample statistics to make inferences about population parameters. Figure 1 and Table 1 describe the relationship between sample statistics and population parameters. 
+
+<center>
+![](5.png)
+</center>
+
+English term|Sample Statistic | Population parameter
+:-----:|:-----:|:-----:
+Mean | $\bar{x}$ | $\mu$
+Standard deviation | $s$ | $\sigma$
+Variance | $s^2$ | $\sigma^2$ 
+
+##We make statistical inferences by using sample statistics to estimate population parameters.
+
+Using sample statistics we can make estimates about population parameters. There are two types of estimates of parameters: **point estimates** and **interval estimates**. A point estimate is a single number that is the best guess for the parameter. An interval estimate is an interval of numbers around the point estimate, within which the parameter value is believed to fall.
+
+##The method we use to make statistical inferences using sample statistics is called estimation.
+
+The term **estimator** refers to a particular type of statistic for estimating a parameter. This is conceptual.   The term **estimate** is a noun that refers to the value of that particular statistic. For example, the sample mean is an estimator of a population mean. If the sample mean of a particular sample 75 then the value 75 is the estimate for the population mean.
+
+Just as there are multiple possible sample statistics,  there are are many possible estimators. If we are interested, for example, in the population's mean, then we could use the mean, the median, or the mode of the sample as our estimator.  How do statisticians decide which estimator is best?
+
+Good estimators usually have two qualities: they are  **unbiased** and **efficient**. An unbiased estimator has its sampling distribution "centered" around the parameter; in other words, the expected value of the statistic is identical to the population parameter. An efficient estimator has a relatively small standard error, meaning that the variance of the sampling distribution is small. Unbiased and efficient estimators give us accurate and precise  estimates of population parameters. The point estimators we teach you in this class have been shown to be the most efficient unbiased estimators possible. 
+
+##Constructing confidence intervals to make statistical inferences.
+
+A truly informative statistical inference, however, should provide not only a point estimate but should also indicate how confident we can be that the estimate is correct.  So, rather than a single value, we often prefer to use a range of values. This is what is known as an interval estimate: an interval of numbers (usually centered around some point estimate) within which the parameter value is believed to fall. Another name for interval estimates is confidence intervals, because they contain the parameter with a certain degree of confidence. 
+
+Confidence intervals have the following form:
+
+Point estimate $\pm$ Margin of Error.
+
+Specifically, we can calculate confidene intervals for the sample mean ....
+
+Under certain circumstances, confidence intervals for means take the following formula:
+
+$$\bar{y} \pm z (\frac{s}{\sqrt{n}}) $$
+
+Where:
+
+- $\bar{y}$ = sample mean 
+- $z$ = z-score corresponding to confidence level 
+- $s$ = sample standard deviation, and
+- $n$ = sample size.
+
+The point estimate of the population mean $\mu$ is the sample mean $\bar{y}$. For large random samples, by the Central Limit Theorem, the sampling distribution is approximately normal. So, for large samples, we can find a margin of error by multiplying a z-score from the normal distribution by the standard error.
+
+##Remember that we already learned about the standard error ....
+
+The standard error of the sample mean is  given by the following equation:
+
+$$\sigma_\bar{y} = \frac{\sigma}{\sqrt{n}} $$
+
+In the above equation, $\sigma$ is the population standard deviation. But like $\mu$, $\sigma$ is an unknown parameter. In practice, we estimate $\sigma$ using the sample standard deviation $s$. So, in practice, confidence intervals use the estimated standard error. This is how we end up with the equation for confidence intervals: 
+
+$$\hat{\sigma}_\bar{y} = \frac{s}{\sqrt{n}} $$
+
+ 
+
+##Remember that we already learned about the z-score .... 
+
+When we are calculating a confidence interval for a mean, our point estimate is our sample mean. Our standard error is calculated by dividing the sample standard deviation by the square root of the sample size. We have yet to understand where the z-score comes from.
+
+The z-score corresponds to the confidence level we are interested in. We choose a **confidence level** before we go about constructing our **confidence interval**. We try to choose confidence levels that are close to (but not exactly) 100%. The higher the confidence level, the more confident we can be that our unknown parameter falls within the interval estimate.
+
+The z-score indicates what our confidence interval is. Recall that 95% of the normal distribution falls within 1.96 standard deviations of the mean. We use the same logic to calculate the z-score for our confidence intervals. If we are interested in a 95% confidence interval, then our z-score is 1.96; if we are interested in a 99% confidence level, then our z-score is 2.575.
+
+In general, in order to find the z-score that corresponds to our confidence level, we take
+
+$$(1-\mbox{confidence coefficient)}/2.$$
+
+The z-score that corresponds with the resulting probability is the z-score that we use when we construct our confidence interval.
+
+NOTE: The confidence coefficient is often denoted by the Greek letter $\alpha$
+
+##Example.
+
+Let's do a quick example.
+
+Let's suppose we have a sample in which the sample mean is 10 and the standard error is $\frac{s}{\sqrt{n}}=2$. We want to calculate a 95% confidence interval. We use the following formula:
+
+$$\bar{y}\pm z(\frac{s}{\sqrt{n}}) = 10 \pm z(2) $$
+
+In this case, the z-score that corresponds to a 95% confidence interval is $z=1.96$. How do I know that?  Because $$\frac{1-0.95}{2}=.025$$.  I can find the corresponding z-statistics by coding the following.
+
+
+```{r}
+qnorm(0.025, lower.tail=FALSE)
+```
+
+
+I can then find the confidence interval using the above formula.
+
+$$10 \pm 1.96(2) = 10 \pm 3.92$$
+
+Note that the formula above is only representative of our confidence interval.  It shows our original point estimate and margin error. Our confidence interval must be a range of numbers  In this case, it is: [6.08, 13.92]. What does this mean? It means, (kind of) that according to our calculations, we can say with 95% confidence that our population mean falls between 6.08 and 13.92.
+
+Technically, however, that interpretation is not quite right.  The 95% confidence level means that if we took many, many samples and calculated many, many confidence intervals according the procedures above, 95% of the time the true population parameter would fall within those many, many 95% confidence intervals.  We actually don't know the probabilyt that $\mu$ falls within the particualr interval [6.08, 13.92].  This is a bit confusing to think about, and most of the time you can think of it using the sentence in the last paragraph.  But, keep in mind that the actual interpretation is a bit muddier.
+
+Here is a nice video that goes through another example and explains the relationship between the confidence interval and the normal distribution: 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dNfpsVLaaEE" frameborder="0" allowfullscreen></iframe>
+
+##Conclusion.
+
+In this section we learned that we make statistical inferences to make conclusions from our data. Statistical inference requires that we estimate population parameters using sample statistics.
+
+One way we can make a statistical inference is by constructing confidence intervals. Confidence intervals give us an interval of numbers around the point estimate within which the parameter value is believed to fall.
+
+Although confidence intervals can be constructed for means or proportions, in this article, we learned that how to construct a confidence interval for a population mean (parameter) using the sample mean and sample standard deviation (sample statistics).
+
+<!--chapter:end:19estimatingpopmeans.Rmd-->
+
+---
+title: "Team Assignments"
+author: "Jacob Montgomery"
+date: "September 24, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Team Assignment
+
+Team number | Member 1 | Membeer 2 | Member 3 | Member 4 | Member 5
+:------:|:------:|:------:|:------:|:------:|:------:
+1 | Kelly Ryan | William Scerpella | Henry Nguyen | Sydney Welter
+2 | Ashlee Chung | Aliza Astrow | Nicole Ferzoco | Nathan Praeger
+3 | Ilana Engel | Kalen Davison | Nate Lowis | Kristen Lau
+4 | Stephanie Wright | Monye Pitt | Andrew Englund | Jack Broitman
+5 | Joey Vettiankal | Hannah Schanzer | Sydney Curtis | Amanda Mendelsohn
+6 | Claire Thomas | Carter Paterson | Rishi Patel | Pilar Gonzalez
+7 | Camilo Haller | Mikaela Adwar | Emily Garner | Massil Adnani
+8 | Drew McPike | Josh LaFianza | Giulia Neaher | Nicholas Castriz
+9 | Noah Gordon | David McGarr | Joe Gorman
+10 | Zach Vincent | Aidan Strassmann | Tom Hutchison | Andrea Tam | Zachary Virgilio 
+11 | Shreya Tripathy | Brian Adler | Hannah Daniels | Jack Ploshnick | Alex Cheung
+12 | Robert Stoffa | Joel Brown | Kevin Si | Serina Karkhanis
+13 | Jon Wingens | Dugan Marieb | Sarah Paul | Carolyn Perlmutter
+
+<!--chapter:end:20TeamAssignments.Rmd-->
+
+
+# Constructing Confidence Intervals Using Proportions
+
+**Learning Objectives**
+
+1. Further understand proportions and how they differ from population means
+2. Understand how to construct confidence intervals for proportions.
+3. A little clarification on the notation for proportions.
+
+##What is a proportion?
+
+Proportions are significantly different from population means. Proportions are for dichotomous variables: variables that are characterized by only two values.
+
+So supposing we have some variable called Obama Approval Rating. This is a dichotomous variable because there are really only two values we are interested in: the percentage that "approve" and the percentage that did not respond that they "approved."
+
+Contrast this with population means that take the form of quantitative variables. Quantitative variables are what we have predominantly dealing with in the course so far. These are characterized by values that differ for each individual respondent. That is, our data for each person might be many different numbers.  Height, for example, is a continuous quantitative variable because each data point has a different value (Note how this differs from Obama Approval Rating where each data point can only take one of two values).
+
+##Confidence Intervals With Proportions
+
+Statistics problems that use proportions use most of the same equations as the problems for population means. **But** to calculate the standard error for proportions, we use the following formula:
+
+$$\hat{\sigma}_{\hat{\pi}}=\sqrt{\frac{\hat{\pi}(1-\hat{\pi}) }{n}}$$
+
+For a refresher on why this might be, go back and review the information on the sampling distribution of a proportion.  Our estimator ($\hat{\pi}$} for the population proportion ($\pi$) is the sample proportion $p$.  
+
+The standard equation for writing a confidence interval for a proportion is as follows:
+
+$$\pi \pm Z \times \sigma_{\pi}$$
+
+The confidence that we can have for any proportion varies with size of the sample and the degree to which the two values for our dichotomous variable match. As $n$ increases, the confidence we have in our statistic also increases.
+
+Note also, that as the value for our proportion approaches 50% (or .50), the less confidence we have in our statistic. If that seems a little weird, go back and look at the equations above and try a few different numbers for p, and see what you get.
+
+##Example
+
+Suppose that the point estimate for the proportion of Americans who approved George W. Bush as president in 2008 is 25% where n = 5000. Construct a 95% confidence interval for this proportion.
+
+First, write out the equation for the confidence interval for a proportion:
+$$\pi \pm z \times \sigma_{\pi}$$
+
+We already have the point estimate for this proportion (p=0.25). We still have to calculate the appropriate Z value and the standard error.
+To get the Z value, we need to calculate for the observation that corresponds to a 95% confidence interval. In general, to find the observation that corresponds to some confidence interval we take (1-confidence coefficient)/2. In this case:  (1-.95)/2 = .025. To find the Z value that corresponds, we simply look this probability up in a Z table. We find .025 in the column that reads .06 and the row that reads 1.9. Therefore, we have found our Z value to be 1.96.
+Next we need to calculate our standard error using the following formula:
+$$\hat{\sigma}_{\hat{\pi}}=\sqrt{\frac{\hat{\pi}(1-\hat{\pi}) }{n}}$$
+
+$$\hat{\sigma}_{\hat{\pi}}=\sqrt{\frac{.25(1-.25)}{ 5000}} = .0061$$
+
+We are now ready to construct our confidence interval by plugging in our calculated values into the equation above.
+$$.25 \pm 1.96\times .0061$$
+
+$$.25 \pm .012$$
+
+Here is another example of how to calculate a confidence interval for a proportion you might find instructive:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3ReWri_jh3M" frameborder="0" allowfullscreen></iframe>
+
+<!--chapter:end:21ConfidenceIntervals.Rmd-->
+
+
+# Large-n hypothesis testing for proportions
+
+##Qualitative data
+
+##Learning Objectives
+
+1. Understand conceptually why we use hypothesis tests 
+2. Understand the five parts of a hypothesis test 
+3. A couple of very helpful videos videos
+
+##Science is about testing claims with data
+
+Let's say that you are arguing with your friends over dinner, and they claim that WashU students are more conservaitve than the national average. Since everyone you know seems to be an Obama fan, you don't believe that is true.  You are a determined skeptic. 
+
+One way you could solve this problem would be to argue really loudly (whoever is most obnoxious wins). Another way to win might be to tell your friend about some anecdotes and examples (tell them about your liberal classmates).
+
+Neither of these represent good ways to really test competing claims. But f you think about it, this is how most political arguments seem to be resolved (at least on cable TV). But a better way is to try to resolve this conflict using data.
+
+Because you can use Google, you know that 20.7% of College Freshman nationwide identified themselves as Conservaitve.
+
+http://heri.ucla.edu/PDFs/pubs/TFS/Norms/Monographs/TheAmericanFreshman2011.pdf
+
+Imagine you take a simple random sample of 50 WashU Freshman.  7 of them identify themselves as conservaves, 14 of them identify themselves as liberal, and the rest sa they are "middle of the road."  There are twice as many liberals as conservaitves in your sample!  Based on this sample evidence, can you determine whether or not your friend is right? Yes. Yes, you can. 
+
+##But you will need to construct a hypothesis test...
+
+In a hypothesis test, we have an assumption that the population parameter takes a particular value, called the null hypothesis. This usually corresponds to the claim you are trying to disprove. In the above example, the null hypothesis (the view of the determined skeptic) would be that the proportion of students at WashU is 20.7% or less ($H_0: \pi_0 \le  0.207$).  The alternative hypothesis, your friend's theory, is that the proportion of students who are conservative is more than the national average ($H_a: \mu_a>0.207$).
+
+A hypothesis test analyzes the evidence *against* the null hypothesis. It tells us if we would be likely to get our sample value just because of normal sampling variability *if the null hypothesis were true.* We judge how far the estimate falls from the null hypothesis' parameter value, and then look at the probability of getting a sample value this far away from the null hypothesis value or *further.*
+
+##This all sounds a bit confusing, so let's break this down...
+
+Learning objective 2: Understand the five parts of a hypothesis test 
+The five parts of a hypothesis test are: assumptions, hypotheses, test statistic, p-value, and conclusion.
+
+**1) Assumptions** 
+
+To perform a hypothesis test you must assume:
+
+- The data is obtained through random sampling
+
+- We have qualitative data (things that are coded zero or one)
+
+- As a rule of thumb, we want a sample size such that $$ n \ge \frac{10}{min(\pi_0, 1-\pi_0)}$$
+min() means the minimum of the two numbers
+
+- The 10 in that equation is kind of arbitrary (it serves as a rule of thumb)
+
+- If the sample size is this large, you can assume that there is a normal sampling distribution for the sample proportion.  This gives us the leverage we need to make some calculations.
+
+**2) State hypotheses** 
+
+The *null hypothesis* is going to be that the true population proportion, $\pi$, is equal to the null hypothesis value, $\pi_0$. In this case $\pi_0\le0.207$.
+
+The *alternative hypothesis* is that $\pi_a$ is greater than $\pi_a > 0.207$.
+
+**3) Calculate test statistic**
+
+For large samples, we use a *test statistic* to determine how many standard errors (we use standard errors and not standard deviations because we are working with the sampling distribution) our observed sample proportion falls from the null hypothesis.  Here, we will denote our test statistic $TS$
+
+Using the information above, we know that $\hat{\pi} = 0.14$.  
+
+$$TS=\frac{\hat{\pi} - \pi_0}{se_0}$$
+
+Intuitively, this means that the farther $\hat{\pi} falls from $\pi_0$ on the sampling distribution, the bigger our test statistic.
+
+However, it is important to note that we have to calculate our test statistic under the assumption that the null hypothesis is true.  So, we are going to use the following formula for proportions
+
+$$\sqrt{\frac{\pi_0(1-\pi_0)}{n}} $$
+
+In words, that means we are going to calcualte the standard error for the sampling distribution under the assumption that $\pi=\pi_0$.  In our case this means that 
+
+$$\sqrt{\frac{0.207(1-0.207)}{50}}=0.057$$
+
+That means that
+
+$$TS=\frac{0.14 - 0.207}{0.057}=-1.169$$ 
+
+**4) Calculate the p-value**
+
+A p-value is the probabiliyt of observing your sample statistic, or something more extreme, assuming that the null hypothesis is true.
+
+Remember that in a sampling distribution, each value of $\hat{\pi}$ has a probability associated with it. Values  that fall very far away from $\pi_0$ have a very low probability of occurring if the null hypothesis is true.
+
+To determine that exact probability, we use the z-table! We simply go to the z-table and look up what probability is associated with our TS value. 
+
+The below picture illustrates. In the sampling distribution, sample proportions that are closest to the true population proportion have a higher probability of occurring. Sample proportions that are way out in the tails are less likely to occur. 
+
+![](7.png)
+
+NOTE: Some hypothesis tests are two-sided and others are one-sided. Most z-tables only provide you with a one-sided probability. So if you are performing a two-sided test, you will need to multiply your p-value by two.  This multiplication is basically a way to account for not only the probability of obtaining a y.bar as large or larger than the one you obtained, but also a way to account for the probability of obtaining a value as or more extreme than the one obtained in either direction.
+
+In this, case we can look up the p-value, as the area to the right of  $z=1.169$ and see that $p \approx 0.12$.  This represents the probability of observing a sample statistic this extreme (OR MORE) if the null hypothesis is true.
+
+**5) Draw a conclusion**
+
+But what does it mean if you obtain a p-value that is incredibly tiny? If you obtain a p-value of .05 this means that the probability of obtaining a sample statistic as or more extreme than the one you obtained is only about 1/20 or 5%.
+
+This suggests that the null hypothesis is incorrect and that we should reject it.
+
+Generally, you decide upon an $\alpha$ or a *level of significance* before you perform the hypothesis test. The $\alpha$ tells you that for a p-value under the chosen value you will reject the null hypothesis.
+
+In this case, we have failed to reject the null hypothesis.  That means, that there is not sufficient evidence in this sample to support your friends claim.  You cannot reject the null hypothesis (which is not the same thing as supporting it).
+
+##Watch all of these videos
+
+A video about hypothesis tests (this is a two-sided test)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-FtlH4svqx4" frameborder="0" allowfullscreen></iframe>
+
+A video about one-sided and two-sided hypothesis tests
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mvye6X_0upA" frameborder="0" allowfullscreen></iframe>
+
+
+Large sample proportion hypothesis testing (WARNING: he uses different notation)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1JT9oODsClE" frameborder="0" allowfullscreen></iframe> 
+
+
+<!--chapter:end:22largenhypothesis.Rmd-->
+
+
+# Type I and Type II Errors
+
+##Learning Objective:
+
+Recognize the difference between Type I and Type II errors
+
+##Type I and Type II Errors
+
+- A type I error occurs when the null hypothesis is falsely rejected. We minimize the risk of making a type I error by using an $\alpha$ level as the basis of comparison for our p-value. For example, an $\alpha$ level of 0.05 means that only 1 in 20 times, we will make a type I error and falsely reject the null where the null hypothesis is a true descriptor of our data.
+
+- A type II error occurs when the alternative hypothesis is true, but we fail to reject the null.
+
+- Here is a table explaining the two types of errors we can encounter when interpreting a hypothesis test:
+ 
+~| Truth=H0 | Truth=Ha |
+-| -------- | -------- |
+Fail to Reject H0=True | No Error | Type II |
+Reject H0 | Type I | No Error
+
+Imagine a fire detector. The null state of being is "no fire." The alternative hypothesis is "fire."
+
+If the fire detector goes off but there is no fire (like when you take a hot shower in the traditional dorms), then a type I error has occurred- the null hypothesis of "no fire" was falsely rejected. Let's say that your fire alarm keeps making a type I error, so you get frustrated and remove the batteries from the fire alarm. A few days later, there actually is a fire, but the alarm doesn't go off because you took out the batteries. This means that a type II error has occurred- the alternative hypothesis was true (there was a fire), but instead you falsely failed to reject the null. 
+
+In general, we are more concerned about Type I errors, since this will lead us to reject the null hypothesis when it is actually true.  So, for instance, we might conclude that our experiment worked, when in fact the treatment had no effect.
+
+This video starts with a good example of two-sided large n hypothesis test (in case you need to refresh your memory), and at about the 3:00 mark, it explains the difference between type I and type II errors.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FHT6e_mdGoU" frameborder="0" allowfullscreen></iframe> 
+
+<!--chapter:end:23typesoferror.Rmd-->
+
