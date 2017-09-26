@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="measures-of-dispersion.html">
-<link rel="next" href="some-basic-plotting-in-r.html">
+<link rel="prev" href="constructing-confidence-intervals-using-proportions.html">
+<link rel="next" href="type-i-and-type-ii-errors.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -283,116 +283,88 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="frequency-and-probability-distributions" class="section level1">
-<h1><span class="header-section-number">12</span> Frequency and Probability Distributions</h1>
-<div id="learning-objectives-4" class="section level2">
-<h2><span class="header-section-number">12.1</span> Learning objectives</h2>
-<p>Learning Objectives:</p>
+<div id="large-n-hypothesis-testing-for-proportions" class="section level1">
+<h1><span class="header-section-number">22</span> Large-n hypothesis testing for proportions</h1>
+<div id="qualitative-data" class="section level2">
+<h2><span class="header-section-number">22.1</span> Qualitative data</h2>
+</div>
+<div id="learning-objectives-5" class="section level2">
+<h2><span class="header-section-number">22.2</span> Learning Objectives</h2>
 <ol style="list-style-type: decimal">
-<li>Define probability.</li>
-<li>Understand the basic properties of a probability.</li>
-<li>Understand the meaning of “frequency distribution.”</li>
+<li>Understand conceptually why we use hypothesis tests</li>
+<li>Understand the five parts of a hypothesis test</li>
+<li>A couple of very helpful videos videos</li>
 </ol>
 </div>
-<div id="what-is-a-probability" class="section level2">
-<h2><span class="header-section-number">12.2</span> What is a probability?</h2>
-<p>There are many definitions of a probability, but here is one that is easy to understand and that is pretty useful for this class is the <strong>frequency interpretation</strong> of probability. In essence, we imagine doing something (flipping a coin, rolling a dice, taking a random sample).</p>
-<p><strong>Probability (frequency interpretation)</strong></p>
-<blockquote>
-<p>The relative frequency of occurrence for some particular outcome if a process is repeated a large number of times under similar conditions.</p>
-</blockquote>
-<p>Probabilities help us answer questions like:</p>
+<div id="science-is-about-testing-claims-with-data" class="section level2">
+<h2><span class="header-section-number">22.3</span> Science is about testing claims with data</h2>
+<p>Let’s say that you are arguing with your friends over dinner, and they claim that WashU students are more conservaitve than the national average. Since everyone you know seems to be an Obama fan, you don’t believe that is true. You are a determined skeptic.</p>
+<p>One way you could solve this problem would be to argue really loudly (whoever is most obnoxious wins). Another way to win might be to tell your friend about some anecdotes and examples (tell them about your liberal classmates).</p>
+<p>Neither of these represent good ways to really test competing claims. But f you think about it, this is how most political arguments seem to be resolved (at least on cable TV). But a better way is to try to resolve this conflict using data.</p>
+<p>Because you can use Google, you know that 20.7% of College Freshman nationwide identified themselves as Conservaitve.</p>
+<p><a href="http://heri.ucla.edu/PDFs/pubs/TFS/Norms/Monographs/TheAmericanFreshman2011.pdf" class="uri">http://heri.ucla.edu/PDFs/pubs/TFS/Norms/Monographs/TheAmericanFreshman2011.pdf</a></p>
+<p>Imagine you take a simple random sample of 50 WashU Freshman. 7 of them identify themselves as conservaves, 14 of them identify themselves as liberal, and the rest sa they are “middle of the road.” There are twice as many liberals as conservaitves in your sample! Based on this sample evidence, can you determine whether or not your friend is right? Yes. Yes, you can.</p>
+</div>
+<div id="but-you-will-need-to-construct-a-hypothesis-test" class="section level2">
+<h2><span class="header-section-number">22.4</span> But you will need to construct a hypothesis test…</h2>
+<p>In a hypothesis test, we have an assumption that the population parameter takes a particular value, called the null hypothesis. This usually corresponds to the claim you are trying to disprove. In the above example, the null hypothesis (the view of the determined skeptic) would be that the proportion of students at WashU is 20.7% or less (<span class="math inline">\(H_0: \pi_0 \le 0.207\)</span>). The alternative hypothesis, your friend’s theory, is that the proportion of students who are conservative is more than the national average (<span class="math inline">\(H_a: \mu_a&gt;0.207\)</span>).</p>
+<p>A hypothesis test analyzes the evidence <em>against</em> the null hypothesis. It tells us if we would be likely to get our sample value just because of normal sampling variability <em>if the null hypothesis were true.</em> We judge how far the estimate falls from the null hypothesis’ parameter value, and then look at the probability of getting a sample value this far away from the null hypothesis value or <em>further.</em></p>
+</div>
+<div id="this-all-sounds-a-bit-confusing-so-lets-break-this-down" class="section level2">
+<h2><span class="header-section-number">22.5</span> This all sounds a bit confusing, so let’s break this down…</h2>
+<p>Learning objective 2: Understand the five parts of a hypothesis test The five parts of a hypothesis test are: assumptions, hypotheses, test statistic, p-value, and conclusion.</p>
+<p><strong>1) Assumptions</strong></p>
+<p>To perform a hypothesis test you must assume:</p>
 <ul>
-<li>If I flip a coin three times, what is the probability that I will get exactly two heads?</li>
-<li>If I roll two dice, what is the probability of getting a two?</li>
-<li>If I take a random sample of 100 Wash U students, what is the probability that less than 40% of the sample will be male?</li>
+<li><p>The data is obtained through random sampling</p></li>
+<li><p>We have qualitative data (things that are coded zero or one)</p></li>
+<li><p>As a rule of thumb, we want a sample size such that <span class="math display">\[ n \ge \frac{10}{min(\pi_0, 1-\pi_0)}\]</span> min() means the minimum of the two numbers</p></li>
+<li><p>The 10 in that equation is kind of arbitrary (it serves as a rule of thumb)</p></li>
+<li><p>If the sample size is this large, you can assume that there is a normal sampling distribution for the sample proportion. This gives us the leverage we need to make some calculations.</p></li>
 </ul>
-<p>If you are asked to find the probability that the variable <span class="math inline">\(Y\)</span> will take on a specific value such as 3, probabilities can be written in several ways. <span class="math display">\[Pr(Y=3) \mbox{ or }P(Y=3)\mbox{ or } P(3)\mbox{ or } Pr(3)\]</span> All of these are asking you to figure out the probability that the variable <span class="math inline">\(Y\)</span> will take on the value of 3.</p>
-<p>In other cases you may see a probability written a more generic form, where the specific data point is replaced by a letter. Often this will be written in one of several ways depending on the math book you are looking at. <span class="math display">\[Pr(Y=y), Pr(Y), P(Y=y), \mbox{ or } P(Y)\]</span></p>
-</div>
-<div id="frequency-distribution" class="section level2">
-<h2><span class="header-section-number">12.3</span> Frequency distribution</h2>
-<p>A probability distribution of a discrete variable, Y, assigns a probability to each possible outcome. As an example, we can write out the frequency distribution for all possible outcomes of flipping two coints.</p>
-<center>
-<table>
-<thead>
-<tr class="header">
-<th align="center">Outcome</th>
-<th align="center">#Heads</th>
-<th align="center">Probability</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">TT</td>
-<td align="center">0</td>
-<td align="center"><span class="math inline">\(\frac{1}{4}\)</span></td>
-</tr>
-<tr class="even">
-<td align="center">TH</td>
-<td align="center">1</td>
-<td align="center"><span class="math inline">\(\frac{1}{4}\)</span></td>
-</tr>
-<tr class="odd">
-<td align="center">HT</td>
-<td align="center">1</td>
-<td align="center"><span class="math inline">\(\frac{1}{4}\)</span></td>
-</tr>
-<tr class="even">
-<td align="center">HH</td>
-<td align="center">2</td>
-<td align="center"><span class="math inline">\(\frac{1}{4}\)</span></td>
-</tr>
-</tbody>
-</table>
-</center>
-<p>In the left column, is the outcome. In the right column is the probability of observing that outcome.</p>
-<p>So, if we want to represent the probability of getting zero heads, one head, or two heads, we would end up with the frequency distribution:</p>
-<table>
-<thead>
-<tr class="header">
-<th align="center">Y</th>
-<th align="center">Probability</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">0</td>
-<td align="center"><span class="math inline">\(\frac{1}{4}\)</span></td>
-</tr>
-<tr class="even">
-<td align="center">1</td>
-<td align="center"><span class="math inline">\(\frac{1}{2}\)</span></td>
-</tr>
-<tr class="odd">
-<td align="center">2</td>
-<td align="center"><span class="math inline">\(\frac{1}{4}\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>Here <span class="math inline">\(Y\)</span> is the random variable of interest. We can think of this table a mapping between inputs (Y) and outputs (probabilities). In more formal notation, this table represents a <em>function</em>, which we can call <span class="math inline">\(P(Y=y)\)</span> or just <span class="math inline">\(P(y)\)</span>. This function is what we call a frequency distribution.</p>
-<div id="probability-and-sets" class="section level3">
-<h3><span class="header-section-number">12.3.1</span> Probability and sets</h3>
-<p>We are going to formalize this kind of thinking another step and define something callled a set, <span class="math inline">\(S= \{y_1, y_2, \ldots, y_k\}\)</span>, which means that S represents the set of all possible outcomes. In our example, the set of possible outcomes is <span class="math inline">\(S=\{0,1,2\}\)</span>.</p>
-</div>
-<div id="what-makes-a-frequency-distribution-special" class="section level3">
-<h3><span class="header-section-number">12.3.2</span> What makes a frequency distribution special?</h3>
-<p>We have defined our frequency distribution <span class="math inline">\(P(Y)\)</span> and the set of possible outcomes <span class="math inline">\(S\)</span>. Now we can turn to thinking about what makes a frequency distribution special.</p>
-<p>First, for all possible outcomes <span class="math inline">\(0 \le P(y \in S) \le 1\)</span>. This looks complicated, but just means that the probability of something happen can’t be negative and can’t be greater than 1. It makes no sense to say that something is 110% likely to happen and it makes no sense to say that something has a negative chance of happening.</p>
-<p>Second, (remembering from above that <span class="math inline">\(S= \{y_1, y_2, \ldots, y_k\}\)</span> <span class="math display">\[\sum_{k=1}^K p(y_k )=1.\]</span> This means that the sum of all the probabilities that an event will occur equals 1.</p>
-</div>
-<div id="external-resources" class="section level3">
-<h3><span class="header-section-number">12.3.3</span> External resources</h3>
-<p>Here are some videos to help:</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3ER8OkqBdpE" frameborder="0" allowfullscreen>
-</iframe>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/6E_NVnboMB8" frameborder="0" allowfullscreen>
-</iframe>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Fvi9A_tEmXQ" frameborder="0" allowfullscreen>
-</iframe>
-<p>This last video walks you through the construction of a probability density function.</p>
+<p><strong>2) State hypotheses</strong></p>
+<p>The <em>null hypothesis</em> is going to be that the true population proportion, <span class="math inline">\(\pi\)</span>, is equal to the null hypothesis value, <span class="math inline">\(\pi_0\)</span>. In this case <span class="math inline">\(\pi_0\le0.207\)</span>.</p>
+<p>The <em>alternative hypothesis</em> is that <span class="math inline">\(\pi_a\)</span> is greater than <span class="math inline">\(\pi_a &gt; 0.207\)</span>.</p>
+<p><strong>3) Calculate test statistic</strong></p>
+<p>For large samples, we use a <em>test statistic</em> to determine how many standard errors (we use standard errors and not standard deviations because we are working with the sampling distribution) our observed sample proportion falls from the null hypothesis. Here, we will denote our test statistic <span class="math inline">\(TS\)</span></p>
+<p>Using the information above, we know that <span class="math inline">\(\hat{\pi} = 0.14\)</span>.</p>
+<p><span class="math display">\[TS=\frac{\hat{\pi} - \pi_0}{se_0}\]</span></p>
+<p>Intuitively, this means that the farther $ falls from <span class="math inline">\(\pi_0\)</span> on the sampling distribution, the bigger our test statistic.</p>
+<p>However, it is important to note that we have to calculate our test statistic under the assumption that the null hypothesis is true. So, we are going to use the following formula for proportions</p>
+<p><span class="math display">\[\sqrt{\frac{\pi_0(1-\pi_0)}{n}} \]</span></p>
+<p>In words, that means we are going to calcualte the standard error for the sampling distribution under the assumption that <span class="math inline">\(\pi=\pi_0\)</span>. In our case this means that</p>
+<p><span class="math display">\[\sqrt{\frac{0.207(1-0.207)}{50}}=0.057\]</span></p>
+<p>That means that</p>
+<p><span class="math display">\[TS=\frac{0.14 - 0.207}{0.057}=-1.169\]</span></p>
+<p><strong>4) Calculate the p-value</strong></p>
+<p>A p-value is the probabiliyt of observing your sample statistic, or something more extreme, assuming that the null hypothesis is true.</p>
+<p>Remember that in a sampling distribution, each value of <span class="math inline">\(\hat{\pi}\)</span> has a probability associated with it. Values that fall very far away from <span class="math inline">\(\pi_0\)</span> have a very low probability of occurring if the null hypothesis is true.</p>
+<p>To determine that exact probability, we use the z-table! We simply go to the z-table and look up what probability is associated with our TS value.</p>
+<p>The below picture illustrates. In the sampling distribution, sample proportions that are closest to the true population proportion have a higher probability of occurring. Sample proportions that are way out in the tails are less likely to occur.</p>
+<div class="figure">
+<img src="7.png" />
 
 </div>
+<p>NOTE: Some hypothesis tests are two-sided and others are one-sided. Most z-tables only provide you with a one-sided probability. So if you are performing a two-sided test, you will need to multiply your p-value by two. This multiplication is basically a way to account for not only the probability of obtaining a y.bar as large or larger than the one you obtained, but also a way to account for the probability of obtaining a value as or more extreme than the one obtained in either direction.</p>
+<p>In this, case we can look up the p-value, as the area to the right of <span class="math inline">\(z=1.169\)</span> and see that <span class="math inline">\(p \approx 0.12\)</span>. This represents the probability of observing a sample statistic this extreme (OR MORE) if the null hypothesis is true.</p>
+<p><strong>5) Draw a conclusion</strong></p>
+<p>But what does it mean if you obtain a p-value that is incredibly tiny? If you obtain a p-value of .05 this means that the probability of obtaining a sample statistic as or more extreme than the one you obtained is only about 1/20 or 5%.</p>
+<p>This suggests that the null hypothesis is incorrect and that we should reject it.</p>
+<p>Generally, you decide upon an <span class="math inline">\(\alpha\)</span> or a <em>level of significance</em> before you perform the hypothesis test. The <span class="math inline">\(\alpha\)</span> tells you that for a p-value under the chosen value you will reject the null hypothesis.</p>
+<p>In this case, we have failed to reject the null hypothesis. That means, that there is not sufficient evidence in this sample to support your friends claim. You cannot reject the null hypothesis (which is not the same thing as supporting it).</p>
+</div>
+<div id="watch-all-of-these-videos" class="section level2">
+<h2><span class="header-section-number">22.6</span> Watch all of these videos</h2>
+<p>A video about hypothesis tests (this is a two-sided test)</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-FtlH4svqx4" frameborder="0" allowfullscreen>
+</iframe>
+<p>A video about one-sided and two-sided hypothesis tests</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mvye6X_0upA" frameborder="0" allowfullscreen>
+</iframe>
+<p>Large sample proportion hypothesis testing (WARNING: he uses different notation)</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1JT9oODsClE" frameborder="0" allowfullscreen>
+</iframe>
+
 </div>
 </div>
             </section>
@@ -400,8 +372,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="measures-of-dispersion.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="some-basic-plotting-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="constructing-confidence-intervals-using-proportions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="type-i-and-type-ii-errors.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
