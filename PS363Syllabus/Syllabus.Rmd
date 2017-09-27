@@ -407,7 +407,7 @@ Date| Topic | Reading | Assignments| Notes
 9/20| Working with probability distributions | CB: Chapters 16-18 |IPA
 9/21-22| Working with data
 9/25| Confidence intervals <br> describing a population | AF: Chapter 5 <bf> CB: Chapter 19 | 
-9/27| Hypothesis testing intro |AF: Chapter 6 <br> CB: Chapters 21 - ? | PS2 Due | PS3 Distributed
+9/27| Hypothesis testing intro |AF: Chapter 6 <br> CB: Chapters 21 - ? | PS2 Due | [PS3 Distributed](http://jmontgomery.github.io/ProblemSets/PS3.pdf)
 9/28-29| Confidence invervals 
 10/2| Null hypothesis testing | AF: CHapter 6 |IPA
 10/4| Poster discussion ||  | PS4 Distributed
