@@ -186,7 +186,7 @@ We can use the sampling distribution of $\bar{y}$ (assuming a large sample) to c
 $$Pr(L \le  \mu \le R) = 0.95$$ \pause
 2. Plug in our estimates, and see that $\bar{y} \sim N(\mu, \sigma_{\bar{y}}) \approx N(\bar{y},\displaystyle \frac{S}{\sqrt{n}})$
 3. $L=\bar{y} - (Z \times \hat{\sigma}_{\bar{y}}), R=\bar{y} + (Z \times \hat{\sigma}_{\bar{y}})$ \pause
-4. Look for $(0.95)/2 = .025$ on the z-table \pause 1.96
+4. Look for $(1-0.95)/2 = .025$ on the z-table \pause 1.96
 
 **Answer**: $\bar{y} \pm 1.96 \times \hat{\sigma}_{\bar{y}}$ \pause $= 9.6 \pm 1.96 \times \frac{4}{10} = [8.816, 10.384]$
 
@@ -200,7 +200,7 @@ How to calculate a confidence interval:
 1. Calculate $\bar{y}$ and $\sigma_{\bar{y}}=\displaystyle \frac{S}{\sqrt{n}}$
 2. How much area do we need under the curve to the left? 
     - Example: For a 95\% confidence interval we need .025 under the curve.
-    - (confidence coefficient)/2
+    - (1-confidence coefficient)/2
 3. Find the z-score associated with that number
 4. Use these values to calculate $\bar{y} \pm Z \times \sigma_{\bar{y}}$
 
