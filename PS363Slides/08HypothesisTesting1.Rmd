@@ -20,7 +20,7 @@ knitr::opts_chunk$set(echo = FALSE)
 Last class:
 
 - We figured out how to calculate a sampling distribution.
-- We figured out how create a confidence interval to estimate a parameter.
+- We figured out how to create a confidence interval to estimate a parameter.
 
 \pause
 This class:
@@ -64,8 +64,6 @@ CIs are about estimating a parameter value.  Hypothesis testing is
 about testing scientific claims about a parameter.  \pause 
 **Everything** we do for the rest of this class will concern hypothesis testing of one kind or another. \pause
 
-\pause
-
 - This is why it is called political **science**.\pause
 
 - Every empirical research question is a hypothesis test. \pause
@@ -91,7 +89,7 @@ Important assumptions include:
 - Type of data \pause
 - Population distributions \pause
 - Sample size \pause
-- Sample method (i.e., randomization)
+- Sampling method (i.e., randomization)
 
 
 -----
@@ -103,7 +101,7 @@ technique called \textit{proof by contradiction}.
 
 \pause
 
-- First, we set up a  the null  hypothesis (determined sceptic) \pause
+- First, we set up a null hypothesis (determined sceptic). \pause
 - Second, we use a sample statistic to show that the data we have observed would be very unlikely if the null hypothesis were true. \pause
 - Third, we (kind of) conclude that our research hypothesis is true.  This is usually called the alternative hypothesis. \pause
 - To do this, we first need to specify our hypotheses.
@@ -114,7 +112,7 @@ technique called \textit{proof by contradiction}.
 
 ### Step 3 of 5: Calculate a Test Statistic
 
-We calculate a statistic summarizes how much our data differs from
+We calculate a statistic that summarizes how much our data differs from
 what we would have expected to observe \textit{if the null
   hypothesis were true}. \pause Usually this is something equivalent
 to a Z-statistic.  
@@ -128,7 +126,7 @@ to a Z-statistic.
 > A **P-Value** is a measure of surprise.  \pause We ask, ``If the \textit{null hypothesis is true}, how likely is it that we would observe a test-statistic this extreme **or more**?'' \pause
 
 -  P-Values are very difficult for many people to understand.
-- Smaller P-Values more strongly contradict the null 
+- Smaller P-Values more strongly contradict the null.
 
 
 ----
@@ -158,7 +156,7 @@ hypothesis} is false?
 #### Step 2: State hypotheses
 
 - $H_0: \mu = \mu_0$ (e.g., $\mu_0 = 0$)
-- This is a ``two-sided test'', but it may be a ``one-sided.''
+- This is a "two-sided test", but it may be a "one-sided."
 
 -----
 
@@ -184,7 +182,7 @@ hypothesis} is false?
 
 #### Step 5: Draw a conclusion
 
-- If $p \le \alpha$ we conclude that the evidence supports $H_a$
+- If $p \le \alpha$ we conclude that the evidence supports $H_a$.
 - If $p > \alpha$ we say that ``we cannot reject the null hypothesis.''
 
 -----
@@ -228,7 +226,7 @@ them).  A score of exactly 58 means the respondent is "neutral."
 
  \pause 
 
-**Research hypothesis**: The `"key man" system produces lists
+**Research hypothesis**: The "key man" system produces lists
  that significantly under-represent Mexican-Americans.
 
 
@@ -249,7 +247,7 @@ Important assumptions include:
 - Type of data
 - Population distributions
 - Sample size
-- Sample method (i.e., randomization)
+- Sampling method (i.e., randomization)
 
 \pause
 
@@ -268,8 +266,7 @@ Jury Example:
 We are going to try and support our research hypothesis using a
 technique called \textit{proof by contradiction}.  
 
-- First, we set up a  the null
-  hypothesis (determined sceptic)
+- First, we set up a null hypothesis (determined sceptic).
 - Second, we use a statistic to show that the data we have
   observed would be very unlikely if the null hypothesis were true.
 - Third, we (kind of) conclude that our research hypothesis is true.  This is usually called the
@@ -283,17 +280,17 @@ Jury example:
 
 - *Null hypothesis*: The proportion of Mexican-Americans
   provided by key men is the same as the proportion of
-  Mexican-Americans in the district. 
+  Mexican-Americans in the district.
 - $H_0: \pi > 0.791$
 - *Alternative hypothesis:* The proportion is less than that.
- $H_a: \pi \le 0.791$
+- $H_a: \pi \le 0.791$
 
 
 ----
 
 #### Step 3 of 5: Calculate a Test Statistic
 
-We calculate a statistic summarizes how much our data differs from
+We calculate a statistic that summarizes how much our data differs from
 what we would have expected to observe \textit{if the null
   hypothesis were true}. \pause Usually this is something equivalent
 to a Z-statistic.  
@@ -319,14 +316,14 @@ assumed by the null hypothesis.
 > A **P-Value** is a measure of surprise.  \pause We ask, ``If the \textit{null hypothesis is true}, how likely is it that we would observe a test-statistic this extreme **or more**?'' \pause
 
 -  P-Values are very difficult for many people to understand.
-- Smaller P-Values more strongly contradict the null 
+- Smaller P-Values more strongly contradict the null.
 
 \pause
 
 Jury example:
 
 - $Pr(Z \le -6.46) = Pr(Z\ge 6.46) = p  \approx 0$ \pause
-- We would be very surprised to observe a jury with this few Mexican-Americans or less if if $\pi = 0.791$ \pause
+- We would be very surprised to observe a jury with this few Mexican-Americans or less if $\pi = 0.791$ \pause
 - Why don't we ask $Pr(Z = -6.46)$?
 
 
@@ -351,6 +348,6 @@ Jury Example:
 
 - $p \approx 0 \Rightarrow$ we reject the null hypothesis. \pause
 - $H_0: \pi > 0.791, ~ H_a: \pi \le 0.791$ \pause
--  The evidence supports the hypothesis that the "key man"" system
+-  The evidence supports the hypothesis that the "key man" system
   results in a list that includes too few Mexican-Americans. \pause
 - Science!
