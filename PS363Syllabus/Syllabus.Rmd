@@ -411,9 +411,9 @@ Date| Topic | Reading | Assignments| Notes
 9/28-29| Confidence invervals 
 10/2| Null hypothesis testing | AF: CHapter 6 |IPA
 10/4| Poster discussion ||  | PS4 Distributed
-10/5-6| Functions in R (NHP)
-10/9| Exam review | | PS3 Due
-10/11| Midterm
+10/5-6| Functions in R (NHP) 
+10/9| Exam review | | 
+10/11| Midterm | | PS3 Due
 10/16| NO CLASS <br> Fall Break
 10/18| Causality 
 10/19-20| Advanced plotting
