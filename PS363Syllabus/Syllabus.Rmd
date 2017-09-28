@@ -431,7 +431,7 @@ Date| Topic | Reading | Assignments| Notes
 11/16-17| DID and RD
 11/20| Instrumental variables
 11/22| NO CLASS <bf> Thanksgiving
-11/27| Model fit | |IPA
+11/27| Model fit | |
 11/29| Regression diagnostics | | PS7 Due | PS8 Distributed
 11/30-31| Diagnostics in R
 12/4| Slack/catch up
