@@ -410,7 +410,7 @@ Date| Topic | Reading | Assignments| Notes
 9/27| Hypothesis testing intro |AF: Chapter 6 <br> CB: Chapters 21 - 22 | PS2 Due | [PS3 Distributed](http://jmontgomery.github.io/ProblemSets/PS3.pdf)
 9/28-29| CB: Chapter 25|  Confidence invervals in R
 10/2| Null hypothesis testing | AF: CHapter 6 <br> CB: Chapters 23-24 |
-10/4| Poster discussion | CB: Chapter 26|  PS3 Due |  
+10/4| Poster discussion | CB: Chapter 26|  PS3 Due |  Midterm review distributed
 10/5-6| Functions in R (NHP) | CB: Chapter 27
 10/9| Exam review | | 
 10/11| Midterm | | PS4 Distributed
