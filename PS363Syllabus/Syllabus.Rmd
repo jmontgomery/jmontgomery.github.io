@@ -406,24 +406,14 @@ Date| Topic | Reading | Assignments| Notes
 9/18| Sampling distributions  | AF: Chapter 5 <br> CB: Chapters 14-15 |IPA (In class) | **Bring laptops**
 9/20| Working with probability distributions | CB: Chapters 16-18 |IPA
 9/21-22| Working with data
-9/25| Confidence intervals <br> describing a population | AF: Chapter 5 <bf> CB: Chapter 19 | 
-<<<<<<< Updated upstream
-9/27| Hypothesis testing intro |AF: Chapter 6 <br> CB: Chapters 21 - ? | PS2 Due | [PS3 Distributed](http://jmontgomery.github.io/ProblemSets/PS3.pdf)
-9/28-29| Confidence invervals 
-10/2| Null hypothesis testing | AF: CHapter 6 |IPA
-10/4| Poster discussion ||  | PS4 Distributed
-10/5-6| Functions in R (NHP) 
+9/25| Confidence intervals <br> describing a population | AF: Chapter 5 <br> CB: Chapter 19 | 
+9/27| Hypothesis testing intro |AF: Chapter 6 <br> CB: Chapters 21 - 22 | PS2 Due | [PS3 Distributed](http://jmontgomery.github.io/ProblemSets/PS3.pdf)
+9/28-29| CB: Chapter 25|  Confidence invervals in R
+10/2| Null hypothesis testing | AF: CHapter 6 <br> CB: Chapters 23-24 |
+10/4| Poster discussion | CB: Chapter 26|  PS3 Due |  
+10/5-6| Functions in R (NHP) | CB: Chapter 27
 10/9| Exam review | | 
-10/11| Midterm | | PS3 Due
-=======
-9/27| Hypothesis testing intro |AF: Chapter 6 <br> CB: Chapters 21 - 22 | PS2 Due | PS3 Distributed
-9/28-29| Confidence invervals 
-10/2| Null hypothesis testing |  AF: Chapter 6 <br> CB: Chapters 23-24 |
-10/4| Poster discussion | CB: Chapter 25 |  | 
-10/5-6| Functions in R (NHP)
-10/9| Exam review |  PS3 Due | PS4 Distributed
-10/11| Midterm
->>>>>>> Stashed changes
+10/11| Midterm | | PS4 Distributed
 10/16| NO CLASS <br> Fall Break
 10/18| Causality 
 10/19-20| Advanced plotting
