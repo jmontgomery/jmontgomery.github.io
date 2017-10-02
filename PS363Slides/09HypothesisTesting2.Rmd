@@ -1,0 +1,152 @@
+---
+title: "Lecture 9: Hypothesis Testing 2"
+author: "Jacob M. Montgomery"
+date: "Quantitative Political Methodology"
+output: beamer_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+
+
+
+# Lecture 9: Hypothesis Testing 2
+
+## Roadmap
+
+Last class:
+
+- What is a hypothesis test?
+- The five steps of hypothesis testing.
+
+\pause
+This class:
+
+- Hypothesis tests with small samples
+- Types of errors
+- Discussion of one-sided/two-sided tests
+- Relationship between CI and NHPT
+
+
+
+-----------
+
+
+## Small sample significance testing for quantitative variables
+
+
+### Step 1: Assumptions
+- Random sampling
+- Quantitative data \pause
+- **Population is distributed normally**
+
+### Step 2: State hypotheses
+- $H_0: \mu = \mu_0$ (e.g., $\mu = 12$)
+- $H_a: \mu \ne \mu_0$
+- This is a "two-sided test," but it may be a "one-sided."
+
+----
+
+
+
+### Step 3: Calculate a test statistic
+-  $\displaystyle t^\ast = \frac{\bar{Y} - \mu_0}{\sigma_{\bar{Y}}}, df = (n-1)$ 
+- Just as before, this comes from the sampling distribution of $\bar{Y}$
+
+\pause
+
+### Step 4: P-Value
+- $p = Pr\Big(|t| \ge |\frac{\bar{Y} - \mu_0}{\sigma_{\bar{Y}}}|\Big)
+  = 2 \times Pr(t \ge |\frac{\bar{Y} - \mu_0}{\sigma_{\bar{Y}}}|)$ \pause
+- Make sure you are using the right degrees of freedom. \pause  
+- We use both tails, because we want to find the probability of
+  error in both directions.
+- \texttt{2*pt(abs($t^\ast$), df = n-1, lower.tail=F)}
+
+----
+
+
+
+### Step 5: Draw a conclusion
+
+- If $p \le \alpha$ we conclude that the evidence supports $H_a$
+- But always report the p-value
+
+
+----
+
+### Example: State spending on education
+
+Assume that the theory is that states are spending less than 5\% of their income on education.  The data indicate that:
+
+- $\bar{Y} = 4.7$, $S =0 .0922$
+- $t^\ast = \frac{4.7 - 5}{0.09/\sqrt{50}}=-2.279$, $df = 49$
+- P-value=\texttt{2*pt(2.279, df=49, lower.tail = F)} = 0.027
+
+
+----
+
+### Type 1 and Type II Error
+
+
+\begin{center}
+ \begin{tabular}{|ll|cc|}
+\hline
+ & & \multicolumn{2}{|c|}{\textit{Jury decision}} \\
+& & Guilty & Innocent \\
+\hline
+ \textit{Truth}& Guilty & Correct & Type II \\
+ & Innocent & Type 1 & Correct \\
+\hline
+ \end{tabular}
+\end{center}
+
+
+----
+
+###
+
+Imagine we put the null hypothesis on trial:
+\begin{center}
+ \begin{tabular}{|ll|cc|}
+\hline
+ & & \multicolumn{2}{|c|}{\textit{Researcher Conclusion}} \\
+& & Reject Null & Don't reject \\
+\hline
+ \textit{Truth} & Null is False & Correct & Type II \\
+ & Null is True & Type 1 & Correct \\
+\hline
+ \end{tabular}
+\end{center}
+
+
+\pause
+
+- Type I error is when we reject a null hypothesis when the null it is actually true.  \pause
+- Type II error is when we fail to reject a null hypothesis when the null is actually false. \pause
+- We tend to prioritize reducing Type I error, although there are tradeoffs.
+
+----
+
+
+
+### Notes on Type I and Type II error
+
+How to calculate each?
+
+- Type I:
+    - $Pr( Reject~H_0 | H_0 True) \pause =  \alpha$
+    - This is our primary focus
+
+\pause
+
+- Type II (hard):
+    - $Pr(Fail~ to~ reject | H_0~ False)$
+    - $H_0$ can be false for false for many values \pause
+    - "Power" of a test is $1 - Pr(Type~II~error)$ \pause
+    - Leave this for a more advance classes
+    - There is a trade-off between Type I and Type II error
+
