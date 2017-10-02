@@ -7,5 +7,5 @@ setwd("~/Documents/jmontgomery.github.io/PS363BookMarkdownFiles")
 
 
 ?render_book
-bookdown::render_book(input="index.Rmd", output_dir="~/Documents/jmontgomery.github.io/PS363Coursebook")
+bookdown::render_book(input="index.Rmd", output_dir="~/Github/jmontgomery.github.io/PS363Coursebook")
 
