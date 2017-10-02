@@ -127,7 +127,7 @@ Imagine we put the null hypothesis on trial:
 
 - Type I error is when we reject a null hypothesis when the null it is actually true.  \pause
 - Type II error is when we fail to reject a null hypothesis when the null is actually false. \pause
-- We tend to prioritize reducing Type I error, although there are tradeoffs.
+- We tend to prioritize reducing Type I error, although there are trade-offs.
 
 ----
 
@@ -145,9 +145,9 @@ How to calculate each?
 
 - Type II (hard):
     - $Pr(Fail~ to~ reject | H_0~ False)$
-    - $H_0$ can be false for false for many values \pause
+    - $H_0$ can be false for many values \pause
     - "Power" of a test is $1 - Pr(Type~II~error)$ \pause
-    - Leave this for a more advance classes
+    - Leave this for a more advance class
     - There is a trade-off between Type I and Type II error
 
 -----
