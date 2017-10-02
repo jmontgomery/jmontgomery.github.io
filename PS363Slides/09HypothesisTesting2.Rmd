@@ -150,3 +150,149 @@ How to calculate each?
     - Leave this for a more advance classes
     - There is a trade-off between Type I and Type II error
 
+-----
+
+
+### Reprise: Large sample significance testing for proportions
+
+#### Step 1: Assumptions
+
+- Random sampling
+- Qualitative data  
+- $n\ge \displaystyle \frac{10}{min(\pi_0, 1 - \pi_0)}$
+- $min()$ means the minimum of the two numbers
+- If our $n$ is bigger than this, we can use the calculations below.
+- The 10 is sort of arbitrary (it is a good rule of thumb).
+
+
+----
+
+#### Step 2: State hypotheses
+- $H_0: \pi = \pi_0$ (e.g., $\pi_0 = 0.5$)
+- $H_a: \pi \ne \pi_0$ 
+- This is a "two-sided test," but it may be a "one-sided."
+
+
+----
+
+
+#### Step 3: Calculate a test statistic
+- $\displaystyle Z^\ast = \frac{\hat{\pi} - \pi_0}{\sigma_{\pi_0}}$, \pause
+   $\sigma_{\pi_0} = \sqrt{\frac{\pi_0(1-\pi_0)}{n}}$
+- Just as before, this comes from the sampling distribution
+   $\hat{\pi}$ that would exist if $H_0$ were true.
+- Note we are assuming that $\pi=\pi_0$ to calculate the SE.
+
+
+----
+
+#### Step 4: P-Value
+
+- $p = Pr(Z \ge |\frac{\hat{\pi} - \pi_0}{\sigma_{\pi_0}}|) + Pr(Z
+   \le -|\frac{\hat{\pi} - \pi_0}{\sigma_{\pi_0}}|) = Pr(|Z| \ge
+   |\frac{\hat{\pi} - \pi_0}{\sigma_{\pi_0}}|)$
+- $= 2 \times Pr(Z \ge   |\frac{\hat{\pi} - \pi_0}{\sigma_{\pi_0}}|)$
+- We use both tails.
+
+
+####  Step 5: Draw a conclusion
+
+- If $p \le \alpha$ we conclude that the evidence supports $H_a$
+- You should **still** report the p-value.
+
+
+
+----
+
+### Example: Women in Congress
+
+Women are (roughly) 50\% of the U.S. population.  Are they represented
+(descriptively) in Congress?  Using data from the 107th House we see that there are 60 women in Congress. \pause
+
+- $H_0: \pi = 0.5$, $H_a: \pi \ne 0.5$
+- $n=435, \hat{\pi} = \frac{60}{435}$ \pause
+- Are assumptions met? \pause
+- $\displaystyle n \ge \frac{10}{min(.5, 1-.5)} = 20$ \pause
+- Since our $n$ is bigger, we can proceed
+
+- $Z =  \frac{\hat{\pi}  - 0.5}{\sigma_{\pi_0}} =
+  \frac{0.1379 - 0.5}{\sqrt{\frac{.5(1-.5)}{435}}} =
+  \frac{-0.3621}{0.02397} = -15.11$ \pause
+- \texttt{2*pnorm(15.11, lower.tail=F) } $\approx 0.0001 \Rightarrow$ reject null. \pause
+- Notice that I used positive 15.11 and not -15.11.  I used the absolute value.
+
+
+
+
+-----
+
+
+
+### Critical values 
+
+
+\begin{center}
+\includegraphics[width=4in]{./LectureGraphics/one-sided}
+\end{center}
+
+
+- You can think of hypothesis testing as, <br> "Is the t-statistic so extreme that it is in the rejection region?" \pause
+- If $|Z^\ast|$ is bigger than some "critical value," $Z_\alpha$, then  p-value will be smaller than $\alpha$. \pause
+- Note that the p-value calculations will be different if you are only calculating the area under one-tail. \pause
+- When you calculate the p-value for one-sided tests, you need to make sure you are calculating it for the correct tail.
+
+
+
+
+----
+
+### One sided vs. two sided
+
+
+**Central message \#1**: If you are doing a one-sided test *and the
+estimator IS NOT in the region of the null hypothesis*, don't multiply
+by 2 when calculating the p-value.
+
+- Go back to our example of women in the U.S. House. 
+- If $H_0: \pi > 0.5, H_a: \pi < 0.5$ 
+- The test statistic IS in the region covered by the alternative
+  hypothesis and IS NOT in the region covered by the null. \pause
+- This might still be written as $H_0: \pi = 0$, but it should
+  still be $H_a: \pi < 0.5$.
+- $Z =  \frac{\hat{\pi}  - 0.5}{\sigma_{\pi_0}}=
+  \frac{0.1379 - 0.5}{\sqrt{\frac{.5(1-.5)}{435}}} =
+  \frac{-0.3621}{0.02397} = -15.11$ \pause
+- Note that we are still using $\pi_0 = 0.5$.  This is the smallest
+  value possible for $\pi$ in the region covered by the null
+  hypothesis. \pause
+- We use $P(Z > \displaystyle |\frac{\hat{\pi}  - 0.5}{\sigma_{\pi_0}}|)$
+  $\ldots$ no absolute value signs around the Z.
+- \texttt{pnorm(15.11, lower.tail=F) } $\approx 0.00005 \Rightarrow$ reject null.
+
+
+----
+
+
+### One sided vs. two sided
+
+**Central message \#2**: If you are doing a one-sided test
+\textit{and the estimator IS in the region of the null hypothesis},
+don't multiply by 2 when calculating the p-value \textbf{and} choose
+the tail so that you get an answer larger than 0.5.
+
+
+- Go back to our example of women in the U.S. House.
+- If $H_0: \pi <0.5, H_a: \pi > 0.5$ \pause
+- The test statistics IS NOT in the region covered by the
+  alternative hypothesis. \pause
+- This might still be written as $H_0: \pi = 0$, but it should
+  still be $H_a: \pi > 0.5$. \pause
+- $Z =  \frac{\hat{\pi}  - 0.5}{\sigma_{\pi_0}}=
+  \frac{0.1379 - 0.5}{\sqrt{\frac{.5(1-.5)}{435}}} =
+  \frac{-0.3621}{0.02397} = -15.11$ \pause
+- We want $P(Z \le \displaystyle |\frac{\hat{\pi}  - 0.5}{\sigma_{\pi_0}}|)$ \pause
+- \texttt{pnorm(15.11, lower.tail=T) } $\approx 0.99995
+  \Rightarrow$ do not reject the null. 
+- Notice that \texttt{lower.tail = T}
+
+
