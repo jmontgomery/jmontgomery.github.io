@@ -1,0 +1,99 @@
+---
+title: "Lecture 10: Hypothesis Testing 3"
+author: "Jacob M. Montgomery"
+date: "Quantitative Political Methodology"
+output: beamer_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+
+
+
+# Lecture 10: Hypothesis Testing 3
+
+## Roadmap
+
+Last class:
+
+- Hypothesis tests with small samples
+- Types of errors
+- Discussion of one-sided/two-sided tests
+
+\pause
+This class:
+
+- Relationship between CI and NHPT
+- Working more examples
+
+
+-----------
+
+
+## Visualizing confidence intervals and null-hypothesis testing}
+
+\begin{center}
+\includegraphics[width=4.5in]{./LectureGraphics/HTestCI}
+\end{center}
+
+
+
+-----
+
+
+
+### Example: Confidence interval approach \#1
+
+According to a union agreement, the mean income for all senior-level
+assembly-line workers in a large company equals \$525 per week.  A
+representative of a women's group decides to analyze whether the mean
+income $\mu$ for female employees matches this norm.  For a random
+sample of 36 female employees, $\bar{y} = \$495$ and $s=\$75$.
+
+\pause
+
+- Let's use a 95\% CI, or $\alpha = .05$, and assume that the CLT applies  (no T-distribution) \pause
+- $525 \pm 1.96 \sigma_{\bar{y}} = 525 \pm 1.96 \frac{S}{\sqrt{n}}$  \pause
+- $= 525 \pm 1.96 \frac{75}{\sqrt{36}}$ \pause
+- $525 \pm 1.96 \times 24.5$ \pause
+- 95\% CI  = $[500.5, 549.5]$
+
+\pause 
+Since we observed $\bar{y} = 495$, we can reject the null hypothesis.  
+
+
+----
+## Example: Confidence interval approach \#2
+
+According to a union agreement, the mean income for all senior-level
+assembly-line workers in a large company equals \$525 per week.  A
+representative of a women's group decides to analyze whether the mean
+income $\mu$ for female employees matches this norm.  For a random
+sample of 36 female employees, $\bar{y} = \$495$ and $s=\$75$.
+
+
+\pause
+
+- Let's use a 95\% CI, or $\alpha = .05$\pause
+- $495 \pm 1.96 \sigma_{\bar{y}} = 495 \pm 1.96 \frac{S}{\sqrt{n}}$  \pause
+- $= 495 \pm 1.96 \frac{75}{\sqrt{36}}$ \pause
+- $495 \pm 1.96 \times 24.5$ \pause
+ 95\% CI  = $[470.5, 519.5]$ \pause
+
+\pause 
+Since $H_0: \mu = 525$ is not in that interval, we can reject the null hypothesis.  
+
+
+----
+
+## Research projects
+
+First, think of a research question!
+
+- What topics interest you?
+- What phenomenon do you want to explain?
+- If you don't care about the question itself, then the project will be miserable to complete. 
+
