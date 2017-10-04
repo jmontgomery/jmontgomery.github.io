@@ -36,6 +36,8 @@ I have just started the process of building a new website. For the moment, I am 
 
 [Lecture9](https://jmontgomery.github.io/PS363Slides/09HypothesisTesting2.pdf)
 
+[Lecture10](https://jmontgomery.github.io/PS363Slides/10HypothesisTesting3.pdf)
+
 #### Labs
 [Lab1](https://jmontgomery.github.io/Lab/Lab1.zip)
 
@@ -46,6 +48,8 @@ I have just started the process of building a new website. For the moment, I am 
 [Lab4](https://jmontgomery.github.io/Lab/Lab4.zip)
 
 [Lab5](https://jmontgomery.github.io/Lab/Lab5.zip)
+
+[Lab6](https://jmontgomery.github.io/Lab/Lab6.zip)
 
 ### PS 582: Quantitative Political Methods 2 (Grad)
 
