@@ -56,7 +56,7 @@ Though you are given a lot of room explore, you’re not allowed to do any of th
     - ex. Study the causes of police shootings using a database of instances where there is a police shooting.  We also need to know about cases where there was *not* a police shooting to answer this question.
 - Do **NOT** sample on the independent variable 
     - ex. Studying the effect of church attendance on political beliefs by surveying people at church. 
-    - To know the effet of church attendance we also have to know about the behaviors of non church goers.
+    - To know the effect of church attendance we also have to know about the behaviors of non church goers.
 
 
 ### Hypothesis
@@ -146,6 +146,7 @@ Every single one of your research projects will have limitations. This section s
 ### Submitting Your Projects:
 
 All projects must be submitted to me by email before class on Wednesday, December 4th.  You do not need your printed poster for class that day, but you will need it ready by the beginning of your lab session as you will present to me, your ATI and your peers in your section. 
+
 - Be sure to include the title of your poster in the subject line of the email and the names of all members of the team in the main text.
 - Your emailed file should be zip file that includes
     - your data,
