@@ -66,6 +66,7 @@ Since we observed $\bar{y} = 495$, we can reject the null hypothesis.
 
 
 ----
+
 ## Example: Confidence interval approach \#2
 
 According to a union agreement, the mean income for all senior-level
@@ -96,4 +97,48 @@ First, think of a research question!
 - What topics interest you?
 - What phenomenon do you want to explain?
 - If you don't care about the question itself, then the project will be miserable to complete. 
+
+----
+
+
+
+### Once you have a question...
+
+1. Research hypothesis needs to be falsifiable by you.
+2. This precludes giant questions: 
+    - Why do Americans vote?
+    - What causes peace?
+3. However, smaller questions are interesting too!
+    - Do roommates with different partisan beliefs geta along worse?
+    - Does knowing about mental health issues on campus lower support for more campus buildings?
+4. The data may not support your theory.  That is fine.
+
+
+
+-----
+
+
+### Things that are not allowed
+
+- No ``time-series'' studies.  
+    - Polarization decreases GDP growth.
+- No exploratory projects
+    - What factors determine attitudes towards immigrants? \pause
+- No sensitive data/risky behaviors/illegal behaviors/at-risk populations
+    - Surveys of dating habits, drug use,  etc.
+    - Surveys of minors, the homeless, etc. \pause
+- Do not sample on the dependent variable
+- Do not sample on the independent variable
+
+
+-----
+
+### Things that are encouraged (but not required)
+
+- Conduct your own experiment
+    - Do ``please recycle'' signs cause people to recycle more?
+- Take your own survey
+    - Political beliefs of WashU undergrads
+- Things your fellow students might find interesting
+- Talking to me.
 
