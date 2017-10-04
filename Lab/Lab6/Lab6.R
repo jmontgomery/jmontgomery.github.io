@@ -54,6 +54,13 @@ is.function(rnorm)
 
 
 
+## This is the skeleton of any functions
+FUNCTIONNAME <- function(INPUTNAME1, INPUTNAME2, ...){
+  "Type tasks you want to execute here"
+} 
+
+
+
 ## A very simple function to add 1
 addOne <- function(number){
   new <- number + 1

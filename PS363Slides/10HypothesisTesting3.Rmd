@@ -33,7 +33,7 @@ This class:
 -----------
 
 
-## Visualizing confidence intervals and null-hypothesis testing}
+## Visualizing confidence intervals and null-hypothesis testing
 
 \begin{center}
 \includegraphics[width=4.5in]{./LectureGraphics/HTestCI}
@@ -109,7 +109,7 @@ First, think of a research question!
     - Why do Americans vote?
     - What causes peace?
 3. However, smaller questions are interesting too!
-    - Do roommates with different partisan beliefs geta along worse?
+    - Do roommates with different partisan beliefs get along worse?
     - Does knowing about mental health issues on campus lower support for more campus buildings?
 4. The data may not support your theory.  That is fine.
 
@@ -120,7 +120,7 @@ First, think of a research question!
 
 ### Things that are not allowed
 
-- No ``time-series'' studies.  
+- No ``time-series'' studies
     - Polarization decreases GDP growth.
 - No exploratory projects
     - What factors determine attitudes towards immigrants? \pause
@@ -140,5 +140,5 @@ First, think of a research question!
 - Take your own survey
     - Political beliefs of WashU undergrads
 - Things your fellow students might find interesting
-- Talking to me.
+- Talking to me
 
