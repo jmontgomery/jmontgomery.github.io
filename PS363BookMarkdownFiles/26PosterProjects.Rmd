@@ -180,7 +180,12 @@ Please take a close look at what the markers are for getting high marks in each 
 
 Below I am providing posters that did very well in past years.  That being said, the posters were not perfect. So while all of these were great projects, I'll point out a few strengths and weaknesses so you can do even better.
 
-![HiResPoster1.pdf](poster1.png)
+![](poster1.png)
+ 
+ 
+
+[PDF version here.](HiResPoster1.pdf)
+
  
 Strengths:
 
@@ -198,6 +203,8 @@ Weaknesses:
  
  ![](poster2.png)
  
+[PDF version here.](HiResPoster2.pdf)
+
 Strengths: 
 
 - Well thought out and interesting research design with substantive motivation
@@ -214,6 +221,8 @@ Weaknesses:
 
  ![](poster3.png)
  
+[PDF version here.](HiResPoster3.pdf)
+
 Strengths:
 
 - Substantive reasons for research and clear hypothesis
@@ -229,6 +238,8 @@ Weaknesses:
 
  
  ![](poster4.png)
+
+[PDF version here.](HiResPoster4.pdf)
 
 Strengths:
 
