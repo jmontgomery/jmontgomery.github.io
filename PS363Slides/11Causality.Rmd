@@ -1,0 +1,411 @@
+---
+title: "Lecture 11: Causality"
+author: "Jacob M. Montgomery"
+date: "Quantitative Political Methodology"
+output: beamer_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+
+
+
+# Causality 
+
+## Roadmap
+
+The road so far:
+
+- We learned how to collect data to make inferences about a population
+- We have characterized a single variable
+
+\pause
+This class:
+
+- Now we want to look at two variables
+- Our specific aim is to understand if $X$ causes $Y$
+
+
+-----------
+
+\begin{center}
+\includegraphics[width=3.5in]{./LectureGraphics/correlation}\\
+\vskip 12pt
+\includegraphics[width=3.5in]{./LectureGraphics/dt140509}
+\end{center}
+
+
+-----
+
+### Goals for today
+
+
+
+\includegraphics[width=4.6in]{./LectureGraphics/cell_phones}
+
+- Thinking about causality
+- Average treatment effects
+
+
+
+-----
+
+### What is causlity?
+
+In political science we want to make causal claims.
+
+$$ X \rightarrow Y$$
+
+\pause
+What does this mean?  \pause Let's do this a bit more formally for the
+case of an experiment (the easiest way to think about it).
+
+
+----
+
+
+We will use T to represent a **treatment variable**.
+
+- For a categorical treatment
+\begin{center}  $T_i =   \begin{array}{l}
+  \mbox{1 if unit i receives the treatment}\\
+  \mbox{0 if unit i receives the control}
+  \end{array}$
+\end{center} \pause
+- We let $y_i^1$ represent the outcome of the ith unit **if the treatment is given**. \pause
+- We let $y_i^0$ represent the outcome of the ith unit **if the
+  control is given**.pause
+- One of these is observed, the other is the **counterfactual** --
+  what would have been observed if the other treatment have been given? \pause
+- The causal effect of $T_i$ will then be $y_i^1 - y_i^0$ 
+    - Ex., ``My theory is that individuals who watched this TV ad will
+  be more likely to vote for Ted Cruz than if they didn't watch it.''
+
+
+----
+
+## Average treatment effects
+
+- We cannot measure individual level causal effects \pause
+- We can estimate the **population average treatment effect** by looking at those who received the treatment and those who did not.
+    - $ATE = mean(y_i^1 - y_i^0)$ \pause
+    - $ATE = mean(y_i^1) -mean(y_i^0)$ \pause
+- Each **group** acts as a counterfactual for the other 
+    - Ex., ``My theory is that those individuals who watched this TV
+  ad will be more likely to vote for Mitt Romney on average than those
+  who didn't watch it.''
+
+---- 
+
+### The fundamental problem of causal inference
+
+- The fundamental problem of causal inference is that at most one of $y_i^0$ and $y_i^1$ can be observed.  \pause
+- We can think of each of these as potential outcomes.  However, we can only observe one.  The other is the counterfactual.    \pause
+- Estimation of causal effects requires some combination of:
+    - certain research designs that approximate potential outcomes
+    - randomization
+    - statistical adjustment
+
+
+----
+
+
+
+\begin{center}
+\includegraphics[width=4in]{./LectureGraphics/stroop1}
+\end{center}
+
+
+----
+
+Stand up if your student ID ends in:
+
+\begin{center}
+1 3 4 6 9
+\end{center}
+
+----
+
+\begin{center}
+\includegraphics[width=4in]{./LectureGraphics/stroop2}
+\end{center}
+
+
+----
+
+
+\begin{center}
+\includegraphics[width=4in]{./LectureGraphics/stroop3}
+\end{center}
+
+
+----
+
+### Take away
+
+- Causal effects rely on unobserved counterfactuals \pause
+- At best, we can estimate average treatment effects comparing those who received a treatment with those who don't. \pause
+- In order for this to work, each group must be  \textit{identical} (on average) in every way except the treatment. \pause
+- The best way to achieve this is through random assignment (i.e., experiments)
+- What if this assumption is not met?
+
+
+----
+
+
+### Confounders and causality
+
+- PROBLEM: This only works if the two groups are, onaverage, otherwise identical
+- If the two groups differ on other factors that also cause $y_i^1$ and $y_i^0$, this is a confounding relationship.
+- If this is the case, our counterfactual is **wrong** and we can make no causal claim.
+
+
+> If you aren't doing something to handle **all** other relevant variables (through randomization  or statistical methods), you cannot make a valid causal claim.  
+
+
+----
+
+### Thinking about confounding variables
+
+
+Direct causal relationships:
+
+$$ X \rightarrow Y$$
+
+\pause 
+Spurious relationships:
+
+\pause
+$$Z \rightarrow X \mbox{ AND } Z \rightarrow Y$$
+
+\pause
+Chain relationships:
+
+\pause
+$$X \rightarrow Z \rightarrow Y$$
+
+
+----
+
+
+Multiple causation:
+
+$$X \rightarrow Y \mbox{ AND } Z \rightarrow Y$$
+
+\pause
+Direct and indirect causation:
+
+$$X \rightarrow Y \mbox{ AND } X \rightarrow Z \mbox{ AND } Z
+\rightarrow Y$$
+
+
+----
+
+
+
+
+ \includegraphics[width=4.3in]{./LectureGraphics/booze}
+
+Write down one of each type of claim for this data.
+
+------
+
+### Being a responsible causal analyst
+
+\begin{center}
+\includegraphics[height=7cm]{./LectureGraphics/spiderman}
+\end{center}
+
+
+
+-----
+
+### More seriously
+
+
+
+- Vitamin C? \pause
+- Flossing? \pause
+- Gluten? \pause
+- Drinking while pregnant? \pause
+- Fox News?
+
+
+
+
+
+----
+
+#### At a minimum we need to show ...
+
+Association
+
+- What we will be doing this rest of the semester
+- Correlation, contingency tables, regression coefficients, ...
+- Association $\ne$ causation
+
+
+\pause
+
+Temporal order
+
+- For $T_i$ to cause $Y_i$ it must come before $Y$ in time order
+- **Post hoc ergo propter hoc**
+- "After this, therefore because of this""
+- Temporal order does $\ne$ causation (e.g., every superstition ever)
+
+----
+
+
+Eliminate alternative explanations
+
+- Suppose there is an association and a proper time order.  We
+  stil cannot infer causation.
+- Rather, we must test for all alternative explanations.
+- Only if all of these have been resolved can we claim causation.
+
+\pause
+How can we do this?
+
+- Experimental control 
+- Statistical control (Stay tuned ...)
+- Research design
+
+
+----
+
+### Problem: It can be subtle
+
+
+\begin{center}
+\includegraphics[height=7cm]{./LectureGraphics/wald}
+
+\footnotesize{(Mount 2010)}
+\end{center}
+
+
+-----
+
+
+
+
+\begin{center}
+	\includegraphics[width=9cm]{./LectureGraphics/rh}\\
+	\includegraphics[width=9cm]{./LectureGraphics/goldstein}
+	\end{center}
+
+----
+
+
+\begin{footnotesize}
+Rogers, Coffman, and Bergman:
+
+
+\begin{quote}
+While the authors control for certain variables, their research only implies there is a relationship between parental involvement and student performance. This caveat is important; \textbf{the existence of a relationship does not tell us what causes what}.
+
+Think of it this way: \textbf{If you had two children, and one was getting A's and the other C's, which of them would you help more? The C student.} An outsider, noticing that you've spent the school year helping only one of your children, might infer that parental help caused that child to earn lower grades. This of course would not be the case, and inferring causation here would be a mistake.
+\end{quote}
+\end{footnotesize}
+
+
+----
+
+### If you see a surprising result, be skeptical
+
+\begin{center}
+\includegraphics[height=7.5cm]{./LectureGraphics/messerli}
+\end{center}
+
+
+----
+
+
+
+### Example: Can social pressure increase turnout?
+
+\begin{center}
+\includegraphics[scale=.09, angle=270]{./LectureGraphics/mailers}
+\end{center}
+
+
+----
+
+
+
+We have two **independent samples**, and we want to compare
+them.  \pause Our data will look like this.
+
+
+\begin{tabular}{l l}
+Variable 1 & Variable 2 \\
+(Outcome or response) & (Explanatory or grouping)  \\
+\hline
+1 & 1 \\
+0 & 0 \\
+1 & 0 \\
+0 & 1 \\
+\vdots & \vdots \\
+\hline
+\end{tabular}
+
+
+----
+
+### Example: Social Pressure and Turnout
+
+Gerber, A., Green, D., and Larimer C.W. 2008 ``Social Pressure and Voter Turnout: Evidence from a Large-Scale Field Experiment.'' *American Political Science Review* 101(1): 33-48.
+
+
+\pause
+\includegraphics[width=\textwidth]{./LectureGraphics/SocialPress}
+
+
+
+
+
+----
+
+
+#### Do Politicians Racially Discriminate?
+
+- Is racial discrimination against blacks still a problem in the political sphere? 
+- Do legislators discriminate against individual requests for constituency service on the basis of race?
+
+
+----
+
+#### Comparing legislators' responsiveness
+
+**Questions**: Do legislators' answer a higher proportion of emails from the citizens' they believe are white, 
+
+- ...  even though both black \& white don't signal party affiliation?
+- ...  even though both black \& white signal being Republican?
+- ...  even though both black \& white signal being Democrat?
+ 
+ 
+ ----
+ 
+**Experiment**: The sample includes states legislators in 44 U.S. states with a valid e-mail address in September 2008.
+
+- Race was signaled by randomizing whether the email was signed and sent from an email account with the name Jake Mueller or DeShawn Jackson.
+- The text of the email was also manipulated so as to signal the partisan preference of the email sender. 
+- The cross-tabulation between \textit{race} \& \textit{partisan preference} gives six treatments (or groups). 
+- The outcome variable is the response (or lack thereof) to any e-mails.
+
+
+----
+
+\includegraphics[width=1\textwidth]{./LectureGraphics/table1.pdf}
+
+----
+
+
+### Class business
+
+- Midterms
+- PS  posted.
+- Read online content
