@@ -53,7 +53,7 @@ This class:
 
 -----
 
-### What is causlity?
+### What is causality?
 
 In political science we want to make causal claims.
 
@@ -158,7 +158,7 @@ Stand up if your student ID ends in:
 
 ### Confounders and causality
 
-- PROBLEM: This only works if the two groups are, onaverage, otherwise identical
+- PROBLEM: This only works if the two groups are, on average, otherwise identical
 - If the two groups differ on other factors that also cause $y_i^1$ and $y_i^0$, this is a confounding relationship.
 - If this is the case, our counterfactual is **wrong** and we can make no causal claim.
 
@@ -263,7 +263,7 @@ Temporal order
 Eliminate alternative explanations
 
 - Suppose there is an association and a proper time order.  We
-  stil cannot infer causation.
+  still cannot infer causation.
 - Rather, we must test for all alternative explanations.
 - Only if all of these have been resolved can we claim causation.
 
