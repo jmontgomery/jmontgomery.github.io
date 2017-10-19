@@ -411,15 +411,15 @@ Date| Topic | Reading | Assignments| Notes
 9/28-29| Confidence invervals in R | CB: Chapter 25
 10/2| Null hypothesis testing | AF: CHapter 6 <br> CB: Chapters 23-24 |
 10/4| Poster discussion | CB: Chapter 26|  PS3 Due |  Midterm review distributed
-10/5-6| Functions in R (NHP) | CB: Chapter 27
+10/5-6| Functions in R (NHP) | 
 10/9| Exam review | | 
 10/11| Midterm | | |[PS4 Distributed](http://jmontgomery.github.io/ProblemSets/PS4.pdf)
 10/16| NO CLASS <br> Fall Break
-10/18| Causality 
+10/18| Causality | CB: Chapter 27-28
 10/19-20| Advanced plotting
-10/23| Experiments: Comparing means | | 
-10/25| Experiments: Contingency tables || PS4 Due | PS5 Distributed
-10/26-27| T-tests <bf> Tables
+10/23| Experiments: Comparing means | CB: Chapter 29 <br> AF: 7.1-7.3| 
+10/25| Experiments: Contingency tables |CB: Chapter 31 <br> AF: 8.1-8.4| PS4 Due | PS5 Distributed
+10/26-27| T-tests <br> Tables | CB: Chapters 30, 32-33
 10/30| Regression and prediction 
 11/1| Regression and inference || PS5 Due | PS6 Distributed
 11/2-3| Regression in R
