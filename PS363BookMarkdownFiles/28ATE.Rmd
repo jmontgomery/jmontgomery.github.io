@@ -1,0 +1,100 @@
+# Finding average treatment effects in R
+
+This chapter briefly covers how to find the average treatment effect in R.
+
+- Average treatment effects
+- Working with factors
+- Comparing data using tables
+- Comparing means using the tapply() function 
+
+## Factors in Data 
+
+We are going to analyze data from an experiment where resumes were sent in for hypothetical job applicants.  Importantly, the gender and apparent race of the applicant were randomly assigned.  The outcome variable of interest is whether the applicant received a call.
+
+First we will read in the data 
+```{r, eval=T}
+resume <-
+  read.csv("https://raw.githubusercontent.com/kosukeimai/qss/master/CAUSALITY/resume.csv")
+colnames(resume)
+```
+
+
+Let's look at the variabls `sex.'  
+
+
+```{r, eval=T}
+class(resume$sex)
+str(resume$sex)
+```
+
+We see that this variable is a "factor."  Further, usting the <code>str()</code> funcion, we can see that the factor has two levels (female and male) that are numerically stored as 1 and 2 respectively.
+
+
+```{r, eval=T}
+class(resume$call)
+```
+
+The call variables, however is an variable containing integers.
+
+
+## Visualizing data as a table
+
+We can then use view this data in a convenient form:
+
+```{r, eval=T}
+table(resume$race, resume$call)
+```
+
+
+## Creating factor variables 
+
+What if we want a new factor variable?
+
+Create a new column in dataframe for callbacks as a factor:
+
+```{r, eval=T} 
+resume$callback <- factor(resume$call, levels = c(0,1),labels = c("No_Call", "Call"))
+```
+
+Reviewing the table with this factor:
+
+```{r, eval=T} 
+table(resume$race, resume$callback)
+```
+
+If we are interested in propotions we can use the prop.table() function around our defined table:
+
+```{r, eval=T} 
+prop.table(table(resume$race, resume$callback))
+```
+
+
+## From factor to string 
+
+Factors can be problematic if we want variables as text and not really unordered categories categories:
+
+```{r, eval=T} 
+class(resume$firstname)
+```
+
+This is easy to deal with by using the <code>as.character()</code> function to change it into a text/character variable.
+
+```{r, eval=T} 
+class(as.character(resume$firstname))
+```
+
+## Using tapply() 
+
+Suppose we want to know the “Average Treatment Effect" of being white or black. We can use tapply to create a table of these treatment effects by race. 
+
+```{r, eval=T} 
+tapply(X = resume$call, INDEX = resume$race, FUN = mean)
+```
+
+
+The <code>tapply()</code> function will apply function specified by the FUN argument to the variable in the X argument.  However, it will do so in separate groups as specified in the INDEX slot.
+
+In this instance, it found the <code>mean</code> for <code>resume\$call</code> first among black respondents (<code>resume\$race==1</code>) and then among white respondents (<code>resume\$race==2</code>). Thus, we see that 
+
+We see that 9.65\% of resumes from white applicants received a call while only 0.64\% of resumes from black respondents did.  In this experiment, the difference between these numbers would be conisdered the average treatment effect.
+

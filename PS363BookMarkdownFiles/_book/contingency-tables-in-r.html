@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Quantitative Political Methods Coursebook</title>
+  <meta name="description" content="Quantitative Political Methods Coursebook">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Quantitative Political Methods Coursebook" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Quantitative Political Methods Coursebook" />
+  
+  
+  
+
+<meta name="author" content="Jacob Montgomery">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="chi-squared-test-of-independence.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Placeholder</a></li>
+<li class="chapter" data-level="2" data-path="placeholder-1.html"><a href="placeholder-1.html"><i class="fa fa-check"></i><b>2</b> Placeholder</a></li>
+<li class="chapter" data-level="3" data-path="placeholder-2.html"><a href="placeholder-2.html"><i class="fa fa-check"></i><b>3</b> Placeholder</a></li>
+<li class="chapter" data-level="4" data-path="placeholder-3.html"><a href="placeholder-3.html"><i class="fa fa-check"></i><b>4</b> Placeholder</a></li>
+<li class="chapter" data-level="5" data-path="random-samples.html"><a href="random-samples.html"><i class="fa fa-check"></i><b>5</b> Random Samples</a></li>
+<li class="chapter" data-level="6" data-path="installing-r-and-r-studio.html"><a href="installing-r-and-r-studio.html"><i class="fa fa-check"></i><b>6</b> Installing R and R Studio</a></li>
+<li class="chapter" data-level="7" data-path="a-brief-introduction-to-r.html"><a href="a-brief-introduction-to-r.html"><i class="fa fa-check"></i><b>7</b> A Brief Introduction to R</a></li>
+<li class="chapter" data-level="8" data-path="importing-data-into-r.html"><a href="importing-data-into-r.html"><i class="fa fa-check"></i><b>8</b> Importing data into R</a></li>
+<li class="chapter" data-level="9" data-path="visualizing-data-in-r.html"><a href="visualizing-data-in-r.html"><i class="fa fa-check"></i><b>9</b> Visualizing Data in R</a></li>
+<li class="chapter" data-level="10" data-path="measures-of-position.html"><a href="measures-of-position.html"><i class="fa fa-check"></i><b>10</b> Measures of Position</a></li>
+<li class="chapter" data-level="11" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html"><i class="fa fa-check"></i><b>11</b> Measures of Central Tendency</a></li>
+<li class="chapter" data-level="12" data-path="measures-of-dispersion.html"><a href="measures-of-dispersion.html"><i class="fa fa-check"></i><b>12</b> Measures of Dispersion</a></li>
+<li class="chapter" data-level="13" data-path="frequency-and-probability-distributions.html"><a href="frequency-and-probability-distributions.html"><i class="fa fa-check"></i><b>13</b> Frequency and Probability Distributions</a></li>
+<li class="chapter" data-level="14" data-path="some-basic-plotting-in-r.html"><a href="some-basic-plotting-in-r.html"><i class="fa fa-check"></i><b>14</b> Some basic plotting in R</a></li>
+<li class="chapter" data-level="15" data-path="sampling-distributions-pt-1.html"><a href="sampling-distributions-pt-1.html"><i class="fa fa-check"></i><b>15</b> Sampling Distributions, Pt. 1</a></li>
+<li class="chapter" data-level="16" data-path="sampling-distributions-pt-2.html"><a href="sampling-distributions-pt-2.html"><i class="fa fa-check"></i><b>16</b> Sampling Distributions, Pt. 2</a></li>
+<li class="chapter" data-level="17" data-path="working-with-the-normal-distribution.html"><a href="working-with-the-normal-distribution.html"><i class="fa fa-check"></i><b>17</b> Working with the Normal Distribution</a></li>
+<li class="chapter" data-level="18" data-path="the-binomial-distribution.html"><a href="the-binomial-distribution.html"><i class="fa fa-check"></i><b>18</b> The Binomial Distribution</a></li>
+<li class="chapter" data-level="19" data-path="working-with-the-t-distribution.html"><a href="working-with-the-t-distribution.html"><i class="fa fa-check"></i><b>19</b> Working with the T-distribution</a></li>
+<li class="chapter" data-level="20" data-path="placeholder-4.html"><a href="placeholder-4.html"><i class="fa fa-check"></i><b>20</b> Placeholder</a></li>
+<li class="chapter" data-level="21" data-path="team-assignment.html"><a href="team-assignment.html"><i class="fa fa-check"></i><b>21</b> Team Assignment</a></li>
+<li class="chapter" data-level="22" data-path="constructing-confidence-intervals-using-proportions.html"><a href="constructing-confidence-intervals-using-proportions.html"><i class="fa fa-check"></i><b>22</b> Constructing Confidence Intervals Using Proportions</a></li>
+<li class="chapter" data-level="23" data-path="large-n-hypothesis-testing-for-proportions.html"><a href="large-n-hypothesis-testing-for-proportions.html"><i class="fa fa-check"></i><b>23</b> Large-n hypothesis testing for proportions</a></li>
+<li class="chapter" data-level="24" data-path="type-i-and-type-ii-errors.html"><a href="type-i-and-type-ii-errors.html"><i class="fa fa-check"></i><b>24</b> Type I and Type II Errors</a></li>
+<li class="chapter" data-level="25" data-path="hypothesis-testing-for-small-sample-quantitative-data.html"><a href="hypothesis-testing-for-small-sample-quantitative-data.html"><i class="fa fa-check"></i><b>25</b> Hypothesis Testing for Small Sample Quantitative Data</a></li>
+<li class="chapter" data-level="26" data-path="confidence-intervals-in-r.html"><a href="confidence-intervals-in-r.html"><i class="fa fa-check"></i><b>26</b> Confidence intervals in R</a></li>
+<li class="chapter" data-level="27" data-path="poster-projects.html"><a href="poster-projects.html"><i class="fa fa-check"></i><b>27</b> Poster Projects</a></li>
+<li class="chapter" data-level="28" data-path="causation-and-average-treatment-effects.html"><a href="causation-and-average-treatment-effects.html"><i class="fa fa-check"></i><b>28</b> Causation and Average Treatment Effects</a></li>
+<li class="chapter" data-level="29" data-path="finding-average-treatment-effects-in-r.html"><a href="finding-average-treatment-effects-in-r.html"><i class="fa fa-check"></i><b>29</b> Finding average treatment effects in R</a></li>
+<li class="chapter" data-level="30" data-path="comparing-means.html"><a href="comparing-means.html"><i class="fa fa-check"></i><b>30</b> Comparing Means</a></li>
+<li class="chapter" data-level="31" data-path="t-tests-in-r.html"><a href="t-tests-in-r.html"><i class="fa fa-check"></i><b>31</b> T-tests in R</a></li>
+<li class="chapter" data-level="32" data-path="chi-squared-test-of-independence.html"><a href="chi-squared-test-of-independence.html"><i class="fa fa-check"></i><b>32</b> Chi Squared Test of Independence</a></li>
+<li class="chapter" data-level="33" data-path="contingency-tables-in-r.html"><a href="contingency-tables-in-r.html"><i class="fa fa-check"></i><b>33</b> Contingency tables in R</a><ul>
+<li class="chapter" data-level="33.1" data-path="contingency-tables-in-r.html"><a href="contingency-tables-in-r.html#why-is-this-useful"><i class="fa fa-check"></i><b>33.1</b> Why is this useful?</a></li>
+<li class="chapter" data-level="33.2" data-path="contingency-tables-in-r.html"><a href="contingency-tables-in-r.html#discrete-by-discrete-data-display"><i class="fa fa-check"></i><b>33.2</b> Discrete by Discrete Data Display</a></li>
+<li class="chapter" data-level="33.3" data-path="contingency-tables-in-r.html"><a href="contingency-tables-in-r.html#contingency-tables"><i class="fa fa-check"></i><b>33.3</b> Contingency Tables</a></li>
+<li class="chapter" data-level="33.4" data-path="contingency-tables-in-r.html"><a href="contingency-tables-in-r.html#creating-contingency-tables-in-r"><i class="fa fa-check"></i><b>33.4</b> Creating Contingency Tables in R</a></li>
+<li class="chapter" data-level="33.5" data-path="contingency-tables-in-r.html"><a href="contingency-tables-in-r.html#discrete-by-continuous-displays"><i class="fa fa-check"></i><b>33.5</b> Discrete by Continuous Displays</a></li>
+<li class="chapter" data-level="33.6" data-path="contingency-tables-in-r.html"><a href="contingency-tables-in-r.html#continuous-by-continuous-displays"><i class="fa fa-check"></i><b>33.6</b> Continuous By Continuous Displays</a></li>
+<li class="chapter" data-level="33.7" data-path="contingency-tables-in-r.html"><a href="contingency-tables-in-r.html#the-value-of-scatterplots"><i class="fa fa-check"></i><b>33.7</b> The value of Scatterplots</a></li>
+<li class="chapter" data-level="33.8" data-path="contingency-tables-in-r.html"><a href="contingency-tables-in-r.html#now-watch-this-video"><i class="fa fa-check"></i><b>33.8</b> Now watch this video</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Quantitative Political Methods Coursebook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="contingency-tables-in-r" class="section level1">
+<h1><span class="header-section-number">33</span> Contingency tables in R</h1>
+<p>Today’s lab will introduce you to the different types of bivariate data displays:</p>
+<ul>
+<li>Discrete by Discrete (Contingency Tables)</li>
+<li>Discrete by Continuous</li>
+<li>Continuous by Continuous</li>
+</ul>
+<p>It will also attempt to get at bivariate regressions.</p>
+<div id="why-is-this-useful" class="section level2">
+<h2><span class="header-section-number">33.1</span> Why is this useful?</h2>
+<p>It is very common that a question relies on a discussion of the relationship between two variables.</p>
+<p>What type of variables?</p>
+<ul>
+<li><p>Age and Vote Intentions</p></li>
+<li><p>Party Ideology and Party Desire to Form Coalitions</p></li>
+<li><p>Income groups and Spending on Alcohol</p></li>
+</ul>
+</div>
+<div id="discrete-by-discrete-data-display" class="section level2">
+<h2><span class="header-section-number">33.2</span> Discrete by Discrete Data Display</h2>
+<ul>
+<li><p>Assume the two variables of interest are both countably discrete.</p></li>
+<li><p>To examine the relationship between these variables, we will use .</p></li>
+<li><p>A contingency table is used to plot membership by groups.</p></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Democrat</th>
+<th>Republican</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Male</td>
+<td>36</td>
+<td>56</td>
+</tr>
+<tr class="even">
+<td>Female</td>
+<td>43</td>
+<td>22</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>How can we interpret this table?</li>
+</ul>
+</div>
+<div id="contingency-tables" class="section level2">
+<h2><span class="header-section-number">33.3</span> Contingency Tables</h2>
+<ul>
+<li><p>The same contingency table with row percentages.</p></li>
+<li><p>Does it make more sense to percentagize by sex or vote in the previous table?</p></li>
+<li><p>General rule: percentagize by the independent/ explanatory variable. Below we do it by gender (i.e. by row).</p></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Democrat</th>
+<th>Republican</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Male</td>
+<td>39.1%</td>
+<td>60.9%</td>
+</tr>
+<tr class="even">
+<td>Female</td>
+<td>66.1%</td>
+<td>33.9%</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Note that the percentages add up to 100 on each row, not over each column.</li>
+</ul>
+</div>
+<div id="creating-contingency-tables-in-r" class="section level2">
+<h2><span class="header-section-number">33.4</span> Creating Contingency Tables in R</h2>
+<p>Everything below is IMPORTANT for handout:</p>
+<p>Recall: Contingency tables take factors. Convert otherwise!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Frequency </span>
+
+freq.tab &lt;-<span class="st"> </span><span class="kw">with</span>(data, <span class="kw">table</span>(factor1, factor2))
+
+<span class="co">#Percentage </span>
+
+<span class="kw">with</span>(data, <span class="kw">round</span>(<span class="kw">prop.table</span>(freq.tab)*<span class="dv">100</span>, <span class="dv">2</span>))
+
+<span class="co"># Chi-Square </span>
+
+<span class="kw">chisq.test</span>(freq.tab)</code></pre></div>
+</div>
+<div id="discrete-by-continuous-displays" class="section level2">
+<h2><span class="header-section-number">33.5</span> Discrete by Continuous Displays</h2>
+<p>When we have one discrete variable and one continuous</p>
+<ul>
+<li>Rely on some of the methods that we have used previously!</li>
+</ul>
+<p>Options:</p>
+<ul>
+<li><p>boxplots for each group;</p></li>
+<li><p>histograms for each group;</p></li>
+<li><p>plot the distribution of observations for each group.</p></li>
+</ul>
+<p><img src="/Users/Ian/Dropbox (IsD)/QPM/bookdown-minimal-master/bookdown-minimal-master/_bookdown_files/Lab_Files/24.png" width="400px" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(y~x,<span class="dt">data =</span> dataset,<span class="dt">xlab =</span> <span class="st">&quot;Informative X label&quot;</span>,<span class="dt">ylab =</span> <span class="st">&quot;Informative Y label&quot;</span>,<span class="dt">main =</span> <span class="st">&quot;Informative Title&quot;</span>,<span class="dt">col =</span> <span class="kw">c</span>(col1, col2, ....))</code></pre></div>
+<p><img src="/Users/Ian/Dropbox (IsD)/QPM/bookdown-minimal-master/bookdown-minimal-master/_bookdown_files/Lab_Files/25.png" width="400px" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(x,<span class="dt">data =</span> dataset,<span class="dt">breaks =</span> <span class="kw">c</span>(num1, num2, ....),<span class="dt">freq =</span> <span class="ot">TRUE</span>,<span class="dt">xlab =</span> <span class="st">&quot;Informative X label&quot;</span>,<span class="dt">ylab =</span> <span class="st">&quot;Informative Y label&quot;</span>,<span class="dt">main =</span> <span class="st">&quot;Informative Title&quot;</span>,<span class="dt">col =</span> <span class="st">&quot;color&quot;</span>)</code></pre></div>
+</div>
+<div id="continuous-by-continuous-displays" class="section level2">
+<h2><span class="header-section-number">33.6</span> Continuous By Continuous Displays</h2>
+<p>If we want to examine the relationship between two continuous variables graphically, we will utilize a scatterplot.</p>
+<ul>
+<li><p>Income by Age</p></li>
+<li><p>Income by Ideology (21-point scale)</p></li>
+<li><p>Note: when ordered categories are plenty enough, consider them as continuous</p></li>
+</ul>
+<p><img src="/Users/Ian/Dropbox (IsD)/QPM/bookdown-minimal-master/bookdown-minimal-master/_bookdown_files/Lab_Files/26.png" width="400px" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(x, y, <span class="dt">data =</span> dataset,<span class="dt">main =</span> <span class="st">&quot;Informative Title&quot;</span>,<span class="dt">xlab =</span> <span class="st">&quot;Informative X label&quot;</span>,<span class="dt">ylab =</span> <span class="st">&quot;Informative Y label&quot;</span>,<span class="dt">pch =</span> <span class="dv">19</span>)      
+
+<span class="co">#Note:  Change for different types</span>
+
+<span class="co">#Add regression line (y~x)</span>
+
+<span class="kw">abline</span>(<span class="kw">lm</span>(y~x), <span class="dt">data=</span>dataset, <span class="dt">col =</span> <span class="st">&quot;color&quot;</span>)</code></pre></div>
+</div>
+<div id="the-value-of-scatterplots" class="section level2">
+<h2><span class="header-section-number">33.7</span> The value of Scatterplots</h2>
+<p>Scatterplots allow us to assess the direction and strength of a relationship between 2 variables.</p>
+<p>3 types of relationships:</p>
+<ul>
+<li><p><strong>Positive:</strong> As x increases, y also increases.</p></li>
+<li><p><strong>Negative</strong>: As x increases, y decreases.</p></li>
+<li><p><strong>No Relationship:</strong> There is no relationship between the variables.</p></li>
+</ul>
+<p>Careful with nominal variables: Directions do not apply! We can only say whether or not a relationship exists.</p>
+<p>In R, we can only make scatterplots with <strong>numeric</strong> variables!</p>
+<ul>
+<li>Check whether the variable is numeric:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(datasetname$variableofinterest)
+<span class="kw">is.numeric</span>(datasetname$variableofinterest)</code></pre></div>
+<ul>
+<li>If your variable is not numeric in structure but convertible to be numeric, such as numbers as factor levels or numbers as characters within quotation marks, we can convert it to a numeric variable (only if it makes sense):</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">datasetname$newvariable &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(datasetname$variableofinterest)</code></pre></div>
+</div>
+<div id="now-watch-this-video" class="section level2">
+<h2><span class="header-section-number">33.8</span> Now watch this video</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/POiHEJqmiC0" frameborder="0" allowfullscreen>
+</iframe>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chi-squared-test-of-independence.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

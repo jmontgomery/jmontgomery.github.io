@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Quantitative Political Methods Coursebook</title>
+  <meta name="description" content="Quantitative Political Methods Coursebook">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Quantitative Political Methods Coursebook" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Quantitative Political Methods Coursebook" />
+  
+  
+  
+
+<meta name="author" content="Jacob Montgomery">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="comparing-means.html">
+<link rel="next" href="lab-8-t-tests-in-r.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Placeholder</a></li>
+<li class="chapter" data-level="2" data-path="placeholder-1.html"><a href="placeholder-1.html"><i class="fa fa-check"></i><b>2</b> Placeholder</a></li>
+<li class="chapter" data-level="3" data-path="placeholder-2.html"><a href="placeholder-2.html"><i class="fa fa-check"></i><b>3</b> Placeholder</a></li>
+<li class="chapter" data-level="4" data-path="placeholder-3.html"><a href="placeholder-3.html"><i class="fa fa-check"></i><b>4</b> Placeholder</a></li>
+<li class="chapter" data-level="5" data-path="random-samples.html"><a href="random-samples.html"><i class="fa fa-check"></i><b>5</b> Random Samples</a></li>
+<li class="chapter" data-level="6" data-path="installing-r-and-r-studio.html"><a href="installing-r-and-r-studio.html"><i class="fa fa-check"></i><b>6</b> Installing R and R Studio</a></li>
+<li class="chapter" data-level="7" data-path="a-brief-introduction-to-r.html"><a href="a-brief-introduction-to-r.html"><i class="fa fa-check"></i><b>7</b> A Brief Introduction to R</a></li>
+<li class="chapter" data-level="8" data-path="importing-data-into-r.html"><a href="importing-data-into-r.html"><i class="fa fa-check"></i><b>8</b> Importing data into R</a></li>
+<li class="chapter" data-level="9" data-path="visualizing-data-in-r.html"><a href="visualizing-data-in-r.html"><i class="fa fa-check"></i><b>9</b> Visualizing Data in R</a></li>
+<li class="chapter" data-level="10" data-path="measures-of-position.html"><a href="measures-of-position.html"><i class="fa fa-check"></i><b>10</b> Measures of Position</a></li>
+<li class="chapter" data-level="11" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html"><i class="fa fa-check"></i><b>11</b> Measures of Central Tendency</a></li>
+<li class="chapter" data-level="12" data-path="measures-of-dispersion.html"><a href="measures-of-dispersion.html"><i class="fa fa-check"></i><b>12</b> Measures of Dispersion</a></li>
+<li class="chapter" data-level="13" data-path="frequency-and-probability-distributions.html"><a href="frequency-and-probability-distributions.html"><i class="fa fa-check"></i><b>13</b> Frequency and Probability Distributions</a></li>
+<li class="chapter" data-level="14" data-path="some-basic-plotting-in-r.html"><a href="some-basic-plotting-in-r.html"><i class="fa fa-check"></i><b>14</b> Some basic plotting in R</a></li>
+<li class="chapter" data-level="15" data-path="sampling-distributions-pt-1.html"><a href="sampling-distributions-pt-1.html"><i class="fa fa-check"></i><b>15</b> Sampling Distributions, Pt. 1</a></li>
+<li class="chapter" data-level="16" data-path="sampling-distributions-pt-2.html"><a href="sampling-distributions-pt-2.html"><i class="fa fa-check"></i><b>16</b> Sampling Distributions, Pt. 2</a></li>
+<li class="chapter" data-level="17" data-path="working-with-the-normal-distribution.html"><a href="working-with-the-normal-distribution.html"><i class="fa fa-check"></i><b>17</b> Working with the Normal Distribution</a></li>
+<li class="chapter" data-level="18" data-path="the-binomial-distribution.html"><a href="the-binomial-distribution.html"><i class="fa fa-check"></i><b>18</b> The Binomial Distribution</a></li>
+<li class="chapter" data-level="19" data-path="working-with-the-t-distribution.html"><a href="working-with-the-t-distribution.html"><i class="fa fa-check"></i><b>19</b> Working with the T-distribution</a></li>
+<li class="chapter" data-level="20" data-path="placeholder-4.html"><a href="placeholder-4.html"><i class="fa fa-check"></i><b>20</b> Placeholder</a></li>
+<li class="chapter" data-level="21" data-path="team-assignment.html"><a href="team-assignment.html"><i class="fa fa-check"></i><b>21</b> Team Assignment</a></li>
+<li class="chapter" data-level="22" data-path="constructing-confidence-intervals-using-proportions.html"><a href="constructing-confidence-intervals-using-proportions.html"><i class="fa fa-check"></i><b>22</b> Constructing Confidence Intervals Using Proportions</a></li>
+<li class="chapter" data-level="23" data-path="large-n-hypothesis-testing-for-proportions.html"><a href="large-n-hypothesis-testing-for-proportions.html"><i class="fa fa-check"></i><b>23</b> Large-n hypothesis testing for proportions</a></li>
+<li class="chapter" data-level="24" data-path="type-i-and-type-ii-errors.html"><a href="type-i-and-type-ii-errors.html"><i class="fa fa-check"></i><b>24</b> Type I and Type II Errors</a></li>
+<li class="chapter" data-level="25" data-path="hypothesis-testing-for-small-sample-quantitative-data.html"><a href="hypothesis-testing-for-small-sample-quantitative-data.html"><i class="fa fa-check"></i><b>25</b> Hypothesis Testing for Small Sample Quantitative Data</a></li>
+<li class="chapter" data-level="26" data-path="confidence-intervals-in-r.html"><a href="confidence-intervals-in-r.html"><i class="fa fa-check"></i><b>26</b> Confidence intervals in R</a></li>
+<li class="chapter" data-level="27" data-path="poster-projects.html"><a href="poster-projects.html"><i class="fa fa-check"></i><b>27</b> Poster Projects</a></li>
+<li class="chapter" data-level="28" data-path="causation-and-average-treatment-effects.html"><a href="causation-and-average-treatment-effects.html"><i class="fa fa-check"></i><b>28</b> Causation and Average Treatment Effects</a></li>
+<li class="chapter" data-level="29" data-path="comparing-means.html"><a href="comparing-means.html"><i class="fa fa-check"></i><b>29</b> Comparing Means</a></li>
+<li class="chapter" data-level="30" data-path="finding-average-treatment-effects-in-r.html"><a href="finding-average-treatment-effects-in-r.html"><i class="fa fa-check"></i><b>30</b> Finding average treatment effects in R</a><ul>
+<li class="chapter" data-level="30.1" data-path="finding-average-treatment-effects-in-r.html"><a href="finding-average-treatment-effects-in-r.html#factors-in-data"><i class="fa fa-check"></i><b>30.1</b> Factors in Data</a></li>
+<li class="chapter" data-level="30.2" data-path="finding-average-treatment-effects-in-r.html"><a href="finding-average-treatment-effects-in-r.html#visualizing-data-as-a-table"><i class="fa fa-check"></i><b>30.2</b> Visualizing data as a table</a></li>
+<li class="chapter" data-level="30.3" data-path="finding-average-treatment-effects-in-r.html"><a href="finding-average-treatment-effects-in-r.html#creating-factor-variables"><i class="fa fa-check"></i><b>30.3</b> Creating factor variables</a></li>
+<li class="chapter" data-level="30.4" data-path="finding-average-treatment-effects-in-r.html"><a href="finding-average-treatment-effects-in-r.html#from-factor-to-string"><i class="fa fa-check"></i><b>30.4</b> From factor to string</a></li>
+<li class="chapter" data-level="30.5" data-path="finding-average-treatment-effects-in-r.html"><a href="finding-average-treatment-effects-in-r.html#using-tapply"><i class="fa fa-check"></i><b>30.5</b> Using tapply()</a></li>
+</ul></li>
+<li class="chapter" data-level="31" data-path="lab-8-t-tests-in-r.html"><a href="lab-8-t-tests-in-r.html"><i class="fa fa-check"></i><b>31</b> Lab 8: T-Tests In R</a></li>
+<li class="chapter" data-level="32" data-path="lab-9-contingency-tables-in-r.html"><a href="lab-9-contingency-tables-in-r.html"><i class="fa fa-check"></i><b>32</b> Lab 9: Contingency Tables in R</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Quantitative Political Methods Coursebook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="finding-average-treatment-effects-in-r" class="section level1">
+<h1><span class="header-section-number">30</span> Finding average treatment effects in R</h1>
+<p>This chapter briefly covers how to find the average treatment effect in R.</p>
+<ul>
+<li>Average treatment effects</li>
+<li>Working with factors</li>
+<li>Comparing data using tables</li>
+<li>Comparing means using the tapply() function</li>
+</ul>
+<div id="factors-in-data" class="section level2">
+<h2><span class="header-section-number">30.1</span> Factors in Data</h2>
+<p>We are going to analyze data from an experiment where resumes were sent in for hypothetical job applicants. Importantly, the gender and apparent race of the applicant were randomly assigned. The outcome variable of interest is whether the applicant received a call.</p>
+<p>First we will read in the data</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">resume &lt;-
+<span class="st">  </span><span class="kw">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/kosukeimai/qss/master/CAUSALITY/resume.csv&quot;</span>)
+<span class="kw">colnames</span>(resume)</code></pre></div>
+<pre><code>## [1] &quot;firstname&quot; &quot;sex&quot;       &quot;race&quot;      &quot;call&quot;</code></pre>
+<p>Let’s look at the variabls `sex.’</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(resume$sex)</code></pre></div>
+<pre><code>## [1] &quot;factor&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(resume$sex)</code></pre></div>
+<pre><code>##  Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 1 1 1 1 1 2 1 1 1 2 ...</code></pre>
+<p>We see that this variable is a “factor.” Further, usting the <code>str()</code> funcion, we can see that the factor has two levels (female and male) that are numerically stored as 1 and 2 respectively.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(resume$call)</code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<p>The call variables, however is an variable containing integers.</p>
+</div>
+<div id="visualizing-data-as-a-table" class="section level2">
+<h2><span class="header-section-number">30.2</span> Visualizing data as a table</h2>
+<p>We can then use view this data in a convenient form:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(resume$race, resume$call)</code></pre></div>
+<pre><code>##        
+##            0    1
+##   black 2278  157
+##   white 2200  235</code></pre>
+</div>
+<div id="creating-factor-variables" class="section level2">
+<h2><span class="header-section-number">30.3</span> Creating factor variables</h2>
+<p>What if we want a new factor variable?</p>
+<p>Create a new column in dataframe for callbacks as a factor:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">resume$callback &lt;-<span class="st"> </span><span class="kw">factor</span>(resume$call, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;No_Call&quot;</span>, <span class="st">&quot;Call&quot;</span>))</code></pre></div>
+<p>Reviewing the table with this factor:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(resume$race, resume$callback)</code></pre></div>
+<pre><code>##        
+##         No_Call Call
+##   black    2278  157
+##   white    2200  235</code></pre>
+<p>If we are interested in propotions we can use the prop.table() function around our defined table:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">prop.table</span>(<span class="kw">table</span>(resume$race, resume$callback))</code></pre></div>
+<pre><code>##        
+##            No_Call       Call
+##   black 0.46776181 0.03223819
+##   white 0.45174538 0.04825462</code></pre>
+</div>
+<div id="from-factor-to-string" class="section level2">
+<h2><span class="header-section-number">30.4</span> From factor to string</h2>
+<p>Factors can be problematic if we want variables as text and not really unordered categories categories:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(resume$firstname)</code></pre></div>
+<pre><code>## [1] &quot;factor&quot;</code></pre>
+<p>This is easy to deal with by using the <code>as.character()</code> function to change it into a text/character variable.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="kw">as.character</span>(resume$firstname))</code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+</div>
+<div id="using-tapply" class="section level2">
+<h2><span class="header-section-number">30.5</span> Using tapply()</h2>
+<p>Suppose we want to know the “Average Treatment Effect” of being white or black. We can use tapply to create a table of these treatment effects by race.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tapply</span>(<span class="dt">X =</span> resume$call, <span class="dt">INDEX =</span> resume$race, <span class="dt">FUN =</span> mean)</code></pre></div>
+<pre><code>##      black      white 
+## 0.06447639 0.09650924</code></pre>
+<p>The <code>tapply()</code> function will apply function specified by the FUN argument to the variable in the X argument. However, it will do so in separate groups as specified in the INDEX slot.</p>
+<p>In this instance, it found the <code>mean</code> for <code>resume$call</code> first among black respondents (<code>resume$race==1</code>) and then among white respondents (<code>resume$race==2</code>). Thus, we see that</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="comparing-means.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lab-8-t-tests-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

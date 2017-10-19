@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Quantitative Political Methods Coursebook</title>
+  <meta name="description" content="Quantitative Political Methods Coursebook">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Quantitative Political Methods Coursebook" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Quantitative Political Methods Coursebook" />
+  
+  
+  
+
+<meta name="author" content="Jacob Montgomery">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="comparing-means.html">
+<link rel="next" href="lab-9-contingency-tables-in-r.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Placeholder</a></li>
+<li class="chapter" data-level="2" data-path="placeholder-1.html"><a href="placeholder-1.html"><i class="fa fa-check"></i><b>2</b> Placeholder</a></li>
+<li class="chapter" data-level="3" data-path="placeholder-2.html"><a href="placeholder-2.html"><i class="fa fa-check"></i><b>3</b> Placeholder</a></li>
+<li class="chapter" data-level="4" data-path="placeholder-3.html"><a href="placeholder-3.html"><i class="fa fa-check"></i><b>4</b> Placeholder</a></li>
+<li class="chapter" data-level="5" data-path="random-samples.html"><a href="random-samples.html"><i class="fa fa-check"></i><b>5</b> Random Samples</a></li>
+<li class="chapter" data-level="6" data-path="installing-r-and-r-studio.html"><a href="installing-r-and-r-studio.html"><i class="fa fa-check"></i><b>6</b> Installing R and R Studio</a></li>
+<li class="chapter" data-level="7" data-path="a-brief-introduction-to-r.html"><a href="a-brief-introduction-to-r.html"><i class="fa fa-check"></i><b>7</b> A Brief Introduction to R</a></li>
+<li class="chapter" data-level="8" data-path="importing-data-into-r.html"><a href="importing-data-into-r.html"><i class="fa fa-check"></i><b>8</b> Importing data into R</a></li>
+<li class="chapter" data-level="9" data-path="visualizing-data-in-r.html"><a href="visualizing-data-in-r.html"><i class="fa fa-check"></i><b>9</b> Visualizing Data in R</a></li>
+<li class="chapter" data-level="10" data-path="measures-of-position.html"><a href="measures-of-position.html"><i class="fa fa-check"></i><b>10</b> Measures of Position</a></li>
+<li class="chapter" data-level="11" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html"><i class="fa fa-check"></i><b>11</b> Measures of Central Tendency</a></li>
+<li class="chapter" data-level="12" data-path="measures-of-dispersion.html"><a href="measures-of-dispersion.html"><i class="fa fa-check"></i><b>12</b> Measures of Dispersion</a></li>
+<li class="chapter" data-level="13" data-path="frequency-and-probability-distributions.html"><a href="frequency-and-probability-distributions.html"><i class="fa fa-check"></i><b>13</b> Frequency and Probability Distributions</a></li>
+<li class="chapter" data-level="14" data-path="some-basic-plotting-in-r.html"><a href="some-basic-plotting-in-r.html"><i class="fa fa-check"></i><b>14</b> Some basic plotting in R</a></li>
+<li class="chapter" data-level="15" data-path="sampling-distributions-pt-1.html"><a href="sampling-distributions-pt-1.html"><i class="fa fa-check"></i><b>15</b> Sampling Distributions, Pt. 1</a></li>
+<li class="chapter" data-level="16" data-path="sampling-distributions-pt-2.html"><a href="sampling-distributions-pt-2.html"><i class="fa fa-check"></i><b>16</b> Sampling Distributions, Pt. 2</a></li>
+<li class="chapter" data-level="17" data-path="working-with-the-normal-distribution.html"><a href="working-with-the-normal-distribution.html"><i class="fa fa-check"></i><b>17</b> Working with the Normal Distribution</a></li>
+<li class="chapter" data-level="18" data-path="the-binomial-distribution.html"><a href="the-binomial-distribution.html"><i class="fa fa-check"></i><b>18</b> The Binomial Distribution</a></li>
+<li class="chapter" data-level="19" data-path="working-with-the-t-distribution.html"><a href="working-with-the-t-distribution.html"><i class="fa fa-check"></i><b>19</b> Working with the T-distribution</a></li>
+<li class="chapter" data-level="20" data-path="placeholder-4.html"><a href="placeholder-4.html"><i class="fa fa-check"></i><b>20</b> Placeholder</a></li>
+<li class="chapter" data-level="21" data-path="team-assignment.html"><a href="team-assignment.html"><i class="fa fa-check"></i><b>21</b> Team Assignment</a></li>
+<li class="chapter" data-level="22" data-path="constructing-confidence-intervals-using-proportions.html"><a href="constructing-confidence-intervals-using-proportions.html"><i class="fa fa-check"></i><b>22</b> Constructing Confidence Intervals Using Proportions</a></li>
+<li class="chapter" data-level="23" data-path="large-n-hypothesis-testing-for-proportions.html"><a href="large-n-hypothesis-testing-for-proportions.html"><i class="fa fa-check"></i><b>23</b> Large-n hypothesis testing for proportions</a></li>
+<li class="chapter" data-level="24" data-path="type-i-and-type-ii-errors.html"><a href="type-i-and-type-ii-errors.html"><i class="fa fa-check"></i><b>24</b> Type I and Type II Errors</a></li>
+<li class="chapter" data-level="25" data-path="hypothesis-testing-for-small-sample-quantitative-data.html"><a href="hypothesis-testing-for-small-sample-quantitative-data.html"><i class="fa fa-check"></i><b>25</b> Hypothesis Testing for Small Sample Quantitative Data</a></li>
+<li class="chapter" data-level="26" data-path="confidence-intervals-in-r.html"><a href="confidence-intervals-in-r.html"><i class="fa fa-check"></i><b>26</b> Confidence intervals in R</a></li>
+<li class="chapter" data-level="27" data-path="poster-projects.html"><a href="poster-projects.html"><i class="fa fa-check"></i><b>27</b> Poster Projects</a></li>
+<li class="chapter" data-level="28" data-path="causation-and-average-treatment-effects.html"><a href="causation-and-average-treatment-effects.html"><i class="fa fa-check"></i><b>28</b> Causation and Average Treatment Effects</a></li>
+<li class="chapter" data-level="29" data-path="finding-average-treatment-effects-in-r.html"><a href="finding-average-treatment-effects-in-r.html"><i class="fa fa-check"></i><b>29</b> Finding average treatment effects in R</a></li>
+<li class="chapter" data-level="30" data-path="comparing-means.html"><a href="comparing-means.html"><i class="fa fa-check"></i><b>30</b> Comparing Means</a></li>
+<li class="chapter" data-level="31" data-path="t-tests-in-r.html"><a href="t-tests-in-r.html"><i class="fa fa-check"></i><b>31</b> T-tests in R</a><ul>
+<li class="chapter" data-level="31.1" data-path="t-tests-in-r.html"><a href="t-tests-in-r.html#gerber-green-larimer-gotv-data"><i class="fa fa-check"></i><b>31.1</b> Gerber, Green, &amp; Larimer GOTV Data</a></li>
+<li class="chapter" data-level="31.2" data-path="t-tests-in-r.html"><a href="t-tests-in-r.html#did-these-mailers-affect-turnout"><i class="fa fa-check"></i><b>31.2</b> Did these mailers affect turnout?</a></li>
+<li class="chapter" data-level="31.3" data-path="t-tests-in-r.html"><a href="t-tests-in-r.html#now-we-can-finally-run-our-t-test"><i class="fa fa-check"></i><b>31.3</b> Now we can finally run our t-test</a><ul>
+<li class="chapter" data-level="31.3.1" data-path="t-tests-in-r.html"><a href="t-tests-in-r.html#understanding-the-output"><i class="fa fa-check"></i><b>31.3.1</b> Understanding the output</a></li>
+<li class="chapter" data-level="31.3.2" data-path="t-tests-in-r.html"><a href="t-tests-in-r.html#important-options-for-the-t.test-function"><i class="fa fa-check"></i><b>31.3.2</b> important options for the <code>t.test()</code> function</a></li>
+<li class="chapter" data-level="31.3.3" data-path="t-tests-in-r.html"><a href="t-tests-in-r.html#alternative-usage-of-the-t.test-function"><i class="fa fa-check"></i><b>31.3.3</b> Alternative Usage of the <code>t.test()</code> Function</a></li>
+</ul></li>
+<li class="chapter" data-level="31.4" data-path="t-tests-in-r.html"><a href="t-tests-in-r.html#now-a-video"><i class="fa fa-check"></i><b>31.4</b> Now a video</a></li>
+</ul></li>
+<li class="chapter" data-level="32" data-path="lab-9-contingency-tables-in-r.html"><a href="lab-9-contingency-tables-in-r.html"><i class="fa fa-check"></i><b>32</b> Lab 9: Contingency Tables in R</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Quantitative Political Methods Coursebook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="t-tests-in-r" class="section level1">
+<h1><span class="header-section-number">31</span> T-tests in R</h1>
+<p>In order to do hypotheses tests for difference in means, we are going to need to</p>
+<ul>
+<li>Learn how to recode factors</li>
+<li>Learn how to do hypothesis testing for the difference of means in R</li>
+</ul>
+<div id="gerber-green-larimer-gotv-data" class="section level2">
+<h2><span class="header-section-number">31.1</span> Gerber, Green, &amp; Larimer GOTV Data</h2>
+<p>We are going to discuss the social pressure experiment I showed in the lecture on causality. In 2006, one of three mailers was sent out as part of a study:</p>
+<ul>
+<li>Civic Duty (It’s your duty to vote)</li>
+<li>Hawthorne (You’re being studied)</li>
+<li>Neighbors (Your neighbors will know if you voted)</li>
+</ul>
+<p>First let’s read in the data and look at it:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">social &lt;-<span class="st"> </span>
+<span class="st">  </span><span class="kw">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/kosukeimai/qss/master/CAUSALITY/social.csv&quot;</span>)
+<span class="kw">colnames</span>(social)</code></pre></div>
+<pre><code>## [1] &quot;sex&quot;         &quot;yearofbirth&quot; &quot;primary2004&quot; &quot;messages&quot;    &quot;primary2006&quot;
+## [6] &quot;hhsize&quot;</code></pre>
+</div>
+<div id="did-these-mailers-affect-turnout" class="section level2">
+<h2><span class="header-section-number">31.2</span> Did these mailers affect turnout?</h2>
+<p>Here is an example of the mailer they sent out?</p>
+<p><img src="21.png" width="400px" /></p>
+<p>We want to know if these messages had a causal effect on turnout. Let’s take a look at the messages that were sent.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(social$messages)</code></pre></div>
+<pre><code>## 
+## Civic Duty    Control  Hawthorne  Neighbors 
+##      38218     191243      38204      38201</code></pre>
+<p>Just to make things easier, let’s recode this variable so we only a have a control group and an overall treatment group (including all three treatment messages).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">### You will need to install this package
+## install.packages(&quot;car&quot;)
+<span class="kw">library</span>(car)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">social$messages2 &lt;-<span class="st"> </span><span class="kw">recode</span>(social$messages, 
+     <span class="st">&quot; &#39;Hawthorne&#39;=&#39;Treatment&#39;; &#39;Civic Duty&#39;=&#39;Treatment&#39;;</span>
+<span class="st">      &#39;Neighbors&#39;=&#39;Treatment&#39; &quot;</span>)  
+<span class="kw">table</span>(social$messages2)</code></pre></div>
+<pre><code>## 
+##   Control Treatment 
+##    191243    114623</code></pre>
+</div>
+<div id="now-we-can-finally-run-our-t-test" class="section level2">
+<h2><span class="header-section-number">31.3</span> Now we can finally run our t-test</h2>
+<p>Does turnout differ between treatment and control?</p>
+<p>Using the <code>t.test()</code> function we can find out.</p>
+<ul>
+<li>We are using the <code>data=social</code> dataset</li>
+<li>Within that dataset, we want <code>primary2006</code> to be the outcome</li>
+<li>Within that datset, we want <code>messages2</code> to be the treatment</li>
+<li>We are using a two-sided test</li>
+<li><code>var.equal</code> indicates whether we want to assume that the population variance in both samples is identical. In class we always assume they are (to make the math easier, but here we are more agnostic)</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(primary2006 ~<span class="st"> </span>messages2, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>,
+     <span class="dt">var.equal =</span> <span class="ot">FALSE</span>, <span class="dt">data =</span> social)</code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  primary2006 by messages2
+## t = -23.869, df = 234580, p-value &lt; 2.2e-16
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.04506412 -0.03822505
+## sample estimates:
+##   mean in group Control mean in group Treatment 
+##               0.2966383               0.3382829</code></pre>
+<div id="understanding-the-output" class="section level3">
+<h3><span class="header-section-number">31.3.1</span> Understanding the output</h3>
+<p>The output tells us several things.</p>
+<ul>
+<li>We get a t-statistics of -23.869</li>
+<li>We have 234,580 degrees of freedom.<br />
+</li>
+<li>The p-value is equal to <span class="math inline">\(2.2\times 10^{-16}\)</span>, which is a <strong>very</strong> small number.</li>
+<li>It shows the 95% confidence interval for the <strong>difference in means</strong>.<br />
+</li>
+<li>It provides the mean in the treatment and control groups.</li>
+</ul>
+</div>
+<div id="important-options-for-the-t.test-function" class="section level3">
+<h3><span class="header-section-number">31.3.2</span> important options for the <code>t.test()</code> function</h3>
+<p>Adjust for our hypothesis, given <span class="math inline">\(H_0\)</span> is <span class="math inline">\(\mu_a = \mu_b\)</span>:</p>
+<ul>
+<li>if <span class="math inline">\(H_a:\)</span> <span class="math inline">\(\mu_a \neq \mu_b\)</span>, then <code>alternative = “two.sided”</code></li>
+<li>if <span class="math inline">\(H_a:\)</span> <span class="math inline">\(\mu_a &gt; \mu_b\)</span>, then <code>alternative = “greater”</code></li>
+<li>if <span class="math inline">\(H_a:\)</span> <span class="math inline">\(\mu_a &lt; \mu_b\)</span>, then <code>alternative = “less”</code></li>
+</ul>
+<p>Adjust for variance assumptions:</p>
+<ul>
+<li>If we assume unequal variance, then <code>var.eq = F</code></li>
+<li>If we assume equal variance, then <code>var.eq = T</code></li>
+</ul>
+</div>
+<div id="alternative-usage-of-the-t.test-function" class="section level3">
+<h3><span class="header-section-number">31.3.3</span> Alternative Usage of the <code>t.test()</code> Function</h3>
+<p>We can also give t.test two vectors. First, create objects for turnout for two specific mailers:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">neighbors &lt;-<span class="st"> </span>social[social$messages ==<span class="st"> &quot;Neighbors&quot;</span>, <span class="st">&quot;primary2006&quot;</span>]
+civic_duty &lt;-<span class="st"> </span>social[social$messages ==<span class="st"> &quot;Civic Duty&quot;</span>,<span class="st">&quot;primary2006&quot;</span>]</code></pre></div>
+<p>Note that at this point we are looking at two of the treatment groups and comparing them (which is not what we did above). Now we can run our t-test using</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(<span class="dt">x =</span>  neighbors, <span class="dt">y =</span> civic_duty)</code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  neighbors and civic_duty
+## t = 18.463, df = 76271, p-value &lt; 2.2e-16
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  0.05667888 0.07014226
+## sample estimates:
+## mean of x mean of y 
+## 0.3779482 0.3145377</code></pre>
+</div>
+</div>
+<div id="now-a-video" class="section level2">
+<h2><span class="header-section-number">31.4</span> Now a video</h2>
+<p>Now watch this video</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RlhnNbPZC0A" frameborder="0" allowfullscreen>
+</iframe>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="comparing-means.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lab-9-contingency-tables-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
