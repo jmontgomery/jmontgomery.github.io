@@ -40,6 +40,7 @@ I have just started the process of building a new website. For the moment, I am 
 
 [Lecture11](https://jmontgomery.github.io/PS363Slides/11Causality.pdf)
 
+[Lecture12](https://jmontgomery.github.io/PS363Slides/12TTest.pdf)
 
 #### Labs
 [Lab1](https://jmontgomery.github.io/Lab/Lab1.zip)
