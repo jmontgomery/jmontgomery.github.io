@@ -70,7 +70,7 @@ referred to as a cross-tabulation.
 
 
 "Please tell me whether or not you think it should be possible for a
-preg- nant woman to obtain a legal abortion if \pause ... the family
+pregnant woman to obtain a legal abortion if \pause ... the family
 has a very low income and cannot afford any more children?"
 
 \pause
@@ -130,7 +130,7 @@ independent variable.  \pause We might have the columns add up to 100\% if that 
 
 ## Chi-square test of independence 
 
-> \textbf{Statistical independence}: Two variables are statistically independent if they \textbf{population}
+> \textbf{Statistical independence}: Two variables are statistically independent if the \textbf{population}
 conditional distributions of a variable are identical across categories.
 
 \vspace{.6cm}
@@ -141,7 +141,7 @@ conditional distributions of a variable are identical across categories.
 \\
 \hline
 Next is a boy & 50 & 50  & 50 \\
-Nest is a girl & 50 & 50 & 50 \\
+Next is a girl & 50 & 50 & 50 \\
 \hline
 
 \end{tabular}
@@ -157,7 +157,7 @@ What if it's a little bit off?  This is, after all, a sample. \pause
 \\
 \hline
 Next is a boy & 49 & 51  & 50 \\
-Nest is a girl & 51 & 49 & 50 \\
+Next is a girl & 51 & 49 & 50 \\
 \hline
 
 \end{tabular}
@@ -169,7 +169,7 @@ Nest is a girl & 51 & 49 & 50 \\
 
 $H_0$: The variables are statistically independent.
 
-$H_a$: The variabels are statistically dependent. 
+$H_a$: The variables are statistically dependent. 
 \pause
 
 \vspace{.5cm}
@@ -281,7 +281,7 @@ Is the $\chi^2$ statistic "big enough?"
 - We are going to need to calculate the degrees of freedom.
 - This is skewed right and strictly positive.
 - $\sum Z^2 \sim \chi^2$
-- Always use the upper-tail and there (no $\times$ 2).
+- Always use the upper-tail (no $\times$ 2).
 
 
 ----
