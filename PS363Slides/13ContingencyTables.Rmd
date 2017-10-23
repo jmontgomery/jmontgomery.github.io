@@ -1,5 +1,5 @@
 ---
-title: "Lecture 12: T-Test"
+title: "Lecture 13: Contingency Tables"
 author: "Jacob M. Montgomery"
 date: "Quantitative Political Methodology"
 output: beamer_presentation
@@ -13,325 +13,380 @@ knitr::opts_chunk$set(echo = FALSE)
 
 
 
-# Causality 
+# Contingency tables
+
 
 ## Roadmap
 
-Last class
-
-- Now we want to look at two variables
-- Our specific aim is to understand if $X$ causes $Y$
-
-
-
-This class:
- 
- 
-- Two sample hypothesis tests (large sample)
-- Two sample hypothesis tests (small sample)
-
------------
-
-## Midterms
-
-Midterms will be given back at the end of the class
-
-- 34 A's
-- 11 A-
--  5 B+
--  2 B's
--  1 Lower
+- \textbf{Before}: Comparing two independent samples
+- \textbf{Today} we will learn how to see if two variables are dependent.
+    - How to display the data informatively
+    - Chi-squared test of independence
+    - Standardized residuals
 
 ----
 
-## Class business
+### Comparing populations with categorical outcomes
 
-- PS 4 is due on Wednesday
-- Three groups have already scheduled meetings with me on topics.  Get on it.
-
-----
-
-## Beyond artificial meth problems
-
-
--  So far we have calculated hypothesis tests where the null
-  hypothesis is specified in advance.  \pause
-- However, in most cases we cannot specify a ``base case'' in
-  advance.  \pause What we really want to be able to do is make
-  relative comparisons.  
-    -  Do women get paid less than men?
-    - Do ideological extremists vote at higher rates than moderates?
-    - This also allows us to estimate ATE \pause
-- Today we will learn how to compare two **independent samples** to estimate the ATE.
-    - Large samples
-    - Small samples (pooled variance)
-
-
-
-
------
-
-
-
-
-We have two \textit{independent samples}, and we want to compare
-them.  \pause Our data will look like this.
+We have two categorical variables and we want to see if there is some
+relation.  \pause If we have three samples, our data might look like
+this.
 
 \begin{center}
 \begin{tabular}{l l}
 Variable 1 & Variable 2 \\
 (Outcome or response) & (Explanatory or grouping)  \\
 \hline
-2.1 & 1 \\
-2.4 & 0 \\
-3.0 & 0 \\
-1.79 & 1 \\
+1 & 1 \\
+2 & 0 \\
+3 & 1 \\
+5 & 2 \\
+3 & 2 \\
+2 & 0 \\
+4 & 0 \\
 \vdots & \vdots \\
 \hline
 \end{tabular}
 \end{center}
 
+----
+
+### Cross-tabs: The basics
+
+Assume we have two variables that are nominal.
+
+- Gender and eye color
+- Party-ID and racial/ethnicity  \pause
+- WARNING: The calculations are different when variables are
+  ordinal ... especially if BOTH are ordinal.
 
 
------
+\pause
+We will use a contingency table, which is usually (at least by me)
+referred to as a cross-tabulation.
 
 
-Let's imagine that we have two large samples of men $(n_1 \ge 20)$ and
-women $(n_2 \ge 20)$.  \pause For each sample, we have a sample mean and
-a sample standard deviation.
+----
+
+
+"Please tell me whether or not you think it should be possible for a
+preg- nant woman to obtain a legal abortion if \pause ... the family
+has a very low income and cannot afford any more children?"
+
+\pause
 
 \begin{center}
-\begin{tabular}{l l l}
-& Sample 1 & Sample 2 \\
-Means & $\bar{y}_1$  &  $\bar{y}_2$\\
-Standard Dev. & $S_1$  &  $S_2$\\
+\begin{tabular}{l | c c| c}
+& 	Yes&	No & Total	\\
+\hline
+Democrats & 	304	& 398&	702\\
+Independents&	224&	170&	394\\
+Republicans	&175&	167&	342\\
+Other	&29	&35&	64\\
+\hline
+Total	&732&	770&	1502\\
 \end{tabular}
 \end{center}
 
-\pause
-
-What we want to do (first) is construct a confidence interval for
-$\mu_2 - \mu_1$.  We want to estimate this \textit{difference}.
-
-----
-
-### Confidence interval for difference in means
-
-Estimate $\pm$ Test statistic $\times$ Standard Error
-
-\pause
-Here, the CI is: $(\bar{y_2} - \bar{y_1}) \pause \pm Z \times \hat{\sigma}_{\bar{y_2}  - \bar{y_1}}$
-
-\pause
-
-The standard error is:
-$$\hat{\sigma}_{\bar{y_2}
-  - \bar{y_1}} = \displaystyle \sqrt{\frac{S_1^2}{n_1}+ \frac{S_2^2}{n_2}}$$
-\pause
-
-$$\hat{\sigma}_{\bar{y_2}
-  - \bar{y_1}} = \displaystyle \sqrt{\hat{\sigma}^2_{\bar{y_1}}+\hat{\sigma}^2_{\bar{y_2}}}$$
-
 
 ----
 
 
-
-
-### Hypothesis testing about differences
-
-We can also do hypothesis testing about differences.
-
-$$H_0: \mu_2 = \mu_1 \pause \Rightarrow H_0: \mu_2 - \mu_1 = 0$$ \pause
-$$H_a: \mu_2 \ne \mu_1 \pause \Rightarrow H_a: \mu_2 - \mu_1 \ne 0$$
-
-\pause
-
-$Z = \displaystyle \frac{\mbox{Estimate - Null}}{\mbox{Standard Error}} \pause =
-\frac{(\bar{y_2} - \bar{y_1}) - 0}{\hat{\sigma}_{\bar{y_2}
-  - \bar{y_1}} }$
-
-
-\pause
-Just as before, we use this test statistic to calculate a p-value.
-
-
-----
-
-#### Is this our political world?
+### Plot of data: 1972 GSS
 
 \begin{center}
-\includegraphics[scale=.5]{./LectureGraphics/extremists}
-\end{center}
-
-
-
-
------
-
-### We are less extreme than (many of us) think we are
-
-\begin{center}
-\includegraphics[width=\textwidth]{./LectureGraphics/Ahler}
-\end{center}
-
------
-
-#### What is the effect of knowing that people are not as extreme as we think they are?
-
-\textbf{Research question}: Does learning that the public is less polarized than we think affect voters' own level of extremity?
-
-\pause
-
-\textbf{Experimental design}:
-
-- \textit{Ask}: Individuals are asked to estimate the political views of conservative and liberal voters and then  asked about their own political views.
-- \textit{Tell}: Individuals are told the political views of conservative and liberal voters and then asked about their own political views.
-- \textit{Distort}: Individuals are told that the political views of conservative and liberal voters are \textit{more} polarized than they are and then asked about their own political views.
-
-
-\footnotesize
-\textit{Source}: Douglas J. Ahler. 2014. ``Self-Fulfilling Misperceptions of Public Polarization.'' \textit{ Journal of Politics} 76 (3): 607-620.
-
-
-
-----
-
-\begin{center}
-\includegraphics[scale=.8]{./LectureGraphics/tell}
+\includegraphics[width=3.5in]{./LectureGraphics/Abexample}
 \end{center}
 
 
 ----
 
-#### Results
+### How to display a conditional distribution
+
+What we want to examine the the \textbf{conditional distribution} of
+the outcome variable.  \pause What is the distribution of the outcome
+variable conditioned on the independent/grouping variable?
+
+
 
 \begin{center}
-\includegraphics[scale=.45]{./LectureGraphics/Ahler2}
-\end{center}
-
-
-----
-
-#### Example: Polarization Misperception
-
-In a survey experiment run using online respondents, is there a
-significant difference in political extremity (taking values between 0
-and 1) for those in the \textit{ask} and
-\textit{tell} treatment conditions? \pause $(H_0: \mu_1 = \mu_2)$?
-
-\begin{center}
-\begin{tabular}{l c c }
-&  $\bar{y}$ & SE \\
-Ask &  0.515 & (0.048) \\
-Tell &  0.435 & (0.047) \\
-Distort & 0.547 & (0.048)
+\begin{tabular}{l| cc}
+&	Yes	&No \\
+\hline
+Democrats	&0.43 &	0.57 \\
+Independents	& 0.57 &	0.43 \\
+Republicans	& 0.51 &	0.49 \\
+Other &	0.45&	0.55 
 \end{tabular}
 \end{center}
-
-\pause
-
-
-----
-
-Let's look at Ask vs. Tell:
-$$\hat{\sigma}_{\bar{y_2}
-  - \bar{y_1}} = \pause \displaystyle \sqrt{0.048^2 + 0.047^2}
-= 0.067$$ \pause $$z = \displaystyle \frac{(\bar{y_2} - \bar{y_1}) - 0}{\hat{\sigma}_{\bar{y_2}
-  - \bar{y_1}} } = \pause \frac{0.515-0.435}{0.067} = \pause 1.193 $$
-  
-
-Interpret this? 
-
-\texttt{pnorm(1.194, lower.tail=FALSE)}=0.116
-
-
-\pause
-95\% CI: $0.08 \pm 1.96 \times ?\Rightarrow (?, ?)$ \pause
-Interpret this?
-
-
-----
-
-## Now with small samples
-
-
-A common assumption we make for small samples is to assume that
-$\sigma_1 = \sigma_2$. \pause This allows for exact calculations (although
-\texttt{R} can do the calculations when this assumption is not met).
-The alternative, where $\sigma_1 \ne \sigma_2$ is commonly called
-``robust.''
-
 
 \pause 
-We are going to do the exact same thing as we did before except that:
-
--  We are going to use the t-distribution instead of the normal
-  (recalling that we have to use degrees of freedom)
-- We are going to use a slightly different calculation for
-  standard errors.
-
-----
-
-
-### Comparing groups with small samples
-
-We will calculate the standard error as:
-
-$$\hat{\sigma}_{\bar{y_2} - \bar{y_1}} = \displaystyle \sqrt{\frac{\hat{\sigma}^2}{n_1}
-+ \frac{\hat{\sigma}^2}{n_2}} = \hat{\sigma}\sqrt{\frac{1}{n_1} + \frac{1}{n_2}}$$
-
-where $\hat{\sigma}^2$ is the \textbf{pooled variance} calculate as: 
-
-$$\hat{\sigma} = \displaystyle \sqrt{\frac{(n_1 - 1)S_1^2 + (n_2 - 1)S_2^2}{n_1 + n_2 - 2}}$$
-
-\pause And to calculate a confidence interval, we will calculate:
-
-$$(\bar{y_2} - \bar{y_1}) \pm t_{df} \times \hat{\sigma}_{\bar{y_2} -
-  \bar{y_1}}$$
-where d.f. $= (n_1 -1) +(n_2 -1) \pause = n_1 + n_2 -2$
+Note that the rows total to 100\% because the rows indicate the
+independent variable.  \pause We might have the columns add up to 100\% if that was our explanatory variable.
 
 
 ----
 
 
-\begin{center}
-\includegraphics[scale=.7]{./LectureGraphics/heightgend}
-\end{center}
+## Chi-square test of independence 
 
+> \textbf{Statistical independence}: Two variables are statistically independent if they \textbf{population}
+conditional distributions of a variable are identical across categories.
 
-----
+\vspace{.6cm}
+\pause
 
-#### Example: Height of men and women WashU
-
-
-\begin{center}
 \begin{tabular}{l|lll}
-& Women & Men \\
+& 1st child boy & 1st child girl &  No children
+\\
 \hline
-Mean & 64.77 & 69.62 \\
-S & 3.84 & 3.19 \\
-n & 24 & 29 \\
+Next is a boy & 50 & 50  & 50 \\
+Nest is a girl & 50 & 50 & 50 \\
+\hline
+
+\end{tabular}
+
+\vspace{.6cm}
+\pause
+
+What if it's a little bit off?  This is, after all, a sample. \pause
+
+
+\begin{tabular}{l|lll}
+& 1st child boy & 1st child girl &  No children
+\\
+\hline
+Next is a boy & 49 & 51  & 50 \\
+Nest is a girl & 51 & 49 & 50 \\
+\hline
+
+\end{tabular}
+
+
+----
+
+### Chi-square test: The intuition
+
+$H_0$: The variables are statistically independent.
+
+$H_a$: The variabels are statistically dependent. 
+\pause
+
+\vspace{.5cm}
+We are going to calculate a test-statistic (the $\chi^2$ statistic) that is
+distributed according to the $\chi^2$ distribution. 
+\pause
+
+ $f_{observed} = f_o =$ observed frequency = the raw count \pause
+(NOT THE \%)
+\vspace{.5cm}
+
+\pause
+$f_{expected} = f_e =$ what we would expect for independent samples =
+\pause
+$$=\frac{\mbox{Row total}}{\mbox{Grand total}} \times \mbox{Column
+  total}$$
+
+\vspace{.5cm}
+\pause
+If $H_0$ is true, then we would expect $f_{observed} = f_{expected}$
+
+
+----
+
+### Chi-square statistic: The calculations
+
+$$\chi^2  = \sum \frac{(f_0 - f_e)^2}{f_e}$$
+
+
+----
+
+
+\frametitle{Chi-square test: Example}
+
+
+"Please tell me whether or not you think it should be possible for a
+pregnant woman to obtain a legal abortion if the family
+has a very low income and cannot afford any more children?"
+
+
+\begin{center}
+\begin{tabular}{l | l l| r}
+& 	Yes&	No & Total	\\
+\hline
+Democrats & 	$f_o$=304	& $f_o$=398&	702\\
+& & & \\
+Independents&	$f_o$=224&	$f_o$=170&	394\\
+& & & \\
+Republicans	&$f_o$=175&	$f_o$=167&	342\\
+& & & \\
+Other	&$f_o$=29	&$f_o$=35&	64\\
+& & & \\
+\hline
+Total	&732&	770&	1502\\
 \end{tabular}
 \end{center}
 
 
+----
+
+### Chi-square test: Example
+
+
+\begin{center}
+\begin{tabular}{l | l l| r}
+& 	Yes&	No & Total	\\
+\hline
+Democrats & 	$f_o$=304	& $f_o$=398&	702\\
+& $\mathbf{f_e=342.12}$ & $f_e=359.88$& \\
+Independents&	$f_o$=224&	$f_o$=170&	394\\
+&$f_e=192.12$ & $f_e=201.98$& \\
+Republicans	&$f_o$=175&	$f_o$=167&	342\\
+&$f_e=166.67$ &$f_e=175.33$ & \\
+Other	&$f_o$=29	&$f_o$=35&	64\\
+& $f_e=31.19$&$f_e=32.81$ & \\
+\hline
+Total	&732&	770&	1502\\
+\end{tabular}
+\end{center}
 \pause
 
-- $\bar{y_2} - \bar{y_1} = 69.62 - 664.77 = 4.85$ \pause
-- $\hat{\sigma} = \sqrt{\frac{(29-1)3.19^2 + (24-1)3.84^2}{29+24-2}} = 3.56$  \pause
-- $\hat{\sigma}_{\bar{y_2} - \bar{y_1}} =  \hat{\sigma}\sqrt{\frac{1}{n_1} + \frac{1}{n_2}}=3.56 \sqrt{\frac{1}{24} + \frac{1}{29}} =0.982$  \pause
-- $d.f. = 24+29-2 = 51$ \pause
-- $t_{51, .05} =$ \texttt{qt(.025, df = 51, lower.tail = FALSE)} $= 2.01$ 
+
+----
+
+
+Now we want to calculate the $\chi^2$ statistic.
+
+$$\chi^2 = \sum \frac{(f_o - f_e)^2}{f_e}=  \pause \frac{(304 -
+  342.12)^2}{342.12} \pause + \frac{(398 -
+  359.88)^2}{359.88} + \ldots \approx 19.79$$
+
+
+----
+
+#### Calculating p-values for Chi-squared tests
+
+
+Is the $\chi^2$ statistic "big enough?"
 
 \pause
 
-95\% CI: $4.85 \pm \big(2.01 \times 0.982) = (2.88, 6.62)$ \pause Interpret? 
-
-Hypothesis test: $t=  \frac{4.85 - 0}{0.982} \approx 4.94$  \pause  $\mathtt{2*pt(4.94, df=51, lower.tail=F)} \approx 0$
-
-
+\begin{center}
+\includegraphics[width=2.5in]{./LectureGraphics/chspdf4.pdf}
+\end{center}
 
 
+\pause
+
+- We are going to need to calculate the degrees of freedom.
+- This is skewed right and strictly positive.
+- $\sum Z^2 \sim \chi^2$
+- Always use the upper-tail and there (no $\times$ 2).
+
+
+----
+
+### Calculating p-values for Chi-squared tests
+
+
+
+- Frequency $\ge 5 ~ \forall$ cells. \pause
+- $df = (rows-1)(columns-1)$ \pause
+- \texttt{pchisq($\chi^2$, df = (rows-1)(columns-1), lower.tail=FALSE)}
+
+\pause 
+
+\begin{center}
+\includegraphics[width=2.5in]{./LectureGraphics/chisqP}
+\end{center}
+
+----
+
+
+Let's first use the table for our example. For what value or greater would this be significant with $df=3$ and $\alpha = .025$?
+
+\pause
+\vspace{1cm}
+
+p-value = \texttt{pchisq(19.78999, df=3, lower.tail=F) = 0.00019} 
+
+
+
+----
+
+
+## Standardized residuals
+
+Now, we have evidence that the two variables are not independent.
+Where does the deviation from independence take place? \pause  Why did we reject the null?  What does it mean?
+
+\pause
+
+- We need to find the **adjusted residual**:
+$$z=\frac{f_{observe} - f_{expected}}{se} = \frac{f_{observe} -
+  f_{expected}}{\sqrt{f_e(1- \mbox{row prop.})(1-\mbox{column prop.)}}}$$
+- The denominator is the standard error of the quantity $f_o-f_e$ under the null hypothesis
+
+----
+
+### Example: Calculating standardized residuals
+
+
+\begin{center}
+\begin{tabular}{l | l l| r}
+& 	Yes&	No & Total	\\
+\hline
+Democrats & 	$f_o$=304	& $f_o$=398&	702\\
+& $f_e=342.12$ & $f_e=359.88$& \\
+Independents&	$f_o$=224&	$f_o$=170&	394\\
+&$f_e=192.12$ & $f_e=201.98$& \\
+Republicans	&$f_o$=175&	$f_o$=167&	342\\
+&$f_e=166.67$ &$f_e=175.33$ & \\
+Other	&$f_o$=29	&$f_o$=35&	64\\
+& $f_e=31.19$&$f_e=32.81$ & \\
+\hline
+Total	&732&	770&	1502\\
+\end{tabular}
+\end{center}
+\pause
+
+
+$$z_{11} = \frac{304 - 342.12}{\sqrt{342.12(1-\frac{702}{1502})(1-\frac{732}{1502})}} \approx -2.395$$
+
+----
+
+
+### 2008 GSS
+
+"Please tell me whether or not you think it should be possible for a
+pregnant woman to obtain a legal abortion if the family
+has a very low income and cannot afford any more children?""
+
+\begin{center}
+\begin{tabular}{l | c c  | c}
+ & 	Yes& 	No& 	Total\\
+\hline
+Democrats	& 222& 	225& 	447\\
+Independents	& 201& 	277& 	478\\
+Republicans	& 113& 	223& 	336\\
+Other	& 18& 	12& 	30\\
+\hline
+Total	& 554& 	737& 	1291\\
+\end{tabular}
+\end{center}
+
+----
+
+
+
+
+### Challenging jurors
+
+
+- North Carolina Racial Justice Act of 2009
+- Act specifically identified the kind of evidence that could be considered 
+- Defendant must prove that race was a significant factor in the imposition of the death penalty
+- The evidence before you is exactly what was used to commute the sentence of Marcus Raymond Robinson
+- Repealed by legislator in 2012
 
 
