@@ -322,7 +322,7 @@ n & 24 & 29 \\
 - $\hat{\sigma} = \sqrt{\frac{(24-1)3.84^2 + (29-1)3.19^2}{24+29-2}} = 3.50$  \pause
 - $\hat{\sigma}_{\bar{y_2} - \bar{y_1}} =  \hat{\sigma}\sqrt{\frac{1}{n_1} + \frac{1}{n_2}}=3.50 \sqrt{\frac{1}{24} + \frac{1}{29}} =0.966$  \pause
 - $d.f. = 24+29-2 = 51$ \pause
-- $t_{51, .05} =$ \texttt{qt(.025, df = 51, lower.tail = FALSE)} $= 2.01$ 
+- $t_{51, .025} =$ \texttt{qt(.025, df = 51, lower.tail = FALSE)} $= 2.01$ 
 
 \pause
 
