@@ -418,7 +418,7 @@ Date| Topic | Reading | Assignments| Notes
 10/18| Causality | CB: Chapter 27-28
 10/19-20| Advanced plotting
 10/23| Experiments: Comparing means | CB: Chapter 29 <br> AF: 7.1-7.3| 
-10/25| Experiments: Contingency tables |CB: Chapter 31 <br> AF: 8.1-8.4| PS4 Due | PS5 Distributed
+10/25| Experiments: Contingency tables |CB: Chapter 31 <br> AF: 8.1-8.4| PS4 Due | [PS5 Distributed](http://jmontgomery.github.io/ProblemSets/PS5.pdf)
 10/26-27| T-tests <br> Tables | CB: Chapters 30, 32-33
 10/30| Regression and prediction 
 11/1| Regression and inference ||  | 
