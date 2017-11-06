@@ -1,0 +1,627 @@
+---
+title: "Lecture 16: Multiple Regression"
+author: "Jacob M. Montgomery"
+date: "Quantitative Political Methodology"
+output: beamer_presentation
+header-includes:
+   - \newcommand{\ol}{\overline}
+   - \usepackage{booktabs}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+
+
+
+# Multiple regression
+
+
+## Roadmap
+
+- \textbf{Before}: Regression with one explanatory variable
+
+- \textbf{Today} we will learn how to:
+    - Draw the best (hyper)plane through the data
+    - Interpret multivariate regression results
+
+----
+
+## Class business
+
+- PS is due on Wed.
+- Take notes on this one
+
+
+----
+
+## A big day
+
+- Introducing multivariate regression
+    -  An example (time for change model)
+    -  (Hyper)planes in (hyper)space
+    - Specifying and estimating the regression model
+
+\pause
+
+- Three ways to think about regression
+    - Hyperplanes
+    - Lines within “groups” 
+    - Added variable plots
+
+\pause
+
+- Inference for multivariate regression \pause
+- A brief word on Simpson’s paradox
+
+
+----
+
+### So far we have looked at data like this
+
+\begin{center}
+\includegraphics[width=\textwidth]{./LectureGraphics/AbramsPred2016}
+\end{center}
+
+
+----
+
+#### But what if it is time for change?
+
+Success of Incumbent Party Candidate in Presidential Electios
+by Type of Election, 1948-2016 
+\begin{center}
+\begin{tabular}{l c c}
+\toprule
+Results & First-Term & Second- or Later \\
+\midrule
+Won & 8 & 2 \\
+Lost & 1 & 8 \\
+\midrule
+Average vote & 55.3 & 49.3 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+
+----
+
+#### Accounting for time in office
+
+
+Estimate a more complex equation:
+	
+$$\mu_y = \beta_0 + \beta_1 x_1 + \beta_2 x_2$$
+
+	where:
+	
+- $\mu_y$ is mean presidential vote share
+- $\beta_0$ is the y-intercept ("constant"")
+- $\beta_1$ is the slope ("coefficient") for Q2 GDP growth
+- $x_1$ is Q2 GDP growth in the election year
+- $\beta_2$ is the slope ("coefficient"") for TFC ("time for a change"")
+- $x_2$ is an indicator ("dummy") variable for TFC (1=first term; 0=second term or later)
+
+
+----
+
+
+Equation for the graph:
+$$\mathrm{Vote\,share} = 46.59 + 0.76 \times \mathrm{Q2\,GDP} + 6.02 \times \mathrm{FirstTermInc}$$
+
+	or
+
+$$\mathrm{Vote\,share}_{\mathrm{TFC}} = 46.59 + 0.76 \times \mathrm{Q2\,GDP}$$
+
+$$\mathrm{Vote\,share}_{\mathrm{Not\,TFC}} = 52.61 + 0.76 \times \mathrm{Q2\,GDP}$$
+
+----
+
+#### Multivariate regression
+
+\begin{center}
+\includegraphics[width=100mm]{./LectureGraphics/TFC.pdf}
+\end{center}
+
+----
+
+## A big day
+
+- Introducing multivariate regression
+    -  An example (time for change model)
+    -  **(Hyper)planes in (hyper)space**
+    - Specifying and estimating the regression model
+
+
+
+- Three ways to think about regression
+    - Hyperplanes
+    - Lines within “groups” 
+    - Added variable plots
+
+
+- Inference for multivariate regression 
+- A brief word on Simpson’s paradox
+
+----
+
+
+### Multivariate regression
+
+\begin{center}
+\includegraphics[width=\textwidth]{./LectureGraphics/fox-2}
+\end{center}
+
+
+
+----
+
+### Beyond two dimensions
+
+\begin{center}
+\begin{tabular}{l l l }
+\multicolumn{3}{c}{\textit{Incumbent party vote share}} \\
+\hline
+& Model 1& Model 2 \\
+\hline
+Intercept & 49.27 & 49.35 \\
+ & (1.35) &  (4.51) \\
+2nd Qtr GDP & 0.754 & 0.451\\
+& (0.248) & (0.161)\\
+June Polling & & 0.147\\
+ & & (0.085) \\
+\hline
+Multiple R-Squared & 0.366 & 0.781  \\
+\hline
+\end{tabular}
+
+\textit{Standard errors are in parentheses.  N=18.}
+\end{center}
+
+
+
+
+\pause
+
+Two questions to try to understand:
+
+- What do the coefficients (and standard errors) mean? 
+- Why did the ``2nd Quarter GDP'' coefficient change?
+
+
+
+----
+
+#### Now we need to think about data like this
+
+
+\includegraphics[width=\textwidth]{./LectureGraphics/ThreeScatter}
+
+----
+
+#### Or even better .... this
+
+
+\includegraphics[width=\textwidth]{./LectureGraphics/3DScatter}
+
+
+----
+
+
+## A big day
+
+- Introducing multivariate regression
+    -  An example (time for change model)
+    -  (Hyper)planes in (hyper)space
+    - **Specifying and estimating the regression model**
+
+
+- Three ways to think about regression
+    - Hyperplanes
+    - Lines within “groups” 
+    - Added variable plots
+
+
+- Inference for multivariate regression 
+- A brief word on Simpson’s paradox
+
+----
+
+
+#### To draw the ``best'' line we wanted to minimize error
+
+**Residuals**:
+$$e_i = (Y_i - \hat{Y}_i) = (Y_i - \hat{\alpha} - \hat{\beta} X_i)$$
+
+
+\pause
+
+\begin{center}
+\includegraphics[width=4.5in]{./LectureGraphics/Residuals1}
+\end{center}
+
+
+-----
+
+\frametitle{To draw the ``best'' line we wanted to minimize error}
+
+Residuals
+$$e_i = (Y_i - \hat{Y}_i) = (Y_i - \hat{\alpha} - \hat{\beta} X_i)$$
+
+\pause
+
+\begin{center}
+\includegraphics[width=4.5in]{./LectureGraphics/Residuals1}
+\end{center}
+
+----
+
+
+\begin{center}
+\includegraphics[width=\textwidth]{./LectureGraphics/3DScatter}
+\end{center}
+
+----
+
+### Multidimensional "linear" models
+
+On **average**, we are hypothesizing that the **world** looks like this:
+
+$$E(Y) = \alpha + \beta_1X_{1} + \ldots + \beta_{k}X_{k}$$
+
+\pause
+
+
+Overall, we think that the **data** looks like this
+
+$$Y_i = \alpha + \beta_1X_{1,i} + \ldots + \beta_{k}X_{k,i} + \epsilon_i$$
+$$ \epsilon_i \sim N(0, \sigma^2)$$
+
+
+
+
+Just like before, we need to decide on a rule to choose the best estimates:
+$$ \hat{\alpha}, \hat{\sigma}^2,\hat{\beta_1}, \hat{\beta_2}, \ldots $$
+
+
+----
+
+### Residuals, SSE, and $\hat{\sigma}^2$
+
+- Residuals $$e_i = (Y_i - \hat{Y}_i) = (Y_i - \hat{\alpha} -\hat{\beta_1} X_{1i} - \ldots- \hat{\beta_k} X_{ki})$$
+
+- Sum of squared error $$SSE = \sum_{i=1}^n (Y_i - \hat{Y_i})^2 \pause =\sum_{i=1}^n (Y_i - \hat{\alpha} -\hat{\beta_1} X_{1i} - \ldots - \hat{\beta_k} X_{ki})^2$$
+
+- Conditional Variance: Estimate of variance around hyperplane in population
+\begin{center}
+$\hat{\sigma}^2= \frac{SSE}{n-(k+1)} = \frac{\sum (Y_i - \hat{Y_i})^2}{n-(k+1)} \Rightarrow \hat{\sigma}= \sqrt{\frac{SSE}{n-(k+1)}} = \sqrt{\frac{\sum (Y_i - \hat{Y_i})^2}{n-(k+1)}}$
+\end{center}
+
+
+----
+
+
+
+## A big day
+
+- Introducing multivariate regression
+    -  An example (time for change model)
+    -  (Hyper)planes in (hyper)space
+    - Specifying and estimating the regression model
+
+
+
+- **Three ways to think about regression**
+    - Hyperplanes
+    - Lines within “groups” 
+    - Added variable plots
+
+
+- Inference for multivariate regression \pause
+- A brief word on Simpson’s paradox
+
+
+----
+
+
+\begin{center}
+\begin{tabular}{l l l }
+\multicolumn{3}{c}{\textit{Incumbent party vote share}} \\
+\hline
+& Model 1& Model 2 \\
+\hline
+Intercept & 49.27 & 49.35 \\
+ & (1.35) &  (4.51) \\
+2nd Qtr GDP & 0.754 & 0.451\\
+& (0.248) & (0.161)\\
+June Polling & & 0.147\\
+ & & (0.085) \\
+\hline
+Multiple R-Squared & 0.366 & 0.781  \\
+\hline
+\end{tabular}
+
+\textit{Standard errors are in parentheses.  N=18.}
+\end{center}
+
+----
+
+#### Thinking about regression 1: Planes
+
+
+
+\begin{center}
+\includegraphics[width=\textwidth]{./LectureGraphics/3DScatter}
+\end{center}
+
+
+----
+
+#### Thinking about regression 2: Lines within groups
+
+
+Let $X_i$ take on a value of only 0 or 1.
+
+$$Y_i = \alpha + \beta_1X_i + \epsilon_i$$ \pause
+$$E(Y_i | X_i = 0) = \alpha$$
+$$E(Y_i|X_i=1) = \alpha + \beta$$
+
+\pause
+(This provides the same inference as a t-test)
+
+
+----
+
+#### Let's look at this with nominal data
+
+
+$$X_1 = \{\mbox{Blue}, \mbox{Not blue}\}, X_2 = \{\mbox{Brown},
+\mbox{Not brown}\}$$\pause
+$$Y_i = \alpha + \beta_1X_{i,1}+ \beta_2X_{i,2} + \epsilon_i$$ \pause
+
+$$E(Y_i|Blue) = \alpha + \beta_1$$ \pause
+$$E(Y_i|Brown) = \alpha + \beta_2$$ \pause
+$$E(Y_i|Green) = \alpha$$ \pause 
+
+
+----
+
+\frametitle{Ordinal data}
+$$X = \{1,2,3,4, 5\}$$
+
+\begin{center}
+\includegraphics[width=\textwidth]{./LectureGraphics/OrdinalReg}
+\end{center}
+
+
+----
+
+
+
+### Example: 2009 health care poll
+
+\begin{center}
+\includegraphics[width=100mm]{./LectureGraphics/hc-govt10-5}
+\end{center}
+
+
+----	
+
+### Example: 2009 health care poll
+
+\begin{center}
+\includegraphics[width=100mm]{./LectureGraphics/hc-govt10-4}
+\end{center}
+
+----
+
+### Example: 2009 health care poll
+
+
+\begin{center}
+\includegraphics[width=100mm]{./LectureGraphics/hc-govt10-3}
+\end{center}
+
+
+----
+
+#### Dummy variable regression
+
+- What is the association between age and support for HCR controlling for party?
+- Goal: Recode age variable (18-29=1, 30-44=2, 45-64=3, 65+=4) into dummy variables
+
+Equation:
+
+HCRS = $\beta_0$ + $\beta_1$ Party + $\beta_2$ Age 30-44 + $\beta_3$ 45-64 + $\beta_4$ 65+
+
+
+----
+
+#### Dummy variable results
+
+
+\begin{center}
+\begin{tabular}{l c}
+Variable & \\
+\hline
+Constant & 1.421 \\ 
+& (0.116) \\
+Party & 0.914\\
+& (0.031)\\
+Age 30-44 & 0.77\\
+& (0.13) \\
+Age 45-64 & $-$0.65\\
+& (0.117) \\
+Age 65 + & $-$0.16\\
+& (0.121) \\
+\hline
+N = 981\\
+$R^2$ = 0.4799 \\
+\end{tabular}
+\end{center}
+
+
+----
+
+
+#### Dummy variable regression
+
+\begin{center}
+\includegraphics[width=110mm]{./LectureGraphics/hc-govt10-6}
+\end{center}
+
+----
+
+
+#### Things to note
+
+- For $k$ levels of your categorical variable, you need to create $k-1$ dummy variables.
+- The choice of baseline is arbitrary, but you need to know which is the baseline category in order to interpret the results correctly
+- All effects are relative to the baseline category
+- If you don't include them as separate dummies, you are assuming that the intercepts are equidistant and ordered.
+
+
+----
+
+
+Thinking about regression \#3: Added variable plots
+
+\begin{center}
+\includegraphics[width=4.5in]{./LectureGraphics/AVplots}
+\end{center}
+
+
+----
+
+#### Thinking about X's from this point of view
+
+- You are going to be doing this for the homework
+- The slope of these lines corresponds to $\beta$ estimates in the table. \pause
+- Adding additional controls positively correlated to both the
+   vote-share and GDP growth will lower the $\beta$ for GDP growth. \pause
+- If we have many variables that are highly co-linear, often called multicollinearity, it will make coefficients smaller (and therefore less likely to be significant).
+- It is difficult to decide on the "right" variables, but DO NOT use stepwise methods.   \pause
+- When in doubt, use theory.
+
+
+----
+
+
+
+## A big day
+
+- Introducing multivariate regression
+    -  An example (time for change model)
+    -  (Hyper)planes in (hyper)space
+    - Specifying and estimating the regression model
+
+
+
+- Three ways to think about regression
+    - Hyperplanes
+    - Lines within “groups” 
+    - Added variable plots
+
+
+- **Inference for multivariate regression**
+- A brief word on Simpson’s paradox
+
+
+----
+
+
+
+### Inference in regression coefficients
+
+
+$$Y_i = \alpha + \beta_1X_{1,i} + \beta_{2}X_{2,i} + \epsilon_i$$
+$$ \epsilon_i \sim N(0, \sigma^2)$$
+
+\pause
+
+- $\beta_1$: The coefficient for $X_1$.  
+
+- Interpretation: A one unit increase $X_1$ leads to a $\beta_1$ increase in $Y$ \textit{controlling for} the independent effect of $X_2$.
+
+\pause
+
+\pause
+We want to test whether $X_1$ has any effect on $Y$ independent of $X_2$
+
+$$\frac{\hat{\beta}_1}{\hat{\sigma}_{\hat{\beta_1}}} \sim t_{df=n-(k+1)}$$
+
+\pause
+
+
+- Just read these values off of the tables
+- But watch your degrees of freedom.
+
+----
+
+## A big day
+
+- Introducing multivariate regression
+    -  An example (time for change model)
+    -  (Hyper)planes in (hyper)space
+    - Specifying and estimating the regression model
+
+
+
+- Three ways to think about regression
+    - Hyperplanes
+    - Lines within “groups” 
+    - Added variable plots
+
+
+- Inference for multivariate regression
+- **A brief word on Simpson’s paradox**
+
+
+----
+
+### Controlling for a variable can change the sign
+
+\begin{center}
+\includegraphics[width=3in]{./LectureGraphics/Simpsons}
+\end{center}
+
+$$E(Y) = 1- 0.25X_1 + 2X_2$$
+
+- Relationship between $X_1$ and $Y$ is the same
+across groups.
+- We can solve: $X_2=0$ for black observations, $X_2=2$ for red.
+
+----
+
+### Applied example: Income in presidential voting
+
+\begin{center}
+\includegraphics[scale=.27]{./LectureGraphics/Income2016}
+\end{center}
+
+
+----
+
+
+### Applied example: Income in presidential voting
+
+\begin{center}
+\includegraphics[width=.55\textwidth]{./LectureGraphics/StateIncome2016}
+\end{center}
+
+----
+
+#### Applied example
+
+\begin{center}
+\includegraphics[width=3.5in]{./LectureGraphics/gelman-sp2}
+\end{center}
+
+Gelman et al. (2007):
+
+- Rich states more likely to vote D (solid circles)
+- Rich \emph{within} states more likely to vote GOP (open circles)
+
+
