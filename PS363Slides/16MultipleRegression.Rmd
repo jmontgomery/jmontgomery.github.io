@@ -70,7 +70,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 #### But what if it is time for change?
 
-Success of Incumbent Party Candidate in Presidential Electios
+Success of Incumbent Party Candidate in Presidential Elections
 by Type of Election, 1948-2016 
 \begin{center}
 \begin{tabular}{l c c}
@@ -98,10 +98,10 @@ $$\mu_y = \beta_0 + \beta_1 x_1 + \beta_2 x_2$$
 	where:
 	
 - $\mu_y$ is mean presidential vote share
-- $\beta_0$ is the y-intercept ("constant"")
+- $\beta_0$ is the y-intercept ("constant")
 - $\beta_1$ is the slope ("coefficient") for Q2 GDP growth
 - $x_1$ is Q2 GDP growth in the election year
-- $\beta_2$ is the slope ("coefficient"") for TFC ("time for a change"")
+- $\beta_2$ is the slope ("coefficient") for TFC ("time for a change")
 - $x_2$ is an indicator ("dummy") variable for TFC (1=first term; 0=second term or later)
 
 
@@ -245,18 +245,6 @@ $$e_i = (Y_i - \hat{Y}_i) = (Y_i - \hat{\alpha} - \hat{\beta} X_i)$$
 
 -----
 
-\frametitle{To draw the ``best'' line we wanted to minimize error}
-
-Residuals
-$$e_i = (Y_i - \hat{Y}_i) = (Y_i - \hat{\alpha} - \hat{\beta} X_i)$$
-
-\pause
-
-\begin{center}
-\includegraphics[width=4.5in]{./LectureGraphics/Residuals1}
-\end{center}
-
-----
 
 
 \begin{center}
