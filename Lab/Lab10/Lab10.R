@@ -221,8 +221,8 @@ t.test(papprove ~ Post, data=x[x$osu==0,])
 #     the survey AFTER the game?
 
 
-# 3e. What is the marginal effect of winning a college football game on
-#     presidential approval?
+# 3e. What is the marginal effect of Post on presidential approval
+#     when osu=1?
 
 
 
