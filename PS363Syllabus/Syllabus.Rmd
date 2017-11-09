@@ -424,7 +424,7 @@ Date| Topic | Reading | Assignments| Notes
 11/1| Regression and inference ||  | 
 11/2-3| Regression in R
 11/6| Interactions and dummies || 
-11/8| Multiple regression || PS5 Due | PS6 Distributed
+11/8| Multiple regression || PS5 Due | [PS6 Distributed](http://jmontgomery.github.io/ProblemSets/PS6.pdf)
 11/9-10| Multiple regression
 11/13| Difference in differences || 
 11/15| Regression discontinuity || PS6 Due | PS7 Distributed
