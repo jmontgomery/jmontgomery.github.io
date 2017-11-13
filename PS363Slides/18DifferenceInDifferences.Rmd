@@ -1,0 +1,335 @@
+---
+title: "Difference in Differences"
+author: "Jacob M. Montgomery"
+date: "Quantitative Political Methodology"
+output: beamer_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+
+
+
+# Causality in Regression and Difference in Differences
+
+## Road map
+
+Where we have been:
+
+- What is regression?
+- How to interpret coefficients?
+- Interactions/Dummies
+
+\pause
+Today:
+
+- Using regression for causal inference
+- Using difference-in-differences to make causal claims
+
+
+----
+
+## Causal inference
+
+
+
+- We will use T to represent a treatment variable.
+- For a categorical treatment 
+
+\begin{center}
+  $T_i =   \begin{array}{l}
+  \mbox{1 if unit i receives the treatment}\\
+  \mbox{0 if unit i receives the control}
+  \end{array}$
+\end{center}
+
+\pause 
+
+- We let $y_i^1$ represent the outcome of the ith unit if the
+  treatment is given. \pause
+- We let $y_i^0$ represent the outcome of the ith unit if the
+  control is given. \pause
+- One of these is observed, the other is the counterfactual --
+  what would have been observed if the other treatment have been given? \pause
+- The causal effect of $T_i$ on observation $i$ will then be $y_i^1 - y_i^0$
+
+
+----
+
+
+\begin{center}
+\includegraphics[scale=.6]{./LectureGraphics/ATE1}
+\end{center}
+
+\pause
+
+-  $ATE = mean(y_i^1) -mean(y_i^0)$
+-  $ATE =(\alpha+\beta) -(\alpha)$
+-  $ATE = \beta$
+
+
+----
+
+
+
+\includegraphics[width=\textwidth]{./LectureGraphics/ATE2}
+
+
+
+----
+
+\begin{center}
+\includegraphics[scale=.5]{./LectureGraphics/ATE2}
+\end{center}
+
+- $Y=\alpha + T_1\beta_1 + T_2 \beta_2$
+
+\pause
+
+- Control: $Y=\alpha$
+- Treatment 1: $Y=\alpha + \beta_1$
+- Treatment 2: $Y=\alpha + \beta_2$
+
+
+----
+
+\begin{center}
+\includegraphics[scale=.5]{./LectureGraphics/ATE2}
+\end{center}
+
+- $Y=\alpha + T_1\beta_1 + T_2 \beta_2$
+
+
+- $ATE_1 = mean(y_i^1) -mean(y_i^0)$
+- $ATE_1 =(\alpha+\beta_1) -(\alpha)$
+- $ATE_1 = \beta_1$
+
+
+----
+
+\begin{center}
+\includegraphics[scale=.5]{./LectureGraphics/ATE2}
+\end{center}
+
+- $ATE_2 = mean(y_i^2) -mean(y_i^0)$
+- $ATE_2 =(\alpha+\beta_2) -(\alpha)$
+- $ATE_2 = \beta_2$
+
+
+----
+
+#### Is blue Different than green?
+
+
+\begin{center}
+\includegraphics[scale=.5]{./LectureGraphics/ATE2}
+\end{center}
+
+
+- $ATE_{2 vs. 1} = mean(y_i^2) -mean(y_i^1)$
+- $ATE_{2 vs. 1} =(\alpha+\beta_2) -(\alpha+\beta1)$
+- $ATE_{2 vs. 1} = \beta_2-\beta_1$
+
+
+------
+
+
+#### Is blue Different than green?
+
+
+A much easier way to do this, is to change what is the ``control'' and
+leave that out.
+
+
+\begin{center}
+\includegraphics[scale=.7]{./LectureGraphics/ATE3}
+\end{center}
+
+
+-----
+
+### Control variables
+
+
+\begin{center}
+\includegraphics[scale=.6]{./LectureGraphics/ATE4}
+\end{center}
+
+$$Y=\alpha+T\beta_1 + X \beta_2$$
+
+----
+
+
+
+### Control variables
+
+
+\begin{center}
+\includegraphics[scale=.6]{./LectureGraphics/ATE5}
+\end{center}
+
+$$Y=\alpha+T\beta_1 + X \beta_2$$
+
+----
+
+### Adding control variables improves precision
+
+\begin{center}
+\begin{tabular}{l c c}
+\hline
+& No Control & Control \\
+Intercept &2.67 &1.89 \\
+& (0.22) & (0.24) \\
+ Treatment &1.43 &1.42\\
+ &(0.31) & (0.29)\\
+ Covariate & & 1.78 \\
+ && (0.29)\\
+ \hline
+ $R^2$& 0.056& 0.136\\
+ \hline
+\end{tabular}
+\end{center}
+
+
+----
+
+## Difference in differences
+
+
+
+
+\begin{center}
+\includegraphics[scale=.6]{./LectureGraphics/ATE6}
+\end{center}
+
+
+
+$$Y=\alpha+Treatment\beta_1 + Pre/Post \beta_2 + (T \times PP) \beta_3$$
+
+
+----
+
+###  Difference in differences
+
+\begin{center}
+\includegraphics[scale=.5]{./LectureGraphics/ATE7}
+\end{center}
+
+\pause
+
+- Assume parallel paths
+- The treatment group would have moved in parallel to the control
+  group in the absence of the intervention.
+- We can estimate the effect of the treatment on the treated 
+
+----
+
+
+\begin{center}
+\includegraphics[scale=.6]{./LectureGraphics/ATE8}
+\end{center}
+
+
+- We need to model both what happened and what would have happened
+- $Y=\alpha+Treatment\beta_1 + Pre/Post \beta_2 + (T \times PP) \beta_3$
+
+
+
+----
+
+### Diff-in-diff model
+
+\centering
+\begin{tabular}{rrrrr}
+  \hline
+ & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
+  \hline
+(Intercept) & 1.0591 & 0.1547 & 6.84 & 0.0000 \\ 
+  Assignment & -4.0522 & 0.2188 & -18.52 & 0.0000 \\ 
+  PrePost & 3.8202 & 0.2188 & 17.46 & 0.0000 \\ 
+  Assignment:PrePost & 4.2994 & 0.3095 & 13.89 & 0.0000 \\ 
+   \hline
+\end{tabular}
+
+\pause
+\vspace{1in}
+Let's write down the prediction equation on the board.
+
+----
+
+
+#### Difference in differences
+
+\begin{center}
+\includegraphics[scale=.6]{./LectureGraphics/ATE9}
+\end{center}
+
+\pause
+\vspace{-.2in}
+
+The difference between what we observed
+($\alpha+\beta_1+\beta_2+\beta_3$) and what we would have observed
+($\alpha+\beta_1+\beta_2$) is $$(\alpha+\beta_1+\beta_2+\beta_3)-(\alpha+\beta_1+\beta_2) = \beta_3$$.
+
+
+
+----
+
+
+### Difference in difference: Discussion
+
+- Despite being tricky to think about it, it is simple to estimate. \pause
+- Does \textit{not require} that the treatment and control group be similar, only that that they would have had parallel paths. \pause
+- You can (and should) also control for other factors, which will help improve your estimates.
+
+
+
+----
+
+### Applied Example: Minimum wage laws
+
+What is the effect of increasing the minimum wage on low-wage workers?
+
+- Side 1?
+- Side 2?
+
+
+----
+
+
+Study basics:
+
+- In 1992, New Jersey increased the minimum wage from \$4.25/hour to \$5.05/hour.
+- Researchers collected information about the number of full time employees (as a proportion of total number of employees) at various fast food chains before and after the reform.
+
+\pause
+
+- Researchers \textit{also} collected the same information from the same chains in Pennsylvania to serve as a counterfactual.
+- Are New Jersey and Pennsylvania perfect counterfactuals for each other?
+
+
+----
+
+
+\begin{center}
+\includegraphics[scale=.22]{./LectureGraphics/wages}
+\end{center}
+
+- Divide up into your groups.
+- Interpret this plot.  What was the effect of the wage increase
+  in New Jersey?  Be ready to answer.
+
+
+
+
+
+
+
+
+
+
+
+

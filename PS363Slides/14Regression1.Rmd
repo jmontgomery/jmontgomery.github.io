@@ -1,0 +1,202 @@
+---
+title: "Lecture 14: Regression"
+author: "Jacob M. Montgomery"
+date: "Quantitative Political Methodology"
+output: beamer_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+
+
+
+# An introduction to regression
+
+## Correlation and bivariate linear regression
+
+\begin{center}
+\includegraphics[width=3.5in]{./LectureGraphics/extrapolating}
+\end{center}
+
+- Scatterplots
+- Correlation
+- Draing the "best" line through data
+
+
+----
+
+
+## Scatterplots
+
+
+
+What are we looking for?
+
+- Form/pattern
+- Direction 
+- Strength
+- Outliers
+
+
+----
+
+
+
+
+\begin{center}
+\includegraphics[height=8cm]{./LectureGraphics/trumpromney}
+\end{center}
+
+
+(Gelman, 2016)
+
+
+
+
+----
+
+
+\begin{center}
+\includegraphics[height=8cm]{./LectureGraphics/unemp.png}
+\end{center}
+
+
+(Masket 2011)
+
+----
+
+
+### So how to we quantify this?
+
+
+
+Correlation.  But first ...
+
+
+
+
+---
+
+
+#### Standardizing variables
+
+\Large{\[ \frac{x-\bar{x}}{s} \]}
+
+Example: Populations of New England states
+	\begin{center}\footnotesize{
+	\begin{tabular}{ccc}
+	 \hline
+	 & $x$ & $\frac{x-\bar{x}}{s}$ \\ \hline
+	 CT & 3.5m &\textcolor{red}{0.48}\\
+	ME & 1.3m &\textcolor{red}{-0.47}\\
+	 MA & 6.6m & \textcolor{red}{1.83}\\
+	 NH & 1.3m &\textcolor{red}{-0.47}\\
+	 RI & 1.0m &\textcolor{red}{-0.59}\\
+	 VT & 0.6m &\textcolor{red}{-0.78}\\ \hline
+	\end{tabular}
+	}\end{center}
+	$\bar{x}=2.40$ \hspace{10pt} $s=2.29$
+
+
+----
+
+
+
+Computation: Average of the products of the standardized values
+
+\[r = \frac{1}{n-1}\sum{\left( \frac{x_i - \bar{x}}{s_x} \right) \left( \frac{y_i - \bar{y}}{s_y} \right) } \]
+
+\vspace{12pt}
+What does a positive correlation mean? Negative?
+
+
+
+----
+
+#### Visualizing correlation
+
+\begin{center}
+\includegraphics[height=7cm]{./LectureGraphics/figure45}
+\end{center}
+
+
+----
+
+#### Visualizing correlation
+
+
+http://guessthecorrelation.com/
+
+
+----
+
+
+### Facts about correlation
+
+
+- Linear only
+- \textbf{Not} causal
+- Unit-free
+- $-1 \leq r \leq 1$
+- Sensitive to outliers
+
+
+----
+
+## Regression: The big picture
+
+
+What we want to do is the following:
+
+- Assume we have two variables where the "outcome"" is interval(ish)
+- Is there an "association" between them?
+- Is it statistically significant (next class)?
+- Estimate "expected values" for an outcome variable given a set of covariates
+
+
+----
+
+### Some preliminaries
+
+\begin{tabular}{l l}
+Y = &  Response variable/ Dependent variable/ \\
+& Outcome variable/Explained variable/ Left-hand side  \\ \pause
+X = & Explanatory variable/ Independent variable/ \\ 
+& Treatment Variable/ Right-hand side \\
+\end{tabular} 
+
+\vspace{.5cm}
+
+How might Y and X be related?  \pause  A line of course!
+
+
+$$Y = \alpha + \beta X$$
+
+Here $\alpha$ is the Y-intercept and $\beta$ is the slope of the line.
+
+
+
+
+----
+
+
+#### Reviewing the components of a line
+
+
+
+\begin{center}
+\includegraphics[width=2.8in]{./LectureGraphics/Lines}
+\end{center}
+
+
+- $Y = 0.8 + \frac{2}{5} X$
+- $\alpha = 0.8 =$ the value of Y when X is Zero.
+- $\beta = 0.4 = $ the increase in Y associated with a one unit
+  increase in X.
+
+
+
+
