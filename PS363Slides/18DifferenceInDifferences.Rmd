@@ -140,7 +140,7 @@ Today:
 #### Is blue Different than green?
 
 
-A much easier way to do this, is to change what is the ``control'' and
+A much easier way to do this is to change what is the ``control'' and
 leave that out.
 
 
@@ -282,7 +282,7 @@ The difference between what we observed
 ### Difference in difference: Discussion
 
 - Despite being tricky to think about it, it is simple to estimate. \pause
-- Does \textit{not require} that the treatment and control group be similar, only that that they would have had parallel paths. \pause
+- Does \textit{not require} that the treatment and control group be similar, only that they would have had parallel paths. \pause
 - You can (and should) also control for other factors, which will help improve your estimates.
 
 
