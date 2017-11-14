@@ -12,17 +12,22 @@ Effects of qualifications and experience of individual teachers as well as state
 
 - We can use interactions to investigate how differing levels of seniority affected the devotion of class time to evolution, conditioning on which state they are in!
 
-The data are from the National Survey of High School Biology Teachers and consist of 854 observations of high school biology teachers who were surveyed in the spring of 2007.  The dataset is called evolution.dta and is available in the Lab Code folder on blackboard.  The outcome of interest is the number of hours a teacher devotes to human and general evolution in his or her high school biology class (hrsallev).  To see the explanatory variables, see the Evolution Codebook in the Lab Code folder of blackboard. 
+The data are from the National Survey of High School Biology Teachers and consist of 854 observations of high school biology teachers who were surveyed in the spring of 2007.  The outcome of interest is the number of hours a teacher devotes to human and general evolution in his or her high school biology class (hrsallev).  To see the explanatory variables, see the [codebook](http://jmontgomery.github.io/PS363Extra/evolution_variables.pdf).
 
-1. Write down the names of all the members of your group in this space. We will collect one sheet from eachgroup for grading.
-
-2. Import the evolution.dta data set into R. Go ahead and open the codebook as well.First we need to recode some of the data to tell R where there are missing values.  The female variable codes 1 if the teacher is female, 0 if the teacher is male, and 9 if the sex of the teacher is unknown.  Recode all entries in the female column listed as 9 as NA, and write the code you used to do this below.
+Import the evolution.dta data set into R. Go ahead and open the codebook as well.First we need to recode some of the data to tell R where there are missing values.  The female variable codes 1 if the teacher is female, 0 if the teacher is male, and 9 if the sex of the teacher is unknown.  Recode all entries in the female column listed as 9 as NA, and write the code you used to do this below.
 
 ```{r, eval=F}
-evolution<-read.dta("http://j.mp/BPchap7",convert.factors=FALSE)
+evolution<-read.dta("http://jmontgomery.github.io/PS363Extra/evolution.dta"
+                    , convert.factors=FALSE)
 table(evolution$female)
 evolution$female[data$female == 9] <- NA
 ```
+
+
+
+1. Write down the names of all the members of your group in this space. We will collect one sheet from eachgroup for grading.
+
+2. 
  
 3. Begin  by  creating  a  multivariate  regression  model  using hrsallev as  your  outcome  variable. For  explanatory variables,  use female, biocred3, degr3, evolcourse, certified, idscitrans, confident, an interaction term between phase1 and senior, and an interaction term between phase1 and notestp.
 
