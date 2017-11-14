@@ -1,4 +1,4 @@
-# Lab 11 Handout Answer Key: Quantitative Political Methodology 
+# Multivariate regression example: Teaching about evolution
 
 Teaching evolution can be politically controversial, but is scientifically uncontroversial and necessary for understanding biology. How can we determine if politics is skewing the teaching of evolution in schools? Are there individual biases, institutional biases, or a combination (perhaps an interaction) of both?
 

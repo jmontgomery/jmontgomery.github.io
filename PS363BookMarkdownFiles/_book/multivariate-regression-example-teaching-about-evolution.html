@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="how-to-plot-residuals-in-r.html">
-<link rel="next" href="lab-11-multivariate-regression.html">
+<link rel="prev" href="multivariate-regression.html">
+<link rel="next" href="difference-in-differences-part-i.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -138,8 +138,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="38" data-path="basic-linear-regression-in-r.html"><a href="basic-linear-regression-in-r.html"><i class="fa fa-check"></i><b>38</b> Basic Linear Regression in R</a></li>
 <li class="chapter" data-level="39" data-path="how-to-plot-residuals-in-r.html"><a href="how-to-plot-residuals-in-r.html"><i class="fa fa-check"></i><b>39</b> How to Plot Residuals in R</a></li>
 <li class="chapter" data-level="40" data-path="regression-example.html"><a href="regression-example.html"><i class="fa fa-check"></i><b>40</b> Regression example</a></li>
-<li class="chapter" data-level="41" data-path="lab-11-multivariate-regression.html"><a href="lab-11-multivariate-regression.html"><i class="fa fa-check"></i><b>41</b> Lab 11: Multivariate Regression</a></li>
-<li class="chapter" data-level="42" data-path="lab-11-handout-answer-key-quantitative-political-methodology.html"><a href="lab-11-handout-answer-key-quantitative-political-methodology.html"><i class="fa fa-check"></i><b>42</b> Lab 11 Handout Answer Key: Quantitative Political Methodology</a></li>
+<li class="chapter" data-level="41" data-path="multivariate-regression.html"><a href="multivariate-regression.html"><i class="fa fa-check"></i><b>41</b> Multivariate Regression</a></li>
+<li class="chapter" data-level="42" data-path="multivariate-regression-example-teaching-about-evolution.html"><a href="multivariate-regression-example-teaching-about-evolution.html"><i class="fa fa-check"></i><b>42</b> Multivariate regression example: Teaching about evolution</a></li>
 <li class="chapter" data-level="43" data-path="difference-in-differences-part-i.html"><a href="difference-in-differences-part-i.html"><i class="fa fa-check"></i><b>43</b> Difference-in-Differences, Part I</a></li>
 <li class="chapter" data-level="44" data-path="difference-in-differences-part-ii.html"><a href="difference-in-differences-part-ii.html"><i class="fa fa-check"></i><b>44</b> Difference-in-Differences, Part II</a></li>
 <li class="chapter" data-level="45" data-path="regression-discontinuity-designs-part-1.html"><a href="regression-discontinuity-designs-part-1.html"><i class="fa fa-check"></i><b>45</b> Regression discontinuity designs, Part 1</a></li>
@@ -162,81 +162,58 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="regression-example" class="section level1">
-<h1><span class="header-section-number">40</span> Regression example</h1>
-<p>Let’s work work with a dataset that comes from Brandice Canes-Wrone, Brady David, and John Cogan. 2002. “Out of Step, Out of Office: Electoral Accountability and House Members Voting.” <em>American Political Science Review</em> 96 (1): 127 - 140.</p>
-<p>The dataset consists of election returns for incumbent members of congress and includes many variables thought to influence elections and election behavior.</p>
+<div id="multivariate-regression-example-teaching-about-evolution" class="section level1">
+<h1><span class="header-section-number">42</span> Multivariate regression example: Teaching about evolution</h1>
+<p>Teaching evolution can be politically controversial, but is scientifically uncontroversial and necessary for understanding biology. How can we determine if politics is skewing the teaching of evolution in schools? Are there individual biases, institutional biases, or a combination (perhaps an interaction) of both?</p>
+<p>Effects of qualifications and experience of individual teachers as well as state-level effects on how many hours biology teachers devote to teaching evolution in class. We want to ask ourselves:</p>
+<ul>
+<li><p>Does teaching vary by state?</p></li>
+<li><p>Does teaching vary by the experience of the teacher?</p></li>
+<li><p>But what if the effect of experience changes depending on which state you are in?</p></li>
+<li><p>We can use interactions to investigate how differing levels of seniority affected the devotion of class time to evolution, conditioning on which state they are in!</p></li>
+</ul>
+<p>The data are from the National Survey of High School Biology Teachers and consist of 854 observations of high school biology teachers who were surveyed in the spring of 2007. The dataset is called evolution.dta and is available in the Lab Code folder on blackboard. The outcome of interest is the number of hours a teacher devotes to human and general evolution in his or her high school biology class (hrsallev). To see the explanatory variables, see the Evolution Codebook in the Lab Code folder of blackboard.</p>
 <ol style="list-style-type: decimal">
-<li><a href="https://raw.githubusercontent.com/jmontgomery/jmontgomery.github.io/master/PS363Extra/incumbents.csv">Download the data here</a></li>
-<li><a href="jmontgomery.github.io/PS363Extra/CodebookIncumbents.pdf">The codebook for this example is here.</a></li>
+<li><p>Write down the names of all the members of your group in this space. We will collect one sheet from eachgroup for grading.</p></li>
+<li><p>Import the evolution.dta data set into R. Go ahead and open the codebook as well.First we need to recode some of the data to tell R where there are missing values. The female variable codes 1 if the teacher is female, 0 if the teacher is male, and 9 if the sex of the teacher is unknown. Recode all entries in the female column listed as 9 as NA, and write the code you used to do this below.</p></li>
 </ol>
-<p>Once you have the data, you can load it up and take a peek.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">elections.data&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;https://tinyurl.com/yb4mztc7&quot;</span>)
-<span class="kw">table</span>(elections.data$year)</code></pre></div>
-<pre><code>## 
-## 1956 1958 1960 1964 1966 1968 1970 1972 1974 1976 1978 1980 1982 1984 1986 
-##  336  298  328  349  344  349  332  324  325  335  325  347  318  354  331 
-## 1988 1990 1992 1994 1996 
-##  343  325  313  337  374</code></pre>
-<p>The dataset contains variables related to elections for the U.S. House, including spending patterns of incumbents and challengers. Data are at the electoral district level. Each observation represents a specific contest. Each line of the data includes information about the district, the incumbent, and the challenger (if there is one). Note that some variables are in logarithmic scale.</p>
-<hr />
-<ol style="list-style-type: decimal">
-<li>We want to test the following hypothesis: <strong>As the challenger’s campaign spending increases, the incumbent’s campaign spending increases</strong>.</li>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">evolution&lt;-<span class="kw">read.dta</span>(<span class="st">&quot;http://j.mp/BPchap7&quot;</span>,<span class="dt">convert.factors=</span><span class="ot">FALSE</span>)
+<span class="kw">table</span>(evolution$female)
+evolution$female[data$female ==<span class="st"> </span><span class="dv">9</span>] &lt;-<span class="st"> </span><span class="ot">NA</span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>Begin by creating a multivariate regression model using hrsallev as your outcome variable. For explanatory variables, use female, biocred3, degr3, evolcourse, certified, idscitrans, confident, an interaction term between phase1 and senior, and an interaction term between phase1 and notestp.</li>
 </ol>
-<p><span class="math display">\[H_0: \beta=0\]</span></p>
-<p><span class="math display">\[H_0:  \beta \neq 0\]</span></p>
-<ol start="2" style="list-style-type: decimal">
-<li>Next it is always a good idea to take a look at the data. Make a scatterplot for the two variables of interest WITHOUT the least-squares line. As always, we want to have Have clear axes labels.</li>
-</ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(elections.data$chalspend, elections.data$incspend, 
-     <span class="dt">xlab=</span><span class="st">&quot;Challenger spending (log)&quot;</span>, 
-     <span class="dt">ylab=</span><span class="st">&quot;Incumbent spending (log)&quot;</span>, 
-     <span class="dt">pch=</span><span class="kw">c</span>(<span class="dv">19</span>), <span class="co"># points are solid circles</span>
-     <span class="dt">main=</span><span class="st">&quot;Incumbent vs. Challenger spending&quot;</span>,  <span class="co"># Label at the top</span>
-     <span class="dt">col=</span><span class="kw">rgb</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">1</span>)) ## make the points mostly transparent</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<ul>
+<li>Write the prediction equation</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod.hours&lt;-<span class="kw">lm</span>(hrs_allev~phase1*senior_c+phase1*notest_p+female+biocred3+degr3+evol_course+certified+idsci_trans+confident,<span class="dt">data=</span>evolution)
+<span class="kw">summary</span>(mod.hours)</code></pre></div>
+<ul>
+<li>Are any coefficients not significant? Does this mean the whole model is bad?</li>
+</ul>
+<p>Yes, in fact, only female, evol_course, and confident are significant at the 0.05 level, everything else is not. However, this does not mean the model is bad; for these variables we can still draw valuable conclusions.</p>
+<ul>
+<li>Interpret the intercept of the model.</li>
+</ul>
+<p>The intercept is 10.23, meaning that theoretically if all the independent variables took on a value of 0 (the teacher had no degree, wasn’t certified, was male, had no credibility, etc), there would still be 10.23 hours taught. This is the baseline from which all the other variables come.</p>
 <ol start="4" style="list-style-type: decimal">
-<li>Conduct a regression analysis to test the hypothesis</li>
+<li>According to the model, what is the effect of taking the college-level evolution course. How does this compare to the effect of holding an additional degree?</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">RegModel<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(incspend~chalspend, <span class="dt">data=</span>elections.data)
-<span class="kw">summary</span>(RegModel<span class="fl">.1</span>)</code></pre></div>
-<pre><code>## 
-## Call:
-## lm(formula = incspend ~ chalspend, data = elections.data)
-## 
-## Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -4.1221 -0.3860  0.0507  0.4140  2.1419 
-## 
-## Coefficients:
-##              Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) 10.292518   0.075658  136.04   &lt;2e-16 ***
-## chalspend    0.227611   0.006848   33.24   &lt;2e-16 ***
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
-## Residual standard error: 0.6528 on 3249 degrees of freedom
-##   (3436 observations deleted due to missingness)
-## Multiple R-squared:  0.2537, Adjusted R-squared:  0.2535 
-## F-statistic:  1105 on 1 and 3249 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Evol_course’s coefficient is 2.51, meaning that those who took a college-level evolution course taught 2.51 more hours of evolution in classes than those who did not take a college-level evolution course. The effect of holding an additional degree is -0.4, meaning those who hold an additional degree usually teach 0.4 fewer hours of evolution than those who do not hold an additional degree.</p>
 <ol start="5" style="list-style-type: decimal">
-<li>So what does this mean?</li>
+<li>Interpret the interaction between phase1 and seniorc. Explain how we understand the coefficients numerically, and also give a substantive interpretation of this interaction effect.</li>
 </ol>
-<p>The prediction equation for the model is:</p>
-<p><span class="math display">\[incspend=10.29+0.22*chalspend\]</span></p>
-<p>This means that for every one unit increase in challenger spending (measured in log(dollars)), we expect a 0.22 increase in incumbent spending.</p>
-<p>We can also see that the <span class="math inline">\(t-value\)</span> for tis coefficient is 33.25, and the p-value is very small. This means we can reject the null hypothesis of no relationship.</p>
+<blockquote>
+
+</blockquote>
 <ol start="6" style="list-style-type: decimal">
-<li>Let’s Go back to the scatterplot and dd the least-squares line.</li>
+<li>What is the R-Squared value for this model? What does this tell us?</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(elections.data$chalspend, elections.data$incspend, 
-     <span class="dt">xlab=</span><span class="st">&quot;Challenger spending (log)&quot;</span>, 
-     <span class="dt">ylab=</span><span class="st">&quot;Incumbent spending (log)&quot;</span>, 
-     <span class="dt">pch=</span><span class="kw">c</span>(<span class="dv">19</span>), <span class="co"># points are solid circles</span>
-     <span class="dt">main=</span><span class="st">&quot;Incumbent vs. Challenger spending&quot;</span>,  <span class="co"># Label at the top</span>
-     <span class="dt">col=</span><span class="kw">rgb</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,.<span class="dv">1</span>)) ## make the points mostly transparent
-<span class="kw">abline</span>(<span class="kw">lm</span>(incspend~chalspend, <span class="dt">data=</span>elections.data))</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>The R^2 is 0.1226, and the adjusted R^2 is pretty similar, at 0.1099. This means that a very small amount of variation in the data can be explained by the model, and it implies that the fit of this model is not that great.</p>
+<ol start="7" style="list-style-type: decimal">
+<li>Notice that the p-value for the F-Test is very small. What does this mean? Be very explicit with this statement.</li>
+</ol>
+<p>The F-statistic is essentially a way to test the significance of the whole model. The p-value for the F-statistic representst the probability that all of the regression parameters are actually 0. This means that if the p-value is very small, this means that there is a very low chance that all parameters are 0, and a very high chance of rejecting the null hypothesis.</p>
 
 </div>
             </section>
@@ -244,8 +221,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="how-to-plot-residuals-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="lab-11-multivariate-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="multivariate-regression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="difference-in-differences-part-i.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -285,17 +262,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
