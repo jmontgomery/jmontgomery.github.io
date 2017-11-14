@@ -1,3 +1,0 @@
-# Scatterplots and Correlation in R 
-
-<iframe width="560" height="315" src="https://youtube.com/FEAS3akVxD8" frameborder="0" allowfullscreen></iframe>  

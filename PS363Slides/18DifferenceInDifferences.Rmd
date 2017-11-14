@@ -315,7 +315,7 @@ Study basics:
 
 
 \begin{center}
-\includegraphics[scale=.22]{./LectureGraphics/wages}
+\includegraphics[scale=.26]{./LectureGraphics/wages}
 \end{center}
 
 - Divide up into your groups.

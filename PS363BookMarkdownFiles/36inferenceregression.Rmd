@@ -14,27 +14,27 @@ Has a professor ever given you a study to read as homework with a confusing tabl
 
 We can use hypothesis tests to determine whether or not a relationship exists between two variables in our prediction equation. Our null hypothesis is that no relationship exists between the two variables. This occurs when the slope describing the relationship between x and y, $\beta$, is zero, or a flat line.  This is described by $H_0: \beta = 0$, while the alternative hypothesis Ha can either be $H_a: \beta \neq 0$ or $\beta < 0$ or $\beta > 0$, depending on what we are trying to assess.
 
-To calculate our test statistic, we subtract our calculated slope value, $\beta$, from our null hypothesis value and divide by the standard error. That is:
+To calculate our test statistic, we subtract our calculated slope value, $\hat\beta$, from our null hypothesis value and divide by the standard error. That is:
 
-$$ t = \frac{\beta - 0}{se} $$
+$$ t = \frac{\hat\beta - 0}{\hat{se}} $$
 
 The formula for the standard error of the slope is:
 
-$$ se = \frac{s}{\sqrt{ \sum(x_i - \bar{x})^2)}} $$
+$$ \hat{se} = \frac{\hat{\sigma}}{\sqrt{ \sum(x_i - \bar{x})^2)}} $$
 
-where $$ s = \sqrt{\frac{SSE}{n-2}} $$
+where $$\hat\sigma = \sqrt{\frac{SSE}{n-2}}$$
 
-The test statistics, $t$ is distributed according to the t distribution.  We calculate the degrees of freedom by subtracting from n the number of parameters we are estimating. Since here we only have a bivariate regression, we would have degrees of freedom $= n -2$ (one for $\alpha$ and one for $\beta$). As always, if $n> 30$ we can approximate the t distribution with the z distribution.
+The test statistics, $t$ is distributed according to the t distribution.  We calculate the degrees of freedom by subtracting from n the number of parameters we are estimating. Since here we only have a bivariate regression, we would have degrees of freedom $= n -2$ (one for $\alpha$ and one for $\beta$). 
 
-Again as always, the p value describes the probability of obtaining the observed slope were the true slope describing the relationship between the two variables were zero and the null hypothesis were true. It is our measure of surprise. A small p value suggests the regression line has a non-zero slope.  That is, if the slope were actually zero, than the strength of the relationship between x and y would be very surprising.
+The p value describes the probability of obtaining the observed slope were the true slope describing the relationship between the two variables were zero and the null hypothesis were true. It is our measure of surprise. A small p value suggests the regression line has a non-zero slope.  That is, if the slope were actually zero, than the strength of the relationship between x and y would be very surprising.
 
-If the p value is less than our predetermined $\alpha$ (DONT GET CONFUSED ... this is not the same $\alpha$ as above) we can reject the null hypothesis that there is no relationship between the two variables.
+If the p value is less than our predetermined $\alpha$ (DONT GET CONFUSED ... this is not the same $\alpha$ we sometimes use for a constant in a regression) we can reject the null hypothesis that there is no relationship between the two variables.
 
 ###Confidence intervals
 
 We do not just want to know, however, that the slope is non-zero and that a relationship exists between the variables. We want to know the extent of that relationship, which we can determine using confidence intervals.  We calculate the confidence interval for the slope using the formula:
 
-$$ \beta \pm t*(se) $$
+$$\hat\beta \pm t*(\hat{se})$$
 
 with $df = n - 2$ and the $se$ calculated exactly as it is in the above hypothesis test.
 
@@ -50,7 +50,7 @@ If we were to take many, many samples of size $n = 100$, we would be confident t
 
 In your readings for your other Poli Sci classes have you ever come across a chart like this?
 
-![](/Users/Ian/Dropbox (IsD)/QPM/bookdown-minimal-master/bookdown-minimal-master/_bookdown_files/11.png)
+![](11.png)
 
 Well, now you have the tools to interpret what it means.  For the moment, ignore the fact that there are multiple variables.  We will come back to that later in the class.
 
