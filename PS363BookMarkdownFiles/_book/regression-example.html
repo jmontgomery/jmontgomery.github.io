@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Quantitative Political Methods Coursebook</title>
+  <meta name="description" content="Quantitative Political Methods Coursebook">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Quantitative Political Methods Coursebook" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Quantitative Political Methods Coursebook" />
+  
+  
+  
+
+<meta name="author" content="Jacob Montgomery">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="how-to-plot-residuals-in-r.html">
+<link rel="next" href="lab-11-multivariate-regression.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Placeholder</a></li>
+<li class="chapter" data-level="2" data-path="placeholder-1.html"><a href="placeholder-1.html"><i class="fa fa-check"></i><b>2</b> Placeholder</a></li>
+<li class="chapter" data-level="3" data-path="placeholder-2.html"><a href="placeholder-2.html"><i class="fa fa-check"></i><b>3</b> Placeholder</a></li>
+<li class="chapter" data-level="4" data-path="placeholder-3.html"><a href="placeholder-3.html"><i class="fa fa-check"></i><b>4</b> Placeholder</a></li>
+<li class="chapter" data-level="5" data-path="random-samples.html"><a href="random-samples.html"><i class="fa fa-check"></i><b>5</b> Random Samples</a></li>
+<li class="chapter" data-level="6" data-path="installing-r-and-r-studio.html"><a href="installing-r-and-r-studio.html"><i class="fa fa-check"></i><b>6</b> Installing R and R Studio</a></li>
+<li class="chapter" data-level="7" data-path="a-brief-introduction-to-r.html"><a href="a-brief-introduction-to-r.html"><i class="fa fa-check"></i><b>7</b> A Brief Introduction to R</a></li>
+<li class="chapter" data-level="8" data-path="importing-data-into-r.html"><a href="importing-data-into-r.html"><i class="fa fa-check"></i><b>8</b> Importing data into R</a></li>
+<li class="chapter" data-level="9" data-path="visualizing-data-in-r.html"><a href="visualizing-data-in-r.html"><i class="fa fa-check"></i><b>9</b> Visualizing Data in R</a></li>
+<li class="chapter" data-level="10" data-path="measures-of-position.html"><a href="measures-of-position.html"><i class="fa fa-check"></i><b>10</b> Measures of Position</a></li>
+<li class="chapter" data-level="11" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html"><i class="fa fa-check"></i><b>11</b> Measures of Central Tendency</a></li>
+<li class="chapter" data-level="12" data-path="measures-of-dispersion.html"><a href="measures-of-dispersion.html"><i class="fa fa-check"></i><b>12</b> Measures of Dispersion</a></li>
+<li class="chapter" data-level="13" data-path="frequency-and-probability-distributions.html"><a href="frequency-and-probability-distributions.html"><i class="fa fa-check"></i><b>13</b> Frequency and Probability Distributions</a></li>
+<li class="chapter" data-level="14" data-path="some-basic-plotting-in-r.html"><a href="some-basic-plotting-in-r.html"><i class="fa fa-check"></i><b>14</b> Some basic plotting in R</a></li>
+<li class="chapter" data-level="15" data-path="sampling-distributions-pt-1.html"><a href="sampling-distributions-pt-1.html"><i class="fa fa-check"></i><b>15</b> Sampling Distributions, Pt. 1</a></li>
+<li class="chapter" data-level="16" data-path="sampling-distributions-pt-2.html"><a href="sampling-distributions-pt-2.html"><i class="fa fa-check"></i><b>16</b> Sampling Distributions, Pt. 2</a></li>
+<li class="chapter" data-level="17" data-path="working-with-the-normal-distribution.html"><a href="working-with-the-normal-distribution.html"><i class="fa fa-check"></i><b>17</b> Working with the Normal Distribution</a></li>
+<li class="chapter" data-level="18" data-path="the-binomial-distribution.html"><a href="the-binomial-distribution.html"><i class="fa fa-check"></i><b>18</b> The Binomial Distribution</a></li>
+<li class="chapter" data-level="19" data-path="working-with-the-t-distribution.html"><a href="working-with-the-t-distribution.html"><i class="fa fa-check"></i><b>19</b> Working with the T-distribution</a></li>
+<li class="chapter" data-level="20" data-path="placeholder-4.html"><a href="placeholder-4.html"><i class="fa fa-check"></i><b>20</b> Placeholder</a></li>
+<li class="chapter" data-level="21" data-path="team-assignment.html"><a href="team-assignment.html"><i class="fa fa-check"></i><b>21</b> Team Assignment</a></li>
+<li class="chapter" data-level="22" data-path="constructing-confidence-intervals-using-proportions.html"><a href="constructing-confidence-intervals-using-proportions.html"><i class="fa fa-check"></i><b>22</b> Constructing Confidence Intervals Using Proportions</a></li>
+<li class="chapter" data-level="23" data-path="large-n-hypothesis-testing-for-proportions.html"><a href="large-n-hypothesis-testing-for-proportions.html"><i class="fa fa-check"></i><b>23</b> Large-n hypothesis testing for proportions</a></li>
+<li class="chapter" data-level="24" data-path="type-i-and-type-ii-errors.html"><a href="type-i-and-type-ii-errors.html"><i class="fa fa-check"></i><b>24</b> Type I and Type II Errors</a></li>
+<li class="chapter" data-level="25" data-path="hypothesis-testing-for-small-sample-quantitative-data.html"><a href="hypothesis-testing-for-small-sample-quantitative-data.html"><i class="fa fa-check"></i><b>25</b> Hypothesis Testing for Small Sample Quantitative Data</a></li>
+<li class="chapter" data-level="26" data-path="confidence-intervals-in-r.html"><a href="confidence-intervals-in-r.html"><i class="fa fa-check"></i><b>26</b> Confidence intervals in R</a></li>
+<li class="chapter" data-level="27" data-path="poster-projects.html"><a href="poster-projects.html"><i class="fa fa-check"></i><b>27</b> Poster Projects</a></li>
+<li class="chapter" data-level="28" data-path="causation-and-average-treatment-effects.html"><a href="causation-and-average-treatment-effects.html"><i class="fa fa-check"></i><b>28</b> Causation and Average Treatment Effects</a></li>
+<li class="chapter" data-level="29" data-path="finding-average-treatment-effects-in-r.html"><a href="finding-average-treatment-effects-in-r.html"><i class="fa fa-check"></i><b>29</b> Finding average treatment effects in R</a></li>
+<li class="chapter" data-level="30" data-path="comparing-means.html"><a href="comparing-means.html"><i class="fa fa-check"></i><b>30</b> Comparing Means</a></li>
+<li class="chapter" data-level="31" data-path="t-tests-in-r.html"><a href="t-tests-in-r.html"><i class="fa fa-check"></i><b>31</b> T-tests in R</a></li>
+<li class="chapter" data-level="32" data-path="chi-squared-test-of-independence.html"><a href="chi-squared-test-of-independence.html"><i class="fa fa-check"></i><b>32</b> Chi Squared Test of Independence</a></li>
+<li class="chapter" data-level="33" data-path="the-chi-square-test-in-r.html"><a href="the-chi-square-test-in-r.html"><i class="fa fa-check"></i><b>33</b> The Chi Square Test in R</a></li>
+<li class="chapter" data-level="34" data-path="contingency-tables-and-bivariate-data.html"><a href="contingency-tables-and-bivariate-data.html"><i class="fa fa-check"></i><b>34</b> Contingency tables and bivariate data</a></li>
+<li class="chapter" data-level="35" data-path="bivariate-regression.html"><a href="bivariate-regression.html"><i class="fa fa-check"></i><b>35</b> Bivariate Regression</a></li>
+<li class="chapter" data-level="36" data-path="marginal-and-conditional-standard-deviation.html"><a href="marginal-and-conditional-standard-deviation.html"><i class="fa fa-check"></i><b>36</b> Marginal and Conditional Standard Deviation</a></li>
+<li class="chapter" data-level="37" data-path="inference-for-regression.html"><a href="inference-for-regression.html"><i class="fa fa-check"></i><b>37</b> Inference for Regression</a></li>
+<li class="chapter" data-level="38" data-path="basic-linear-regression-in-r.html"><a href="basic-linear-regression-in-r.html"><i class="fa fa-check"></i><b>38</b> Basic Linear Regression in R</a></li>
+<li class="chapter" data-level="39" data-path="how-to-plot-residuals-in-r.html"><a href="how-to-plot-residuals-in-r.html"><i class="fa fa-check"></i><b>39</b> How to Plot Residuals in R</a></li>
+<li class="chapter" data-level="40" data-path="regression-example.html"><a href="regression-example.html"><i class="fa fa-check"></i><b>40</b> Regression example</a></li>
+<li class="chapter" data-level="41" data-path="lab-11-multivariate-regression.html"><a href="lab-11-multivariate-regression.html"><i class="fa fa-check"></i><b>41</b> Lab 11: Multivariate Regression</a></li>
+<li class="chapter" data-level="42" data-path="lab-11-handout-answer-key-quantitative-political-methodology.html"><a href="lab-11-handout-answer-key-quantitative-political-methodology.html"><i class="fa fa-check"></i><b>42</b> Lab 11 Handout Answer Key: Quantitative Political Methodology</a></li>
+<li class="chapter" data-level="43" data-path="difference-in-differences-part-i.html"><a href="difference-in-differences-part-i.html"><i class="fa fa-check"></i><b>43</b> Difference-in-Differences, Part I</a></li>
+<li class="chapter" data-level="44" data-path="difference-in-differences-part-ii.html"><a href="difference-in-differences-part-ii.html"><i class="fa fa-check"></i><b>44</b> Difference-in-Differences, Part II</a></li>
+<li class="chapter" data-level="45" data-path="regression-discontinuity-designs-part-1.html"><a href="regression-discontinuity-designs-part-1.html"><i class="fa fa-check"></i><b>45</b> Regression discontinuity designs, Part 1</a></li>
+<li class="chapter" data-level="46" data-path="regression-discontinuity-designs-part-ii.html"><a href="regression-discontinuity-designs-part-ii.html"><i class="fa fa-check"></i><b>46</b> Regression discontinuity designs, Part II</a></li>
+<li class="chapter" data-level="47" data-path="lab-10-linear-regressions-in-r.html"><a href="lab-10-linear-regressions-in-r.html"><i class="fa fa-check"></i><b>47</b> Lab 10: Linear Regressions in R</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Quantitative Political Methods Coursebook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="regression-example" class="section level1">
+<h1><span class="header-section-number">40</span> Regression example</h1>
+<p>Let’s work work with a dataset that comes from Brandice Canes-Wrone, Brady David, and John Cogan. 2002. “Out of Step, Out of Office: Electoral Accountability and House Members Voting.” <em>American Political Science Review</em> 96 (1): 127 - 140.</p>
+<p>The dataset consists of election returns for incumbent members of congress and includes many variables thought to influence elections and election behavior.</p>
+<p>Download Incumbents.txt and Incumbents Codebook from Prof. Montgomery’s website. The dataset contains variables related to elections for the U.S. House, including spending patterns of incumbents and challengers. Data are at the electoral district level. Each observation represents a specific contest. Each line of the data includes information about the district, the incumbent, and the challenger (if there is one). Note that some variables are in logarithmic scale. The dataset is a tab delimited txt file.</p>
+<ol style="list-style-type: decimal">
+<li>We want to test the following hypothesis: As the challenger’s campaign spending increases, the incumbent’s campaign spending increases. State the null and alternative hypotheses.</li>
+</ol>
+<p><span class="math inline">\(H_0: \alpha=0\)</span> and <span class="math inline">\(\beta=0\)</span><br />
+<span class="math inline">\(H_0: \alpha\neq0\)</span> and <span class="math inline">\(\beta \neq 0\)</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Make a scatterplot for the two variables of interest WITHOUT the least-squares line. Have clear axes labels. Customize the plot in some way. (You can jitter the data, define the shape of the points, etc.) Write down the R code. Call the TA to show your scatterplot and have it signed below.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(data$incspend, data$chalspend, <span class="dt">reg.line=</span><span class="ot">FALSE</span>, <span class="dt">smooth=</span><span class="ot">FALSE</span>, <span class="dt">spread=</span><span class="ot">FALSE</span>, <span class="dt">boxplots=</span><span class="ot">FALSE</span>, <span class="dt">span=</span><span class="fl">0.5</span>, <span class="dt">xlab=</span><span class="st">&quot;Challenger spending (log)&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Incumbent spending (log)&quot;</span>, <span class="dt">pch=</span><span class="kw">c</span>(<span class="dv">20</span>), <span class="dt">main=</span><span class="st">&quot;Incumbent vs. Challenger spending&quot;</span>)</code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>Describe the scatterplot. Is there a relationship between the two variables? If so, what kind?</li>
+</ol>
+<p>There does appear to be a positive relationship: as the challenger spending is increasing, the incumbent spending is increasing as well.</p>
+<ol start="4" style="list-style-type: decimal">
+<li>Conduct a regression analysis to test the hypothesis stated in Question 1. Write down the R code.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">RegModel<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(incspend~chalspend, <span class="dt">data=</span>data)
+<span class="kw">summary</span>(RegModel<span class="fl">.1</span>)</code></pre></div>
+<p>This should yield output that looks roughly like this:</p>
+<p><img src="/Users/Ian/Dropbox (IsD)/QPM/bookdown-minimal-master/bookdown-minimal-master/_bookdown_files/Lab_Files/33.png" width="400px" /></p>
+<ol start="5" style="list-style-type: decimal">
+<li>Write down the regression equation you obtained from R. Interpret the intercept and slope coefficients. Are they believable (are you confident in your estimates)? Why? Does the result support your hypothesis?</li>
+</ol>
+<p>The regression we obtained is this:</p>
+<p>incspend = 10.29 + 0.22*chalspend + <span class="math inline">\(e\)</span></p>
+<p>These estimates are statistically significant with very small standard errors compared to the estimates. This allows us to be reasonably confident in them; all in all, this is a decent model considering it has only one explanatory variable. We could add other potential variables that could explain incumbent spending, for example seniority and chalquality, if we wanted to further improve our model.</p>
+<p>If you have the time, answer the following questions.</p>
+<ol start="6" style="list-style-type: decimal">
+<li>Go back to the scatterplot you created for Question 2. Add the least-squares line. Write down the R code.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">abline</span>(<span class="kw">lm</span>(data$incspend~data$chalspend))</code></pre></div>
+<ol start="7" style="list-style-type: decimal">
+<li>Based on the R output you obtained for Questions 4 and 5, identify how many observations were used in the model.</li>
+</ol>
+<p>There were 3251 used in the regression: we know this because the output gives us that there were 3249 degrees of freedom.</p>
+<p>NOTE: There were more observations in the dataset though. R tells us this by saying that “3436 observations were deleted due to missingness”, meaning that in 3436 observations, either incspend or chalspend had a value of NA that could not be regressed.</p>
+<ol start="8" style="list-style-type: decimal">
+<li>Based on the R output you obtained for Questions 4 and 5, interpret what the residual standard error is telling you.</li>
+</ol>
+<p>It tells us that the RSE is 0.6528, which is reasonably low, implying a good fit. It will also help us construct confidence intervals for the slope.</p>
+<ol start="9" style="list-style-type: decimal">
+<li>Based on the R output you obtained for Questions 4 and 5, assess the model fit. How good is the model?</li>
+</ol>
+<p>The R^2 and adjusted R^2 are fairly low. Thus, although we can conclude from the low RSE that the total variation from the regression line isn’t that high; the low R^2 means that not all of the total variation can be explained by the model.</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="how-to-plot-residuals-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lab-11-multivariate-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,7 +1,13 @@
-# Lab 10 Handout Answer Key: Quantitative Political Methodology 
+# Regression example
 
-Write down the names of the members of your group. We will collect one sheet from each group for grading.
-You will work with a dataset that comes from Brandice Canes-Wrone, Brady David, and John Cogan. 2002. “Out of Step, Out of Office: Electoral Accountability and House Members Voting.” American Political Science Review 96 (1): 127 - 140. Download Incumbents.txt and Incumbents Codebook from Prof. Montgomery’s website. The dataset contains variables related to elections for the U.S. House, including spending patterns of incumbents and challengers. Data are at the electoral district level. Each observation represents a specific contest. Each line of the data includes information about the district, the incumbent, and the challenger (if there is one). Note that some variables are in logarithmic scale. The dataset is a tab delimited txt file.
+Let's work work with a dataset that comes from Brandice Canes-Wrone, Brady David, and John Cogan. 2002. “Out of Step, Out of Office: Electoral Accountability and House Members Voting.” *American Political Science Review* 96 (1): 127 - 140. 
+
+
+
+The dataset consists of election returns for incumbent members of congress and includes many variables thought to influence elections and election behavior. 
+
+
+Download Incumbents.txt and Incumbents Codebook from Prof. Montgomery’s website. The dataset contains variables related to elections for the U.S. House, including spending patterns of incumbents and challengers. Data are at the electoral district level. Each observation represents a specific contest. Each line of the data includes information about the district, the incumbent, and the challenger (if there is one). Note that some variables are in logarithmic scale. The dataset is a tab delimited txt file.
 
 1. We want to test the following hypothesis: As the challenger’s campaign spending increases, the incumbent’s
 campaign spending increases. State the null and alternative hypotheses.
