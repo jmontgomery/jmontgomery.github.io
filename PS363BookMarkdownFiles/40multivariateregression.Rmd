@@ -5,7 +5,7 @@ First, watch this video:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/q1RD5ECsSB0" frameborder="0" allowfullscreen></iframe>
 
 
-## Multivariate Regressions
+## A bit more on multivariate regressions
 
 What if we’re interested in modeling the relationship between two independent variables and a dependent variable? Linear regression can do that through use of matrices and the regression equations. Fortunately, we have R to solve all the matrix algebra for us.
 

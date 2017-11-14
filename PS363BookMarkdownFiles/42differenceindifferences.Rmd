@@ -28,7 +28,7 @@ The final DD value you obtain is the estimated causal effect of the intervention
 
 Here's a visual illustration of how this research strategy works:
 
-![](/Users/Ian/Dropbox (IsD)/QPM/bookdown-minimal-master/bookdown-minimal-master/_bookdown_files/12.png)
+![](12.png)
 
 Think of the blue circles as population A, and the red triangles as population B. (For simplicity, consider the Y-value to be the population mean for the characteristic of interest.) The gap between the two blue line segments, labeled "Effect of treatment", is the DD value defined above. 
 

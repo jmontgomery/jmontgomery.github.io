@@ -18,7 +18,7 @@ But the difference-in-difference strategy does not rely on the two groups being 
 
 The counterfactual claim of similarity-in-differences is as follows: *in the absence of the intervening terrorist attack, the difference between resident and non-resident support for the Conservative party would have been the same in the 2004 election as it was for the previous election*. While this assumption cannot be tested, Montalvo provides a pretty compelling case for why we should accept it. The graph below shows resident and non-resident vote share over time. 
 
-![](/Users/Ian/Dropbox (IsD)/QPM/bookdown-minimal-master/bookdown-minimal-master/_bookdown_files/13.png)
+![](13.png)
 
 In the years leading up to 2004, resident and non-resident vote shares differed in a remarkably consistent way. But in 2004, when all of the resident voters received the treatment (i.e. the information of the bombings), and only a portion of the non-resident voters did, the parallel movement of the trend lines breaks.
 

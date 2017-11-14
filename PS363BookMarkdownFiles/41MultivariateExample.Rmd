@@ -24,28 +24,18 @@ evolution$female[evolution$female == 9] <- NA
 
 
 ```{r, eval=T}
-mod.hours<-lm(hrs_allev~phase1+senior_c+notest_p+female+biocred3+degr3+evol_course+certified+idsci_trans+confident,data=evolution)
+mod.hours<-lm(hrs_allev~phase1+senior_c+notest_p+female
+              +biocred3+degr3+evol_course+certified+idsci_trans
+              +confident,data=evolution)
 summary(mod.hours)
 ```
 
-Yes, in fact, only female, evol_course, and confident are significant at the 0.05 level, everything else is not. However, this does not mean the model is bad; for these variables we can still draw valuable conclusions. 
 
-- Interpret the intercept of the model.
 
-The intercept is 10.23, meaning that theoretically if all the independent variables took on a value of 0 (the teacher had no degree, wasn't certified, was male, had no credibility, etc), there would still be 10.23 hours taught. This is the baseline from which all the other variables come. 
+1. Interpret the intercept of the model.
 
-4. According to the model, what is the effect of taking the college-level evolution course.  How does this compare to the effect of holding an additional degree?
+> The intercept is 10.2, meaning that theoretically if all the independent variables took on a value of 0 (the teacher had no degree, wasn't certified, was male, had no credibility, etc), there would still be 10.2 hours taught. This is the baseline from which all the other variables come. 
 
-Evol_course's coefficient is 2.51, meaning that those who took a college-level evolution course taught 2.51 more hours of evolution in classes than those who did not take a college-level evolution course. The effect of holding an additional degree is -0.4, meaning those who hold an additional degree usually teach 0.4 fewer hours of evolution than those who do not hold an additional degree. 
+2. According to the model, what is the effect of taking the college-level evolution course.  How does this compare to the effect of holding an additional degree?
 
-5.  Interpret the interaction between phase1 and seniorc.  Explain how we understand the coefficients numerically, and also give a substantive interpretation of this interaction effect.
-
->
-
-6.  What is the R-Squared value for this model?  What does this tell us?
-
-The R^2 is 0.1226, and the adjusted R^2 is pretty similar, at 0.1099. This means that a very small amount of variation in the data can be explained by the model, and it implies that the fit of this model is not that great. 
-
-7.  Notice that the p-value for the F-Test is very small.  What does this mean?  Be very explicit with this statement. 
-
-The F-statistic is essentially a way to test the significance of the whole model. The p-value for the F-statistic representst the probability that all of the regression parameters are actually 0. This means that if the p-value is very small, this means that there is a very low chance that all parameters are 0, and a very high chance of rejecting the null hypothesis. 
+> Evol_course's coefficient is 2.57, meaning that those who took a college-level evolution course taught 2.57 more hours of evolution in classes than those who did not take a college-level evolution course. The effect of holding an additional degree is -0.34, meaning those who hold an additional degree usually teach 0.34 fewer hours of evolution than those who do not hold an additional degree. 

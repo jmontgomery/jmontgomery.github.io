@@ -184,7 +184,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ol style="list-style-type: decimal">
 <li>Begin by creating a multivariate regression model using <code>hrsallev</code> as your outcome variable. For explanatory variables, use <code>female, phase1, senior_c, notest_p, biocred3, degr3, evolcourse, certified, idscitrans, confident</code>.</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod.hours&lt;-<span class="kw">lm</span>(hrs_allev~phase1+senior_c+notest_p+female+biocred3+degr3+evol_course+certified+idsci_trans+confident,<span class="dt">data=</span>evolution)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod.hours&lt;-<span class="kw">lm</span>(hrs_allev~phase1+senior_c+notest_p+female
+              +biocred3+degr3+evol_course+certified+idsci_trans
+              +confident,<span class="dt">data=</span>evolution)
 <span class="kw">summary</span>(mod.hours)</code></pre></div>
 <pre><code>## 
 ## Call:
@@ -216,29 +218,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ##   (13 observations deleted due to missingness)
 ## Multiple R-squared:  0.117,  Adjusted R-squared:  0.1064 
 ## F-statistic:    11 on 10 and 830 DF,  p-value: &lt; 2.2e-16</code></pre>
-<p>Yes, in fact, only female, evol_course, and confident are significant at the 0.05 level, everything else is not. However, this does not mean the model is bad; for these variables we can still draw valuable conclusions.</p>
-<ul>
+<ol style="list-style-type: decimal">
 <li>Interpret the intercept of the model.</li>
-</ul>
-<p>The intercept is 10.23, meaning that theoretically if all the independent variables took on a value of 0 (the teacher had no degree, wasn’t certified, was male, had no credibility, etc), there would still be 10.23 hours taught. This is the baseline from which all the other variables come.</p>
-<ol start="4" style="list-style-type: decimal">
-<li>According to the model, what is the effect of taking the college-level evolution course. How does this compare to the effect of holding an additional degree?</li>
-</ol>
-<p>Evol_course’s coefficient is 2.51, meaning that those who took a college-level evolution course taught 2.51 more hours of evolution in classes than those who did not take a college-level evolution course. The effect of holding an additional degree is -0.4, meaning those who hold an additional degree usually teach 0.4 fewer hours of evolution than those who do not hold an additional degree.</p>
-<ol start="5" style="list-style-type: decimal">
-<li>Interpret the interaction between phase1 and seniorc. Explain how we understand the coefficients numerically, and also give a substantive interpretation of this interaction effect.</li>
 </ol>
 <blockquote>
-
+<p>The intercept is 10.2, meaning that theoretically if all the independent variables took on a value of 0 (the teacher had no degree, wasn’t certified, was male, had no credibility, etc), there would still be 10.2 hours taught. This is the baseline from which all the other variables come.</p>
 </blockquote>
-<ol start="6" style="list-style-type: decimal">
-<li>What is the R-Squared value for this model? What does this tell us?</li>
+<ol start="2" style="list-style-type: decimal">
+<li>According to the model, what is the effect of taking the college-level evolution course. How does this compare to the effect of holding an additional degree?</li>
 </ol>
-<p>The R^2 is 0.1226, and the adjusted R^2 is pretty similar, at 0.1099. This means that a very small amount of variation in the data can be explained by the model, and it implies that the fit of this model is not that great.</p>
-<ol start="7" style="list-style-type: decimal">
-<li>Notice that the p-value for the F-Test is very small. What does this mean? Be very explicit with this statement.</li>
-</ol>
-<p>The F-statistic is essentially a way to test the significance of the whole model. The p-value for the F-statistic representst the probability that all of the regression parameters are actually 0. This means that if the p-value is very small, this means that there is a very low chance that all parameters are 0, and a very high chance of rejecting the null hypothesis.</p>
+<blockquote>
+<p>Evol_course’s coefficient is 2.57, meaning that those who took a college-level evolution course taught 2.57 more hours of evolution in classes than those who did not take a college-level evolution course. The effect of holding an additional degree is -0.34, meaning those who hold an additional degree usually teach 0.34 fewer hours of evolution than those who do not hold an additional degree.</p>
+</blockquote>
 
 </div>
             </section>

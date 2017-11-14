@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Quantitative Political Methods Coursebook</title>
+  <meta name="description" content="Quantitative Political Methods Coursebook">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Quantitative Political Methods Coursebook" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Quantitative Political Methods Coursebook" />
+  
+  
+  
+
+<meta name="author" content="Jacob Montgomery">
+
+
+<meta name="date" content="2017-09-24">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="regression-example.html">
+<link rel="next" href="multivariate-regression-example-teaching-about-evolution.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Class Overview</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#learning-objective-1-what-is-the-point-of-all-of-this-group-work"><i class="fa fa-check"></i><b>1.1</b> Learning objective #1: What is the point of all of this group work?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#learning-object-2-what-is-the-point-of-all-of-these-online-activites"><i class="fa fa-check"></i><b>1.2</b> Learning object #2: What is the point of all of these online activites?</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#learning-objective-3-how-is-this-going-to-work"><i class="fa fa-check"></i><b>1.3</b> Learning objective #3: How is this going to work?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="measurement-error.html"><a href="measurement-error.html"><i class="fa fa-check"></i><b>2</b> Measurement Error</a><ul>
+<li class="chapter" data-level="2.1" data-path="measurement-error.html"><a href="measurement-error.html#learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="measurement-error.html"><a href="measurement-error.html#learning-objective-1-types-of-biases-asdf"><i class="fa fa-check"></i><b>2.2</b> Learning Objective 1: Types of Biases asdf</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="measurement-error.html"><a href="measurement-error.html#sampling-bias"><i class="fa fa-check"></i><b>2.2.1</b> Sampling bias</a></li>
+<li class="chapter" data-level="2.2.2" data-path="measurement-error.html"><a href="measurement-error.html#response-bias"><i class="fa fa-check"></i><b>2.2.2</b> Response bias</a></li>
+<li class="chapter" data-level="2.2.3" data-path="measurement-error.html"><a href="measurement-error.html#non-response-bias"><i class="fa fa-check"></i><b>2.2.3</b> Non-response bias</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="measurement-error.html"><a href="measurement-error.html#whats-the-takeaway"><i class="fa fa-check"></i><b>2.3</b> What’s the takeaway?</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="scales-of-measurement.html"><a href="scales-of-measurement.html"><i class="fa fa-check"></i><b>3</b> Scales of Measurement</a><ul>
+<li class="chapter" data-level="3.1" data-path="scales-of-measurement.html"><a href="scales-of-measurement.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1</b> Learning Objectives:</a></li>
+<li class="chapter" data-level="3.2" data-path="scales-of-measurement.html"><a href="scales-of-measurement.html#learning-objective-1-scales"><i class="fa fa-check"></i><b>3.2</b> Learning Objective 1: Scales</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="scales-of-measurement.html"><a href="scales-of-measurement.html#first-of-all-what-do-we-mean-by-scales"><i class="fa fa-check"></i><b>3.2.1</b> First of all, what do we mean by scales?</a></li>
+<li class="chapter" data-level="3.2.2" data-path="scales-of-measurement.html"><a href="scales-of-measurement.html#nominal-scale"><i class="fa fa-check"></i><b>3.2.2</b> Nominal Scale</a></li>
+<li class="chapter" data-level="3.2.3" data-path="scales-of-measurement.html"><a href="scales-of-measurement.html#ordinal-scale"><i class="fa fa-check"></i><b>3.2.3</b> Ordinal Scale:</a></li>
+<li class="chapter" data-level="3.2.4" data-path="scales-of-measurement.html"><a href="scales-of-measurement.html#interval-scale"><i class="fa fa-check"></i><b>3.2.4</b> Interval Scale:</a></li>
+<li class="chapter" data-level="3.2.5" data-path="scales-of-measurement.html"><a href="scales-of-measurement.html#ratio-scale"><i class="fa fa-check"></i><b>3.2.5</b> Ratio scale:</a></li>
+<li class="chapter" data-level="3.2.6" data-path="scales-of-measurement.html"><a href="scales-of-measurement.html#focus-on-the-measurement-and-not-the-concept"><i class="fa fa-check"></i><b>3.2.6</b> Focus on the measurement and not the concept</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="scales-of-measurement.html"><a href="scales-of-measurement.html#summary"><i class="fa fa-check"></i><b>3.3</b> Summary:</a></li>
+<li class="chapter" data-level="3.4" data-path="scales-of-measurement.html"><a href="scales-of-measurement.html#learning-objective-2-granularity"><i class="fa fa-check"></i><b>3.4</b> Learning Objective 2: Granularity</a></li>
+<li class="chapter" data-level="3.5" data-path="scales-of-measurement.html"><a href="scales-of-measurement.html#what-is-granularity"><i class="fa fa-check"></i><b>3.5</b> What is granularity?</a></li>
+<li class="chapter" data-level="3.6" data-path="scales-of-measurement.html"><a href="scales-of-measurement.html#what-are-the-takeaways"><i class="fa fa-check"></i><b>3.6</b> What are the takeaways?</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="random-samples.html"><a href="random-samples.html"><i class="fa fa-check"></i><b>4</b> Random Samples</a><ul>
+<li class="chapter" data-level="4.1" data-path="random-samples.html"><a href="random-samples.html#learning-objectives-2"><i class="fa fa-check"></i><b>4.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="random-samples.html"><a href="random-samples.html#learning-objective-1-random-samples"><i class="fa fa-check"></i><b>4.2</b> Learning Objective 1: Random Samples</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="random-samples.html"><a href="random-samples.html#what-is-a-random-sample"><i class="fa fa-check"></i><b>4.2.1</b> What is a random sample?</a></li>
+<li class="chapter" data-level="4.2.2" data-path="random-samples.html"><a href="random-samples.html#why-do-we-care-if-a-sample-is-random"><i class="fa fa-check"></i><b>4.2.2</b> Why do we care if a sample is random?</a></li>
+<li class="chapter" data-level="4.2.3" data-path="random-samples.html"><a href="random-samples.html#real-life-application-dont-look-ignorant-in-your-newspaper-column"><i class="fa fa-check"></i><b>4.2.3</b> Real-life application: Don’t look ignorant in your newspaper column</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="random-samples.html"><a href="random-samples.html#learning-objective-2-types-of-random-samples"><i class="fa fa-check"></i><b>4.3</b> Learning Objective 2: Types of Random Samples</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="random-samples.html"><a href="random-samples.html#simple-random-sample"><i class="fa fa-check"></i><b>4.3.1</b> Simple Random Sample:</a></li>
+<li class="chapter" data-level="4.3.2" data-path="random-samples.html"><a href="random-samples.html#systematic-random-sample"><i class="fa fa-check"></i><b>4.3.2</b> Systematic Random Sample:</a></li>
+<li class="chapter" data-level="4.3.3" data-path="random-samples.html"><a href="random-samples.html#stratified-random-sample"><i class="fa fa-check"></i><b>4.3.3</b> Stratified Random Sample:</a></li>
+<li class="chapter" data-level="4.3.4" data-path="random-samples.html"><a href="random-samples.html#cluster-samples"><i class="fa fa-check"></i><b>4.3.4</b> Cluster Samples:</a></li>
+<li class="chapter" data-level="4.3.5" data-path="random-samples.html"><a href="random-samples.html#multi-stage-sampling"><i class="fa fa-check"></i><b>4.3.5</b> Multi-Stage Sampling:</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="random-samples.html"><a href="random-samples.html#what-are-the-takeaways-1"><i class="fa fa-check"></i><b>4.4</b> What are the takeaways?</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="installing-r-and-r-studio.html"><a href="installing-r-and-r-studio.html"><i class="fa fa-check"></i><b>5</b> Installing R and R Studio</a><ul>
+<li class="chapter" data-level="5.1" data-path="installing-r-and-r-studio.html"><a href="installing-r-and-r-studio.html#installing-r-and-r-studio-on-a-mac-would-also-work-for-other-platforms"><i class="fa fa-check"></i><b>5.1</b> Installing R and R Studio on a Mac (would also work for other platforms)</a></li>
+<li class="chapter" data-level="5.2" data-path="installing-r-and-r-studio.html"><a href="installing-r-and-r-studio.html#installing-r-and-r-studio-on-windows"><i class="fa fa-check"></i><b>5.2</b> Installing R and R Studio on Windows</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="a-brief-introduction-to-r.html"><a href="a-brief-introduction-to-r.html"><i class="fa fa-check"></i><b>6</b> A Brief Introduction to R</a></li>
+<li class="chapter" data-level="7" data-path="importing-data-into-r.html"><a href="importing-data-into-r.html"><i class="fa fa-check"></i><b>7</b> Importing data into R</a><ul>
+<li class="chapter" data-level="7.1" data-path="importing-data-into-r.html"><a href="importing-data-into-r.html#learning-objectives-3"><i class="fa fa-check"></i><b>7.1</b> Learning Objectives:</a></li>
+<li class="chapter" data-level="7.2" data-path="importing-data-into-r.html"><a href="importing-data-into-r.html#importing-data"><i class="fa fa-check"></i><b>7.2</b> Importing Data</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="importing-data-into-r.html"><a href="importing-data-into-r.html#telling-r-where-to-look"><i class="fa fa-check"></i><b>7.2.1</b> Telling R where to look</a></li>
+<li class="chapter" data-level="7.2.2" data-path="importing-data-into-r.html"><a href="importing-data-into-r.html#reading-in-your-first-data-file"><i class="fa fa-check"></i><b>7.2.2</b> Reading in your first data file</a></li>
+<li class="chapter" data-level="7.2.3" data-path="importing-data-into-r.html"><a href="importing-data-into-r.html#summarizing-the-variables-in-your-dataset"><i class="fa fa-check"></i><b>7.2.3</b> Summarizing the variables in your dataset</a></li>
+<li class="chapter" data-level="7.2.4" data-path="importing-data-into-r.html"><a href="importing-data-into-r.html#adding-a-variable-to-your-data"><i class="fa fa-check"></i><b>7.2.4</b> Adding a variable to your data</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="importing-data-into-r.html"><a href="importing-data-into-r.html#lets-go-through-that-all-again"><i class="fa fa-check"></i><b>7.3</b> Let’s go through that all again</a></li>
+<li class="chapter" data-level="7.4" data-path="importing-data-into-r.html"><a href="importing-data-into-r.html#now-lets-practice-a-bit"><i class="fa fa-check"></i><b>7.4</b> Now let’s practice a bit</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="visualizing-data-in-r.html"><a href="visualizing-data-in-r.html"><i class="fa fa-check"></i><b>8</b> Visualizing Data in R</a><ul>
+<li class="chapter" data-level="8.1" data-path="visualizing-data-in-r.html"><a href="visualizing-data-in-r.html#lets-start-with-a-couple-of-good-videos"><i class="fa fa-check"></i><b>8.1</b> Let’s start with a couple of good videos</a></li>
+<li class="chapter" data-level="8.2" data-path="visualizing-data-in-r.html"><a href="visualizing-data-in-r.html#basic-visulualization"><i class="fa fa-check"></i><b>8.2</b> Basic visulualization</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="visualizing-data-in-r.html"><a href="visualizing-data-in-r.html#making-your-first-plots"><i class="fa fa-check"></i><b>8.2.1</b> Making your first plots</a></li>
+<li class="chapter" data-level="8.2.2" data-path="visualizing-data-in-r.html"><a href="visualizing-data-in-r.html#saving-your-plot"><i class="fa fa-check"></i><b>8.2.2</b> Saving your plot</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="visualizing-data-in-r.html"><a href="visualizing-data-in-r.html#try-a-bit-more-on-your-own."><i class="fa fa-check"></i><b>8.3</b> Try a bit more on your own.</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="measures-of-position.html"><a href="measures-of-position.html"><i class="fa fa-check"></i><b>9</b> Measures of Position</a><ul>
+<li class="chapter" data-level="9.1" data-path="measures-of-position.html"><a href="measures-of-position.html#percentile"><i class="fa fa-check"></i><b>9.1</b> Percentile</a></li>
+<li class="chapter" data-level="9.2" data-path="measures-of-position.html"><a href="measures-of-position.html#interquartile-range"><i class="fa fa-check"></i><b>9.2</b> Interquartile Range</a></li>
+<li class="chapter" data-level="9.3" data-path="measures-of-position.html"><a href="measures-of-position.html#outliers"><i class="fa fa-check"></i><b>9.3</b> Outliers</a></li>
+<li class="chapter" data-level="9.4" data-path="measures-of-position.html"><a href="measures-of-position.html#skew"><i class="fa fa-check"></i><b>9.4</b> Skew</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html"><i class="fa fa-check"></i><b>10</b> Measures of Central Tendency</a><ul>
+<li class="chapter" data-level="10.1" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#learning-objective-1-mean"><i class="fa fa-check"></i><b>10.1</b> Learning objective 1: Mean</a></li>
+<li class="chapter" data-level="10.2" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#learning-objective-2-median"><i class="fa fa-check"></i><b>10.2</b> Learning objective 2: Median</a></li>
+<li class="chapter" data-level="10.3" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#learning-objective-3-mode"><i class="fa fa-check"></i><b>10.3</b> Learning objective 3: Mode</a></li>
+<li class="chapter" data-level="10.4" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#another-look"><i class="fa fa-check"></i><b>10.4</b> Another look:</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="measures-of-dispersion.html"><a href="measures-of-dispersion.html"><i class="fa fa-check"></i><b>11</b> Measures of Dispersion</a><ul>
+<li class="chapter" data-level="11.1" data-path="measures-of-dispersion.html"><a href="measures-of-dispersion.html#learning-objective-1-range"><i class="fa fa-check"></i><b>11.1</b> Learning objective 1: Range</a></li>
+<li class="chapter" data-level="11.2" data-path="measures-of-dispersion.html"><a href="measures-of-dispersion.html#learning-objective-2-deviations"><i class="fa fa-check"></i><b>11.2</b> Learning objective 2: Deviations</a></li>
+<li class="chapter" data-level="11.3" data-path="measures-of-dispersion.html"><a href="measures-of-dispersion.html#learning-objective-3-variance"><i class="fa fa-check"></i><b>11.3</b> Learning objective 3: Variance</a></li>
+<li class="chapter" data-level="11.4" data-path="measures-of-dispersion.html"><a href="measures-of-dispersion.html#learning-objective-4-standard-deviation"><i class="fa fa-check"></i><b>11.4</b> Learning objective 4: Standard deviation</a></li>
+<li class="chapter" data-level="11.5" data-path="measures-of-dispersion.html"><a href="measures-of-dispersion.html#learning-objective-5-the-empirical-rule"><i class="fa fa-check"></i><b>11.5</b> Learning objective 5: The Empirical Rule</a></li>
+<li class="chapter" data-level="11.6" data-path="measures-of-dispersion.html"><a href="measures-of-dispersion.html#review-that-all-again"><i class="fa fa-check"></i><b>11.6</b> Review that all again</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="frequency-and-probability-distributions.html"><a href="frequency-and-probability-distributions.html"><i class="fa fa-check"></i><b>12</b> Frequency and Probability Distributions</a><ul>
+<li class="chapter" data-level="12.1" data-path="frequency-and-probability-distributions.html"><a href="frequency-and-probability-distributions.html#learning-objectives-4"><i class="fa fa-check"></i><b>12.1</b> Learning objectives</a></li>
+<li class="chapter" data-level="12.2" data-path="frequency-and-probability-distributions.html"><a href="frequency-and-probability-distributions.html#what-is-a-probability"><i class="fa fa-check"></i><b>12.2</b> What is a probability?</a></li>
+<li class="chapter" data-level="12.3" data-path="frequency-and-probability-distributions.html"><a href="frequency-and-probability-distributions.html#frequency-distribution"><i class="fa fa-check"></i><b>12.3</b> Frequency distribution</a><ul>
+<li class="chapter" data-level="12.3.1" data-path="frequency-and-probability-distributions.html"><a href="frequency-and-probability-distributions.html#probability-and-sets"><i class="fa fa-check"></i><b>12.3.1</b> Probability and sets</a></li>
+<li class="chapter" data-level="12.3.2" data-path="frequency-and-probability-distributions.html"><a href="frequency-and-probability-distributions.html#what-makes-a-frequency-distribution-special"><i class="fa fa-check"></i><b>12.3.2</b> What makes a frequency distribution special?</a></li>
+<li class="chapter" data-level="12.3.3" data-path="frequency-and-probability-distributions.html"><a href="frequency-and-probability-distributions.html#external-resources"><i class="fa fa-check"></i><b>12.3.3</b> External resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="some-basic-plotting-in-r.html"><a href="some-basic-plotting-in-r.html"><i class="fa fa-check"></i><b>13</b> Some basic plotting in R</a></li>
+<li class="chapter" data-level="14" data-path="sampling-distributions-pt-1.html"><a href="sampling-distributions-pt-1.html"><i class="fa fa-check"></i><b>14</b> Sampling Distributions, Pt. 1</a><ul>
+<li class="chapter" data-level="14.1" data-path="sampling-distributions-pt-1.html"><a href="sampling-distributions-pt-1.html#lets-review"><i class="fa fa-check"></i><b>14.1</b> Let’s review</a></li>
+<li class="chapter" data-level="14.2" data-path="sampling-distributions-pt-1.html"><a href="sampling-distributions-pt-1.html#what-is-a-sampling-distribution"><i class="fa fa-check"></i><b>14.2</b> What is a sampling distribution?</a></li>
+<li class="chapter" data-level="14.3" data-path="sampling-distributions-pt-1.html"><a href="sampling-distributions-pt-1.html#how-is-a-sampling-distribution-different-from-the-sample-distribution-or-the-population-distribution"><i class="fa fa-check"></i><b>14.3</b> How is a sampling distribution different from the sample distribution or the population distribution?</a></li>
+<li class="chapter" data-level="14.4" data-path="sampling-distributions-pt-1.html"><a href="sampling-distributions-pt-1.html#what-are-the-takeaways-2"><i class="fa fa-check"></i><b>14.4</b> What are the takeaways?</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="sampling-distributions-pt-2.html"><a href="sampling-distributions-pt-2.html"><i class="fa fa-check"></i><b>15</b> Sampling Distributions, Pt. 2</a><ul>
+<li class="chapter" data-level="15.1" data-path="sampling-distributions-pt-2.html"><a href="sampling-distributions-pt-2.html#lets-review-1"><i class="fa fa-check"></i><b>15.1</b> Let’s review</a></li>
+<li class="chapter" data-level="15.2" data-path="sampling-distributions-pt-2.html"><a href="sampling-distributions-pt-2.html#how-do-we-know-what-the-shape-of-a-sampling-distribution-is-when-the-sample-size-is-large"><i class="fa fa-check"></i><b>15.2</b> How do we know what the shape of a sampling distribution is when the sample size is large?</a></li>
+<li class="chapter" data-level="15.3" data-path="sampling-distributions-pt-2.html"><a href="sampling-distributions-pt-2.html#take-a-step-back"><i class="fa fa-check"></i><b>15.3</b> Take a step back</a></li>
+<li class="chapter" data-level="15.4" data-path="sampling-distributions-pt-2.html"><a href="sampling-distributions-pt-2.html#how-do-we-know-what-the-mean-of-a-sampling-distribution-is"><i class="fa fa-check"></i><b>15.4</b> How do we know what the <em>mean</em> of a sampling distribution is?</a></li>
+<li class="chapter" data-level="15.5" data-path="sampling-distributions-pt-2.html"><a href="sampling-distributions-pt-2.html#how-do-we-know-what-the-standard-error-is"><i class="fa fa-check"></i><b>15.5</b> How do we know what the <em>standard error</em> is?</a><ul>
+<li class="chapter" data-level="15.5.1" data-path="sampling-distributions-pt-2.html"><a href="sampling-distributions-pt-2.html#if-we-know-the-population-variance"><i class="fa fa-check"></i><b>15.5.1</b> If we know the population variance:</a></li>
+<li class="chapter" data-level="15.5.2" data-path="sampling-distributions-pt-2.html"><a href="sampling-distributions-pt-2.html#if-we-dont-know-the-population-variance-and-the-sample-size-is-large"><i class="fa fa-check"></i><b>15.5.2</b> If we don’t know the population variance AND the sample size is large:</a></li>
+</ul></li>
+<li class="chapter" data-level="15.6" data-path="sampling-distributions-pt-2.html"><a href="sampling-distributions-pt-2.html#some-notes-on-notation"><i class="fa fa-check"></i><b>15.6</b> Some notes on notation</a></li>
+<li class="chapter" data-level="15.7" data-path="sampling-distributions-pt-2.html"><a href="sampling-distributions-pt-2.html#whats-the-takeaway-1"><i class="fa fa-check"></i><b>15.7</b> What’s the takeaway?</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="working-with-the-normal-distribution.html"><a href="working-with-the-normal-distribution.html"><i class="fa fa-check"></i><b>16</b> Working with the Normal Distribution</a><ul>
+<li class="chapter" data-level="16.1" data-path="working-with-the-normal-distribution.html"><a href="working-with-the-normal-distribution.html#the-standard-normal-distribution"><i class="fa fa-check"></i><b>16.1</b> The Standard Normal Distribution</a><ul>
+<li class="chapter" data-level="16.1.1" data-path="working-with-the-normal-distribution.html"><a href="working-with-the-normal-distribution.html#example"><i class="fa fa-check"></i><b>16.1.1</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="working-with-the-normal-distribution.html"><a href="working-with-the-normal-distribution.html#z-scores"><i class="fa fa-check"></i><b>16.2</b> Z-scores</a></li>
+<li class="chapter" data-level="16.3" data-path="working-with-the-normal-distribution.html"><a href="working-with-the-normal-distribution.html#whats-the-point-of-the-z-score"><i class="fa fa-check"></i><b>16.3</b> What’s the point of the z-score?</a></li>
+<li class="chapter" data-level="16.4" data-path="working-with-the-normal-distribution.html"><a href="working-with-the-normal-distribution.html#examples"><i class="fa fa-check"></i><b>16.4</b> Examples</a><ul>
+<li class="chapter" data-level="16.4.1" data-path="working-with-the-normal-distribution.html"><a href="working-with-the-normal-distribution.html#example-1-finding-the-area-to-the-left-when-xmu"><i class="fa fa-check"></i><b>16.4.1</b> Example 1: Finding the area to the left, when <span class="math inline">\(x&lt;\mu\)</span></a></li>
+<li class="chapter" data-level="16.4.2" data-path="working-with-the-normal-distribution.html"><a href="working-with-the-normal-distribution.html#example-2-finding-the-area-to-the-right-when-x-le-mu."><i class="fa fa-check"></i><b>16.4.2</b> Example 2: Finding the area to the right when <span class="math inline">\(x \le \mu\)</span>.</a></li>
+<li class="chapter" data-level="16.4.3" data-path="working-with-the-normal-distribution.html"><a href="working-with-the-normal-distribution.html#example-3-finding-the-point-given-an-area"><i class="fa fa-check"></i><b>16.4.3</b> Example 3: Finding the point given an area</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="the-binomial-distribution.html"><a href="the-binomial-distribution.html"><i class="fa fa-check"></i><b>17</b> The Binomial Distribution</a><ul>
+<li class="chapter" data-level="17.1" data-path="the-binomial-distribution.html"><a href="the-binomial-distribution.html#the-binomial-distribution-1"><i class="fa fa-check"></i><b>17.1</b> The Binomial Distribution</a></li>
+<li class="chapter" data-level="17.2" data-path="the-binomial-distribution.html"><a href="the-binomial-distribution.html#calculating-probabilities-using-a-table"><i class="fa fa-check"></i><b>17.2</b> Calculating probabilities using a table</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="working-with-the-t-distribution.html"><a href="working-with-the-t-distribution.html"><i class="fa fa-check"></i><b>18</b> Working with the T-distribution</a><ul>
+<li class="chapter" data-level="18.1" data-path="working-with-the-t-distribution.html"><a href="working-with-the-t-distribution.html#a-bit-about-the-t-distribution"><i class="fa fa-check"></i><b>18.1</b> A bit about the t-distribution</a></li>
+<li class="chapter" data-level="18.2" data-path="working-with-the-t-distribution.html"><a href="working-with-the-t-distribution.html#finding-probabilities"><i class="fa fa-check"></i><b>18.2</b> Finding probabilities</a><ul>
+<li class="chapter" data-level="18.2.1" data-path="working-with-the-t-distribution.html"><a href="working-with-the-t-distribution.html#finding-quantiles-given-a-probability"><i class="fa fa-check"></i><b>18.2.1</b> Finding quantiles given a probability</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="estimating-population-means-using-confidence-intervals.html"><a href="estimating-population-means-using-confidence-intervals.html"><i class="fa fa-check"></i><b>19</b> Estimating population means using confidence intervals</a><ul>
+<li class="chapter" data-level="19.1" data-path="estimating-population-means-using-confidence-intervals.html"><a href="estimating-population-means-using-confidence-intervals.html#statistical-inference-is-how-we-draw-conclusions-from-the-data."><i class="fa fa-check"></i><b>19.1</b> Statistical inference is how we draw conclusions from the data.</a></li>
+<li class="chapter" data-level="19.2" data-path="estimating-population-means-using-confidence-intervals.html"><a href="estimating-population-means-using-confidence-intervals.html#we-make-statistical-inferences-by-using-sample-statistics-to-estimate-population-parameters."><i class="fa fa-check"></i><b>19.2</b> We make statistical inferences by using sample statistics to estimate population parameters.</a></li>
+<li class="chapter" data-level="19.3" data-path="estimating-population-means-using-confidence-intervals.html"><a href="estimating-population-means-using-confidence-intervals.html#the-method-we-use-to-make-statistical-inferences-using-sample-statistics-is-called-estimation."><i class="fa fa-check"></i><b>19.3</b> The method we use to make statistical inferences using sample statistics is called estimation.</a></li>
+<li class="chapter" data-level="19.4" data-path="estimating-population-means-using-confidence-intervals.html"><a href="estimating-population-means-using-confidence-intervals.html#constructing-confidence-intervals-to-make-statistical-inferences."><i class="fa fa-check"></i><b>19.4</b> Constructing confidence intervals to make statistical inferences.</a></li>
+<li class="chapter" data-level="19.5" data-path="estimating-population-means-using-confidence-intervals.html"><a href="estimating-population-means-using-confidence-intervals.html#remember-that-we-already-learned-about-the-standard-error-."><i class="fa fa-check"></i><b>19.5</b> Remember that we already learned about the standard error ….</a></li>
+<li class="chapter" data-level="19.6" data-path="estimating-population-means-using-confidence-intervals.html"><a href="estimating-population-means-using-confidence-intervals.html#remember-that-we-already-learned-about-the-z-score-."><i class="fa fa-check"></i><b>19.6</b> Remember that we already learned about the z-score ….</a></li>
+<li class="chapter" data-level="19.7" data-path="estimating-population-means-using-confidence-intervals.html"><a href="estimating-population-means-using-confidence-intervals.html#example."><i class="fa fa-check"></i><b>19.7</b> Example.</a></li>
+<li class="chapter" data-level="19.8" data-path="estimating-population-means-using-confidence-intervals.html"><a href="estimating-population-means-using-confidence-intervals.html#conclusion."><i class="fa fa-check"></i><b>19.8</b> Conclusion.</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="team-assignment.html"><a href="team-assignment.html"><i class="fa fa-check"></i><b>20</b> Team Assignment</a></li>
+<li class="chapter" data-level="21" data-path="constructing-confidence-intervals-using-proportions.html"><a href="constructing-confidence-intervals-using-proportions.html"><i class="fa fa-check"></i><b>21</b> Constructing Confidence Intervals Using Proportions</a><ul>
+<li class="chapter" data-level="21.1" data-path="constructing-confidence-intervals-using-proportions.html"><a href="constructing-confidence-intervals-using-proportions.html#what-is-a-proportion"><i class="fa fa-check"></i><b>21.1</b> What is a proportion?</a></li>
+<li class="chapter" data-level="21.2" data-path="constructing-confidence-intervals-using-proportions.html"><a href="constructing-confidence-intervals-using-proportions.html#confidence-intervals-with-proportions"><i class="fa fa-check"></i><b>21.2</b> Confidence Intervals With Proportions</a></li>
+<li class="chapter" data-level="21.3" data-path="constructing-confidence-intervals-using-proportions.html"><a href="constructing-confidence-intervals-using-proportions.html#example-1"><i class="fa fa-check"></i><b>21.3</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="large-n-hypothesis-testing-for-proportions.html"><a href="large-n-hypothesis-testing-for-proportions.html"><i class="fa fa-check"></i><b>22</b> Large-n hypothesis testing for proportions</a><ul>
+<li class="chapter" data-level="22.1" data-path="large-n-hypothesis-testing-for-proportions.html"><a href="large-n-hypothesis-testing-for-proportions.html#qualitative-data"><i class="fa fa-check"></i><b>22.1</b> Qualitative data</a></li>
+<li class="chapter" data-level="22.2" data-path="large-n-hypothesis-testing-for-proportions.html"><a href="large-n-hypothesis-testing-for-proportions.html#learning-objectives-5"><i class="fa fa-check"></i><b>22.2</b> Learning Objectives</a></li>
+<li class="chapter" data-level="22.3" data-path="large-n-hypothesis-testing-for-proportions.html"><a href="large-n-hypothesis-testing-for-proportions.html#science-is-about-testing-claims-with-data"><i class="fa fa-check"></i><b>22.3</b> Science is about testing claims with data</a></li>
+<li class="chapter" data-level="22.4" data-path="large-n-hypothesis-testing-for-proportions.html"><a href="large-n-hypothesis-testing-for-proportions.html#but-you-will-need-to-construct-a-hypothesis-test"><i class="fa fa-check"></i><b>22.4</b> But you will need to construct a hypothesis test…</a></li>
+<li class="chapter" data-level="22.5" data-path="large-n-hypothesis-testing-for-proportions.html"><a href="large-n-hypothesis-testing-for-proportions.html#this-all-sounds-a-bit-confusing-so-lets-break-this-down"><i class="fa fa-check"></i><b>22.5</b> This all sounds a bit confusing, so let’s break this down…</a></li>
+<li class="chapter" data-level="22.6" data-path="large-n-hypothesis-testing-for-proportions.html"><a href="large-n-hypothesis-testing-for-proportions.html#watch-all-of-these-videos"><i class="fa fa-check"></i><b>22.6</b> Watch all of these videos</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="type-i-and-type-ii-errors.html"><a href="type-i-and-type-ii-errors.html"><i class="fa fa-check"></i><b>23</b> Type I and Type II Errors</a><ul>
+<li class="chapter" data-level="23.1" data-path="type-i-and-type-ii-errors.html"><a href="type-i-and-type-ii-errors.html#learning-objective"><i class="fa fa-check"></i><b>23.1</b> Learning Objective:</a></li>
+<li class="chapter" data-level="23.2" data-path="type-i-and-type-ii-errors.html"><a href="type-i-and-type-ii-errors.html#type-i-and-type-ii-errors-1"><i class="fa fa-check"></i><b>23.2</b> Type I and Type II Errors</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="hypothesis-testing-for-small-sample-quantitative-data.html"><a href="hypothesis-testing-for-small-sample-quantitative-data.html"><i class="fa fa-check"></i><b>24</b> Hypothesis Testing for Small Sample Quantitative Data</a><ul>
+<li class="chapter" data-level="24.1" data-path="hypothesis-testing-for-small-sample-quantitative-data.html"><a href="hypothesis-testing-for-small-sample-quantitative-data.html#learning-objective-1"><i class="fa fa-check"></i><b>24.1</b> Learning Objective:</a></li>
+<li class="chapter" data-level="24.2" data-path="hypothesis-testing-for-small-sample-quantitative-data.html"><a href="hypothesis-testing-for-small-sample-quantitative-data.html#hypothesis-test"><i class="fa fa-check"></i><b>24.2</b> Hypothesis Test</a><ul>
+<li class="chapter" data-level="24.2.1" data-path="hypothesis-testing-for-small-sample-quantitative-data.html"><a href="hypothesis-testing-for-small-sample-quantitative-data.html#step-1-make-assumptions-about-your-data"><i class="fa fa-check"></i><b>24.2.1</b> Step 1: Make assumptions about your data</a></li>
+<li class="chapter" data-level="24.2.2" data-path="hypothesis-testing-for-small-sample-quantitative-data.html"><a href="hypothesis-testing-for-small-sample-quantitative-data.html#step-2-formulate-null-and-alternative-hypotheses"><i class="fa fa-check"></i><b>24.2.2</b> Step 2: Formulate null and alternative hypotheses</a></li>
+<li class="chapter" data-level="24.2.3" data-path="hypothesis-testing-for-small-sample-quantitative-data.html"><a href="hypothesis-testing-for-small-sample-quantitative-data.html#step-3-calculate-a-test-statistic"><i class="fa fa-check"></i><b>24.2.3</b> Step 3: Calculate a Test Statistic</a></li>
+<li class="chapter" data-level="24.2.4" data-path="hypothesis-testing-for-small-sample-quantitative-data.html"><a href="hypothesis-testing-for-small-sample-quantitative-data.html#step-4-calculate-a-p-value"><i class="fa fa-check"></i><b>24.2.4</b> Step 4: Calculate a p-value</a></li>
+<li class="chapter" data-level="24.2.5" data-path="hypothesis-testing-for-small-sample-quantitative-data.html"><a href="hypothesis-testing-for-small-sample-quantitative-data.html#step-5-draw-a-conclusion"><i class="fa fa-check"></i><b>24.2.5</b> Step 5: Draw a conclusion</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="confidence-intervals-in-r.html"><a href="confidence-intervals-in-r.html"><i class="fa fa-check"></i><b>25</b> Confidence intervals in R</a><ul>
+<li class="chapter" data-level="25.1" data-path="confidence-intervals-in-r.html"><a href="confidence-intervals-in-r.html#learning-goals"><i class="fa fa-check"></i><b>25.1</b> Learning Goals</a></li>
+<li class="chapter" data-level="25.2" data-path="confidence-intervals-in-r.html"><a href="confidence-intervals-in-r.html#example-graphs-and-r-code"><i class="fa fa-check"></i><b>25.2</b> Example Graphs and R Code:</a></li>
+<li class="chapter" data-level="25.3" data-path="confidence-intervals-in-r.html"><a href="confidence-intervals-in-r.html#what-is-a-confidence-interval"><i class="fa fa-check"></i><b>25.3</b> What is a Confidence Interval?</a></li>
+<li class="chapter" data-level="25.4" data-path="confidence-intervals-in-r.html"><a href="confidence-intervals-in-r.html#confidence-intervals-for-the-mean-of-populations"><i class="fa fa-check"></i><b>25.4</b> Confidence Intervals for the Mean of Populations</a></li>
+<li class="chapter" data-level="25.5" data-path="confidence-intervals-in-r.html"><a href="confidence-intervals-in-r.html#in-r"><i class="fa fa-check"></i><b>25.5</b> In R:</a><ul>
+<li class="chapter" data-level="25.5.1" data-path="confidence-intervals-in-r.html"><a href="confidence-intervals-in-r.html#numerical-summaries"><i class="fa fa-check"></i><b>25.5.1</b> Numerical Summaries:</a></li>
+<li class="chapter" data-level="25.5.2" data-path="confidence-intervals-in-r.html"><a href="confidence-intervals-in-r.html#normal-quantiles"><i class="fa fa-check"></i><b>25.5.2</b> Normal Quantiles</a></li>
+<li class="chapter" data-level="25.5.3" data-path="confidence-intervals-in-r.html"><a href="confidence-intervals-in-r.html#code"><i class="fa fa-check"></i><b>25.5.3</b> Code</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="26" data-path="poster-projects.html"><a href="poster-projects.html"><i class="fa fa-check"></i><b>26</b> Poster Projects</a><ul>
+<li class="chapter" data-level="26.1" data-path="poster-projects.html"><a href="poster-projects.html#grading"><i class="fa fa-check"></i><b>26.1</b> Grading</a></li>
+<li class="chapter" data-level="26.2" data-path="poster-projects.html"><a href="poster-projects.html#finding-the-right-topic-question-theory-and-data"><i class="fa fa-check"></i><b>26.2</b> Finding the right topic, question, theory, and data</a><ul>
+<li class="chapter" data-level="26.2.1" data-path="poster-projects.html"><a href="poster-projects.html#topic"><i class="fa fa-check"></i><b>26.2.1</b> Topic</a></li>
+<li class="chapter" data-level="26.2.2" data-path="poster-projects.html"><a href="poster-projects.html#question"><i class="fa fa-check"></i><b>26.2.2</b> Question</a></li>
+<li class="chapter" data-level="26.2.3" data-path="poster-projects.html"><a href="poster-projects.html#theory"><i class="fa fa-check"></i><b>26.2.3</b> Theory</a></li>
+<li class="chapter" data-level="26.2.4" data-path="poster-projects.html"><a href="poster-projects.html#out-of-bounds"><i class="fa fa-check"></i><b>26.2.4</b> Out of bounds</a></li>
+<li class="chapter" data-level="26.2.5" data-path="poster-projects.html"><a href="poster-projects.html#hypothesis"><i class="fa fa-check"></i><b>26.2.5</b> Hypothesis</a></li>
+<li class="chapter" data-level="26.2.6" data-path="poster-projects.html"><a href="poster-projects.html#data-collection"><i class="fa fa-check"></i><b>26.2.6</b> Data Collection</a></li>
+</ul></li>
+<li class="chapter" data-level="26.3" data-path="poster-projects.html"><a href="poster-projects.html#actually-making-a-poster-writing-and-visual-design"><i class="fa fa-check"></i><b>26.3</b> Actually making a poster (writing and visual design)</a></li>
+<li class="chapter" data-level="26.4" data-path="poster-projects.html"><a href="poster-projects.html#r-code"><i class="fa fa-check"></i><b>26.4</b> R Code</a></li>
+<li class="chapter" data-level="26.5" data-path="poster-projects.html"><a href="poster-projects.html#methods"><i class="fa fa-check"></i><b>26.5</b> Methods</a></li>
+<li class="chapter" data-level="26.6" data-path="poster-projects.html"><a href="poster-projects.html#results"><i class="fa fa-check"></i><b>26.6</b> Results</a></li>
+<li class="chapter" data-level="26.7" data-path="poster-projects.html"><a href="poster-projects.html#conclusion-and-limitations"><i class="fa fa-check"></i><b>26.7</b> Conclusion and Limitations</a><ul>
+<li class="chapter" data-level="26.7.1" data-path="poster-projects.html"><a href="poster-projects.html#conclusion"><i class="fa fa-check"></i><b>26.7.1</b> Conclusion</a></li>
+<li class="chapter" data-level="26.7.2" data-path="poster-projects.html"><a href="poster-projects.html#limitations"><i class="fa fa-check"></i><b>26.7.2</b> Limitations</a></li>
+</ul></li>
+<li class="chapter" data-level="26.8" data-path="poster-projects.html"><a href="poster-projects.html#technical-stuff"><i class="fa fa-check"></i><b>26.8</b> Technical stuff</a><ul>
+<li class="chapter" data-level="26.8.1" data-path="poster-projects.html"><a href="poster-projects.html#submitting-your-projects"><i class="fa fa-check"></i><b>26.8.1</b> Submitting Your Projects:</a></li>
+<li class="chapter" data-level="26.8.2" data-path="poster-projects.html"><a href="poster-projects.html#printing"><i class="fa fa-check"></i><b>26.8.2</b> Printing</a></li>
+</ul></li>
+<li class="chapter" data-level="26.9" data-path="poster-projects.html"><a href="poster-projects.html#tips-for-doing-well"><i class="fa fa-check"></i><b>26.9</b> Tips for Doing Well</a></li>
+<li class="chapter" data-level="26.10" data-path="poster-projects.html"><a href="poster-projects.html#past-poster-project-examples"><i class="fa fa-check"></i><b>26.10</b> Past Poster Project Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="causation-and-average-treatment-effects.html"><a href="causation-and-average-treatment-effects.html"><i class="fa fa-check"></i><b>27</b> Causation and Average Treatment Effects</a><ul>
+<li class="chapter" data-level="27.1" data-path="causation-and-average-treatment-effects.html"><a href="causation-and-average-treatment-effects.html#learning-objectives-6"><i class="fa fa-check"></i><b>27.1</b> Learning Objectives:</a></li>
+<li class="chapter" data-level="27.2" data-path="causation-and-average-treatment-effects.html"><a href="causation-and-average-treatment-effects.html#introduction"><i class="fa fa-check"></i><b>27.2</b> Introduction</a></li>
+<li class="chapter" data-level="27.3" data-path="causation-and-average-treatment-effects.html"><a href="causation-and-average-treatment-effects.html#so-what-exactly-is-causation"><i class="fa fa-check"></i><b>27.3</b> So, what exactly is causation?</a></li>
+<li class="chapter" data-level="27.4" data-path="causation-and-average-treatment-effects.html"><a href="causation-and-average-treatment-effects.html#how-do-we-determine-what-the-counterfactual-is"><i class="fa fa-check"></i><b>27.4</b> How do we determine what the counterfactual is?</a><ul>
+<li class="chapter" data-level="27.4.1" data-path="causation-and-average-treatment-effects.html"><a href="causation-and-average-treatment-effects.html#how-does-an-experiment-work"><i class="fa fa-check"></i><b>27.4.1</b> How does an experiment work?</a></li>
+<li class="chapter" data-level="27.4.2" data-path="causation-and-average-treatment-effects.html"><a href="causation-and-average-treatment-effects.html#so-how-do-we-measure-the-effect-of-the-treatment-in-an-experiment"><i class="fa fa-check"></i><b>27.4.2</b> So, how do we measure the effect of the treatment in an experiment?</a></li>
+</ul></li>
+<li class="chapter" data-level="27.5" data-path="causation-and-average-treatment-effects.html"><a href="causation-and-average-treatment-effects.html#but-what-if-we-cant-do-an-experiment"><i class="fa fa-check"></i><b>27.5</b> But what if we can’t do an experiment?</a><ul>
+<li class="chapter" data-level="27.5.1" data-path="causation-and-average-treatment-effects.html"><a href="causation-and-average-treatment-effects.html#confounding-relationships"><i class="fa fa-check"></i><b>27.5.1</b> Confounding relationships</a></li>
+<li class="chapter" data-level="27.5.2" data-path="causation-and-average-treatment-effects.html"><a href="causation-and-average-treatment-effects.html#example-women-in-tech-firms"><i class="fa fa-check"></i><b>27.5.2</b> Example: Women in tech firms</a></li>
+</ul></li>
+<li class="chapter" data-level="27.6" data-path="causation-and-average-treatment-effects.html"><a href="causation-and-average-treatment-effects.html#conclusion-1"><i class="fa fa-check"></i><b>27.6</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="28" data-path="finding-average-treatment-effects-in-r.html"><a href="finding-average-treatment-effects-in-r.html"><i class="fa fa-check"></i><b>28</b> Finding average treatment effects in R</a><ul>
+<li class="chapter" data-level="28.1" data-path="finding-average-treatment-effects-in-r.html"><a href="finding-average-treatment-effects-in-r.html#factors-in-data"><i class="fa fa-check"></i><b>28.1</b> Factors in Data</a></li>
+<li class="chapter" data-level="28.2" data-path="finding-average-treatment-effects-in-r.html"><a href="finding-average-treatment-effects-in-r.html#visualizing-data-as-a-table"><i class="fa fa-check"></i><b>28.2</b> Visualizing data as a table</a></li>
+<li class="chapter" data-level="28.3" data-path="finding-average-treatment-effects-in-r.html"><a href="finding-average-treatment-effects-in-r.html#creating-factor-variables"><i class="fa fa-check"></i><b>28.3</b> Creating factor variables</a></li>
+<li class="chapter" data-level="28.4" data-path="finding-average-treatment-effects-in-r.html"><a href="finding-average-treatment-effects-in-r.html#from-factor-to-string"><i class="fa fa-check"></i><b>28.4</b> From factor to string</a></li>
+<li class="chapter" data-level="28.5" data-path="finding-average-treatment-effects-in-r.html"><a href="finding-average-treatment-effects-in-r.html#using-tapply"><i class="fa fa-check"></i><b>28.5</b> Using tapply()</a></li>
+</ul></li>
+<li class="chapter" data-level="29" data-path="comparing-means.html"><a href="comparing-means.html"><i class="fa fa-check"></i><b>29</b> Comparing Means</a><ul>
+<li class="chapter" data-level="29.1" data-path="comparing-means.html"><a href="comparing-means.html#comparing-means-for-quantitative-variables"><i class="fa fa-check"></i><b>29.1</b> Comparing Means for Quantitative Variables</a></li>
+<li class="chapter" data-level="29.2" data-path="comparing-means.html"><a href="comparing-means.html#what-information-goes-into-comparing-means-for-quantitative-variables"><i class="fa fa-check"></i><b>29.2</b> What Information Goes Into Comparing Means for Quantitative Variables?</a></li>
+<li class="chapter" data-level="29.3" data-path="comparing-means.html"><a href="comparing-means.html#what-formulas-are-needed-for-comparing-means-for-quantitative-variables"><i class="fa fa-check"></i><b>29.3</b> What Formulas are Needed for Comparing Means for Quantitative Variables?</a></li>
+<li class="chapter" data-level="29.4" data-path="comparing-means.html"><a href="comparing-means.html#putting-it-all-into-practice"><i class="fa fa-check"></i><b>29.4</b> Putting it all into practice!</a></li>
+<li class="chapter" data-level="29.5" data-path="comparing-means.html"><a href="comparing-means.html#what-did-you-learn"><i class="fa fa-check"></i><b>29.5</b> What did you learn?</a></li>
+</ul></li>
+<li class="chapter" data-level="30" data-path="t-tests-in-r.html"><a href="t-tests-in-r.html"><i class="fa fa-check"></i><b>30</b> T-tests in R</a><ul>
+<li class="chapter" data-level="30.1" data-path="t-tests-in-r.html"><a href="t-tests-in-r.html#gerber-green-larimer-gotv-data"><i class="fa fa-check"></i><b>30.1</b> Gerber, Green, &amp; Larimer GOTV Data</a></li>
+<li class="chapter" data-level="30.2" data-path="t-tests-in-r.html"><a href="t-tests-in-r.html#did-these-mailers-affect-turnout"><i class="fa fa-check"></i><b>30.2</b> Did these mailers affect turnout?</a></li>
+<li class="chapter" data-level="30.3" data-path="t-tests-in-r.html"><a href="t-tests-in-r.html#now-we-can-finally-run-our-t-test"><i class="fa fa-check"></i><b>30.3</b> Now we can finally run our t-test</a><ul>
+<li class="chapter" data-level="30.3.1" data-path="t-tests-in-r.html"><a href="t-tests-in-r.html#understanding-the-output"><i class="fa fa-check"></i><b>30.3.1</b> Understanding the output</a></li>
+<li class="chapter" data-level="30.3.2" data-path="t-tests-in-r.html"><a href="t-tests-in-r.html#important-options-for-the-t.test-function"><i class="fa fa-check"></i><b>30.3.2</b> important options for the <code>t.test()</code> function</a></li>
+<li class="chapter" data-level="30.3.3" data-path="t-tests-in-r.html"><a href="t-tests-in-r.html#alternative-usage-of-the-t.test-function"><i class="fa fa-check"></i><b>30.3.3</b> Alternative Usage of the <code>t.test()</code> Function</a></li>
+</ul></li>
+<li class="chapter" data-level="30.4" data-path="t-tests-in-r.html"><a href="t-tests-in-r.html#now-a-video"><i class="fa fa-check"></i><b>30.4</b> Now a video</a></li>
+</ul></li>
+<li class="chapter" data-level="31" data-path="chi-squared-test-of-independence.html"><a href="chi-squared-test-of-independence.html"><i class="fa fa-check"></i><b>31</b> Chi Squared Test of Independence</a><ul>
+<li class="chapter" data-level="31.1" data-path="chi-squared-test-of-independence.html"><a href="chi-squared-test-of-independence.html#what-is-a-chi-squared-test-of-independence"><i class="fa fa-check"></i><b>31.1</b> What is a Chi-Squared Test of Independence?</a></li>
+<li class="chapter" data-level="31.2" data-path="chi-squared-test-of-independence.html"><a href="chi-squared-test-of-independence.html#performing-a-chi-squared-test-of-independence"><i class="fa fa-check"></i><b>31.2</b> Performing a Chi-Squared Test of Independence</a></li>
+<li class="chapter" data-level="31.3" data-path="chi-squared-test-of-independence.html"><a href="chi-squared-test-of-independence.html#seeing-how-it-is-done"><i class="fa fa-check"></i><b>31.3</b> Seeing How it is Done!</a></li>
+</ul></li>
+<li class="chapter" data-level="32" data-path="the-chi-square-test-in-r.html"><a href="the-chi-square-test-in-r.html"><i class="fa fa-check"></i><b>32</b> The Chi Square Test in R</a></li>
+<li class="chapter" data-level="33" data-path="contingency-tables-and-bivariate-data.html"><a href="contingency-tables-and-bivariate-data.html"><i class="fa fa-check"></i><b>33</b> Contingency tables and bivariate data</a><ul>
+<li class="chapter" data-level="33.1" data-path="contingency-tables-and-bivariate-data.html"><a href="contingency-tables-and-bivariate-data.html#discrete-by-discrete-data-display"><i class="fa fa-check"></i><b>33.1</b> Discrete by Discrete Data Display</a></li>
+<li class="chapter" data-level="33.2" data-path="contingency-tables-and-bivariate-data.html"><a href="contingency-tables-and-bivariate-data.html#contingency-tables"><i class="fa fa-check"></i><b>33.2</b> Contingency Tables</a></li>
+<li class="chapter" data-level="33.3" data-path="contingency-tables-and-bivariate-data.html"><a href="contingency-tables-and-bivariate-data.html#creating-contingency-tables-in-r"><i class="fa fa-check"></i><b>33.3</b> Creating Contingency Tables in R</a></li>
+<li class="chapter" data-level="33.4" data-path="contingency-tables-and-bivariate-data.html"><a href="contingency-tables-and-bivariate-data.html#discrete-by-continuous-displays"><i class="fa fa-check"></i><b>33.4</b> Discrete by Continuous Displays</a></li>
+<li class="chapter" data-level="33.5" data-path="contingency-tables-and-bivariate-data.html"><a href="contingency-tables-and-bivariate-data.html#continuous-by-continuous-displays"><i class="fa fa-check"></i><b>33.5</b> Continuous By Continuous Displays</a></li>
+<li class="chapter" data-level="33.6" data-path="contingency-tables-and-bivariate-data.html"><a href="contingency-tables-and-bivariate-data.html#the-value-of-scatterplots"><i class="fa fa-check"></i><b>33.6</b> The value of Scatterplots</a><ul>
+<li class="chapter" data-level="33.6.1" data-path="contingency-tables-and-bivariate-data.html"><a href="contingency-tables-and-bivariate-data.html#in-r-we-can-only-make-scatterplots-with-numeric-variables"><i class="fa fa-check"></i><b>33.6.1</b> In R, we can only make scatterplots with <strong>numeric</strong> variables!</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="34" data-path="bivariate-regression.html"><a href="bivariate-regression.html"><i class="fa fa-check"></i><b>34</b> Bivariate Regression</a><ul>
+<li class="chapter" data-level="34.1" data-path="bivariate-regression.html"><a href="bivariate-regression.html#learning-objectives-7"><i class="fa fa-check"></i><b>34.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="34.2" data-path="bivariate-regression.html"><a href="bivariate-regression.html#summary-1"><i class="fa fa-check"></i><b>34.2</b> Summary</a></li>
+<li class="chapter" data-level="34.3" data-path="bivariate-regression.html"><a href="bivariate-regression.html#what-is-a-linear-regression"><i class="fa fa-check"></i><b>34.3</b> What is a linear regression?</a></li>
+<li class="chapter" data-level="34.4" data-path="bivariate-regression.html"><a href="bivariate-regression.html#when-do-we-use-linear-regression"><i class="fa fa-check"></i><b>34.4</b> When do we use linear regression?</a><ul>
+<li class="chapter" data-level="34.4.1" data-path="bivariate-regression.html"><a href="bivariate-regression.html#how-to-choose-the-best-line"><i class="fa fa-check"></i><b>34.4.1</b> How to choose the “best” line</a></li>
+<li class="chapter" data-level="34.4.2" data-path="bivariate-regression.html"><a href="bivariate-regression.html#additional-resources"><i class="fa fa-check"></i><b>34.4.2</b> Additional resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="35" data-path="marginal-and-conditional-standard-deviation.html"><a href="marginal-and-conditional-standard-deviation.html"><i class="fa fa-check"></i><b>35</b> Marginal and Conditional Standard Deviation</a><ul>
+<li class="chapter" data-level="35.1" data-path="marginal-and-conditional-standard-deviation.html"><a href="marginal-and-conditional-standard-deviation.html#learning-objective-2"><i class="fa fa-check"></i><b>35.1</b> Learning Objective:</a></li>
+<li class="chapter" data-level="35.2" data-path="marginal-and-conditional-standard-deviation.html"><a href="marginal-and-conditional-standard-deviation.html#marginal-standard-deviation"><i class="fa fa-check"></i><b>35.2</b> Marginal standard deviation</a></li>
+<li class="chapter" data-level="35.3" data-path="marginal-and-conditional-standard-deviation.html"><a href="marginal-and-conditional-standard-deviation.html#conditional-standard-deviation"><i class="fa fa-check"></i><b>35.3</b> Conditional standard deviation</a></li>
+</ul></li>
+<li class="chapter" data-level="36" data-path="inference-for-regression.html"><a href="inference-for-regression.html"><i class="fa fa-check"></i><b>36</b> Inference for Regression</a><ul>
+<li class="chapter" data-level="36.1" data-path="inference-for-regression.html"><a href="inference-for-regression.html#learning-objectives-8"><i class="fa fa-check"></i><b>36.1</b> Learning objectives:</a></li>
+<li class="chapter" data-level="36.2" data-path="inference-for-regression.html"><a href="inference-for-regression.html#inference-with-regression"><i class="fa fa-check"></i><b>36.2</b> Inference with regression</a><ul>
+<li class="chapter" data-level="36.2.1" data-path="inference-for-regression.html"><a href="inference-for-regression.html#hypothesis-tests"><i class="fa fa-check"></i><b>36.2.1</b> Hypothesis tests</a></li>
+<li class="chapter" data-level="36.2.2" data-path="inference-for-regression.html"><a href="inference-for-regression.html#confidence-intervals"><i class="fa fa-check"></i><b>36.2.2</b> Confidence intervals</a></li>
+</ul></li>
+<li class="chapter" data-level="36.3" data-path="inference-for-regression.html"><a href="inference-for-regression.html#table-interpretation"><i class="fa fa-check"></i><b>36.3</b> Table Interpretation</a></li>
+</ul></li>
+<li class="chapter" data-level="37" data-path="basic-linear-regression-in-r.html"><a href="basic-linear-regression-in-r.html"><i class="fa fa-check"></i><b>37</b> Basic Linear Regression in R</a></li>
+<li class="chapter" data-level="38" data-path="how-to-plot-residuals-in-r.html"><a href="how-to-plot-residuals-in-r.html"><i class="fa fa-check"></i><b>38</b> How to Plot Residuals in R</a></li>
+<li class="chapter" data-level="39" data-path="regression-example.html"><a href="regression-example.html"><i class="fa fa-check"></i><b>39</b> Regression example</a></li>
+<li class="chapter" data-level="40" data-path="multivariate-regression.html"><a href="multivariate-regression.html"><i class="fa fa-check"></i><b>40</b> Multivariate Regression</a><ul>
+<li class="chapter" data-level="40.1" data-path="multivariate-regression.html"><a href="multivariate-regression.html#a-bit-more-on-multivariate-regressions"><i class="fa fa-check"></i><b>40.1</b> A bit more on multivariate regressions</a></li>
+<li class="chapter" data-level="40.2" data-path="multivariate-regression.html"><a href="multivariate-regression.html#d-representation-of-the-data"><i class="fa fa-check"></i><b>40.2</b> 3D Representation of the Data</a></li>
+</ul></li>
+<li class="chapter" data-level="41" data-path="multivariate-regression-example-teaching-about-evolution.html"><a href="multivariate-regression-example-teaching-about-evolution.html"><i class="fa fa-check"></i><b>41</b> Multivariate regression example: Teaching about evolution</a></li>
+<li class="chapter" data-level="42" data-path="difference-in-differences-part-i.html"><a href="difference-in-differences-part-i.html"><i class="fa fa-check"></i><b>42</b> Difference-in-Differences, Part I</a><ul>
+<li class="chapter" data-level="42.1" data-path="difference-in-differences-part-i.html"><a href="difference-in-differences-part-i.html#what-does-difference-in-differences-seek-to-accomplish"><i class="fa fa-check"></i><b>42.1</b> What does difference-in-differences seek to accomplish?</a></li>
+<li class="chapter" data-level="42.2" data-path="difference-in-differences-part-i.html"><a href="difference-in-differences-part-i.html#difference-in-differences-did-as-a-natural-experiment"><i class="fa fa-check"></i><b>42.2</b> Difference-in-differences (DiD) as a “natural experiment”</a></li>
+<li class="chapter" data-level="42.3" data-path="difference-in-differences-part-i.html"><a href="difference-in-differences-part-i.html#theoretical-assumptions-underlying-the-did-design"><i class="fa fa-check"></i><b>42.3</b> Theoretical assumptions underlying the DiD design</a></li>
+</ul></li>
+<li class="chapter" data-level="43" data-path="difference-in-differences-part-ii.html"><a href="difference-in-differences-part-ii.html"><i class="fa fa-check"></i><b>43</b> Difference-in-Differences, Part II</a><ul>
+<li class="chapter" data-level="43.1" data-path="difference-in-differences-part-ii.html"><a href="difference-in-differences-part-ii.html#learning-objectives-9"><i class="fa fa-check"></i><b>43.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="43.2" data-path="difference-in-differences-part-ii.html"><a href="difference-in-differences-part-ii.html#one-real-world-example"><i class="fa fa-check"></i><b>43.2</b> One real-world example</a></li>
+<li class="chapter" data-level="43.3" data-path="difference-in-differences-part-ii.html"><a href="difference-in-differences-part-ii.html#executing-difference-in-differences-with-aggregate-level-data"><i class="fa fa-check"></i><b>43.3</b> Executing difference-in-differences with aggregate-level data</a></li>
+<li class="chapter" data-level="43.4" data-path="difference-in-differences-part-ii.html"><a href="difference-in-differences-part-ii.html#executing-difference-in-differences-with-individual-level-data"><i class="fa fa-check"></i><b>43.4</b> Executing difference-in-differences with individual-level data</a></li>
+</ul></li>
+<li class="chapter" data-level="44" data-path="regression-discontinuity-designs-part-1.html"><a href="regression-discontinuity-designs-part-1.html"><i class="fa fa-check"></i><b>44</b> Regression discontinuity designs, Part 1</a><ul>
+<li class="chapter" data-level="44.1" data-path="regression-discontinuity-designs-part-1.html"><a href="regression-discontinuity-designs-part-1.html#learning-objectives-10"><i class="fa fa-check"></i><b>44.1</b> Learning objectives</a></li>
+<li class="chapter" data-level="44.2" data-path="regression-discontinuity-designs-part-1.html"><a href="regression-discontinuity-designs-part-1.html#learning-objective-1-what-is-regression-discontinuity"><i class="fa fa-check"></i><b>44.2</b> Learning objective 1: What is regression discontinuity?</a></li>
+<li class="chapter" data-level="44.3" data-path="regression-discontinuity-designs-part-1.html"><a href="regression-discontinuity-designs-part-1.html#learning-objective-2-thinking-about-regression-discontinuity-as-an-experiment"><i class="fa fa-check"></i><b>44.3</b> Learning Objective 2: Thinking about regression discontinuity as an experiment</a></li>
+<li class="chapter" data-level="44.4" data-path="regression-discontinuity-designs-part-1.html"><a href="regression-discontinuity-designs-part-1.html#learning-objective-3-regression-discontinuity-in-the-real-world"><i class="fa fa-check"></i><b>44.4</b> Learning objective 3: Regression discontinuity in the real world</a></li>
+</ul></li>
+<li class="chapter" data-level="45" data-path="regression-discontinuity-designs-part-ii.html"><a href="regression-discontinuity-designs-part-ii.html"><i class="fa fa-check"></i><b>45</b> Regression discontinuity designs, Part II</a><ul>
+<li class="chapter" data-level="45.1" data-path="regression-discontinuity-designs-part-ii.html"><a href="regression-discontinuity-designs-part-ii.html#learning-objective-3"><i class="fa fa-check"></i><b>45.1</b> Learning Objective</a></li>
+<li class="chapter" data-level="45.2" data-path="regression-discontinuity-designs-part-ii.html"><a href="regression-discontinuity-designs-part-ii.html#learning-objective-1-basic-regression-discontinuity-designs"><i class="fa fa-check"></i><b>45.2</b> Learning Objective 1: Basic regression discontinuity designs</a></li>
+<li class="chapter" data-level="45.3" data-path="regression-discontinuity-designs-part-ii.html"><a href="regression-discontinuity-designs-part-ii.html#learning-objective-2-handling-non-linearities"><i class="fa fa-check"></i><b>45.3</b> Learning Objective 2: Handling non-linearities</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Quantitative Political Methods Coursebook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="multivariate-regression" class="section level1">
+<h1><span class="header-section-number">40</span> Multivariate Regression</h1>
+<p>First, watch this video:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/q1RD5ECsSB0" frameborder="0" allowfullscreen>
+</iframe>
+<div id="a-bit-more-on-multivariate-regressions" class="section level2">
+<h2><span class="header-section-number">40.1</span> A bit more on multivariate regressions</h2>
+<p>What if we’re interested in modeling the relationship between two independent variables and a dependent variable? Linear regression can do that through use of matrices and the regression equations. Fortunately, we have R to solve all the matrix algebra for us.</p>
+<p>Multivariate Regression can be used to examine the joint relationship between any number of independent variables and a dependent variable. It is important to remember that all of the variables involved have to be continuous or dichotomous. However, also know that linear regression is quite robust to assumption violations. Thus, we can still get workable results if we violate this.</p>
+<p>Generally, we can use this prediction equation:</p>
+<p><span class="math display">\[\hat{y_i} = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \ldots + \beta_k x_{ik}\]</span></p>
+<p>Linear model in R:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    <span class="kw">lm</span>(<span class="dt">formula =</span> y ~<span class="st"> </span>x<span class="fl">.1</span> +<span class="st"> </span>x<span class="fl">.2</span> +<span class="st"> </span>... +<span class="st"> </span>x.k, <span class="dt">data =</span> my.data)</code></pre></div>
+<p>We can then apply it to the dataset “mtcars”, which comes in R. It includes information about various car models in 1974 (boring, right, but stay with me). You can see the variables by typing</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    <span class="kw">help</span>(<span class="st">&quot;mtcars&quot;</span>)</code></pre></div>
+<p>We want to test the very simple theory that the miles per gallon a car gets is a function of its weight and its size (displacement).<br />
+<span class="math display">\[MPG = \beta_0 + \beta_1 weight + \beta_2 displacement\]</span></p>
+<p>Linear model in R:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    <span class="kw">data</span>(<span class="st">&quot;mtcars&quot;</span>)
+    fit &lt;-<span class="st"> </span><span class="kw">lm</span>(mpg ~<span class="st"> </span>wt +<span class="st"> </span>disp, <span class="dt">data =</span> mtcars)
+    <span class="kw">summary</span>(fit)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mpg ~ wt + disp, data = mtcars)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -3.4087 -2.3243 -0.7683  1.7721  6.3484 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 34.96055    2.16454  16.151 4.91e-16 ***
+## wt          -3.35082    1.16413  -2.878  0.00743 ** 
+## disp        -0.01773    0.00919  -1.929  0.06362 .  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.917 on 29 degrees of freedom
+## Multiple R-squared:  0.7809, Adjusted R-squared:  0.7658 
+## F-statistic: 51.69 on 2 and 29 DF,  p-value: 2.744e-10</code></pre>
+<p>Clearly there is a relationship between mileage and weight and, to a lesser degree, the size of the car. But keep in mind that we are “controlling for” the other variables. So, a one unit increase in weight <strong>decreases</strong> MPG by 3.35 <em>even after accounting for the fact that heavier cars tend to be bigger</em>.</p>
+<p>However, the size (dispersion) variable is not significant in this regression. Does that mean that bigger cars aren’t lower in MPG? Of course not.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    <span class="kw">data</span>(<span class="st">&quot;mtcars&quot;</span>)
+    fit &lt;-<span class="st"> </span><span class="kw">lm</span>(mpg ~<span class="st"> </span>disp, <span class="dt">data =</span> mtcars)
+    <span class="kw">summary</span>(fit)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mpg ~ disp, data = mtcars)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.8922 -2.2022 -0.9631  1.6272  7.2305 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 29.599855   1.229720  24.070  &lt; 2e-16 ***
+## disp        -0.041215   0.004712  -8.747 9.38e-10 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 3.251 on 30 degrees of freedom
+## Multiple R-squared:  0.7183, Adjusted R-squared:  0.709 
+## F-statistic: 76.51 on 1 and 30 DF,  p-value: 9.38e-10</code></pre>
+<p>Here we see that there is a clear relationship between displacement and MPG. The relationship only “goes away” when we look at the effect of a one unit change in <em>displacement controlling for weight</em>. From this we can understand that:</p>
+<ul>
+<li>A heavier car that is not any bigger will have worse MPG.</li>
+<li>A bigger car that does not get heavier has a more uncertain relationship with MPG.</li>
+</ul>
+</div>
+<div id="d-representation-of-the-data" class="section level2">
+<h2><span class="header-section-number">40.2</span> 3D Representation of the Data</h2>
+<p>Let’s take a look at the data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(mtcars[,<span class="kw">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;wt&quot;</span>, <span class="st">&quot;disp&quot;</span>)])</code></pre></div>
+<p><img src="images/unnamed-chunk-72-1.png" width="672" /></p>
+<p>Here we see that all three of these variables seem to be related to eachother.</p>
+<p>Let’s tryand see this in three dimensions (you may need to install the <code>scatterplot3d</code> package.)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(scatterplot3d)
+<span class="kw">attach</span>(mtcars)
+s3d &lt;-<span class="kw">scatterplot3d</span>(wt,disp,mpg, <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">highlight.3d=</span><span class="ot">TRUE</span>,<span class="dt">type=</span><span class="st">&quot;h&quot;</span>, <span class="dt">main=</span><span class="st">&quot;3D Scatterplot&quot;</span>)</code></pre></div>
+<p><img src="images/unnamed-chunk-73-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fit &lt;-<span class="st"> </span><span class="kw">lm</span>(mpg ~<span class="st"> </span>wt+disp)</code></pre></div>
+<p>This plot shows the data points for in a three-dimensional space. But can we now draw the regression “plane” through the points?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">s3d &lt;-<span class="kw">scatterplot3d</span>(wt,disp,mpg, <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">highlight.3d=</span><span class="ot">TRUE</span>, <span class="dt">type=</span><span class="st">&quot;h&quot;</span>, <span class="dt">main=</span><span class="st">&quot;3D Scatterplot&quot;</span>)
+fit &lt;-<span class="st"> </span><span class="kw">lm</span>(mpg ~<span class="st"> </span>wt+disp) 
+s3d$<span class="kw">plane3d</span>(fit, <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>)</code></pre></div>
+<p><img src="images/unnamed-chunk-74-1.png" width="672" /></p>
+<p>Remember, the regression equation is just a representation of he plane. And the “tilt” of the plane represents “independent” relationship between each covariate and the outcome “controlling for” the other variables.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="regression-example.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="multivariate-regression-example-teaching-about-evolution.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
