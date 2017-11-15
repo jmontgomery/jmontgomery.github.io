@@ -420,6 +420,7 @@ Date| Topic | Reading | Assignments| Notes
 10/23| Experiments: Comparing means | CB: Chapter 29 <br> AF: 7.1-7.3| 
 10/25| Experiments: Contingency tables |CB: Chapter 31 <br> AF: 8.1-8.4| PS4 Due | [PS5 Distributed](http://jmontgomery.github.io/ProblemSets/PS5.pdf)
 10/26-27| T-tests <br> Tables | CB: Chapters 30, 32-33
+<<<<<<< Updated upstream
 10/30| Regression and prediction | AF: 9.1-9.4 <br> CB: Chapter 34
 11/1| Regression and inference | AF: 9.5  <br> CB: Chapters 35-36| 
 11/2-3| Regression in R | <br> CB: Chapters 37-39
@@ -428,6 +429,16 @@ Date| Topic | Reading | Assignments| Notes
 11/9-10| Multiple regression 
 11/13| Difference in differences | CB: Chapters 43-44| 
 11/15| Regression discontinuity |CB: Chapters 45-46| PS6 Due | PS7 Distributed
+=======
+10/30| Regression and prediction 
+11/1| Regression and inference ||  | 
+11/2-3| Regression in R
+11/6| Interactions and dummies || 
+11/8| Multiple regression || PS5 Due | [PS6 Distributed](http://jmontgomery.github.io/ProblemSets/PS6.pdf)
+11/9-10| Multiple regression
+11/13| Difference in differences || 
+11/15| Regression discontinuity || PS6 Due | [PS7 Distributed](http://jmontgomery.github.io/ProblemSets/PS7.pdf)
+>>>>>>> Stashed changes
 11/16-17| DID and RD
 11/20| Instrumental variables
 11/22| NO CLASS <bf> Thanksgiving
