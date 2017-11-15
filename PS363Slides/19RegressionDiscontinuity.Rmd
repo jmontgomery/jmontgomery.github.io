@@ -1,0 +1,238 @@
+---
+title: "Regression Discontinuity"
+author: "Jacob M. Montgomery"
+date: "Quantitative Political Methodology"
+output: beamer_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+
+
+
+# Regression discontinuity
+
+## Poster questions
+
+
+Some thoughts on posters:
+
+- How many hypotheses?  1 is enough.
+- Fewer words are better. \pause
+- Correlation is not causation:
+    - Panel data with fixed effects.
+    - Experimental data
+    - Difference in differences
+    - Regression discontinuity
+    - Instrumental variables \pause
+- Don't forget limitations
+
+
+## Road map
+
+Where we have been:
+
+- What is causality
+- Using regression for experiments
+- Controlling for confounders
+- Regression discontinuity
+
+\pause
+Today:
+
+- Regression discontinuity
+- How to use RD designs to establish causality \pause
+- Some time to work with your team on your project
+
+
+----
+
+## Causal inference
+
+- We will use T to represent a treatment variable.
+- For a categorical treatment 
+
+\begin{center}
+  $T_i =   \begin{array}{l}
+  \mbox{1 if unit i receives the treatment}\\
+  \mbox{0 if unit i receives the control}
+  \end{array}$
+\end{center}
+
+\pause 
+
+- We let $y_i^1$ represent the outcome of the ith unit if the
+  treatment is given. \pause
+- We let $y_i^0$ represent the outcome of the ith unit if the
+  control is given. \pause
+- One of these is observed, the other is the counterfactual --
+  what would have been observed if the other treatment have been given? \pause
+- The causal effect of $T_i$ on observation $i$ will then be $y_i^1 - y_i^0$
+
+
+----
+
+
+\begin{center}
+\includegraphics[scale=.6]{./LectureGraphics/ATE1}
+\end{center}
+
+\pause
+
+-  $ATE = mean(y_i^1) -mean(y_i^0)$
+-  $ATE =(\alpha+\beta) -(\alpha)$
+-  $ATE = \beta$
+
+
+----
+
+## A hypothetical example
+
+Imagine we have a new and wonderful plan to end civil conflict. \pause Here is the distribution of the violent deaths in each (hypothetical) country.
+
+\begin{center}
+\includegraphics[scale=.7]{./LectureGraphics/RD1}
+\end{center}
+
+
+----
+
+## A hypothetical example
+
+
+- Our research partner does not want to do an experiment. 
+- Instead, they deploy their intervention in the 100 most violent countries.
+
+\begin{center}
+\includegraphics[scale=.6]{./LectureGraphics/RD2}
+\end{center}
+
+
+
+----
+
+### Can we estimate a causal effect?
+
+- Countries that received the intervention are obviously different than those that did not. (Confounders)
+- Parallel paths assumption probably won't hold.
+- But maybe countries \textit{right near the threshold} are good counterfactuals for each other! \pause
+- We can use a regression discontinuity design to estimate the causal effect \textit{right around the threshold}.
+
+
+----
+
+
+### Our study design
+
+The basic components:
+
+- $Y$: An outcome variable (violence at $t+1$)
+- $X$: A variable that determines the cutoff (violence at $t$)
+- $D$: A cutoff/threshold
+- Does the relationship between $Y$ and $X$ "shift" right at $D$? 
+
+
+----
+
+
+### When there is no treatment effect ($\beta_2=0$)
+
+$$Y=\alpha+\beta_1X + \beta_2I(X>D)+\epsilon$$
+
+\begin{center}
+\includegraphics[scale=.6]{./LectureGraphics/RD3}
+\end{center}
+
+----
+
+### When there is a treatment effect ($\beta_2\ne 0$)
+
+$$Y=\alpha+\beta_1X + \beta_2I(X>D)+\epsilon$$
+
+\begin{center}
+\includegraphics[scale=.6]{./LectureGraphics/RD4}
+\end{center}
+
+
+----
+
+### Maybe the slopes differ (still look at $\beta_2$)
+
+$$Y=\alpha+\beta_1X + \beta_2I(X>D)+\beta_3\times X \times I(X>D) +\epsilon$$
+
+\begin{center}
+\includegraphics[scale=.6]{./LectureGraphics/RD5}
+\end{center}
+
+----
+
+### Maybe they aren't lines at all (still look at $\beta_2$)
+
+$$Y=\alpha+\beta_1X + \beta_2I(X>D)+\beta_3 X^2 + \beta_3 X^3+\epsilon$$
+
+\begin{center}
+\includegraphics[scale=.6]{./LectureGraphics/RD6}
+\end{center}
+
+----
+
+
+
+## Example 1: Ideological extremity
+
+Does nominating a more ideologically extreme candidate affect general election results?
+
+- $Y$: Outcome is general election results
+- $X$: Percent of vote the most ideologically extreme candidate won in the primary.
+- $D$: Looking at candidates just above and below the 50\% threshold for the primary.
+
+
+\vspace{.25cm}
+Hall, Andrew (2015). "What Happens When Extremists Win Primaries?" \textit{American Political Science Review}.
+
+----
+
+
+
+
+\begin{center}
+\includegraphics[scale=.26]{./LectureGraphics/HallRDD}
+\end{center}
+
+
+
+----
+
+### Example 2: Incumbency advantage in Brazilian mayoral elections
+
+Does incumbency give parties an advantage, or is it an indicator of advantage? Looking at three sequential elections (2004, 2008, 2012), and starting with the incumbents who won in 2004.
+
+- $Y$: Percent of incumbent-party candidates that won the in the third
+  cycle (e.g., won in 2012)
+- $X$: Percent of vote the incumbent candidate won in the previous election (e.g., how much they won in 2008).
+- $D$: Looking at incumbents candidates just above and below the 50\% threshold for the primary.
+
+\vspace{.5cm}
+Marko Klasnja and Rocio Titiunik (2014). "The Incumbency Curse: Weak Parties, Term
+Limits, and Unfulfilled Accountability." \textit{American Political Science Review}.
+
+
+----
+
+
+\vspace{-.8cm}
+\begin{center}
+\includegraphics[scale=.38]{./LectureGraphics/RDD2}
+\end{center}
+\vspace{-1cm}
+Divide up into groups.  Discuss this plot and explain what it means.
+Why does this happen? (HINT: Brazil limits mayors to two terms in office)
+
+
+
+
+
+

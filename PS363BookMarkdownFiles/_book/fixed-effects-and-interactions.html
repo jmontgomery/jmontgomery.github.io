@@ -6,8 +6,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Quantitative Political Methods Coursebook</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="Quantitative Political Methods Coursebook">
-  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
 
   <meta property="og:title" content="Quantitative Political Methods Coursebook" />
   <meta property="og:type" content="book" />
@@ -32,7 +33,8 @@
   
   
 <link rel="prev" href="multivariate-regression-example-teaching-about-evolution.html">
-<link rel="next" href="difference-in-differences-part-i.html">
+<link rel="next" href="difference-in-differences-part-ii.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -52,7 +54,6 @@
 </head>
 
 <body>
-
 
 
   <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
@@ -115,10 +116,11 @@
 <li class="chapter" data-level="43.2.4" data-path="fixed-effects-and-interactions.html"><a href="fixed-effects-and-interactions.html#a-video-on-interactions-in-r"><i class="fa fa-check"></i><b>43.2.4</b> A video on interactions in R</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="44" data-path="difference-in-differences-part-i.html"><a href="difference-in-differences-part-i.html"><i class="fa fa-check"></i><b>44</b> Difference-in-Differences, Part I</a></li>
-<li class="chapter" data-level="45" data-path="difference-in-differences-part-ii.html"><a href="difference-in-differences-part-ii.html"><i class="fa fa-check"></i><b>45</b> Difference-in-Differences, Part II</a></li>
-<li class="chapter" data-level="46" data-path="regression-discontinuity-designs-part-1.html"><a href="regression-discontinuity-designs-part-1.html"><i class="fa fa-check"></i><b>46</b> Regression discontinuity designs, Part 1</a></li>
-<li class="chapter" data-level="47" data-path="regression-discontinuity-designs-part-ii.html"><a href="regression-discontinuity-designs-part-ii.html"><i class="fa fa-check"></i><b>47</b> Regression discontinuity designs, Part II</a></li>
+<li class="chapter" data-level="44" data-path="difference-in-differences-part-ii.html"><a href="difference-in-differences-part-ii.html"><i class="fa fa-check"></i><b>44</b> Difference-in-Differences, Part II</a></li>
+<li class="chapter" data-level="45" data-path="difference-in-differences-part-i.html"><a href="difference-in-differences-part-i.html"><i class="fa fa-check"></i><b>45</b> Difference-in-Differences, Part I</a></li>
+<li class="chapter" data-level="46" data-path="difference-in-differences-part-ii-1.html"><a href="difference-in-differences-part-ii-1.html"><i class="fa fa-check"></i><b>46</b> Difference-in-Differences, Part II</a></li>
+<li class="chapter" data-level="47" data-path="regression-discontinuity-designs-part-1.html"><a href="regression-discontinuity-designs-part-1.html"><i class="fa fa-check"></i><b>47</b> Regression discontinuity designs, Part 1</a></li>
+<li class="chapter" data-level="48" data-path="regression-discontinuity-designs-part-ii.html"><a href="regression-discontinuity-designs-part-ii.html"><i class="fa fa-check"></i><b>48</b> Regression discontinuity designs, Part II</a></li>
 </ul>
 
       </nav>
@@ -170,8 +172,8 @@
 </div>
 <div id="summary" class="section level3">
 <h3><span class="header-section-number">43.1.2</span> Summary</h3>
-<p>The takeaway from this being that when you are studying time-varying treatments using panel data, using a Fixed Effects Model is one way to go.</p>
-<p>But there are a few things to worrya bout here:</p>
+<p>When you are studying time-varying treatments using panel data, using a Fixed Effects Model is one way to go. Having a different constant for each unit allows you to account for time-invariant confounders.</p>
+<p>But there are a few things to worry about here:</p>
 <ol style="list-style-type: decimal">
 <li><p>If you have the same unit observed many times, you may not have truly independent observations. This can lead us to have incorrect (too small) standard errors. In a more advanced course you would be taught how to handle these issues.</p></li>
 <li><p>You still have to worry about time-varying confounders.</p></li>
@@ -181,29 +183,125 @@
 <div id="interactions" class="section level2">
 <h2><span class="header-section-number">43.2</span> Interactions</h2>
 <p>In this section, you will learn the basics of what an interaction is, what an interaction term looks like in a multiple regression as well as how to interpret it.</p>
-<p>By now, you have (hopefully) learned what a multiple regression is. The basics of such regressions being that you are testing multiple potential explanatory variables in order to ascertain a reason as to why some phenomenon occurs. We want to know what effects some chosen factors have on an observed outcome. But what if one explanatory factor in some way affects the other’s ability to explain the outcome?</p>
+<p>By now, you have (hopefully) learned what a multiple regression is. The basics of such regressions being that you are testing multiple potential explanatory variables in order to ascertain the effect of one variable (<span class="math inline">\(x_1\)</span>) <em>controlling for</em> some other variable (<span class="math inline">\(x_2\)</span>).</p>
+<p>But what if one explanatory factor in some way affects the other’s ability to explain the outcome? That is, what if the <strong>relationship</strong> between one variable (<span class="math inline">\(x_1\)</span>) and the outcome (<span class="math inline">\(y\)</span>) varies depending on the value of a third veriable (<span class="math inline">\(x_2\)</span>).</p>
 <p>This is what we call an interaction.</p>
 <div id="defining-an-interaction" class="section level3">
 <h3><span class="header-section-number">43.2.1</span> Defining an interaction</h3>
-<p>An interaction exists between X1 and X2 in their true effects on Y when the true <strong>effect</strong> of one predictor on Y changes as the value of the other predictor changes.</p>
-<p>In a regression, an interaction term is one in which you specifically look at the interaction between two explanatory variables that you are testing.</p>
-<p>At first look, this may seem strange, right? With regressions, we’re interested in understanding how an explanatory variable affect some specific outcome variable. Why would we be interested in how explanatory variables relate to each other? But by looking at the interaction between explanatory variable, we are able to tell whether or not the effects of a change in one of them affects the ability of the other to explain your outcome. This is very important because if there is an interaction occurring between explanatory variables this will affect the way in which we interpret the outcome.</p>
+<p>An interaction exists between <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> in their true effects on Y when the true <strong>effect</strong> of one predictor on <span class="math inline">\(y\)</span> changes as the value of the other predictor changes.</p>
+<p>Mathematically, this looks like:</p>
+<p><span class="math display">\[y=\beta_0 + \beta_1 x_1 + \beta_2x_2 + \beta_3(x_1 \times x_2) \]</span></p>
+<p>At first look, this may seem strange, right? With regressions, we’re interested in understanding how an explanatory variable affect some specific outcome variable. Why would we be interested in how explanatory variables relate to each other?</p>
+<ul>
+<li>By looking at the interaction between explanatory variables, we are able to tell whether or not a change in one of them alters the ability of the other to explain your outcome.</li>
+<li>Mathematically, this is not too tricky. We just make a new variable <span class="math inline">\((x_1 \times x_2)\)</span> and calculate the regression coefficients as normal. But allowing for interactions between explanatory variables will change the way in which we interpret the outcome.</li>
+</ul>
 </div>
 <div id="how-about-an-example-1" class="section level3">
 <h3><span class="header-section-number">43.2.2</span> How about an example?</h3>
 <p>Let’s say we’re interested to know whether or not education strengthens the relationship between party ID and health care reform opinion.</p>
+<p>In this example, we have three variables:</p>
+<ol style="list-style-type: decimal">
+<li>Support for the Obama health care plan (1=Strongly oppose, 2=Moderately favor, 3=Moderately oppose, 4=Strongly oppose).</li>
+<li>Party ID (1=GOP, 2=Independent, 3=Demorat)</li>
+<li>College education (0=Did not graduate college, 1=Did graduate college)</li>
+</ol>
+<p>Here is a depiction of the data from a poll in 2009.</p>
+<div class="figure">
+<img src="hc-govt10.png" />
+
+</div>
 <p>By now, you should be used to seeing an equation that looks like this (without an interaction term):</p>
 <p><span class="math display">\[\mbox{Health Care Reform Support}=\beta_0 +\beta_1(\mbox{Party ID}) + \beta_2(\mbox{College})\]</span></p>
-<p><span class="math display">\[\mbox{Health Care Reform Support}=\beta_0 +\beta_1(\mbox{PartyID}) + \beta_2(\mbox{College}) + \underset{interaction}{\underbrace{\beta_3(Party \times College)}}\]</span></p>
+<p>Now we can add in the interaction term.</p>
+<p><span class="math display">\[\begin{array}{r}\mbox{Health Care Reform Support} ~=\\ ~ \end{array}\begin{array}{l}\beta_0 +\beta_1(\mbox{PartyID}) + \beta_2(\mbox{College}) + \\ \underset{interaction}{\underbrace{\beta_3(Party \times College)}}\end{array}\]</span></p>
 <p>This term on the end is an interaction term where we simply multiple the college variable by the party variable. That’s all it is! It’s a regression with just another covariate added. It’s interpreting the results where things get a bit tricky.</p>
 </div>
 <div id="but-what-does-it-all-mean" class="section level3">
 <h3><span class="header-section-number">43.2.3</span> But what does it all mean?</h3>
-<p>By adding this interaction term, we are able to see whether or not, changes in one of the explanatory variables in turn creates changes in the other in their effects on support of health care reform</p>
-<p>| Variable | Coefficient (SE in parentheses) | _________________________________ |Constant | 1.402 |</p>
-<p>| (0.055) Party | 0.789 | (0.039) College &amp; $-$0.111 &amp; (0.085) Party <span class="math inline">\(\times\)</span> College &amp; 0.326 &amp; (0.061) ——–</p>
-<p>How do I read this term? You read this term no differently than you would another term in a table: simply divide the coefficient by the standard error. If it isn’t significant, then the interaction isn’t (affecting your outcome). If it is statistically significant, that means that the interaction between your two explanatory variables is affecting your outcome variable.</p>
-<p>In a regression output, the interaction term would look something like this. As you can see, it’s just as easy to interpret as the other explanatory variables and abides by the same rules!</p>
+<p>By adding this interaction term, we are able to see whether or not, changes in one of the explanatory variables in turn creates changes in the other in their effects on support of health care reform.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Coefficient</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Constant</td>
+<td>1.402</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>(0.055)</td>
+</tr>
+<tr class="odd">
+<td>Party</td>
+<td>0.789</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>(0.039)</td>
+</tr>
+<tr class="odd">
+<td>College</td>
+<td>-0.111</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>(0.085)</td>
+</tr>
+<tr class="odd">
+<td>Party <span class="math inline">\(\times\)</span> College</td>
+<td>0.326</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>(0.061)</td>
+</tr>
+<tr class="odd">
+<td>N = 981</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(R^2\)</span> = 0.4979</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>How do I read this table? That can be tricky. To some extent, you can read this table like any other: simply divide the coefficient by the standard error and see what is significant. But actually, it can be a bit more comples.</p>
+<p>The prediction equation is:</p>
+<p>HCR support = (1.40) + (0.79 <span class="math inline">\(\times\)</span> Party) – (.11 <span class="math inline">\(\times\)</span> College) + (.33 <span class="math inline">\(\times\)</span> Party <span class="math inline">\(\times\)</span> College)</p>
+<div id="what-does-it-mean-though" class="section level4">
+<h4><span class="header-section-number">43.2.3.1</span> What does it mean though?</h4>
+<p>Well, the easiest way to see this is to choose specific values for one of the two terms.</p>
+<p>First, what is the relationship between Party ID and support for the health care reform among non-college educated respondents? You can find the answer just by putting in the value <span class="math inline">\(0\)</span> in the equation above wherever it says “College.”</p>
+<ol style="list-style-type: decimal">
+<li>HCR support = (1.40) + (0.79 <span class="math inline">\(\times\)</span> Party) – (.11 <span class="math inline">\(\times\)</span> 0) + (.33 <span class="math inline">\(\times\)</span> Party <span class="math inline">\(\times\)</span> 0)<br />
+</li>
+<li>HCR = 1.40 + 0.79 <span class="math inline">\(\times\)</span> Party</li>
+</ol>
+<p>Second, what is the relationship between Party ID and support for the health care reform among college educated respondents? You can find the answer just by putting in the value <span class="math inline">\(1\)</span> in the equation above wherever it says “College.”</p>
+<ol style="list-style-type: decimal">
+<li>HCR support = (1.40) + (0.79 <span class="math inline">\(\times\)</span> Party) – (.11 <span class="math inline">\(\times\)</span> 1) + (.33 <span class="math inline">\(\times\)</span> Party <span class="math inline">\(\times\)</span> 1)</li>
+<li>HCR support = (1.40 - 0.11) + ((0.79+0.33) <span class="math inline">\(\times\)</span> Party)</li>
+<li>HCR support = 1.29 + 1.12 <span class="math inline">\(\times\)</span> Party</li>
+</ol>
+<p>Here are the two lines that we end up with:</p>
+<div class="figure">
+<img src="hc-govt10-2.png" />
+
+</div>
+</div>
+<div id="so-what" class="section level4">
+<h4><span class="header-section-number">43.2.3.2</span> So … what?</h4>
+<p>So what this means is that the relationship between PartyID and support for health care reform is <strong>stronger</strong> (steeper) amont college-educated respondents. We know this because:</p>
+<ol style="list-style-type: decimal">
+<li>The slope is steeper for college-educated respondents (the interaction term is positive)</li>
+<li>The interaction term is signifcantly different from zero.</li>
+</ol>
+</div>
 </div>
 <div id="a-video-on-interactions-in-r" class="section level3">
 <h3><span class="header-section-number">43.2.4</span> A video on interactions in R</h3>
@@ -219,9 +317,8 @@
         </div>
       </div>
 <a href="multivariate-regression-example-teaching-about-evolution.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="difference-in-differences-part-i.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
-    </div>
-  </div>
+<a href="difference-in-differences-part-ii.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
@@ -264,7 +361,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
     if (location.protocol !== "file:" && /^https?:/.test(script.src))
       script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);
