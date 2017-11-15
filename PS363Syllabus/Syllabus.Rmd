@@ -428,17 +428,7 @@ Date| Topic | Reading | Assignments| Notes
 11/8| Dummies and interactions | AF:11.5 <bf> CB: Chapter 42  | PS5 Due | [PS6 Distributed](http://jmontgomery.github.io/ProblemSets/PS6.pdf)
 11/9-10| Multiple regression 
 11/13| Difference in differences | CB: Chapters 43-44| 
-11/15| Regression discontinuity |CB: Chapters 45-46| PS6 Due | PS7 Distributed
-=======
-10/30| Regression and prediction 
-11/1| Regression and inference ||  | 
-11/2-3| Regression in R
-11/6| Interactions and dummies || 
-11/8| Multiple regression || PS5 Due | [PS6 Distributed](http://jmontgomery.github.io/ProblemSets/PS6.pdf)
-11/9-10| Multiple regression
-11/13| Difference in differences || 
-11/15| Regression discontinuity || PS6 Due | [PS7 Distributed](http://jmontgomery.github.io/ProblemSets/PS7.pdf)
->>>>>>> Stashed changes
+11/15| Regression discontinuity |CB: Chapters 45-46| PS6 Due | [PS7 Distributed](http://jmontgomery.github.io/ProblemSets/PS7.pdf)
 11/16-17| DID and RD
 11/20| Instrumental variables
 11/22| NO CLASS <bf> Thanksgiving
