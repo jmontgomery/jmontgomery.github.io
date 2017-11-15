@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="measures-of-position.html">
-<link rel="next" href="measures-of-dispersion.html">
+<link rel="prev" href="multivariate-regression-example-teaching-about-evolution.html">
+<link rel="next" href="difference-in-differences-part-ii.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -453,53 +453,99 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="measures-of-central-tendency" class="section level1">
-<h1><span class="header-section-number">10</span> Measures of Central Tendency</h1>
-<p>Learning Objectives:</p>
+<div id="fixed-effects-and-interactions" class="section level1">
+<h1><span class="header-section-number">42</span> Fixed effects and interactions</h1>
+<div id="fixed-effects" class="section level2">
+<h2><span class="header-section-number">42.1</span> Fixed effects</h2>
+<p>In this section, you will learn about how fixed effects models work. So far we have just talked about regression in the abstract. Today, we are going to introduce you to a different type of model that will be helpful as you begin to think about what kind of statistical model you want to use for your research project.</p>
+<p>Fixed Effects is extremely useful, as it allows us to study a specific treatment, while accounting for <strong>time-invariant differences</strong> across the same units of study over time, such as states or cities. It allows us to test a certain effect or theory across that unit. This differs from other models we’ve seen in the sense that instead of looking at the differences between units such as cities or states (sometimes called a cross-sectional study), we are instead looking at the differences in repeated observations within them over time (sometimes called a panel study).</p>
+<div id="how-about-an-example" class="section level3">
+<h3><span class="header-section-number">42.1.1</span> How about an example?</h3>
+<p>We’re interested in this research question: Are elections fought over non-economic issues more when globalization increases?</p>
+<p>Let’s say our panel data includes repeated observations of Canada, France, the United States and the United Kingdom. Now, our knowledge up onto this point would tell us to look at how these countries differ among each other. How does France differ from Canada or the United States in terms of this question? The problem with this is that there exist many differences between the countries that we can’t account for in our model.</p>
+<div id="what-can-we-do-in-order-to-eliminate-this-bias" class="section level4">
+<h4><span class="header-section-number">42.1.1.1</span> What can we do in order to eliminate this bias?</h4>
+<p>How about instead of looking at the difference among each of those countries, we look at the treatment within them over time. More specifically, with repeated observations of the United States, have elections been fought over non-economic issues more when globalization increases by looking at US elections in 2000, 2002, and 2004? What about Canada, France and the United Kingdom? Have repeated observations of elections in each of those countries showed an increase in these kinds of non-economic focused races? By researching this question using a fixed effects model, we can, to a certain extent, control for this. We are able to account for time-invariant differences across units and allow us to limit the bias we would have been faced with had we used a different model.</p>
+<p>In order to accomplish this in a regression, we use <strong>dummy variables</strong>. Like you recently saw in class, dummy variables are simply categorical variables recoded in terms of a quantitative value.</p>
+<p>In a fixed effects model, we use k-1 dummy variables for k units of study. In this case, we would use countries as the dummy variable. It doesn’t matter what you use as the baseline but make sure you know which one it is as it is necessary when interpreting your results!</p>
+</div>
+<div id="visual-example" class="section level4">
+<h4><span class="header-section-number">42.1.1.2</span> Visual example</h4>
+<p>Without a fixed effects model, our regression would look something like this:</p>
+<div class="figure">
+<img src="no_FE_reg.png" />
+
+</div>
+<p>There’s not really much to interpret here. There appears to be no relationship between these two variables.</p>
+<p>Now, with a Fixed Effects Regression, we get something that looks like this:</p>
+<div class="figure">
+<img src="FE_reg.png" />
+
+</div>
+<p>Now this is something we can interpret! As we can see, for each country, as globalization score increases, so does the emphasis on non-economic issues. Without fixed effects, as we saw above, the regression line was almost horizontal and gave us no usable information. But by looking at how these countries change over time as the explanatory variable changes, we are able to get a more detailed understanding of what such effects actually look like.</p>
+</div>
+</div>
+<div id="summary-2" class="section level3">
+<h3><span class="header-section-number">42.1.2</span> Summary</h3>
+<p>The takeaway from this being that when you are studying time-varying treatments using panel data, using a Fixed Effects Model is one way to go.</p>
+<p>But there are a few things to worrya bout here:</p>
 <ol style="list-style-type: decimal">
-<li>Learn what a mean is and how to calculate one.</li>
-<li>Learn what a median is and how to calculate one.</li>
-<li>Learn what a mode is and how to calculate one.</li>
-<li>Understand how all of alternative measures differ and why.</li>
+<li><p>If you have the same unit observed many times, you may not have truly independent observations. This can lead us to have incorrect (too small) standard errors. In a more advanced course you would be taught how to handle these issues.</p></li>
+<li><p>You still have to worry about time-varying confounders.</p></li>
 </ol>
-<div id="learning-objective-1-mean" class="section level2">
-<h2><span class="header-section-number">10.1</span> Learning objective 1: Mean</h2>
-<p>$x_1 $ indicates a single observation, or data point. <span class="math inline">\(\bar{x}\)</span> represents the <strong>mean</strong> of all the observations, which is taken by adding up all the observations and dividing them by the number of observations. We call this the arithmetic mean, or average.</p>
-<p>More formally, the equation for the mean is: <span class="math display">\[\bar{x} = \frac{\sum_i^n x_i }{n} \]</span></p>
-<p>The mean is used only for quantitative data and interval data. (For example, if you were to ask respondents on a survey to circle their preferred baseball team, the Cardinals, Cubs, Reds, or Pirates, you couldn’t then add up the teams and divide by four.)</p>
-<p>The mean is highly influenced by outliers, which means that for skewed distributions of data, the mean lies in the direction of the skew.</p>
-<p>The <strong>trimmed mean</strong> is a way of correcting for the effect of outliers on the mean. It involves cutting out a certain percentage of the data from both extremes. For example, a 10% trimmed mean involves throwing out the top 10% and bottom 10% of findings, then calculating the mean from the remaining middle 80% of the data.</p>
-</div>
-<div id="learning-objective-2-median" class="section level2">
-<h2><span class="header-section-number">10.2</span> Learning objective 2: Median</h2>
-<p>The median is a measure of central tendency found by determining the middle value of a set of data. The value of the median is the 50th percentile because 50% of observations fall above the value of the median, and 50% of observations fall below the median.</p>
-<p>The median it is the middle of an ordered sequence. For example, if we look at the numbers 1 2 3 4 5, the middle of that ordered sequence is 3.</p>
-<p>If we have an even number of observations, say 1 2 3 4 5 6, we take the mean of the two middle numbers. So the median here is equal to 3.5.</p>
-<p>The median is used for quantitative, ordinal or interval data. For symmetric distributions (e.g., a normal bell curve), the mean and the median are identical. However, the median is not affected by outliers like the mean is, so if a distribution of data is highly skewed, the median tends to be the preferred measure of center over the mean.</p>
-<div class="figure">
-<img src="1.jpg" alt="This image shows three graphs two skewed and one symmetrical bell curve. Note the way the mean is easily influenced by the skew of the graph, how it is pulled towards the longer tail of a distribution. Comparing the mean and the median is a good way to determine the skew of data without actually making a histogram. Source: http://experimentaltheology.blogspot.com/2012/03/central-tendency-in-skewed.html" />
-<p class="caption">This image shows three graphs two skewed and one symmetrical bell curve. Note the way the mean is easily influenced by the skew of the graph, how it is pulled towards the longer tail of a distribution. Comparing the mean and the median is a good way to determine the skew of data without actually making a histogram. Source: <a href="http://experimentaltheology.blogspot.com/2012/03/central-tendency-in-skewed.html" class="uri">http://experimentaltheology.blogspot.com/2012/03/central-tendency-in-skewed.html</a></p>
 </div>
 </div>
-<div id="learning-objective-3-mode" class="section level2">
-<h2><span class="header-section-number">10.3</span> Learning objective 3: Mode</h2>
-<p>The <strong>mode</strong> is a measure of central tendency that is the value that occurs most frequently. The mode is the most common data point. For example, if you collected the data 1 2 2 3 4, the mode is the number 2.</p>
-<ul>
-<li>Imagine a bar graph of the data. The mode is whichever bar is the tallest.</li>
-<li>For symmetric distributions, the mean, median, and mode are all the same value.</li>
-<li>When data is bimodal, which means that there are two distinct values that tend to occur more frequently (in a histogram, this would mean there are two lumps in the graph), it can indicate polarization around two extremes. An example of a bimodal distribution is shown bewlow.</li>
-</ul>
-<div class="figure">
-<img src="2.png" alt="This histogram shows the change in polarization in the public between 1993 and 2014" />
-<p class="caption">This histogram shows the change in polarization in the public between 1993 and 2014</p>
+<div id="interactions" class="section level2">
+<h2><span class="header-section-number">42.2</span> Interactions</h2>
+<p>In this section, you will learn the basics of what an interaction is, what an interaction term looks like in a multiple regression as well as how to interpret it.</p>
+<p>By now, you have (hopefully) learned what a multiple regression is. The basics of such regressions being that you are testing multiple potential explanatory variables in order to ascertain a reason as to why some phenomenon occurs. We want to know what effects some chosen factors have on an observed outcome. But what if one explanatory factor in some way affects the other’s ability to explain the outcome?</p>
+<p>This is what we call an interaction.</p>
+<div id="defining-an-interaction" class="section level3">
+<h3><span class="header-section-number">42.2.1</span> Defining an interaction</h3>
+<p>An interaction exists between X1 and X2 in their true effects on Y when the true <strong>effect</strong> of one predictor on Y changes as the value of the other predictor changes.</p>
+<p>In a regression, an interaction term is one in which you specifically look at the interaction between two explanatory variables that you are testing.</p>
+<p>At first look, this may seem strange, right? With regressions, we’re interested in understanding how an explanatory variable affect some specific outcome variable. Why would we be interested in how explanatory variables relate to each other? But by looking at the interaction between explanatory variable, we are able to tell whether or not the effects of a change in one of them affects the ability of the other to explain your outcome. This is very important because if there is an interaction occurring between explanatory variables this will affect the way in which we interpret the outcome.</p>
 </div>
+<div id="how-about-an-example-1" class="section level3">
+<h3><span class="header-section-number">42.2.2</span> How about an example?</h3>
+<p>Let’s say we’re interested to know whether or not education strengthens the relationship between party ID and health care reform opinion.</p>
+<p>By now, you should be used to seeing an equation that looks like this (without an interaction term):</p>
+<p><span class="math display">\[\mbox{Health Care Reform Support}=\beta_0 +\beta_1(\mbox{Party ID}) + \beta_2(\mbox{College})\]</span></p>
+<p><span class="math display">\[\mbox{Health Care Reform Support}=\beta_0 +\beta_1(\mbox{PartyID}) + \beta_2(\mbox{College}) + \underset{interaction}{\underbrace{\beta_3(Party \times College)}}\]</span></p>
+<p>This term on the end is an interaction term where we simply multiple the college variable by the party variable. That’s all it is! It’s a regression with just another covariate added. It’s interpreting the results where things get a bit tricky.</p>
 </div>
-<div id="another-look" class="section level2">
-<h2><span class="header-section-number">10.4</span> Another look:</h2>
-<p>For more information about measures of center, check out this video:</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/GrynkZB3E7M" frameborder="0" allowfullscreen>
+<div id="but-what-does-it-all-mean" class="section level3">
+<h3><span class="header-section-number">42.2.3</span> But what does it all mean?</h3>
+<p>By adding this interaction term, we are able to see whether or not, changes in one of the explanatory variables in turn creates changes in the other in their effects on support of health care reform</p>
+<table>
+<thead>
+<tr class="header">
+<th>One</th>
+<th>Two</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>my</td>
+<td>table</td>
+</tr>
+<tr class="even">
+<td>is</td>
+<td>nice</td>
+</tr>
+</tbody>
+</table>
+<p>| Variable | Coefficient (SE in parentheses) | _________________________________ |Constant | 1.402 |</p>
+<p>| (0.055) Party | 0.789 | (0.039) College &amp; $-$0.111 &amp; (0.085) Party <span class="math inline">\(\times\)</span> College &amp; 0.326 &amp; (0.061) ——–</p>
+<p>How do I read this term? You read this term no differently than you would another term in a table: simply divide the coefficient by the standard error. If it isn’t significant, then the interaction isn’t (affecting your outcome). If it is statistically significant, that means that the interaction between your two explanatory variables is affecting your outcome variable.</p>
+<p>In a regression output, the interaction term would look something like this. As you can see, it’s just as easy to interpret as the other explanatory variables and abides by the same rules!</p>
+</div>
+<div id="a-video-on-interactions-in-r" class="section level3">
+<h3><span class="header-section-number">42.2.4</span> A video on interactions in R</h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8YuuIsoYqsg" frameborder="0" allowfullscreen>
 </iframe>
 
+</div>
 </div>
 </div>
             </section>
@@ -507,8 +553,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="measures-of-position.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="measures-of-dispersion.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="multivariate-regression-example-teaching-about-evolution.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="difference-in-differences-part-ii.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
