@@ -420,7 +420,6 @@ Date| Topic | Reading | Assignments| Notes
 10/23| Experiments: Comparing means | CB: Chapter 29 <br> AF: 7.1-7.3| 
 10/25| Experiments: Contingency tables |CB: Chapter 31 <br> AF: 8.1-8.4| PS4 Due | [PS5 Distributed](http://jmontgomery.github.io/ProblemSets/PS5.pdf)
 10/26-27| T-tests <br> Tables | CB: Chapters 30, 32-33
-<<<<<<< Updated upstream
 10/30| Regression and prediction | AF: 9.1-9.4 <br> CB: Chapter 34
 11/1| Regression and inference | AF: 9.5  <br> CB: Chapters 35-36| 
 11/2-3| Regression in R | <br> CB: Chapters 37-39
