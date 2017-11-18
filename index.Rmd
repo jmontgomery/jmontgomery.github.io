@@ -120,6 +120,8 @@ I have just started the process of building a new website. For the moment, I am 
 
 [Lecture by Rickert](https://jmontgomery.github.io/PS582/JacobPresentation.pdf)
 
+#### Problem Set
+
 [Problem set 1](https://jmontgomery.github.io/PS582/PS1.pdf)
 
 [Problem set 2](https://jmontgomery.github.io/PS582/PS2.pdf)
