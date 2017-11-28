@@ -457,8 +457,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 <p>The data are from the National Survey of High School Biology Teachers and consist of 854 observations of high school biology teachers who were surveyed in the spring of 2007. The outcome of interest is the number of hours a teacher devotes to human and general evolution in his or her high school biology class (hrsallev). To see the explanatory variables, see the <a href="http://jmontgomery.github.io/PS363Extra/evolution_variables.pdf">codebook</a>.</p>
 <p>Import the evolution.dta data set into R. Go ahead and open the codebook as well.First we need to recode some of the data to tell R where there are missing values. The female variable codes 1 if the teacher is female, 0 if the teacher is male, and 9 if the sex of the teacher is unknown. Recode all entries in the female column listed as 9 as NA, and write the code you used to do this below.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(foreign)
-evolution&lt;-<span class="kw">read.dta</span>(<span class="st">&quot;http://jmontgomery.github.io/PS363Extra/evolution.dta&quot;</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(foreign)</code></pre></div>
+<pre><code>## Warning: package &#39;foreign&#39; was built under R version 3.4.1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">evolution&lt;-<span class="kw">read.dta</span>(<span class="st">&quot;http://jmontgomery.github.io/PS363Extra/evolution.dta&quot;</span>
                     , <span class="dt">convert.factors=</span><span class="ot">FALSE</span>)
 <span class="kw">table</span>(evolution$female) ### The 9&#39;s should be coded as missing.</code></pre></div>
 <pre><code>## 

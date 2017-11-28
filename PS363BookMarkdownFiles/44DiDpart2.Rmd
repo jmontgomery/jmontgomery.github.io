@@ -68,6 +68,6 @@ The diff-in-diff estimation can then be accomplished with regression:
 
 $$Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + \beta_3(X_1 \times X_2) + \epsilon,$$
 
-where $\beta_1$ captures any pre-treatment differences between the treatment and control groups, $\beta_2$ captures any differences that existed between the control group and the treatment group before the study began, and $\beta_3$ captures the effect of treatment on the treated groups.
+where $\beta_1$ captures any pre-treatment differences between the treatment and control groups, $\beta_2$ captures any differences that between the pre- and post-treatment periods, and $\beta_3$ captures the effect of treatment on the treated groups.
 
 Executing difference-in-differences, having individual-level data offers a couple distinct advantages over aggregate data. First, it gives us a better understanding of the pre-treatment differences between treatment and control groups. It also provides standard errors on all of the coefficients, allowing us to determine the statistical significance of any effect we find within a standard regression context. Finally, it enables us to include other control variables into the regression equation (such as age or income, for the above example), so we can better isolate the causal effect of the treatment.

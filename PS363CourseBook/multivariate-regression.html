@@ -524,11 +524,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Here we see that all three of these variables seem to be related to eachother.</p>
 <p>Let’s tryand see this in three dimensions (you may need to install the <code>scatterplot3d</code> package.)</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(scatterplot3d)
-<span class="kw">attach</span>(mtcars)</code></pre></div>
-<pre><code>## The following objects are masked from mtcars (pos = 4):
-## 
-##     am, carb, cyl, disp, drat, gear, hp, mpg, qsec, vs, wt</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">s3d &lt;-<span class="kw">scatterplot3d</span>(wt,disp,mpg, <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">highlight.3d=</span><span class="ot">TRUE</span>,<span class="dt">type=</span><span class="st">&quot;h&quot;</span>, <span class="dt">main=</span><span class="st">&quot;3D Scatterplot&quot;</span>)</code></pre></div>
+<span class="kw">attach</span>(mtcars)
+s3d &lt;-<span class="kw">scatterplot3d</span>(wt,disp,mpg, <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">highlight.3d=</span><span class="ot">TRUE</span>,<span class="dt">type=</span><span class="st">&quot;h&quot;</span>, <span class="dt">main=</span><span class="st">&quot;3D Scatterplot&quot;</span>)</code></pre></div>
 <p><img src="images/unnamed-chunk-73-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fit &lt;-<span class="st"> </span><span class="kw">lm</span>(mpg ~<span class="st"> </span>wt+disp)</code></pre></div>
 <p>This plot shows the data points for in a three-dimensional space. But can we now draw the regression “plane” through the points?</p>
