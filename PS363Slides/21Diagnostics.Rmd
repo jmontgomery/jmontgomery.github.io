@@ -1,0 +1,391 @@
+---
+title: "Regression Assumptions"
+author: "Jacob M. Montgomery"
+date: "Quantitative Political Methodology"
+output: beamer_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+
+
+
+# Regression Diagnostics
+
+## Poster questions?
+
+
+-----
+
+## Road map
+
+Where we have been:
+
+- Regression
+- Interpreting regression
+- Causal inference in regression
+- Model Fit
+
+\pause
+
+Today:
+
+- Regression assumptions
+- How they can be broken
+- Simple tricks to solve them
+
+
+----
+
+
+## Class Business
+
+- PS Due today.  One more to go.
+- Poster files will be due before the final lecture period.
+- Optional poster session on Monday, December 11
+- 1/% extra credit for the best poster as chosen by faculty
+- Cookies
+- Be pround of your work
+
+
+-----
+
+### Assumptions of regression
+
+1. Observations are independent \pause
+2. For any given value of x, the response y varies around the regression line according to a normal distribution. \pause
+3. There is a linear relationship between x and y \pause
+4. The standard deviation of y ($\sigma$) is the same for all values of x
+
+\pause
+
+For each one:
+
+- What can go wrong?
+- What can we do about it?
+
+
+----
+
+
+
+### Assumption 1: Observations are independent
+
+Autocorrelation
+
+- Time-series
+- Repeated observations
+- Space
+
+
+\pause
+
+Conditional standard deviation
+$$\hat{\sigma} = \sqrt{\frac{SSE}{n-2}} = \sqrt{\frac{\sum (Y_i - \hat{Y_i})^2}{n-2}}$$
+
+
+\pause
+
+Standard error for $\beta$
+$$\hat{\sigma}_{\hat{\beta}}= \frac{\hat{\sigma}}{\sqrt{\sum (X_i -
+    \bar{X}})^2}$$ 
+
+
+Your standard errors will be too small!  
+
+
+----
+
+\begin{center}
+\includegraphics[scale=.8]{./LectureGraphics/GDPyear1}
+\end{center}
+
+
+-----
+
+
+### GDP $\sim$ Year + Unemployment
+
+\begin{center}
+\includegraphics[scale=.8]{./LectureGraphics/GDPyear2}
+\end{center}
+
+
+-----
+
+
+### GDP $\sim$ Year + Unemployment
+
+\texttt{acf(LM1\$residuals)}
+
+\begin{center}
+\includegraphics[scale=.8]{./LectureGraphics/GDPyear3}
+\end{center}
+
+----
+
+
+### Autocorrelation: Solution
+
+- Lagged dependent variable
+- ``Differencing'' dependent and/or independent variables
+- Some combination thereof
+- Also ... fixed effects
+
+
+----
+
+
+#### $\Delta$GDP $\sim$ Year + Unemployment + Lagged.GDP
+
+\begin{center}
+\includegraphics[scale=.9]{./LectureGraphics/GDPyear4}
+\end{center}
+
+
+----
+
+#### Assumption 2: Response varies around line according to a normal
+
+What can go wrong?
+
+- Outliers
+- Exacerbated by high leverage points
+
+
+----
+
+### Influential observations
+
+\begin{center}
+\includegraphics[width=100mm]{./LectureGraphics/fig58}
+\end{center}
+
+
+-----
+
+#### Leverage (for bivariate regression)
+$$h_i = \frac{1}{n} + \frac{(x_i - \bar{x})^2}{\sum(x - \bar{x})} $$
+
+\pause
+
+#### Cooks distance -- a measure of influence
+$$D_i = \frac{e_i^2}{p~MSE} \left( \frac{h_i}{(1-h_i)^2}  \right)$$
+
+
+\pause
+
+- $e_i = \hat{y}_i$ - $\hat{y}_{(i)}$
+- $p$ is the number variables in the model
+- MSE is the mean square error of the regression
+
+
+----
+
+### Easy solutions
+
+
+- Transforming variables (Xs and Ys) \pause
+- Remove high-leverage outliers \pause
+- Trim the variable
+
+----
+
+### Visualizing different Xs
+
+\begin{center}
+\includegraphics[width=4.5in]{./LectureGraphics/LogTrans1}
+\end{center}
+
+----
+
+
+### Visualizing different Xs
+
+\begin{center}
+\includegraphics[width=4.5in]{./LectureGraphics/LogTrans2}
+\end{center}
+
+
+----
+
+
+### Transforming Y's
+
+
+\begin{center}
+\includegraphics[width=4.5in]{./LectureGraphics/SkewedOutcome1}
+\end{center}
+
+
+
+----
+
+
+### Transforming Y's
+
+
+\begin{center}
+\includegraphics[width=4.5in]{./LectureGraphics/SkewedOutcome2}
+\end{center}
+
+----
+
+
+
+### Example: GDP versus per capital GDP in 1990
+
+\begin{center}
+\includegraphics[width=4.25in]{./LectureGraphics/PopGDP1}
+\end{center}
+
+----
+
+
+### Example: GDP versus per capital GDP in 1990
+
+\begin{center}
+\includegraphics[width=4.25in]{./LectureGraphics/PopGDP2}
+\end{center}
+
+
+----
+
+### Example: GDP versus per capital GDP in 1990
+
+\begin{center}
+\includegraphics[width=4.24in]{./LectureGraphics/PopGDP3}
+\end{center}
+
+----
+
+### Example: GDP versus per capital GDP in 1990
+
+\begin{center}
+\includegraphics[width=4.25in]{./LectureGraphics/PopGDP4}
+\end{center}
+
+
+----
+
+### Heteroscedasticity: Variance changes based on value of x
+
+
+\begin{center}
+\includegraphics[width=4.5in]{./LectureGraphics/Heteroscedasticity}
+\end{center}
+
+----
+
+### Problem 4: Nonlinear relationships
+
+\begin{center}
+\includegraphics[width=4.5in]{./LectureGraphics/Nonlinear1}
+\end{center}
+
+----
+
+
+
+### Solution: Model the relationship
+
+\begin{center}
+\includegraphics[width=4.5in]{./LectureGraphics/Nonlinear2}
+\end{center}
+
+----
+
+
+### Easy regression diagnostics in R
+
+```{r eval=FALSE, echo=TRUE}
+# The first regression
+FL.LM1 <- lm(gdpen~pop, data=FL)
+plot(FL.LM1)
+
+
+# The second regression
+FL.LM2 <- lm(log(gdpen)~log(pop), data=FL)
+plot(FL.LM2)
+```
+
+
+----
+
+
+### Bad models
+
+\begin{center}
+\includegraphics[width=3.1in]{./LectureGraphics/ResidPlot1}
+\end{center}
+
+
+
+----
+
+
+### Bad models
+
+\begin{center}
+\includegraphics[width=3.1in]{./LectureGraphics/ResidPlot2}
+\end{center}
+
+
+----
+
+### Bad models
+
+\begin{center}
+\includegraphics[width=3.1in]{./LectureGraphics/ResidPlot3}
+\end{center}
+
+
+----
+
+### Bad models
+
+\begin{center}
+\includegraphics[width=3.1in]{./LectureGraphics/ResidPlot4}
+\end{center}
+
+
+
+
+----
+
+### Better Model
+
+\begin{center}
+\includegraphics[width=3.1in]{./LectureGraphics/ResPlot5}
+\end{center}
+
+
+----
+
+### Better Model
+
+\begin{center}
+\includegraphics[width=3.1in]{./LectureGraphics/ResPlot6}
+\end{center}
+
+
+----
+
+### Better Model
+
+\begin{center}
+\includegraphics[width=3.1in]{./LectureGraphics/ResPlot7}
+\end{center}
+
+
+----
+
+### Better Model
+
+\begin{center}
+\includegraphics[width=3.1in]{./LectureGraphics/ResPlot8}
+\end{center}
+
