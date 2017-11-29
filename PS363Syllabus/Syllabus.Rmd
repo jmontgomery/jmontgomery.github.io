@@ -432,7 +432,7 @@ Date| Topic | Reading | Assignments| Notes
 11/20| Instrumental variables
 11/22| NO CLASS <bf> Thanksgiving
 11/27| Model fit | |
-11/29| Regression diagnostics | | PS7 Due | PS8 Distributed
+11/29| Regression diagnostics | | PS7 Due | [PS8 Distributed](http://jmontgomery.github.io/ProblemSets/PS8.pdf)
 11/30-31| Diagnostics in R
 12/4| Slack/catch up
 12/6| Exam review | | PS8 Due 
