@@ -1,0 +1,339 @@
+---
+title: "Final Review"
+author: "Jacob M. Montgomery"
+date: "Quantitative Political Methodology"
+output: beamer_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+
+
+
+# Final Review
+
+
+-----
+
+## Last Call
+
+- It's over.  This is the end.  \pause
+- Let's make sure all groups have their posters in \pause
+- **Peer evaluations** due at time of exam \pause
+- Practice exam/review materials will be posted to website \pause
+- Office hours for me and grad students will continue. \pause
+- I will have additional office hours before the exam.  Check Facebook.\pause
+- Joe and Cara are done. (Applause)! \pause
+- Bring your printed out posters to lab. \pause
+- Poster session
+
+----
+
+## Course evaluations
+
+
+- I read all comments. \pause
+- Used to evaluate me professionally and especially the graduate students. \pause
+- 1\% Extra credit for completing.
+
+
+----
+
+## Exam checklist
+
+- Peer evaluation form
+- Pencils/erasers
+- One sheet of paper
+- Calculator with memory cleared
+
+
+
+----
+
+## Overview of today
+
+- Big picture overview of the class
+- What test do I use here again?
+- Questions?
+- In-class review problems (answers will be posted to BB)
+
+
+---
+
+
+### What is statistics?
+
+
+> A body of methods for collecting and analyzing data.
+
+
+\pause
+
+Let's break that down.
+
+- \textbf{Research design}: Gathering data that will allow us to answer research questions by testing empirical hypotheses.
+- \textbf{Description}: Summarizing the \emph{data}. 
+- \textbf{Inference}: Using data to make (probabilistic) statements about the \emph{real world}. Testing our hypotheses.
+
+
+----
+
+
+\begin{center}
+\includegraphics[width=3in]{./LectureGraphics/population}
+\end{center}
+
+
+----
+
+## (1) What kind of data are we gathering?
+
+\footnotesize
+\begin{center}
+\begin{tabular}{l c c c  c c}
+\hline
+& \multicolumn{2}{c}{\bf Quantitative } & & \multicolumn{2}{c}{\bf Qualitative (categorical) }\\
+
+& \textit{Continuous} & \textit{Discrete} & & \textit{Continuous} & \textit{Discrete} \\
+\hline
+\\
+Interval & \pause ex.,  Income & \pause ex, Family size & & NA & NA \\
+\\
+Ordinal & NA & \pause ex., Love stats. & & NA & NA \\
+\\
+Nominal & NA & NA & & NA & \pause ex., Eye color\\
+\hline
+
+\end{tabular}
+\end{center}
+
+----
+
+## (2) Now that we have this data, how can we summarize it?
+
+#### Sample mean
+$$\bar{y} = \displaystyle\frac{y_1 + y_2 + \ldots + y_n}{n} = \frac{1}{n}\displaystyle\sum_{i=1}^ny_i \pause \equiv \frac{1}{n}\displaystyle\sum y_i$$
+
+#### Median
+> The observation that falls in the center of an ordered sample.
+
+#### Mode 
+> The most frequently occurring value
+
+
+----
+
+
+### (2) Now that we have this data, how can we summarize it? 
+
+
+#### Range
+$$\left(max(y) - min(y)\right) \equiv |min(y) - max(y)|$$
+
+#### Standard deviation
+ $$S=\sqrt{S^2} =  \sqrt{\frac{\sum_{i=1}^n(y_i-\bar{y})^2}{n-1}}$$
+
+#### Interquartile range (IQR)
+> $75^{th}$ percentile - $25^{th}$ percentile
+
+
+
+----
+
+\includegraphics[width=3.8in]{./LectureGraphics/ProbStats}
+
+
+----
+
+
+### (3) Now that we have these statistics, how can we make inferences? Sampling distributions
+
+#### Sampling distributions
+> A sampling distribution is the distribution of a **statistic** given repeated sampling.
+
+
+\pause
+
+We use probability theory (especially the central limit theorem) to
+calculate the sampling distribution of various statistics.
+
+
+- $\bar{y} \sim N(\mu, \frac{\sigma}{\sqrt{n}})$ (large n) \pause
+- $\frac{\bar{y}-\mu}{\hat{\sigma}_{\bar{y}}}\approx \frac{\bar{y}-\mu}{\sigma} = Z \sim N(0,1)$ (large n) \pause
+- $\frac{\bar{y}-\mu}{\hat{\sigma}_{\bar{y}}}= t \sim t_{df=n-1}$ (small $n$ with normal $y$) \pause
+- $\frac{\hat{\pi} - \pi}{\sigma_{\hat{\pi}}} = Z \sim N(0,1)$ (large n) \pause
+- $\hat{\beta}$, $\hat{\alpha}$, $F$, $\chi^2$, $\bar{y}_2 - \bar{y}_1$
+
+
+----
+
+
+### (3) Now that we have these statistics, how can we make inferences? Confidence intervals
+
+We want to say something useful about the unknown population parameter.  One way to do this is to set up a confidence interval.  
+
+#### Point estimation
+> A sample statistic that gives a good guess about a population parameter.
+
+\pause
+
+----
+
+#### Caonfidence intervals
+> A confidence interval for a population parameter is a range of numbers
+within which a parameter is believed to fall.
+
+\pause
+
+#### Confidence coefficient
+
+> The probability that an interval would contain the parameter with
+repeated sampling.
+
+This is calculated as: Point Estimate $\pm$ (Z or T) $\times$ Standard error
+
+
+----
+
+### (4) Now that we have these statistics, how can we make inferences? Hypothesis tests
+
+We calculate statistics with known sampling distributions to:
+
+- Make systematic statements about population parameters for a single population.
+- Make systematic statements about how population parameters are related to explanatory variabels
+
+
+----
+
+### (5) Now that we have these statistics, how can we make inferences? Hypothesis tests
+
+Five steps of hypothesis testing:
+
+1. Make/state assumptions about our data
+2. Formulate null and alternative hypotheses
+3. Calculate the appropriate test statistic
+4. Calculate the p-value
+5. Draw a conclusion
+
+
+#### P-value
+> A P-Value is a measure of surprise.  \pause We ask, ``If the \textit{null hypothesis is true},
+how likely is it that we would observe a test-statistic this extreme
+\textbf{or more?''}
+
+
+----
+
+### (6) Using the appropriate test for your data
+
+
+\tiny {\begin{tabular}{ c|c|c|c|c } \hline
+ \textbf{Resp. Variable} & \textbf{Explanatory Variables} & \textbf{Measure} & \textbf{Statistical Test(s)} & \textbf{Sample Size} \\ [0.2in]\hline \hline
+Interval & None (population estimate) & Mean & One-sample z-test (1) & large \\  [0.1in] \pause
+ &  &  & One-sample t-test (2)  & small \\  [0.1in] \pause
+ Categorical & None (population estimate) & Proportion & One sample z-test (3) & large \\ [0.1in]  \pause
+ Interval & Categorical (2 Groups) & Mean & Two-sample z-test (4) & large \\  [0.1in] \pause
+&  &  & Two-sample t-test (5) & small \\  [0.2in] \pause
+% Categorical & Categorical (2 Groups) & Proportion & Two-sample z-test* (6) & large* \\  [0.1in] \pause
+ Categorical & Categorical (2+ Groups) & Proportion &$\chi^2$  (Contingency Tables) (6) & large* \\  [0.1in] \pause
+ Interval & Categorical (2+ Groups) & Mean & Regression (F-test)  (7) & large \\  [0.1in] \pause
+ Interval & Interval & Continuous & Regression (8, 9) & \\  [0.1in] \pause
+%Categorical & Interval & Continuous (probability) & Logistic regression (11)
+\end{tabular}}
+
+
+----
+
+
+\begin{tabular}{ ccc} \hline
+\textbf{Test number} &  \textbf{Test statistic} & \textbf{How is that distributed?} \\
+\hline
+\hline
+\\
+1 & $\displaystyle \frac{\bar{y} - \mu_0}{S/\sqrt{n}}$& Standard normal (Z) \\ \pause
+\\
+2 &$\displaystyle \frac{\bar{y} - \mu_0}{S/\sqrt{n}}$ & t-dist., $df=n-1$\\ \pause
+\\
+3&  $\displaystyle\frac{\hat{\pi} - \pi_0}{\sqrt{\frac{\pi_0(1-\pi_0)}{n}}}$&  Standard normal (Z) \\ 
+\\
+\end{tabular}
+
+
+----
+
+\footnotesize
+
+\begin{tabular}{ccc} \hline
+\textbf{Test number} &  \textbf{Test statistic} & \textbf{How is that distributed?} \\
+\hline
+\hline
+4 & $\displaystyle\frac{(\bar{y_2} - \bar{y_1})-0}{\sqrt{\frac{S_2^2}{n_2} + \frac{S_1^2}{n_1}}}$& Standard normal (Z) \\ \pause
+\\
+5 &$\displaystyle\frac{(\bar{y_2} - \bar{y_1})-0}{\hat{\sigma}\sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}$ & t-dist, $df=n-2$ \\ 
+\\
+ & $\displaystyle\hat{\sigma} = \sqrt{\frac{(n_1-1)S_1^2 + (n_2-1)S_2^2}{n_1+n_2-2}}$ & \\ \pause
+\\
+% 6 & $\displaystyle\frac{(\hat{\pi}_2 -\hat{\pi}_1)-0}{\sqrt{\hat{\pi}_{pooled}(1-\hat{\pi}_{pooled})(\frac{1}{n_1} + \frac{1}{n_2})}} $& Standard normal (Z)   \\ \pause
+% \\
+6 &$\displaystyle\chi^2 = \sum\frac{(f_0-f_e)^2}{fe}$ & $\chi^2$, $df= (rows-1)(cols-1)$\\ \pause
+\\
+7 &F-statistic & $F$, $df_1=k, df_2=n-(k+1)$\\
+\end{tabular}
+
+----
+
+
+\footnotesize
+
+\begin{tabular}{ccc} \hline
+\textbf{Test number} &  \textbf{Test statistic} & \textbf{How is that distributed?} \\
+\hline
+\hline
+8 (bivariate) & $\displaystyle\frac{\hat{\beta}}{\hat{\sigma}/\sqrt{(X_i-\bar{X})^2}} $& $t-dist$, $df=n-2$\\
+&$\hat{\beta}= \frac{\sum_{i=1}^n\Big((X_i - \bar{X})(Y_i -
+  \bar{Y})\Big)}{\sum_{i=1}^n(X_i - \bar{X})^2}$ \\
+\\
+&$\hat{\sigma} = \sqrt{\frac{SSE}{n-2}} = \sqrt{\frac{\sum (Y_i - \hat{Y_i})^2}{n-2}}$\\ \pause
+\\
+& $\hat{\alpha} = \displaystyle\frac{\bar{Y} - \hat{\beta}\bar{X}}{\hat{\sigma}_{\hat{\alpha}}}$& $t-dist$, $df=n-2$\\ \pause
+\\
+9 (multivariate) & $\displaystyle\frac{\hat{\beta}}{\hat{\sigma}_{\hat{\beta}}}$& $t-dist$,$df=n-(k+1)$ \\
+\\
+& $\displaystyle\frac{\hat{\alpha}}{\hat{\sigma}_{\hat{\alpha}}}$& $t-dist$, $df=n-(k+1)$\\ 
+\\
+% 11& $\displaystyle\frac{\hat{\beta}}{\hat{\sigma}_{\hat{\beta}}}$, $\displaystyle\frac{\hat{\alpha}}{\hat{\sigma}_{\hat{\alpha}}}$& Standard normal (Z)\\
+% \\
+% & $\displaystyle\frac{\hat{\alpha}}{\hat{\sigma}_{\hat{\alpha}}}$& Standard normal (Z)\\
+\end{tabular}
+
+
+----
+
+### Using regression to establish causality
+
+1. Experiments (Dummies)
+2. Statistical control
+3. Statistical control (Fixed effects dummies)
+4. Difference-in-differences (Dummies with interactions)
+5. Regression discontinuity
+6. Instrumental variables
+
+
+----
+
+## Parting thoughts
+
+I hope you take away from this class:
+
+- Quantitative analysis is within your grasp. \pause
+- Using data to answer questions can be hard, but using intuition is often just wrong. \pause
+- Don't skip the tables. \pause
+- Be an informed and thoughtful consumer of ..
+    1. political science research, \pause
+    2. all research, \pause
+    3. polls,
+    4. rhetoric, 
+    5. and common wisdom.
