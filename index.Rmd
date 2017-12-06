@@ -58,6 +58,10 @@ I have just started the process of building a new website. For the moment, I am 
 
 [Lecture21](https://jmontgomery.github.io/PS363Slides/20ModelFit.pdf)
 
+[Lecture22](https://jmontgomery.github.io/PS363Slides/21Diagnostics.pdf)
+
+[Lecture23](https://jmontgomery.github.io/PS363Slides/21FinalReview.pdf)
+
 
 #### Labs
 [Lab1](https://jmontgomery.github.io/Lab/Lab1.zip)
@@ -82,7 +86,7 @@ I have just started the process of building a new website. For the moment, I am 
 
 [Lab11](https://jmontgomery.github.io/Lab/Lab11.zip)
 
-
+[Lab12](https://jmontgomery.github.io/Lab/Lab12.zip)
 
 ### PS 582: Quantitative Political Methods 2 (Grad)
 
@@ -119,11 +123,26 @@ I have just started the process of building a new website. For the moment, I am 
 
 [Lecture15-2](https://jmontgomery.github.io/PS582/MoreGLSs.pdf)
 
+[Lecture16](https://jmontgomery.github.io/PS582/16BayesianRidge.pdf)
+
+[Lecture17](https://jmontgomery.github.io/PS582/17MHLogistic.pdf)
+
+[Lecture18](https://jmontgomery.github.io/PS582/18VariableSelection.pdf)
+
+[Lecture19](https://jmontgomery.github.io/PS582/TreesTalk.pdf)
+
 [Lecture by Waterbury](https://jmontgomery.github.io/PS582/QPM_pres_nw.pdf)
 
 [Lecture by Silva](https://jmontgomery.github.io/PS582/Silva.pdf)
 
 [Lecture by Rickert](https://jmontgomery.github.io/PS582/JacobPresentation.pdf)
+
+[Lecture by OBrochta](https://jmontgomery.github.io/PS582/OBrochta.pdf)
+
+[Lecture by Moy](https://jmontgomery.github.io/PS582/Lasso.pdf)
+
+
+[Lecture by Oh](https://jmontgomery.github.io/PS582/oh.pdf)
 
 #### Problem Set
 
