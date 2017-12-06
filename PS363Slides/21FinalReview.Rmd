@@ -182,7 +182,7 @@ We want to say something useful about the unknown population parameter.  One way
 
 ----
 
-#### Caonfidence intervals
+#### Confidence intervals
 > A confidence interval for a population parameter is a range of numbers
 within which a parameter is believed to fall.
 
@@ -203,7 +203,7 @@ This is calculated as: Point Estimate $\pm$ (Z or T) $\times$ Standard error
 We calculate statistics with known sampling distributions to:
 
 - Make systematic statements about population parameters for a single population.
-- Make systematic statements about how population parameters are related to explanatory variabels
+- Make systematic statements about how population parameters are related to explanatory variables
 
 
 ----
