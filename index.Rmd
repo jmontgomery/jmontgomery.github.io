@@ -99,6 +99,12 @@ I have just started the process of building a new website. For the moment, I am 
 
 [Lecture3](https://jmontgomery.github.io/PS582/Lectures/03DataReduction.pdf)
 
+[Lecture4](https://jmontgomery.github.io/PS582/Lectures/04PointEstimation.pdf)
+
+[Lecture5](https://jmontgomery.github.io/PS582/Lectures/05MLE1.pdf)
+
 #### Problem Set
 
 [Problem set 1](https://jmontgomery.github.io/PS582/ProblemSets/PS1.pdf)
+
+[Problem set 2](https://jmontgomery.github.io/PS582/ProblemSets/PS2.pdf)
