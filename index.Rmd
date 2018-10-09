@@ -111,6 +111,8 @@ I have just started the process of building a new website. For the moment, I am 
 
 [Lecture 9 (Non-Parametrics)](https://jmontgomery.github.io/PS582/Lectures/09NonParametrics.pdf)
 
+[Lecture 10 (Tests)](https://jmontgomery.github.io/PS582/Lectures/10Tests.pdf)
+
 #### Problem Set
 
 [Problem set 1](https://jmontgomery.github.io/PS582/ProblemSets/PS1.pdf)
@@ -122,3 +124,5 @@ I have just started the process of building a new website. For the moment, I am 
 [Practice Midterm](https://jmontgomery.github.io/PS582/ProblemSets/PracticeMidterm.pdf)
 
 [Practice Midterm - Answers](https://jmontgomery.github.io/PS582/ProblemSets/PracticeMidterm_Answer.pdf)
+
+[Problem set 4](https://jmontgomery.github.io/PS582/ProblemSets/PS4.pdf)
