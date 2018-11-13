@@ -125,6 +125,10 @@ I have just started the process of building a new website. For the moment, I am 
 
 [Lecture 16 (Networks)](https://jmontgomery.github.io/PS582/Lectures/16Networks.pdf)
 
+[Lecture 17 (Discrete Choice)](https://jmontgomery.github.io/PS582/Lectures/17DiscreteChoice.pdf)
+
+[Lecture 19 (Bayesian Ridge)](https://jmontgomery.github.io/PS582/Lectures/19BayesianRidge.pdf)
+
 
 #### Problem Set
 
