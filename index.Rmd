@@ -149,3 +149,5 @@ I have just started the process of building a new website. For the moment, I am 
 [Problem set 4](https://jmontgomery.github.io/PS582/ProblemSets/PS4.pdf)
 
 [Problem set 5](https://jmontgomery.github.io/PS582/ProblemSets/PS5.pdf)
+
+[Problem set 6](https://jmontgomery.github.io/PS582/ProblemSets/PS6.pdf)
