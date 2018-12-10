@@ -133,6 +133,19 @@ I have just started the process of building a new website. For the moment, I am 
 
 [Lecture 20 (Multilevel Models)](https://jmontgomery.github.io/PS582/Lectures/20Multilevel.pdf)
 
+[Lecture 21 (Mixture Models)](https://jmontgomery.github.io/PS582/Lectures/21MixtureModels.pdf)
+
+[Lecture 22 (Variable Selection)](https://jmontgomery.github.io/PS582/Lectures/22VariableSelection.pdf)
+
+[Lecture 23 (GBMs)](https://jmontgomery.github.io/PS582/Lectures/23Trees.pdf)
+
+[Lecture 24 (Heckman Selection)](https://jmontgomery.github.io/PS582/Lectures/24SelectionModels.pdf)
+
+[Lecture 25 (Survival Models)](https://jmontgomery.github.io/PS582/Lectures/25SurvivalModels.pdf)
+
+[Lecture 26 (Beta Regression)](https://jmontgomery.github.io/PS582/Lectures/27Beta.pdf)
+
+[Lecture 27 (Lasso/Missingness)](https://jmontgomery.github.io/PS582/Lectures/26Misc.pdf)
 
 #### Problem Set
 
