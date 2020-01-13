@@ -1,5 +1,5 @@
 ---
-title: "Jacob Montgomery"
+title: "Political Data Science"
 output: html_document
 ---
 
@@ -7,162 +7,15 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Welcome
+### PS 4625: Political Data Science (Beta version)
 
-I have just started the process of building a new website. For the moment, I am only hosting course materials here.  If you are looking for information about my research, please visit [jacobmontgomery.com](http://www.jacobmontgomery.com)
+[Syllabus](https://jmontgomery.github.io/PDS/Syllabus/PDS2020.pdf)  
 
-### PS 363: Quantitative Political Methods
-
-[Syllabus](https://jmontgomery.github.io/PS363Syllabus/Syllabus.html)  
-
-[Online Course Book](http://jmontgomery.github.io/PS363CourseBook/)
+[Online Course Book](http://jmontgomery.github.io/PDS/PoliticalDataScience/)
 
 #### Lecture slides
-[Lecture1](https://jmontgomery.github.io/PS363Slides/01Introduction.pdf)
-
-[Lecture2](https://jmontgomery.github.io/PS363Slides/02SamplingMeasurement.pdf)
-
-[Lecture3](https://jmontgomery.github.io/PS363Slides/03CentralTendencySpread.pdf)
-
-[Lecture4](https://jmontgomery.github.io/PS363Slides/04BasicProbability.pdf)
-
-[Lecture5](https://jmontgomery.github.io/PS363Slides/05SamplingDistributions.pdf)
-
-[Lecture6](https://jmontgomery.github.io/PS363Slides/06FindingProbabilities.pdf)
-
-[Lecture7](https://jmontgomery.github.io/PS363Slides/07EstimatingMean.pdf)
-
-[Lecture8](https://jmontgomery.github.io/PS363Slides/08HypothesisTesting1.pdf)
-
-[Lecture9](https://jmontgomery.github.io/PS363Slides/09HypothesisTesting2.pdf)
-
-[Lecture10](https://jmontgomery.github.io/PS363Slides/10HypothesisTesting3.pdf)
-
-[Lecture11](https://jmontgomery.github.io/PS363Slides/11Causality.pdf)
-
-[Lecture12](https://jmontgomery.github.io/PS363Slides/12TTest.pdf)
-
-[Lecture13](https://jmontgomery.github.io/PS363Slides/13ContingencyTables.pdf)
-
-[Lecture14](https://jmontgomery.github.io/PS363Slides/14BivariateRegression.pdf)
-
-[Lecture15](https://jmontgomery.github.io/PS363Slides/15RegressionInference.pdf)
-
-[Lecture16](https://jmontgomery.github.io/PS363Slides/16MultipleRegression.pdf)
-
-[Lecture18](https://jmontgomery.github.io/PS363Slides/18DifferenceInDifferences.pdf)
-
-[Lecture19](https://jmontgomery.github.io/PS363Slides/19RegressionDiscontinuity.pdf)
-
-[Lecture20](https://jmontgomery.github.io/PS363Slides/IVModels.pdf)
-
-[Lecture21](https://jmontgomery.github.io/PS363Slides/20ModelFit.pdf)
-
-[Lecture22](https://jmontgomery.github.io/PS363Slides/21Diagnostics.pdf)
-
-[Lecture23](https://jmontgomery.github.io/PS363Slides/21FinalReview.pdf)
-
-
-#### Labs
-[Lab1](https://jmontgomery.github.io/Lab/Lab1.zip)
-
-[Lab2](https://jmontgomery.github.io/Lab/Lab2.zip)
-
-[Lab3](https://jmontgomery.github.io/Lab/Lab3.zip)
-
-[Lab4](https://jmontgomery.github.io/Lab/Lab4.zip)
-
-[Lab5](https://jmontgomery.github.io/Lab/Lab5.zip)
-
-[Lab6](https://jmontgomery.github.io/Lab/Lab6.zip)
-
-[Lab7](https://jmontgomery.github.io/Lab/Lab7/Lab7.R)
-
-[Lab8](https://jmontgomery.github.io/Lab/Lab8.zip)
-
-[Lab9](https://jmontgomery.github.io/Lab/Lab9.zip)
-
-[Lab10](https://jmontgomery.github.io/Lab/Lab10.zip)
-
-[Lab11](https://jmontgomery.github.io/Lab/Lab11.zip)
-
-[Lab12](https://jmontgomery.github.io/Lab/Lab12.zip)
-
-### PS 582: Quantitative Political Methods 2 (Grad)
-
-
-[Syllabus](https://jmontgomery.github.io/PS582/Syllabus.pdf)  
-
-[Lecture 1 (Probability I)](https://jmontgomery.github.io/PS582/Lectures/01Probability1.pdf)  
-
-[Lecture 2 (Probability II)](https://jmontgomery.github.io/PS582/Lectures/02Probability2.pdf)
-
-[Lecture 3 (Data Reduction)](https://jmontgomery.github.io/PS582/Lectures/03DataReduction.pdf)
-
-[Lecture 4 (Point Estimation)](https://jmontgomery.github.io/PS582/Lectures/04PointEstimation.pdf)
-
-[Lecture 5 (MLE I)](https://jmontgomery.github.io/PS582/Lectures/05MLE1.pdf)
-
-[Lecture 6 (MLE II)](https://jmontgomery.github.io/PS582/Lectures/06MLE2.pdf)
-
-[Lecture 7 (Frequentist Statistics)](https://jmontgomery.github.io/PS582/Lectures/07Frequentist.pdf)
-
-[Lecture 8 (Bayesian Statistics)](https://jmontgomery.github.io/PS582/Lectures/08Bayesian.pdf)
-
-[Lecture 9 (Non-Parametrics)](https://jmontgomery.github.io/PS582/Lectures/09NonParametrics.pdf)
-
-[Lecture 10 (Tests)](https://jmontgomery.github.io/PS582/Lectures/10Tests.pdf)
-
-[Lecture 11 (P-values)](https://jmontgomery.github.io/PS582/Lectures/11Pvalues.pdf)
-
-[Lecture 12 (Regression)](https://jmontgomery.github.io/PS582/Lectures/12Regression.pdf)
-
-[Lecture 13 (GLM)](https://jmontgomery.github.io/PS582/Lectures/13GLMIntro.pdf)
-
-[Lecture 14 (GLM II)](https://jmontgomery.github.io/PS582/Lectures/14MoreGLMs.pdf)
-
-[Lecture 15 (Poisson \& Zero-Inflated Counts)](https://jmontgomery.github.io/PS582/Lectures/15PoissonZeroInf.pdf)
-
-[Lecture 16 (Networks)](https://jmontgomery.github.io/PS582/Lectures/16Networks.pdf)
-
-[Lecture 17 (Discrete Choice)](https://jmontgomery.github.io/PS582/Lectures/17DiscreteChoice.pdf)
-
-[Lecture 18 (Spatial Lag)](https://jmontgomery.github.io/PS582/Lectures/18SpatialLag.pdf)
-
-[Lecture 19 (Bayesian Ridge)](https://jmontgomery.github.io/PS582/Lectures/19BayesianRidge.pdf)
-
-[Lecture 20 (Multilevel Models)](https://jmontgomery.github.io/PS582/Lectures/20Multilevel.pdf)
-
-[Lecture 21 (Mixture Models)](https://jmontgomery.github.io/PS582/Lectures/21MixtureModels.pdf)
-
-[Lecture 21.2 (Finite Mixture Models - BMA)](https://jmontgomery.github.io/PS582/Lectures/21_2Mixtures.pdf)
-
-[Lecture 22 (Variable Selection)](https://jmontgomery.github.io/PS582/Lectures/22VariableSelection.pdf)
-
-[Lecture 23 (GBMs)](https://jmontgomery.github.io/PS582/Lectures/23Trees.pdf)
-
-[Lecture 24 (Heckman Selection)](https://jmontgomery.github.io/PS582/Lectures/24SelectionModels.pdf)
-
-[Lecture 25 (Survival Models)](https://jmontgomery.github.io/PS582/Lectures/25SurvivalModels.pdf)
-
-[Lecture 26 (Beta Regression)](https://jmontgomery.github.io/PS582/Lectures/27Beta.pdf)
-
-[Lecture 27 (Lasso/Missingness)](https://jmontgomery.github.io/PS582/Lectures/26Misc.pdf)
+[Lecture1](https://jmontgomery.github.io/PDS/Slides/01Introduction.pdf)
 
 #### Problem Set
 
 [Problem set 1](https://jmontgomery.github.io/PS582/ProblemSets/PS1.pdf)
-
-[Problem set 2](https://jmontgomery.github.io/PS582/ProblemSets/PS2.pdf)
-
-[Problem set 3](https://jmontgomery.github.io/PS582/ProblemSets/PS3.pdf)
-
-[Practice Midterm](https://jmontgomery.github.io/PS582/ProblemSets/PracticeMidterm.pdf)
-
-[Practice Midterm - Answers](https://jmontgomery.github.io/PS582/ProblemSets/PracticeMidterm_Answer.pdf)
-
-[Problem set 4](https://jmontgomery.github.io/PS582/ProblemSets/PS4.pdf)
-
-[Problem set 5](https://jmontgomery.github.io/PS582/ProblemSets/PS5.pdf)
-
-[Problem set 6](https://jmontgomery.github.io/PS582/ProblemSets/PS6.pdf)
