@@ -7,15 +7,15 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-### PS 4625: Political Data Science (Beta version)
+### PS 4625: Political Data Science (Beta)
 
 [Syllabus](https://jmontgomery.github.io/PDS/Syllabus/PDS2020.pdf)  
 
 [Online Course Book](http://jmontgomery.github.io/PDS/PoliticalDataScience/)
 
 #### Lecture slides
-[Lecture1](https://jmontgomery.github.io/PDS/Slides/01Introduction.pdf)
+[Lecture1](https://jmontgomery.github.io/PDS/Slides/01HelloWorld.html)
 
-#### Problem Set
+#### Problem Sets
 
-[Problem set 1](https://jmontgomery.github.io/PS582/ProblemSets/PS1.pdf)
+

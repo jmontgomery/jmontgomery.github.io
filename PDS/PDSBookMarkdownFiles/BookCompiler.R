@@ -4,5 +4,5 @@
 library("bookdown")
 setwd("~/Github/jmontgomery.github.io/PDS/PDSBookMarkdownFiles")
 
-bookdown::render_book(input="index.Rmd", output_dir="~/Github/jmontgomery.github.io/PDS/PDSBook")
+bookdown::render_book(input="index.Rmd", output_dir="~/Github/jmontgomery.github.io/PDS/PoliticalDataScience")
 
