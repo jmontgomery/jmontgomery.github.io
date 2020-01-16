@@ -91,7 +91,7 @@ print("Hello world")
 
 ----
 
-### 1.4: Big picture orientation
+### 1.3: Big picture orientation
 
 - Everything in R is object oriented. Data, functions, inputs and outputs will all be data objects.
 - R is case sensitive. For that matter, it is also spelling sensitive.
@@ -102,7 +102,7 @@ print("Hello world")
 
 -----
 
-### 1.5: R as a calculator
+### 1.4: R as a calculator
 
 
 ```{r, tidy=FALSE, out.height=".55\\textheight", fig.align="center"}
@@ -194,77 +194,6 @@ voting.age.population.ak <- 496387
 turnout.ak <-total.votes.ak/voting.age.population.ak
 turnout.ak
 ``` 
-
-
-But Object names cannot start with numbers
-```{r, tidy=FALSE, out.height=".55\\textheight", fig.align="center", eval=FALSE}
-06election<-50000 ## Try this
-``` 
-
-
-
-----
-
-### 1.5 Getting to know the global environment
-
-- Named objects are stored in the "global environment", which means that they can be accessed at any time by any function you might run.
-- They are "global" variables (which makes them different from "local" variables).
-
-But Object names cannot start with numbers
-```{r, tidy=FALSE, out.height=".55\\textheight", fig.align="center", eval=TRUE}
-objects() # List the objects currently on your global
-ls() # same thing
-``` 
-
-----
-
-You can also remove objects
-```{r, tidy=FALSE, out.height=".55\\textheight", fig.align="center", eval=TRUE}
-## Let's walk through these lines
-Bears<-100
-ls()
-rm(Bears)
-``` 
-
-----
-
-The command `remove` does the same thing
-```{r, tidy=FALSE, out.height=".55\\textheight", fig.align="center", eval=TRUE}
-## Let's walk through these lines
-ls()
-Bear1<-Bear2<-52
-ls()
-rm(list=c("Bear1", "Bear2"))
-objects()
-``` 
-
-
-----
-
-Combine them to remove everything
-```{r, tidy=FALSE, out.height=".55\\textheight", fig.align="center", eval=TRUE}
-ls()
-Bear1<-Bear2<-52
-ls()
-rm(list=c("Bear1", "Bear2"))
-objects()
-```
-
------
-
-Some things are present in the working environment, but not shown
-
-```{r, tidy=FALSE, out.height=".55\\textheight", fig.align="center", eval=TRUE}
-.x<-"Hide me"
-print(.x)
-ls()
-```
-
-Anything that starts with a "." will be there, but are hidden
-
-
-
-
 
 
 

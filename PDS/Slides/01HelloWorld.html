@@ -126,7 +126,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div class="slide section level1">
 
-<h3 id="big-picture-orientation">1.4: Big picture orientation</h3>
+<h3 id="big-picture-orientation">1.3: Big picture orientation</h3>
 <ul>
 <li>Everything in R is object oriented. Data, functions, inputs and outputs will all be data objects.</li>
 <li>R is case sensitive. For that matter, it is also spelling sensitive.</li>
@@ -137,7 +137,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div class="slide section level1">
 
-<h3 id="r-as-a-calculator">1.5: R as a calculator</h3>
+<h3 id="r-as-a-calculator">1.4: R as a calculator</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">5+4</span> <span class="co"># Addition</span></code></pre></div>
 <pre><code>## [1] 9</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">6-3</span>  <span class="co">#Subtraction</span></code></pre></div>
@@ -193,77 +193,6 @@ voting.age.population.ak &lt;-<span class="st"> </span><span class="dv">496387</
 turnout.ak &lt;-total.votes.ak/voting.age.population.ak
 turnout.ak</code></pre></div>
 <pre><code>## [1] 0.4800831</code></pre>
-<p>But Object names cannot start with numbers</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">06election&lt;-<span class="dv">50000</span> ## Try this</code></pre></div>
-</div>
-<div class="slide section level1">
-
-<h3 id="getting-to-know-the-global-environment">1.5 Getting to know the global environment</h3>
-<ul>
-<li>Named objects are stored in the “global environment”, which means that they can be accessed at any time by any function you might run.</li>
-<li>They are “global” variables (which makes them different from “local” variables).</li>
-</ul>
-<p>But Object names cannot start with numbers</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">objects</span>() <span class="co"># List the objects currently on your global</span></code></pre></div>
-<pre><code>## [1] &quot;total.votes.ak&quot;           &quot;turnout.ak&quot;              
-## [3] &quot;voting.age.population.ak&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ls</span>() <span class="co"># same thing</span></code></pre></div>
-<pre><code>## [1] &quot;total.votes.ak&quot;           &quot;turnout.ak&quot;              
-## [3] &quot;voting.age.population.ak&quot;</code></pre>
-</div>
-<div class="slide section level1">
-
-<p>You can also remove objects</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Let's walk through these lines
-Bears&lt;-<span class="dv">100</span>
-<span class="kw">ls</span>()</code></pre></div>
-<pre><code>## [1] &quot;Bears&quot;                    &quot;total.votes.ak&quot;          
-## [3] &quot;turnout.ak&quot;               &quot;voting.age.population.ak&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(Bears)</code></pre></div>
-</div>
-<div class="slide section level1">
-
-<p>The command <code>remove</code> does the same thing</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Let's walk through these lines
-<span class="kw">ls</span>()</code></pre></div>
-<pre><code>## [1] &quot;total.votes.ak&quot;           &quot;turnout.ak&quot;              
-## [3] &quot;voting.age.population.ak&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Bear1&lt;-Bear2&lt;-<span class="dv">52</span>
-<span class="kw">ls</span>()</code></pre></div>
-<pre><code>## [1] &quot;Bear1&quot;                    &quot;Bear2&quot;                   
-## [3] &quot;total.votes.ak&quot;           &quot;turnout.ak&quot;              
-## [5] &quot;voting.age.population.ak&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">c</span>(<span class="st">&quot;Bear1&quot;</span>, <span class="st">&quot;Bear2&quot;</span>))
-<span class="kw">objects</span>()</code></pre></div>
-<pre><code>## [1] &quot;total.votes.ak&quot;           &quot;turnout.ak&quot;              
-## [3] &quot;voting.age.population.ak&quot;</code></pre>
-</div>
-<div class="slide section level1">
-
-<p>Combine them to remove everything</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ls</span>()</code></pre></div>
-<pre><code>## [1] &quot;total.votes.ak&quot;           &quot;turnout.ak&quot;              
-## [3] &quot;voting.age.population.ak&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Bear1&lt;-Bear2&lt;-<span class="dv">52</span>
-<span class="kw">ls</span>()</code></pre></div>
-<pre><code>## [1] &quot;Bear1&quot;                    &quot;Bear2&quot;                   
-## [3] &quot;total.votes.ak&quot;           &quot;turnout.ak&quot;              
-## [5] &quot;voting.age.population.ak&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">c</span>(<span class="st">&quot;Bear1&quot;</span>, <span class="st">&quot;Bear2&quot;</span>))
-<span class="kw">objects</span>()</code></pre></div>
-<pre><code>## [1] &quot;total.votes.ak&quot;           &quot;turnout.ak&quot;              
-## [3] &quot;voting.age.population.ak&quot;</code></pre>
-</div>
-<div class="slide section level1">
-
-<p>Some things are present in the working environment, but not shown</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">.x&lt;-<span class="st">&quot;Hide me&quot;</span>
-<span class="kw">print</span>(.x)</code></pre></div>
-<pre><code>## [1] &quot;Hide me&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ls</span>()</code></pre></div>
-<pre><code>## [1] &quot;total.votes.ak&quot;           &quot;turnout.ak&quot;              
-## [3] &quot;voting.age.population.ak&quot;</code></pre>
-<p>Anything that starts with a “.” will be there, but are hidden</p>
 </div>
 
   <!-- dynamically load mathjax for compatibility with self-contained -->

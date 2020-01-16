@@ -16,6 +16,8 @@ knitr::opts_chunk$set(echo = TRUE)
 #### Lecture slides
 [Lecture1](https://jmontgomery.github.io/PDS/Slides/01HelloWorld.html)
 
+[Lecture2](https://jmontgomery.github.io/PDS/Slides/02ObjectsIntro.html)
+
 #### Problem Sets
 
 
