@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
   <head>
-    <title>Getting started with objects and classes</title>
+    <title>Getting started with objects</title>
     <meta charset="utf-8" />
     <meta name="date" content="2020-01-01" />
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
@@ -11,7 +11,7 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Getting started with objects and classes
+# Getting started with objects
 ### <p>Jacob M. Montgomery<br />
 <em>Washington University in St. Louis</em><br />
 <em>Department of Politcal Science</em></p>
@@ -20,7 +20,9 @@ class: center, middle, inverse, title-slide
 ---
 
 
-## Introductions
+## Introductions 2
+
+Just for new students today
 
 - Who are you?
 - What are you going to study?
@@ -36,9 +38,7 @@ We are going to:
 1. Talk about assigning object to names in R.
 2. Your first objects: functions, vectors, and functions for vectors
 3. Learn about your friend the vector
-4. Intro to the concept of class: character, logical, numeric
-    - Getting started with text
-    - The logic of logicals
+
 
 
 ---
@@ -223,7 +223,7 @@ q
 ```
 ## function (save = "default", status = 0, runLast = TRUE) 
 ## .Internal(quit(save, status, runLast))
-## &lt;bytecode: 0x7fe579b22108&gt;
+## &lt;bytecode: 0x7f99ad19e5f0&gt;
 ## &lt;environment: namespace:base&gt;
 ```
 
@@ -303,7 +303,7 @@ exp(log(1)) # e^ln(1) = 1
 
 ---
 
-##2.4: Vectors
+## 2.4: Vectors
 
 The c() function is used to collect/concatenate things together into a vector
 
@@ -497,6 +497,7 @@ Helpful functions here include
 - `tan`
 - `sqrt`
 - `sum` 
+- `abs` 
 
 ---- 
 
@@ -918,7 +919,22 @@ mean(tv[!is.na(tv)]/vap[!is.na(tv)])
 
 --
 
-How could we make this correct?
+What would happen if I did this?
+
+
+```r
+mean(tv[!is.na(tv)]/vap[!is.na(vap)])
+```
+
+```
+## Warning in tv[!is.na(tv)]/vap[!is.na(vap)]: longer object length is not a
+## multiple of shorter object length
+```
+
+```
+## [1] 1.070847
+```
+
 
 
 ---
