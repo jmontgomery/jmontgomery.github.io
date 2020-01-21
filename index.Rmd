@@ -18,6 +18,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 [Lecture2](https://jmontgomery.github.io/PDS/Slides/02ObjectsIntro.html)
 
+[Lecture3](https://jmontgomery.github.io/PDS/Slides/03ClassesAndMoreObj.html)
+
 #### Problem Sets
 
 
