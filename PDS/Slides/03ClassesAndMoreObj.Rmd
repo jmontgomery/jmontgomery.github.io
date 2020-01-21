@@ -1,5 +1,5 @@
 ---
-title: "Classes and more structures"
+title: "Classes, characters, and logicals"
 author: |
   | Jacob M. Montgomery
   | *Washington University in St. Louis*
@@ -13,6 +13,31 @@ output:
       countIncrementalSlides: false
 #   beamer_presentation: default
 #   slidy_presentation: default
+
+
+---
+
+## Let's go through solutions to Activity 2
+
+Calculate the sum $\sum_{j=1}^n j^2$ and compare with $n(n+1)(2n+1)/6$, for $n=200,~400,~600,~800$.
+
+--
+
+<br>
+<br>
+
+Using 'rep and 'seq' as needed, create the vectors:
+
+- 0 0 0 0 0 1 1 1 1 1  2 2 2 2 2 3 3 3 3 3 4 4 4 4 4
+- 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
+- 1 2 3 4 5 2 3 4 5 6 3 4 5 6 7 4 5 6 7 8 5 6 7 8 9
+
+--
+<br>
+<br>
+
+Write the R code to calculate the standard sample variance formula
+$$s^2 = \frac{1}{n-1} \sum_{i=1}^n(x_i-\bar{x})^2 $$
 
 
 ---
@@ -31,14 +56,17 @@ Last time:
 
 --
 
-We are going to:
+Today
 
 1. Talk about object classes
     + Character class
     + Logical class
 
-2. More data structures
-    + Building block classes
+--
+
+Next class:
+
+1. Add more complext data structures
     + Matrix
     + Lists
     + Dataframes
@@ -104,7 +132,7 @@ mean(c("Four score and seven years ago...",
 
 ---
 
-## 2.2: logical and character
+## 3.2: logical and character
 
 - Typically objects have one class, but some will have multiple classes.
 - Many packages include their own class definition.
@@ -131,7 +159,7 @@ class("Sorry losers and haters")
 
 ---
 
-## 2.3: Factors are evil but (sometimes) necessary
+## 3.3: Factors are evil but (sometimes) necessary
 
 
 You will sometimes see factors, but they are the devil
@@ -172,7 +200,7 @@ mean(grp)
 ---
 
 
-## 2.4 Functions for classes
+## 3.4 Functions for classes
 
 
 There are functions to move back and forth between types
@@ -198,7 +226,6 @@ There are several types of these
 
 ```{r}
 as.character(0:5) # Turning numbers into characters
-as.complex(0:5) # Imaginary numbes
 as.logical(0:5) # All numbers but '0' become FALSE
 ```
 
@@ -213,7 +240,7 @@ as.numeric(c('a', 'b', 'c'))
 
 ---
 
-## 2.5: Vectors can only be of one type
+## 3.5: Vectors can only be of one type
 
 Numbers get changed to strings
 ```{r}
@@ -235,7 +262,7 @@ class(xx)
 ---
 
 
-## 2.6: Special character functions
+## 3.6: Special character functions
 
 - Some functions can only be used on specific data types. 
 - This will be listed in the help files.
@@ -256,7 +283,7 @@ more.colors <- c(colors, "green", "magenta", "cyan")
 
 ---
 
-## 2.6.1: Substring
+## 3.6.1: Substring
 
 You might want only a portion of the string. 
 
@@ -280,7 +307,7 @@ substr(colors, 1,2)
 
 ---
 
-## 2.6.2: paste
+## 3.6.2: paste
 
 You might want to combine strings
 
@@ -302,15 +329,20 @@ paste("I like", colors, "flowers")
 
 --
 
-You can use "" for an empty string.  Like NA for numeric
+You can use "" for an empty string.  Like NA for numeric.
+
+--
+
 
 ```{r}
 paste("I like", colors, "flowers", collapse = "")
 ```
 
+Here we "collapsed" into one string separated by ""
+
 ---
 
-## 2.6.2: nchar
+## 3.6.2: nchar
 
 You can also count how many characters are in each string
 
@@ -320,7 +352,7 @@ nchar(colors)
 
 ---
 
-## 2.6.3: strsplit
+## 3.6.3: strsplit
 
 
 You may want to divide a string into components
@@ -339,7 +371,7 @@ unlist(this.out)
 
 ---
 
-## 2.6.4: gsub
+## 3.6.4: gsub
 
 - 'gsub' is not particular to strings, but very useful.
 - I use it to replace elments 
@@ -352,9 +384,12 @@ gsub("my life", "the bee's knees", extreme.statement)
 
 --
 
+<br>
+<br>
+
 What does this do?
 
-```{r}
+```{r, eval=FALSE}
 gsub(" is my life", "", extreme.statement)
 ```
 
@@ -365,74 +400,197 @@ gsub(" is my life", "", extreme.statement)
 
 - If you are doing a lot with strings try the library 'strgr', which has some user-friendly functions
 - If you include '\n' in a string, in many instances it will be a carriage return (e.g., plotting)
-- A very common programming error (at least for me) is to forget a closing quotation mark.  
-- This will make the computer think you are still making a giantly long string.
+- A very common programming error (at least for me) is to forget a closing quotation mark. This will make the computer think you are still making a giantly long string.
+
+---
+
+## Activity 3
+
+
+---
+
+## 3.7 logicals and Boolean Logic
+
+- Logicals are often used when subsetting or recoding data
+- Generally necessary to understand this for data wrangling
+
+
+```{r}
+x<-c(0, 7, 8) 
+chooser<-c(T, F, T)
+x[chooser] # print ony those elements of x where chooser is TRUE
+```
+
+---
+
+Arithmetic operations on logicals create numerics where:
+
+- TRUE is treated as a '1', and
+- FALSE is treated as a '0'
+
+```{r}
+sum(chooser) # Arithmatic on logicals creates numerics
+```
+
+--
+
+Earlier we also showed the '!' operator:
+
+```{r}
+!chooser
+```
+
+
+---
+
+## 3.8: Basic boolean logic
+
+We can generate logical vectors using basic boolean algebra
+
+- Equal/not equal
+```{r}
+x == 7
+x!=7
+```
+
+--
+
+- Greater than
+```{r}
+x >7
+x>=7
+```
 
 ---
 
 
-## 2.3 More on Boolean Logic
-## use logicals to subset, recode, or otherwise handle data
-
-x
-chooser<-c(T, F, T)
-x[chooser] # print ony those elements of x where chooser is TRUE
-sum(chooser) # Arithmatic on logicals creates numerics
-!chooser # not operator
-
-
-## We can generate logical vectors using basic boolean algebra
-x == 7
-x >7
-x>=7
+- Less than
+```{r}
 x<7
-x!=7
 x<=7
+```
+
+---
+
+## 3.9: More advanced logic
+
+We can also use the 
+- or operator '|'
+- and operator '&'
+
+```{r}
 x<7 | x ==7 ## the or operator
 x<=7 & x == 7 ## the and operator
-x<=7 || x==7 ## these are NOT the same 
-x<=7 && x==7 ## not what you think
+
+```
+
+---
+
+But these are *not* the same as
+- '||'
+- '&&'
+
+```{r}
+x<=7 || x==7 
+x<=7 && x==7 
+```
 
 
-# #There are also some function that create logicals.
-is.na(total.votes) # vectorized
-total.votes
-is.numeric(total.votes) # this is not vectorized
 
-## You can use these to do fun things to data
+---
 
-## subset
+## 3.10 Functions that create logicals
+
+The output of many functions will be logicals
+
+- Some are vectorized
+
+```{r}
+is.na(total.votes) 
+```
+
+- Some are not
+
+```{r}
+is.numeric(total.votes) 
+```
+---
+
+## 3.11 Using logicals for basic tasks
+
+
+### 3.11.1 Subset data
+
+```{r}
 small.states<- voting.age.population[voting.age.population < median(voting.age.population)]
 small.states
+```
 
-## recode
+---
+
+
+### 3.11.2 Recode variables
+  
+```{r}
 state.size<-(voting.age.population > median(voting.age.population)) *1
 state.size
+```
 
-## or this
+---
+
+What does this one do?
+
+```{r}
 state.size[state.size == 1] <- rep(3, sum(state.size == 1))
 state.size
+```
 
-## or this
+---
+
+How about this one?
+
+```{r}
 state.size[state.size == 3] <- 5
 state.size
-## or this
-state.size[state.size > 0] <- 1
-state.size
+```
 
-## Another useful function is which().  Provides the index of elements where the condition is true
+## 3.12 which, any, all
+
+- 'which' provides an index of elements where the condition is true
+
+```{r}
 which(state.size == 1)
+```
 
-x
-any(x>2) # are any elements TRUE?
-all(x>2) # are all elements TRUE?
+- 'any' asks if the condition is true for any element
 
+```{r}
+any(x>2) 
+```
 
-##Tip: Be *VERY* careful about combining & with | -- especially in the presence of !
+- 'all' asks if the condition is true for all elements
 
+```{r}
+all(x>2) 
+```
+
+---
+
+## 3.13 WARNING: Combining and, or, not
+
+- Computer are better at logic
+- If I ask, "do prefer hotdogs or hamburgers", a totally valid response is "yes"
+-  Be *VERY* careful about combining & with | -- especially in the presence of !
+
+--
+
+Let's do these together
+
+```{r, eval=FALSE}
 (2==3 & 2==2 | 2==2)
 (2==3 & 2==2 | 2==2 & 2==3)
 (2==3 | !2==2 & 2==2 | 2==5)
 (2==3 | !2==3 & 2==2 | 2==5)
 (2==3 | !2==3 & 2==2 | 2==5)
 (2==3 | !(2==3 & 2==2) | 2==5)
+```

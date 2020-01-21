@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
   <head>
-    <title>Classes and more structures</title>
+    <title>Classes, characters, and logicals</title>
     <meta charset="utf-8" />
     <meta name="date" content="2020-01-01" />
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
@@ -11,7 +11,7 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Classes and more structures
+# Classes, characters, and logicals
 ### <p>Jacob M. Montgomery<br />
 <em>Washington University in St. Louis</em><br />
 <em>Department of Politcal Science</em></p>
@@ -19,6 +19,31 @@ class: center, middle, inverse, title-slide
 
 ---
 
+
+## Let's go through solutions to Activity 2
+
+Calculate the sum `\(\sum_{j=1}^n j^2\)` and compare with `\(n(n+1)(2n+1)/6\)`, for `\(n=200,~400,~600,~800\)`.
+
+--
+
+&lt;br&gt;
+&lt;br&gt;
+
+Using 'rep and 'seq' as needed, create the vectors:
+
+- 0 0 0 0 0 1 1 1 1 1  2 2 2 2 2 3 3 3 3 3 4 4 4 4 4
+- 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
+- 1 2 3 4 5 2 3 4 5 6 3 4 5 6 7 4 5 6 7 8 5 6 7 8 9
+
+--
+&lt;br&gt;
+&lt;br&gt;
+
+Write the R code to calculate the standard sample variance formula
+$$s^2 = \frac{1}{n-1} \sum_{i=1}^n(x_i-\bar{x})^2 $$
+
+
+---
 
 ## Orientation for today
 
@@ -34,14 +59,17 @@ Last time:
 
 --
 
-We are going to:
+Today
 
 1. Talk about object classes
     + Character class
     + Logical class
 
-2. More data structures
-    + Building block classes
+--
+
+Next class:
+
+1. Add more complext data structures
     + Matrix
     + Lists
     + Dataframes
@@ -137,7 +165,7 @@ mean(c("Four score and seven years ago...",
 
 ---
 
-## 2.2: logical and character
+## 3.2: logical and character
 
 - Typically objects have one class, but some will have multiple classes.
 - Many packages include their own class definition.
@@ -174,7 +202,7 @@ class("Sorry losers and haters")
 
 ---
 
-## 2.3: Factors are evil but (sometimes) necessary
+## 3.3: Factors are evil but (sometimes) necessary
 
 
 You will sometimes see factors, but they are the devil
@@ -257,7 +285,7 @@ mean(grp)
 ---
 
 
-## 2.4 Functions for classes
+## 3.4 Functions for classes
 
 
 There are functions to move back and forth between types
@@ -308,14 +336,6 @@ as.character(0:5) # Turning numbers into characters
 ```
 
 ```r
-as.complex(0:5) # Imaginary numbes
-```
-
-```
-## [1] 0+0i 1+0i 2+0i 3+0i 4+0i 5+0i
-```
-
-```r
 as.logical(0:5) # All numbers but '0' become FALSE
 ```
 
@@ -350,7 +370,7 @@ as.numeric(c('a', 'b', 'c'))
 
 ---
 
-## 2.5: Vectors can only be of one type
+## 3.5: Vectors can only be of one type
 
 Numbers get changed to strings
 
@@ -396,7 +416,7 @@ class(xx)
 ---
 
 
-## 2.6: Special character functions
+## 3.6: Special character functions
 
 - Some functions can only be used on specific data types. 
 - This will be listed in the help files.
@@ -419,7 +439,7 @@ more.colors &lt;- c(colors, "green", "magenta", "cyan")
 
 ---
 
-## 2.6.1: Substring
+## 3.6.1: Substring
 
 You might want only a portion of the string. 
 
@@ -456,7 +476,7 @@ substr(colors, 1,2)
 
 ---
 
-## 2.6.2: paste
+## 3.6.2: paste
 
 You might want to combine strings
 
@@ -495,7 +515,10 @@ paste("I like", colors, "flowers")
 
 --
 
-You can use "" for an empty string.  Like NA for numeric
+You can use "" for an empty string.  Like NA for numeric.
+
+--
+
 
 
 ```r
@@ -506,9 +529,11 @@ paste("I like", colors, "flowers", collapse = "")
 ## [1] "I like red flowersI like yellow flowersI like blue flowers"
 ```
 
+Here we "collapsed" into one string separated by ""
+
 ---
 
-## 2.6.2: nchar
+## 3.6.2: nchar
 
 You can also count how many characters are in each string
 
@@ -523,7 +548,7 @@ nchar(colors)
 
 ---
 
-## 2.6.3: strsplit
+## 3.6.3: strsplit
 
 
 You may want to divide a string into components
@@ -548,7 +573,7 @@ unlist(this.out)
 
 ---
 
-## 2.6.4: gsub
+## 3.6.4: gsub
 
 - 'gsub' is not particular to strings, but very useful.
 - I use it to replace elments 
@@ -569,15 +594,14 @@ gsub("my life", "the bee's knees", extreme.statement)
 
 --
 
+&lt;br&gt;
+&lt;br&gt;
+
 What does this do?
 
 
 ```r
 gsub(" is my life", "", extreme.statement)
-```
-
-```
-## [1] "Coding"
 ```
 
 ---
@@ -587,77 +611,330 @@ gsub(" is my life", "", extreme.statement)
 
 - If you are doing a lot with strings try the library 'strgr', which has some user-friendly functions
 - If you include '\n' in a string, in many instances it will be a carriage return (e.g., plotting)
-- A very common programming error (at least for me) is to forget a closing quotation mark.  
-- This will make the computer think you are still making a giantly long string.
+- A very common programming error (at least for me) is to forget a closing quotation mark. This will make the computer think you are still making a giantly long string.
+
+---
+
+## Activity 3
+
+
+---
+
+## 3.7 logicals and Boolean Logic
+
+- Logicals are often used when subsetting or recoding data
+- Generally necessary to understand this for data wrangling
+
+
+
+```r
+x&lt;-c(0, 7, 8) 
+chooser&lt;-c(T, F, T)
+x[chooser] # print ony those elements of x where chooser is TRUE
+```
+
+```
+## [1] 0 8
+```
+
+---
+
+Arithmetic operations on logicals create numerics where:
+
+- TRUE is treated as a '1', and
+- FALSE is treated as a '0'
+
+
+```r
+sum(chooser) # Arithmatic on logicals creates numerics
+```
+
+```
+## [1] 2
+```
+
+--
+
+Earlier we also showed the '!' operator:
+
+
+```r
+!chooser
+```
+
+```
+## [1] FALSE  TRUE FALSE
+```
+
+
+---
+
+## 3.8: Basic boolean logic
+
+We can generate logical vectors using basic boolean algebra
+
+- Equal/not equal
+
+```r
+x == 7
+```
+
+```
+## [1] FALSE  TRUE FALSE
+```
+
+```r
+x!=7
+```
+
+```
+## [1]  TRUE FALSE  TRUE
+```
+
+--
+
+- Greater than
+
+```r
+x &gt;7
+```
+
+```
+## [1] FALSE FALSE  TRUE
+```
+
+```r
+x&gt;=7
+```
+
+```
+## [1] FALSE  TRUE  TRUE
+```
 
 ---
 
 
-## 2.3 More on Boolean Logic
-## use logicals to subset, recode, or otherwise handle data
+- Less than
 
-x
-chooser&lt;-c(T, F, T)
-x[chooser] # print ony those elements of x where chooser is TRUE
-sum(chooser) # Arithmatic on logicals creates numerics
-!chooser # not operator
-
-
-## We can generate logical vectors using basic boolean algebra
-x == 7
-x &gt;7
-x&gt;=7
+```r
 x&lt;7
-x!=7
+```
+
+```
+## [1]  TRUE FALSE FALSE
+```
+
+```r
 x&lt;=7
+```
+
+```
+## [1]  TRUE  TRUE FALSE
+```
+
+---
+
+## 3.9: More advanced logic
+
+We can also use the 
+- or operator '|'
+- and operator '&amp;'
+
+
+```r
 x&lt;7 | x ==7 ## the or operator
+```
+
+```
+## [1]  TRUE  TRUE FALSE
+```
+
+```r
 x&lt;=7 &amp; x == 7 ## the and operator
-x&lt;=7 || x==7 ## these are NOT the same 
-x&lt;=7 &amp;&amp; x==7 ## not what you think
+```
+
+```
+## [1] FALSE  TRUE FALSE
+```
+
+---
+
+But these are *not* the same as
+- '||'
+- '&amp;&amp;'
 
 
-# #There are also some function that create logicals.
-is.na(total.votes) # vectorized
-total.votes
-is.numeric(total.votes) # this is not vectorized
+```r
+x&lt;=7 || x==7 
+```
 
-## You can use these to do fun things to data
+```
+## [1] TRUE
+```
 
-## subset
+```r
+x&lt;=7 &amp;&amp; x==7 
+```
+
+```
+## [1] FALSE
+```
+
+
+
+---
+
+## 3.10 Functions that create logicals
+
+The output of many functions will be logicals
+
+- Some are vectorized
+
+
+```r
+is.na(total.votes) 
+```
+
+```
+##  [1]  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [12] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
+## [23] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [34] FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE
+## [45] FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+```
+
+- Some are not
+
+
+```r
+is.numeric(total.votes) 
+```
+
+```
+## [1] TRUE
+```
+---
+
+## 3.11 Using logicals for basic tasks
+
+
+### 3.11.1 Subset data
+
+
+```r
 small.states&lt;- voting.age.population[voting.age.population &lt; median(voting.age.population)]
 small.states
+```
 
-## recode
+```
+##  [1]  496387 2120139 2673154  652189  472143  995937 1073799 2265860
+##  [9] 2068253 1033632 2139918  731365 1321923 1870315 1012033 1452962
+## [17]  494923 2697855 2850525  824854  594599 1797941  487900 1421717
+## [25]  392344
+```
+
+---
+
+
+### 3.11.2 Recode variables
+  
+
+```r
 state.size&lt;-(voting.age.population &gt; median(voting.age.population)) *1
 state.size
+```
 
-## or this
+```
+##  [1] 1 0 1 0 1 1 0 0 0 1 1 0 0 1 1 0 0 1 0 0 1 1 1 1 0 1 0 0 0 0 1 0 1 1 0
+## [36] 1 0 0 1 0 1 0 1 1 0 0 1 1 0 1 0
+```
+
+---
+
+What does this one do?
+
+
+```r
 state.size[state.size == 1] &lt;- rep(3, sum(state.size == 1))
 state.size
+```
 
-## or this
+```
+##  [1] 3 0 3 0 3 3 0 0 0 3 3 0 0 3 3 0 0 3 0 0 3 3 3 3 0 3 0 0 0 0 3 0 3 3 0
+## [36] 3 0 0 3 0 3 0 3 3 0 0 3 3 0 3 0
+```
+
+---
+
+How about this one?
+
+
+```r
 state.size[state.size == 3] &lt;- 5
 state.size
-## or this
-state.size[state.size &gt; 0] &lt;- 1
-state.size
+```
 
-## Another useful function is which().  Provides the index of elements where the condition is true
+```
+##  [1] 5 0 5 0 5 5 0 0 0 5 5 0 0 5 5 0 0 5 0 0 5 5 5 5 0 5 0 0 0 0 5 0 5 5 0
+## [36] 5 0 0 5 0 5 0 5 5 0 0 5 5 0 5 0
+```
+
+## 3.12 which, any, all
+
+- 'which' provides an index of elements where the condition is true
+
+
+```r
 which(state.size == 1)
+```
 
-x
-any(x&gt;2) # are any elements TRUE?
-all(x&gt;2) # are all elements TRUE?
+```
+## integer(0)
+```
+
+- 'any' asks if the condition is true for any element
 
 
-##Tip: Be *VERY* careful about combining &amp; with | -- especially in the presence of !
+```r
+any(x&gt;2) 
+```
 
+```
+## [1] TRUE
+```
+
+- 'all' asks if the condition is true for all elements
+
+
+```r
+all(x&gt;2) 
+```
+
+```
+## [1] FALSE
+```
+
+---
+
+## 3.13 WARNING: Combining and, or, not
+
+- Computer are better at logic
+- If I ask, "do prefer hotdogs or hamburgers", a totally valid response is "yes"
+-  Be *VERY* careful about combining &amp; with | -- especially in the presence of !
+
+--
+
+Let's do these together
+
+
+```r
 (2==3 &amp; 2==2 | 2==2)
 (2==3 &amp; 2==2 | 2==2 &amp; 2==3)
 (2==3 | !2==2 &amp; 2==2 | 2==5)
 (2==3 | !2==3 &amp; 2==2 | 2==5)
 (2==3 | !2==3 &amp; 2==2 | 2==5)
 (2==3 | !(2==3 &amp; 2==2) | 2==5)
+```
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

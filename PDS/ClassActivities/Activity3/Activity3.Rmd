@@ -1,0 +1,23 @@
+---
+title: ''
+output: pdf_document
+---
+  
+
+\begin{center}
+{\large    Statistical Computing\\
+   Activity 3 }
+\end{center}
+
+\subsubsection*{Write the R code to answer the following questions.}
+
+
+\begin{enumerate}
+\item Use the \texttt{seq()} and \texttt{paste()} to create the vector called \texttt{varnames} containing: \texttt{"Var1" "Var2" "Var3" "Var4" "Var5" "Var6"}
+\item Remove the substring \texttt{``Var''} from the \texttt{varnames} vector
+\item Recast the \texttt{varnames} vector into a numeric.
+\end{enumerate}
+
+
+
+\end{document} 
