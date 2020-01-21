@@ -554,6 +554,9 @@ state.size[state.size == 3] <- 5
 state.size
 ```
 
+---
+
+
 ## 3.12 which, any, all
 
 - 'which' provides an index of elements where the condition is true
@@ -562,11 +565,15 @@ state.size
 which(state.size == 1)
 ```
 
+--
+
 - 'any' asks if the condition is true for any element
 
 ```{r}
 any(x>2) 
 ```
+
+--
 
 - 'all' asks if the condition is true for all elements
 
@@ -594,3 +601,9 @@ Let's do these together
 (2==3 | !2==3 & 2==2 | 2==5)
 (2==3 | !(2==3 & 2==2) | 2==5)
 ```
+
+---
+
+## Activity 4
+
+
