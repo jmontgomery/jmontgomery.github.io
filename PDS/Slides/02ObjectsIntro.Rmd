@@ -1,5 +1,5 @@
 ---
-title: "Getting started with objects and classes"
+title: "Getting started with objects"
 author: |
   | Jacob M. Montgomery
   | *Washington University in St. Louis*
@@ -18,7 +18,9 @@ output:
 
 ---
 
-## Introductions
+## Introductions 2
+
+Just for new students today
 
 - Who are you?
 - What are you going to study?
@@ -34,9 +36,7 @@ We are going to:
 1. Talk about assigning object to names in R.
 2. Your first objects: functions, vectors, and functions for vectors
 3. Learn about your friend the vector
-4. Intro to the concept of class: character, logical, numeric
-    - Getting started with text
-    - The logic of logicals
+
 
 
 ---
@@ -202,7 +202,7 @@ exp(log(1)) # e^ln(1) = 1
 
 ---
 
-##2.4: Vectors
+## 2.4: Vectors
 
 The c() function is used to collect/concatenate things together into a vector
 
@@ -308,6 +308,7 @@ Helpful functions here include
 - `tan`
 - `sqrt`
 - `sum` 
+- `abs` 
 
 ---- 
 
@@ -436,7 +437,7 @@ y^x # but if each are three elements long, it will execute by element
 
 ---
 
-### WARNING!!! Vector recycling
+## WARNING!!! Vector recycling
 
 When vectors have different lengths, the shorter one is extended by 
 repeating the vector.
@@ -554,7 +555,12 @@ mean(tv[!is.na(tv)]/vap[!is.na(tv)])
 
 --
 
-How could we make this correct?
+What would happen if I did this?
+
+```{r}
+mean(tv[!is.na(tv)]/vap[!is.na(vap)])
+```
+
 
 
 ---
