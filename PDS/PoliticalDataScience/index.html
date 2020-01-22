@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Political Data Science</title>
   <meta name="description" content="Political Data Science" />
-  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Political Data Science" />
   <meta property="og:type" content="book" />
@@ -31,8 +31,9 @@
   
   
 
-<link rel="next" href="unwritten-chapter-2.html"/>
+<link rel="next" href="getting-started-in-r.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/elevate-section-attrs-2.0/elevate-section-attrs.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -51,6 +52,69 @@
 
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 </head>
 
@@ -64,23 +128,23 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Don’t be a clown</a><ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#as-easy-as-cake"><i class="fa fa-check"></i><b>1.1</b> As easy as cake</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Don’t be a clown</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#as-easy-as-cake"><i class="fa fa-check"></i><b>1.1</b> As easy as cake</a>
+<ul>
 <li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#coding"><i class="fa fa-check"></i><b>1.1.1</b> Coding</a></li>
 <li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#data-acquision"><i class="fa fa-check"></i><b>1.1.2</b> Data acquision</a></li>
 <li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#algorithms"><i class="fa fa-check"></i><b>1.1.3</b> Algorithms</a></li>
 <li class="chapter" data-level="1.1.4" data-path="index.html"><a href="index.html#domain-knowledge"><i class="fa fa-check"></i><b>1.1.4</b> Domain knowledge</a></li>
 <li class="chapter" data-level="1.1.5" data-path="index.html"><a href="index.html#putting-it-together"><i class="fa fa-check"></i><b>1.1.5</b> Putting it together</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#class-structures"><i class="fa fa-check"></i><b>1.2</b> Class structures</a><ul>
-<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#learning-objective-1-team-based-learning"><i class="fa fa-check"></i><b>1.2.1</b> Learning objective #1: Team based learning</a></li>
-<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#learning-object-2-show-up-ready"><i class="fa fa-check"></i><b>1.2.2</b> Learning object #2: Show up ready</a></li>
-<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#learning-objective-3-how-is-this-going-to-work"><i class="fa fa-check"></i><b>1.2.3</b> Learning objective #3: How is this going to work?</a></li>
-</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#class-structures"><i class="fa fa-check"></i><b>1.2</b> Class structures</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#asdf"><i class="fa fa-check"></i><b>1.3</b> asdf</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="unwritten-chapter-2.html"><a href="unwritten-chapter-2.html"><i class="fa fa-check"></i><b>2</b> Unwritten chapter 2</a><ul>
-<li class="chapter" data-level="2.1" data-path="unwritten-chapter-2.html"><a href="unwritten-chapter-2.html#learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html"><i class="fa fa-check"></i><b>2</b> Getting Started in R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#assigning-values-to-objects"><i class="fa fa-check"></i><b>2.2</b> Assigning values to objects</a></li>
 </ul></li>
 </ul>
 
@@ -103,69 +167,76 @@
 <h1 class="title">Political Data Science</h1>
 <p class="author"><em>Jacob Montgomery</em></p>
 </div>
-<div id="dont-be-a-clown" class="section level1">
+<div id="dont-be-a-clown" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Don’t be a clown</h1>
 <p><a href="https://imgflip.com/i/3m0rs1"><img src="https://i.imgflip.com/3m0rs1.jpg" title="made at imgflip.com"/></a></p>
 <blockquote>
-<p>I see miracles all around me <br> Stop and look around, it’s all astounding <br> Water, fire, air and dirt <br> Fucking magnets, how do they work? <br> And I don’t wanna talk to a scientist <br> Y’all motherfuckers lying, and getting me pissed <br> <br> <br> — Insane Clown Posse, <em>Miracles</em></p>
+<p>I see miracles all around me <br>
+Stop and look around, it’s all astounding <br>
+Water, fire, air and dirt <br>
+Fucking magnets, how do they work? <br>
+And I don’t wanna talk to a scientist <br>
+Y’all motherfuckers lying, and getting me pissed <br>
+<br>
+<br>
+— Insane Clown Posse, <em>Miracles</em></p>
 </blockquote>
 <p><a href="https://genius.com/Insane-clown-posse-miracles-lyrics">Link</a> if you don’t know what I’m talking about</p>
 <blockquote>
 <p>Pollsters are wizards, shamans, diviners. They toss numbers around the way astragalomancers once tossed bones to foretell events to come. (The name comes from the Greek astragalos, meaning “knucklebone.” But you knew that.) <br></p>
 </blockquote>
 <blockquote>
-<p>I have never been called by a political pollster and don’t know anybody who has, but I know some pollsters, who assure me they don’t make the numbers up, and I believe them.<br> <br> <br> — Roger Simon, Chief Political Columnist, <em>Politico</em></p>
+<p>I have never been called by a political pollster and don’t know anybody who has, but I know some pollsters, who assure me they don’t make the numbers up, and I believe them.<br>
+<br>
+<br>
+— Roger Simon, Chief Political Columnist, <em>Politico</em></p>
 </blockquote>
 <p><a href="https://www.politico.com/story/2011/12/are-polls-really-magic-070717">Link</a></p>
-<p>Depending on who you listen to, artificial intelligence and machine learning<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> are either the cause or the solution to all of the world’s problems. On the one hand you have algorithms spreading misinformtion, large scale corporate surveillance, and predicted mass unemployment in the service sector. On the other hand you have ever-improving health diagnostics, data-driven journalism, and all the world’s information at the touch of your fingers (or voice).</p>
+<p>Depending on who you listen to, artificial intelligence and machine learning<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> are either the cause or the solution to all of the world’s problems. On the one hand you have algorithms spreading misinformtion, large scale corporate surveillance, and predicted mass unemployment in the service sector. On the other hand you have ever-improving health diagnostics, data-driven journalism, and all the world’s information at the touch of your fingers (or voice).</p>
 <p>The term “data science” means different things to different people, but for most people the term doesn’t mean much at all. In the two quotes above, we see both the Insane Clown Posse and Politico’s (for God’s sake) chief political columnist share a loving embrace with ignorance about fundamental forces in our life. We swim in data and statistics. News, politics, and policy is increasingly being driven by data and algorithms. But all too few people know much about how these algorithms work. Like magnets or random sampling, data science is just a mysterious force that we have to cope with.</p>
 <p>The central goal of this class is to make sure you don’t have to be a clown. In today’s world, your future career will surely</p>
 <p>You will find that data science, machine learning, big data, and artificial intelligence is just another tool (if a powerful tool). It is neither good nor evil by itself. It is humans and human judgement (or lack of judgement) that lead to good our bad outcomes.</p>
 <p>But whether you intend to work for the forces of good or evil (I tend towards chaotic neutral)</p>
-<div id="as-easy-as-cake" class="section level2">
+<div id="as-easy-as-cake" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> As easy as cake</h2>
 <p>One way</p>
-<div id="coding" class="section level3">
+<div id="coding" class="section level3" number="1.1.1">
 <h3><span class="header-section-number">1.1.1</span> Coding</h3>
 </div>
-<div id="data-acquision" class="section level3">
+<div id="data-acquision" class="section level3" number="1.1.2">
 <h3><span class="header-section-number">1.1.2</span> Data acquision</h3>
 <p>Is that polling data you are looking at a random sample of Americans, or just everyone who attended that sick Delta Sig party? Were the people in your data randomly assigned to watch Fox news, or did they choose to?</p>
 <p>No matter how fancy your machine learning algorithm, the results don’t mean anything very much if you don’t</p>
 </div>
-<div id="algorithms" class="section level3">
+<div id="algorithms" class="section level3" number="1.1.3">
 <h3><span class="header-section-number">1.1.3</span> Algorithms</h3>
 </div>
-<div id="domain-knowledge" class="section level3">
+<div id="domain-knowledge" class="section level3" number="1.1.4">
 <h3><span class="header-section-number">1.1.4</span> Domain knowledge</h3>
 <p>Like baking, the final thing you need to do good data science is what most people call “domain knowledge” and what I call “knowing what the hell you are talking about.” It turns out that having a really cool statistical model, huge amounts of data, and even a super computer sproting 24 GPUs will not save you from reaching the wrong answer if you don’t think (and aren’t trained to think).</p>
-<p><img src="Fig1.png" /> <a href="https://www.researchgate.net/figure/A-famous-spurious-correlationstylervigencom_fig3_316739091">Link</a></p>
+<p><img src="Fig1.png" />
+<a href="https://www.researchgate.net/figure/A-famous-spurious-correlationstylervigencom_fig3_316739091">Link</a></p>
 </div>
-<div id="putting-it-together" class="section level3">
+<div id="putting-it-together" class="section level3" number="1.1.5">
 <h3><span class="header-section-number">1.1.5</span> Putting it together</h3>
 <p>A final method. You can get along fine in may cases following the instructions on the back of the chocolate chip cookie bag. But to really become a “baker” you need to be able to create your own recipes for each occasion. And to do that you actually need to “know what the hell you are talking about.”</p>
 <p>So</p>
 </div>
 </div>
-<div id="class-structures" class="section level2">
+<div id="class-structures" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> Class structures</h2>
-<div id="learning-objective-1-team-based-learning" class="section level3">
-<h3><span class="header-section-number">1.2.1</span> Learning objective #1: Team based learning</h3>
+<p>###Learning objective #1: Team based learning</p>
 <p>This course was designed to incorporate elements of Team Based Learning. This is an approach to creating permanent groups to work on problems in class and out of class throughout the semester.</p>
 <p>We are not going to follow the TBL approach strictly. But we are going to have fewer lectures and more structured group activities. Learn more about Team Based Learning by watching this video.</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/kxg5FTGZhZs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
-</div>
-<div id="learning-object-2-show-up-ready" class="section level3">
-<h3><span class="header-section-number">1.2.2</span> Learning object #2: Show up ready</h3>
+<p>###Learning object #2: Show up ready</p>
 <p>Moving an increasing amount of teaching resources online is a big trend in education at all levels. But this isn’t just trendy, it appears to be very effective. Preliminary research shows that online learning paired with in-class interactions with faculty is a much more effective than the traditional lecture format.</p>
 <p>Watch this short TED talk by Peter Norvig to learn more:</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/tYclUdcsdeo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 <p>So in advance of each lecture</p>
-</div>
-<div id="learning-objective-3-how-is-this-going-to-work" class="section level3">
-<h3><span class="header-section-number">1.2.3</span> Learning objective #3: How is this going to work?</h3>
+<p>###Learning objective #3: How is this going to work?</p>
 <p>The approach I am trying to adopt for this class is to help you learn in four basic steps.</p>
 <ol style="list-style-type: decimal">
 <li><p>Initial exposure to materials through self-study.</p></li>
@@ -181,8 +252,7 @@
 <li><p>You will apply your knowledge on your own (or with friends) in your problem sets and final project.</p></li>
 </ol>
 </div>
-</div>
-<div id="asdf" class="section level2">
+<div id="asdf" class="section level2" number="1.3">
 <h2><span class="header-section-number">1.3</span> asdf</h2>
 
 </div>
@@ -190,7 +260,7 @@
 <div class="footnotes">
 <hr />
 <ol start="1">
-<li id="fn1"><p>Machine learning and statistics is really just a subset of artificial intelligence (AI) research. For fun, just start telling people you are in an AI class and see how they react.<a href="index.html#fnref1">↩</a></p></li>
+<li id="fn1"><p>Machine learning and statistics is really just a subset of artificial intelligence (AI) research. For fun, just start telling people you are in an AI class and see how they react.<a href="index.html#fnref1" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -199,7 +269,7 @@
         </div>
       </div>
 
-<a href="unwritten-chapter-2.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="getting-started-in-r.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
