@@ -1,6 +1,25 @@
+# Getting Started in R
 
-#Unwritten chapter 2
+## Learning Objectives 
 
-##Learning Objectives 
+1. Learn how to assign a value to an object in R.
 
-Some more stuff about R
+2. Learn your way around R (using R Studio).
+
+3. Learn how to do simple arithmetic in R.
+
+## Assigning values to objects
+
+You can assign values to objects in two ways as shown below. The assignment arrow is functionally equivalent to the equal sign. When assigning values to objects, R will always take the value on the right side of the assignment operator (<- or =) and store it in the object on the left side of the assignment operator. This means that the two lines of commented code in the following snippet do different things. 
+
+Side note: to comment a single line of code in R, use the hashtag or pound sign at the beginning of the line. If you're working in an R script, the commented portion will turn green.
+```{r}
+x <- 4
+x
+
+y = 6
+y
+
+#y = x
+#x = y
+```
