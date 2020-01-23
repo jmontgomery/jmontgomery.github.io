@@ -38,7 +38,7 @@ Subset 'x' so that it contains only numbers between 20 and 93
 
 --
 
-Make a new variable called 'catX' that is has values '0', '1', and '2' based on whether 'x' is in the following ranges: 0=(-100, -30); 1=(-31, 3), 2=(4-100)
+Make a new variable called 'catX' that is has values '0', '1', and '2' based on whether 'x' is in the following ranges: 0=(-100, -30); 1=(-29, 3), 2=(4-100)
 
 <br>
 
