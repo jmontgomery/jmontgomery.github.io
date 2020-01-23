@@ -460,7 +460,7 @@ my.crazy.list[[3]] + 2
 - Dataframes are like a matrix and a list had a baby.
 - They are rectangular like a matrix.
 - But each column can be of a different class.
-- Ad you can access elements of the data frame like it's a list.
+- And you can access elements of the data frame like it's a list.
 
 
 ```{r}
