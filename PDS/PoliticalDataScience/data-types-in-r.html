@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Political Data Science</title>
-  <meta name="description" content="Political Data Science" />
+  <title>3 Data Types in R | Political Data Science</title>
+  <meta name="description" content="3 Data Types in R | Political Data Science" />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Political Data Science" />
+  <meta property="og:title" content="3 Data Types in R | Political Data Science" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Political Data Science" />
+  <meta name="twitter:title" content="3 Data Types in R | Political Data Science" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="getting-started-in-r.html"/>
 
-<link rel="next" href="getting-started-in-r.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <script src="libs/elevate-section-attrs-2.0/elevate-section-attrs.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -180,116 +180,105 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Political Data Science</h1>
-<p class="author"><em>Jacob Montgomery and Mariah Yelenick</em></p>
+<div id="data-types-in-r" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Data Types in R</h1>
+<div id="functions" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Functions</h2>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="data-types-in-r.html#cb38-1"></a>log</span></code></pre></div>
+<pre><code>## function (x, base = exp(1))  .Primitive(&quot;log&quot;)</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="data-types-in-r.html#cb40-1"></a><span class="kw">log</span>(<span class="dv">2</span>) <span class="co"># ln(2)</span></span></code></pre></div>
+<pre><code>## [1] 0.6931472</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="data-types-in-r.html#cb42-1"></a><span class="kw">log</span>(<span class="dv">2</span>, <span class="dt">base=</span><span class="dv">10</span>) <span class="co"># log(2) base 10</span></span></code></pre></div>
+<pre><code>## [1] 0.30103</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="data-types-in-r.html#cb44-1"></a><span class="kw">log</span>(<span class="dt">base =</span> <span class="dv">10</span>, <span class="dt">x =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 0.30103</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="data-types-in-r.html#cb46-1"></a><span class="kw">exp</span>(<span class="kw">log</span>(<span class="dv">1</span>)) <span class="co"># e^ln(1) = 1</span></span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
 </div>
-<div id="dont-be-a-clown" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Don’t be a clown</h1>
-<p><a href="https://imgflip.com/i/3m0rs1"><img src="https://i.imgflip.com/3m0rs1.jpg" title="made at imgflip.com"/></a></p>
-<blockquote>
-<p>I see miracles all around me <br>
-Stop and look around, it’s all astounding <br>
-Water, fire, air and dirt <br>
-Fucking magnets, how do they work? <br>
-And I don’t wanna talk to a scientist <br>
-Y’all motherfuckers lying, and getting me pissed <br>
-<br>
-<br>
-— Insane Clown Posse, <em>Miracles</em></p>
-</blockquote>
-<p><a href="https://genius.com/Insane-clown-posse-miracles-lyrics">Link</a> if you don’t know what I’m talking about</p>
-<blockquote>
-<p>Pollsters are wizards, shamans, diviners. They toss numbers around the way astragalomancers once tossed bones to foretell events to come. (The name comes from the Greek astragalos, meaning “knucklebone.” But you knew that.) <br></p>
-</blockquote>
-<blockquote>
-<p>I have never been called by a political pollster and don’t know anybody who has, but I know some pollsters, who assure me they don’t make the numbers up, and I believe them.<br>
-<br>
-<br>
-— Roger Simon, Chief Political Columnist, <em>Politico</em></p>
-</blockquote>
-<p><a href="https://www.politico.com/story/2011/12/are-polls-really-magic-070717">Link</a></p>
-<p>Depending on who you listen to, artificial intelligence and machine learning<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> are either the cause or the solution to all of the world’s problems. On the one hand you have algorithms spreading misinformtion, large scale corporate surveillance, and predicted mass unemployment in the service sector. On the other hand you have ever-improving health diagnostics, data-driven journalism, and all the world’s information at the touch of your fingers (or voice).</p>
-<p>The term “data science” means different things to different people, but for most people the term doesn’t mean much at all. In the two quotes above, we see both the Insane Clown Posse and Politico’s (for God’s sake) chief political columnist share a loving embrace with ignorance about fundamental forces in our life. We swim in data and statistics. News, politics, and policy is increasingly being driven by data and algorithms. But all too few people know much about how these algorithms work. Like magnets or random sampling, data science is just a mysterious force that we have to cope with.</p>
-<p>The central goal of this class is to make sure you don’t have to be a clown. In today’s world, your future career will surely</p>
-<p>You will find that data science, machine learning, big data, and artificial intelligence is just another tool (if a powerful tool). It is neither good nor evil by itself. It is humans and human judgement (or lack of judgement) that lead to good our bad outcomes.</p>
-<p>But whether you intend to work for the forces of good or evil (I tend towards chaotic neutral)</p>
-<div id="as-easy-as-cake" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> As easy as cake</h2>
-<p>One way</p>
-<div id="coding" class="section level3" number="1.1.1">
-<h3><span class="header-section-number">1.1.1</span> Coding</h3>
+<div id="vectors" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Vectors</h2>
+<p>The c() function is used to collect/concatenate things together into a vector</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="data-types-in-r.html#cb48-1"></a><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">7</span>,<span class="dv">8</span>)</span></code></pre></div>
+<pre><code>## [1] 0 7 8</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="data-types-in-r.html#cb50-1"></a>x&lt;-<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">7</span>,<span class="dv">8</span>) <span class="co"># assign this to a named object</span></span></code></pre></div>
+<p>An easy way to make a sequence vector is using the <code>:</code> operator.</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="data-types-in-r.html#cb51-1"></a>numbers5to20 &lt;-<span class="st"> </span><span class="dv">5</span><span class="op">:</span><span class="dv">20</span> <span class="co"># </span></span>
+<span id="cb51-2"><a href="data-types-in-r.html#cb51-2"></a>numbers5to20</span></code></pre></div>
+<pre><code>##  [1]  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20</code></pre>
+<p>Note that it always increments by 1</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="data-types-in-r.html#cb53-1"></a><span class="fl">1.5</span><span class="op">:</span><span class="dv">10</span> </span></code></pre></div>
+<pre><code>## [1] 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5</code></pre>
+<p>You can also concatenate any two vectors to make a new vector</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="data-types-in-r.html#cb55-1"></a><span class="kw">c</span>(numbers5to20, x)</span></code></pre></div>
+<pre><code>##  [1]  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20  0  7  8</code></pre>
 </div>
-<div id="data-acquision" class="section level3" number="1.1.2">
-<h3><span class="header-section-number">1.1.2</span> Data acquision</h3>
-<p>Is that polling data you are looking at a random sample of Americans, or just everyone who attended that sick Delta Sig party? Were the people in your data randomly assigned to watch Fox news, or did they choose to?</p>
-<p>No matter how fancy your machine learning algorithm, the results don’t mean anything very much if you don’t</p>
+<div id="functions-and-vectors" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Functions and vectors</h2>
+<p>Many functions have been “Vectorized” meaning that they work on each element in the vector</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="data-types-in-r.html#cb57-1"></a>numbers5to20<span class="op">*</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>##  [1] 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40</code></pre>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="data-types-in-r.html#cb59-1"></a><span class="kw">sqrt</span>(numbers5to20)</span></code></pre></div>
+<pre><code>##  [1] 2.236068 2.449490 2.645751 2.828427 3.000000 3.162278 3.316625 3.464102
+##  [9] 3.605551 3.741657 3.872983 4.000000 4.123106 4.242641 4.358899 4.472136</code></pre>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="data-types-in-r.html#cb61-1"></a>numbers5to20<span class="op">^</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>##  [1]  25  36  49  64  81 100 121 144 169 196 225 256 289 324 361 400</code></pre>
+<p>But when you “Interact” two vectors, they will work “elementwise”</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="data-types-in-r.html#cb63-1"></a>numbers5to20<span class="op">*</span>numbers5to20</span></code></pre></div>
+<pre><code>##  [1]  25  36  49  64  81 100 121 144 169 196 225 256 289 324 361 400</code></pre>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="data-types-in-r.html#cb65-1"></a>numbers5to20<span class="op">+</span>numbers5to20</span></code></pre></div>
+<pre><code>##  [1] 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40</code></pre>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="data-types-in-r.html#cb67-1"></a>numbers5to20<span class="op">+</span><span class="kw">rev</span>(numbers5to20) </span></code></pre></div>
+<pre><code>##  [1] 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25</code></pre>
+<p>Other functions operate on a functions work more directly</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="data-types-in-r.html#cb69-1"></a><span class="kw">sum</span>(numbers5to20)</span></code></pre></div>
+<pre><code>## [1] 200</code></pre>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="data-types-in-r.html#cb71-1"></a><span class="kw">mean</span>(numbers5to20)</span></code></pre></div>
+<pre><code>## [1] 12.5</code></pre>
+<p>Accessing elements of a vector or matrix is usually done with the [] operators</p>
+<p>We can access the first or fortieth element of vap.</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="data-types-in-r.html#cb73-1"></a>numbers5to20[<span class="dv">1</span>] </span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="data-types-in-r.html#cb75-1"></a>numbers5to20[<span class="dv">40</span>] </span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<p>We can also extract several elements at a time using vectors.</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="data-types-in-r.html#cb77-1"></a>numbers5to20[<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">7</span>)] </span></code></pre></div>
+<pre><code>## [1]  7 10 11</code></pre>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="data-types-in-r.html#cb79-1"></a>numbers5to20[<span class="dv">3</span><span class="op">:</span><span class="dv">7</span>]</span></code></pre></div>
+<pre><code>## [1]  7  8  9 10 11</code></pre>
+<p>We can repeat numbers as well</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="data-types-in-r.html#cb81-1"></a>numbers5to20[<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>)] </span></code></pre></div>
+<pre><code>## [1] 7 7 6 6</code></pre>
 </div>
-<div id="algorithms" class="section level3" number="1.1.3">
-<h3><span class="header-section-number">1.1.3</span> Algorithms</h3>
+<div id="numerics" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Numerics</h2>
 </div>
-<div id="domain-knowledge" class="section level3" number="1.1.4">
-<h3><span class="header-section-number">1.1.4</span> Domain knowledge</h3>
-<p>Like baking, the final thing you need to do good data science is what most people call “domain knowledge” and what I call “knowing what the hell you are talking about.” It turns out that having a really cool statistical model, huge amounts of data, and even a super computer sproting 24 GPUs will not save you from reaching the wrong answer if you don’t think (and aren’t trained to think).</p>
-<p><img src="Fig1.png" />
-<a href="https://www.researchgate.net/figure/A-famous-spurious-correlationstylervigencom_fig3_316739091">Link</a></p>
+<div id="logicalsbooleans" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Logicals/Booleans</h2>
 </div>
-<div id="putting-it-together" class="section level3" number="1.1.5">
-<h3><span class="header-section-number">1.1.5</span> Putting it together</h3>
-<p>A final method. You can get along fine in may cases following the instructions on the back of the chocolate chip cookie bag. But to really become a “baker” you need to be able to create your own recipes for each occasion. And to do that you actually need to “know what the hell you are talking about.”</p>
-<p>So</p>
+<div id="matrices" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Matrices</h2>
 </div>
+<div id="lists" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> Lists</h2>
 </div>
-<div id="class-structures" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Class structures</h2>
-<div id="learning-objective-1-team-based-learning" class="section level3" number="1.2.1">
-<h3><span class="header-section-number">1.2.1</span> Learning objective #1: Team based learning</h3>
-<p>This course was designed to incorporate elements of Team Based Learning. This is an approach to creating permanent groups to work on problems in class and out of class throughout the semester.</p>
-<p>We are not going to follow the TBL approach strictly. But we are going to have fewer lectures and more structured group activities. Learn more about Team Based Learning by watching this video.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kxg5FTGZhZs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-</div>
-<div id="learning-objective-2-show-up-ready" class="section level3" number="1.2.2">
-<h3><span class="header-section-number">1.2.2</span> Learning objective #2: Show up ready</h3>
-<p>Moving an increasing amount of teaching resources online is a big trend in education at all levels. But this isn’t just trendy, it appears to be very effective. Preliminary research shows that online learning paired with in-class interactions with faculty is a much more effective than the traditional lecture format.</p>
-<p>Watch this short TED talk by Peter Norvig to learn more:</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/tYclUdcsdeo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-<p>So in advance of each lecture</p>
-</div>
-<div id="learning-objective-3-how-is-this-going-to-work" class="section level3" number="1.2.3">
-<h3><span class="header-section-number">1.2.3</span> Learning objective #3: How is this going to work?</h3>
-<p>The approach I am trying to adopt for this class is to help you learn in four basic steps.</p>
-<ol style="list-style-type: decimal">
-<li><p>Initial exposure to materials through self-study.</p></li>
-<li><p>Repeated exposure to materials in short lectures.</p></li>
-<li><p>Use your new knowledge in a collaborative environment where assistance is readily available.</p></li>
-<li><p>Use your new knowledge on your own.</p></li>
-</ol>
-<p>The goal is for you to see and use information in multiple ways to improve learning outcomes. Experience (and research) shows that this approach is far superior to simple lectures in helping you learn more and retain it longer. To help you along this process, each learning component will be broken down as follows.</p>
-<ol style="list-style-type: decimal">
-<li><p>You will read your book and review online materials.</p></li>
-<li><p>I will begin most classes with a short lecture where I will cover the materials again and answer questions.</p></li>
-<li><p>You will apply your knowledge during in-class team assignments. If you have any questions or run into problems, I will be right there to give you help. To keep the team motivated, these assignments will be graded.</p></li>
-<li><p>You will apply your knowledge on your own (or with friends) in your problem sets and final project.</p></li>
-</ol>
+<div id="dataframes" class="section level2" number="3.8">
+<h2><span class="header-section-number">3.8</span> Dataframes</h2>
 
 </div>
 </div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="1">
-<li id="fn1"><p>Machine learning and statistics is really just a subset of artificial intelligence (AI) research. For fun, just start telling people you are in an AI class and see how they react.<a href="index.html#fnref1" class="footnote-back">↩︎</a></p></li>
-</ol>
-</div>
+
+
+
+
+
+
             </section>
 
           </div>
         </div>
       </div>
+<a href="getting-started-in-r.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="getting-started-in-r.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -137,7 +137,7 @@ print("Hello world")
 
 
 ```{r, tidy=FALSE, out.height=".55\\textheight", fig.align="center"}
-11%%2 # modular arithmatic (11 mod 2)
+11%%2 # modular arithmetic (11 mod 2)
 ``` 
 
 
@@ -148,7 +148,7 @@ print("Hello world")
 
 ---
 
-R comes with a number of constants pr-stored that you can use
+R comes with a number of constants prestored that you can use
 
 ```{r, tidy=FALSE, out.height=".55\\textheight", fig.align="center", eval=FALSE}
 6.25 # numbers
