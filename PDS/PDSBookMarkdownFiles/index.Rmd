@@ -98,7 +98,7 @@ So
 ## Class structures
 
 
-###Learning objective #1: Team based learning
+### Learning objective #1: Team based learning
 
 This course was designed to incorporate elements of Team Based Learning. This is an approach to creating permanent groups to work on problems in class and out of class throughout the semester.  
 
@@ -107,7 +107,7 @@ We are not going to follow the TBL approach strictly. But we are going to have f
 <iframe width="560" height="315" src="https://www.youtube.com/embed/kxg5FTGZhZs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-###Learning object #2: Show up ready
+### Learning object #2: Show up ready
 
 Moving an increasing amount of teaching resources online is a big trend in education at all levels.  But this isn't just trendy, it appears to be very effective. Preliminary research shows that online learning paired with in-class interactions with faculty is a much more effective than the traditional lecture format.
 
@@ -117,7 +117,7 @@ Watch this short TED talk by Peter Norvig to learn more:
 So in advance of each lecture
 
 
-###Learning objective #3:  How is this going to work?
+### Learning objective #3:  How is this going to work?
 
 The approach I am trying to adopt for this class is to help you learn in four basic steps.  
 
@@ -138,6 +138,3 @@ The goal is for you to see and use information in multiple ways to improve learn
 3. You will apply your knowledge during in-class team assignments.  If you have any questions or run into problems, I will be right there to give you help.  To keep the team motivated, these assignments will be graded.
 
 4. You will apply your knowledge on your own (or with friends) in your problem sets and final project.
-
-
-## asdf
