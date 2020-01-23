@@ -19,5 +19,6 @@ output: pdf_document
 5. Read in the Gettysbur address using the code below.  Remove the string '???'.  How many words does it contain? (Don't worry if you get a warning)
 
 ```{r, eval=FALSE}
-gettysburg<-readLines("http://politicaldatascience.com/PDS/ClassActivities/Activity3/Gettysburg")
+gettysburg<-readLines("http://politicaldatascience.com/PDS/ClassActivities/
+                      Activity3/Gettysburg",warn=F)
 ```
