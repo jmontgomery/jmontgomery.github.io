@@ -20,6 +20,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 [Lecture3](https://jmontgomery.github.io/PDS/Slides/03ClassesAndMoreObj.html)
 
+[Lecture4](https://jmontgomery.github.io/PDS/Slides/04DataStructures.html)
+
 #### Problem Sets
 [Problem Set 1](https://jmontgomery.github.io/PDS/Problem Sets/Problem Set 1/PS1_PDS.pdf)
 
