@@ -21,7 +21,7 @@
   
   
 
-<meta name="author" content="Jacob Montgomery" />
+<meta name="author" content="Jacob Montgomery and Mariah Yelenick" />
 
 
 
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="index.html"/>
-
+<link rel="next" href="data-types-in-r.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <script src="libs/elevate-section-attrs-2.0/elevate-section-attrs.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -138,13 +138,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1.4" data-path="index.html"><a href="index.html#domain-knowledge"><i class="fa fa-check"></i><b>1.1.4</b> Domain knowledge</a></li>
 <li class="chapter" data-level="1.1.5" data-path="index.html"><a href="index.html#putting-it-together"><i class="fa fa-check"></i><b>1.1.5</b> Putting it together</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#class-structures"><i class="fa fa-check"></i><b>1.2</b> Class structures</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#asdf"><i class="fa fa-check"></i><b>1.3</b> asdf</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#class-structures"><i class="fa fa-check"></i><b>1.2</b> Class structures</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#learning-objective-1-team-based-learning"><i class="fa fa-check"></i><b>1.2.1</b> Learning objective #1: Team based learning</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#learning-objective-2-show-up-ready"><i class="fa fa-check"></i><b>1.2.2</b> Learning objective #2: Show up ready</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#learning-objective-3-how-is-this-going-to-work"><i class="fa fa-check"></i><b>1.2.3</b> Learning objective #3: How is this going to work?</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html"><i class="fa fa-check"></i><b>2</b> Getting Started in R</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="2.2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#assigning-values-to-objects"><i class="fa fa-check"></i><b>2.2</b> Assigning values to objects</a></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#r-as-a-calculator"><i class="fa fa-check"></i><b>2.3</b> R as a calculator</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#the-global-environment-and-how-to-clean-it"><i class="fa fa-check"></i><b>2.4</b> The global environment and how to clean it</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-types-in-r.html"><a href="data-types-in-r.html"><i class="fa fa-check"></i><b>3</b> Data Types in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-types-in-r.html"><a href="data-types-in-r.html#functions"><i class="fa fa-check"></i><b>3.1</b> Functions</a></li>
+<li class="chapter" data-level="3.2" data-path="data-types-in-r.html"><a href="data-types-in-r.html#vectors"><i class="fa fa-check"></i><b>3.2</b> Vectors</a></li>
+<li class="chapter" data-level="3.3" data-path="data-types-in-r.html"><a href="data-types-in-r.html#functions-and-vectors"><i class="fa fa-check"></i><b>3.3</b> Functions and vectors</a></li>
+<li class="chapter" data-level="3.4" data-path="data-types-in-r.html"><a href="data-types-in-r.html#numerics"><i class="fa fa-check"></i><b>3.4</b> Numerics</a></li>
+<li class="chapter" data-level="3.5" data-path="data-types-in-r.html"><a href="data-types-in-r.html#logicalsbooleans"><i class="fa fa-check"></i><b>3.5</b> Logicals/Booleans</a></li>
+<li class="chapter" data-level="3.6" data-path="data-types-in-r.html"><a href="data-types-in-r.html#matrices"><i class="fa fa-check"></i><b>3.6</b> Matrices</a></li>
+<li class="chapter" data-level="3.7" data-path="data-types-in-r.html"><a href="data-types-in-r.html#lists"><i class="fa fa-check"></i><b>3.7</b> Lists</a></li>
+<li class="chapter" data-level="3.8" data-path="data-types-in-r.html"><a href="data-types-in-r.html#dataframes"><i class="fa fa-check"></i><b>3.8</b> Dataframes</a></li>
 </ul></li>
 </ul>
 
@@ -185,22 +202,81 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## [1] 6</code></pre>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="getting-started-in-r.html#cb5-1"></a><span class="co">#y = x</span></span>
 <span id="cb5-2"><a href="getting-started-in-r.html#cb5-2"></a><span class="co">#x = y</span></span></code></pre></div>
+<p>It is best practice when coding to avoid “magic numbers” - i.e. all numbers should be stored in named variables so that if we want to change the value, we only have to do so once. This also removes any ambiguity for someone else reading your code who might wonder what the number represents.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="getting-started-in-r.html#cb6-1"></a>total.votes.ak &lt;-<span class="st">  </span><span class="dv">238307</span></span>
+<span id="cb6-2"><a href="getting-started-in-r.html#cb6-2"></a>voting.age.population.ak &lt;-<span class="st"> </span><span class="dv">496387</span></span>
+<span id="cb6-3"><a href="getting-started-in-r.html#cb6-3"></a>turnout.ak &lt;-total.votes.ak<span class="op">/</span>voting.age.population.ak</span>
+<span id="cb6-4"><a href="getting-started-in-r.html#cb6-4"></a>turnout.ak</span></code></pre></div>
+<pre><code>## [1] 0.4800831</code></pre>
+</div>
+<div id="r-as-a-calculator" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> R as a calculator</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="getting-started-in-r.html#cb8-1"></a><span class="dv">5</span><span class="op">+</span><span class="dv">4</span> <span class="co"># Addition</span></span></code></pre></div>
+<pre><code>## [1] 9</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="getting-started-in-r.html#cb10-1"></a><span class="dv">6-3</span> <span class="co"># Subtraction</span></span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="getting-started-in-r.html#cb12-1"></a><span class="dv">34</span> <span class="op">/</span><span class="st"> </span><span class="dv">6</span> <span class="co"># Division</span></span></code></pre></div>
+<pre><code>## [1] 5.666667</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="getting-started-in-r.html#cb14-1"></a><span class="dv">5</span> <span class="op">*</span><span class="st"> </span><span class="dv">3</span> <span class="co"># Multiplication</span></span></code></pre></div>
+<pre><code>## [1] 15</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="getting-started-in-r.html#cb16-1"></a><span class="dv">5</span><span class="op">^</span><span class="dv">4</span> <span class="co"># Exponents</span></span></code></pre></div>
+<pre><code>## [1] 625</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="getting-started-in-r.html#cb18-1"></a><span class="dv">625</span><span class="op">^</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">4</span>) <span class="co"># More exponents</span></span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="getting-started-in-r.html#cb20-1"></a><span class="dv">11</span><span class="op">%%</span><span class="dv">2</span> <span class="co"># modular arithmetic (11 mod 2) is the remainder operator</span></span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="getting-started-in-r.html#cb22-1"></a><span class="dv">31</span> <span class="op">%/%</span><span class="st"> </span><span class="dv">7</span> <span class="co"># The integer part of a fraction</span></span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p>R comes with a number of constants prestored that you can use</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="getting-started-in-r.html#cb24-1"></a><span class="fl">6.25</span> <span class="co"># numbers</span></span>
+<span id="cb24-2"><a href="getting-started-in-r.html#cb24-2"></a>pi <span class="co"># And a few others</span></span>
+<span id="cb24-3"><a href="getting-started-in-r.html#cb24-3"></a><span class="ot">NA</span> <span class="co"># Missing value</span></span>
+<span id="cb24-4"><a href="getting-started-in-r.html#cb24-4"></a><span class="ot">NULL</span> <span class="co"># Nothing.</span></span>
+<span id="cb24-5"><a href="getting-started-in-r.html#cb24-5"></a><span class="dv">0</span><span class="op">/</span><span class="dv">0</span> <span class="co"># NaN means &quot;Not a number&quot;</span></span>
+<span id="cb24-6"><a href="getting-started-in-r.html#cb24-6"></a><span class="dv">1</span><span class="op">/</span><span class="dv">0</span> <span class="co"># Inf means infinity</span></span></code></pre></div>
+<p>R follows the order of operations (Please Excuse My Dear Aunt Sally).
+Side note - if you have multiple exponentiation, they execute right to left.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="getting-started-in-r.html#cb25-1"></a><span class="dv">2</span><span class="op">*</span>(<span class="dv">3-4</span>)<span class="op">+</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="getting-started-in-r.html#cb27-1"></a><span class="dv">2</span><span class="op">*</span>(<span class="dv">3-4</span>)<span class="op">+</span><span class="dv">2</span><span class="op">*</span>(<span class="dv">4</span> <span class="op">+</span><span class="st"> </span><span class="dv">3</span>)<span class="op">^</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## [1] 1.825862</code></pre>
+</div>
+<div id="the-global-environment-and-how-to-clean-it" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> The global environment and how to clean it</h2>
+<p>Named objects are stored in the “global environment”, which means that they can be accessed at any time by any function you might run. They are “global” variables which makes them different from “local” variables (variables that can only be accessed from within a certain scope like within a function).
+The commands ls() and rm() are used to show or remove variables from the global environment respectively.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="getting-started-in-r.html#cb29-1"></a>a &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb29-2"><a href="getting-started-in-r.html#cb29-2"></a>b &lt;-<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb29-3"><a href="getting-started-in-r.html#cb29-3"></a><span class="kw">ls</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;a&quot;                        &quot;b&quot;                       
+## [3] &quot;numbers5to20&quot;             &quot;total.votes.ak&quot;          
+## [5] &quot;turnout.ak&quot;               &quot;voting.age.population.ak&quot;
+## [7] &quot;x&quot;                        &quot;y&quot;</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="getting-started-in-r.html#cb31-1"></a><span class="kw">rm</span>(a) <span class="co">#this removes a from the global environment</span></span>
+<span id="cb31-2"><a href="getting-started-in-r.html#cb31-2"></a><span class="kw">ls</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;b&quot;                        &quot;numbers5to20&quot;            
+## [3] &quot;total.votes.ak&quot;           &quot;turnout.ak&quot;              
+## [5] &quot;voting.age.population.ak&quot; &quot;x&quot;                       
+## [7] &quot;y&quot;</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="getting-started-in-r.html#cb33-1"></a>c &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb33-2"><a href="getting-started-in-r.html#cb33-2"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>()) <span class="co">#this removes all global variables</span></span></code></pre></div>
+<p>Some things are present in the working environment, but not shown in the global environment</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="getting-started-in-r.html#cb34-1"></a>.x&lt;-<span class="st">&quot;Hide me&quot;</span></span>
+<span id="cb34-2"><a href="getting-started-in-r.html#cb34-2"></a><span class="kw">print</span>(.x)</span></code></pre></div>
+<pre><code>## [1] &quot;Hide me&quot;</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="getting-started-in-r.html#cb36-1"></a><span class="kw">ls</span>()</span></code></pre></div>
+<pre><code>## character(0)</code></pre>
+<p>Anything that starts with a “.” will be accessible in your code, but hidden</p>
 
 </div>
 </div>
-
-
-
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-types-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
