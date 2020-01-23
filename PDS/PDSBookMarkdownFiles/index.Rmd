@@ -107,7 +107,7 @@ We are not going to follow the TBL approach strictly. But we are going to have f
 <iframe width="560" height="315" src="https://www.youtube.com/embed/kxg5FTGZhZs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-### Learning object #2: Show up ready
+### Learning objective #2: Show up ready
 
 Moving an increasing amount of teaching resources online is a big trend in education at all levels.  But this isn't just trendy, it appears to be very effective. Preliminary research shows that online learning paired with in-class interactions with faculty is a much more effective than the traditional lecture format.
 
