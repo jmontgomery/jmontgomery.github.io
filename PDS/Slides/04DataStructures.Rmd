@@ -229,7 +229,7 @@ class(m2)
 dim(m1) 
 ```
 
-- For any object you can look at it's attributes using (helpfully) the 'attributs' function
+- For any object you can look at it's attributes using (helpfully) the 'attributes' function
 
 ```{r}
 attributes(m1) 
