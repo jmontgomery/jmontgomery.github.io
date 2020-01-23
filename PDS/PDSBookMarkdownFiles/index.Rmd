@@ -1,6 +1,6 @@
 ---
 title: "Political Data Science"
-author: "Jacob Montgomery"
+author: "Jacob Montgomery and Mariah Yelenick"
 devtools: install_github("rstudio/bookdown")
 site: bookdown::bookdown_site
 documentclass: book

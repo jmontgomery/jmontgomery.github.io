@@ -2,3 +2,5 @@ you can index/subset a matrix with a vector of logicals/booleans just like you c
 matrices and vectors can only contain one data type (but not dataframes!)
 
 get the matrix algebra notes
+
+dataframes always have column names
