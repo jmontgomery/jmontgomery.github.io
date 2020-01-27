@@ -175,7 +175,7 @@ head(m2)
 We can access by 'matrixname[row, column]'
 ```{r}
 m2[1,2] # first row, second column
-m1[,1] # the ith colum
+m1[,1] # the 1st column
 ```
 
 ---
@@ -334,7 +334,7 @@ str(my.crazy.list)
 
 # 3.4: Getting to know your list friend
 
-Lists has attributes but we haven't set them yet
+Lists have attributes but we haven't set them yet
 
 ```{r}
 attributes(my.crazy.list) 
@@ -515,8 +515,8 @@ head(as.matrix(voting.data))
 
 ---
 
-- Sometimes all of this can be a bit cubersom
-- The 'with; command will run a function with the dataset slightly easier
+- Sometimes all of this can be a bit cumbersome
+- The 'with' command will run a function with the dataset slightly easier
 
 ```{r}
 mean(voting.data$vap)
