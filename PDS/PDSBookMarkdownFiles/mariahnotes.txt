@@ -2,6 +2,8 @@
 
 get the matrix algebra notes
 
+add array notes
+
 
 //done:
 
