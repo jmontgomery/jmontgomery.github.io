@@ -255,9 +255,248 @@ Tips for using strings:
 
 ## Matrices
 
+A matrix is just a collection of vectors
+
+You can combine vectors by column using 'cbind'
+```{r}
+m1 <- cbind(vap, tv) 
+head(m1)
+```
+
+Or you can combine by rows using 'rbind'
+```{r}
+m2 <- rbind(vap, tv)
+head(m2)
+```
+
+We can access by 'matrixname[row, column]'
+```{r}
+m2[1,2] # first row, second column
+m1[,1] # the 1st column
+```
+
+Can get a submatrix
+
+```{r}
+m1[1:5,1:2]
+m2[1,1:10]
+m2[1,1:10]
+m2[1:2, 1:10]
+m2[, 1:10] # same as previous line since there are only two rows.
+class(m2)
+```
+
+Objects in R are simply pieces of data that contain specific attributes.
+
+Classes define what attributes an object *must* have and *can* have.
+
+Matrices always have an attribute that determines the number of rows and columns
+
+
+```{r}
+dim(m1) 
+```
+
+For any object you can look at it's attributes using (helpfully) the 'attributes' function
+
+```{r}
+attributes(m1) 
+```
+We see that the matrix also has another attribute
+
+
+```{r}
+dimnames(m1) 
+```
+
+The top refers to the row names (which do not exist)
+The bottom are the column names (that were borrowed from the vectors used to construct the matrix).
+
+
+You can also access these using functions
+
+
+```{r}
+colnames(m1)
+colnames(m2)
+rownames(m1)
+rownames(m2)
+```
+
+And you can reset these using the same functions
+
+```{r}
+colnames(m1)<-c("Voting age population", "Total Votes")
+colnames(m1)
+```
+
+You can also do this with the following
+
+```{r}
+dimnames(m1)[[2]][1]<-"Pigglywiggly"
+head(m1) 
+```
+
+We have re-named the first column to have the name "Pigglywiggly"
+
+
+We are able to do this because the output of 'dimnames' is a list
+
+You can subset matrices with a boolean/logical matrix to get certain values from it just like you would a vector
+
+Matrices (and vectors) can only contain one datatype
+
+If you try to create one with multiple datatypes, it will convert everything to be the same datatype
+
 ## Lists
 
+Let's make a list that contains a *matrix*, a *vector*, and an *integer*.
+
+```{r}
+list.a<-list(m1, vap, 3) 
+str(list.a)
+```
+
+This is the advantage of lists.  They can contain basically anything, even other lists
+
+```{r}
+vector1<-c(1,2,3)
+gospels<-c("matthew","mark","luke", "john")
+my.matrix<-matrix(c(1:20), nrow=4)
+my.data<-data.frame(cbind(vap, tv))
+my.crazy.list<-list(vector1, gospels, my.matrix, TRUE, list.a)
+str(my.crazy.list)
+```
+
+Lists have attributes but we haven't set them yet
+
+```{r}
+attributes(my.crazy.list) 
+```
+
+This reports the number of major sub-elements in the list.  
+
+```{r}
+length(my.crazy.list) 
+```
+
+This won't work for complicated lists
+
+```{r}
+dim(my.crazy.list) 
+```
+
+
+We can give names to elements of a list
+
+```{r}
+names(my.crazy.list)<-c("OneTwoThree", "Gospels", 
+                        "SmallMat", "OneLogical", "AnotherList")
+str(my.crazy.list) 
+```
+
+Now each part of the list has a name attribute
+
+
+Skip the steps above by doing the following:
+
+```{r}
+my.crazy.list<-list(OneTwoThree=vector1,
+                    Gospels=gospels, 
+                    SmallMat=my.matrix, 
+                    OneLogical=TRUE, 
+                    AnotherList=list.a)
+str(my.crazy.list)
+names(my.crazy.list)
+```
+
+
+There are at least four ways of accessing elements of a list
+
+```{r}
+my.crazy.list[[1]]
+
+my.crazy.list$OneTwoThree
+
+my.crazy.list[1]
+
+my.crazy.list["OneTwoThree"]
+```
+
+
+You can add elements in a similarly confusing number of ways
+
+
+```{r}
+my.crazy.list$hocuspocus<-"hocuspocus"
+str(my.crazy.list)
+```
+
+You can also access access/add to/subtract from the sub-elements themselves. We just add what we know about accessing elements of matrices/vectors/etc. to how we access lists.
+
+```{r}
+my.crazy.list[[3]][1,] # first row of my.matrix
+my.matrix[1,]  #the same
+
+```
+
+But lists don't play well with basic commands. Only components of lists.
+
+```{r}
+#this won't work
+#my.crazy.list + 2
+
+#but this will!
+my.crazy.list[[3]] + 2
+```
+
+## Arrays
+
 ## Dataframes
+
+They are rectangular like a matrix, but each column can be of a different class and you can access elements of the data frame like it's a list.
+
+```{r}
+turnout <- tv/vap
+voting.data <- data.frame(tv, vap, turnout)
+head(voting.data)
+str(voting.data)
+```
+
+There are at least four ways to access a variable
+```{r}
+head(voting.data[[1]])
+head(voting.data$tv)
+head(voting.data["tv"])
+head(voting.data[,1])
+```
+
+```{r}
+names(voting.data) #access the column names
+
+# NOTE: dataframes always have column names!!
+
+colnames(voting.data)
+```
+
+We can change back and forth between a matrix and a data frame
+
+```{r}
+as.data.frame(my.matrix)
+data.frame(my.matrix)
+
+head(as.matrix(voting.data))
+```
+
+- Sometimes all of this can be a bit cumbersome
+- The 'with' command will run a function with the dataset slightly easier
+
+```{r}
+# these are equivalent
+mean(voting.data$vap)
+with(voting.data, mean(vap)) 
+```
+
 
 ## General info
 

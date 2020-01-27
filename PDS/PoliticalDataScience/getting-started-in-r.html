@@ -157,11 +157,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1" data-path="data-types-in-r.html"><a href="data-types-in-r.html#functions"><i class="fa fa-check"></i><b>3.1</b> Functions</a></li>
 <li class="chapter" data-level="3.2" data-path="data-types-in-r.html"><a href="data-types-in-r.html#vectors"><i class="fa fa-check"></i><b>3.2</b> Vectors</a></li>
 <li class="chapter" data-level="3.3" data-path="data-types-in-r.html"><a href="data-types-in-r.html#functions-and-vectors"><i class="fa fa-check"></i><b>3.3</b> Functions and vectors</a></li>
-<li class="chapter" data-level="3.4" data-path="data-types-in-r.html"><a href="data-types-in-r.html#numerics"><i class="fa fa-check"></i><b>3.4</b> Numerics</a></li>
-<li class="chapter" data-level="3.5" data-path="data-types-in-r.html"><a href="data-types-in-r.html#logicalsbooleans"><i class="fa fa-check"></i><b>3.5</b> Logicals/Booleans</a></li>
+<li class="chapter" data-level="3.4" data-path="data-types-in-r.html"><a href="data-types-in-r.html#logicalsbooleans"><i class="fa fa-check"></i><b>3.4</b> Logicals/Booleans</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="data-types-in-r.html"><a href="data-types-in-r.html#boolean-logic"><i class="fa fa-check"></i><b>3.4.1</b> Boolean logic</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="data-types-in-r.html"><a href="data-types-in-r.html#charactersstrings"><i class="fa fa-check"></i><b>3.5</b> Characters/Strings</a></li>
 <li class="chapter" data-level="3.6" data-path="data-types-in-r.html"><a href="data-types-in-r.html#matrices"><i class="fa fa-check"></i><b>3.6</b> Matrices</a></li>
 <li class="chapter" data-level="3.7" data-path="data-types-in-r.html"><a href="data-types-in-r.html#lists"><i class="fa fa-check"></i><b>3.7</b> Lists</a></li>
-<li class="chapter" data-level="3.8" data-path="data-types-in-r.html"><a href="data-types-in-r.html#dataframes"><i class="fa fa-check"></i><b>3.8</b> Dataframes</a></li>
+<li class="chapter" data-level="3.8" data-path="data-types-in-r.html"><a href="data-types-in-r.html#arrays"><i class="fa fa-check"></i><b>3.8</b> Arrays</a></li>
+<li class="chapter" data-level="3.9" data-path="data-types-in-r.html"><a href="data-types-in-r.html#dataframes"><i class="fa fa-check"></i><b>3.9</b> Dataframes</a></li>
+<li class="chapter" data-level="3.10" data-path="data-types-in-r.html"><a href="data-types-in-r.html#general-info"><i class="fa fa-check"></i><b>3.10</b> General info</a></li>
 </ul></li>
 </ul>
 
@@ -248,16 +253,35 @@ The commands ls() and rm() are used to show or remove variables from the global 
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="getting-started-in-r.html#cb29-1"></a>a &lt;-<span class="st"> </span><span class="dv">1</span></span>
 <span id="cb29-2"><a href="getting-started-in-r.html#cb29-2"></a>b &lt;-<span class="st"> </span><span class="dv">2</span></span>
 <span id="cb29-3"><a href="getting-started-in-r.html#cb29-3"></a><span class="kw">ls</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;a&quot;                        &quot;b&quot;                       
-## [3] &quot;numbers5to20&quot;             &quot;total.votes.ak&quot;          
-## [5] &quot;turnout.ak&quot;               &quot;voting.age.population.ak&quot;
-## [7] &quot;x&quot;                        &quot;y&quot;</code></pre>
+<pre><code>##  [1] &quot;a&quot;                        &quot;b&quot;                       
+##  [3] &quot;chooser&quot;                  &quot;colors&quot;                  
+##  [5] &quot;data&quot;                     &quot;extreme.statement&quot;       
+##  [7] &quot;gospels&quot;                  &quot;list.a&quot;                  
+##  [9] &quot;m1&quot;                       &quot;m2&quot;                      
+## [11] &quot;my.crazy.list&quot;            &quot;my.data&quot;                 
+## [13] &quot;my.matrix&quot;                &quot;numbers5to20&quot;            
+## [15] &quot;small.states&quot;             &quot;state.size&quot;              
+## [17] &quot;this.out&quot;                 &quot;total.votes&quot;             
+## [19] &quot;total.votes.ak&quot;           &quot;turnout.ak&quot;              
+## [21] &quot;tv&quot;                       &quot;vap&quot;                     
+## [23] &quot;vector1&quot;                  &quot;voting.age.population&quot;   
+## [25] &quot;voting.age.population.ak&quot; &quot;x&quot;                       
+## [27] &quot;y&quot;</code></pre>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="getting-started-in-r.html#cb31-1"></a><span class="kw">rm</span>(a) <span class="co">#this removes a from the global environment</span></span>
 <span id="cb31-2"><a href="getting-started-in-r.html#cb31-2"></a><span class="kw">ls</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;b&quot;                        &quot;numbers5to20&quot;            
-## [3] &quot;total.votes.ak&quot;           &quot;turnout.ak&quot;              
-## [5] &quot;voting.age.population.ak&quot; &quot;x&quot;                       
-## [7] &quot;y&quot;</code></pre>
+<pre><code>##  [1] &quot;b&quot;                        &quot;chooser&quot;                 
+##  [3] &quot;colors&quot;                   &quot;data&quot;                    
+##  [5] &quot;extreme.statement&quot;        &quot;gospels&quot;                 
+##  [7] &quot;list.a&quot;                   &quot;m1&quot;                      
+##  [9] &quot;m2&quot;                       &quot;my.crazy.list&quot;           
+## [11] &quot;my.data&quot;                  &quot;my.matrix&quot;               
+## [13] &quot;numbers5to20&quot;             &quot;small.states&quot;            
+## [15] &quot;state.size&quot;               &quot;this.out&quot;                
+## [17] &quot;total.votes&quot;              &quot;total.votes.ak&quot;          
+## [19] &quot;turnout.ak&quot;               &quot;tv&quot;                      
+## [21] &quot;vap&quot;                      &quot;vector1&quot;                 
+## [23] &quot;voting.age.population&quot;    &quot;voting.age.population.ak&quot;
+## [25] &quot;x&quot;                        &quot;y&quot;</code></pre>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="getting-started-in-r.html#cb33-1"></a>c &lt;-<span class="st"> </span><span class="dv">3</span></span>
 <span id="cb33-2"><a href="getting-started-in-r.html#cb33-2"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>()) <span class="co">#this removes all global variables</span></span></code></pre></div>
 <p>Some things are present in the working environment, but not shown in the global environment</p>

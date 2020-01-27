@@ -1,6 +1,11 @@
-you can index/subset a matrix with a vector of logicals/booleans just like you can index an array
-matrices and vectors can only contain one data type (but not dataframes!)
+//todo:
 
 get the matrix algebra notes
+
+
+//done:
+
+you can index/subset a matrix with a vector of logicals/booleans just like you can index an array
+matrices and vectors can only contain one data type (but not dataframes!)
 
 dataframes always have column names
