@@ -226,7 +226,7 @@ There are several types of these
 
 ```{r}
 as.character(0:5) # Turning numbers into characters
-as.logical(0:5) # All numbers but '0' become FALSE
+as.logical(0:5) # All numbers but '0' become TRUE
 ```
 
 ---
@@ -450,15 +450,15 @@ We can generate logical vectors using basic boolean algebra
 - Equal/not equal
 ```{r}
 x == 7
-x!=7
+x != 7
 ```
 
 --
 
 - Greater than
 ```{r}
-x >7
-x>=7
+x > 7
+x >= 7
 ```
 
 ---
@@ -466,8 +466,8 @@ x>=7
 
 - Less than
 ```{r}
-x<7
-x<=7
+x < 7
+x <= 7
 ```
 
 ---
@@ -479,8 +479,8 @@ We can also use the
 - and operator '&'
 
 ```{r}
-x<7 | x ==7 ## the or operator
-x<=7 & x == 7 ## the and operator
+x < 7 | x == 7 ## the or operator
+x <= 7 & x == 7 ## the and operator
 
 ```
 
