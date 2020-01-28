@@ -22,6 +22,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 [Lecture4](https://jmontgomery.github.io/PDS/Slides/04DataStructures.html)
 
+[Lecture5](https://jmontgomery.github.io/PDS/Slides/05FlowControl.html)
+
 #### Problem Sets
 [Problem Set 1](https://jmontgomery.github.io/PDS/Problem Sets/Problem Set 1/PS1_PDS.pdf)
 
