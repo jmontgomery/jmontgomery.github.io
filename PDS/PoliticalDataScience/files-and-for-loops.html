@@ -175,6 +175,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="4.1" data-path="files-and-for-loops.html"><a href="files-and-for-loops.html#the-working-directory"><i class="fa fa-check"></i><b>4.1</b> The working directory</a></li>
 <li class="chapter" data-level="4.2" data-path="files-and-for-loops.html"><a href="files-and-for-loops.html#input-and-output"><i class="fa fa-check"></i><b>4.2</b> Input and output</a></li>
+<li class="chapter" data-level="4.3" data-path="files-and-for-loops.html"><a href="files-and-for-loops.html#if-else-ifelse"><i class="fa fa-check"></i><b>4.3</b> if, else, ifelse</a></li>
+<li class="chapter" data-level="4.4" data-path="files-and-for-loops.html"><a href="files-and-for-loops.html#repeat-and-while"><i class="fa fa-check"></i><b>4.4</b> repeat and while</a></li>
+<li class="chapter" data-level="4.5" data-path="files-and-for-loops.html"><a href="files-and-for-loops.html#for-loops"><i class="fa fa-check"></i><b>4.5</b> for loops</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="files-and-for-loops.html"><a href="files-and-for-loops.html#next-and-break"><i class="fa fa-check"></i><b>4.5.1</b> next and break</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -225,7 +231,175 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="files-and-for-loops.html#cb350-1"></a>votes<span class="fl">.06</span>&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;~/Dropbox/Classes/R Programming/R Scripts/VotingData2006.csv&quot;</span>, <span class="dt">header=</span>T)</span>
 <span id="cb350-2"><a href="files-and-for-loops.html#cb350-2"></a><span class="kw">write.csv</span>(votes<span class="fl">.06</span>, <span class="dt">file=</span><span class="st">&quot;VD06.csv&quot;</span>)</span></code></pre></div>
 <p>Tips: All of the functions for reading in data are actually using the scan() function. No matter how crazy your data look, you can <em>always</em> read it into R by clever use of scan().</p>
+</div>
+<div id="if-else-ifelse" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> if, else, ifelse</h2>
+<p>The basic syntax for an <code>if</code> call is</p>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="files-and-for-loops.html#cb351-1"></a><span class="cf">if</span>(condition){</span>
+<span id="cb351-2"><a href="files-and-for-loops.html#cb351-2"></a>  commands to run</span>
+<span id="cb351-3"><a href="files-and-for-loops.html#cb351-3"></a>}</span></code></pre></div>
+<ul>
+<li>The inputs in the parentheses needs can be anything that returns a logical.<br />
+</li>
+<li>You can put anything you want in the braces</li>
+</ul>
+<p>The simplest examples possible.</p>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="files-and-for-loops.html#cb352-1"></a><span class="cf">if</span>(<span class="ot">TRUE</span>) {</span>
+<span id="cb352-2"><a href="files-and-for-loops.html#cb352-2"></a>  <span class="kw">print</span>(<span class="st">&quot;I got here&quot;</span>)</span>
+<span id="cb352-3"><a href="files-and-for-loops.html#cb352-3"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;I got here&quot;</code></pre>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="files-and-for-loops.html#cb354-1"></a><span class="cf">if</span>(<span class="ot">FALSE</span>){ </span>
+<span id="cb354-2"><a href="files-and-for-loops.html#cb354-2"></a>  <span class="kw">print</span>(<span class="st">&quot;I can&#39;t get here&quot;</span>)</span>
+<span id="cb354-3"><a href="files-and-for-loops.html#cb354-3"></a>}</span></code></pre></div>
+<p>You can combine this with <code>else</code></p>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="files-and-for-loops.html#cb355-1"></a><span class="cf">if</span>(condition) {</span>
+<span id="cb355-2"><a href="files-and-for-loops.html#cb355-2"></a>  commands to run when condition is <span class="ot">TRUE</span></span>
+<span id="cb355-3"><a href="files-and-for-loops.html#cb355-3"></a>} <span class="cf">else</span> { <span class="co"># notice that these are on the same line</span></span>
+<span id="cb355-4"><a href="files-and-for-loops.html#cb355-4"></a>  commands to run when the condition is <span class="ot">FALSE</span></span>
+<span id="cb355-5"><a href="files-and-for-loops.html#cb355-5"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="files-and-for-loops.html#cb356-1"></a>x =<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb356-2"><a href="files-and-for-loops.html#cb356-2"></a><span class="cf">if</span>(x <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span>) {</span>
+<span id="cb356-3"><a href="files-and-for-loops.html#cb356-3"></a>  <span class="kw">print</span>(<span class="st">&quot;X is larger than 2&quot;</span>)</span>
+<span id="cb356-4"><a href="files-and-for-loops.html#cb356-4"></a>} <span class="cf">else</span> { </span>
+<span id="cb356-5"><a href="files-and-for-loops.html#cb356-5"></a>  <span class="kw">print</span>(<span class="st">&quot;X is 2 or smaller&quot;</span>)</span>
+<span id="cb356-6"><a href="files-and-for-loops.html#cb356-6"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;X is larger than 2&quot;</code></pre>
+<p>But this set up will not play well with vectors. It runs, but is confusing</p>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="files-and-for-loops.html#cb358-1"></a><span class="cf">if</span> (<span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">1</span>) <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span>){</span>
+<span id="cb358-2"><a href="files-and-for-loops.html#cb358-2"></a>  <span class="kw">print</span>(<span class="st">&quot;This won&#39;t work&quot;</span>)</span>
+<span id="cb358-3"><a href="files-and-for-loops.html#cb358-3"></a>}</span></code></pre></div>
+<pre><code>## Warning in if (c(3, 1) &gt; 2) {: the condition has length &gt; 1 and only the first
+## element will be used</code></pre>
+<pre><code>## [1] &quot;This won&#39;t work&quot;</code></pre>
+<p>The <code>ifelse</code> command works nicely with vectors, but syntax is different. This command is equivalent to a ternary in other languages if you’re familiar with that term.</p>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="files-and-for-loops.html#cb361-1"></a><span class="kw">ifelse</span>(condition, return when condition T, return when condition F) </span></code></pre></div>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="files-and-for-loops.html#cb362-1"></a>x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">2</span>)</span>
+<span id="cb362-2"><a href="files-and-for-loops.html#cb362-2"></a><span class="kw">ifelse</span>(x <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>, <span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>) </span></code></pre></div>
+<pre><code>## [1] &quot;no&quot;  &quot;yes&quot;</code></pre>
+<p>WARNING</p>
+<p>If your outputs are vectors <code>ifelse</code> will work element-wise</p>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="files-and-for-loops.html#cb364-1"></a>yes =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;yes1&quot;</span>, <span class="st">&quot;yes2&quot;</span>)</span>
+<span id="cb364-2"><a href="files-and-for-loops.html#cb364-2"></a>no =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;no1&quot;</span>, <span class="st">&quot;no2&quot;</span>)</span>
+<span id="cb364-3"><a href="files-and-for-loops.html#cb364-3"></a><span class="kw">ifelse</span>(x <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>, yes, no)</span></code></pre></div>
+<pre><code>## [1] &quot;no1&quot;  &quot;yes2&quot;</code></pre>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="files-and-for-loops.html#cb366-1"></a><span class="kw">ifelse</span>(x <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span>, yes, no)</span></code></pre></div>
+<pre><code>## [1] &quot;yes1&quot; &quot;no2&quot;</code></pre>
+<ul>
+<li>Note that the curly braces are not technically necessary if you have only a one line command</li>
+<li>BUT you should use them anyway so someone can read your code!</li>
+</ul>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="files-and-for-loops.html#cb368-1"></a>x =<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb368-2"><a href="files-and-for-loops.html#cb368-2"></a><span class="cf">if</span> (x <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span>) y =<span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>x <span class="cf">else</span> y =<span class="st"> </span><span class="dv">3</span> <span class="op">*</span><span class="st"> </span>x</span>
+<span id="cb368-3"><a href="files-and-for-loops.html#cb368-3"></a>y</span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+</div>
+<div id="repeat-and-while" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> repeat and while</h2>
+<ul>
+<li>Repeat just repeats commands in the braces until it sees a <code>BREAK</code> command</li>
+<li>If you don’t include <code>BREAK</code> your computer will be in an infinite loop.</li>
+<li>Save your work before using!</li>
+<li>Or maybe just don’t use it</li>
+</ul>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="files-and-for-loops.html#cb370-1"></a><span class="cf">repeat</span>{ stuff to do until it sees BREAK }</span></code></pre></div>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="files-and-for-loops.html#cb371-1"></a><span class="co"># make a blank plot with the limits set by those vectors</span></span>
+<span id="cb371-2"><a href="files-and-for-loops.html#cb371-2"></a><span class="kw">plot</span>(<span class="ot">NULL</span>, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">100</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">xlab=</span><span class="st">&quot;x&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;1/x&quot;</span>) </span>
+<span id="cb371-3"><a href="files-and-for-loops.html#cb371-3"></a>x =<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb371-4"><a href="files-and-for-loops.html#cb371-4"></a><span class="cf">repeat</span> {</span>
+<span id="cb371-5"><a href="files-and-for-loops.html#cb371-5"></a>  y =<span class="st"> </span><span class="dv">1</span> <span class="op">/</span><span class="st"> </span>x</span>
+<span id="cb371-6"><a href="files-and-for-loops.html#cb371-6"></a>  x =<span class="st"> </span>x <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb371-7"><a href="files-and-for-loops.html#cb371-7"></a>  <span class="kw">points</span>(x, y)</span>
+<span id="cb371-8"><a href="files-and-for-loops.html#cb371-8"></a>  <span class="cf">if</span> (x <span class="op">==</span><span class="st"> </span><span class="dv">100</span>) { </span>
+<span id="cb371-9"><a href="files-and-for-loops.html#cb371-9"></a>    <span class="cf">break</span> </span>
+<span id="cb371-10"><a href="files-and-for-loops.html#cb371-10"></a>  }</span>
+<span id="cb371-11"><a href="files-and-for-loops.html#cb371-11"></a>}</span></code></pre></div>
+<p><img src="images/unnamed-chunk-85-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>A while loop is just a repeat, where the break condition is specified at the top</p>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="files-and-for-loops.html#cb372-1"></a><span class="cf">while</span>(condition){</span>
+<span id="cb372-2"><a href="files-and-for-loops.html#cb372-2"></a>  commands that <span class="cf">repeat</span> until condition flips to <span class="ot">FALSE</span></span>
+<span id="cb372-3"><a href="files-and-for-loops.html#cb372-3"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="files-and-for-loops.html#cb373-1"></a><span class="kw">plot</span>(<span class="ot">NULL</span>, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">100</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">xlab=</span><span class="st">&quot;x&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;1/x&quot;</span>) </span>
+<span id="cb373-2"><a href="files-and-for-loops.html#cb373-2"></a>x =<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb373-3"><a href="files-and-for-loops.html#cb373-3"></a><span class="cf">while</span>(x <span class="op">&lt;</span><span class="st"> </span><span class="dv">100</span>) {</span>
+<span id="cb373-4"><a href="files-and-for-loops.html#cb373-4"></a>  y =<span class="st"> </span><span class="dv">1</span> <span class="op">/</span><span class="st"> </span>x</span>
+<span id="cb373-5"><a href="files-and-for-loops.html#cb373-5"></a>  x =<span class="st"> </span>x <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb373-6"><a href="files-and-for-loops.html#cb373-6"></a>  <span class="kw">points</span>(x, y)</span>
+<span id="cb373-7"><a href="files-and-for-loops.html#cb373-7"></a>}</span></code></pre></div>
+<p><img src="images/unnamed-chunk-87-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="for-loops" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> for loops</h2>
+<ul>
+<li>The <code>for</code> command is probably the most common flow control option.</li>
+<li>It has three basic parts:
+<ul>
+<li>An object name that will be used in the following commands</li>
+<li>A vector that we will “loop over”</li>
+<li>Commands that will be executed for each value of the vector</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="files-and-for-loops.html#cb374-1"></a><span class="cf">for</span> (name <span class="cf">in</span> vector){</span>
+<span id="cb374-2"><a href="files-and-for-loops.html#cb374-2"></a>  execute these commands using each value of the vecotr</span>
+<span id="cb374-3"><a href="files-and-for-loops.html#cb374-3"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="files-and-for-loops.html#cb375-1"></a><span class="cf">for</span> (monkey <span class="cf">in</span> <span class="kw">c</span>(<span class="st">&quot;Spider&quot;</span>, <span class="st">&quot;Howler&quot;</span>, <span class="st">&quot;Rhesus&quot;</span>)) {</span>
+<span id="cb375-2"><a href="files-and-for-loops.html#cb375-2"></a>  <span class="co">## Each loop does the equivalent of: monkey = &quot;Spider&quot; or monkey = &quot;Howler&quot; or ...</span></span>
+<span id="cb375-3"><a href="files-and-for-loops.html#cb375-3"></a>  <span class="kw">print</span>(monkey)</span>
+<span id="cb375-4"><a href="files-and-for-loops.html#cb375-4"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;Spider&quot;
+## [1] &quot;Howler&quot;
+## [1] &quot;Rhesus&quot;</code></pre>
+<p>Or more commonly</p>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="files-and-for-loops.html#cb377-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>){</span>
+<span id="cb377-2"><a href="files-and-for-loops.html#cb377-2"></a>  <span class="kw">print</span>(i)</span>
+<span id="cb377-3"><a href="files-and-for-loops.html#cb377-3"></a>}</span></code></pre></div>
+<pre><code>## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6
+## [1] 7
+## [1] 8
+## [1] 9
+## [1] 10</code></pre>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="files-and-for-loops.html#cb379-1"></a><span class="co">## for loops are very useful in many situations</span></span>
+<span id="cb379-2"><a href="files-and-for-loops.html#cb379-2"></a><span class="kw">plot</span>(<span class="ot">NULL</span>, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">100</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb379-3"><a href="files-and-for-loops.html#cb379-3"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">100</span>) {</span>
+<span id="cb379-4"><a href="files-and-for-loops.html#cb379-4"></a>  <span class="kw">points</span>(i, <span class="dv">1</span> <span class="op">/</span><span class="st"> </span>i)</span>
+<span id="cb379-5"><a href="files-and-for-loops.html#cb379-5"></a>}</span></code></pre></div>
+<p><img src="images/unnamed-chunk-91-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div id="next-and-break" class="section level3" number="4.5.1">
+<h3><span class="header-section-number">4.5.1</span> next and break</h3>
+<p>Sometimes you might not want to execute the commands for every element in the vector
+use the <code>next</code> command to skip (you can also use the <code>break</code>)</p>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="files-and-for-loops.html#cb380-1"></a>some.odds =<span class="st"> </span><span class="ot">NULL</span></span>
+<span id="cb380-2"><a href="files-and-for-loops.html#cb380-2"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">200</span>) {</span>
+<span id="cb380-3"><a href="files-and-for-loops.html#cb380-3"></a>  <span class="cf">if</span> (i <span class="op">%%</span><span class="st"> </span><span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) {</span>
+<span id="cb380-4"><a href="files-and-for-loops.html#cb380-4"></a>    <span class="cf">next</span></span>
+<span id="cb380-5"><a href="files-and-for-loops.html#cb380-5"></a>  }</span>
+<span id="cb380-6"><a href="files-and-for-loops.html#cb380-6"></a>  some.odds =<span class="st"> </span><span class="kw">c</span>(some.odds, i)</span>
+<span id="cb380-7"><a href="files-and-for-loops.html#cb380-7"></a>}</span>
+<span id="cb380-8"><a href="files-and-for-loops.html#cb380-8"></a>some.odds</span></code></pre></div>
+<pre><code>##   [1]   1   3   5   7   9  11  13  15  17  19  21  23  25  27  29  31  33  35
+##  [19]  37  39  41  43  45  47  49  51  53  55  57  59  61  63  65  67  69  71
+##  [37]  73  75  77  79  81  83  85  87  89  91  93  95  97  99 101 103 105 107
+##  [55] 109 111 113 115 117 119 121 123 125 127 129 131 133 135 137 139 141 143
+##  [73] 145 147 149 151 153 155 157 159 161 163 165 167 169 171 173 175 177 179
+##  [91] 181 183 185 187 189 191 193 195 197 199</code></pre>
+<p>Technically, you don’t have to be so formal. But the indenting and braces are there for the protection of your future self.</p>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="files-and-for-loops.html#cb382-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>) <span class="kw">print</span>(i)</span></code></pre></div>
+<pre><code>## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6
+## [1] 7
+## [1] 8
+## [1] 9
+## [1] 10</code></pre>
 
+</div>
 </div>
 </div>
 
