@@ -1,11 +1,6 @@
 //todo:
 
-get the matrix algebra notes
-https://www.statmethods.net/advstats/matrix.html
-
-add array notes
-
-reading and writing files (Lecture3.R)
+lecture on control structure (if, while, for, repeat)
 
 
 //done:
@@ -14,3 +9,10 @@ you can index/subset a matrix with a vector of logicals/booleans just like you c
 matrices and vectors can only contain one data type (but not dataframes!)
 
 dataframes always have column names
+
+get the matrix algebra notes
+https://www.statmethods.net/advstats/matrix.html
+
+add array notes
+
+reading and writing files (Lecture3.R)

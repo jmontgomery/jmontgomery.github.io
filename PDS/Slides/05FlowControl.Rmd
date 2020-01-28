@@ -269,7 +269,7 @@ while(x < 100) {
 ```{r, eval=FALSE}
 
 for (name in vector){
-  execute these commands using each value of the vecotr
+  execute these commands using each value of the vector
 }
 ```
 
@@ -285,7 +285,7 @@ for (monkey in c("Spider", "Howler", "Rhesus")) {
 
 ---
 
-Or or more commonly
+Or more commonly
 
 ```{r}
 for (i in 1:10){
@@ -306,7 +306,7 @@ for (i in 1:100) {
 
 ---
 
-## skip and break
+## next and break
 
 Sometimes you might not want to execute the commands for every element in the vector
 use the `next` command to skip (you can also use the `break`)
