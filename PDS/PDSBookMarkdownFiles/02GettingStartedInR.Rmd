@@ -90,3 +90,47 @@ ls()
 ```
 
 Anything that starts with a "." will be accessible in your code, but hidden
+
+
+## Getting help
+
+Learning about functions and how to specify them correctly is half the battle
+
+```{r}
+help(sqrt) # help w/ functions
+?sqrt # same thing
+help.start() # lots of help
+help.search("sqrt") # what am I looking for? Fuzzy matching
+example(sqrt)
+RSiteSearch("missing")
+```
+
+TIPS:
+1) Remember that these help menus are usually written by the same people who wrote the functions you are using. 
+They are uniformly not helpful unless you already know a good bit about computer programming and (in some cases) a lot about the function itself.
+2)  There is a basic structure that all help files must meet, and it is *very* important that you try and get the hang of this.
+
+
+## Installing packages
+
+The beauty of R is that there are packages, although things can be a bit unorganized.
+
+```{r}
+install.packages("BAS") # This will prompt a user interface to choose the "mirror" or repository
+library(BAS) # this will actually load the library for use.  You must call this every time.
+search() # you can see what packages are attached to the workspace (and also what other objects)
+help(package="BAS") # Will (usually) give you a list of functions for the package
+example(BAS) # some package writers give you little examples to get you started
+```
+
+All packages documentation are on CRAN
+
+Many packages come with example datasets built in
+```{r}
+data()
+data(rock)
+?rock # there are help files for these
+ls() # there's rock -- in the global environment
+data(road, package="MASS") # you can load these datasets without loading the package
+```
+

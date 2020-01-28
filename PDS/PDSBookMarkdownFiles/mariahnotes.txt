@@ -1,8 +1,11 @@
 //todo:
 
 get the matrix algebra notes
+https://www.statmethods.net/advstats/matrix.html
 
 add array notes
+
+reading and writing files (Lecture3.R)
 
 
 //done:

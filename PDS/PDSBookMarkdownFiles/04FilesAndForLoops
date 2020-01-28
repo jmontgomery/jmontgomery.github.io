@@ -1,0 +1,50 @@
+# Files and For Loops
+
+## The working directory
+
+First we want to change the working directory.  This is the folder where R will save and look for data by default (although you can always override this)
+
+Note that the file path (in Windows at least) requires slashes. You can either use two back slashes to separate folders or one forward slash.
+
+```{r, eval=FALSE}
+setwd("~/Dropbox/Classes/R Programming")
+## For Windows, will need to be something like
+setwd("C:\\Documents and Settings\\Jacob Montgomery\\My Documents\\RWork")
+## or
+setwd("C:/Documents and Settings/Jacob Montgomery/My Documents/RWork")
+## or
+setwd(file.path("C:", "Documents and Settings", "Jacob Montgomery", "My Documents", "RWork"))
+```
+
+## Input and output
+
+```{r, eval=FALSE}
+voting.data<-data.frame(vap, tv)
+```
+
+Now let's save our newly created dataset
+```{r, eval=FALSE}
+dump("voting.data", "voting.data.R") # inputs are string.  Note that you must put the *.R in yourself
+```
+
+You might also want to save multiple objects
+```{r, eval=FALSE}
+dump(c("vap", "tv"), "voting.data.vectors.R")
+dump(list=objects(), "everything.R")
+## an alternative we can just use the command
+save.image("everything.RData") # saves an image of your current workspace
+```
+
+Now we can clear our wokspace, and load these objects
+```{r, eval=FALSE}
+rm(list=ls())
+source("voting.data.vectors.R")
+ls() # only saved objects present
+```
+
+To read/write dataframes from/to a csv (comma separated values) file, the following commands will be useful
+```{r, eval=F}
+votes.06<-read.csv("~/Dropbox/Classes/R Programming/R Scripts/VotingData2006.csv", header=T)
+write.csv(votes.06, file="VD06.csv")
+```
+Tips: All of the functions for reading in data are actually using the scan() function. No matter how crazy your data look, you can *always* read it into R by clever use of scan().
