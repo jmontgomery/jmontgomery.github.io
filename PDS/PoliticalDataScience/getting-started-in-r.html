@@ -171,6 +171,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.10" data-path="data-types-in-r.html"><a href="data-types-in-r.html#dataframes"><i class="fa fa-check"></i><b>3.10</b> Dataframes</a></li>
 <li class="chapter" data-level="3.11" data-path="data-types-in-r.html"><a href="data-types-in-r.html#general-info"><i class="fa fa-check"></i><b>3.11</b> General info</a></li>
 </ul></li>
+<li class="chapter" data-level="4" data-path="files-and-for-loops.html"><a href="files-and-for-loops.html"><i class="fa fa-check"></i><b>4</b> Files and For Loops</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="files-and-for-loops.html"><a href="files-and-for-loops.html#the-working-directory"><i class="fa fa-check"></i><b>4.1</b> The working directory</a></li>
+<li class="chapter" data-level="4.2" data-path="files-and-for-loops.html"><a href="files-and-for-loops.html#input-and-output"><i class="fa fa-check"></i><b>4.2</b> Input and output</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -267,16 +272,15 @@ The commands ls() and rm() are used to show or remove variables from the global 
 ## [17] &quot;my.crazy.list&quot;            &quot;my.data&quot;                 
 ## [19] &quot;my.matrix&quot;                &quot;numbers5to20&quot;            
 ## [21] &quot;result&quot;                   &quot;result2&quot;                 
-## [23] &quot;road&quot;                     &quot;rock&quot;                    
-## [25] &quot;row.names&quot;                &quot;small.states&quot;            
-## [27] &quot;state.size&quot;               &quot;this.out&quot;                
-## [29] &quot;total.votes&quot;              &quot;total.votes.ak&quot;          
-## [31] &quot;trace&quot;                    &quot;turnout&quot;                 
-## [33] &quot;turnout.ak&quot;               &quot;tv&quot;                      
-## [35] &quot;vap&quot;                      &quot;vector1&quot;                 
-## [37] &quot;voting.age.population&quot;    &quot;voting.age.population.ak&quot;
-## [39] &quot;voting.data&quot;              &quot;x&quot;                       
-## [41] &quot;y&quot;</code></pre>
+## [23] &quot;row.names&quot;                &quot;small.states&quot;            
+## [25] &quot;state.size&quot;               &quot;this.out&quot;                
+## [27] &quot;total.votes&quot;              &quot;total.votes.ak&quot;          
+## [29] &quot;trace&quot;                    &quot;turnout&quot;                 
+## [31] &quot;turnout.ak&quot;               &quot;tv&quot;                      
+## [33] &quot;vap&quot;                      &quot;vector1&quot;                 
+## [35] &quot;voting.age.population&quot;    &quot;voting.age.population.ak&quot;
+## [37] &quot;voting.data&quot;              &quot;x&quot;                       
+## [39] &quot;y&quot;</code></pre>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="getting-started-in-r.html#cb31-1"></a><span class="kw">rm</span>(a) <span class="co">#this removes a from the global environment</span></span>
 <span id="cb31-2"><a href="getting-started-in-r.html#cb31-2"></a><span class="kw">ls</span>()</span></code></pre></div>
 <pre><code>##  [1] &quot;b&quot;                        &quot;chooser&quot;                 
@@ -289,16 +293,15 @@ The commands ls() and rm() are used to show or remove variables from the global 
 ## [15] &quot;matrix.names&quot;             &quot;my.crazy.list&quot;           
 ## [17] &quot;my.data&quot;                  &quot;my.matrix&quot;               
 ## [19] &quot;numbers5to20&quot;             &quot;result&quot;                  
-## [21] &quot;result2&quot;                  &quot;road&quot;                    
-## [23] &quot;rock&quot;                     &quot;row.names&quot;               
-## [25] &quot;small.states&quot;             &quot;state.size&quot;              
-## [27] &quot;this.out&quot;                 &quot;total.votes&quot;             
-## [29] &quot;total.votes.ak&quot;           &quot;trace&quot;                   
-## [31] &quot;turnout&quot;                  &quot;turnout.ak&quot;              
-## [33] &quot;tv&quot;                       &quot;vap&quot;                     
-## [35] &quot;vector1&quot;                  &quot;voting.age.population&quot;   
-## [37] &quot;voting.age.population.ak&quot; &quot;voting.data&quot;             
-## [39] &quot;x&quot;                        &quot;y&quot;</code></pre>
+## [21] &quot;result2&quot;                  &quot;row.names&quot;               
+## [23] &quot;small.states&quot;             &quot;state.size&quot;              
+## [25] &quot;this.out&quot;                 &quot;total.votes&quot;             
+## [27] &quot;total.votes.ak&quot;           &quot;trace&quot;                   
+## [29] &quot;turnout&quot;                  &quot;turnout.ak&quot;              
+## [31] &quot;tv&quot;                       &quot;vap&quot;                     
+## [33] &quot;vector1&quot;                  &quot;voting.age.population&quot;   
+## [35] &quot;voting.age.population.ak&quot; &quot;voting.data&quot;             
+## [37] &quot;x&quot;                        &quot;y&quot;</code></pre>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="getting-started-in-r.html#cb33-1"></a>c &lt;-<span class="st"> </span><span class="dv">3</span></span>
 <span id="cb33-2"><a href="getting-started-in-r.html#cb33-2"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>()) <span class="co">#this removes all global variables</span></span></code></pre></div>
 <p>Some things are present in the working environment, but not shown in the global environment</p>

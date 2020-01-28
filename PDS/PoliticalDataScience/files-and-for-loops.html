@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Political Data Science</title>
-  <meta name="description" content="Political Data Science" />
+  <title>4 Files and For Loops | Political Data Science</title>
+  <meta name="description" content="4 Files and For Loops | Political Data Science" />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Political Data Science" />
+  <meta property="og:title" content="4 Files and For Loops | Political Data Science" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Political Data Science" />
+  <meta name="twitter:title" content="4 Files and For Loops | Political Data Science" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="data-types-in-r.html"/>
 
-<link rel="next" href="getting-started-in-r.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <script src="libs/elevate-section-attrs-2.0/elevate-section-attrs.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -193,116 +193,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Political Data Science</h1>
-<p class="author"><em>Jacob Montgomery and Mariah Yelenick</em></p>
+<div id="files-and-for-loops" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Files and For Loops</h1>
+<div id="the-working-directory" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> The working directory</h2>
+<p>First we want to change the working directory. This is the folder where R will save and look for data by default (although you can always override this)</p>
+<p>Note that the file path (in Windows at least) requires slashes. You can either use two back slashes to separate folders or one forward slash.</p>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="files-and-for-loops.html#cb345-1"></a><span class="kw">setwd</span>(<span class="st">&quot;~/Dropbox/Classes/R Programming&quot;</span>)</span>
+<span id="cb345-2"><a href="files-and-for-loops.html#cb345-2"></a><span class="co">## For Windows, will need to be something like</span></span>
+<span id="cb345-3"><a href="files-and-for-loops.html#cb345-3"></a><span class="kw">setwd</span>(<span class="st">&quot;C:</span><span class="ch">\\</span><span class="st">Documents and Settings</span><span class="ch">\\</span><span class="st">Jacob Montgomery</span><span class="ch">\\</span><span class="st">My Documents</span><span class="ch">\\</span><span class="st">RWork&quot;</span>)</span>
+<span id="cb345-4"><a href="files-and-for-loops.html#cb345-4"></a><span class="co">## or</span></span>
+<span id="cb345-5"><a href="files-and-for-loops.html#cb345-5"></a><span class="kw">setwd</span>(<span class="st">&quot;C:/Documents and Settings/Jacob Montgomery/My Documents/RWork&quot;</span>)</span>
+<span id="cb345-6"><a href="files-and-for-loops.html#cb345-6"></a><span class="co">## or</span></span>
+<span id="cb345-7"><a href="files-and-for-loops.html#cb345-7"></a><span class="kw">setwd</span>(<span class="kw">file.path</span>(<span class="st">&quot;C:&quot;</span>, <span class="st">&quot;Documents and Settings&quot;</span>, <span class="st">&quot;Jacob Montgomery&quot;</span>, <span class="st">&quot;My Documents&quot;</span>, <span class="st">&quot;RWork&quot;</span>))</span></code></pre></div>
 </div>
-<div id="dont-be-a-clown" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Don’t be a clown</h1>
-<p><a href="https://imgflip.com/i/3m0rs1"><img src="https://i.imgflip.com/3m0rs1.jpg" title="made at imgflip.com"/></a></p>
-<blockquote>
-<p>I see miracles all around me <br>
-Stop and look around, it’s all astounding <br>
-Water, fire, air and dirt <br>
-Fucking magnets, how do they work? <br>
-And I don’t wanna talk to a scientist <br>
-Y’all motherfuckers lying, and getting me pissed <br>
-<br>
-<br>
-— Insane Clown Posse, <em>Miracles</em></p>
-</blockquote>
-<p><a href="https://genius.com/Insane-clown-posse-miracles-lyrics">Link</a> if you don’t know what I’m talking about</p>
-<blockquote>
-<p>Pollsters are wizards, shamans, diviners. They toss numbers around the way astragalomancers once tossed bones to foretell events to come. (The name comes from the Greek astragalos, meaning “knucklebone.” But you knew that.) <br></p>
-</blockquote>
-<blockquote>
-<p>I have never been called by a political pollster and don’t know anybody who has, but I know some pollsters, who assure me they don’t make the numbers up, and I believe them.<br>
-<br>
-<br>
-— Roger Simon, Chief Political Columnist, <em>Politico</em></p>
-</blockquote>
-<p><a href="https://www.politico.com/story/2011/12/are-polls-really-magic-070717">Link</a></p>
-<p>Depending on who you listen to, artificial intelligence and machine learning<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> are either the cause or the solution to all of the world’s problems. On the one hand you have algorithms spreading misinformtion, large scale corporate surveillance, and predicted mass unemployment in the service sector. On the other hand you have ever-improving health diagnostics, data-driven journalism, and all the world’s information at the touch of your fingers (or voice).</p>
-<p>The term “data science” means different things to different people, but for most people the term doesn’t mean much at all. In the two quotes above, we see both the Insane Clown Posse and Politico’s (for God’s sake) chief political columnist share a loving embrace with ignorance about fundamental forces in our life. We swim in data and statistics. News, politics, and policy is increasingly being driven by data and algorithms. But all too few people know much about how these algorithms work. Like magnets or random sampling, data science is just a mysterious force that we have to cope with.</p>
-<p>The central goal of this class is to make sure you don’t have to be a clown. In today’s world, your future career will surely</p>
-<p>You will find that data science, machine learning, big data, and artificial intelligence is just another tool (if a powerful tool). It is neither good nor evil by itself. It is humans and human judgement (or lack of judgement) that lead to good our bad outcomes.</p>
-<p>But whether you intend to work for the forces of good or evil (I tend towards chaotic neutral)</p>
-<div id="as-easy-as-cake" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> As easy as cake</h2>
-<p>One way</p>
-<div id="coding" class="section level3" number="1.1.1">
-<h3><span class="header-section-number">1.1.1</span> Coding</h3>
-</div>
-<div id="data-acquision" class="section level3" number="1.1.2">
-<h3><span class="header-section-number">1.1.2</span> Data acquision</h3>
-<p>Is that polling data you are looking at a random sample of Americans, or just everyone who attended that sick Delta Sig party? Were the people in your data randomly assigned to watch Fox news, or did they choose to?</p>
-<p>No matter how fancy your machine learning algorithm, the results don’t mean anything very much if you don’t</p>
-</div>
-<div id="algorithms" class="section level3" number="1.1.3">
-<h3><span class="header-section-number">1.1.3</span> Algorithms</h3>
-</div>
-<div id="domain-knowledge" class="section level3" number="1.1.4">
-<h3><span class="header-section-number">1.1.4</span> Domain knowledge</h3>
-<p>Like baking, the final thing you need to do good data science is what most people call “domain knowledge” and what I call “knowing what the hell you are talking about.” It turns out that having a really cool statistical model, huge amounts of data, and even a super computer sproting 24 GPUs will not save you from reaching the wrong answer if you don’t think (and aren’t trained to think).</p>
-<p><img src="Fig1.png" />
-<a href="https://www.researchgate.net/figure/A-famous-spurious-correlationstylervigencom_fig3_316739091">Link</a></p>
-</div>
-<div id="putting-it-together" class="section level3" number="1.1.5">
-<h3><span class="header-section-number">1.1.5</span> Putting it together</h3>
-<p>A final method. You can get along fine in may cases following the instructions on the back of the chocolate chip cookie bag. But to really become a “baker” you need to be able to create your own recipes for each occasion. And to do that you actually need to “know what the hell you are talking about.”</p>
-<p>So</p>
-</div>
-</div>
-<div id="class-structures" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Class structures</h2>
-<div id="learning-objective-1-team-based-learning" class="section level3" number="1.2.1">
-<h3><span class="header-section-number">1.2.1</span> Learning objective #1: Team based learning</h3>
-<p>This course was designed to incorporate elements of Team Based Learning. This is an approach to creating permanent groups to work on problems in class and out of class throughout the semester.</p>
-<p>We are not going to follow the TBL approach strictly. But we are going to have fewer lectures and more structured group activities. Learn more about Team Based Learning by watching this video.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kxg5FTGZhZs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-</div>
-<div id="learning-objective-2-show-up-ready" class="section level3" number="1.2.2">
-<h3><span class="header-section-number">1.2.2</span> Learning objective #2: Show up ready</h3>
-<p>Moving an increasing amount of teaching resources online is a big trend in education at all levels. But this isn’t just trendy, it appears to be very effective. Preliminary research shows that online learning paired with in-class interactions with faculty is a much more effective than the traditional lecture format.</p>
-<p>Watch this short TED talk by Peter Norvig to learn more:</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/tYclUdcsdeo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-<p>So in advance of each lecture</p>
-</div>
-<div id="learning-objective-3-how-is-this-going-to-work" class="section level3" number="1.2.3">
-<h3><span class="header-section-number">1.2.3</span> Learning objective #3: How is this going to work?</h3>
-<p>The approach I am trying to adopt for this class is to help you learn in four basic steps.</p>
-<ol style="list-style-type: decimal">
-<li><p>Initial exposure to materials through self-study.</p></li>
-<li><p>Repeated exposure to materials in short lectures.</p></li>
-<li><p>Use your new knowledge in a collaborative environment where assistance is readily available.</p></li>
-<li><p>Use your new knowledge on your own.</p></li>
-</ol>
-<p>The goal is for you to see and use information in multiple ways to improve learning outcomes. Experience (and research) shows that this approach is far superior to simple lectures in helping you learn more and retain it longer. To help you along this process, each learning component will be broken down as follows.</p>
-<ol style="list-style-type: decimal">
-<li><p>You will read your book and review online materials.</p></li>
-<li><p>I will begin most classes with a short lecture where I will cover the materials again and answer questions.</p></li>
-<li><p>You will apply your knowledge during in-class team assignments. If you have any questions or run into problems, I will be right there to give you help. To keep the team motivated, these assignments will be graded.</p></li>
-<li><p>You will apply your knowledge on your own (or with friends) in your problem sets and final project.</p></li>
-</ol>
+<div id="input-and-output" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Input and output</h2>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="files-and-for-loops.html#cb346-1"></a>voting.data&lt;-<span class="kw">data.frame</span>(vap, tv)</span></code></pre></div>
+<p>Now let’s save our newly created dataset</p>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="files-and-for-loops.html#cb347-1"></a><span class="kw">dump</span>(<span class="st">&quot;voting.data&quot;</span>, <span class="st">&quot;voting.data.R&quot;</span>) <span class="co"># inputs are string.  Note that you must put the *.R in yourself</span></span></code></pre></div>
+<p>You might also want to save multiple objects</p>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="files-and-for-loops.html#cb348-1"></a><span class="kw">dump</span>(<span class="kw">c</span>(<span class="st">&quot;vap&quot;</span>, <span class="st">&quot;tv&quot;</span>), <span class="st">&quot;voting.data.vectors.R&quot;</span>)</span>
+<span id="cb348-2"><a href="files-and-for-loops.html#cb348-2"></a><span class="kw">dump</span>(<span class="dt">list=</span><span class="kw">objects</span>(), <span class="st">&quot;everything.R&quot;</span>)</span>
+<span id="cb348-3"><a href="files-and-for-loops.html#cb348-3"></a><span class="co">## an alternative we can just use the command</span></span>
+<span id="cb348-4"><a href="files-and-for-loops.html#cb348-4"></a><span class="kw">save.image</span>(<span class="st">&quot;everything.RData&quot;</span>) <span class="co"># saves an image of your current workspace</span></span></code></pre></div>
+<p>Now we can clear our wokspace, and load these objects</p>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="files-and-for-loops.html#cb349-1"></a><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</span>
+<span id="cb349-2"><a href="files-and-for-loops.html#cb349-2"></a><span class="kw">source</span>(<span class="st">&quot;voting.data.vectors.R&quot;</span>)</span>
+<span id="cb349-3"><a href="files-and-for-loops.html#cb349-3"></a><span class="kw">ls</span>() <span class="co"># only saved objects present</span></span></code></pre></div>
+<p>To read/write dataframes from/to a csv (comma separated values) file, the following commands will be useful</p>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="files-and-for-loops.html#cb350-1"></a>votes<span class="fl">.06</span>&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;~/Dropbox/Classes/R Programming/R Scripts/VotingData2006.csv&quot;</span>, <span class="dt">header=</span>T)</span>
+<span id="cb350-2"><a href="files-and-for-loops.html#cb350-2"></a><span class="kw">write.csv</span>(votes<span class="fl">.06</span>, <span class="dt">file=</span><span class="st">&quot;VD06.csv&quot;</span>)</span></code></pre></div>
+<p>Tips: All of the functions for reading in data are actually using the scan() function. No matter how crazy your data look, you can <em>always</em> read it into R by clever use of scan().</p>
 
 </div>
 </div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="1">
-<li id="fn1"><p>Machine learning and statistics is really just a subset of artificial intelligence (AI) research. For fun, just start telling people you are in an AI class and see how they react.<a href="index.html#fnref1" class="footnote-back">↩︎</a></p></li>
-</ol>
-</div>
+
+
+
+
+
+
             </section>
 
           </div>
         </div>
       </div>
+<a href="data-types-in-r.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="getting-started-in-r.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
