@@ -20,7 +20,7 @@ output:
 # Flow control: Making your R scripts less horrible
 
 - You will find that your scripts start to get **long**.
-- Complext tasks especially start turning into complex code
+- Complex tasks especially start turning into complex code
 - *TIP* If you find yourself yourself copying and pasting more than 2-3 times --
 think about writing a loop or a function instead.
 
