@@ -96,7 +96,7 @@ Anything that starts with a "." will be accessible in your code, but hidden
 
 Learning about functions and how to specify them correctly is half the battle
 
-```{r}
+```{r, eval=F}
 help(sqrt) # help w/ functions
 ?sqrt # same thing
 help.start() # lots of help
@@ -115,7 +115,7 @@ They are uniformly not helpful unless you already know a good bit about computer
 
 The beauty of R is that there are packages, although things can be a bit unorganized.
 
-```{r}
+```{r, eval=FALSE}
 install.packages("BAS") # This will prompt a user interface to choose the "mirror" or repository
 library(BAS) # this will actually load the library for use.  You must call this every time.
 search() # you can see what packages are attached to the workspace (and also what other objects)
@@ -126,7 +126,7 @@ example(BAS) # some package writers give you little examples to get you started
 All packages documentation are on CRAN
 
 Many packages come with example datasets built in
-```{r}
+```{r, eval=FALSE}
 data()
 data(rock)
 ?rock # there are help files for these
