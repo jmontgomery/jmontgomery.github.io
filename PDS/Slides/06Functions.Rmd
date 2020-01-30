@@ -1,0 +1,266 @@
+---
+title: "Functions"
+author: |
+  | Jacob M. Montgomery
+  | *Washington University in St. Louis*
+  | *Department of Politcal Science*
+date: '2020'
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
+#   beamer_presentation: default
+#   slidy_presentation: default
+
+
+---
+
+
+## Orientation for today
+
+**Last time**
+
+
+
+<br>
+
+1. Flow control
+    + if
+    + repeat
+    + while
+    + for
+
+--
+
+**Today**
+
+1. Functions 
+    
+<br>
+
+--
+
+**Next class**
+
+1. Version control/documentation
+    + Getting up on github
+    + Helping your future self
+
+
+---
+
+
+# Functions
+
+- So lets go back and talk about functions again
+- We have been using functions this whole time, but we can also make our own.
+- This both helps you keep your code organized, and helps you better understand other people's functions
+
+---
+
+## The basics
+
+1. Use the 'function' command and assign it to an object
+2. If you need, specify the expected inputs
+3. Do some stuff
+4. Return something (and only one thing) to the global environment.
+
+```{r, eval=FALSE}
+my.function = function(x) {
+  do stuff here
+  return(output)
+}
+```
+
+
+
+---
+
+## Three ways to write a function: One
+
+
+```{r}
+my.function = function(x) { # take in a value of x
+  y = x^2 + 3*x - 2 # conduct operations using the input values
+  return(y) # return some value. 
+  # In this case we are returning a simple numeric value
+}
+```
+
+---
+
+## Three ways to write the same function: Two
+
+
+- You don't have to specify a return
+- R will just return whatever is on the last line
+```{r}
+my.function2 = function(x) {
+  x^2 + 3*x - 2 
+}
+```
+
+
+---
+
+##  Three ways to write the same function: Three
+
+- And you can do it all in one line
+- Not good practice, but sometimes convenient
+
+```{r}
+my.function3 = function(x) x^2 + 3*x - 2 
+```
+
+---
+
+## Let's test it out
+
+```{r}
+my.function(c(1))
+my.function2(c(1))
+my.function3(c(1))
+```
+
+---
+
+## And it's magically vectorized!
+
+```{r}
+my.function(c(1:20))
+my.function2(c(1:20))
+my.function3(c(1:20))
+```
+
+
+---
+
+## DO NUMBER 1.  EVERY TIME.  EXPLICIT IS BETTER!
+
+---
+
+## To recap
+
+Functions are just another object.  We can define the functions using:
+1. The word function
+2. A pair of round parentheses () which enclose the argument list.  The list may be empty.
+3. A single statment, or a sequence of statements enclosed in curly braces { }.
+
+
+---
+
+## Outputs don't need to be through return ... sort of
+
+Sometimes a function will return a value, but other times it will just execute a command.
+
+
+```{r}
+mad.libs = function(noun, location, proper.noun, activity) {
+  print(paste("One day, I was looking all over for my", noun))
+  print(paste("I decided I must have left it at the", location))
+  print(paste("When I got there, I found", proper.noun, "using my", noun, "to", activity))
+}
+mad.libs("baseball", "lake house", "Andrew Martin", "eat pudding")
+```
+
+
+---
+
+## Setting defaults
+
+
+You can set default values for some of your arguments or all of them
+
+```{r}
+gaga.equation = function(num.rah=2, num.ah=3, num.ga=2, 
+                         num.la=2, num.oo=1) {
+  rahs = paste(rep("RAH", num.rah), collapse=", ")
+  ahs  = paste(rep("AH", num.ah), collapse=", ")
+  gas  = paste(rep("GA", num.ga), collapse=", ")
+  oo   = paste(rep("OO", num.oo), collapse=", ")
+  las  = paste(rep("LA", num.la), collapse=", ")
+  paste(rahs, ",", ahs,  "!  ROMA, ROMAMA!", gas, ",", oo, las)
+}
+
+```
+
+---
+
+## Bad Romance
+
+
+```{r}
+gaga.equation()
+```
+
+--
+
+```{r}
+gaga.equation(num.rah=5)
+```
+
+---
+
+## Understanding what does not come out
+
+- Note that rahs is not available outside of the function!  
+- This is because of scoping.
+
+```{r, eval=FALSE}
+print(rahs)
+```
+
+---
+
+## Functions are like Vegas
+
+- As we noted -- local variables are not written into the global environment.
+- What happens in the function, stays in the function
+
+---
+
+```{r}
+f  = function() {
+  x = 1 #local x
+  g()
+  return(x)
+}
+
+g = function() {
+  x = 2 # local x
+  return(x)
+}
+f()
+
+
+
+x = 3 # global x
+f()
+g()
+x
+```
+
+---
+
+## HOWEVER: you can pass values downwards in a function chain
+
+
+```{r}
+f = function() {
+  x = 1
+  y = g(x)
+  return(c(x, y))
+}
+g = function(x) {
+  return(x + 2)
+}
+a = f()
+a
+```
+
+
+
+
+
