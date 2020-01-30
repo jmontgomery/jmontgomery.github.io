@@ -42,3 +42,5 @@ knitr::opts_chunk$set(echo = TRUE)
 [Activity 5](https:jmontgomery.github.io/PDS/ClassActivities/Activity5/Activity5.pdf)
 
 [Activity 6](https:jmontgomery.github.io/PDS/ClassActivities/Activity6/Activity6.pdf)
+
+[Activity 7](https:jmontgomery.github.io/PDS/ClassActivities/Activity7/Activity7.pdf)
