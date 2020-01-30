@@ -24,6 +24,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 [Lecture5](https://jmontgomery.github.io/PDS/Slides/05FlowControl.html)
 
+[Lecture6](https://jmontgomery.github.io/PDS/Slides/06Functions.html)
+
 #### Problem Sets
 [Problem Set 1](https://jmontgomery.github.io/PDS/Problem Sets/Problem Set 1/PS1_PDS.pdf)
 

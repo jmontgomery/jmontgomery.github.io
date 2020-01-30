@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Functions</title>
+    <meta charset="utf-8" />
+    <meta name="date" content="2020-01-01" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Functions
+### <p>Jacob M. Montgomery<br />
+<em>Washington University in St. Louis</em><br />
+<em>Department of Politcal Science</em></p>
+### 2020
+
+---
+
+
+
+## Orientation for today
+
+**Last time**
+
+
+
+&lt;br&gt;
+
+1. Flow control
+    + if
+    + repeat
+    + while
+    + for
+
+--
+
+**Today**
+
+1. Functions 
+    
+&lt;br&gt;
+
+--
+
+**Next class**
+
+1. Version control/documentation
+    + Getting up on github
+    + Helping your future self
+
+
+---
+
+
+# Functions
+
+- So lets go back and talk about functions again
+- We have been using functions this whole time, but we can also make our own.
+- This both helps you keep your code organized, and helps you better understand other people's functions
+
+---
+
+## The basics
+
+1. Use the 'function' command and assign it to an object
+2. If you need, specify the expected inputs
+3. Do some stuff
+4. Return something (and only one thing) to the global environment.
+
+
+```r
+my.function = function(x) {
+  do stuff here
+  return(output)
+}
+```
+
+
+
+---
+
+## Three ways to write a function: One
+
+
+
+```r
+my.function = function(x) { # take in a value of x
+  y = x^2 + 3*x - 2 # conduct operations using the input values
+  return(y) # return some value. 
+  # In this case we are returning a simple numeric value
+}
+```
+
+---
+
+## Three ways to write the same function: Two
+
+
+- You don't have to specify a return
+- R will just return whatever is on the last line
+
+```r
+my.function2 = function(x) {
+  x^2 + 3*x - 2 
+}
+```
+
+
+---
+
+##  Three ways to write the same function: Three
+
+- And you can do it all in one line
+- Not good practice, but sometimes convenient
+
+
+```r
+my.function3 = function(x) x^2 + 3*x - 2 
+```
+
+---
+
+## Let's test it out
+
+
+```r
+my.function(c(1))
+```
+
+```
+## [1] 2
+```
+
+```r
+my.function2(c(1))
+```
+
+```
+## [1] 2
+```
+
+```r
+my.function3(c(1))
+```
+
+```
+## [1] 2
+```
+
+---
+
+## And it's magically vectorized!
+
+
+```r
+my.function(c(1:20))
+```
+
+```
+##  [1]   2   8  16  26  38  52  68  86 106 128 152 178 206 236 268 302 338
+## [18] 376 416 458
+```
+
+```r
+my.function2(c(1:20))
+```
+
+```
+##  [1]   2   8  16  26  38  52  68  86 106 128 152 178 206 236 268 302 338
+## [18] 376 416 458
+```
+
+```r
+my.function3(c(1:20))
+```
+
+```
+##  [1]   2   8  16  26  38  52  68  86 106 128 152 178 206 236 268 302 338
+## [18] 376 416 458
+```
+
+
+---
+
+## DO NUMBER 1.  EVERY TIME.  EXPLICIT IS BETTER!
+
+---
+
+## To recap
+
+Functions are just another object.  We can define the functions using:
+1. The word function
+2. A pair of round parentheses () which enclose the argument list.  The list may be empty.
+3. A single statment, or a sequence of statements enclosed in curly braces { }.
+
+
+---
+
+## Outputs don't need to be through return ... sort of
+
+Sometimes a function will return a value, but other times it will just execute a command.
+
+
+
+```r
+mad.libs = function(noun, location, proper.noun, activity) {
+  print(paste("One day, I was looking all over for my", noun))
+  print(paste("I decided I must have left it at the", location))
+  print(paste("When I got there, I found", proper.noun, "using my", noun, "to", activity))
+}
+mad.libs("baseball", "lake house", "Andrew Martin", "eat pudding")
+```
+
+```
+## [1] "One day, I was looking all over for my baseball"
+## [1] "I decided I must have left it at the lake house"
+## [1] "When I got there, I found Andrew Martin using my baseball to eat pudding"
+```
+
+
+---
+
+## Setting defaults
+
+
+You can set default values for some of your arguments or all of them
+
+
+```r
+gaga.equation = function(num.rah=2, num.ah=3, num.ga=2, 
+                         num.la=2, num.oo=1) {
+  rahs = paste(rep("RAH", num.rah), collapse=", ")
+  ahs  = paste(rep("AH", num.ah), collapse=", ")
+  gas  = paste(rep("GA", num.ga), collapse=", ")
+  oo   = paste(rep("OO", num.oo), collapse=", ")
+  las  = paste(rep("LA", num.la), collapse=", ")
+  paste(rahs, ",", ahs,  "!  ROMA, ROMAMA!", gas, ",", oo, las)
+}
+```
+
+---
+
+## Bad Romance
+
+
+
+```r
+gaga.equation()
+```
+
+```
+## [1] "RAH, RAH , AH, AH, AH !  ROMA, ROMAMA! GA, GA , OO LA, LA"
+```
+
+--
+
+
+```r
+gaga.equation(num.rah=5)
+```
+
+```
+## [1] "RAH, RAH, RAH, RAH, RAH , AH, AH, AH !  ROMA, ROMAMA! GA, GA , OO LA, LA"
+```
+
+---
+
+## Understanding what does not come out
+
+- Note that rahs is not available outside of the function!  
+- This is because of scoping.
+
+
+```r
+print(rahs)
+```
+
+---
+
+## Functions are like Vegas
+
+- As we noted -- local variables are not written into the global environment.
+- What happens in the function, stays in the function
+
+---
+
+
+```r
+f  = function() {
+  x = 1 #local x
+  g()
+  return(x)
+}
+
+g = function() {
+  x = 2 # local x
+  return(x)
+}
+f()
+```
+
+```
+## [1] 1
+```
+
+```r
+x = 3 # global x
+f()
+```
+
+```
+## [1] 1
+```
+
+```r
+g()
+```
+
+```
+## [1] 2
+```
+
+```r
+x
+```
+
+```
+## [1] 3
+```
+
+---
+
+## HOWEVER: you can pass values downwards in a function chain
+
+
+
+```r
+f = function() {
+  x = 1
+  y = g(x)
+  return(c(x, y))
+}
+g = function(x) {
+  return(x + 2)
+}
+a = f()
+a
+```
+
+```
+## [1] 1 3
+```
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
