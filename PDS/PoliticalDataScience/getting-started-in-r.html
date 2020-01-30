@@ -181,6 +181,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="4.5.1" data-path="files-and-for-loops.html"><a href="files-and-for-loops.html#next-and-break"><i class="fa fa-check"></i><b>4.5.1</b> next and break</a></li>
 </ul></li>
+<li class="chapter" data-level="4.6" data-path="files-and-for-loops.html"><a href="files-and-for-loops.html#functions-1"><i class="fa fa-check"></i><b>4.6</b> Functions</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="files-and-for-loops.html"><a href="files-and-for-loops.html#the-basics"><i class="fa fa-check"></i><b>4.6.1</b> The basics</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="files-and-for-loops.html"><a href="files-and-for-loops.html#setting-defaults"><i class="fa fa-check"></i><b>4.7</b> Setting defaults</a></li>
+<li class="chapter" data-level="4.8" data-path="files-and-for-loops.html"><a href="files-and-for-loops.html#scope"><i class="fa fa-check"></i><b>4.8</b> Scope</a></li>
+<li class="chapter" data-level="4.9" data-path="files-and-for-loops.html"><a href="files-and-for-loops.html#advanced-scope-topics"><i class="fa fa-check"></i><b>4.9</b> Advanced scope topics</a></li>
 </ul></li>
 </ul>
 
@@ -268,46 +275,20 @@ The commands ls() and rm() are used to show or remove variables from the global 
 <span id="cb29-2"><a href="getting-started-in-r.html#cb29-2"></a>b &lt;-<span class="st"> </span><span class="dv">2</span></span>
 <span id="cb29-3"><a href="getting-started-in-r.html#cb29-3"></a><span class="kw">ls</span>()</span></code></pre></div>
 <pre><code>##  [1] &quot;a&quot;                        &quot;b&quot;                       
-##  [3] &quot;chooser&quot;                  &quot;colors&quot;                  
-##  [5] &quot;column.names&quot;             &quot;data&quot;                    
-##  [7] &quot;extreme.statement&quot;        &quot;gospels&quot;                 
-##  [9] &quot;grp&quot;                      &quot;H3&quot;                      
-## [11] &quot;Hnew&quot;                     &quot;invH3&quot;                   
-## [13] &quot;list.a&quot;                   &quot;m1&quot;                      
-## [15] &quot;m2&quot;                       &quot;matrix.names&quot;            
-## [17] &quot;my.crazy.list&quot;            &quot;my.data&quot;                 
-## [19] &quot;my.matrix&quot;                &quot;numbers5to20&quot;            
-## [21] &quot;result&quot;                   &quot;result2&quot;                 
-## [23] &quot;row.names&quot;                &quot;small.states&quot;            
-## [25] &quot;state.size&quot;               &quot;this.out&quot;                
-## [27] &quot;total.votes&quot;              &quot;total.votes.ak&quot;          
-## [29] &quot;trace&quot;                    &quot;turnout&quot;                 
-## [31] &quot;turnout.ak&quot;               &quot;tv&quot;                      
-## [33] &quot;vap&quot;                      &quot;vector1&quot;                 
-## [35] &quot;voting.age.population&quot;    &quot;voting.age.population.ak&quot;
-## [37] &quot;voting.data&quot;              &quot;x&quot;                       
-## [39] &quot;y&quot;</code></pre>
+##  [3] &quot;countThrees&quot;              &quot;i&quot;                       
+##  [5] &quot;m&quot;                        &quot;outer_func&quot;              
+##  [7] &quot;threes&quot;                   &quot;total.votes.ak&quot;          
+##  [9] &quot;turnout.ak&quot;               &quot;v&quot;                       
+## [11] &quot;voting.age.population.ak&quot; &quot;x&quot;                       
+## [13] &quot;y&quot;</code></pre>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="getting-started-in-r.html#cb31-1"></a><span class="kw">rm</span>(a) <span class="co">#this removes a from the global environment</span></span>
 <span id="cb31-2"><a href="getting-started-in-r.html#cb31-2"></a><span class="kw">ls</span>()</span></code></pre></div>
-<pre><code>##  [1] &quot;b&quot;                        &quot;chooser&quot;                 
-##  [3] &quot;colors&quot;                   &quot;column.names&quot;            
-##  [5] &quot;data&quot;                     &quot;extreme.statement&quot;       
-##  [7] &quot;gospels&quot;                  &quot;grp&quot;                     
-##  [9] &quot;H3&quot;                       &quot;Hnew&quot;                    
-## [11] &quot;invH3&quot;                    &quot;list.a&quot;                  
-## [13] &quot;m1&quot;                       &quot;m2&quot;                      
-## [15] &quot;matrix.names&quot;             &quot;my.crazy.list&quot;           
-## [17] &quot;my.data&quot;                  &quot;my.matrix&quot;               
-## [19] &quot;numbers5to20&quot;             &quot;result&quot;                  
-## [21] &quot;result2&quot;                  &quot;row.names&quot;               
-## [23] &quot;small.states&quot;             &quot;state.size&quot;              
-## [25] &quot;this.out&quot;                 &quot;total.votes&quot;             
-## [27] &quot;total.votes.ak&quot;           &quot;trace&quot;                   
-## [29] &quot;turnout&quot;                  &quot;turnout.ak&quot;              
-## [31] &quot;tv&quot;                       &quot;vap&quot;                     
-## [33] &quot;vector1&quot;                  &quot;voting.age.population&quot;   
-## [35] &quot;voting.age.population.ak&quot; &quot;voting.data&quot;             
-## [37] &quot;x&quot;                        &quot;y&quot;</code></pre>
+<pre><code>##  [1] &quot;b&quot;                        &quot;countThrees&quot;             
+##  [3] &quot;i&quot;                        &quot;m&quot;                       
+##  [5] &quot;outer_func&quot;               &quot;threes&quot;                  
+##  [7] &quot;total.votes.ak&quot;           &quot;turnout.ak&quot;              
+##  [9] &quot;v&quot;                        &quot;voting.age.population.ak&quot;
+## [11] &quot;x&quot;                        &quot;y&quot;</code></pre>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="getting-started-in-r.html#cb33-1"></a>c &lt;-<span class="st"> </span><span class="dv">3</span></span>
 <span id="cb33-2"><a href="getting-started-in-r.html#cb33-2"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>()) <span class="co">#this removes all global variables</span></span></code></pre></div>
 <p>Some things are present in the working environment, but not shown in the global environment</p>
