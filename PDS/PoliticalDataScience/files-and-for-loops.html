@@ -181,6 +181,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="4.5.1" data-path="files-and-for-loops.html"><a href="files-and-for-loops.html#next-and-break"><i class="fa fa-check"></i><b>4.5.1</b> next and break</a></li>
 </ul></li>
+<li class="chapter" data-level="4.6" data-path="files-and-for-loops.html"><a href="files-and-for-loops.html#functions-1"><i class="fa fa-check"></i><b>4.6</b> Functions</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="files-and-for-loops.html"><a href="files-and-for-loops.html#the-basics"><i class="fa fa-check"></i><b>4.6.1</b> The basics</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="files-and-for-loops.html"><a href="files-and-for-loops.html#setting-defaults"><i class="fa fa-check"></i><b>4.7</b> Setting defaults</a></li>
+<li class="chapter" data-level="4.8" data-path="files-and-for-loops.html"><a href="files-and-for-loops.html#scope"><i class="fa fa-check"></i><b>4.8</b> Scope</a></li>
+<li class="chapter" data-level="4.9" data-path="files-and-for-loops.html"><a href="files-and-for-loops.html#advanced-scope-topics"><i class="fa fa-check"></i><b>4.9</b> Advanced scope topics</a></li>
 </ul></li>
 </ul>
 
@@ -398,8 +405,143 @@ use the <code>next</code> command to skip (you can also use the <code>break</cod
 ## [1] 8
 ## [1] 9
 ## [1] 10</code></pre>
-
 </div>
+</div>
+<div id="functions-1" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> Functions</h2>
+<div id="the-basics" class="section level3" number="4.6.1">
+<h3><span class="header-section-number">4.6.1</span> The basics</h3>
+<ol style="list-style-type: decimal">
+<li>Use the ‘function’ command and assign it to an object</li>
+<li>If you need, specify the expected inputs</li>
+<li>Do some stuff</li>
+<li>Return something (and only one thing) to the global environment.</li>
+</ol>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="files-and-for-loops.html#cb384-1"></a>my.function =<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb384-2"><a href="files-and-for-loops.html#cb384-2"></a>  do stuff here</span>
+<span id="cb384-3"><a href="files-and-for-loops.html#cb384-3"></a>  <span class="kw">return</span>(output)</span>
+<span id="cb384-4"><a href="files-and-for-loops.html#cb384-4"></a>}</span></code></pre></div>
+<p>Here’s an example:</p>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="files-and-for-loops.html#cb385-1"></a>countThrees =<span class="st"> </span><span class="cf">function</span>(vector) {</span>
+<span id="cb385-2"><a href="files-and-for-loops.html#cb385-2"></a>  threes &lt;-<span class="st"> </span><span class="dv">0</span></span>
+<span id="cb385-3"><a href="files-and-for-loops.html#cb385-3"></a>  <span class="cf">for</span>(i <span class="cf">in</span> vector) {</span>
+<span id="cb385-4"><a href="files-and-for-loops.html#cb385-4"></a>    <span class="cf">if</span>(i <span class="op">==</span><span class="st"> </span><span class="dv">3</span>) {</span>
+<span id="cb385-5"><a href="files-and-for-loops.html#cb385-5"></a>      threes &lt;-<span class="st"> </span>threes <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb385-6"><a href="files-and-for-loops.html#cb385-6"></a>    }</span>
+<span id="cb385-7"><a href="files-and-for-loops.html#cb385-7"></a>  }</span>
+<span id="cb385-8"><a href="files-and-for-loops.html#cb385-8"></a>  <span class="kw">return</span>(threes)</span>
+<span id="cb385-9"><a href="files-and-for-loops.html#cb385-9"></a>}</span>
+<span id="cb385-10"><a href="files-and-for-loops.html#cb385-10"></a></span>
+<span id="cb385-11"><a href="files-and-for-loops.html#cb385-11"></a>v &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb385-12"><a href="files-and-for-loops.html#cb385-12"></a><span class="kw">countThrees</span>(v)</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>What would happen if we passed in one number instead of a vector?</p>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="files-and-for-loops.html#cb387-1"></a><span class="kw">countThrees</span>(<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="files-and-for-loops.html#cb389-1"></a><span class="kw">countThrees</span>(<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>Or a matrix?</p>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="files-and-for-loops.html#cb391-1"></a>m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">24</span>, <span class="dv">4</span>, <span class="dv">6</span>)</span>
+<span id="cb391-2"><a href="files-and-for-loops.html#cb391-2"></a><span class="kw">countThrees</span>(m)</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>If you want to return multiple values in R, you must put them in a vector or list and return the data structure instead.</p>
+<p>Remember that a list is essentially a vector that can contain different data types.</p>
+<p>Sometimes a function will return a value, but other times it will just execute a command like print or plot.</p>
+</div>
+</div>
+<div id="setting-defaults" class="section level2" number="4.7">
+<h2><span class="header-section-number">4.7</span> Setting defaults</h2>
+<p>You can set default values for some of your arguments or all of them</p>
+<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="files-and-for-loops.html#cb393-1"></a>gaga.equation =<span class="st"> </span><span class="cf">function</span>(<span class="dt">num.rah=</span><span class="dv">2</span>, <span class="dt">num.ah=</span><span class="dv">3</span>, <span class="dt">num.ga=</span><span class="dv">2</span>, <span class="dt">num.la=</span><span class="dv">2</span>, <span class="dt">num.oo=</span><span class="dv">1</span>) {</span>
+<span id="cb393-2"><a href="files-and-for-loops.html#cb393-2"></a>  rahs =<span class="st"> </span><span class="kw">paste</span>(<span class="kw">rep</span>(<span class="st">&quot;RAH&quot;</span>, num.rah), <span class="dt">collapse=</span><span class="st">&quot;, &quot;</span>)</span>
+<span id="cb393-3"><a href="files-and-for-loops.html#cb393-3"></a>  ahs  =<span class="st"> </span><span class="kw">paste</span>(<span class="kw">rep</span>(<span class="st">&quot;AH&quot;</span>, num.ah), <span class="dt">collapse=</span><span class="st">&quot;, &quot;</span>)</span>
+<span id="cb393-4"><a href="files-and-for-loops.html#cb393-4"></a>  gas  =<span class="st"> </span><span class="kw">paste</span>(<span class="kw">rep</span>(<span class="st">&quot;GA&quot;</span>, num.ga), <span class="dt">collapse=</span><span class="st">&quot;, &quot;</span>)</span>
+<span id="cb393-5"><a href="files-and-for-loops.html#cb393-5"></a>  oo   =<span class="st"> </span><span class="kw">paste</span>(<span class="kw">rep</span>(<span class="st">&quot;OO&quot;</span>, num.oo), <span class="dt">collapse=</span><span class="st">&quot;, &quot;</span>)</span>
+<span id="cb393-6"><a href="files-and-for-loops.html#cb393-6"></a>  las  =<span class="st"> </span><span class="kw">paste</span>(<span class="kw">rep</span>(<span class="st">&quot;LA&quot;</span>, num.la), <span class="dt">collapse=</span><span class="st">&quot;, &quot;</span>)</span>
+<span id="cb393-7"><a href="files-and-for-loops.html#cb393-7"></a>  <span class="kw">paste</span>(rahs, <span class="st">&quot;,&quot;</span>, ahs,  <span class="st">&quot;!  ROMA, ROMAMA!&quot;</span>, gas, <span class="st">&quot;,&quot;</span>, oo, las)</span>
+<span id="cb393-8"><a href="files-and-for-loops.html#cb393-8"></a>}</span>
+<span id="cb393-9"><a href="files-and-for-loops.html#cb393-9"></a></span>
+<span id="cb393-10"><a href="files-and-for-loops.html#cb393-10"></a><span class="kw">gaga.equation</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;RAH, RAH , AH, AH, AH !  ROMA, ROMAMA! GA, GA , OO LA, LA&quot;</code></pre>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="files-and-for-loops.html#cb395-1"></a><span class="kw">gaga.equation</span>(<span class="dt">num.rah=</span><span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;RAH, RAH, RAH, RAH, RAH , AH, AH, AH !  ROMA, ROMAMA! GA, GA , OO LA, LA&quot;</code></pre>
+<p>If an argument (sometimes called a parameter) does not have a default value, it <em>must</em> be specified when the function is called.</p>
+</div>
+<div id="scope" class="section level2" number="4.8">
+<h2><span class="header-section-number">4.8</span> Scope</h2>
+<p>In the example above, if we tried to print rahs outside of the function, we would get an error. The variable rahs doesn’t exist in the global environment.</p>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="files-and-for-loops.html#cb397-1"></a><span class="kw">print</span>(rahs)</span></code></pre></div>
+<p>What happens in the function, stays in the function</p>
+<p>Remember that for loop variables can be accessed after the loop.</p>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="files-and-for-loops.html#cb398-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>) {</span>
+<span id="cb398-2"><a href="files-and-for-loops.html#cb398-2"></a>  <span class="kw">print</span>(i<span class="op">+</span><span class="dv">2</span>)</span>
+<span id="cb398-3"><a href="files-and-for-loops.html#cb398-3"></a>}</span></code></pre></div>
+<pre><code>## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6</code></pre>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="files-and-for-loops.html#cb400-1"></a><span class="kw">print</span>(i)</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p>Note that i equals 4 (its last loop value) after the loop is finished.</p>
+<p>This is different from functions because the only way to retain access to a local variable that was created in the function is to return it.</p>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="files-and-for-loops.html#cb402-1"></a>a &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb402-2"><a href="files-and-for-loops.html#cb402-2"></a>outer_func &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
+<span id="cb402-3"><a href="files-and-for-loops.html#cb402-3"></a>  a &lt;-<span class="st"> </span><span class="dv">20</span></span>
+<span id="cb402-4"><a href="files-and-for-loops.html#cb402-4"></a>  inner_func &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
+<span id="cb402-5"><a href="files-and-for-loops.html#cb402-5"></a>    a &lt;-<span class="st"> </span><span class="dv">30</span></span>
+<span id="cb402-6"><a href="files-and-for-loops.html#cb402-6"></a>    <span class="kw">print</span>(a)</span>
+<span id="cb402-7"><a href="files-and-for-loops.html#cb402-7"></a>  }</span>
+<span id="cb402-8"><a href="files-and-for-loops.html#cb402-8"></a>  <span class="kw">inner_func</span>()</span>
+<span id="cb402-9"><a href="files-and-for-loops.html#cb402-9"></a>  <span class="kw">print</span>(a)</span>
+<span id="cb402-10"><a href="files-and-for-loops.html#cb402-10"></a>}</span>
+<span id="cb402-11"><a href="files-and-for-loops.html#cb402-11"></a><span class="kw">outer_func</span>()</span></code></pre></div>
+<pre><code>## [1] 30
+## [1] 20</code></pre>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="files-and-for-loops.html#cb404-1"></a>a</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<p>If you try to run inner_func(), it will say “Error in inner_func() : could not find function”inner_func"" because that function is <em>actually</em>
+a local object inside the function outer_func. That means that outer_func is the only place that can use inner_func.</p>
+<p>Scope kind of works like a bunch of one way mirrors. If I write a function, it can access all global variables and local (to the function) variables,
+but the global environment can only access global variables. In the above code example, inner_func can access all of its variables, all of outer_func’s variables,
+and the global environment variables as well.</p>
+</div>
+<div id="advanced-scope-topics" class="section level2" number="4.9">
+<h2><span class="header-section-number">4.9</span> Advanced scope topics</h2>
+<p>In R, there’s a superassignment operator which is &lt;&lt;-</p>
+<p>This assigns the variable to one environment up from its current location. Check out these examples and try to follow along with the environments.</p>
+<p>This example will replace the global variable a (which used to store 10) with 20 from the outer_func code. Printing a at the end of the script will print 20 this time.</p>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="files-and-for-loops.html#cb406-1"></a>a &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb406-2"><a href="files-and-for-loops.html#cb406-2"></a>outer_func &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
+<span id="cb406-3"><a href="files-and-for-loops.html#cb406-3"></a>  a &lt;&lt;-<span class="st"> </span><span class="dv">20</span></span>
+<span id="cb406-4"><a href="files-and-for-loops.html#cb406-4"></a>  inner_func &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
+<span id="cb406-5"><a href="files-and-for-loops.html#cb406-5"></a>    a &lt;-<span class="st"> </span><span class="dv">30</span></span>
+<span id="cb406-6"><a href="files-and-for-loops.html#cb406-6"></a>    <span class="kw">print</span>(a)</span>
+<span id="cb406-7"><a href="files-and-for-loops.html#cb406-7"></a>  }</span>
+<span id="cb406-8"><a href="files-and-for-loops.html#cb406-8"></a>  <span class="kw">inner_func</span>()</span>
+<span id="cb406-9"><a href="files-and-for-loops.html#cb406-9"></a>  <span class="kw">print</span>(a)</span>
+<span id="cb406-10"><a href="files-and-for-loops.html#cb406-10"></a>}</span>
+<span id="cb406-11"><a href="files-and-for-loops.html#cb406-11"></a><span class="kw">outer_func</span>()</span></code></pre></div>
+<pre><code>## [1] 30
+## [1] 20</code></pre>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="files-and-for-loops.html#cb408-1"></a>a</span></code></pre></div>
+<pre><code>## [1] 20</code></pre>
+<p>This example will replace a from the outer_func environment with the value 30 so when outer_func prints a, it will now contain 30.</p>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="files-and-for-loops.html#cb410-1"></a>a &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb410-2"><a href="files-and-for-loops.html#cb410-2"></a>outer_func &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
+<span id="cb410-3"><a href="files-and-for-loops.html#cb410-3"></a>  a &lt;-<span class="st"> </span><span class="dv">20</span></span>
+<span id="cb410-4"><a href="files-and-for-loops.html#cb410-4"></a>  inner_func &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
+<span id="cb410-5"><a href="files-and-for-loops.html#cb410-5"></a>    a &lt;&lt;-<span class="st"> </span><span class="dv">30</span></span>
+<span id="cb410-6"><a href="files-and-for-loops.html#cb410-6"></a>    <span class="kw">print</span>(a)</span>
+<span id="cb410-7"><a href="files-and-for-loops.html#cb410-7"></a>  }</span>
+<span id="cb410-8"><a href="files-and-for-loops.html#cb410-8"></a>  <span class="kw">inner_func</span>()</span>
+<span id="cb410-9"><a href="files-and-for-loops.html#cb410-9"></a>  <span class="kw">print</span>(a)</span>
+<span id="cb410-10"><a href="files-and-for-loops.html#cb410-10"></a>}</span>
+<span id="cb410-11"><a href="files-and-for-loops.html#cb410-11"></a><span class="kw">outer_func</span>()</span></code></pre></div>
+<pre><code>## [1] 30
+## [1] 30</code></pre>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="files-and-for-loops.html#cb412-1"></a>a</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+
 </div>
 </div>
 

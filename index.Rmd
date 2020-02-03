@@ -26,6 +26,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 [Lecture6](https://jmontgomery.github.io/PDS/Slides/06Functions.html)
 
+[Lecture7](https://jmontgomery.github.io/PDS/Slides/07VersionControlBasicComments.html)
+
 #### Problem Sets
 [Problem Set 1](https://jmontgomery.github.io/PDS/Problem Sets/Problem Set 1/PS1_PDS.pdf)
 

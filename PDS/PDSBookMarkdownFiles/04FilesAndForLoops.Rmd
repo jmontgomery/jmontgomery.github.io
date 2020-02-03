@@ -245,3 +245,165 @@ Technically, you don't have to be so formal. But the indenting and braces are th
 ```{r}
 for (i in 1:10) print(i)
 ```
+
+
+## Functions
+
+### The basics
+
+1. Use the 'function' command and assign it to an object
+2. If you need, specify the expected inputs
+3. Do some stuff
+4. Return something (and only one thing) to the global environment.
+
+```{r, eval=FALSE}
+my.function = function(x) {
+  do stuff here
+  return(output)
+}
+```
+
+Here's an example:
+
+```{r}
+countThrees = function(vector) {
+  threes <- 0
+  for(i in vector) {
+    if(i == 3) {
+      threes <- threes + 1
+    }
+  }
+  return(threes)
+}
+
+v <- c(1, 2, 3, 4, 3, 3)
+countThrees(v)
+```
+
+What would happen if we passed in one number instead of a vector?
+
+```{r}
+countThrees(2)
+countThrees(3)
+```
+
+Or a matrix?
+
+```{r}
+m <- matrix(1:24, 4, 6)
+countThrees(m)
+```
+
+If you want to return multiple values in R, you must put them in a vector or list and return the data structure instead.
+
+Remember that a list is essentially a vector that can contain different data types.
+
+Sometimes a function will return a value, but other times it will just execute a command like print or plot.
+
+
+## Setting defaults
+
+You can set default values for some of your arguments or all of them
+
+```{r}
+gaga.equation = function(num.rah=2, num.ah=3, num.ga=2, num.la=2, num.oo=1) {
+  rahs = paste(rep("RAH", num.rah), collapse=", ")
+  ahs  = paste(rep("AH", num.ah), collapse=", ")
+  gas  = paste(rep("GA", num.ga), collapse=", ")
+  oo   = paste(rep("OO", num.oo), collapse=", ")
+  las  = paste(rep("LA", num.la), collapse=", ")
+  paste(rahs, ",", ahs,  "!  ROMA, ROMAMA!", gas, ",", oo, las)
+}
+
+gaga.equation()
+gaga.equation(num.rah=5)
+```
+
+If an argument (sometimes called a parameter) does not have a default value, it *must* be specified when the function is called.
+
+
+## Scope
+
+In the example above, if we tried to print rahs outside of the function, we would get an error. The variable rahs doesn't exist in the global environment.
+
+```{r, eval=FALSE}
+print(rahs)
+```
+
+What happens in the function, stays in the function
+
+Remember that for loop variables can be accessed after the loop.
+
+```{r}
+for(i in 1:4) {
+  print(i+2)
+}
+print(i)
+
+```
+Note that i equals 4 (its last loop value) after the loop is finished.
+
+This is different from functions because the only way to retain access to a local variable that was created in the function is to return it.
+
+```{r}
+a <- 10
+outer_func <- function() {
+  a <- 20
+  inner_func <- function() {
+    a <- 30
+    print(a)
+  }
+  inner_func()
+  print(a)
+}
+outer_func()
+a
+```
+
+If you try to run inner\_func(), it will say "Error in inner\_func() : could not find function "inner_func"" because that function is *actually*
+a local object inside the function outer\_func. That means that outer\_func is the only place that can use inner\_func.
+
+Scope kind of works like a bunch of one way mirrors. If I write a function, it can access all global variables and local (to the function) variables,
+but the global environment can only access global variables. In the above code example, inner\_func can access all of its variables, all of outer\_func's variables,
+and the global environment variables as well.
+
+## Advanced scope topics
+
+In R, there's a superassignment operator which is <<-
+
+This assigns the variable to one environment up from its current location. Check out these examples and try to follow along with the environments.
+
+This example will replace the global variable a (which used to store 10) with 20 from the outer\_func code. Printing a at the end of the script will print 20 this time.
+
+```{r}
+a <- 10
+outer_func <- function() {
+  a <<- 20
+  inner_func <- function() {
+    a <- 30
+    print(a)
+  }
+  inner_func()
+  print(a)
+}
+outer_func()
+a
+```
+
+This example will replace a from the outer\_func environment with the value 30 so when outer\_func prints a, it will now contain 30.
+
+```{r}
+a <- 10
+outer_func <- function() {
+  a <- 20
+  inner_func <- function() {
+    a <<- 30
+    print(a)
+  }
+  inner_func()
+  print(a)
+}
+outer_func()
+a
+```
+
