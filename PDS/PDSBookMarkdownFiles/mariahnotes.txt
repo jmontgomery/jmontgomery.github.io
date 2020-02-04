@@ -1,5 +1,7 @@
 //todo:
 
+lecture 7 write up book chapter on version control
+
 write an intro chapter?
 
 provide more narration between lines of code (even only a sentence or two)
