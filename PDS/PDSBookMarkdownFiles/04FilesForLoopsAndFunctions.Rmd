@@ -1,4 +1,4 @@
-# Files and For Loops
+# Files, For Loops, and Functions
 
 ## The working directory
 
@@ -367,7 +367,7 @@ Scope kind of works like a bunch of one way mirrors. If I write a function, it c
 but the global environment can only access global variables. In the above code example, inner\_func can access all of its variables, all of outer\_func's variables,
 and the global environment variables as well.
 
-## Advanced scope topics
+### Advanced scope topics
 
 In R, there's a superassignment operator which is <<-
 
