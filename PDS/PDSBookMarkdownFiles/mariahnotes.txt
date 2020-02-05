@@ -5,9 +5,6 @@ write an intro chapter?
 provide more narration between lines of code (even only a sentence or two)
 don't put things in comments
 
-screen snips for git/github/version control with circles around 
-need to be able to set up a repository, clone, commit/push, sync/pull, fork, how to deal with conflicts
-
 package development (one of my projects)
 
 projects in RStudio (another project maybe?)
@@ -27,3 +24,9 @@ add array notes
 reading and writing files (Lecture3.R)
 
 lecture on control structure (if, while, for, repeat)
+
+lecture 7 write up book chapter on version control
+
+screen snips for git/github/version control with circles around 
+need to be able to set up a repository, clone, commit/push, sync/pull, fork, how to deal with conflicts
+
