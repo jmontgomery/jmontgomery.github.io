@@ -123,7 +123,7 @@ plot(by.var.lm(year, voteshare~inparty, OOS, 2), type="l")
 
 - As a first step, figure out where it's broken using `traceback`
 ```{r, fig.height=3.5, eval=FALSE}
-traceback(by.var.lm)
+traceback(by.var.lm(year, voteshare~inparty, OOS, 2))
 ```
 
 
@@ -140,7 +140,7 @@ debug(by.var.lm)
 
 - A second thing to try is to put a `broswer` function into the function itself
 ```{r, fig.height=3.5, eval=FALSE}
-browser(by.var.lm)
+browser()
 ```
 
 ---

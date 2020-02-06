@@ -14,21 +14,21 @@ knitr::opts_chunk$set(echo = TRUE)
 [Online Course Book](http://jmontgomery.github.io/PDS/PoliticalDataScience/)
 
 #### Lecture slides
-[Lecture1](https://jmontgomery.github.io/PDS/Slides/01HelloWorld.html)
+[Lecture 1](https://jmontgomery.github.io/PDS/Slides/01HelloWorld.html)
 
-[Lecture2](https://jmontgomery.github.io/PDS/Slides/02ObjectsIntro.html)
+[Lecture 2](https://jmontgomery.github.io/PDS/Slides/02ObjectsIntro.html)
 
-[Lecture3](https://jmontgomery.github.io/PDS/Slides/03ClassesAndMoreObj.html)
+[Lecture 3](https://jmontgomery.github.io/PDS/Slides/03ClassesAndMoreObj.html)
 
-[Lecture4](https://jmontgomery.github.io/PDS/Slides/04DataStructures.html)
+[Lecture 4](https://jmontgomery.github.io/PDS/Slides/04DataStructures.html)
 
-[Lecture5](https://jmontgomery.github.io/PDS/Slides/05FlowControl.html)
+[Lecture 5](https://jmontgomery.github.io/PDS/Slides/05FlowControl.html)
 
-[Lecture6](https://jmontgomery.github.io/PDS/Slides/06Functions.html)
+[Lecture 6](https://jmontgomery.github.io/PDS/Slides/06Functions.html)
 
-[Lecture7](https://jmontgomery.github.io/PDS/Slides/07VersionControlBasicComments.html)
+[Lecture 7](https://jmontgomery.github.io/PDS/Slides/07VersionControlBasicComments.html)
 
-[Lecture8](https://jmontgomery.github.io/PDS/Slides/08DebugginAndProfiling.html)
+[Lecture 8](https://jmontgomery.github.io/PDS/Slides/08DebugginAndProfiling.html)
 
 #### Problem Sets
 [Problem Set 1](https://jmontgomery.github.io/PDS/Problem Sets/Problem Set 1/PS1_PDS.pdf)
