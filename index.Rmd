@@ -28,6 +28,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 [Lecture7](https://jmontgomery.github.io/PDS/Slides/07VersionControlBasicComments.html)
 
+[Lecture8](https://jmontgomery.github.io/PDS/Slides/08DebugginAndProfiling.html)
+
 #### Problem Sets
 [Problem Set 1](https://jmontgomery.github.io/PDS/Problem Sets/Problem Set 1/PS1_PDS.pdf)
 
