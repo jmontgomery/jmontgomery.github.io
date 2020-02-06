@@ -310,11 +310,13 @@ microbenchmark(
 
 # Vectorizing
 
-- The key idea behind vectorizing your code is to think about entire
-- vectors instead of thinking about their components. Using apply and co
-- instead of for loops is a start, but does not really solve this issue.
-- Truly vectorized functions will make use of code written in C instead 
- of R. Loops in C are much faster because they have much less overhead.
+- The key idea behind vectorizing your code is to think about entire vectors instead of thinking about their components. 
+
+- Using apply and C instead of for loops is a start, but does not really solve this issue.
+
+- Truly vectorized functions will make use of code written in C instead of R. 
+
+- Loops in C are much faster because they have much less overhead.
 
 ---
 
