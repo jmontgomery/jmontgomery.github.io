@@ -239,6 +239,8 @@ Do it
 
 
 ```r
+#Note for jacob: Need to ener in missing data into the 'Class' variable.
+
 website&lt;-url("http://pages.wustl.edu/montgomery/titanic")
 titanic&lt;-read.delim(website)
 table(titanic$Gender)
@@ -290,8 +292,8 @@ microbenchmark(sqrt(x)) # evalues 100 times per default
 
 ```
 ## Unit: microseconds
-##     expr min    lq  mean median   uq    max neval
-##  sqrt(x) 3.1 3.202 4.357  3.551 5.25 14.601   100
+##     expr min    lq    mean median    uq  max neval
+##  sqrt(x) 3.1 3.301 3.76192 3.5005 3.801 12.2   100
 ```
 
 ```r
@@ -300,8 +302,8 @@ microbenchmark(sqrt(x), times=1000)
 
 ```
 ## Unit: microseconds
-##     expr min    lq     mean median    uq    max neval
-##  sqrt(x)   3 3.002 3.232811  3.101 3.201 12.401  1000
+##     expr min    lq     mean median     uq   max neval
+##  sqrt(x)   3 3.301 6.216595  5.701 7.4005 177.2  1000
 ```
 
 ---
@@ -317,9 +319,9 @@ microbenchmark(sqrt(x),
 
 ```
 ## Unit: microseconds
-##     expr    min     lq      mean median     uq    max neval
-##  sqrt(x)  2.900  3.102  4.218413  3.202  5.201 22.901  1000
-##    x^0.5 21.401 23.102 26.183301 23.701 25.851 84.801  1000
+##     expr    min     lq     mean median      uq     max neval
+##  sqrt(x)  2.801  3.301  5.75679  5.301  6.5010  99.802  1000
+##    x^0.5 21.301 23.601 31.21360 29.201 37.4005 155.501  1000
 ```
 
 
@@ -331,11 +333,11 @@ microbenchmark(sqrt(x), x^0.5, x^(1/2), exp(log(x)/2),
 
 ```
 ## Unit: microseconds
-##           expr    min     lq      mean median     uq       max neval
-##        sqrt(x)  2.801  3.001  3.831507  3.101  3.501    42.201  1000
-##          x^0.5 21.300 22.500 24.458290 22.802 23.601    69.401  1000
-##        x^(1/2) 21.500 22.701 25.041934 23.101 24.001   116.101  1000
-##  exp(log(x)/2) 51.300 53.201 84.979508 53.302 55.451 27721.101  1000
+##           expr    min      lq      mean  median      uq     max neval
+##        sqrt(x)  2.900  3.2020  5.348097  4.3010  6.4010  61.501  1000
+##          x^0.5 21.301 23.1020 30.287503 25.1010 35.6015 519.901  1000
+##        x^(1/2) 21.701 23.4010 30.972693 25.4010 36.0010 573.101  1000
+##  exp(log(x)/2) 52.001 55.0505 63.365686 57.9005 68.0510 293.702  1000
 ```
 
 
@@ -349,9 +351,9 @@ microbenchmark(sqrt(x), x^4-3*x)
 
 ```
 ## Unit: microseconds
-##         expr    min     lq     mean median     uq    max neval
-##      sqrt(x)  5.401  5.602  6.02902  5.801  6.101 13.600   100
-##  x^4 - 3 * x 42.701 46.251 49.21696 50.101 50.901 64.401   100
+##         expr    min      lq     mean median     uq    max neval
+##      sqrt(x)  3.101  5.7020  6.06300  6.000  6.401 13.602   100
+##  x^4 - 3 * x 30.301 47.4005 49.53791 52.201 54.401 58.800   100
 ```
 
 ---
@@ -370,16 +372,11 @@ microbenchmark(sqrt(x), x^0.5, x^(1/2), exp(log(x)/2),
 
 ```
 ## Unit: evaluations per second
-##           expr       min        lq      mean    median        uq       max
-##        sqrt(x) 33782.642 263157.89 269847.71 285591.90 303030.30 333333.33
-##          x^0.5 14641.074  39601.77  40116.01  42014.16  43288.17  45045.05
-##        x^(1/2) 10537.297  39918.73  40646.96  41664.93  43101.59  44841.04
-##  exp(log(x)/2)  3688.649  16638.70  16830.31  17888.77  18099.23  18796.99
-##  neval
-##    100
-##    100
-##    100
-##    100
+##           expr       min       lq      mean    median        uq       max neval
+##        sqrt(x) 31946.840 85831.06 129148.91 139857.06 163894.13 294117.65   100
+##          x^0.5  8703.144 25939.37  27305.16  26989.87  28901.14  40814.66   100
+##        x^(1/2)  6830.508 25607.58  27030.14  26737.80  28208.01  40322.58   100
+##  exp(log(x)/2)  6184.254 13764.35  14119.33  14244.74  14641.18  17270.86   100
 ```
 
 
@@ -409,13 +406,13 @@ microbenchmark(f0(), f1(), f2(), f3(), f4(), f5(), times=10000)
 
 ```
 ## Unit: nanoseconds
-##  expr min  lq     mean median  uq    max neval
-##  f0() 100 201 286.2179    201 201 474301 10000
-##  f1() 100 201 316.5018    201 202 498600 10000
-##  f2() 200 201 417.0632    201 301 954902 10000
-##  f3() 200 201 429.6233    301 302 527902 10000
-##  f4() 200 301 485.1675    301 400 594201 10000
-##  f5() 300 301 525.5428    302 401 582301 10000
+##  expr min  lq     mean median  uq     max neval
+##  f0() 100 201 395.3887    201 301  847601 10000
+##  f1() 100 201 372.3049    201 302  488501 10000
+##  f2() 100 201 528.1835    202 401 1646001 10000
+##  f3() 200 201 499.5278    301 402  728201 10000
+##  f4() 200 301 608.6536    301 501 1359801 10000
+##  f5() 200 301 667.4762    400 600 1273300 10000
 ```
 
 
@@ -463,12 +460,12 @@ microbenchmark(
 
 ```
 ## Unit: nanoseconds
-##           expr   min    lq     mean  median      uq     max neval
-##       [32, 11] 18201 23601 45138.98 25051.0 33701.0  777501   100
-##      $carb[32]  2001  2801  4790.00  3501.5  4801.0   32901   100
-##  [[c(11, 32)]]  8201 11001 87099.05 12201.0 16001.0 6448201   100
-##     [[11]][32]  8001 10201 26032.99 10850.5 13001.5 1105501   100
-##       .subset2   300   601  3279.98   701.5  1051.0  230301   100
+##           expr   min      lq     mean  median      uq    max neval
+##       [32, 11] 19000 21351.5 53927.02 29200.5 41251.0 704501   100
+##      $carb[32]  2100  2901.5  5325.93  3901.0  5350.5  67601   100
+##  [[c(11, 32)]]  8300 10601.5 19999.94 12651.0 16751.0 327601   100
+##     [[11]][32]  7701  9901.0 13470.00 11551.0 14801.0  51402   100
+##       .subset2   400   601.0  1210.05   751.5  1051.0  12101   100
 ```
 
 ---
@@ -497,12 +494,12 @@ matdf
 ```
 
 ```
-##            X1         X2         X3          X4         X5
-## 1  1.15623391 -0.3434230  1.3192186  0.02472827 -1.2180637
-## 2 -0.11853735 -1.1718937 -0.7733746 -1.24383222  1.7367300
-## 3  0.73609732 -0.5413431 -0.5904645 -0.18674351  1.9409586
-## 4 -0.11920318 -1.5831623  0.0184468  0.22481360 -0.4039615
-## 5 -0.02801814 -0.4657266 -1.8176748 -1.49718639 -0.1624772
+##             X1         X2         X3         X4         X5
+## 1  2.346610869 -2.6101532  1.7526321  1.3310011  1.6594958
+## 2 -0.006627575  0.5405199 -1.2357960  2.3963154  0.4837881
+## 3 -0.223863437 -0.9317292  0.7231342 -0.7493761 -1.8612009
+## 4 -0.824166123  1.2611699 -0.5047348 -1.2154637  0.5686489
+## 5 -0.956151794  1.0389304  0.4393905 -1.4025333 -0.8730912
 ```
 
 ---
@@ -522,11 +519,11 @@ matdf1
 
 ```
 ##         X1       X2       X3       X4       X5
-## 1 6.848380 5.348723 7.011364 5.716874 4.474082
-## 2 5.573608 4.520252 4.918771 4.448313 7.428876
-## 3 6.428243 5.150802 5.101681 5.505402 7.633104
-## 4 5.572942 4.108983 5.710592 5.916959 5.288184
-## 5 5.664127 5.226419 3.874471 4.194959 5.529668
+## 1 8.038757 3.081992 7.444778 7.023147 7.351641
+## 2 5.685518 6.232666 4.456350 8.088461 6.175934
+## 3 5.468282 4.760416 6.415280 4.942769 3.830945
+## 4 4.867980 6.953316 5.187411 4.476682 6.260795
+## 5 4.735994 6.731076 6.131536 4.289612 4.819054
 ```
 
 ---
@@ -540,11 +537,11 @@ matdf2
 
 ```
 ##         X1       X2       X3       X4       X5
-## 1 6.848380 5.348723 7.011364 5.716874 4.474082
-## 2 5.573608 4.520252 4.918771 4.448313 7.428876
-## 3 6.428243 5.150802 5.101681 5.505402 7.633104
-## 4 5.572942 4.108983 5.710592 5.916959 5.288184
-## 5 5.664127 5.226419 3.874471 4.194959 5.529668
+## 1 8.038757 3.081992 7.444778 7.023147 7.351641
+## 2 5.685518 6.232666 4.456350 8.088461 6.175934
+## 3 5.468282 4.760416 6.415280 4.942769 3.830945
+## 4 4.867980 6.953316 5.187411 4.476682 6.260795
+## 5 4.735994 6.731076 6.131536 4.289612 4.819054
 ```
 
 
@@ -564,9 +561,9 @@ microbenchmark(
 
 ```
 ## Unit: microseconds
-##        expr      min       lq      mean     median         uq       max neval
-##        loop 6497.302 9446.852 10801.723 10017.0510 11362.9005 22294.101   100
-##  vectorized  402.100  698.951   927.392   815.6005   993.2005  3011.601   100
+##        expr      min         lq      mean     median        uq       max neval
+##        loop 9401.901 10827.7510 13377.502 12833.7510 15273.352 24501.901   100
+##  vectorized  526.201   788.1005  1001.068   866.1515  1222.351  2726.601   100
 ```
 
 
@@ -579,13 +576,13 @@ apply(mat1, 1, function(x) sum(x))
 ```
 
 ```
-##  [1] 192.9160 195.6268 206.9533 191.9658 192.2874 199.2554 202.8432 208.2458
-##  [9] 197.3414 192.1707 194.5580 199.3396 203.6287 199.4435 196.4993 197.6265
-## [17] 204.7220 194.0310 197.7309 190.9498 199.3102 200.2248 203.5732 192.1998
-## [25] 196.7457 192.4782 197.2125 190.1197 198.2704 195.6590 197.2405 195.2628
-## [33] 197.1688 204.5037 198.4266 193.4762 193.0285 196.4312 190.2313 194.2725
-## [41] 185.6900 194.4955 194.1304 203.7842 201.1553 193.3666 201.8238 205.0461
-## [49] 195.7411 199.6389
+##  [1] 195.3099 198.2855 202.1538 199.2565 199.2470 186.6250 196.3565 200.2620
+##  [9] 190.3582 197.4863 191.2594 197.7650 196.1485 195.3302 191.6544 194.8142
+## [17] 193.6832 201.0293 195.5628 199.8036 196.3346 196.5478 198.5907 195.6275
+## [25] 191.4607 201.5842 200.8171 191.8131 194.7158 192.1614 200.5761 196.3138
+## [33] 198.9787 195.7550 188.7367 195.4937 202.6743 194.7211 204.0799 191.6572
+## [41] 193.9938 196.3509 193.7443 202.4763 197.6612 203.3329 200.5762 194.9349
+## [49] 197.4016 197.6620
 ```
 
 ```r
@@ -593,13 +590,13 @@ rowSums(mat1)
 ```
 
 ```
-##  [1] 192.9160 195.6268 206.9533 191.9658 192.2874 199.2554 202.8432 208.2458
-##  [9] 197.3414 192.1707 194.5580 199.3396 203.6287 199.4435 196.4993 197.6265
-## [17] 204.7220 194.0310 197.7309 190.9498 199.3102 200.2248 203.5732 192.1998
-## [25] 196.7457 192.4782 197.2125 190.1197 198.2704 195.6590 197.2405 195.2628
-## [33] 197.1688 204.5037 198.4266 193.4762 193.0285 196.4312 190.2313 194.2725
-## [41] 185.6900 194.4955 194.1304 203.7842 201.1553 193.3666 201.8238 205.0461
-## [49] 195.7411 199.6389
+##  [1] 195.3099 198.2855 202.1538 199.2565 199.2470 186.6250 196.3565 200.2620
+##  [9] 190.3582 197.4863 191.2594 197.7650 196.1485 195.3302 191.6544 194.8142
+## [17] 193.6832 201.0293 195.5628 199.8036 196.3346 196.5478 198.5907 195.6275
+## [25] 191.4607 201.5842 200.8171 191.8131 194.7158 192.1614 200.5761 196.3138
+## [33] 198.9787 195.7550 188.7367 195.4937 202.6743 194.7211 204.0799 191.6572
+## [41] 193.9938 196.3509 193.7443 202.4763 197.6612 203.3329 200.5762 194.9349
+## [49] 197.4016 197.6620
 ```
 
 ---
@@ -613,12 +610,12 @@ microbenchmark(apply(mat1, 1, function(x) sum(x)),
 
 ```
 ## Unit: microseconds
-##                                expr     min      lq     mean  median       uq
-##  apply(mat1, 1, function(x) sum(x)) 155.701 213.751 334.0981 228.301 405.7010
-##                       rowSums(mat1)  16.001  20.701  27.2910  22.751  32.5505
+##                                expr     min       lq      mean   median      uq
+##  apply(mat1, 1, function(x) sum(x)) 177.801 275.9505 444.01602 385.9505 452.701
+##                       rowSums(mat1)  17.501  23.0515  36.91509  31.6515  40.501
 ##       max neval
-##  2050.901   100
-##    66.901   100
+##  3282.201   100
+##   155.501   100
 ```
 
 
@@ -652,12 +649,12 @@ microbenchmark(mat2 %*% mat3 %*% ys,
 
 ```
 ## Unit: microseconds
-##                    expr       min        lq      mean    median        uq
-##    mat2 %*% mat3 %*% ys 21015.801 22573.201 23795.972 23045.901 23724.601
-##  mat2 %*% (mat3 %*% ys)   894.901  1415.251  1716.332  1446.901  1493.751
-##      max neval
-##  41678.2   100
-##  14849.6   100
+##                    expr     min        lq      mean    median        uq     max
+##    mat2 %*% mat3 %*% ys 17604.7 24222.852 27762.106 26755.351 30902.950 50398.6
+##  mat2 %*% (mat3 %*% ys)   770.6  1440.101  2237.485  1658.401  1968.051 26537.7
+##  neval
+##    100
+##    100
 ```
 
 - Why?  Think through the dimensionality
@@ -677,16 +674,16 @@ states10
 ```
 
 ```
-##  [1] "GeorgiaNew YorkAlabamaMinnesotaNorth CarolinaWyomingTennesseeWyomingIndianaDelaware"                     
-##  [2] "IllinoisFloridaMontanaWest VirginiaMississippiIowaMinnesotaMississippiNew YorkUtah"                      
-##  [3] "MichiganArizonaUtahOhioMarylandMississippiWest VirginiaWest VirginiaMinnesotaNorth Dakota"               
-##  [4] "New JerseyNew MexicoNevadaRhode IslandWest VirginiaConnecticutFloridaMississippiConnecticutMassachusetts"
-##  [5] "ColoradoIndianaNorth CarolinaVirginiaFloridaWashingtonMississippiFloridaMassachusettsAlabama"            
-##  [6] "North CarolinaUtahSouth CarolinaNevadaOregonRhode IslandSouth DakotaNevadaIowaNorth Carolina"            
-##  [7] "NebraskaWyomingNew MexicoWyomingLouisianaNew MexicoOklahomaVermontNew HampshireWyoming"                  
-##  [8] "KansasVermontVirginiaUtahArkansasKansasTennesseeRhode IslandMichiganMissouri"                            
-##  [9] "KentuckyMarylandColoradoMissouriMaineKentuckyNorth DakotaMinnesotaLouisianaMassachusetts"                
-## [10] "OregonArkansasSouth CarolinaPennsylvaniaMississippiUtahNorth DakotaVirginiaIllinoisTennessee"
+##  [1] "KentuckyNew MexicoArkansasHawaiiNorth DakotaAlabamaFloridaCaliforniaMinnesotaNevada"         
+##  [2] "MissouriSouth DakotaTexasNorth CarolinaUtahNew YorkWest VirginiaIllinoisOregonSouth Carolina"
+##  [3] "ConnecticutArizonaIowaOregonMaineLouisianaFloridaMichiganIowaHawaii"                         
+##  [4] "MontanaArizonaOregonSouth DakotaNew MexicoWyomingNorth CarolinaRhode IslandHawaiiNew York"   
+##  [5] "South CarolinaArkansasNevadaNew JerseyArkansasRhode IslandSouth DakotaTennesseeMaineVermont" 
+##  [6] "IndianaNebraskaTexasWashingtonVermontIowaIndianaSouth CarolinaOhioNew Mexico"                
+##  [7] "New MexicoOregonIllinoisMichiganKansasOhioIllinoisNew MexicoNew YorkVirginia"                
+##  [8] "North CarolinaKansasIdahoArkansasNew JerseyIndianaVirginiaAlabamaTexasConnecticut"           
+##  [9] "UtahGeorgiaOklahomaNorth DakotaNew YorkCaliforniaArkansasNebraskaAlabamaIndiana"             
+## [10] "North DakotaNew YorkPennsylvaniaUtahNevadaMissouriArkansasVirginiaConnecticutAlabama"
 ```
 
 ```r
@@ -722,10 +719,10 @@ microbenchmark(
 ```
 ## Unit: microseconds
 ##     expr      min       lq       mean    median        uq      max neval
-##   loop10   43.901   56.251  128.51109   59.3515   65.8510 6638.200   100
-##    vec10   12.202   17.451   22.06604   18.4015   22.2510  130.201   100
-##  loop100 2231.101 2626.502 2767.80196 2680.4005 2844.8510 4363.301   100
-##   vec100   91.701  140.001  161.28894  146.5505  161.7515  492.002   100
+##   loop10   28.601   36.651   60.79801   54.5505   65.2010  326.301   100
+##    vec10    8.300   13.301   18.86502   15.9010   20.9015  111.300   100
+##  loop100 1504.201 1633.051 2224.62202 2235.5010 2428.9510 5476.401   100
+##   vec100   75.601   96.601  142.11393  124.3010  145.7510  757.801   100
 ```
 
 ---

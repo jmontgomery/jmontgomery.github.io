@@ -177,6 +177,8 @@ Do it
 
 
 ```{r, fig.height=3.5, eval=FALSE}
+#Note for jacob: Need to ener in missing data into the 'Class' variable.
+
 website<-url("http://pages.wustl.edu/montgomery/titanic")
 titanic<-read.delim(website)
 table(titanic$Gender)
