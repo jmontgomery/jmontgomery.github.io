@@ -73,7 +73,7 @@ primaryPolls<-primaryPolls[primaryPolls$candidate_name%in%c("Amy Klobuchar", "Be
 
 ---
 
-## Our first plot: The 2008
+## Our first plot: The 2020
 
 ```{r, fig.height=5, fig.align='center'}
 ggplot(data=primaryPolls)+
