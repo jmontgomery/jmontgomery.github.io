@@ -59,9 +59,6 @@ class: center, middle, inverse, title-slide
 - Provides a language for layering visual elements
 - Has been extended in dozens of ways to handle all kinds of data
 - Integrates easily into the rest of the tidyverse
-
-
-
 ---
 
 ## Running example
@@ -71,7 +68,7 @@ Data comes from 538.com
 
 ```r
 library(ggplot2)
-primaryPolls&lt;-read.csv("president_primary_polls_feb2020.csv", stringsAsFactors = FALSE)
+primaryPolls&lt;-read.csv('https://jmontgomery.github.io/PDS/Datasets/president_primary_polls_feb2020.csv', stringsAsFactors = F)
 primaryPolls$start_date&lt;-as.Date(primaryPolls$start_date, "%m/%d/%Y")
 primaryPolls&lt;-primaryPolls[primaryPolls$state=="New Hampshire",]
 primaryPolls&lt;-primaryPolls[primaryPolls$candidate_name%in%c("Amy Klobuchar", "Bernard Sanders", "Elizabeth Warren", "Joseph R. Biden Jr.", "Michael Bloomberg", "Pete Buttigieg"),]

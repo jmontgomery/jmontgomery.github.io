@@ -56,9 +56,6 @@ output:
 - Provides a language for layering visual elements
 - Has been extended in dozens of ways to handle all kinds of data
 - Integrates easily into the rest of the tidyverse
-
-
-
 ---
 
 ## Running example
@@ -67,7 +64,7 @@ output:
 Data comes from 538.com
 ```{r}
 library(ggplot2)
-primaryPolls<-read.csv("president_primary_polls_feb2020.csv", stringsAsFactors = FALSE)
+primaryPolls<-read.csv('https://jmontgomery.github.io/PDS/Datasets/president_primary_polls_feb2020.csv', stringsAsFactors = F)
 primaryPolls$start_date<-as.Date(primaryPolls$start_date, "%m/%d/%Y")
 primaryPolls<-primaryPolls[primaryPolls$state=="New Hampshire",]
 primaryPolls<-primaryPolls[primaryPolls$candidate_name%in%c("Amy Klobuchar", "Bernard Sanders", "Elizabeth Warren", "Joseph R. Biden Jr.", "Michael Bloomberg", "Pete Buttigieg"),]
