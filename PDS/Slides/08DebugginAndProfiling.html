@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Debugging and Profiling</title>
+    <meta charset="utf-8" />
+    <meta name="date" content="2020-01-01" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Debugging and Profiling
+### <div class="line-block">Jacob M. Montgomery<br />
+<em>Washington University in St. Louis</em><br />
+<em>Department of Politcal Science</em></div>
+### 2020
+
+---
+
+
+
+## Orientation for today
+
+**Last time**
+
+1. Version control/documentation
+    + Getting up on github
+    + Helping your future self
+
+&lt;br&gt;
+
+
+
+--
+
+**Today**
+
+1. Debugging
+2. Profiling
+
+&lt;br&gt;
+
+--
+
+**Next class**
+1. `ggplot`
+
+
+
+---
+
+
+# Basic debugging: browser(), debug(), traceback()
+
+
+- `traceback` will help you identify the function that is failing
+- `debug`, `debugonce` will go through a function one line at a time
+- `browser` This let's you work within the function environment starting at a specified point
+
+---
+
+
+## Running example
+
+
+
+```r
+webData&lt;-url("http://pages.wustl.edu/montgomery/incumbents2.txt")
+OOS &lt;- read.table(webData)
+summary(OOS)
+```
+
+```
+##        x             year         congress        chalspend     
+##  Min.   :   1   Min.   :1956   Min.   : 84.00   Min.   : 8.517  
+##  1st Qu.:1672   1st Qu.:1968   1st Qu.: 90.00   1st Qu.: 9.315  
+##  Median :3347   Median :1978   Median : 95.00   Median :10.998  
+##  Mean   :3348   Mean   :1977   Mean   : 94.42   Mean   :10.880  
+##  3rd Qu.:5024   3rd Qu.:1988   3rd Qu.:100.00   3rd Qu.:12.366  
+##  Max.   :6695   Max.   :1996   Max.   :104.00   Max.   :15.039  
+##                                                 NA's   :3380    
+##     incspend         difflog          presvote         voteshare     
+##  Min.   : 8.586   Min.   :-3.060   Min.   :0.06565   Min.   :0.3476  
+##  1st Qu.:12.304   1st Qu.: 0.686   1st Qu.:0.46894   1st Qu.:0.5740  
+##  Median :12.839   Median : 1.651   Median :0.55519   Median :0.6450  
+##  Mean   :12.759   Mean   : 1.858   Mean   :0.55335   Mean   :0.6470  
+##  3rd Qu.:13.266   3rd Qu.: 3.025   3rd Qu.:0.63425   3rd Qu.:0.7141  
+##  Max.   :15.422   Max.   : 5.856   Max.   :0.96061   Max.   :0.9997  
+##  NA's   :3374     NA's   :3436                       NA's   :125     
+##     inparty          incparty       seniority         midterm      
+##  Min.   :0.0000   Min.   :0.000   Min.   : 1.000   Min.   :0.0000  
+##  1st Qu.:0.0000   1st Qu.:0.000   1st Qu.: 2.000   1st Qu.:0.0000  
+##  Median :0.0000   Median :1.000   Median : 4.000   Median :0.0000  
+##  Mean   :0.4942   Mean   :0.563   Mean   : 4.949   Mean   :0.2327  
+##  3rd Qu.:1.0000   3rd Qu.:1.000   3rd Qu.: 7.000   3rd Qu.:0.0000  
+##  Max.   :1.0000   Max.   :1.000   Max.   :26.000   Max.   :1.0000  
+##                                                                    
+##   chalquality         south          population        urban       
+##  Min.   :0.0000   Min.   :0.0000   Min.   :11.98   Min.   : 5.956  
+##  1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:12.92   1st Qu.:12.325  
+##  Median :0.0000   Median :0.0000   Median :13.06   Median :12.728  
+##  Mean   :0.2348   Mean   :0.2378   Mean   :13.04   Mean   :12.612  
+##  3rd Qu.:0.0000   3rd Qu.:0.0000   3rd Qu.:13.16   3rd Qu.:13.006  
+##  Max.   :1.0000   Max.   :1.0000   Max.   :17.08   Max.   :16.481  
+##  NA's   :5                         NA's   :2       NA's   :2       
+##      age65            milpop         unemployed       incspend2      
+##  Min.   : 8.164   Min.   : 3.045   Min.   : 7.425   Min.   :   5355  
+##  1st Qu.:10.452   1st Qu.: 5.517   1st Qu.: 8.816   1st Qu.: 220620  
+##  Median :10.760   Median : 6.246   Median : 9.142   Median : 376741  
+##  Mean   :10.819   Mean   : 6.777   Mean   : 9.170   Mean   : 450124  
+##  3rd Qu.:11.215   3rd Qu.: 8.077   3rd Qu.: 9.544   3rd Qu.: 577283  
+##  Max.   :14.552   Max.   :12.691   Max.   :13.147   Max.   :4987593  
+##  NA's   :2        NA's   :2        NA's   :2        NA's   :3374
+```
+
+
+---
+
+
+```r
+boxplot(voteshare~inparty, data=OOS[OOS$year==1956,])
+```
+
+![](08DebugginAndProfiling_files/figure-html/unnamed-chunk-2-1.png)&lt;!-- --&gt;
+
+---
+
+
+```r
+plot(voteshare~inparty, data=OOS[OOS$year==1956,])
+```
+
+![](08DebugginAndProfiling_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
+
+---
+
+## Running a regression by year: Do you see a pattern?
+
+
+
+```r
+output.vector&lt;-NULL
+for (i in unique(OOS$year)){
+    output.vector[which(unique(OOS$year) == i)]&lt;- 
+      lm(voteshare ~ inparty, data=OOS[OOS$year == i,])$coefficients[2]
+}
+plot(unique(OOS$year), output.vector, type="l", ylab="Coefficient (Presiden'ts party)", xlab="Year") 
+abline(h=0, lty=3)
+```
+
+![](08DebugginAndProfiling_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+
+
+
+---
+
+## Functionalize it
+
+
+- Now we might think -- there is a more general case where I want to get a bunch of seperate regression estimates on defined subsets of the data
+
+```r
+by.var.lm&lt;-function(by.var, formula, data, coef.num){
+  output.vector&lt;-NULL
+  for (i in unique(by.var)){
+    output.vector[which(unique(by.var) == i)]&lt;- 
+      lm(formula, data=data[by.var == i,])$coefficients[coef.num]
+  }
+  return(output.vector)
+}
+plot(by.var.lm(year, voteshare~inparty, OOS, 2), type="l")
+```
+
+
+---
+
+## This is not working, what to do?
+
+- As a first step, figure out where it's broken using `traceback`
+
+```r
+traceback(by.var.lm(year, voteshare~inparty, OOS, 2))
+```
+
+
+
+---
+
+- A second thing to try is to use `debug`
+
+```r
+debug(by.var.lm)
+```
+
+
+---
+
+- A second thing to try is to put a `broswer` function into the function itself
+
+```r
+browser()
+```
+
+---
+
+- Another thing to try is just put in some various print commands
+
+
+
+```r
+by.var.lm&lt;-function(by.var, formula, data, coef.num){
+  output.vector&lt;-NULL; print("one")
+  for (i in unique(by.var)){ 
+    print(i) # I can see where I get to in the loop
+    output.vector[which(unique(by.var) == i)]&lt;- 
+      lm(formula, data=data[by.var == i,])$coefficients[coef.num]
+  }
+  print('got out of loop')
+  return(output.vector)
+}
+plot(by.var.lm(year, voteshare~inparty, OOS, 2), type="l")
+```
+
+
+---
+
+
+## Class activity, debug the function and add comments
+
+Do it
+
+--- 
+
+
+## So now I have a function that works, can I use it again?
+
+
+
+```r
+#Note for jacob: Need to ener in missing data into the 'Class' variable.
+
+website&lt;-url("http://pages.wustl.edu/montgomery/titanic")
+titanic&lt;-read.delim(website)
+table(titanic$Gender)
+table(titanic$Class)
+```
+
+
+---
+
+## Make this work
+
+
+
+```r
+by.var.lm(Class, (as.numeric(Survived)-1) ~ Gender, titanic, 2)
+```
+
+
+---
+
+
+# Benchmarking and code improvements
+
+
+```r
+x &lt;- runif(500)
+system.time(sqrt(x))
+```
+
+```
+##    user  system elapsed 
+##       0       0       0
+```
+
+
+The goal is to see how long a function takes to evaluate
+
+---
+
+
+## Much better: microbenchmark
+
+
+
+```r
+library(microbenchmark)
+microbenchmark(sqrt(x)) # evalues 100 times per default
+```
+
+```
+## Unit: microseconds
+##     expr min    lq    mean median    uq    max neval
+##  sqrt(x) 3.1 3.202 3.60997  3.402 3.701 12.301   100
+```
+
+```r
+microbenchmark(sqrt(x), times=1000)
+```
+
+```
+## Unit: microseconds
+##     expr min    lq    mean median     uq    max neval
+##  sqrt(x)   3 3.201 4.23147    3.5 4.4005 30.401  1000
+```
+
+---
+
+## Now we can compare different functions
+
+
+```r
+microbenchmark(sqrt(x), 
+               x^0.5,
+               times=1000)
+```
+
+```
+## Unit: microseconds
+##     expr    min     lq      mean median     uq     max neval
+##  sqrt(x)  2.801  3.102  5.524815  3.501  8.101  53.401  1000
+##    x^0.5 21.500 23.401 29.139183 24.001 34.901 138.101  1000
+```
+
+
+
+```r
+microbenchmark(sqrt(x), x^0.5, x^(1/2), exp(log(x)/2),
+               times=1000)
+```
+
+```
+## Unit: microseconds
+##           expr    min     lq      mean median      uq     max neval
+##        sqrt(x)  2.801  3.101  4.472774  3.301  5.7005  18.102  1000
+##          x^0.5 20.600 22.601 27.971390 23.401 33.7515 253.302  1000
+##        x^(1/2) 20.901 22.901 27.688094 23.800 32.7505 186.901  1000
+##  exp(log(x)/2) 50.001 53.800 59.609016 55.801 63.6510 322.100  1000
+```
+
+
+---
+
+## And also completely different functions
+
+```r
+microbenchmark(sqrt(x), x^4-3*x)
+```
+
+```
+## Unit: microseconds
+##         expr    min   lq     mean  median      uq    max neval
+##      sqrt(x)  2.900  3.1  3.41498  3.1010  3.4005 12.201   100
+##  x^4 - 3 * x 28.402 29.2 29.90196 29.5005 30.0010 42.901   100
+```
+
+---
+
+- For ease of interpretation, if a microbenchmark takes
+- 1 millisecond, then 1,000 calls take a second
+- 1 microsecond, then 1,000,000 calls take a second
+- 1 nanosecond,  then 1,000,000,000 calls take a second
+- Or use unit=eps for evaluations per second
+
+
+```r
+microbenchmark(sqrt(x), x^0.5, x^(1/2), exp(log(x)/2),
+               unit="eps")
+```
+
+```
+## Unit: evaluations per second
+##           expr       min        lq      mean    median        uq       max
+##        sqrt(x) 86199.466 243813.24 261097.73 281625.88 312304.81 333333.33
+##          x^0.5 10193.576  38167.77  38754.05  39524.91  42281.69  44050.92
+##        x^(1/2) 20160.884  37312.55  38029.76  38833.59  41839.25  43103.45
+##  exp(log(x)/2)  6207.286  16326.27  16404.02  16610.88  17888.77  18017.69
+##  neval
+##    100
+##    100
+##    100
+##    100
+```
+
+
+---
+
+- Evaluating every function takes time
+- Evaluating () or {} takes time
+- Even specifying useless arguments in functions takes time!
+
+
+```r
+f0 &lt;- function() NULL
+f1 &lt;- function(a=1) NULL
+f2 &lt;- function(a=1, b=2) NULL
+f3 &lt;- function(a=1, b=2, c=3) NULL
+f4 &lt;- function(a=1, b=2, c=3, d=4) NULL
+f5 &lt;- function(a=1, b=2, c=3, d=4, e=5) NULL
+```
+
+
+---
+
+
+```r
+microbenchmark(f0(), f1(), f2(), f3(), f4(), f5(), times=10000)
+```
+
+```
+## Unit: nanoseconds
+##  expr min  lq     mean median  uq     max neval
+##  f0() 100 201 328.2560    201 202  791502 10000
+##  f1() 200 201 363.3944    201 301  600001 10000
+##  f2() 200 201 454.7453    301 302  817101 10000
+##  f3() 200 301 510.1237    301 401 1084902 10000
+##  f4() 200 301 566.2603    302 402 1139001 10000
+##  f5() 300 302 585.5785    401 501  656001 10000
+```
+
+
+---
+
+## There is room for improvement (or mistakes) in the most basic functions!
+## Extracting one element of a data frame
+
+
+```r
+?mtcars
+```
+
+```
+## starting httpd help server ... done
+```
+
+```r
+head(mtcars)
+```
+
+```
+##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
+```
+
+
+---
+
+
+
+```r
+microbenchmark(
+  "[32, 11]" = mtcars[32,11],
+  "$carb[32]"	= mtcars$carb[32],
+  "[[c(11, 32)]]" = mtcars[[c(11,32)]],
+  "[[11]][32]" = mtcars[[11]][32],
+  ".subset2" = .subset2(mtcars,11)[32])
+```
+
+```
+## Unit: nanoseconds
+##           expr   min      lq     mean  median      uq     max neval
+##       [32, 11] 17501 24250.0 34986.94 27651.5 38000.5  235901   100
+##      $carb[32]  1701  2901.0  4337.99  3601.0  4651.5   20701   100
+##  [[c(11, 32)]]  8100 10401.0 34353.95 11951.0 14251.0 1743301   100
+##     [[11]][32]  8201 10550.5 13578.95 11951.0 13851.0   60002   100
+##       .subset2   300   601.5  1550.09   801.0  1101.0   47001   100
+```
+
+---
+
+
+# Vectorizing
+
+- The key idea behind vectorizing your code is to think about entire vectors instead of thinking about their components. 
+
+- Using apply and C instead of for loops is a start, but does not really solve this issue.
+
+- Truly vectorized functions will make use of code written in C instead of R. 
+
+- Loops in C are much faster because they have much less overhead.
+
+---
+
+## Addition on each element of a data frame
+
+
+```r
+rm(list=ls())
+m=5
+n=5
+matrix1 &lt;- replicate(m, rnorm(n)) # create matrix
+matdf &lt;- matdf1 &lt;- data.frame(matrix1) 
+matdf
+```
+
+```
+##            X1         X2         X3          X4         X5
+## 1  1.48328386  0.4227535 -1.9585992  0.71688968 -0.2392200
+## 2 -0.10511758  1.2899282 -1.1900243  0.07052382 -1.4862478
+## 3  0.59802668 -1.3794037  0.2318030 -1.33686912 -0.4611843
+## 4 -0.02806721 -0.6468734 -0.4263651 -0.13406880  0.8657415
+## 5  0.58391339 -0.2898968  1.6384854 -0.40788239 -0.1179779
+```
+
+---
+  
+  
+
+
+
+```r
+for (i in 1:m) {
+  for (j in 1:n) {
+    matdf1[i,j] &lt;- matdf1[i,j] + 1.87*cos(.25)*pi # addition
+  }
+}
+matdf1
+```
+
+```
+##         X1       X2       X3       X4       X5
+## 1 7.175429 6.114899 3.733546 6.409035 5.452926
+## 2 5.587028 6.982074 4.502121 5.762669 4.205898
+## 3 6.290172 4.312742 5.923949 4.355277 5.230961
+## 4 5.664078 5.045272 5.265781 5.558077 6.557887
+## 5 6.276059 5.402249 7.330631 5.284263 5.574168
+```
+
+---
+
+
+```r
+matdf2&lt;-data.frame(matrix1) 
+matdf2 &lt;- matdf2 + 1.87*cos(.25)*pi
+matdf2
+```
+
+```
+##         X1       X2       X3       X4       X5
+## 1 7.175429 6.114899 3.733546 6.409035 5.452926
+## 2 5.587028 6.982074 4.502121 5.762669 4.205898
+## 3 6.290172 4.312742 5.923949 4.355277 5.230961
+## 4 5.664078 5.045272 5.265781 5.558077 6.557887
+## 5 6.276059 5.402249 7.330631 5.284263 5.574168
+```
+
+
+---
+
+
+```r
+microbenchmark(
+  "loop" = for (i in 1:m) {
+    for (j in 1:n) {
+      matdf[i,j] &lt;- matdf[i,j] + 1.87*cos(.25)*pi
+    }
+  }, 
+  "vectorized" = matdf &lt;- matdf + 1.87*cos(.25)*pi
+)
+```
+
+```
+## Unit: microseconds
+##        expr      min       lq      mean     median         uq       max neval
+##        loop 8118.301 9815.151 11113.526 10734.2510 11659.0510 18479.101   100
+##  vectorized  552.901  726.001   903.268   803.9015   902.6015  4852.701   100
+```
+
+
+---
+
+
+```r
+mat1 &lt;- matrix(abs(rnorm(2500))+pi, ncol=50)
+apply(mat1, 1, function(x) sum(x))
+```
+
+```
+##  [1] 200.8761 190.9194 199.8071 200.6544 196.0388 187.2899 207.1614 191.0337
+##  [9] 197.0617 198.4177 198.6301 203.4804 198.5342 199.1188 195.6684 194.2388
+## [17] 196.1995 199.7631 190.5494 193.8829 188.2965 197.6945 197.5038 198.6003
+## [25] 197.7424 191.4720 185.4133 199.4043 191.2424 197.4434 199.1663 193.8801
+## [33] 195.2090 194.8958 194.5033 202.8585 192.3105 197.0683 202.8425 199.3481
+## [41] 203.6672 198.3278 188.5061 194.8578 191.7616 195.0024 201.0000 198.1565
+## [49] 199.9790 197.6908
+```
+
+```r
+rowSums(mat1)
+```
+
+```
+##  [1] 200.8761 190.9194 199.8071 200.6544 196.0388 187.2899 207.1614 191.0337
+##  [9] 197.0617 198.4177 198.6301 203.4804 198.5342 199.1188 195.6684 194.2388
+## [17] 196.1995 199.7631 190.5494 193.8829 188.2965 197.6945 197.5038 198.6003
+## [25] 197.7424 191.4720 185.4133 199.4043 191.2424 197.4434 199.1663 193.8801
+## [33] 195.2090 194.8958 194.5033 202.8585 192.3105 197.0683 202.8425 199.3481
+## [41] 203.6672 198.3278 188.5061 194.8578 191.7616 195.0024 201.0000 198.1565
+## [49] 199.9790 197.6908
+```
+
+---
+
+
+
+```r
+microbenchmark(apply(mat1, 1, function(x) sum(x)),
+               rowSums(mat1))
+```
+
+```
+## Unit: microseconds
+##                                expr     min      lq      mean   median       uq
+##  apply(mat1, 1, function(x) sum(x)) 126.101 194.451 273.73297 203.5515 221.1515
+##                       rowSums(mat1)  13.201  19.851  23.20895  21.8505  23.3010
+##     max neval
+##  3945.1   100
+##    55.5   100
+```
+
+
+---
+
+- Even for basic tasks, think about the actual calculations you perform
+
+
+```r
+mat2 &lt;- matrix(sample(1:7, 90000, replace=T), ncol=300)
+mat3 &lt;- matrix(sample(2:6, 90000, replace=T), ncol=300)
+ys &lt;- sample(3:5, 300, replace=T)
+```
+
+
+---
+
+
+```r
+all.equal(mat2 %*% mat3 %*% ys , mat2 %*% (mat3 %*% ys))
+```
+
+```
+## [1] TRUE
+```
+
+```r
+microbenchmark(mat2 %*% mat3 %*% ys,
+               mat2 %*% (mat3 %*% ys))
+```
+
+```
+## Unit: microseconds
+##                    expr       min       lq      mean    median        uq
+##    mat2 %*% mat3 %*% ys 20162.101 22896.75 25336.722 23627.251 24835.302
+##  mat2 %*% (mat3 %*% ys)   865.401  1381.65  1887.503  1442.651  1498.901
+##      max neval
+##  52085.0   100
+##  20556.7   100
+```
+
+- Why?  Think through the dimensionality
+
+
+---
+
+## Paste/collapse and copies
+
+
+```r
+random_states &lt;- function() {
+  paste(sample(state.name,10,replace =TRUE),collapse ="")
+}
+states10 &lt;- replicate(10, random_states())
+states10
+```
+
+```
+##  [1] "Rhode IslandGeorgiaOhioPennsylvaniaNorth CarolinaIowaFloridaNorth CarolinaMinnesotaMissouri"            
+##  [2] "FloridaVermontVirginiaMissouriTexasTexasWest VirginiaNorth CarolinaMississippiCalifornia"               
+##  [3] "New HampshireArkansasNew HampshireWashingtonMissouriNorth DakotaMississippiPennsylvaniaColoradoNebraska"
+##  [4] "DelawareKentuckyIowaDelawareHawaiiWashingtonOregonMichiganKentuckyNew Jersey"                           
+##  [5] "Rhode IslandNevadaUtahMaineNew JerseyOklahomaNew JerseyVermontNebraskaOhio"                             
+##  [6] "VermontTennesseeNew JerseyTennesseeOhioTexasMissouriIowaSouth DakotaNew York"                           
+##  [7] "DelawareRhode IslandHawaiiDelawareNevadaMichiganNebraskaNebraskaWisconsinWisconsin"                     
+##  [8] "VermontOhioHawaiiPennsylvaniaIowaRhode IslandWisconsinMississippiIowaLouisiana"                         
+##  [9] "MichiganHawaiiArkansasUtahMinnesotaIllinoisNorth DakotaAlabamaNorth CarolinaIdaho"                      
+## [10] "AlabamaMaineMinnesotaTennesseeNorth DakotaIowaPennsylvaniaOregonWest VirginiaWashington"
+```
+
+```r
+states100 &lt;- replicate(100, random_states())
+```
+
+
+---
+
+
+```r
+collapse &lt;- function(states) {
+  out &lt;- ""
+  for (x in states) {
+    out &lt;- paste0(out, x) # same as paste(..., sep="", collapse)
+  }
+  out
+}
+```
+
+---
+
+
+```r
+microbenchmark(
+  "loop10" = collapse(states10),
+  "vec10" = paste(states10, collapse =""),
+  "loop100" = collapse(states100),
+  "vec100" = paste(states100, collapse ="")
+)
+```
+
+```
+## Unit: microseconds
+##     expr      min        lq       mean    median        uq      max neval
+##   loop10   37.802   55.6010   73.80098   58.4505   69.6510  429.701   100
+##    vec10    9.801   16.8505   21.58790   18.8010   22.9005   74.501   100
+##  loop100 2031.801 2667.3505 2899.10999 2738.8510 2987.9510 8618.200   100
+##   vec100   99.301  144.1510  185.97796  154.8005  170.3010  896.401   100
+```
+
+---
+
+## Allocate memory and fill, don't append to the end
+
+- Here, we are not only getting around using the loop, but also avoiding copies. 
+- Whenever you append(), cbind(), rbind(), or paste() to create a bigger object, R must first allocate space for the new object and then copy the old object to its new home. 
+- If you're repeating this many times, like in a for loop, this can be quite computationally expensive.
+
+
+---
+
+### Class exercise
+
+1. Make a new version of `by.var.lm`
+2. Let's see which team can find the fastest implementation
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

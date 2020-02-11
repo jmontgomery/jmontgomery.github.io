@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Files, For Loops, and Functions | Political Data Science</title>
+  <meta name="description" content="4 Files, For Loops, and Functions | Political Data Science" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Files, For Loops, and Functions | Political Data Science" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Files, For Loops, and Functions | Political Data Science" />
+  
+  
+  
+
+<meta name="author" content="Jacob Montgomery and Mariah Yelenick" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-types-in-r.html"/>
+<link rel="next" href="version-control.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/elevate-section-attrs-2.0/elevate-section-attrs.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Don’t be a clown</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#as-easy-as-cake"><i class="fa fa-check"></i><b>1.1</b> As easy as cake</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#coding"><i class="fa fa-check"></i><b>1.1.1</b> Coding</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#data-acquision"><i class="fa fa-check"></i><b>1.1.2</b> Data acquision</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#algorithms"><i class="fa fa-check"></i><b>1.1.3</b> Algorithms</a></li>
+<li class="chapter" data-level="1.1.4" data-path="index.html"><a href="index.html#domain-knowledge"><i class="fa fa-check"></i><b>1.1.4</b> Domain knowledge</a></li>
+<li class="chapter" data-level="1.1.5" data-path="index.html"><a href="index.html#putting-it-together"><i class="fa fa-check"></i><b>1.1.5</b> Putting it together</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#class-structures"><i class="fa fa-check"></i><b>1.2</b> Class structures</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#learning-objective-1-team-based-learning"><i class="fa fa-check"></i><b>1.2.1</b> Learning objective #1: Team based learning</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#learning-objective-2-show-up-ready"><i class="fa fa-check"></i><b>1.2.2</b> Learning objective #2: Show up ready</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#learning-objective-3-how-is-this-going-to-work"><i class="fa fa-check"></i><b>1.2.3</b> Learning objective #3: How is this going to work?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html"><i class="fa fa-check"></i><b>2</b> Getting Started in R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#assigning-values-to-objects"><i class="fa fa-check"></i><b>2.2</b> Assigning values to objects</a></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#r-as-a-calculator"><i class="fa fa-check"></i><b>2.3</b> R as a calculator</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#the-global-environment-and-how-to-clean-it"><i class="fa fa-check"></i><b>2.4</b> The global environment and how to clean it</a></li>
+<li class="chapter" data-level="2.5" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#getting-help"><i class="fa fa-check"></i><b>2.5</b> Getting help</a></li>
+<li class="chapter" data-level="2.6" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#installing-packages"><i class="fa fa-check"></i><b>2.6</b> Installing packages</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-types-in-r.html"><a href="data-types-in-r.html"><i class="fa fa-check"></i><b>3</b> Data Types in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-types-in-r.html"><a href="data-types-in-r.html#functions"><i class="fa fa-check"></i><b>3.1</b> Functions</a></li>
+<li class="chapter" data-level="3.2" data-path="data-types-in-r.html"><a href="data-types-in-r.html#vectors"><i class="fa fa-check"></i><b>3.2</b> Vectors</a></li>
+<li class="chapter" data-level="3.3" data-path="data-types-in-r.html"><a href="data-types-in-r.html#functions-and-vectors"><i class="fa fa-check"></i><b>3.3</b> Functions and vectors</a></li>
+<li class="chapter" data-level="3.4" data-path="data-types-in-r.html"><a href="data-types-in-r.html#logicalsbooleans"><i class="fa fa-check"></i><b>3.4</b> Logicals/Booleans</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="data-types-in-r.html"><a href="data-types-in-r.html#boolean-logic"><i class="fa fa-check"></i><b>3.4.1</b> Boolean logic</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="data-types-in-r.html"><a href="data-types-in-r.html#charactersstrings"><i class="fa fa-check"></i><b>3.5</b> Characters/Strings</a></li>
+<li class="chapter" data-level="3.6" data-path="data-types-in-r.html"><a href="data-types-in-r.html#matrices"><i class="fa fa-check"></i><b>3.6</b> Matrices</a></li>
+<li class="chapter" data-level="3.7" data-path="data-types-in-r.html"><a href="data-types-in-r.html#matrix-algebra-optional"><i class="fa fa-check"></i><b>3.7</b> Matrix algebra (optional)</a></li>
+<li class="chapter" data-level="3.8" data-path="data-types-in-r.html"><a href="data-types-in-r.html#lists"><i class="fa fa-check"></i><b>3.8</b> Lists</a></li>
+<li class="chapter" data-level="3.9" data-path="data-types-in-r.html"><a href="data-types-in-r.html#arrays"><i class="fa fa-check"></i><b>3.9</b> Arrays</a></li>
+<li class="chapter" data-level="3.10" data-path="data-types-in-r.html"><a href="data-types-in-r.html#dataframes"><i class="fa fa-check"></i><b>3.10</b> Dataframes</a></li>
+<li class="chapter" data-level="3.11" data-path="data-types-in-r.html"><a href="data-types-in-r.html#general-info"><i class="fa fa-check"></i><b>3.11</b> General info</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html"><i class="fa fa-check"></i><b>4</b> Files, For Loops, and Functions</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#the-working-directory"><i class="fa fa-check"></i><b>4.1</b> The working directory</a></li>
+<li class="chapter" data-level="4.2" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#input-and-output"><i class="fa fa-check"></i><b>4.2</b> Input and output</a></li>
+<li class="chapter" data-level="4.3" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#if-else-ifelse"><i class="fa fa-check"></i><b>4.3</b> if, else, ifelse</a></li>
+<li class="chapter" data-level="4.4" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#repeat-and-while"><i class="fa fa-check"></i><b>4.4</b> repeat and while</a></li>
+<li class="chapter" data-level="4.5" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#for-loops"><i class="fa fa-check"></i><b>4.5</b> for loops</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#next-and-break"><i class="fa fa-check"></i><b>4.5.1</b> next and break</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#functions-1"><i class="fa fa-check"></i><b>4.6</b> Functions</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#the-basics"><i class="fa fa-check"></i><b>4.6.1</b> The basics</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#setting-defaults"><i class="fa fa-check"></i><b>4.7</b> Setting defaults</a></li>
+<li class="chapter" data-level="4.8" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#scope"><i class="fa fa-check"></i><b>4.8</b> Scope</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#advanced-scope-topics"><i class="fa fa-check"></i><b>4.8.1</b> Advanced scope topics</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#debugging"><i class="fa fa-check"></i><b>4.9</b> Debugging</a></li>
+<li class="chapter" data-level="4.10" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#benchmarking-and-code-improvements"><i class="fa fa-check"></i><b>4.10</b> Benchmarking and code improvements</a>
+<ul>
+<li class="chapter" data-level="4.10.1" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#vectorizing"><i class="fa fa-check"></i><b>4.10.1</b> Vectorizing</a></li>
+<li class="chapter" data-level="4.10.2" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#pastecollapse-and-copies"><i class="fa fa-check"></i><b>4.10.2</b> Paste/collapse and copies</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="version-control.html"><a href="version-control.html"><i class="fa fa-check"></i><b>5</b> Version Control</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="version-control.html"><a href="version-control.html#why-version-control"><i class="fa fa-check"></i><b>5.1</b> Why version control?</a></li>
+<li class="chapter" data-level="5.2" data-path="version-control.html"><a href="version-control.html#setup"><i class="fa fa-check"></i><b>5.2</b> Setup</a></li>
+<li class="chapter" data-level="5.3" data-path="version-control.html"><a href="version-control.html#workflow"><i class="fa fa-check"></i><b>5.3</b> Workflow</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="version-control.html"><a href="version-control.html#pull"><i class="fa fa-check"></i><b>5.3.1</b> Pull</a></li>
+<li class="chapter" data-level="5.3.2" data-path="version-control.html"><a href="version-control.html#commit"><i class="fa fa-check"></i><b>5.3.2</b> Commit</a></li>
+<li class="chapter" data-level="5.3.3" data-path="version-control.html"><a href="version-control.html#push"><i class="fa fa-check"></i><b>5.3.3</b> Push</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="version-control.html"><a href="version-control.html#branches"><i class="fa fa-check"></i><b>5.4</b> Branches</a></li>
+<li class="chapter" data-level="5.5" data-path="version-control.html"><a href="version-control.html#forking"><i class="fa fa-check"></i><b>5.5</b> Forking</a></li>
+<li class="chapter" data-level="5.6" data-path="version-control.html"><a href="version-control.html#reverting"><i class="fa fa-check"></i><b>5.6</b> Reverting</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Political Data Science</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="files-for-loops-and-functions" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Files, For Loops, and Functions</h1>
+<div id="the-working-directory" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> The working directory</h2>
+<p>First we want to change the working directory. This is the folder where R will save and look for data by default (although you can always override this)</p>
+<p>Note that the file path (in Windows at least) requires slashes. You can either use two back slashes to separate folders or one forward slash.</p>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="files-for-loops-and-functions.html#cb345-1"></a><span class="kw">setwd</span>(<span class="st">&quot;~/Dropbox/Classes/R Programming&quot;</span>)</span>
+<span id="cb345-2"><a href="files-for-loops-and-functions.html#cb345-2"></a><span class="co">## For Windows, will need to be something like</span></span>
+<span id="cb345-3"><a href="files-for-loops-and-functions.html#cb345-3"></a><span class="kw">setwd</span>(<span class="st">&quot;C:</span><span class="ch">\\</span><span class="st">Documents and Settings</span><span class="ch">\\</span><span class="st">Jacob Montgomery</span><span class="ch">\\</span><span class="st">My Documents</span><span class="ch">\\</span><span class="st">RWork&quot;</span>)</span>
+<span id="cb345-4"><a href="files-for-loops-and-functions.html#cb345-4"></a><span class="co">## or</span></span>
+<span id="cb345-5"><a href="files-for-loops-and-functions.html#cb345-5"></a><span class="kw">setwd</span>(<span class="st">&quot;C:/Documents and Settings/Jacob Montgomery/My Documents/RWork&quot;</span>)</span>
+<span id="cb345-6"><a href="files-for-loops-and-functions.html#cb345-6"></a><span class="co">## or</span></span>
+<span id="cb345-7"><a href="files-for-loops-and-functions.html#cb345-7"></a><span class="kw">setwd</span>(<span class="kw">file.path</span>(<span class="st">&quot;C:&quot;</span>, <span class="st">&quot;Documents and Settings&quot;</span>, <span class="st">&quot;Jacob Montgomery&quot;</span>, <span class="st">&quot;My Documents&quot;</span>, <span class="st">&quot;RWork&quot;</span>))</span></code></pre></div>
+</div>
+<div id="input-and-output" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Input and output</h2>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="files-for-loops-and-functions.html#cb346-1"></a>voting.data&lt;-<span class="kw">data.frame</span>(vap, tv)</span></code></pre></div>
+<p>Now let’s save our newly created dataset</p>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="files-for-loops-and-functions.html#cb347-1"></a><span class="kw">dump</span>(<span class="st">&quot;voting.data&quot;</span>, <span class="st">&quot;voting.data.R&quot;</span>) <span class="co"># inputs are string.  Note that you must put the *.R in yourself</span></span></code></pre></div>
+<p>You might also want to save multiple objects</p>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="files-for-loops-and-functions.html#cb348-1"></a><span class="kw">dump</span>(<span class="kw">c</span>(<span class="st">&quot;vap&quot;</span>, <span class="st">&quot;tv&quot;</span>), <span class="st">&quot;voting.data.vectors.R&quot;</span>)</span>
+<span id="cb348-2"><a href="files-for-loops-and-functions.html#cb348-2"></a><span class="kw">dump</span>(<span class="dt">list=</span><span class="kw">objects</span>(), <span class="st">&quot;everything.R&quot;</span>)</span>
+<span id="cb348-3"><a href="files-for-loops-and-functions.html#cb348-3"></a><span class="co">## an alternative we can just use the command</span></span>
+<span id="cb348-4"><a href="files-for-loops-and-functions.html#cb348-4"></a><span class="kw">save.image</span>(<span class="st">&quot;everything.RData&quot;</span>) <span class="co"># saves an image of your current workspace</span></span></code></pre></div>
+<p>Now we can clear our wokspace, and load these objects</p>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="files-for-loops-and-functions.html#cb349-1"></a><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</span>
+<span id="cb349-2"><a href="files-for-loops-and-functions.html#cb349-2"></a><span class="kw">source</span>(<span class="st">&quot;voting.data.vectors.R&quot;</span>)</span>
+<span id="cb349-3"><a href="files-for-loops-and-functions.html#cb349-3"></a><span class="kw">ls</span>() <span class="co"># only saved objects present</span></span></code></pre></div>
+<p>To read/write dataframes from/to a csv (comma separated values) file, the following commands will be useful</p>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="files-for-loops-and-functions.html#cb350-1"></a>votes<span class="fl">.06</span>&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;~/Dropbox/Classes/R Programming/R Scripts/VotingData2006.csv&quot;</span>, <span class="dt">header=</span>T)</span>
+<span id="cb350-2"><a href="files-for-loops-and-functions.html#cb350-2"></a><span class="kw">write.csv</span>(votes<span class="fl">.06</span>, <span class="dt">file=</span><span class="st">&quot;VD06.csv&quot;</span>)</span></code></pre></div>
+<p>Tips: All of the functions for reading in data are actually using the scan() function. No matter how crazy your data look, you can <em>always</em> read it into R by clever use of scan().</p>
+</div>
+<div id="if-else-ifelse" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> if, else, ifelse</h2>
+<p>The basic syntax for an <code>if</code> call is</p>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="files-for-loops-and-functions.html#cb351-1"></a><span class="cf">if</span>(condition){</span>
+<span id="cb351-2"><a href="files-for-loops-and-functions.html#cb351-2"></a>  commands to run</span>
+<span id="cb351-3"><a href="files-for-loops-and-functions.html#cb351-3"></a>}</span></code></pre></div>
+<ul>
+<li>The inputs in the parentheses needs can be anything that returns a logical.<br />
+</li>
+<li>You can put anything you want in the braces</li>
+</ul>
+<p>The simplest examples possible.</p>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="files-for-loops-and-functions.html#cb352-1"></a><span class="cf">if</span>(<span class="ot">TRUE</span>) {</span>
+<span id="cb352-2"><a href="files-for-loops-and-functions.html#cb352-2"></a>  <span class="kw">print</span>(<span class="st">&quot;I got here&quot;</span>)</span>
+<span id="cb352-3"><a href="files-for-loops-and-functions.html#cb352-3"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;I got here&quot;</code></pre>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="files-for-loops-and-functions.html#cb354-1"></a><span class="cf">if</span>(<span class="ot">FALSE</span>){ </span>
+<span id="cb354-2"><a href="files-for-loops-and-functions.html#cb354-2"></a>  <span class="kw">print</span>(<span class="st">&quot;I can&#39;t get here&quot;</span>)</span>
+<span id="cb354-3"><a href="files-for-loops-and-functions.html#cb354-3"></a>}</span></code></pre></div>
+<p>You can combine this with <code>else</code></p>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="files-for-loops-and-functions.html#cb355-1"></a><span class="cf">if</span>(condition) {</span>
+<span id="cb355-2"><a href="files-for-loops-and-functions.html#cb355-2"></a>  commands to run when condition is <span class="ot">TRUE</span></span>
+<span id="cb355-3"><a href="files-for-loops-and-functions.html#cb355-3"></a>} <span class="cf">else</span> { <span class="co"># notice that these are on the same line</span></span>
+<span id="cb355-4"><a href="files-for-loops-and-functions.html#cb355-4"></a>  commands to run when the condition is <span class="ot">FALSE</span></span>
+<span id="cb355-5"><a href="files-for-loops-and-functions.html#cb355-5"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="files-for-loops-and-functions.html#cb356-1"></a>x =<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb356-2"><a href="files-for-loops-and-functions.html#cb356-2"></a><span class="cf">if</span>(x <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span>) {</span>
+<span id="cb356-3"><a href="files-for-loops-and-functions.html#cb356-3"></a>  <span class="kw">print</span>(<span class="st">&quot;X is larger than 2&quot;</span>)</span>
+<span id="cb356-4"><a href="files-for-loops-and-functions.html#cb356-4"></a>} <span class="cf">else</span> { </span>
+<span id="cb356-5"><a href="files-for-loops-and-functions.html#cb356-5"></a>  <span class="kw">print</span>(<span class="st">&quot;X is 2 or smaller&quot;</span>)</span>
+<span id="cb356-6"><a href="files-for-loops-and-functions.html#cb356-6"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;X is larger than 2&quot;</code></pre>
+<p>But this set up will not play well with vectors. It runs, but is confusing</p>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="files-for-loops-and-functions.html#cb358-1"></a><span class="cf">if</span> (<span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">1</span>) <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span>){</span>
+<span id="cb358-2"><a href="files-for-loops-and-functions.html#cb358-2"></a>  <span class="kw">print</span>(<span class="st">&quot;This won&#39;t work&quot;</span>)</span>
+<span id="cb358-3"><a href="files-for-loops-and-functions.html#cb358-3"></a>}</span></code></pre></div>
+<pre><code>## Warning in if (c(3, 1) &gt; 2) {: the condition has length &gt; 1 and only the first
+## element will be used</code></pre>
+<pre><code>## [1] &quot;This won&#39;t work&quot;</code></pre>
+<p>The <code>ifelse</code> command works nicely with vectors, but syntax is different. This command is equivalent to a ternary in other languages if you’re familiar with that term.</p>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="files-for-loops-and-functions.html#cb361-1"></a><span class="kw">ifelse</span>(condition, return when condition T, return when condition F) </span></code></pre></div>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="files-for-loops-and-functions.html#cb362-1"></a>x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">2</span>)</span>
+<span id="cb362-2"><a href="files-for-loops-and-functions.html#cb362-2"></a><span class="kw">ifelse</span>(x <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>, <span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>) </span></code></pre></div>
+<pre><code>## [1] &quot;no&quot;  &quot;yes&quot;</code></pre>
+<p>WARNING</p>
+<p>If your outputs are vectors <code>ifelse</code> will work element-wise</p>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="files-for-loops-and-functions.html#cb364-1"></a>yes =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;yes1&quot;</span>, <span class="st">&quot;yes2&quot;</span>)</span>
+<span id="cb364-2"><a href="files-for-loops-and-functions.html#cb364-2"></a>no =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;no1&quot;</span>, <span class="st">&quot;no2&quot;</span>)</span>
+<span id="cb364-3"><a href="files-for-loops-and-functions.html#cb364-3"></a><span class="kw">ifelse</span>(x <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>, yes, no)</span></code></pre></div>
+<pre><code>## [1] &quot;no1&quot;  &quot;yes2&quot;</code></pre>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="files-for-loops-and-functions.html#cb366-1"></a><span class="kw">ifelse</span>(x <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span>, yes, no)</span></code></pre></div>
+<pre><code>## [1] &quot;yes1&quot; &quot;no2&quot;</code></pre>
+<ul>
+<li>Note that the curly braces are not technically necessary if you have only a one line command</li>
+<li>BUT you should use them anyway so someone can read your code!</li>
+</ul>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="files-for-loops-and-functions.html#cb368-1"></a>x =<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb368-2"><a href="files-for-loops-and-functions.html#cb368-2"></a><span class="cf">if</span> (x <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span>) y =<span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>x <span class="cf">else</span> y =<span class="st"> </span><span class="dv">3</span> <span class="op">*</span><span class="st"> </span>x</span>
+<span id="cb368-3"><a href="files-for-loops-and-functions.html#cb368-3"></a>y</span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+</div>
+<div id="repeat-and-while" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> repeat and while</h2>
+<ul>
+<li>Repeat just repeats commands in the braces until it sees a <code>BREAK</code> command</li>
+<li>If you don’t include <code>BREAK</code> your computer will be in an infinite loop.</li>
+<li>Save your work before using!</li>
+<li>Or maybe just don’t use it</li>
+</ul>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="files-for-loops-and-functions.html#cb370-1"></a><span class="cf">repeat</span>{ stuff to do until it sees BREAK }</span></code></pre></div>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="files-for-loops-and-functions.html#cb371-1"></a><span class="co"># make a blank plot with the limits set by those vectors</span></span>
+<span id="cb371-2"><a href="files-for-loops-and-functions.html#cb371-2"></a><span class="kw">plot</span>(<span class="ot">NULL</span>, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">100</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">xlab=</span><span class="st">&quot;x&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;1/x&quot;</span>) </span>
+<span id="cb371-3"><a href="files-for-loops-and-functions.html#cb371-3"></a>x =<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb371-4"><a href="files-for-loops-and-functions.html#cb371-4"></a><span class="cf">repeat</span> {</span>
+<span id="cb371-5"><a href="files-for-loops-and-functions.html#cb371-5"></a>  y =<span class="st"> </span><span class="dv">1</span> <span class="op">/</span><span class="st"> </span>x</span>
+<span id="cb371-6"><a href="files-for-loops-and-functions.html#cb371-6"></a>  x =<span class="st"> </span>x <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb371-7"><a href="files-for-loops-and-functions.html#cb371-7"></a>  <span class="kw">points</span>(x, y)</span>
+<span id="cb371-8"><a href="files-for-loops-and-functions.html#cb371-8"></a>  <span class="cf">if</span> (x <span class="op">==</span><span class="st"> </span><span class="dv">100</span>) { </span>
+<span id="cb371-9"><a href="files-for-loops-and-functions.html#cb371-9"></a>    <span class="cf">break</span> </span>
+<span id="cb371-10"><a href="files-for-loops-and-functions.html#cb371-10"></a>  }</span>
+<span id="cb371-11"><a href="files-for-loops-and-functions.html#cb371-11"></a>}</span></code></pre></div>
+<p><img src="images/unnamed-chunk-85-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>A while loop is just a repeat, where the break condition is specified at the top</p>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="files-for-loops-and-functions.html#cb372-1"></a><span class="cf">while</span>(condition){</span>
+<span id="cb372-2"><a href="files-for-loops-and-functions.html#cb372-2"></a>  commands that <span class="cf">repeat</span> until condition flips to <span class="ot">FALSE</span></span>
+<span id="cb372-3"><a href="files-for-loops-and-functions.html#cb372-3"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="files-for-loops-and-functions.html#cb373-1"></a><span class="kw">plot</span>(<span class="ot">NULL</span>, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">100</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">xlab=</span><span class="st">&quot;x&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;1/x&quot;</span>) </span>
+<span id="cb373-2"><a href="files-for-loops-and-functions.html#cb373-2"></a>x =<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb373-3"><a href="files-for-loops-and-functions.html#cb373-3"></a><span class="cf">while</span>(x <span class="op">&lt;</span><span class="st"> </span><span class="dv">100</span>) {</span>
+<span id="cb373-4"><a href="files-for-loops-and-functions.html#cb373-4"></a>  y =<span class="st"> </span><span class="dv">1</span> <span class="op">/</span><span class="st"> </span>x</span>
+<span id="cb373-5"><a href="files-for-loops-and-functions.html#cb373-5"></a>  x =<span class="st"> </span>x <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb373-6"><a href="files-for-loops-and-functions.html#cb373-6"></a>  <span class="kw">points</span>(x, y)</span>
+<span id="cb373-7"><a href="files-for-loops-and-functions.html#cb373-7"></a>}</span></code></pre></div>
+<p><img src="images/unnamed-chunk-87-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="for-loops" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> for loops</h2>
+<ul>
+<li>The <code>for</code> command is probably the most common flow control option.</li>
+<li>It has three basic parts:
+<ul>
+<li>An object name that will be used in the following commands</li>
+<li>A vector that we will “loop over”</li>
+<li>Commands that will be executed for each value of the vector</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="files-for-loops-and-functions.html#cb374-1"></a><span class="cf">for</span> (name <span class="cf">in</span> vector){</span>
+<span id="cb374-2"><a href="files-for-loops-and-functions.html#cb374-2"></a>  execute these commands using each value of the vecotr</span>
+<span id="cb374-3"><a href="files-for-loops-and-functions.html#cb374-3"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="files-for-loops-and-functions.html#cb375-1"></a><span class="cf">for</span> (monkey <span class="cf">in</span> <span class="kw">c</span>(<span class="st">&quot;Spider&quot;</span>, <span class="st">&quot;Howler&quot;</span>, <span class="st">&quot;Rhesus&quot;</span>)) {</span>
+<span id="cb375-2"><a href="files-for-loops-and-functions.html#cb375-2"></a>  <span class="co">## Each loop does the equivalent of: monkey = &quot;Spider&quot; or monkey = &quot;Howler&quot; or ...</span></span>
+<span id="cb375-3"><a href="files-for-loops-and-functions.html#cb375-3"></a>  <span class="kw">print</span>(monkey)</span>
+<span id="cb375-4"><a href="files-for-loops-and-functions.html#cb375-4"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;Spider&quot;
+## [1] &quot;Howler&quot;
+## [1] &quot;Rhesus&quot;</code></pre>
+<p>Or more commonly</p>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="files-for-loops-and-functions.html#cb377-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>){</span>
+<span id="cb377-2"><a href="files-for-loops-and-functions.html#cb377-2"></a>  <span class="kw">print</span>(i)</span>
+<span id="cb377-3"><a href="files-for-loops-and-functions.html#cb377-3"></a>}</span></code></pre></div>
+<pre><code>## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6
+## [1] 7
+## [1] 8
+## [1] 9
+## [1] 10</code></pre>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="files-for-loops-and-functions.html#cb379-1"></a><span class="co">## for loops are very useful in many situations</span></span>
+<span id="cb379-2"><a href="files-for-loops-and-functions.html#cb379-2"></a><span class="kw">plot</span>(<span class="ot">NULL</span>, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">100</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb379-3"><a href="files-for-loops-and-functions.html#cb379-3"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">100</span>) {</span>
+<span id="cb379-4"><a href="files-for-loops-and-functions.html#cb379-4"></a>  <span class="kw">points</span>(i, <span class="dv">1</span> <span class="op">/</span><span class="st"> </span>i)</span>
+<span id="cb379-5"><a href="files-for-loops-and-functions.html#cb379-5"></a>}</span></code></pre></div>
+<p><img src="images/unnamed-chunk-91-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div id="next-and-break" class="section level3" number="4.5.1">
+<h3><span class="header-section-number">4.5.1</span> next and break</h3>
+<p>Sometimes you might not want to execute the commands for every element in the vector
+use the <code>next</code> command to skip (you can also use the <code>break</code>)</p>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="files-for-loops-and-functions.html#cb380-1"></a>some.odds =<span class="st"> </span><span class="ot">NULL</span></span>
+<span id="cb380-2"><a href="files-for-loops-and-functions.html#cb380-2"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">200</span>) {</span>
+<span id="cb380-3"><a href="files-for-loops-and-functions.html#cb380-3"></a>  <span class="cf">if</span> (i <span class="op">%%</span><span class="st"> </span><span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) {</span>
+<span id="cb380-4"><a href="files-for-loops-and-functions.html#cb380-4"></a>    <span class="cf">next</span></span>
+<span id="cb380-5"><a href="files-for-loops-and-functions.html#cb380-5"></a>  }</span>
+<span id="cb380-6"><a href="files-for-loops-and-functions.html#cb380-6"></a>  some.odds =<span class="st"> </span><span class="kw">c</span>(some.odds, i)</span>
+<span id="cb380-7"><a href="files-for-loops-and-functions.html#cb380-7"></a>}</span>
+<span id="cb380-8"><a href="files-for-loops-and-functions.html#cb380-8"></a>some.odds</span></code></pre></div>
+<pre><code>##   [1]   1   3   5   7   9  11  13  15  17  19  21  23  25  27  29  31  33  35
+##  [19]  37  39  41  43  45  47  49  51  53  55  57  59  61  63  65  67  69  71
+##  [37]  73  75  77  79  81  83  85  87  89  91  93  95  97  99 101 103 105 107
+##  [55] 109 111 113 115 117 119 121 123 125 127 129 131 133 135 137 139 141 143
+##  [73] 145 147 149 151 153 155 157 159 161 163 165 167 169 171 173 175 177 179
+##  [91] 181 183 185 187 189 191 193 195 197 199</code></pre>
+<p>Technically, you don’t have to be so formal. But the indenting and braces are there for the protection of your future self.</p>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="files-for-loops-and-functions.html#cb382-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>) <span class="kw">print</span>(i)</span></code></pre></div>
+<pre><code>## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6
+## [1] 7
+## [1] 8
+## [1] 9
+## [1] 10</code></pre>
+</div>
+</div>
+<div id="functions-1" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> Functions</h2>
+<div id="the-basics" class="section level3" number="4.6.1">
+<h3><span class="header-section-number">4.6.1</span> The basics</h3>
+<ol style="list-style-type: decimal">
+<li>Use the ‘function’ command and assign it to an object</li>
+<li>If you need, specify the expected inputs</li>
+<li>Do some stuff</li>
+<li>Return something (and only one thing) to the global environment.</li>
+</ol>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="files-for-loops-and-functions.html#cb384-1"></a>my.function =<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb384-2"><a href="files-for-loops-and-functions.html#cb384-2"></a>  do stuff here</span>
+<span id="cb384-3"><a href="files-for-loops-and-functions.html#cb384-3"></a>  <span class="kw">return</span>(output)</span>
+<span id="cb384-4"><a href="files-for-loops-and-functions.html#cb384-4"></a>}</span></code></pre></div>
+<p>Here’s an example:</p>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="files-for-loops-and-functions.html#cb385-1"></a>countThrees =<span class="st"> </span><span class="cf">function</span>(vector) {</span>
+<span id="cb385-2"><a href="files-for-loops-and-functions.html#cb385-2"></a>  threes &lt;-<span class="st"> </span><span class="dv">0</span></span>
+<span id="cb385-3"><a href="files-for-loops-and-functions.html#cb385-3"></a>  <span class="cf">for</span>(i <span class="cf">in</span> vector) {</span>
+<span id="cb385-4"><a href="files-for-loops-and-functions.html#cb385-4"></a>    <span class="cf">if</span>(i <span class="op">==</span><span class="st"> </span><span class="dv">3</span>) {</span>
+<span id="cb385-5"><a href="files-for-loops-and-functions.html#cb385-5"></a>      threes &lt;-<span class="st"> </span>threes <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb385-6"><a href="files-for-loops-and-functions.html#cb385-6"></a>    }</span>
+<span id="cb385-7"><a href="files-for-loops-and-functions.html#cb385-7"></a>  }</span>
+<span id="cb385-8"><a href="files-for-loops-and-functions.html#cb385-8"></a>  <span class="kw">return</span>(threes)</span>
+<span id="cb385-9"><a href="files-for-loops-and-functions.html#cb385-9"></a>}</span>
+<span id="cb385-10"><a href="files-for-loops-and-functions.html#cb385-10"></a></span>
+<span id="cb385-11"><a href="files-for-loops-and-functions.html#cb385-11"></a>v &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb385-12"><a href="files-for-loops-and-functions.html#cb385-12"></a><span class="kw">countThrees</span>(v)</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>What would happen if we passed in one number instead of a vector?</p>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="files-for-loops-and-functions.html#cb387-1"></a><span class="kw">countThrees</span>(<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="files-for-loops-and-functions.html#cb389-1"></a><span class="kw">countThrees</span>(<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>Or a matrix?</p>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="files-for-loops-and-functions.html#cb391-1"></a>m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">24</span>, <span class="dv">4</span>, <span class="dv">6</span>)</span>
+<span id="cb391-2"><a href="files-for-loops-and-functions.html#cb391-2"></a><span class="kw">countThrees</span>(m)</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>If you want to return multiple values in R, you must put them in a vector or list and return the data structure instead.</p>
+<p>Remember that a list is essentially a vector that can contain different data types.</p>
+<p>Sometimes a function will return a value, but other times it will just execute a command like print or plot.</p>
+</div>
+</div>
+<div id="setting-defaults" class="section level2" number="4.7">
+<h2><span class="header-section-number">4.7</span> Setting defaults</h2>
+<p>You can set default values for some of your arguments or all of them</p>
+<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="files-for-loops-and-functions.html#cb393-1"></a>gaga.equation =<span class="st"> </span><span class="cf">function</span>(<span class="dt">num.rah=</span><span class="dv">2</span>, <span class="dt">num.ah=</span><span class="dv">3</span>, <span class="dt">num.ga=</span><span class="dv">2</span>, <span class="dt">num.la=</span><span class="dv">2</span>, <span class="dt">num.oo=</span><span class="dv">1</span>) {</span>
+<span id="cb393-2"><a href="files-for-loops-and-functions.html#cb393-2"></a>  rahs =<span class="st"> </span><span class="kw">paste</span>(<span class="kw">rep</span>(<span class="st">&quot;RAH&quot;</span>, num.rah), <span class="dt">collapse=</span><span class="st">&quot;, &quot;</span>)</span>
+<span id="cb393-3"><a href="files-for-loops-and-functions.html#cb393-3"></a>  ahs  =<span class="st"> </span><span class="kw">paste</span>(<span class="kw">rep</span>(<span class="st">&quot;AH&quot;</span>, num.ah), <span class="dt">collapse=</span><span class="st">&quot;, &quot;</span>)</span>
+<span id="cb393-4"><a href="files-for-loops-and-functions.html#cb393-4"></a>  gas  =<span class="st"> </span><span class="kw">paste</span>(<span class="kw">rep</span>(<span class="st">&quot;GA&quot;</span>, num.ga), <span class="dt">collapse=</span><span class="st">&quot;, &quot;</span>)</span>
+<span id="cb393-5"><a href="files-for-loops-and-functions.html#cb393-5"></a>  oo   =<span class="st"> </span><span class="kw">paste</span>(<span class="kw">rep</span>(<span class="st">&quot;OO&quot;</span>, num.oo), <span class="dt">collapse=</span><span class="st">&quot;, &quot;</span>)</span>
+<span id="cb393-6"><a href="files-for-loops-and-functions.html#cb393-6"></a>  las  =<span class="st"> </span><span class="kw">paste</span>(<span class="kw">rep</span>(<span class="st">&quot;LA&quot;</span>, num.la), <span class="dt">collapse=</span><span class="st">&quot;, &quot;</span>)</span>
+<span id="cb393-7"><a href="files-for-loops-and-functions.html#cb393-7"></a>  <span class="kw">paste</span>(rahs, <span class="st">&quot;,&quot;</span>, ahs,  <span class="st">&quot;!  ROMA, ROMAMA!&quot;</span>, gas, <span class="st">&quot;,&quot;</span>, oo, las)</span>
+<span id="cb393-8"><a href="files-for-loops-and-functions.html#cb393-8"></a>}</span>
+<span id="cb393-9"><a href="files-for-loops-and-functions.html#cb393-9"></a></span>
+<span id="cb393-10"><a href="files-for-loops-and-functions.html#cb393-10"></a><span class="kw">gaga.equation</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;RAH, RAH , AH, AH, AH !  ROMA, ROMAMA! GA, GA , OO LA, LA&quot;</code></pre>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="files-for-loops-and-functions.html#cb395-1"></a><span class="kw">gaga.equation</span>(<span class="dt">num.rah=</span><span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;RAH, RAH, RAH, RAH, RAH , AH, AH, AH !  ROMA, ROMAMA! GA, GA , OO LA, LA&quot;</code></pre>
+<p>If an argument (sometimes called a parameter) does not have a default value, it <em>must</em> be specified when the function is called.</p>
+</div>
+<div id="scope" class="section level2" number="4.8">
+<h2><span class="header-section-number">4.8</span> Scope</h2>
+<p>In the example above, if we tried to print rahs outside of the function, we would get an error. The variable rahs doesn’t exist in the global environment.</p>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="files-for-loops-and-functions.html#cb397-1"></a><span class="kw">print</span>(rahs)</span></code></pre></div>
+<p>What happens in the function, stays in the function</p>
+<p>Remember that for loop variables can be accessed after the loop.</p>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="files-for-loops-and-functions.html#cb398-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>) {</span>
+<span id="cb398-2"><a href="files-for-loops-and-functions.html#cb398-2"></a>  <span class="kw">print</span>(i<span class="op">+</span><span class="dv">2</span>)</span>
+<span id="cb398-3"><a href="files-for-loops-and-functions.html#cb398-3"></a>}</span></code></pre></div>
+<pre><code>## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6</code></pre>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="files-for-loops-and-functions.html#cb400-1"></a><span class="kw">print</span>(i)</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p>Note that i equals 4 (its last loop value) after the loop is finished.</p>
+<p>This is different from functions because the only way to retain access to a local variable that was created in the function is to return it.</p>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="files-for-loops-and-functions.html#cb402-1"></a>a &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb402-2"><a href="files-for-loops-and-functions.html#cb402-2"></a>outer_func &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
+<span id="cb402-3"><a href="files-for-loops-and-functions.html#cb402-3"></a>  a &lt;-<span class="st"> </span><span class="dv">20</span></span>
+<span id="cb402-4"><a href="files-for-loops-and-functions.html#cb402-4"></a>  inner_func &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
+<span id="cb402-5"><a href="files-for-loops-and-functions.html#cb402-5"></a>    a &lt;-<span class="st"> </span><span class="dv">30</span></span>
+<span id="cb402-6"><a href="files-for-loops-and-functions.html#cb402-6"></a>    <span class="kw">print</span>(a)</span>
+<span id="cb402-7"><a href="files-for-loops-and-functions.html#cb402-7"></a>  }</span>
+<span id="cb402-8"><a href="files-for-loops-and-functions.html#cb402-8"></a>  <span class="kw">inner_func</span>()</span>
+<span id="cb402-9"><a href="files-for-loops-and-functions.html#cb402-9"></a>  <span class="kw">print</span>(a)</span>
+<span id="cb402-10"><a href="files-for-loops-and-functions.html#cb402-10"></a>}</span>
+<span id="cb402-11"><a href="files-for-loops-and-functions.html#cb402-11"></a><span class="kw">outer_func</span>()</span></code></pre></div>
+<pre><code>## [1] 30
+## [1] 20</code></pre>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="files-for-loops-and-functions.html#cb404-1"></a>a</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<p>If you try to run inner_func(), it will say “Error in inner_func() : could not find function”inner_func"" because that function is <em>actually</em>
+a local object inside the function outer_func. That means that outer_func is the only place that can use inner_func.</p>
+<p>Scope kind of works like a bunch of one way mirrors. If I write a function, it can access all global variables and local (to the function) variables,
+but the global environment can only access global variables. In the above code example, inner_func can access all of its variables, all of outer_func’s variables,
+and the global environment variables as well.</p>
+<div id="advanced-scope-topics" class="section level3" number="4.8.1">
+<h3><span class="header-section-number">4.8.1</span> Advanced scope topics</h3>
+<p>In R, there’s a superassignment operator which is &lt;&lt;-</p>
+<p>This assigns the variable to one environment up from its current location. Check out these examples and try to follow along with the environments.</p>
+<p>This example will replace the global variable a (which used to store 10) with 20 from the outer_func code. Printing a at the end of the script will print 20 this time.</p>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="files-for-loops-and-functions.html#cb406-1"></a>a &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb406-2"><a href="files-for-loops-and-functions.html#cb406-2"></a>outer_func &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
+<span id="cb406-3"><a href="files-for-loops-and-functions.html#cb406-3"></a>  a &lt;&lt;-<span class="st"> </span><span class="dv">20</span></span>
+<span id="cb406-4"><a href="files-for-loops-and-functions.html#cb406-4"></a>  inner_func &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
+<span id="cb406-5"><a href="files-for-loops-and-functions.html#cb406-5"></a>    a &lt;-<span class="st"> </span><span class="dv">30</span></span>
+<span id="cb406-6"><a href="files-for-loops-and-functions.html#cb406-6"></a>    <span class="kw">print</span>(a)</span>
+<span id="cb406-7"><a href="files-for-loops-and-functions.html#cb406-7"></a>  }</span>
+<span id="cb406-8"><a href="files-for-loops-and-functions.html#cb406-8"></a>  <span class="kw">inner_func</span>()</span>
+<span id="cb406-9"><a href="files-for-loops-and-functions.html#cb406-9"></a>  <span class="kw">print</span>(a)</span>
+<span id="cb406-10"><a href="files-for-loops-and-functions.html#cb406-10"></a>}</span>
+<span id="cb406-11"><a href="files-for-loops-and-functions.html#cb406-11"></a><span class="kw">outer_func</span>()</span></code></pre></div>
+<pre><code>## [1] 30
+## [1] 20</code></pre>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="files-for-loops-and-functions.html#cb408-1"></a>a</span></code></pre></div>
+<pre><code>## [1] 20</code></pre>
+<p>This example will replace a from the outer_func environment with the value 30 so when outer_func prints a, it will now contain 30.</p>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="files-for-loops-and-functions.html#cb410-1"></a>a &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb410-2"><a href="files-for-loops-and-functions.html#cb410-2"></a>outer_func &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
+<span id="cb410-3"><a href="files-for-loops-and-functions.html#cb410-3"></a>  a &lt;-<span class="st"> </span><span class="dv">20</span></span>
+<span id="cb410-4"><a href="files-for-loops-and-functions.html#cb410-4"></a>  inner_func &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
+<span id="cb410-5"><a href="files-for-loops-and-functions.html#cb410-5"></a>    a &lt;&lt;-<span class="st"> </span><span class="dv">30</span></span>
+<span id="cb410-6"><a href="files-for-loops-and-functions.html#cb410-6"></a>    <span class="kw">print</span>(a)</span>
+<span id="cb410-7"><a href="files-for-loops-and-functions.html#cb410-7"></a>  }</span>
+<span id="cb410-8"><a href="files-for-loops-and-functions.html#cb410-8"></a>  <span class="kw">inner_func</span>()</span>
+<span id="cb410-9"><a href="files-for-loops-and-functions.html#cb410-9"></a>  <span class="kw">print</span>(a)</span>
+<span id="cb410-10"><a href="files-for-loops-and-functions.html#cb410-10"></a>}</span>
+<span id="cb410-11"><a href="files-for-loops-and-functions.html#cb410-11"></a><span class="kw">outer_func</span>()</span></code></pre></div>
+<pre><code>## [1] 30
+## [1] 30</code></pre>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="files-for-loops-and-functions.html#cb412-1"></a>a</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+</div>
+</div>
+<div id="debugging" class="section level2" number="4.9">
+<h2><span class="header-section-number">4.9</span> Debugging</h2>
+<ul>
+<li><code>traceback</code> will help you identify the function that is failing</li>
+<li><code>debug</code>, <code>debugonce</code> will go through a function one line at a time</li>
+<li><code>browser</code> This let’s you work within the function environment starting at a specified point</li>
+</ul>
+<p>Here’s an example to help us practice our debugging skills:</p>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="files-for-loops-and-functions.html#cb414-1"></a>webData&lt;-<span class="kw">url</span>(<span class="st">&quot;http://pages.wustl.edu/montgomery/incumbents2.txt&quot;</span>)</span>
+<span id="cb414-2"><a href="files-for-loops-and-functions.html#cb414-2"></a>OOS &lt;-<span class="st"> </span><span class="kw">read.table</span>(webData)</span>
+<span id="cb414-3"><a href="files-for-loops-and-functions.html#cb414-3"></a><span class="kw">summary</span>(OOS)</span></code></pre></div>
+<pre><code>##        x             year         congress        chalspend     
+##  Min.   :   1   Min.   :1956   Min.   : 84.00   Min.   : 8.517  
+##  1st Qu.:1672   1st Qu.:1968   1st Qu.: 90.00   1st Qu.: 9.315  
+##  Median :3347   Median :1978   Median : 95.00   Median :10.998  
+##  Mean   :3348   Mean   :1977   Mean   : 94.42   Mean   :10.880  
+##  3rd Qu.:5024   3rd Qu.:1988   3rd Qu.:100.00   3rd Qu.:12.366  
+##  Max.   :6695   Max.   :1996   Max.   :104.00   Max.   :15.039  
+##                                                 NA&#39;s   :3380    
+##     incspend         difflog          presvote         voteshare     
+##  Min.   : 8.586   Min.   :-3.060   Min.   :0.06565   Min.   :0.3476  
+##  1st Qu.:12.304   1st Qu.: 0.686   1st Qu.:0.46894   1st Qu.:0.5740  
+##  Median :12.839   Median : 1.651   Median :0.55519   Median :0.6450  
+##  Mean   :12.759   Mean   : 1.858   Mean   :0.55335   Mean   :0.6470  
+##  3rd Qu.:13.266   3rd Qu.: 3.025   3rd Qu.:0.63425   3rd Qu.:0.7141  
+##  Max.   :15.422   Max.   : 5.856   Max.   :0.96061   Max.   :0.9997  
+##  NA&#39;s   :3374     NA&#39;s   :3436                       NA&#39;s   :125     
+##     inparty          incparty       seniority         midterm      
+##  Min.   :0.0000   Min.   :0.000   Min.   : 1.000   Min.   :0.0000  
+##  1st Qu.:0.0000   1st Qu.:0.000   1st Qu.: 2.000   1st Qu.:0.0000  
+##  Median :0.0000   Median :1.000   Median : 4.000   Median :0.0000  
+##  Mean   :0.4942   Mean   :0.563   Mean   : 4.949   Mean   :0.2327  
+##  3rd Qu.:1.0000   3rd Qu.:1.000   3rd Qu.: 7.000   3rd Qu.:0.0000  
+##  Max.   :1.0000   Max.   :1.000   Max.   :26.000   Max.   :1.0000  
+##                                                                    
+##   chalquality         south          population        urban       
+##  Min.   :0.0000   Min.   :0.0000   Min.   :11.98   Min.   : 5.956  
+##  1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:12.92   1st Qu.:12.325  
+##  Median :0.0000   Median :0.0000   Median :13.06   Median :12.728  
+##  Mean   :0.2348   Mean   :0.2378   Mean   :13.04   Mean   :12.612  
+##  3rd Qu.:0.0000   3rd Qu.:0.0000   3rd Qu.:13.16   3rd Qu.:13.006  
+##  Max.   :1.0000   Max.   :1.0000   Max.   :17.08   Max.   :16.481  
+##  NA&#39;s   :5                         NA&#39;s   :2       NA&#39;s   :2       
+##      age65            milpop         unemployed       incspend2      
+##  Min.   : 8.164   Min.   : 3.045   Min.   : 7.425   Min.   :   5355  
+##  1st Qu.:10.452   1st Qu.: 5.517   1st Qu.: 8.816   1st Qu.: 220620  
+##  Median :10.760   Median : 6.246   Median : 9.142   Median : 376741  
+##  Mean   :10.819   Mean   : 6.777   Mean   : 9.170   Mean   : 450124  
+##  3rd Qu.:11.215   3rd Qu.: 8.077   3rd Qu.: 9.544   3rd Qu.: 577283  
+##  Max.   :14.552   Max.   :12.691   Max.   :13.147   Max.   :4987593  
+##  NA&#39;s   :2        NA&#39;s   :2        NA&#39;s   :2        NA&#39;s   :3374</code></pre>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="files-for-loops-and-functions.html#cb416-1"></a><span class="kw">boxplot</span>(voteshare<span class="op">~</span>inparty, <span class="dt">data=</span>OOS[OOS<span class="op">$</span>year<span class="op">==</span><span class="dv">1956</span>,])</span></code></pre></div>
+<p><img src="images/unnamed-chunk-104-1.png" width="672" /></p>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="files-for-loops-and-functions.html#cb417-1"></a><span class="kw">plot</span>(voteshare<span class="op">~</span>inparty, <span class="dt">data=</span>OOS[OOS<span class="op">$</span>year<span class="op">==</span><span class="dv">1956</span>,])</span></code></pre></div>
+<p><img src="images/unnamed-chunk-104-2.png" width="672" /></p>
+<p>Running a regression by year: Do you see a pattern?</p>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="files-for-loops-and-functions.html#cb418-1"></a>output.vector&lt;-<span class="ot">NULL</span></span>
+<span id="cb418-2"><a href="files-for-loops-and-functions.html#cb418-2"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">unique</span>(OOS<span class="op">$</span>year)){</span>
+<span id="cb418-3"><a href="files-for-loops-and-functions.html#cb418-3"></a>    output.vector[<span class="kw">which</span>(<span class="kw">unique</span>(OOS<span class="op">$</span>year) <span class="op">==</span><span class="st"> </span>i)]&lt;-<span class="st"> </span></span>
+<span id="cb418-4"><a href="files-for-loops-and-functions.html#cb418-4"></a><span class="st">      </span><span class="kw">lm</span>(voteshare <span class="op">~</span><span class="st"> </span>inparty, <span class="dt">data=</span>OOS[OOS<span class="op">$</span>year <span class="op">==</span><span class="st"> </span>i,])<span class="op">$</span>coefficients[<span class="dv">2</span>]</span>
+<span id="cb418-5"><a href="files-for-loops-and-functions.html#cb418-5"></a>}</span>
+<span id="cb418-6"><a href="files-for-loops-and-functions.html#cb418-6"></a><span class="kw">plot</span>(<span class="kw">unique</span>(OOS<span class="op">$</span>year), output.vector, <span class="dt">type=</span><span class="st">&quot;l&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Coefficient (President&#39;s party)&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Year&quot;</span>) </span>
+<span id="cb418-7"><a href="files-for-loops-and-functions.html#cb418-7"></a><span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>, <span class="dt">lty=</span><span class="dv">3</span>)</span></code></pre></div>
+<p><img src="images/unnamed-chunk-105-1.png" width="672" /></p>
+<ul>
+<li>Now we might think – there is a more general case where I want to get a bunch of seperate regression estimates on defined subsets of the data</li>
+</ul>
+<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="files-for-loops-and-functions.html#cb419-1"></a>by.var.lm&lt;-<span class="cf">function</span>(by.var, formula, data, coef.num){</span>
+<span id="cb419-2"><a href="files-for-loops-and-functions.html#cb419-2"></a>  output.vector&lt;-<span class="ot">NULL</span></span>
+<span id="cb419-3"><a href="files-for-loops-and-functions.html#cb419-3"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">unique</span>(by.var)){</span>
+<span id="cb419-4"><a href="files-for-loops-and-functions.html#cb419-4"></a>    output.vector[<span class="kw">which</span>(<span class="kw">unique</span>(by.var) <span class="op">==</span><span class="st"> </span>i)]&lt;-<span class="st"> </span></span>
+<span id="cb419-5"><a href="files-for-loops-and-functions.html#cb419-5"></a><span class="st">      </span><span class="kw">lm</span>(formula, <span class="dt">data=</span>data[by.var <span class="op">==</span><span class="st"> </span>i,])<span class="op">$</span>coefficients[coef.num]</span>
+<span id="cb419-6"><a href="files-for-loops-and-functions.html#cb419-6"></a>  }</span>
+<span id="cb419-7"><a href="files-for-loops-and-functions.html#cb419-7"></a>  <span class="kw">return</span>(output.vector)</span>
+<span id="cb419-8"><a href="files-for-loops-and-functions.html#cb419-8"></a>}</span>
+<span id="cb419-9"><a href="files-for-loops-and-functions.html#cb419-9"></a><span class="kw">plot</span>(<span class="kw">by.var.lm</span>(year, voteshare<span class="op">~</span>inparty, OOS, <span class="dv">2</span>), <span class="dt">type=</span><span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<p>This is not working, what to do?</p>
+<ul>
+<li>As a first step, figure out where it’s broken using <code>traceback</code></li>
+</ul>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="files-for-loops-and-functions.html#cb420-1"></a><span class="kw">traceback</span>(<span class="kw">by.var.lm</span>(year, voteshare<span class="op">~</span>inparty, OOS, <span class="dv">2</span>))</span></code></pre></div>
+<ul>
+<li>A second thing to try is to use <code>debug</code></li>
+</ul>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="files-for-loops-and-functions.html#cb421-1"></a><span class="kw">debug</span>(by.var.lm)</span></code></pre></div>
+<ul>
+<li>A second thing to try is to put a <code>broswer</code> function into the function itself</li>
+</ul>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="files-for-loops-and-functions.html#cb422-1"></a><span class="kw">browser</span>()</span></code></pre></div>
+<ul>
+<li>Another thing to try is just put in some various print commands</li>
+</ul>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="files-for-loops-and-functions.html#cb423-1"></a>by.var.lm&lt;-<span class="cf">function</span>(by.var, formula, data, coef.num){</span>
+<span id="cb423-2"><a href="files-for-loops-and-functions.html#cb423-2"></a>  output.vector&lt;-<span class="ot">NULL</span>; <span class="kw">print</span>(<span class="st">&quot;one&quot;</span>)</span>
+<span id="cb423-3"><a href="files-for-loops-and-functions.html#cb423-3"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">unique</span>(by.var)){ </span>
+<span id="cb423-4"><a href="files-for-loops-and-functions.html#cb423-4"></a>    <span class="kw">print</span>(i) <span class="co"># I can see where I get to in the loop</span></span>
+<span id="cb423-5"><a href="files-for-loops-and-functions.html#cb423-5"></a>    output.vector[<span class="kw">which</span>(<span class="kw">unique</span>(by.var) <span class="op">==</span><span class="st"> </span>i)]&lt;-<span class="st"> </span></span>
+<span id="cb423-6"><a href="files-for-loops-and-functions.html#cb423-6"></a><span class="st">      </span><span class="kw">lm</span>(formula, <span class="dt">data=</span>data[by.var <span class="op">==</span><span class="st"> </span>i,])<span class="op">$</span>coefficients[coef.num]</span>
+<span id="cb423-7"><a href="files-for-loops-and-functions.html#cb423-7"></a>  }</span>
+<span id="cb423-8"><a href="files-for-loops-and-functions.html#cb423-8"></a>  <span class="kw">print</span>(<span class="st">&#39;got out of loop&#39;</span>)</span>
+<span id="cb423-9"><a href="files-for-loops-and-functions.html#cb423-9"></a>  <span class="kw">return</span>(output.vector)</span>
+<span id="cb423-10"><a href="files-for-loops-and-functions.html#cb423-10"></a>}</span>
+<span id="cb423-11"><a href="files-for-loops-and-functions.html#cb423-11"></a><span class="kw">plot</span>(<span class="kw">by.var.lm</span>(year, voteshare<span class="op">~</span>inparty, OOS, <span class="dv">2</span>), <span class="dt">type=</span><span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<p>So now I have a function that works, can I use it again?</p>
+<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="files-for-loops-and-functions.html#cb424-1"></a>website&lt;-<span class="kw">url</span>(<span class="st">&quot;http://pages.wustl.edu/montgomery/titanic&quot;</span>)</span>
+<span id="cb424-2"><a href="files-for-loops-and-functions.html#cb424-2"></a>titanic&lt;-<span class="kw">read.delim</span>(website)</span>
+<span id="cb424-3"><a href="files-for-loops-and-functions.html#cb424-3"></a><span class="kw">table</span>(titanic<span class="op">$</span>Gender)</span>
+<span id="cb424-4"><a href="files-for-loops-and-functions.html#cb424-4"></a><span class="kw">table</span>(titanic<span class="op">$</span>Class)</span></code></pre></div>
+<p>Make this work</p>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="files-for-loops-and-functions.html#cb425-1"></a><span class="kw">by.var.lm</span>(Class, (<span class="kw">as.numeric</span>(Survived)<span class="op">-</span><span class="dv">1</span>) <span class="op">~</span><span class="st"> </span>Gender, titanic, <span class="dv">2</span>)</span></code></pre></div>
+</div>
+<div id="benchmarking-and-code-improvements" class="section level2" number="4.10">
+<h2><span class="header-section-number">4.10</span> Benchmarking and code improvements</h2>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="files-for-loops-and-functions.html#cb426-1"></a>x &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">500</span>)</span>
+<span id="cb426-2"><a href="files-for-loops-and-functions.html#cb426-2"></a><span class="kw">system.time</span>(<span class="kw">sqrt</span>(x))</span></code></pre></div>
+<pre><code>##    user  system elapsed 
+##       0       0       0</code></pre>
+<p>The goal is to see how long a function takes to evaluate</p>
+<p>Much better: microbenchmark</p>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="files-for-loops-and-functions.html#cb428-1"></a><span class="kw">library</span>(microbenchmark)</span></code></pre></div>
+<pre><code>## Warning: package &#39;microbenchmark&#39; was built under R version 3.5.3</code></pre>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="files-for-loops-and-functions.html#cb430-1"></a><span class="kw">microbenchmark</span>(<span class="kw">sqrt</span>(x)) <span class="co"># evaluates 100 times per default</span></span></code></pre></div>
+<pre><code>## Unit: microseconds
+##     expr min   lq   mean median    uq   max neval
+##  sqrt(x) 5.9 6.65 21.375   7.75 11.25 587.9   100</code></pre>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="files-for-loops-and-functions.html#cb432-1"></a><span class="kw">microbenchmark</span>(<span class="kw">sqrt</span>(x), <span class="dt">times=</span><span class="dv">1000</span>)</span></code></pre></div>
+<pre><code>## Unit: microseconds
+##     expr min  lq    mean median    uq   max neval
+##  sqrt(x)   4 7.1 10.1551    9.3 11.85 384.1  1000</code></pre>
+<p>Now we can compare different functions</p>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="files-for-loops-and-functions.html#cb434-1"></a><span class="kw">microbenchmark</span>(<span class="kw">sqrt</span>(x), </span>
+<span id="cb434-2"><a href="files-for-loops-and-functions.html#cb434-2"></a>               x<span class="op">^</span><span class="fl">0.5</span>,</span>
+<span id="cb434-3"><a href="files-for-loops-and-functions.html#cb434-3"></a>               <span class="dt">times=</span><span class="dv">1000</span>)</span></code></pre></div>
+<pre><code>## Unit: microseconds
+##     expr  min   lq    mean median    uq   max neval
+##  sqrt(x)  3.4  3.6  5.4844    3.8  6.90  28.6  1000
+##    x^0.5 26.5 26.8 32.9857   27.2 39.65 174.3  1000</code></pre>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="files-for-loops-and-functions.html#cb436-1"></a><span class="kw">microbenchmark</span>(<span class="kw">sqrt</span>(x), x<span class="op">^</span><span class="fl">0.5</span>, x<span class="op">^</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>), <span class="kw">exp</span>(<span class="kw">log</span>(x)<span class="op">/</span><span class="dv">2</span>),</span>
+<span id="cb436-2"><a href="files-for-loops-and-functions.html#cb436-2"></a>               <span class="dt">times=</span><span class="dv">1000</span>)</span></code></pre></div>
+<pre><code>## Unit: microseconds
+##           expr  min   lq    mean median   uq   max neval
+##        sqrt(x)  3.3  3.5  4.3613   3.60  3.8  18.1  1000
+##          x^0.5 25.4 25.7 29.0222  26.20 27.2 121.2  1000
+##        x^(1/2) 25.7 26.0 28.7654  26.45 27.5  72.8  1000
+##  exp(log(x)/2) 59.8 60.1 64.4008  61.05 63.3 130.7  1000</code></pre>
+<p>And also completely different functions</p>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="files-for-loops-and-functions.html#cb438-1"></a><span class="kw">microbenchmark</span>(<span class="kw">sqrt</span>(x), x<span class="op">^</span><span class="dv">4-3</span><span class="op">*</span>x)</span></code></pre></div>
+<pre><code>## Unit: microseconds
+##         expr  min    lq    mean median     uq   max neval
+##      sqrt(x)  6.4 11.20  13.419  11.75  14.45  23.8   100
+##  x^4 - 3 * x 60.7 89.65 108.814  98.50 103.45 690.0   100</code></pre>
+<p>For ease of interpretation, if a microbenchmark takes
+- 1 millisecond, then 1,000 calls take a second
+- 1 microsecond, then 1,000,000 calls take a second
+- 1 nanosecond, then 1,000,000,000 calls take a second</p>
+<p>Or use unit=eps for evaluations per second</p>
+<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="files-for-loops-and-functions.html#cb440-1"></a><span class="kw">microbenchmark</span>(<span class="kw">sqrt</span>(x), x<span class="op">^</span><span class="fl">0.5</span>, x<span class="op">^</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>), <span class="kw">exp</span>(<span class="kw">log</span>(x)<span class="op">/</span><span class="dv">2</span>),</span>
+<span id="cb440-2"><a href="files-for-loops-and-functions.html#cb440-2"></a>               <span class="dt">unit=</span><span class="st">&quot;eps&quot;</span>)</span></code></pre></div>
+<pre><code>## Unit: evaluations per second
+##           expr       min       lq      mean    median        uq       max neval
+##        sqrt(x) 16920.474 97581.87 149731.37 130724.54 210549.65 277777.78   100
+##          x^0.5  5120.328 21413.28  25040.59  23894.90  28090.11  37593.98   100
+##        x^(1/2)  4152.824 21322.06  25368.75  23175.00  29243.77  36900.37   100
+##  exp(log(x)/2)  5302.227 12113.87  12978.25  12828.74  15026.30  15974.44   100</code></pre>
+<ul>
+<li>Evaluating every function takes time</li>
+<li>Evaluating () or {} takes time</li>
+<li>Even specifying useless arguments in functions takes time!</li>
+</ul>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="files-for-loops-and-functions.html#cb442-1"></a>f0 &lt;-<span class="st"> </span><span class="cf">function</span>() <span class="ot">NULL</span></span>
+<span id="cb442-2"><a href="files-for-loops-and-functions.html#cb442-2"></a>f1 &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">a=</span><span class="dv">1</span>) <span class="ot">NULL</span></span>
+<span id="cb442-3"><a href="files-for-loops-and-functions.html#cb442-3"></a>f2 &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">a=</span><span class="dv">1</span>, <span class="dt">b=</span><span class="dv">2</span>) <span class="ot">NULL</span></span>
+<span id="cb442-4"><a href="files-for-loops-and-functions.html#cb442-4"></a>f3 &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">a=</span><span class="dv">1</span>, <span class="dt">b=</span><span class="dv">2</span>, <span class="dt">c=</span><span class="dv">3</span>) <span class="ot">NULL</span></span>
+<span id="cb442-5"><a href="files-for-loops-and-functions.html#cb442-5"></a>f4 &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">a=</span><span class="dv">1</span>, <span class="dt">b=</span><span class="dv">2</span>, <span class="dt">c=</span><span class="dv">3</span>, <span class="dt">d=</span><span class="dv">4</span>) <span class="ot">NULL</span></span>
+<span id="cb442-6"><a href="files-for-loops-and-functions.html#cb442-6"></a>f5 &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">a=</span><span class="dv">1</span>, <span class="dt">b=</span><span class="dv">2</span>, <span class="dt">c=</span><span class="dv">3</span>, <span class="dt">d=</span><span class="dv">4</span>, <span class="dt">e=</span><span class="dv">5</span>) <span class="ot">NULL</span></span>
+<span id="cb442-7"><a href="files-for-loops-and-functions.html#cb442-7"></a></span>
+<span id="cb442-8"><a href="files-for-loops-and-functions.html#cb442-8"></a><span class="kw">microbenchmark</span>(<span class="kw">f0</span>(), <span class="kw">f1</span>(), <span class="kw">f2</span>(), <span class="kw">f3</span>(), <span class="kw">f4</span>(), <span class="kw">f5</span>(), <span class="dt">times=</span><span class="dv">10000</span>)</span></code></pre></div>
+<pre><code>## Unit: nanoseconds
+##  expr min  lq   mean median  uq     max neval
+##  f0() 100 200 337.99    200 300  593900 10000
+##  f1() 200 200 386.04    300 300  641700 10000
+##  f2() 200 300 447.59    300 300  900200 10000
+##  f3() 200 300 513.15    300 400 1074400 10000
+##  f4() 300 300 527.23    400 400  687800 10000
+##  f5() 300 400 576.22    400 500  706700 10000</code></pre>
+<p>Extracting one element of a data frame</p>
+<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="files-for-loops-and-functions.html#cb444-1"></a><span class="kw">microbenchmark</span>(</span>
+<span id="cb444-2"><a href="files-for-loops-and-functions.html#cb444-2"></a>  <span class="st">&quot;[32, 11]&quot;</span> =<span class="st"> </span>mtcars[<span class="dv">32</span>,<span class="dv">11</span>],</span>
+<span id="cb444-3"><a href="files-for-loops-and-functions.html#cb444-3"></a>  <span class="st">&quot;$carb[32]&quot;</span>   =<span class="st"> </span>mtcars<span class="op">$</span>carb[<span class="dv">32</span>],</span>
+<span id="cb444-4"><a href="files-for-loops-and-functions.html#cb444-4"></a>  <span class="st">&quot;[[c(11, 32)]]&quot;</span> =<span class="st"> </span>mtcars[[<span class="kw">c</span>(<span class="dv">11</span>,<span class="dv">32</span>)]],</span>
+<span id="cb444-5"><a href="files-for-loops-and-functions.html#cb444-5"></a>  <span class="st">&quot;[[11]][32]&quot;</span> =<span class="st"> </span>mtcars[[<span class="dv">11</span>]][<span class="dv">32</span>],</span>
+<span id="cb444-6"><a href="files-for-loops-and-functions.html#cb444-6"></a>  <span class="st">&quot;.subset2&quot;</span> =<span class="st"> </span><span class="kw">.subset2</span>(mtcars,<span class="dv">11</span>)[<span class="dv">32</span>])</span></code></pre></div>
+<pre><code>## Unit: nanoseconds
+##           expr   min    lq   mean median    uq      max neval
+##       [32, 11] 24900 25900 348496  26450 27200 32183900   100
+##      $carb[32] 13100 13900  14809  14500 15200    26500   100
+##  [[c(11, 32)]] 11800 12300  12980  12800 13250    19900   100
+##     [[11]][32] 10800 11500  12189  11750 12450    31100   100
+##       .subset2   800   900    990    950  1000     4000   100</code></pre>
+<div id="vectorizing" class="section level3" number="4.10.1">
+<h3><span class="header-section-number">4.10.1</span> Vectorizing</h3>
+<ul>
+<li>The key idea behind vectorizing your code is to think about entire</li>
+<li>vectors instead of thinking about their components. Using apply and co</li>
+<li>instead of for loops is a start, but does not really solve this issue.</li>
+<li>Truly vectorized functions will make use of code written in C instead
+of R. Loops in C are much faster because they have much less overhead.</li>
+</ul>
+<p>Addition on each element of a data frame</p>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="files-for-loops-and-functions.html#cb446-1"></a><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</span>
+<span id="cb446-2"><a href="files-for-loops-and-functions.html#cb446-2"></a>m=<span class="dv">5</span></span>
+<span id="cb446-3"><a href="files-for-loops-and-functions.html#cb446-3"></a>n=<span class="dv">5</span></span>
+<span id="cb446-4"><a href="files-for-loops-and-functions.html#cb446-4"></a>matrix1 &lt;-<span class="st"> </span><span class="kw">replicate</span>(m, <span class="kw">rnorm</span>(n)) <span class="co"># create matrix</span></span>
+<span id="cb446-5"><a href="files-for-loops-and-functions.html#cb446-5"></a>matdf &lt;-<span class="st"> </span>matdf1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(matrix1) </span>
+<span id="cb446-6"><a href="files-for-loops-and-functions.html#cb446-6"></a>matdf</span></code></pre></div>
+<pre><code>##            X1          X2         X3          X4         X5
+## 1 -0.07778553  0.43231270  0.1279940 -0.91339753 -1.2309031
+## 2 -1.52619374  0.45000785 -0.2077954 -0.06150228 -1.5078484
+## 3 -0.94491423 -0.73735421 -0.5689467 -0.58150976  0.6557870
+## 4 -0.67456457  0.66259123  2.2303519 -0.72535140  1.1292385
+## 5 -1.12632826 -0.06773194 -0.9063351  0.41382803 -0.5768318</code></pre>
+<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="files-for-loops-and-functions.html#cb448-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>m) {</span>
+<span id="cb448-2"><a href="files-for-loops-and-functions.html#cb448-2"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n) {</span>
+<span id="cb448-3"><a href="files-for-loops-and-functions.html#cb448-3"></a>    matdf1[i,j] &lt;-<span class="st"> </span>matdf1[i,j] <span class="op">+</span><span class="st"> </span><span class="fl">1.87</span><span class="op">*</span><span class="kw">cos</span>(.<span class="dv">25</span>)<span class="op">*</span>pi <span class="co"># addition</span></span>
+<span id="cb448-4"><a href="files-for-loops-and-functions.html#cb448-4"></a>  }</span>
+<span id="cb448-5"><a href="files-for-loops-and-functions.html#cb448-5"></a>}</span>
+<span id="cb448-6"><a href="files-for-loops-and-functions.html#cb448-6"></a>matdf1</span></code></pre></div>
+<pre><code>##         X1       X2       X3       X4       X5
+## 1 5.614360 6.124458 5.820140 4.778748 4.461243
+## 2 4.165952 6.142153 5.484350 5.630643 4.184297
+## 3 4.747231 4.954791 5.123199 5.110636 6.347933
+## 4 5.017581 6.354737 7.922498 4.966794 6.821384
+## 5 4.565817 5.624414 4.785810 6.105974 5.115314</code></pre>
+<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="files-for-loops-and-functions.html#cb450-1"></a>matdf2&lt;-<span class="kw">data.frame</span>(matrix1) </span>
+<span id="cb450-2"><a href="files-for-loops-and-functions.html#cb450-2"></a>matdf2 &lt;-<span class="st"> </span>matdf2 <span class="op">+</span><span class="st"> </span><span class="fl">1.87</span><span class="op">*</span><span class="kw">cos</span>(.<span class="dv">25</span>)<span class="op">*</span>pi</span>
+<span id="cb450-3"><a href="files-for-loops-and-functions.html#cb450-3"></a>matdf2</span></code></pre></div>
+<pre><code>##         X1       X2       X3       X4       X5
+## 1 5.614360 6.124458 5.820140 4.778748 4.461243
+## 2 4.165952 6.142153 5.484350 5.630643 4.184297
+## 3 4.747231 4.954791 5.123199 5.110636 6.347933
+## 4 5.017581 6.354737 7.922498 4.966794 6.821384
+## 5 4.565817 5.624414 4.785810 6.105974 5.115314</code></pre>
+<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="files-for-loops-and-functions.html#cb452-1"></a><span class="kw">microbenchmark</span>(</span>
+<span id="cb452-2"><a href="files-for-loops-and-functions.html#cb452-2"></a>  <span class="st">&quot;loop&quot;</span> =<span class="st"> </span><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>m) {</span>
+<span id="cb452-3"><a href="files-for-loops-and-functions.html#cb452-3"></a>    <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n) {</span>
+<span id="cb452-4"><a href="files-for-loops-and-functions.html#cb452-4"></a>      matdf[i,j] &lt;-<span class="st"> </span>matdf[i,j] <span class="op">+</span><span class="st"> </span><span class="fl">1.87</span><span class="op">*</span><span class="kw">cos</span>(.<span class="dv">25</span>)<span class="op">*</span>pi</span>
+<span id="cb452-5"><a href="files-for-loops-and-functions.html#cb452-5"></a>    }</span>
+<span id="cb452-6"><a href="files-for-loops-and-functions.html#cb452-6"></a>  }, </span>
+<span id="cb452-7"><a href="files-for-loops-and-functions.html#cb452-7"></a>  <span class="st">&quot;vectorized&quot;</span> =<span class="st"> </span>matdf &lt;-<span class="st"> </span>matdf <span class="op">+</span><span class="st"> </span><span class="fl">1.87</span><span class="op">*</span><span class="kw">cos</span>(.<span class="dv">25</span>)<span class="op">*</span>pi</span>
+<span id="cb452-8"><a href="files-for-loops-and-functions.html#cb452-8"></a>)</span></code></pre></div>
+<pre><code>## Unit: microseconds
+##        expr    min      lq     mean median      uq     max neval
+##        loop 5366.2 5969.45 7805.641 6798.9 8968.00 16820.1   100
+##  vectorized  404.5  493.55  669.941  551.2  758.25  3326.5   100</code></pre>
+<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="files-for-loops-and-functions.html#cb454-1"></a>mat1 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">abs</span>(<span class="kw">rnorm</span>(<span class="dv">2500</span>))<span class="op">+</span>pi, <span class="dt">ncol=</span><span class="dv">50</span>)</span>
+<span id="cb454-2"><a href="files-for-loops-and-functions.html#cb454-2"></a><span class="kw">apply</span>(mat1, <span class="dv">1</span>, <span class="cf">function</span>(x) <span class="kw">sum</span>(x))</span></code></pre></div>
+<pre><code>##  [1] 194.8096 204.8822 197.3153 192.4018 196.6625 192.5852 193.2425 201.7118
+##  [9] 196.4526 196.6419 194.1449 202.5825 195.7494 205.7409 195.1875 195.6279
+## [17] 199.2471 200.5217 198.7608 199.6268 199.9695 196.4705 196.4074 192.7243
+## [25] 199.8465 191.6384 197.4259 197.9369 193.8839 204.1487 195.4205 198.7937
+## [33] 197.9618 196.5413 200.9751 198.6197 200.6566 200.2023 199.9370 201.3143
+## [41] 194.7500 195.8093 200.7760 195.9669 187.1380 195.2629 195.4698 203.2659
+## [49] 203.5267 196.1555</code></pre>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="files-for-loops-and-functions.html#cb456-1"></a><span class="kw">rowSums</span>(mat1)</span></code></pre></div>
+<pre><code>##  [1] 194.8096 204.8822 197.3153 192.4018 196.6625 192.5852 193.2425 201.7118
+##  [9] 196.4526 196.6419 194.1449 202.5825 195.7494 205.7409 195.1875 195.6279
+## [17] 199.2471 200.5217 198.7608 199.6268 199.9695 196.4705 196.4074 192.7243
+## [25] 199.8465 191.6384 197.4259 197.9369 193.8839 204.1487 195.4205 198.7937
+## [33] 197.9618 196.5413 200.9751 198.6197 200.6566 200.2023 199.9370 201.3143
+## [41] 194.7500 195.8093 200.7760 195.9669 187.1380 195.2629 195.4698 203.2659
+## [49] 203.5267 196.1555</code></pre>
+<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="files-for-loops-and-functions.html#cb458-1"></a><span class="kw">microbenchmark</span>(<span class="kw">apply</span>(mat1, <span class="dv">1</span>, <span class="cf">function</span>(x) <span class="kw">sum</span>(x)),</span>
+<span id="cb458-2"><a href="files-for-loops-and-functions.html#cb458-2"></a>               <span class="kw">rowSums</span>(mat1))</span></code></pre></div>
+<pre><code>## Unit: microseconds
+##                                expr   min    lq    mean median  uq    max neval
+##  apply(mat1, 1, function(x) sum(x)) 120.6 122.2 137.707 124.15 127 1333.6   100
+##                       rowSums(mat1)  12.4  12.8  13.679  13.60  14   31.3   100</code></pre>
+<ul>
+<li>Even for basic tasks, think about the actual calculations you perform</li>
+</ul>
+<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="files-for-loops-and-functions.html#cb460-1"></a>mat2 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">7</span>, <span class="dv">90000</span>, <span class="dt">replace=</span>T), <span class="dt">ncol=</span><span class="dv">300</span>)</span>
+<span id="cb460-2"><a href="files-for-loops-and-functions.html#cb460-2"></a>mat3 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">sample</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">6</span>, <span class="dv">90000</span>, <span class="dt">replace=</span>T), <span class="dt">ncol=</span><span class="dv">300</span>)</span>
+<span id="cb460-3"><a href="files-for-loops-and-functions.html#cb460-3"></a>ys &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">3</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">300</span>, <span class="dt">replace=</span>T)</span>
+<span id="cb460-4"><a href="files-for-loops-and-functions.html#cb460-4"></a></span>
+<span id="cb460-5"><a href="files-for-loops-and-functions.html#cb460-5"></a><span class="kw">all.equal</span>(mat2 <span class="op">%*%</span><span class="st"> </span>mat3 <span class="op">%*%</span><span class="st"> </span>ys , mat2 <span class="op">%*%</span><span class="st"> </span>(mat3 <span class="op">%*%</span><span class="st"> </span>ys))</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="files-for-loops-and-functions.html#cb462-1"></a><span class="kw">microbenchmark</span>(mat2 <span class="op">%*%</span><span class="st"> </span>mat3 <span class="op">%*%</span><span class="st"> </span>ys,</span>
+<span id="cb462-2"><a href="files-for-loops-and-functions.html#cb462-2"></a>               mat2 <span class="op">%*%</span><span class="st"> </span>(mat3 <span class="op">%*%</span><span class="st"> </span>ys))</span></code></pre></div>
+<pre><code>## Unit: microseconds
+##                    expr     min       lq      mean   median       uq     max
+##    mat2 %*% mat3 %*% ys 11712.2 12501.85 13547.786 13019.55 13967.40 23496.7
+##  mat2 %*% (mat3 %*% ys)   503.2   564.85   933.332   764.60   872.75  7490.2
+##  neval
+##    100
+##    100</code></pre>
+<ul>
+<li>Why? Think through the dimensionality</li>
+</ul>
+</div>
+<div id="pastecollapse-and-copies" class="section level3" number="4.10.2">
+<h3><span class="header-section-number">4.10.2</span> Paste/collapse and copies</h3>
+<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb464-1"><a href="files-for-loops-and-functions.html#cb464-1"></a>random_states &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
+<span id="cb464-2"><a href="files-for-loops-and-functions.html#cb464-2"></a>  <span class="kw">paste</span>(<span class="kw">sample</span>(state.name,<span class="dv">10</span>,<span class="dt">replace =</span><span class="ot">TRUE</span>),<span class="dt">collapse =</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb464-3"><a href="files-for-loops-and-functions.html#cb464-3"></a>}</span>
+<span id="cb464-4"><a href="files-for-loops-and-functions.html#cb464-4"></a>states10 &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">10</span>, <span class="kw">random_states</span>())</span>
+<span id="cb464-5"><a href="files-for-loops-and-functions.html#cb464-5"></a>states10</span></code></pre></div>
+<pre><code>##  [1] &quot;ArkansasTennesseeMarylandConnecticutFloridaOhioVermontNorth CarolinaNebraskaAlabama&quot;         
+##  [2] &quot;HawaiiKentuckyIllinoisOhioNorth CarolinaNevadaMississippiNorth CarolinaMontanaNevada&quot;        
+##  [3] &quot;South CarolinaOhioUtahIdahoRhode IslandWisconsinNorth CarolinaMissouriMassachusettsMinnesota&quot;
+##  [4] &quot;HawaiiSouth DakotaSouth DakotaMaineVermontMaineNew YorkFloridaNew HampshireColorado&quot;         
+##  [5] &quot;VirginiaMichiganColoradoFloridaAlaskaMichiganOklahomaNebraskaCaliforniaColorado&quot;             
+##  [6] &quot;MississippiHawaiiWisconsinKentuckyAlaskaArizonaAlabamaKentuckyNew JerseyIndiana&quot;             
+##  [7] &quot;DelawareColoradoArizonaMarylandWyomingKansasOklahomaIdahoNorth DakotaGeorgia&quot;                
+##  [8] &quot;North DakotaFloridaPennsylvaniaRhode IslandTexasAlaskaWyomingFloridaKentuckyWisconsin&quot;       
+##  [9] &quot;TexasMichiganMarylandOregonSouth CarolinaKentuckyMarylandMississippiNew HampshireCalifornia&quot; 
+## [10] &quot;IndianaDelawareMichiganIdahoFloridaIowaMassachusettsMichiganPennsylvaniaArkansas&quot;</code></pre>
+<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="files-for-loops-and-functions.html#cb466-1"></a>states100 &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">100</span>, <span class="kw">random_states</span>())</span>
+<span id="cb466-2"><a href="files-for-loops-and-functions.html#cb466-2"></a></span>
+<span id="cb466-3"><a href="files-for-loops-and-functions.html#cb466-3"></a>collapse &lt;-<span class="st"> </span><span class="cf">function</span>(states) {</span>
+<span id="cb466-4"><a href="files-for-loops-and-functions.html#cb466-4"></a>  out &lt;-<span class="st"> &quot;&quot;</span></span>
+<span id="cb466-5"><a href="files-for-loops-and-functions.html#cb466-5"></a>  <span class="cf">for</span> (x <span class="cf">in</span> states) {</span>
+<span id="cb466-6"><a href="files-for-loops-and-functions.html#cb466-6"></a>    out &lt;-<span class="st"> </span><span class="kw">paste0</span>(out, x) <span class="co"># same as paste(..., sep=&quot;&quot;, collapse)</span></span>
+<span id="cb466-7"><a href="files-for-loops-and-functions.html#cb466-7"></a>  }</span>
+<span id="cb466-8"><a href="files-for-loops-and-functions.html#cb466-8"></a>  out</span>
+<span id="cb466-9"><a href="files-for-loops-and-functions.html#cb466-9"></a>}</span>
+<span id="cb466-10"><a href="files-for-loops-and-functions.html#cb466-10"></a></span>
+<span id="cb466-11"><a href="files-for-loops-and-functions.html#cb466-11"></a><span class="kw">microbenchmark</span>(</span>
+<span id="cb466-12"><a href="files-for-loops-and-functions.html#cb466-12"></a>  <span class="st">&quot;loop10&quot;</span> =<span class="st"> </span><span class="kw">collapse</span>(states10),</span>
+<span id="cb466-13"><a href="files-for-loops-and-functions.html#cb466-13"></a>  <span class="st">&quot;vec10&quot;</span> =<span class="st"> </span><span class="kw">paste</span>(states10, <span class="dt">collapse =</span><span class="st">&quot;&quot;</span>),</span>
+<span id="cb466-14"><a href="files-for-loops-and-functions.html#cb466-14"></a>  <span class="st">&quot;loop100&quot;</span> =<span class="st"> </span><span class="kw">collapse</span>(states100),</span>
+<span id="cb466-15"><a href="files-for-loops-and-functions.html#cb466-15"></a>  <span class="st">&quot;vec100&quot;</span> =<span class="st"> </span><span class="kw">paste</span>(states100, <span class="dt">collapse =</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb466-16"><a href="files-for-loops-and-functions.html#cb466-16"></a>)</span></code></pre></div>
+<pre><code>## Unit: microseconds
+##     expr    min      lq     mean  median      uq    max neval
+##   loop10   28.5   32.00   91.286   34.60   54.85 5006.7   100
+##    vec10    8.3    9.55   13.420   10.90   17.20   28.6   100
+##  loop100 1390.4 1579.40 1896.504 1734.15 2290.40 2864.4   100
+##   vec100   75.5   85.25  113.084   95.10  147.70  205.6   100</code></pre>
+<p>PRO TIP:</p>
+<p>Allocate memory and fill, don’t append to the end</p>
+<ul>
+<li>Here, we are not only getting around using the loop, but also avoiding copies.</li>
+<li>Whenever you append(), cbind(), rbind(), or paste() to create a bigger object, R must first allocate space for the new object and then copy the old object to its new home.</li>
+<li>If you’re repeating this many times, like in a for loop, this can be quite computationally expensive.</li>
+<li>Instead, allocate an object of the largest size you think you’ll need, and fill it up as you go.</li>
+<li>Fun fact: in Java (another programming language), arrays function the same way as vectors in R. Java has a data structure called an ArrayList,
+which allows users to add and remove as needed. When it gets full, it doubles the size/capacity of the underlying array and copies everything over. When an element is removed,
+it doesn’t decrease the size of the underlying array because copying things over and allocating new space is very inefficient.</li>
+</ul>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-types-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="version-control.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
