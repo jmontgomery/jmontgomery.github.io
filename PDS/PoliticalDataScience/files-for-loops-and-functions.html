@@ -210,6 +210,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.4" data-path="version-control.html"><a href="version-control.html#branches"><i class="fa fa-check"></i><b>5.4</b> Branches</a></li>
 <li class="chapter" data-level="5.5" data-path="version-control.html"><a href="version-control.html#forking"><i class="fa fa-check"></i><b>5.5</b> Forking</a></li>
 <li class="chapter" data-level="5.6" data-path="version-control.html"><a href="version-control.html#reverting"><i class="fa fa-check"></i><b>5.6</b> Reverting</a></li>
+<li class="chapter" data-level="5.7" data-path="version-control.html"><a href="version-control.html#version-control-in-rstudio"><i class="fa fa-check"></i><b>5.7</b> Version Control in RStudio</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="data-visualization-in-r.html"><a href="data-visualization-in-r.html"><i class="fa fa-check"></i><b>6</b> Data Visualization in R</a>
 <ul>
@@ -696,34 +697,34 @@ and the global environment variables as well.</p>
 <div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="files-for-loops-and-functions.html#cb428-1"></a><span class="kw">library</span>(microbenchmark)</span>
 <span id="cb428-2"><a href="files-for-loops-and-functions.html#cb428-2"></a><span class="kw">microbenchmark</span>(<span class="kw">sqrt</span>(x)) <span class="co"># evaluates 100 times per default</span></span></code></pre></div>
 <pre><code>## Unit: microseconds
-##     expr min  lq  mean median  uq  max neval
-##  sqrt(x) 6.5 6.7 7.471    7.1 7.7 21.6   100</code></pre>
+##     expr min  lq  mean median  uq max neval
+##  sqrt(x) 3.6 3.7 3.978    3.8 4.1 7.6   100</code></pre>
 <div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="files-for-loops-and-functions.html#cb430-1"></a><span class="kw">microbenchmark</span>(<span class="kw">sqrt</span>(x), <span class="dt">times=</span><span class="dv">1000</span>)</span></code></pre></div>
 <pre><code>## Unit: microseconds
-##     expr min  lq    mean median  uq    max neval
-##  sqrt(x)   6 6.9 11.3382    7.9 9.2 1526.6  1000</code></pre>
+##     expr min  lq   mean median  uq  max neval
+##  sqrt(x) 3.5 3.6 3.9671    3.7 3.8 14.2  1000</code></pre>
 <p>Now we can compare different functions</p>
 <div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="files-for-loops-and-functions.html#cb432-1"></a><span class="kw">microbenchmark</span>(<span class="kw">sqrt</span>(x), </span>
 <span id="cb432-2"><a href="files-for-loops-and-functions.html#cb432-2"></a>               x<span class="op">^</span><span class="fl">0.5</span>,</span>
 <span id="cb432-3"><a href="files-for-loops-and-functions.html#cb432-3"></a>               <span class="dt">times=</span><span class="dv">1000</span>)</span></code></pre></div>
 <pre><code>## Unit: microseconds
-##     expr  min   lq    mean median   uq   max neval
-##  sqrt(x)  3.4  3.7  6.9656    7.5  8.7  19.4  1000
-##    x^0.5 26.5 27.1 40.2612   45.0 47.0 170.3  1000</code></pre>
+##     expr  min   lq    mean median   uq    max neval
+##  sqrt(x)  3.5  4.3  8.9066   6.80  8.9 1555.0  1000
+##    x^0.5 26.6 28.4 38.2953  36.55 46.3  409.5  1000</code></pre>
 <div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="files-for-loops-and-functions.html#cb434-1"></a><span class="kw">microbenchmark</span>(<span class="kw">sqrt</span>(x), x<span class="op">^</span><span class="fl">0.5</span>, x<span class="op">^</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>), <span class="kw">exp</span>(<span class="kw">log</span>(x)<span class="op">/</span><span class="dv">2</span>),</span>
 <span id="cb434-2"><a href="files-for-loops-and-functions.html#cb434-2"></a>               <span class="dt">times=</span><span class="dv">1000</span>)</span></code></pre></div>
 <pre><code>## Unit: microseconds
-##           expr  min   lq    mean median   uq   max neval
-##        sqrt(x)  3.1  3.2  4.0217   3.40  3.6  34.6  1000
-##          x^0.5 23.6 24.0 28.0249  25.00 26.8  51.3  1000
-##        x^(1/2) 23.7 24.7 27.8734  25.35 27.0  70.1  1000
-##  exp(log(x)/2) 54.8 56.5 61.6833  57.40 62.0 377.3  1000</code></pre>
+##           expr  min    lq    mean median     uq   max neval
+##        sqrt(x)  3.5  4.80  7.6467    6.6   8.10 453.0  1000
+##          x^0.5 26.5 33.10 43.9303   45.8  47.20 447.0  1000
+##        x^(1/2) 26.8 32.95 44.2249   46.3  47.85 495.5  1000
+##  exp(log(x)/2) 62.1 72.45 84.0047   76.7 104.80 340.1  1000</code></pre>
 <p>And also completely different functions</p>
 <div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="files-for-loops-and-functions.html#cb436-1"></a><span class="kw">microbenchmark</span>(<span class="kw">sqrt</span>(x), x<span class="op">^</span><span class="dv">4-3</span><span class="op">*</span>x)</span></code></pre></div>
 <pre><code>## Unit: microseconds
-##         expr  min    lq   mean median   uq  max neval
-##      sqrt(x)  6.7  6.90  7.412    7.2  7.5 11.1   100
-##  x^4 - 3 * x 51.4 60.15 61.200   60.9 61.9 76.1   100</code></pre>
+##         expr  min   lq   mean median    uq  max neval
+##      sqrt(x)  3.5  3.7  4.512   3.95  4.60 11.4   100
+##  x^4 - 3 * x 33.6 34.5 38.312  35.20 38.95 55.1   100</code></pre>
 <p>For ease of interpretation, if a microbenchmark takes
 - 1 millisecond, then 1,000 calls take a second
 - 1 microsecond, then 1,000,000 calls take a second
@@ -732,11 +733,16 @@ and the global environment variables as well.</p>
 <div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="files-for-loops-and-functions.html#cb438-1"></a><span class="kw">microbenchmark</span>(<span class="kw">sqrt</span>(x), x<span class="op">^</span><span class="fl">0.5</span>, x<span class="op">^</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>), <span class="kw">exp</span>(<span class="kw">log</span>(x)<span class="op">/</span><span class="dv">2</span>),</span>
 <span id="cb438-2"><a href="files-for-loops-and-functions.html#cb438-2"></a>               <span class="dt">unit=</span><span class="st">&quot;eps&quot;</span>)</span></code></pre></div>
 <pre><code>## Unit: evaluations per second
-##           expr      min       lq      mean    median        uq       max neval
-##        sqrt(x) 60240.96 90090.09 111531.52 109890.11 127393.70 270270.27   100
-##          x^0.5 19083.97 21551.72  22350.29  22246.97  22883.30  29069.77   100
-##        x^(1/2) 17123.29 21208.93  22081.74  21598.27  22547.94  28985.51   100
-##  exp(log(x)/2) 11223.34 12269.94  12511.27  12500.00  12706.48  15174.51   100</code></pre>
+##           expr       min         lq       mean     median         uq        max
+##        sqrt(x) 85470.085 147058.824 151146.152 156250.000 156250.000 161290.323
+##          x^0.5 10822.511  21413.276  21353.375  21645.022  21739.130  21929.825
+##        x^(1/2) 13888.889  21186.441  21137.264  21367.521  21505.376  21691.974
+##  exp(log(x)/2)  7178.751   9276.438   9240.608   9319.664   9345.794   9380.863
+##  neval
+##    100
+##    100
+##    100
+##    100</code></pre>
 <ul>
 <li>Evaluating every function takes time</li>
 <li>Evaluating () or {} takes time</li>
@@ -751,13 +757,13 @@ and the global environment variables as well.</p>
 <span id="cb440-7"><a href="files-for-loops-and-functions.html#cb440-7"></a></span>
 <span id="cb440-8"><a href="files-for-loops-and-functions.html#cb440-8"></a><span class="kw">microbenchmark</span>(<span class="kw">f0</span>(), <span class="kw">f1</span>(), <span class="kw">f2</span>(), <span class="kw">f3</span>(), <span class="kw">f4</span>(), <span class="kw">f5</span>(), <span class="dt">times=</span><span class="dv">10000</span>)</span></code></pre></div>
 <pre><code>## Unit: nanoseconds
-##  expr min  lq   mean median  uq     max neval
-##  f0() 200 200 387.41    300 300  788400 10000
-##  f1() 200 300 420.76    300 400  832300 10000
-##  f2() 200 300 467.00    300 400  877000 10000
-##  f3() 200 300 510.30    400 500  877000 10000
-##  f4() 300 400 572.62    400 500  947800 10000
-##  f5() 300 400 653.72    400 600 1222600 10000</code></pre>
+##  expr min  lq   mean median  uq    max neval
+##  f0() 200 300 485.70    400 500 575600 10000
+##  f1() 200 300 546.01    500 500 591700 10000
+##  f2() 200 400 648.67    500 600 984600 10000
+##  f3() 300 400 684.39    600 600 737000 10000
+##  f4() 300 500 742.37    600 700 701700 10000
+##  f5() 300 500 804.25    700 800 743800 10000</code></pre>
 <p>Extracting one element of a data frame</p>
 <div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="files-for-loops-and-functions.html#cb442-1"></a><span class="kw">microbenchmark</span>(</span>
 <span id="cb442-2"><a href="files-for-loops-and-functions.html#cb442-2"></a>  <span class="st">&quot;[32, 11]&quot;</span> =<span class="st"> </span>mtcars[<span class="dv">32</span>,<span class="dv">11</span>],</span>
@@ -766,12 +772,12 @@ and the global environment variables as well.</p>
 <span id="cb442-5"><a href="files-for-loops-and-functions.html#cb442-5"></a>  <span class="st">&quot;[[11]][32]&quot;</span> =<span class="st"> </span>mtcars[[<span class="dv">11</span>]][<span class="dv">32</span>],</span>
 <span id="cb442-6"><a href="files-for-loops-and-functions.html#cb442-6"></a>  <span class="st">&quot;.subset2&quot;</span> =<span class="st"> </span><span class="kw">.subset2</span>(mtcars,<span class="dv">11</span>)[<span class="dv">32</span>])</span></code></pre></div>
 <pre><code>## Unit: nanoseconds
-##           expr   min    lq  mean median    uq    max neval
-##       [32, 11] 12500 13000 14053  13200 13400  45200   100
-##      $carb[32]  6500  6850  7977   7100  7400  35300   100
-##  [[c(11, 32)]]  5700  6000  8933   6250  6500 260800   100
-##     [[11]][32]  5300  5500  6155   5750  6000  25700   100
-##       .subset2   300   400   511    500   500   5200   100</code></pre>
+##           expr   min    lq  mean median    uq   max neval
+##       [32, 11] 12700 13300 14339  13700 14200 44800   100
+##      $carb[32]  6400  7000  7787   7400  7800 38400   100
+##  [[c(11, 32)]]  5700  6100  6571   6300  6700 21300   100
+##     [[11]][32]  5400  5750  6118   5950  6300 10900   100
+##       .subset2   300   400   624    500   500 10700   100</code></pre>
 <div id="vectorizing" class="section level3" number="4.10.1">
 <h3><span class="header-section-number">4.10.1</span> Vectorizing</h3>
 <ul>
@@ -788,12 +794,12 @@ of R. Loops in C are much faster because they have much less overhead.</li>
 <span id="cb444-4"><a href="files-for-loops-and-functions.html#cb444-4"></a>matrix1 &lt;-<span class="st"> </span><span class="kw">replicate</span>(m, <span class="kw">rnorm</span>(n)) <span class="co"># create matrix</span></span>
 <span id="cb444-5"><a href="files-for-loops-and-functions.html#cb444-5"></a>matdf &lt;-<span class="st"> </span>matdf1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(matrix1) </span>
 <span id="cb444-6"><a href="files-for-loops-and-functions.html#cb444-6"></a>matdf</span></code></pre></div>
-<pre><code>##            X1         X2         X3          X4         X5
-## 1  0.07831192 -0.8478735  1.6040962  1.05010083  0.5028389
-## 2 -0.39673809  1.0372067 -0.3965535 -0.82647550  0.4428493
-## 3  0.02637800  0.3682569 -1.2001075  0.09836469  1.3994064
-## 4 -0.85702683 -0.6600822  0.5600922 -0.05022783 -0.9550023
-## 5 -0.07208988 -0.6731573  0.4618914 -0.45104383 -0.4207483</code></pre>
+<pre><code>##          X1          X2         X3         X4         X5
+## 1  1.401463 -0.08538131  0.7254809  1.3932078  0.2971129
+## 2  1.204480 -0.35742433  1.1605121 -1.5985663 -0.7159475
+## 3 -1.218300 -0.04982843  0.9356040 -0.5352060 -0.3760388
+## 4  1.235914  0.38822090 -2.0086046  0.3052788 -0.4474556
+## 5 -1.430694  1.74663026 -1.1960035  0.1319573 -0.3835745</code></pre>
 <div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="files-for-loops-and-functions.html#cb446-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>m) {</span>
 <span id="cb446-2"><a href="files-for-loops-and-functions.html#cb446-2"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n) {</span>
 <span id="cb446-3"><a href="files-for-loops-and-functions.html#cb446-3"></a>    matdf1[i,j] &lt;-<span class="st"> </span>matdf1[i,j] <span class="op">+</span><span class="st"> </span><span class="fl">1.87</span><span class="op">*</span><span class="kw">cos</span>(.<span class="dv">25</span>)<span class="op">*</span>pi <span class="co"># addition</span></span>
@@ -801,20 +807,20 @@ of R. Loops in C are much faster because they have much less overhead.</li>
 <span id="cb446-5"><a href="files-for-loops-and-functions.html#cb446-5"></a>}</span>
 <span id="cb446-6"><a href="files-for-loops-and-functions.html#cb446-6"></a>matdf1</span></code></pre></div>
 <pre><code>##         X1       X2       X3       X4       X5
-## 1 5.770458 4.844272 7.296242 6.742246 6.194985
-## 2 5.295408 6.729352 5.295592 4.865670 6.134995
-## 3 5.718524 6.060403 4.492038 5.790510 7.091552
-## 4 4.835119 5.032063 6.252238 5.641918 4.737143
-## 5 5.620056 5.018988 6.154037 5.241102 5.271397</code></pre>
+## 1 7.093608 5.606764 6.417627 7.085353 5.989259
+## 2 6.896625 5.334721 6.852658 4.093579 4.976198
+## 3 4.473845 5.642317 6.627750 5.156940 5.316107
+## 4 6.928060 6.080367 3.683541 5.997424 5.244690
+## 5 4.261451 7.438776 4.496142 5.824103 5.308571</code></pre>
 <div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="files-for-loops-and-functions.html#cb448-1"></a>matdf2&lt;-<span class="kw">data.frame</span>(matrix1) </span>
 <span id="cb448-2"><a href="files-for-loops-and-functions.html#cb448-2"></a>matdf2 &lt;-<span class="st"> </span>matdf2 <span class="op">+</span><span class="st"> </span><span class="fl">1.87</span><span class="op">*</span><span class="kw">cos</span>(.<span class="dv">25</span>)<span class="op">*</span>pi</span>
 <span id="cb448-3"><a href="files-for-loops-and-functions.html#cb448-3"></a>matdf2</span></code></pre></div>
 <pre><code>##         X1       X2       X3       X4       X5
-## 1 5.770458 4.844272 7.296242 6.742246 6.194985
-## 2 5.295408 6.729352 5.295592 4.865670 6.134995
-## 3 5.718524 6.060403 4.492038 5.790510 7.091552
-## 4 4.835119 5.032063 6.252238 5.641918 4.737143
-## 5 5.620056 5.018988 6.154037 5.241102 5.271397</code></pre>
+## 1 7.093608 5.606764 6.417627 7.085353 5.989259
+## 2 6.896625 5.334721 6.852658 4.093579 4.976198
+## 3 4.473845 5.642317 6.627750 5.156940 5.316107
+## 4 6.928060 6.080367 3.683541 5.997424 5.244690
+## 5 4.261451 7.438776 4.496142 5.824103 5.308571</code></pre>
 <div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="files-for-loops-and-functions.html#cb450-1"></a><span class="kw">microbenchmark</span>(</span>
 <span id="cb450-2"><a href="files-for-loops-and-functions.html#cb450-2"></a>  <span class="st">&quot;loop&quot;</span> =<span class="st"> </span><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>m) {</span>
 <span id="cb450-3"><a href="files-for-loops-and-functions.html#cb450-3"></a>    <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n) {</span>
@@ -824,32 +830,32 @@ of R. Loops in C are much faster because they have much less overhead.</li>
 <span id="cb450-7"><a href="files-for-loops-and-functions.html#cb450-7"></a>  <span class="st">&quot;vectorized&quot;</span> =<span class="st"> </span>matdf &lt;-<span class="st"> </span>matdf <span class="op">+</span><span class="st"> </span><span class="fl">1.87</span><span class="op">*</span><span class="kw">cos</span>(.<span class="dv">25</span>)<span class="op">*</span>pi</span>
 <span id="cb450-8"><a href="files-for-loops-and-functions.html#cb450-8"></a>)</span></code></pre></div>
 <pre><code>## Unit: microseconds
-##        expr    min      lq     mean  median      uq     max neval
-##        loop 5493.6 5909.75 8449.700 8734.35 9684.65 18257.8   100
-##  vectorized  428.7  479.60  681.122  612.85  743.30  5163.4   100</code></pre>
+##        expr    min     lq     mean  median      uq     max neval
+##        loop 5618.2 5878.4 7104.939 6108.05 8144.45 13120.2   100
+##  vectorized  413.8  468.0  581.052  513.90  599.35  1553.6   100</code></pre>
 <div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="files-for-loops-and-functions.html#cb452-1"></a>mat1 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">abs</span>(<span class="kw">rnorm</span>(<span class="dv">2500</span>))<span class="op">+</span>pi, <span class="dt">ncol=</span><span class="dv">50</span>)</span>
 <span id="cb452-2"><a href="files-for-loops-and-functions.html#cb452-2"></a><span class="kw">apply</span>(mat1, <span class="dv">1</span>, <span class="cf">function</span>(x) <span class="kw">sum</span>(x))</span></code></pre></div>
-<pre><code>##  [1] 200.3531 201.9106 196.4946 194.6670 194.9776 203.6978 196.8799 193.6633
-##  [9] 195.1352 195.3069 196.4158 202.1672 196.5990 194.9475 186.2495 198.5185
-## [17] 198.1653 192.1975 196.8061 198.5684 195.1389 200.1680 190.9302 197.7640
-## [25] 199.3405 192.6156 198.1332 189.1898 197.8868 200.5601 193.4769 193.0987
-## [33] 198.1641 197.9634 190.9406 197.6723 196.4963 194.6051 191.9196 201.4264
-## [41] 190.5389 191.2358 193.0606 196.0300 188.2531 202.0390 195.6967 201.7659
-## [49] 199.2765 198.2726</code></pre>
+<pre><code>##  [1] 196.7358 199.5213 192.7305 203.5306 196.4766 189.4143 203.0960 202.5399
+##  [9] 200.0148 193.3242 202.3175 191.5472 195.7860 199.4855 193.1041 192.9694
+## [17] 196.0379 200.6371 201.6698 195.8663 198.5713 201.7909 198.8656 186.7031
+## [25] 198.2399 195.5251 203.9680 197.0923 191.0145 200.4627 200.7971 190.8046
+## [33] 192.5875 198.7972 198.1255 191.7137 198.8790 193.1047 201.6692 196.7622
+## [41] 200.8379 195.5919 204.1649 186.5547 194.9395 202.6542 196.9513 198.0440
+## [49] 193.4437 193.4196</code></pre>
 <div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="files-for-loops-and-functions.html#cb454-1"></a><span class="kw">rowSums</span>(mat1)</span></code></pre></div>
-<pre><code>##  [1] 200.3531 201.9106 196.4946 194.6670 194.9776 203.6978 196.8799 193.6633
-##  [9] 195.1352 195.3069 196.4158 202.1672 196.5990 194.9475 186.2495 198.5185
-## [17] 198.1653 192.1975 196.8061 198.5684 195.1389 200.1680 190.9302 197.7640
-## [25] 199.3405 192.6156 198.1332 189.1898 197.8868 200.5601 193.4769 193.0987
-## [33] 198.1641 197.9634 190.9406 197.6723 196.4963 194.6051 191.9196 201.4264
-## [41] 190.5389 191.2358 193.0606 196.0300 188.2531 202.0390 195.6967 201.7659
-## [49] 199.2765 198.2726</code></pre>
+<pre><code>##  [1] 196.7358 199.5213 192.7305 203.5306 196.4766 189.4143 203.0960 202.5399
+##  [9] 200.0148 193.3242 202.3175 191.5472 195.7860 199.4855 193.1041 192.9694
+## [17] 196.0379 200.6371 201.6698 195.8663 198.5713 201.7909 198.8656 186.7031
+## [25] 198.2399 195.5251 203.9680 197.0923 191.0145 200.4627 200.7971 190.8046
+## [33] 192.5875 198.7972 198.1255 191.7137 198.8790 193.1047 201.6692 196.7622
+## [41] 200.8379 195.5919 204.1649 186.5547 194.9395 202.6542 196.9513 198.0440
+## [49] 193.4437 193.4196</code></pre>
 <div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="files-for-loops-and-functions.html#cb456-1"></a><span class="kw">microbenchmark</span>(<span class="kw">apply</span>(mat1, <span class="dv">1</span>, <span class="cf">function</span>(x) <span class="kw">sum</span>(x)),</span>
 <span id="cb456-2"><a href="files-for-loops-and-functions.html#cb456-2"></a>               <span class="kw">rowSums</span>(mat1))</span></code></pre></div>
 <pre><code>## Unit: microseconds
-##                                expr   min    lq    mean median     uq    max
-##  apply(mat1, 1, function(x) sum(x)) 132.3 165.0 182.722  168.2 170.95 1804.9
-##                       rowSums(mat1)  13.4  16.5  17.428   17.2  18.80   31.3
+##                                expr   min     lq    mean median     uq    max
+##  apply(mat1, 1, function(x) sum(x)) 120.3 123.75 140.469 126.05 129.25 1376.1
+##                       rowSums(mat1)  12.4  12.70  13.600  13.70  14.10   21.3
 ##  neval
 ##    100
 ##    100</code></pre>
@@ -865,9 +871,9 @@ of R. Loops in C are much faster because they have much less overhead.</li>
 <div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="files-for-loops-and-functions.html#cb460-1"></a><span class="kw">microbenchmark</span>(mat2 <span class="op">%*%</span><span class="st"> </span>mat3 <span class="op">%*%</span><span class="st"> </span>ys,</span>
 <span id="cb460-2"><a href="files-for-loops-and-functions.html#cb460-2"></a>               mat2 <span class="op">%*%</span><span class="st"> </span>(mat3 <span class="op">%*%</span><span class="st"> </span>ys))</span></code></pre></div>
 <pre><code>## Unit: microseconds
-##                    expr     min       lq      mean  median       uq     max
-##    mat2 %*% mat3 %*% ys 12502.6 13040.95 14163.886 13545.8 14135.20 25881.4
-##  mat2 %*% (mat3 %*% ys)   504.3   549.35  1316.765   773.7   843.75 27993.5
+##                    expr     min      lq      mean   median      uq     max
+##    mat2 %*% mat3 %*% ys 11617.4 12904.7 15992.690 14132.25 17076.5 37768.7
+##  mat2 %*% (mat3 %*% ys)   483.1   597.5   965.834   794.70   877.8 10892.2
 ##  neval
 ##    100
 ##    100</code></pre>
@@ -882,16 +888,16 @@ of R. Loops in C are much faster because they have much less overhead.</li>
 <span id="cb462-3"><a href="files-for-loops-and-functions.html#cb462-3"></a>}</span>
 <span id="cb462-4"><a href="files-for-loops-and-functions.html#cb462-4"></a>states10 &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">10</span>, <span class="kw">random_states</span>())</span>
 <span id="cb462-5"><a href="files-for-loops-and-functions.html#cb462-5"></a>states10</span></code></pre></div>
-<pre><code>##  [1] &quot;LouisianaNorth CarolinaAlabamaMinnesotaNew YorkAlabamaWisconsinOhioLouisianaNew Hampshire&quot;        
-##  [2] &quot;MichiganMichiganOhioOhioSouth CarolinaIdahoNevadaOregonKansasArkansas&quot;                            
-##  [3] &quot;AlaskaMontanaRhode IslandAlaskaNew MexicoMontanaLouisianaNew JerseyGeorgiaIllinois&quot;               
-##  [4] &quot;OregonWest VirginiaColoradoCaliforniaCaliforniaIndianaUtahColoradoColoradoWashington&quot;             
-##  [5] &quot;WashingtonFloridaTexasMontanaOhioConnecticutMinnesotaNew YorkNorth CarolinaUtah&quot;                  
-##  [6] &quot;DelawareWashingtonNevadaNew JerseyAlaskaAlaskaKansasNew HampshireIdahoMissouri&quot;                   
-##  [7] &quot;UtahWisconsinNew MexicoOregonMinnesotaNorth DakotaGeorgiaNew JerseyNew JerseyNevada&quot;              
-##  [8] &quot;CaliforniaMarylandTennesseeAlaskaSouth DakotaNew HampshireWyomingNorth CarolinaCaliforniaMissouri&quot;
-##  [9] &quot;ArkansasTennesseeAlabamaKentuckyGeorgiaArizonaConnecticutMarylandOklahomaNew York&quot;                
-## [10] &quot;TexasMontanaNew HampshireAlabamaMontanaIdahoWest VirginiaMississippiMississippiMissouri&quot;</code></pre>
+<pre><code>##  [1] &quot;KentuckyColoradoLouisianaIowaNew YorkHawaiiGeorgiaConnecticutSouth DakotaGeorgia&quot;                
+##  [2] &quot;MarylandIowaOhioWest VirginiaNew HampshireAlabamaWyomingKansasFloridaIowa&quot;                       
+##  [3] &quot;North DakotaCaliforniaOhioVermontMichiganWisconsinWashingtonNebraskaSouth DakotaIowa&quot;            
+##  [4] &quot;West VirginiaTexasIllinoisDelawareAlaskaWyomingMichiganMontanaArizonaVermont&quot;                    
+##  [5] &quot;ColoradoAlabamaWashingtonMassachusettsNew MexicoNew JerseyKansasVirginiaMontanaOklahoma&quot;         
+##  [6] &quot;ColoradoMarylandMaineSouth CarolinaNorth CarolinaCaliforniaFloridaGeorgiaWyomingHawaii&quot;          
+##  [7] &quot;North CarolinaTexasWyomingAlaskaMainePennsylvaniaNew MexicoRhode IslandPennsylvaniaNew Jersey&quot;   
+##  [8] &quot;MinnesotaGeorgiaNew MexicoWisconsinRhode IslandWest VirginiaHawaiiNebraskaMarylandNew Jersey&quot;    
+##  [9] &quot;New HampshireIdahoNew JerseyNew HampshireMississippiAlaskaWisconsinNorth DakotaWashingtonArizona&quot;
+## [10] &quot;MissouriMarylandMaineMichiganMarylandMinnesotaTexasMinnesotaCaliforniaNebraska&quot;</code></pre>
 <div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb464-1"><a href="files-for-loops-and-functions.html#cb464-1"></a>states100 &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">100</span>, <span class="kw">random_states</span>())</span>
 <span id="cb464-2"><a href="files-for-loops-and-functions.html#cb464-2"></a></span>
 <span id="cb464-3"><a href="files-for-loops-and-functions.html#cb464-3"></a>collapse &lt;-<span class="st"> </span><span class="cf">function</span>(states) {</span>
@@ -910,10 +916,10 @@ of R. Loops in C are much faster because they have much less overhead.</li>
 <span id="cb464-16"><a href="files-for-loops-and-functions.html#cb464-16"></a>)</span></code></pre></div>
 <pre><code>## Unit: microseconds
 ##     expr    min      lq     mean  median      uq    max neval
-##   loop10   29.6   31.75   35.539   32.70   35.35   71.7   100
-##    vec10    8.4    9.35   10.974   10.00   11.10   34.5   100
-##  loop100 1448.4 1508.75 1686.275 1571.10 1631.50 5422.5   100
-##   vec100   76.8   82.50   90.699   84.35   88.00  150.9   100</code></pre>
+##   loop10   29.8   33.15   97.016   52.05   59.85 4769.4   100
+##    vec10    8.7   11.55   15.111   15.60   17.40   45.0   100
+##  loop100 1425.4 1772.45 2263.980 2474.00 2774.35 3340.8   100
+##   vec100   75.8   86.30  125.827  134.30  152.30  250.7   100</code></pre>
 <p>PRO TIP:</p>
 <p>Allocate memory and fill, don’t append to the end</p>
 <ul>
