@@ -58,7 +58,7 @@ you can "fork" the repository. This gives you your own copy of it to mess with a
 ## Reverting
 
 If you make a mistake and commit and push it (or your team member does), you can revert to a prior commit. This is why it's super useful
-to commit and push regulary!!! You can revert from any commit which will set your current repository state back to exactly what it looked 
+to commit and push regularly!!! You can revert from any commit which will set your current repository state back to exactly what it looked 
 like at that exact moment in time.
 
 ## Version Control in RStudio
