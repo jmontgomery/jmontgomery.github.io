@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Political Data Science</title>
-  <meta name="description" content="Political Data Science" />
+  <title>5 Version Control | Political Data Science</title>
+  <meta name="description" content="5 Version Control | Political Data Science" />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Political Data Science" />
+  <meta property="og:title" content="5 Version Control | Political Data Science" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Political Data Science" />
+  <meta name="twitter:title" content="5 Version Control | Political Data Science" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="files-for-loops-and-functions.html"/>
 
-<link rel="next" href="getting-started-in-r.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <script src="libs/elevate-section-attrs-2.0/elevate-section-attrs.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -228,116 +228,88 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Political Data Science</h1>
-<p class="author"><em>Jacob Montgomery and Mariah Yelenick</em></p>
+<div id="version-control" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Version Control</h1>
+<div id="why-version-control" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Why version control?</h2>
+<p>Have you ever … (Source: Stack overflow)
+- Made a change to code, realised it was a mistake and wanted to revert back?
+- Lost code or had a backup that was too old?
+- Had to maintain multiple versions of a product?
+- Wanted to see the difference between two (or more) versions of your code?
+- Wanted to prove that a particular change broke or fixed a piece of code?
+- Wanted to review the history of some code?
+- Wanted to submit a change to someone else’s code?
+- Wanted to share your code, or let other people work on your code?
+- Wanted to see how much work is being done, and where, when and by whom?
+- Wanted to experiment with a new feature without interfering with working code?</p>
 </div>
-<div id="dont-be-a-clown" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Don’t be a clown</h1>
-<p><a href="https://imgflip.com/i/3m0rs1"><img src="https://i.imgflip.com/3m0rs1.jpg" title="made at imgflip.com"/></a></p>
-<blockquote>
-<p>I see miracles all around me <br>
-Stop and look around, it’s all astounding <br>
-Water, fire, air and dirt <br>
-Fucking magnets, how do they work? <br>
-And I don’t wanna talk to a scientist <br>
-Y’all motherfuckers lying, and getting me pissed <br>
-<br>
-<br>
-— Insane Clown Posse, <em>Miracles</em></p>
-</blockquote>
-<p><a href="https://genius.com/Insane-clown-posse-miracles-lyrics">Link</a> if you don’t know what I’m talking about</p>
-<blockquote>
-<p>Pollsters are wizards, shamans, diviners. They toss numbers around the way astragalomancers once tossed bones to foretell events to come. (The name comes from the Greek astragalos, meaning “knucklebone.” But you knew that.) <br></p>
-</blockquote>
-<blockquote>
-<p>I have never been called by a political pollster and don’t know anybody who has, but I know some pollsters, who assure me they don’t make the numbers up, and I believe them.<br>
-<br>
-<br>
-— Roger Simon, Chief Political Columnist, <em>Politico</em></p>
-</blockquote>
-<p><a href="https://www.politico.com/story/2011/12/are-polls-really-magic-070717">Link</a></p>
-<p>Depending on who you listen to, artificial intelligence and machine learning<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> are either the cause or the solution to all of the world’s problems. On the one hand you have algorithms spreading misinformtion, large scale corporate surveillance, and predicted mass unemployment in the service sector. On the other hand you have ever-improving health diagnostics, data-driven journalism, and all the world’s information at the touch of your fingers (or voice).</p>
-<p>The term “data science” means different things to different people, but for most people the term doesn’t mean much at all. In the two quotes above, we see both the Insane Clown Posse and Politico’s (for God’s sake) chief political columnist share a loving embrace with ignorance about fundamental forces in our life. We swim in data and statistics. News, politics, and policy is increasingly being driven by data and algorithms. But all too few people know much about how these algorithms work. Like magnets or random sampling, data science is just a mysterious force that we have to cope with.</p>
-<p>The central goal of this class is to make sure you don’t have to be a clown. In today’s world, your future career will surely</p>
-<p>You will find that data science, machine learning, big data, and artificial intelligence is just another tool (if a powerful tool). It is neither good nor evil by itself. It is humans and human judgement (or lack of judgement) that lead to good our bad outcomes.</p>
-<p>But whether you intend to work for the forces of good or evil (I tend towards chaotic neutral)</p>
-<div id="as-easy-as-cake" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> As easy as cake</h2>
-<p>One way</p>
-<div id="coding" class="section level3" number="1.1.1">
-<h3><span class="header-section-number">1.1.1</span> Coding</h3>
+<div id="setup" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Setup</h2>
+<ul>
+<li>Install Git: <a href="http://git-scm.com/book/en/Getting-Started-Installing-Git" class="uri">http://git-scm.com/book/en/Getting-Started-Installing-Git</a></li>
+<li>Sign up for GitHub</li>
+<li>Install the GUI
+<ul>
+<li><a href="http://mac.github.com/" class="uri">http://mac.github.com/</a></li>
+<li><a href="http://windows.github.com/" class="uri">http://windows.github.com/</a></li>
+</ul></li>
+</ul>
 </div>
-<div id="data-acquision" class="section level3" number="1.1.2">
-<h3><span class="header-section-number">1.1.2</span> Data acquision</h3>
-<p>Is that polling data you are looking at a random sample of Americans, or just everyone who attended that sick Delta Sig party? Were the people in your data randomly assigned to watch Fox news, or did they choose to?</p>
-<p>No matter how fancy your machine learning algorithm, the results don’t mean anything very much if you don’t</p>
+<div id="workflow" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Workflow</h2>
+<p>Every time you work on a group project that is stored in git, you should pull right away, do your work, then commit and push immediately.
+I recommend doing this workflow every time you make a significant change or start working on something else. It backs up your work so that
+you can go back to an earlier version in case you mess something up later.</p>
+<div id="pull" class="section level3" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Pull</h3>
+<p>This updates your repository to the newest version so that when other people on your team make changes, you will be able to have the most recently
+updated version of the code/repository.</p>
 </div>
-<div id="algorithms" class="section level3" number="1.1.3">
-<h3><span class="header-section-number">1.1.3</span> Algorithms</h3>
+<div id="commit" class="section level3" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Commit</h3>
+<p>This is step 1 of adding your changes to GitHub (push is step 2). Committing your changes requires that you specify which changed files you want
+to commit as well as a brief commit message summarizing what you changed since the last commit.</p>
 </div>
-<div id="domain-knowledge" class="section level3" number="1.1.4">
-<h3><span class="header-section-number">1.1.4</span> Domain knowledge</h3>
-<p>Like baking, the final thing you need to do good data science is what most people call “domain knowledge” and what I call “knowing what the hell you are talking about.” It turns out that having a really cool statistical model, huge amounts of data, and even a super computer sproting 24 GPUs will not save you from reaching the wrong answer if you don’t think (and aren’t trained to think).</p>
-<p><img src="Fig1.png" />
-<a href="https://www.researchgate.net/figure/A-famous-spurious-correlationstylervigencom_fig3_316739091">Link</a></p>
-</div>
-<div id="putting-it-together" class="section level3" number="1.1.5">
-<h3><span class="header-section-number">1.1.5</span> Putting it together</h3>
-<p>A final method. You can get along fine in may cases following the instructions on the back of the chocolate chip cookie bag. But to really become a “baker” you need to be able to create your own recipes for each occasion. And to do that you actually need to “know what the hell you are talking about.”</p>
-<p>So</p>
+<div id="push" class="section level3" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> Push</h3>
+<p>This is step 2 of adding your changes to GitHub. You can think of committimg as wrapping up a gift that you made and pushing is mailing it to the recipient.
+They don’t “open” the gift until they Pull and see what you pushed. Pushing uploads all un-pushed commits to GitHub so that you can see them
+in GitHub desktop as well as your repository online.</p>
 </div>
 </div>
-<div id="class-structures" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Class structures</h2>
-<div id="learning-objective-1-team-based-learning" class="section level3" number="1.2.1">
-<h3><span class="header-section-number">1.2.1</span> Learning objective #1: Team based learning</h3>
-<p>This course was designed to incorporate elements of Team Based Learning. This is an approach to creating permanent groups to work on problems in class and out of class throughout the semester.</p>
-<p>We are not going to follow the TBL approach strictly. But we are going to have fewer lectures and more structured group activities. Learn more about Team Based Learning by watching this video.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kxg5FTGZhZs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
+<div id="branches" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Branches</h2>
+<p>Large software projects use branches to have a production environment that is always working, and other branches for new feature development.
+Once a feature is ready, the development branch can be merged with the production branch (typically master). You’ll have to manually choose which
+version of each file to keep.</p>
 </div>
-<div id="learning-objective-2-show-up-ready" class="section level3" number="1.2.2">
-<h3><span class="header-section-number">1.2.2</span> Learning objective #2: Show up ready</h3>
-<p>Moving an increasing amount of teaching resources online is a big trend in education at all levels. But this isn’t just trendy, it appears to be very effective. Preliminary research shows that online learning paired with in-class interactions with faculty is a much more effective than the traditional lecture format.</p>
-<p>Watch this short TED talk by Peter Norvig to learn more:</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/tYclUdcsdeo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-<p>So in advance of each lecture</p>
+<div id="forking" class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> Forking</h2>
+<p>If you see someone’s repository and want to copy it and make your own changes without affecting their repository (and potentially without them even knowing),
+you can “fork” the repository. This gives you your own copy of it to mess with as you please.</p>
 </div>
-<div id="learning-objective-3-how-is-this-going-to-work" class="section level3" number="1.2.3">
-<h3><span class="header-section-number">1.2.3</span> Learning objective #3: How is this going to work?</h3>
-<p>The approach I am trying to adopt for this class is to help you learn in four basic steps.</p>
-<ol style="list-style-type: decimal">
-<li><p>Initial exposure to materials through self-study.</p></li>
-<li><p>Repeated exposure to materials in short lectures.</p></li>
-<li><p>Use your new knowledge in a collaborative environment where assistance is readily available.</p></li>
-<li><p>Use your new knowledge on your own.</p></li>
-</ol>
-<p>The goal is for you to see and use information in multiple ways to improve learning outcomes. Experience (and research) shows that this approach is far superior to simple lectures in helping you learn more and retain it longer. To help you along this process, each learning component will be broken down as follows.</p>
-<ol style="list-style-type: decimal">
-<li><p>You will read your book and review online materials.</p></li>
-<li><p>I will begin most classes with a short lecture where I will cover the materials again and answer questions.</p></li>
-<li><p>You will apply your knowledge during in-class team assignments. If you have any questions or run into problems, I will be right there to give you help. To keep the team motivated, these assignments will be graded.</p></li>
-<li><p>You will apply your knowledge on your own (or with friends) in your problem sets and final project.</p></li>
-</ol>
+<div id="reverting" class="section level2" number="5.6">
+<h2><span class="header-section-number">5.6</span> Reverting</h2>
+<p>If you make a mistake and commit and push it (or your team member does), you can revert to a prior commit. This is why it’s super useful
+to commit and push regulary!!! You can revert from any commit which will set your current repository state back to exactly what it looked
+like at that exact moment in time.</p>
 
 </div>
 </div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="1">
-<li id="fn1"><p>Machine learning and statistics is really just a subset of artificial intelligence (AI) research. For fun, just start telling people you are in an AI class and see how they react.<a href="index.html#fnref1" class="footnote-back">↩︎</a></p></li>
-</ol>
-</div>
+
+
+
+
+
+
             </section>
 
           </div>
         </div>
       </div>
+<a href="files-for-loops-and-functions.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="getting-started-in-r.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

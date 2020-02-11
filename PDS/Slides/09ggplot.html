@@ -88,7 +88,7 @@ ggplot(data=primaryPolls)+
   geom_point(mapping = aes(x=start_date, y=pct))
 ```
 
-&lt;img src="08ggplot_files/figure-html/unnamed-chunk-2-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="09ggplot_files/figure-html/unnamed-chunk-2-1.png" style="display: block; margin: auto;" /&gt;
 
 
 ---
@@ -121,7 +121,7 @@ ggplot(data=primaryPolls)+
   geom_point(mapping = aes(x=start_date, y=pct, color= candidate_name))
 ```
 
-&lt;img src="08ggplot_files/figure-html/unnamed-chunk-4-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="09ggplot_files/figure-html/unnamed-chunk-4-1.png" style="display: block; margin: auto;" /&gt;
 
 
 ---
@@ -138,7 +138,7 @@ ggplot(data=primaryPolls)+
   geom_point(mapping = aes(x=start_date, y=pct, shape= candidate_name, color=candidate_name), alpha=.8)
 ```
 
-&lt;img src="08ggplot_files/figure-html/unnamed-chunk-5-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="09ggplot_files/figure-html/unnamed-chunk-5-1.png" style="display: block; margin: auto;" /&gt;
 
 
 ---
@@ -156,7 +156,7 @@ ggplot(data=primaryPolls)+
     facet_wrap(~ candidate_name, nrow=2)
 ```
 
-&lt;img src="08ggplot_files/figure-html/unnamed-chunk-6-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="09ggplot_files/figure-html/unnamed-chunk-6-1.png" style="display: block; margin: auto;" /&gt;
 
 
 ---
@@ -170,7 +170,7 @@ ggplot(data=primaryPolls)+
     facet_wrap(population ~ candidate_name, nrow=2)
 ```
 
-&lt;img src="08ggplot_files/figure-html/unnamed-chunk-7-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="09ggplot_files/figure-html/unnamed-chunk-7-1.png" style="display: block; margin: auto;" /&gt;
 
 
 ---
@@ -188,7 +188,7 @@ ggplot(data=primaryPolls)+
 ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
-&lt;img src="08ggplot_files/figure-html/unnamed-chunk-8-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="09ggplot_files/figure-html/unnamed-chunk-8-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -204,7 +204,7 @@ ggplot(data=primaryPolls)+
 ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
-&lt;img src="08ggplot_files/figure-html/unnamed-chunk-9-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="09ggplot_files/figure-html/unnamed-chunk-9-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -220,7 +220,7 @@ ggplot(data=primaryPolls)+
 ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
-&lt;img src="08ggplot_files/figure-html/unnamed-chunk-10-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="09ggplot_files/figure-html/unnamed-chunk-10-1.png" style="display: block; margin: auto;" /&gt;
 
 
 ---
@@ -237,7 +237,7 @@ ggplot(data=primaryPolls)+
 ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
-&lt;img src="08ggplot_files/figure-html/unnamed-chunk-11-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="09ggplot_files/figure-html/unnamed-chunk-11-1.png" style="display: block; margin: auto;" /&gt;
 
 
 ---
@@ -253,7 +253,7 @@ ggplot(data=primaryPolls)+
 ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
-&lt;img src="08ggplot_files/figure-html/unnamed-chunk-12-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="09ggplot_files/figure-html/unnamed-chunk-12-1.png" style="display: block; margin: auto;" /&gt;
 
 
 
@@ -272,7 +272,7 @@ ggplot(data=primaryPolls)+
 ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
-&lt;img src="08ggplot_files/figure-html/unnamed-chunk-13-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="09ggplot_files/figure-html/unnamed-chunk-13-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -288,7 +288,7 @@ ggplot(data=primaryPolls, mapping=aes(x=start_date, y=pct, color=candidate_name)
 ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
-&lt;img src="08ggplot_files/figure-html/unnamed-chunk-14-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="09ggplot_files/figure-html/unnamed-chunk-14-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -304,7 +304,7 @@ ggplot(data=primaryPolls, mapping=aes(x=start_date, y=pct, color=candidate_name)
 ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
-&lt;img src="08ggplot_files/figure-html/unnamed-chunk-15-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="09ggplot_files/figure-html/unnamed-chunk-15-1.png" style="display: block; margin: auto;" /&gt;
 
 
 
@@ -328,7 +328,7 @@ ggplot(data=primaryPolls, mapping=aes(x=fte_grade))+
   geom_bar()
 ```
 
-&lt;img src="08ggplot_files/figure-html/unnamed-chunk-16-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="09ggplot_files/figure-html/unnamed-chunk-16-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -339,7 +339,7 @@ ggplot(data=primaryPolls, mapping=aes(x=fte_grade))+
   stat_count()
 ```
 
-&lt;img src="08ggplot_files/figure-html/unnamed-chunk-17-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="09ggplot_files/figure-html/unnamed-chunk-17-1.png" style="display: block; margin: auto;" /&gt;
 
 
 ---
@@ -355,7 +355,7 @@ ggplot(data=primaryPolls, mapping=aes(x=candidate_name, y=pct))+
   )
 ```
 
-&lt;img src="08ggplot_files/figure-html/unnamed-chunk-18-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="09ggplot_files/figure-html/unnamed-chunk-18-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -367,7 +367,7 @@ ggplot(data=primaryPolls, mapping=aes(x=candidate_name, y=pct))+
   geom_boxplot()
 ```
 
-&lt;img src="08ggplot_files/figure-html/unnamed-chunk-19-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="09ggplot_files/figure-html/unnamed-chunk-19-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -379,7 +379,7 @@ ggplot(data=primaryPolls, mapping=aes(x=candidate_name, y=pct))+
   coord_flip()
 ```
 
-&lt;img src="08ggplot_files/figure-html/unnamed-chunk-20-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="09ggplot_files/figure-html/unnamed-chunk-20-1.png" style="display: block; margin: auto;" /&gt;
 
 
 ---
