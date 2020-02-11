@@ -60,3 +60,20 @@ you can "fork" the repository. This gives you your own copy of it to mess with a
 If you make a mistake and commit and push it (or your team member does), you can revert to a prior commit. This is why it's super useful
 to commit and push regulary!!! You can revert from any commit which will set your current repository state back to exactly what it looked 
 like at that exact moment in time.
+
+## Version Control in RStudio
+
+If you have a GitHub repository that you want to open in RStudio, here are the steps:
+
+1. Open RStudio
+2. File -> New Project -> Version Control -> Git
+3. Paste your repository URL and change where you want it to clone the repository on your local machine
+4. All of the files in the repository are now found in the "files" tab in RStudio.
+5. To pull, open the "git" tab and click the blue down arrow.
+6. To commit, select the check boxes next to the changed files you wish to commit and click the "commit" button.
+7. To push, click the green up arrow.
+
+Note: if you want to switch branches, you can click on "master" in the git tab. To switch projects, click on the cube icon in the top right
+corner. This gives you options for creating a new project, viewing recent projects, and opening existing projects.
+
+For more info, check out [this link](https://support.rstudio.com/hc/en-us/articles/200532077?version=1.1.463&mode=desktop)

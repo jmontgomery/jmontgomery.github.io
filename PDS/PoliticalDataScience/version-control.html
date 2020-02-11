@@ -210,6 +210,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.4" data-path="version-control.html"><a href="version-control.html#branches"><i class="fa fa-check"></i><b>5.4</b> Branches</a></li>
 <li class="chapter" data-level="5.5" data-path="version-control.html"><a href="version-control.html#forking"><i class="fa fa-check"></i><b>5.5</b> Forking</a></li>
 <li class="chapter" data-level="5.6" data-path="version-control.html"><a href="version-control.html#reverting"><i class="fa fa-check"></i><b>5.6</b> Reverting</a></li>
+<li class="chapter" data-level="5.7" data-path="version-control.html"><a href="version-control.html#version-control-in-rstudio"><i class="fa fa-check"></i><b>5.7</b> Version Control in RStudio</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="data-visualization-in-r.html"><a href="data-visualization-in-r.html"><i class="fa fa-check"></i><b>6</b> Data Visualization in R</a>
 <ul>
@@ -304,6 +305,22 @@ you can “fork” the repository. This gives you your own copy of it to mess wi
 <p>If you make a mistake and commit and push it (or your team member does), you can revert to a prior commit. This is why it’s super useful
 to commit and push regulary!!! You can revert from any commit which will set your current repository state back to exactly what it looked
 like at that exact moment in time.</p>
+</div>
+<div id="version-control-in-rstudio" class="section level2" number="5.7">
+<h2><span class="header-section-number">5.7</span> Version Control in RStudio</h2>
+<p>If you have a GitHub repository that you want to open in RStudio, here are the steps:</p>
+<ol style="list-style-type: decimal">
+<li>Open RStudio</li>
+<li>File -&gt; New Project -&gt; Version Control -&gt; Git</li>
+<li>Paste your repository URL and change where you want it to clone the repository on your local machine</li>
+<li>All of the files in the repository are now found in the “files” tab in RStudio.</li>
+<li>To pull, open the “git” tab and click the blue down arrow.</li>
+<li>To commit, select the check boxes next to the changed files you wish to commit and click the “commit” button.</li>
+<li>To push, click the green up arrow.</li>
+</ol>
+<p>Note: if you want to switch branches, you can click on “master” in the git tab. To switch projects, click on the cube icon in the top right
+corner. This gives you options for creating a new project, viewing recent projects, and opening existing projects.</p>
+<p>For more info, check out <a href="https://support.rstudio.com/hc/en-us/articles/200532077?version=1.1.463&amp;mode=desktop">this link</a></p>
 
 </div>
 </div>
