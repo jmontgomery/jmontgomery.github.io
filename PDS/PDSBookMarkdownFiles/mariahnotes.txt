@@ -7,9 +7,9 @@ don't put things in comments
 
 package development (one of my projects)
 
-projects in RStudio (another project maybe?)
-
 //done:
+
+projects in RStudio (another project maybe?)
 
 you can index/subset a matrix with a vector of logicals/booleans just like you can index an array
 matrices and vectors can only contain one data type (but not dataframes!)
