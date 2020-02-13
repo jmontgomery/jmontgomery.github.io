@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
   <head>
     <title>dplyr and tidy</title>
     <meta charset="utf-8" />
@@ -12,9 +12,9 @@
 class: center, middle, inverse, title-slide
 
 # dplyr and tidy
-### <p>Jacob M. Montgomery<br />
+### <div class="line-block">Jacob M. Montgomery<br />
 <em>Washington University in St. Louis</em><br />
-<em>Department of Politcal Science</em></p>
+<em>Department of Politcal Science</em></div>
 ### 2020
 
 ---
@@ -102,26 +102,25 @@ primaryPolls
 
 ```
 ## # A tibble: 16,661 x 33
-##    question_id poll_id cycle state pollster_id pollster sponsor_ids
-##          &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt;
-##  1      116805   63512  2020 New …        1515 Data fo…          NA
-##  2      116805   63512  2020 New …        1515 Data fo…          NA
-##  3      116805   63512  2020 New …        1515 Data fo…          NA
-##  4      116805   63512  2020 New …        1515 Data fo…          NA
-##  5      116805   63512  2020 New …        1515 Data fo…          NA
-##  6      116805   63512  2020 New …        1515 Data fo…          NA
-##  7      116805   63512  2020 New …        1515 Data fo…          NA
-##  8      116805   63512  2020 New …        1515 Data fo…          NA
-##  9      116799   63511  2020 &lt;NA&gt;          744 Ipsos             71
-## 10      116799   63511  2020 &lt;NA&gt;          744 Ipsos             71
-## # … with 16,651 more rows, and 26 more variables: sponsors &lt;chr&gt;,
-## #   display_name &lt;chr&gt;, pollster_rating_id &lt;dbl&gt;,
-## #   pollster_rating_name &lt;chr&gt;, fte_grade &lt;chr&gt;, sample_size &lt;dbl&gt;,
-## #   population &lt;chr&gt;, population_full &lt;chr&gt;, methodology &lt;chr&gt;,
-## #   office_type &lt;chr&gt;, start_date &lt;date&gt;, end_date &lt;chr&gt;,
-## #   sponsor_candidate &lt;lgl&gt;, internal &lt;lgl&gt;, partisan &lt;lgl&gt;,
-## #   tracking &lt;lgl&gt;, nationwide_batch &lt;lgl&gt;, created_at &lt;chr&gt;, notes &lt;chr&gt;,
-## #   url &lt;chr&gt;, stage &lt;chr&gt;, party &lt;chr&gt;, answer &lt;chr&gt;, candidate_id &lt;dbl&gt;,
+##    question_id poll_id cycle state pollster_id pollster sponsor_ids sponsors
+##          &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;   
+##  1      116805   63512  2020 New ~        1515 Data fo~          NA &lt;NA&gt;    
+##  2      116805   63512  2020 New ~        1515 Data fo~          NA &lt;NA&gt;    
+##  3      116805   63512  2020 New ~        1515 Data fo~          NA &lt;NA&gt;    
+##  4      116805   63512  2020 New ~        1515 Data fo~          NA &lt;NA&gt;    
+##  5      116805   63512  2020 New ~        1515 Data fo~          NA &lt;NA&gt;    
+##  6      116805   63512  2020 New ~        1515 Data fo~          NA &lt;NA&gt;    
+##  7      116805   63512  2020 New ~        1515 Data fo~          NA &lt;NA&gt;    
+##  8      116805   63512  2020 New ~        1515 Data fo~          NA &lt;NA&gt;    
+##  9      116799   63511  2020 &lt;NA&gt;          744 Ipsos             71 Reuters 
+## 10      116799   63511  2020 &lt;NA&gt;          744 Ipsos             71 Reuters 
+## # ... with 16,651 more rows, and 25 more variables: display_name &lt;chr&gt;,
+## #   pollster_rating_id &lt;dbl&gt;, pollster_rating_name &lt;chr&gt;, fte_grade &lt;chr&gt;,
+## #   sample_size &lt;dbl&gt;, population &lt;chr&gt;, population_full &lt;chr&gt;,
+## #   methodology &lt;chr&gt;, office_type &lt;chr&gt;, start_date &lt;date&gt;, end_date &lt;chr&gt;,
+## #   sponsor_candidate &lt;lgl&gt;, internal &lt;lgl&gt;, partisan &lt;lgl&gt;, tracking &lt;lgl&gt;,
+## #   nationwide_batch &lt;lgl&gt;, created_at &lt;chr&gt;, notes &lt;chr&gt;, url &lt;chr&gt;,
+## #   stage &lt;chr&gt;, party &lt;chr&gt;, answer &lt;chr&gt;, candidate_id &lt;dbl&gt;,
 ## #   candidate_name &lt;chr&gt;, pct &lt;dbl&gt;
 ```
 
@@ -171,42 +170,42 @@ print(primaryPolls, width=Inf)
 ##  8 Data for Progress    B/C              1295 lv         lv-d           
 ##  9 Ipsos                B-                556 rv         rv-d           
 ## 10 Ipsos                B-                556 rv         rv-d           
-##    methodology office_type    start_date end_date sponsor_candidate
-##    &lt;chr&gt;       &lt;chr&gt;          &lt;date&gt;     &lt;chr&gt;    &lt;lgl&gt;            
-##  1 Text        U.S. President 2020-02-07 2/10/20  NA               
-##  2 Text        U.S. President 2020-02-07 2/10/20  NA               
-##  3 Text        U.S. President 2020-02-07 2/10/20  NA               
-##  4 Text        U.S. President 2020-02-07 2/10/20  NA               
-##  5 Text        U.S. President 2020-02-07 2/10/20  NA               
-##  6 Text        U.S. President 2020-02-07 2/10/20  NA               
-##  7 Text        U.S. President 2020-02-07 2/10/20  NA               
-##  8 Text        U.S. President 2020-02-07 2/10/20  NA               
-##  9 Online      U.S. President 2020-02-06 2/10/20  NA               
-## 10 Online      U.S. President 2020-02-06 2/10/20  NA               
-##    internal partisan tracking nationwide_batch created_at    notes
-##    &lt;lgl&gt;    &lt;lgl&gt;    &lt;lgl&gt;    &lt;lgl&gt;            &lt;chr&gt;         &lt;chr&gt;
-##  1 FALSE    NA       FALSE    FALSE            2/10/20 21:47 &lt;NA&gt; 
-##  2 FALSE    NA       FALSE    FALSE            2/10/20 21:47 &lt;NA&gt; 
-##  3 FALSE    NA       FALSE    FALSE            2/10/20 21:47 &lt;NA&gt; 
-##  4 FALSE    NA       FALSE    FALSE            2/10/20 21:47 &lt;NA&gt; 
-##  5 FALSE    NA       FALSE    FALSE            2/10/20 21:47 &lt;NA&gt; 
-##  6 FALSE    NA       FALSE    FALSE            2/10/20 21:47 &lt;NA&gt; 
-##  7 FALSE    NA       FALSE    FALSE            2/10/20 21:47 &lt;NA&gt; 
-##  8 FALSE    NA       FALSE    FALSE            2/10/20 21:47 &lt;NA&gt; 
-##  9 FALSE    NA       FALSE    FALSE            2/10/20 18:27 &lt;NA&gt; 
-## 10 FALSE    NA       FALSE    FALSE            2/10/20 18:27 &lt;NA&gt; 
-##    url                                                                     
-##    &lt;chr&gt;                                                                   
-##  1 http://filesforprogress.org/datasets/2020/2/nh/new_hampshire_primary.pdf
-##  2 http://filesforprogress.org/datasets/2020/2/nh/new_hampshire_primary.pdf
-##  3 http://filesforprogress.org/datasets/2020/2/nh/new_hampshire_primary.pdf
-##  4 http://filesforprogress.org/datasets/2020/2/nh/new_hampshire_primary.pdf
-##  5 http://filesforprogress.org/datasets/2020/2/nh/new_hampshire_primary.pdf
-##  6 http://filesforprogress.org/datasets/2020/2/nh/new_hampshire_primary.pdf
-##  7 http://filesforprogress.org/datasets/2020/2/nh/new_hampshire_primary.pdf
-##  8 http://filesforprogress.org/datasets/2020/2/nh/new_hampshire_primary.pdf
-##  9 https://www.ipsos.com/sites/default/files/ct/news/documents/2020-02/top…
-## 10 https://www.ipsos.com/sites/default/files/ct/news/documents/2020-02/top…
+##    methodology office_type    start_date end_date sponsor_candidate internal
+##    &lt;chr&gt;       &lt;chr&gt;          &lt;date&gt;     &lt;chr&gt;    &lt;lgl&gt;             &lt;lgl&gt;   
+##  1 Text        U.S. President 2020-02-07 2/10/20  NA                FALSE   
+##  2 Text        U.S. President 2020-02-07 2/10/20  NA                FALSE   
+##  3 Text        U.S. President 2020-02-07 2/10/20  NA                FALSE   
+##  4 Text        U.S. President 2020-02-07 2/10/20  NA                FALSE   
+##  5 Text        U.S. President 2020-02-07 2/10/20  NA                FALSE   
+##  6 Text        U.S. President 2020-02-07 2/10/20  NA                FALSE   
+##  7 Text        U.S. President 2020-02-07 2/10/20  NA                FALSE   
+##  8 Text        U.S. President 2020-02-07 2/10/20  NA                FALSE   
+##  9 Online      U.S. President 2020-02-06 2/10/20  NA                FALSE   
+## 10 Online      U.S. President 2020-02-06 2/10/20  NA                FALSE   
+##    partisan tracking nationwide_batch created_at    notes
+##    &lt;lgl&gt;    &lt;lgl&gt;    &lt;lgl&gt;            &lt;chr&gt;         &lt;chr&gt;
+##  1 NA       FALSE    FALSE            2/10/20 21:47 &lt;NA&gt; 
+##  2 NA       FALSE    FALSE            2/10/20 21:47 &lt;NA&gt; 
+##  3 NA       FALSE    FALSE            2/10/20 21:47 &lt;NA&gt; 
+##  4 NA       FALSE    FALSE            2/10/20 21:47 &lt;NA&gt; 
+##  5 NA       FALSE    FALSE            2/10/20 21:47 &lt;NA&gt; 
+##  6 NA       FALSE    FALSE            2/10/20 21:47 &lt;NA&gt; 
+##  7 NA       FALSE    FALSE            2/10/20 21:47 &lt;NA&gt; 
+##  8 NA       FALSE    FALSE            2/10/20 21:47 &lt;NA&gt; 
+##  9 NA       FALSE    FALSE            2/10/20 18:27 &lt;NA&gt; 
+## 10 NA       FALSE    FALSE            2/10/20 18:27 &lt;NA&gt; 
+##    url                                                                          
+##    &lt;chr&gt;                                                                        
+##  1 http://filesforprogress.org/datasets/2020/2/nh/new_hampshire_primary.pdf     
+##  2 http://filesforprogress.org/datasets/2020/2/nh/new_hampshire_primary.pdf     
+##  3 http://filesforprogress.org/datasets/2020/2/nh/new_hampshire_primary.pdf     
+##  4 http://filesforprogress.org/datasets/2020/2/nh/new_hampshire_primary.pdf     
+##  5 http://filesforprogress.org/datasets/2020/2/nh/new_hampshire_primary.pdf     
+##  6 http://filesforprogress.org/datasets/2020/2/nh/new_hampshire_primary.pdf     
+##  7 http://filesforprogress.org/datasets/2020/2/nh/new_hampshire_primary.pdf     
+##  8 http://filesforprogress.org/datasets/2020/2/nh/new_hampshire_primary.pdf     
+##  9 https://www.ipsos.com/sites/default/files/ct/news/documents/2020-02/topline_~
+## 10 https://www.ipsos.com/sites/default/files/ct/news/documents/2020-02/topline_~
 ##    stage   party answer    candidate_id candidate_name        pct
 ##    &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;            &lt;dbl&gt; &lt;chr&gt;               &lt;dbl&gt;
 ##  1 primary DEM   Sanders          13257 Bernard Sanders        28
@@ -219,7 +218,7 @@ print(primaryPolls, width=Inf)
 ##  8 primary DEM   Steyer           13327 Tom Steyer              3
 ##  9 primary DEM   Sanders          13257 Bernard Sanders        20
 ## 10 primary DEM   Biden            13256 Joseph R. Biden Jr.    17
-## # … with 16,651 more rows
+## # ... with 16,651 more rows
 ```
 
 
@@ -227,7 +226,7 @@ print(primaryPolls, width=Inf)
 
 - You can access elements basically the same way
 - They never allow partial matching (which is evil anyways)
-- You can use `as.tibble` or `as.data.frame` to jump back and forth
+- You can use `as_tibble` or `as.data.frame` to jump back and forth
 
 
 ---
@@ -254,26 +253,25 @@ filter(primaryPolls, candidate_name == c("Amy Klobuchar"))
 
 ```
 ## # A tibble: 874 x 33
-##    question_id poll_id cycle state pollster_id pollster sponsor_ids
-##          &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt;
-##  1      116805   63512  2020 New …        1515 Data fo…          NA
-##  2      116799   63511  2020 &lt;NA&gt;          744 Ipsos             71
-##  3      116732   63489  2020 New …        1102 Emerson…          43
-##  4      116733   63490  2020 New …         458 Suffolk…       68323
-##  5      116743   63493  2020 New …          23 America…          NA
-##  6      116798   63510  2020 New …        1529 Elucd             NA
-##  7      116745   63494  2020 New …        1470 Univers…         143
-##  8      116792   63508  2020 Cali…        1491 Capitol…          NA
-##  9      116763   63496  2020 &lt;NA&gt;          396 Quinnip…          NA
-## 10      116714   63483  2020 New …        1102 Emerson…          43
-## # … with 864 more rows, and 26 more variables: sponsors &lt;chr&gt;,
-## #   display_name &lt;chr&gt;, pollster_rating_id &lt;dbl&gt;,
-## #   pollster_rating_name &lt;chr&gt;, fte_grade &lt;chr&gt;, sample_size &lt;dbl&gt;,
-## #   population &lt;chr&gt;, population_full &lt;chr&gt;, methodology &lt;chr&gt;,
-## #   office_type &lt;chr&gt;, start_date &lt;date&gt;, end_date &lt;chr&gt;,
-## #   sponsor_candidate &lt;lgl&gt;, internal &lt;lgl&gt;, partisan &lt;lgl&gt;,
-## #   tracking &lt;lgl&gt;, nationwide_batch &lt;lgl&gt;, created_at &lt;chr&gt;, notes &lt;chr&gt;,
-## #   url &lt;chr&gt;, stage &lt;chr&gt;, party &lt;chr&gt;, answer &lt;chr&gt;, candidate_id &lt;dbl&gt;,
+##    question_id poll_id cycle state pollster_id pollster sponsor_ids sponsors
+##          &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;   
+##  1      116805   63512  2020 New ~        1515 Data fo~          NA &lt;NA&gt;    
+##  2      116799   63511  2020 &lt;NA&gt;          744 Ipsos             71 Reuters 
+##  3      116732   63489  2020 New ~        1102 Emerson~          43 7News   
+##  4      116733   63490  2020 New ~         458 Suffolk~       68323 Boston ~
+##  5      116743   63493  2020 New ~          23 America~          NA &lt;NA&gt;    
+##  6      116798   63510  2020 New ~        1529 Elucd             NA &lt;NA&gt;    
+##  7      116745   63494  2020 New ~        1470 Univers~         143 CNN     
+##  8      116792   63508  2020 Cali~        1491 Capitol~          NA &lt;NA&gt;    
+##  9      116763   63496  2020 &lt;NA&gt;          396 Quinnip~          NA &lt;NA&gt;    
+## 10      116714   63483  2020 New ~        1102 Emerson~          43 7News   
+## # ... with 864 more rows, and 25 more variables: display_name &lt;chr&gt;,
+## #   pollster_rating_id &lt;dbl&gt;, pollster_rating_name &lt;chr&gt;, fte_grade &lt;chr&gt;,
+## #   sample_size &lt;dbl&gt;, population &lt;chr&gt;, population_full &lt;chr&gt;,
+## #   methodology &lt;chr&gt;, office_type &lt;chr&gt;, start_date &lt;date&gt;, end_date &lt;chr&gt;,
+## #   sponsor_candidate &lt;lgl&gt;, internal &lt;lgl&gt;, partisan &lt;lgl&gt;, tracking &lt;lgl&gt;,
+## #   nationwide_batch &lt;lgl&gt;, created_at &lt;chr&gt;, notes &lt;chr&gt;, url &lt;chr&gt;,
+## #   stage &lt;chr&gt;, party &lt;chr&gt;, answer &lt;chr&gt;, candidate_id &lt;dbl&gt;,
 ## #   candidate_name &lt;chr&gt;, pct &lt;dbl&gt;
 ```
 
@@ -290,26 +288,25 @@ filter(primaryPolls,
 
 ```
 ## # A tibble: 84 x 33
-##    question_id poll_id cycle state pollster_id pollster sponsor_ids
-##          &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt;
-##  1      116805   63512  2020 New …        1515 Data fo…          NA
-##  2      116732   63489  2020 New …        1102 Emerson…          43
-##  3      116733   63490  2020 New …         458 Suffolk…       68323
-##  4      116743   63493  2020 New …          23 America…          NA
-##  5      116798   63510  2020 New …        1529 Elucd             NA
-##  6      116745   63494  2020 New …        1470 Univers…         143
-##  7      116714   63483  2020 New …        1102 Emerson…          43
-##  8      116715   63484  2020 New …         458 Suffolk…       68323
-##  9      116717   63485  2020 New …        1470 Univers…         143
-## 10      116718   63486  2020 New …         568 YouGov           133
-## # … with 74 more rows, and 26 more variables: sponsors &lt;chr&gt;,
-## #   display_name &lt;chr&gt;, pollster_rating_id &lt;dbl&gt;,
-## #   pollster_rating_name &lt;chr&gt;, fte_grade &lt;chr&gt;, sample_size &lt;dbl&gt;,
-## #   population &lt;chr&gt;, population_full &lt;chr&gt;, methodology &lt;chr&gt;,
-## #   office_type &lt;chr&gt;, start_date &lt;date&gt;, end_date &lt;chr&gt;,
-## #   sponsor_candidate &lt;lgl&gt;, internal &lt;lgl&gt;, partisan &lt;lgl&gt;,
-## #   tracking &lt;lgl&gt;, nationwide_batch &lt;lgl&gt;, created_at &lt;chr&gt;, notes &lt;chr&gt;,
-## #   url &lt;chr&gt;, stage &lt;chr&gt;, party &lt;chr&gt;, answer &lt;chr&gt;, candidate_id &lt;dbl&gt;,
+##    question_id poll_id cycle state pollster_id pollster sponsor_ids sponsors
+##          &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;   
+##  1      116805   63512  2020 New ~        1515 Data fo~          NA &lt;NA&gt;    
+##  2      116732   63489  2020 New ~        1102 Emerson~          43 7News   
+##  3      116733   63490  2020 New ~         458 Suffolk~       68323 Boston ~
+##  4      116743   63493  2020 New ~          23 America~          NA &lt;NA&gt;    
+##  5      116798   63510  2020 New ~        1529 Elucd             NA &lt;NA&gt;    
+##  6      116745   63494  2020 New ~        1470 Univers~         143 CNN     
+##  7      116714   63483  2020 New ~        1102 Emerson~          43 7News   
+##  8      116715   63484  2020 New ~         458 Suffolk~       68323 Boston ~
+##  9      116717   63485  2020 New ~        1470 Univers~         143 CNN     
+## 10      116718   63486  2020 New ~         568 YouGov           133 CBS News
+## # ... with 74 more rows, and 25 more variables: display_name &lt;chr&gt;,
+## #   pollster_rating_id &lt;dbl&gt;, pollster_rating_name &lt;chr&gt;, fte_grade &lt;chr&gt;,
+## #   sample_size &lt;dbl&gt;, population &lt;chr&gt;, population_full &lt;chr&gt;,
+## #   methodology &lt;chr&gt;, office_type &lt;chr&gt;, start_date &lt;date&gt;, end_date &lt;chr&gt;,
+## #   sponsor_candidate &lt;lgl&gt;, internal &lt;lgl&gt;, partisan &lt;lgl&gt;, tracking &lt;lgl&gt;,
+## #   nationwide_batch &lt;lgl&gt;, created_at &lt;chr&gt;, notes &lt;chr&gt;, url &lt;chr&gt;,
+## #   stage &lt;chr&gt;, party &lt;chr&gt;, answer &lt;chr&gt;, candidate_id &lt;dbl&gt;,
 ## #   candidate_name &lt;chr&gt;, pct &lt;dbl&gt;
 ```
 
@@ -330,26 +327,25 @@ arrange(primaryPolls, state, pollster_id)
 
 ```
 ## # A tibble: 16,661 x 33
-##    question_id poll_id cycle state pollster_id pollster sponsor_ids
-##          &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt;
-##  1       99478   58691  2020 Alab…        1193 SurveyM…         132
-##  2       99478   58691  2020 Alab…        1193 SurveyM…         132
-##  3       99478   58691  2020 Alab…        1193 SurveyM…         132
-##  4       99478   58691  2020 Alab…        1193 SurveyM…         132
-##  5       99478   58691  2020 Alab…        1193 SurveyM…         132
-##  6       99478   58691  2020 Alab…        1193 SurveyM…         132
-##  7       99478   58691  2020 Alab…        1193 SurveyM…         132
-##  8       99478   58691  2020 Alab…        1193 SurveyM…         132
-##  9       99478   58691  2020 Alab…        1193 SurveyM…         132
-## 10       99478   58691  2020 Alab…        1193 SurveyM…         132
-## # … with 16,651 more rows, and 26 more variables: sponsors &lt;chr&gt;,
-## #   display_name &lt;chr&gt;, pollster_rating_id &lt;dbl&gt;,
-## #   pollster_rating_name &lt;chr&gt;, fte_grade &lt;chr&gt;, sample_size &lt;dbl&gt;,
-## #   population &lt;chr&gt;, population_full &lt;chr&gt;, methodology &lt;chr&gt;,
-## #   office_type &lt;chr&gt;, start_date &lt;date&gt;, end_date &lt;chr&gt;,
-## #   sponsor_candidate &lt;lgl&gt;, internal &lt;lgl&gt;, partisan &lt;lgl&gt;,
-## #   tracking &lt;lgl&gt;, nationwide_batch &lt;lgl&gt;, created_at &lt;chr&gt;, notes &lt;chr&gt;,
-## #   url &lt;chr&gt;, stage &lt;chr&gt;, party &lt;chr&gt;, answer &lt;chr&gt;, candidate_id &lt;dbl&gt;,
+##    question_id poll_id cycle state pollster_id pollster sponsor_ids sponsors
+##          &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;   
+##  1       99478   58691  2020 Alab~        1193 SurveyM~         132 NBC News
+##  2       99478   58691  2020 Alab~        1193 SurveyM~         132 NBC News
+##  3       99478   58691  2020 Alab~        1193 SurveyM~         132 NBC News
+##  4       99478   58691  2020 Alab~        1193 SurveyM~         132 NBC News
+##  5       99478   58691  2020 Alab~        1193 SurveyM~         132 NBC News
+##  6       99478   58691  2020 Alab~        1193 SurveyM~         132 NBC News
+##  7       99478   58691  2020 Alab~        1193 SurveyM~         132 NBC News
+##  8       99478   58691  2020 Alab~        1193 SurveyM~         132 NBC News
+##  9       99478   58691  2020 Alab~        1193 SurveyM~         132 NBC News
+## 10       99478   58691  2020 Alab~        1193 SurveyM~         132 NBC News
+## # ... with 16,651 more rows, and 25 more variables: display_name &lt;chr&gt;,
+## #   pollster_rating_id &lt;dbl&gt;, pollster_rating_name &lt;chr&gt;, fte_grade &lt;chr&gt;,
+## #   sample_size &lt;dbl&gt;, population &lt;chr&gt;, population_full &lt;chr&gt;,
+## #   methodology &lt;chr&gt;, office_type &lt;chr&gt;, start_date &lt;date&gt;, end_date &lt;chr&gt;,
+## #   sponsor_candidate &lt;lgl&gt;, internal &lt;lgl&gt;, partisan &lt;lgl&gt;, tracking &lt;lgl&gt;,
+## #   nationwide_batch &lt;lgl&gt;, created_at &lt;chr&gt;, notes &lt;chr&gt;, url &lt;chr&gt;,
+## #   stage &lt;chr&gt;, party &lt;chr&gt;, answer &lt;chr&gt;, candidate_id &lt;dbl&gt;,
 ## #   candidate_name &lt;chr&gt;, pct &lt;dbl&gt;
 ```
 
@@ -365,26 +361,25 @@ arrange(primaryPolls, state, desc(pollster_id))
 
 ```
 ## # A tibble: 16,661 x 33
-##    question_id poll_id cycle state pollster_id pollster sponsor_ids
-##          &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt;
-##  1       93812   57768  2020 Alab…        1365 Change …          NA
-##  2       93812   57768  2020 Alab…        1365 Change …          NA
-##  3       93812   57768  2020 Alab…        1365 Change …          NA
-##  4       93812   57768  2020 Alab…        1365 Change …          NA
-##  5       93812   57768  2020 Alab…        1365 Change …          NA
-##  6       93812   57768  2020 Alab…        1365 Change …          NA
-##  7       93812   57768  2020 Alab…        1365 Change …          NA
-##  8       93812   57768  2020 Alab…        1365 Change …          NA
-##  9       93812   57768  2020 Alab…        1365 Change …          NA
-## 10       93812   57768  2020 Alab…        1365 Change …          NA
-## # … with 16,651 more rows, and 26 more variables: sponsors &lt;chr&gt;,
-## #   display_name &lt;chr&gt;, pollster_rating_id &lt;dbl&gt;,
-## #   pollster_rating_name &lt;chr&gt;, fte_grade &lt;chr&gt;, sample_size &lt;dbl&gt;,
-## #   population &lt;chr&gt;, population_full &lt;chr&gt;, methodology &lt;chr&gt;,
-## #   office_type &lt;chr&gt;, start_date &lt;date&gt;, end_date &lt;chr&gt;,
-## #   sponsor_candidate &lt;lgl&gt;, internal &lt;lgl&gt;, partisan &lt;lgl&gt;,
-## #   tracking &lt;lgl&gt;, nationwide_batch &lt;lgl&gt;, created_at &lt;chr&gt;, notes &lt;chr&gt;,
-## #   url &lt;chr&gt;, stage &lt;chr&gt;, party &lt;chr&gt;, answer &lt;chr&gt;, candidate_id &lt;dbl&gt;,
+##    question_id poll_id cycle state pollster_id pollster sponsor_ids sponsors
+##          &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;   
+##  1       93812   57768  2020 Alab~        1365 Change ~          NA &lt;NA&gt;    
+##  2       93812   57768  2020 Alab~        1365 Change ~          NA &lt;NA&gt;    
+##  3       93812   57768  2020 Alab~        1365 Change ~          NA &lt;NA&gt;    
+##  4       93812   57768  2020 Alab~        1365 Change ~          NA &lt;NA&gt;    
+##  5       93812   57768  2020 Alab~        1365 Change ~          NA &lt;NA&gt;    
+##  6       93812   57768  2020 Alab~        1365 Change ~          NA &lt;NA&gt;    
+##  7       93812   57768  2020 Alab~        1365 Change ~          NA &lt;NA&gt;    
+##  8       93812   57768  2020 Alab~        1365 Change ~          NA &lt;NA&gt;    
+##  9       93812   57768  2020 Alab~        1365 Change ~          NA &lt;NA&gt;    
+## 10       93812   57768  2020 Alab~        1365 Change ~          NA &lt;NA&gt;    
+## # ... with 16,651 more rows, and 25 more variables: display_name &lt;chr&gt;,
+## #   pollster_rating_id &lt;dbl&gt;, pollster_rating_name &lt;chr&gt;, fte_grade &lt;chr&gt;,
+## #   sample_size &lt;dbl&gt;, population &lt;chr&gt;, population_full &lt;chr&gt;,
+## #   methodology &lt;chr&gt;, office_type &lt;chr&gt;, start_date &lt;date&gt;, end_date &lt;chr&gt;,
+## #   sponsor_candidate &lt;lgl&gt;, internal &lt;lgl&gt;, partisan &lt;lgl&gt;, tracking &lt;lgl&gt;,
+## #   nationwide_batch &lt;lgl&gt;, created_at &lt;chr&gt;, notes &lt;chr&gt;, url &lt;chr&gt;,
+## #   stage &lt;chr&gt;, party &lt;chr&gt;, answer &lt;chr&gt;, candidate_id &lt;dbl&gt;,
 ## #   candidate_name &lt;chr&gt;, pct &lt;dbl&gt;
 ```
 
@@ -414,7 +409,7 @@ select(primaryPolls, state, candidate_name, start_date)
 ##  8 New Hampshire Tom Steyer          2020-02-07
 ##  9 &lt;NA&gt;          Bernard Sanders     2020-02-06
 ## 10 &lt;NA&gt;          Joseph R. Biden Jr. 2020-02-06
-## # … with 16,651 more rows
+## # ... with 16,651 more rows
 ```
 
 
@@ -439,25 +434,24 @@ select(primaryPolls, state, candidate_name, start_date, everything())
 ## # A tibble: 16,661 x 33
 ##    state candidate_name start_date question_id poll_id cycle pollster_id
 ##    &lt;chr&gt; &lt;chr&gt;          &lt;date&gt;           &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;
-##  1 New … Bernard Sande… 2020-02-07      116805   63512  2020        1515
-##  2 New … Andrew Yang    2020-02-07      116805   63512  2020        1515
-##  3 New … Pete Buttigieg 2020-02-07      116805   63512  2020        1515
-##  4 New … Joseph R. Bid… 2020-02-07      116805   63512  2020        1515
-##  5 New … Tulsi Gabbard  2020-02-07      116805   63512  2020        1515
-##  6 New … Amy Klobuchar  2020-02-07      116805   63512  2020        1515
-##  7 New … Elizabeth War… 2020-02-07      116805   63512  2020        1515
-##  8 New … Tom Steyer     2020-02-07      116805   63512  2020        1515
-##  9 &lt;NA&gt;  Bernard Sande… 2020-02-06      116799   63511  2020         744
-## 10 &lt;NA&gt;  Joseph R. Bid… 2020-02-06      116799   63511  2020         744
-## # … with 16,651 more rows, and 26 more variables: pollster &lt;chr&gt;,
+##  1 New ~ Bernard Sande~ 2020-02-07      116805   63512  2020        1515
+##  2 New ~ Andrew Yang    2020-02-07      116805   63512  2020        1515
+##  3 New ~ Pete Buttigieg 2020-02-07      116805   63512  2020        1515
+##  4 New ~ Joseph R. Bid~ 2020-02-07      116805   63512  2020        1515
+##  5 New ~ Tulsi Gabbard  2020-02-07      116805   63512  2020        1515
+##  6 New ~ Amy Klobuchar  2020-02-07      116805   63512  2020        1515
+##  7 New ~ Elizabeth War~ 2020-02-07      116805   63512  2020        1515
+##  8 New ~ Tom Steyer     2020-02-07      116805   63512  2020        1515
+##  9 &lt;NA&gt;  Bernard Sande~ 2020-02-06      116799   63511  2020         744
+## 10 &lt;NA&gt;  Joseph R. Bid~ 2020-02-06      116799   63511  2020         744
+## # ... with 16,651 more rows, and 26 more variables: pollster &lt;chr&gt;,
 ## #   sponsor_ids &lt;dbl&gt;, sponsors &lt;chr&gt;, display_name &lt;chr&gt;,
 ## #   pollster_rating_id &lt;dbl&gt;, pollster_rating_name &lt;chr&gt;, fte_grade &lt;chr&gt;,
 ## #   sample_size &lt;dbl&gt;, population &lt;chr&gt;, population_full &lt;chr&gt;,
 ## #   methodology &lt;chr&gt;, office_type &lt;chr&gt;, end_date &lt;chr&gt;,
-## #   sponsor_candidate &lt;lgl&gt;, internal &lt;lgl&gt;, partisan &lt;lgl&gt;,
-## #   tracking &lt;lgl&gt;, nationwide_batch &lt;lgl&gt;, created_at &lt;chr&gt;, notes &lt;chr&gt;,
-## #   url &lt;chr&gt;, stage &lt;chr&gt;, party &lt;chr&gt;, answer &lt;chr&gt;, candidate_id &lt;dbl&gt;,
-## #   pct &lt;dbl&gt;
+## #   sponsor_candidate &lt;lgl&gt;, internal &lt;lgl&gt;, partisan &lt;lgl&gt;, tracking &lt;lgl&gt;,
+## #   nationwide_batch &lt;lgl&gt;, created_at &lt;chr&gt;, notes &lt;chr&gt;, url &lt;chr&gt;,
+## #   stage &lt;chr&gt;, party &lt;chr&gt;, answer &lt;chr&gt;, candidate_id &lt;dbl&gt;, pct &lt;dbl&gt;
 ```
 
 
@@ -485,7 +479,7 @@ rename(basicPolls, candidate = candidate_name)
 ##  8 New Hampshire Tom Steyer          2020-02-07     3
 ##  9 &lt;NA&gt;          Bernard Sanders     2020-02-06    20
 ## 10 &lt;NA&gt;          Joseph R. Biden Jr. 2020-02-06    17
-## # … with 16,651 more rows
+## # ... with 16,651 more rows
 ```
 
 ---
@@ -514,7 +508,7 @@ mutate(basicPolls, proportion=pct/100)
 ##  8 New Hampshire Tom Steyer          2020-02-07     3       0.03
 ##  9 &lt;NA&gt;          Bernard Sanders     2020-02-06    20       0.2 
 ## 10 &lt;NA&gt;          Joseph R. Biden Jr. 2020-02-06    17       0.17
-## # … with 16,651 more rows
+## # ... with 16,651 more rows
 ```
 
 ---
@@ -540,7 +534,7 @@ transmute(basicPolls, proportion=pct/100)
 ##  8       0.03
 ##  9       0.2 
 ## 10       0.17
-## # … with 16,651 more rows
+## # ... with 16,651 more rows
 ```
 
 
@@ -565,7 +559,7 @@ transmute(primaryPolls, numberRespondents=round((pct/100)*sample_size))
 ##  8                39
 ##  9               111
 ## 10                95
-## # … with 16,651 more rows
+## # ... with 16,651 more rows
 ```
 
 ---
@@ -575,7 +569,7 @@ transmute(primaryPolls, numberRespondents=round((pct/100)*sample_size))
 ```r
 transmute(primaryPolls, 
           proportion=pct/100,
-          numberRespondents=round(proportion*sample_size),
+          numberRespondents=round(proportion*sample_size)
           )
 ```
 
@@ -593,7 +587,7 @@ transmute(primaryPolls,
 ##  8       0.03                39
 ##  9       0.2                111
 ## 10       0.17                95
-## # … with 16,651 more rows
+## # ... with 16,651 more rows
 ```
 
 ---
@@ -621,7 +615,7 @@ mutate(basicPolls, top_tier=(pct&gt;10)*1)
 ##  8 New Hampshire Tom Steyer          2020-02-07     3        0
 ##  9 &lt;NA&gt;          Bernard Sanders     2020-02-06    20        1
 ## 10 &lt;NA&gt;          Joseph R. Biden Jr. 2020-02-06    17        1
-## # … with 16,651 more rows
+## # ... with 16,651 more rows
 ```
 
 ---
@@ -667,7 +661,7 @@ summarise(basicPolls_grouped, average_candidate=mean(pct), count=n())
 ##  8 Bill de Blasio               0.534   318
 ##  9 Bob Corker                   0.611    36
 ## 10 Charles D. Baker            31.5       2
-## # … with 66 more rows
+## # ... with 66 more rows
 ```
 
 ---
@@ -693,7 +687,7 @@ summarise(basicPolls_grouped, average_candidate=mean(pct), count=n())
 ##  8 Amy Klobuchar  Illinois                2.15     2
 ##  9 Amy Klobuchar  Indiana                 0        1
 ## 10 Amy Klobuchar  Iowa                    5.97    61
-## # … with 1,014 more rows
+## # ... with 1,014 more rows
 ```
 
 ---
@@ -725,7 +719,7 @@ basicPolls %&gt;%
 ##  8 Amy Klobuchar  Illinois                2.15     2
 ##  9 Amy Klobuchar  Indiana                 0        1
 ## 10 Amy Klobuchar  Iowa                    5.97    61
-## # … with 1,014 more rows
+## # ... with 1,014 more rows
 ```
 
 - See assigned readings for more useful summary variabels and `ungroup`
@@ -756,7 +750,7 @@ basicPolls %&gt;%
 ##  8 Amy Klobuchar  Texas                       1.47    23
 ##  9 Amy Klobuchar  Wisconsin                   2.52    16
 ## 10 Amy Klobuchar  &lt;NA&gt;                        1.62   503
-## # … with 196 more rows
+## # ... with 196 more rows
 ```
 
 ---
@@ -787,7 +781,7 @@ primaryPolls %&gt;%
 ##  8       0.0147 Amy Klobuchar  Texas             23
 ##  9       0.0252 Amy Klobuchar  Wisconsin         16
 ## 10       0.0162 Amy Klobuchar  &lt;NA&gt;             503
-## # … with 196 more rows
+## # ... with 196 more rows
 ```
 
 
@@ -843,7 +837,7 @@ nevadaPrimaries
 ##  8 Joseph R. Biden Jr.  28   2020-01-06         600
 ##  9 Pete Buttigieg        6   2020-01-06         600
 ## 10 Amy Klobuchar         4   2020-01-06         600
-## # … with 66 more rows
+## # ... with 66 more rows
 ```
 
 ---
@@ -857,25 +851,25 @@ wideNevada
 
 ```
 ## # A tibble: 15 x 8
-##    start_date sample_size `Joseph R. Bide… `Bernard Sander…
-##    &lt;date&gt;           &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
-##  1 2020-01-08         500             19.4             17.6
-##  2 2020-01-06         600             28               29  
-##  3 2020-01-05         635             23               17  
-##  4 2019-11-10         627             24               18  
-##  5 2019-11-06         626             33               23  
-##  6 2019-10-31         451             29.9             18.8
-##  7 2019-10-28         600             29.1             19.1
-##  8 2019-09-22         324             22               22  
-##  9 2019-09-19         500             23.2             14.2
-## 10 2019-08-28         563             27               29  
-## 11 2019-08-14         382             25               10  
-## 12 2019-08-02         439             26               22  
-## 13 2019-06-06         370             36               13  
-## 14 2019-05-09         389             29               24  
-## 15 2019-03-28         310             26.4             22.5
-## # … with 4 more variables: `Elizabeth Warren` &lt;dbl&gt;, `Pete
-## #   Buttigieg` &lt;dbl&gt;, `Amy Klobuchar` &lt;dbl&gt;, `Michael Bloomberg` &lt;dbl&gt;
+##    start_date sample_size `Joseph R. Bide~ `Bernard Sander~ `Elizabeth Warr~
+##    &lt;date&gt;           &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+##  1 2020-01-08         500             19.4             17.6             10.6
+##  2 2020-01-06         600             28               29               14  
+##  3 2020-01-05         635             23               17               12  
+##  4 2019-11-10         627             24               18               18  
+##  5 2019-11-06         626             33               23               21  
+##  6 2019-10-31         451             29.9             18.8             22.2
+##  7 2019-10-28         600             29.1             19.1             19.2
+##  8 2019-09-22         324             22               22               18  
+##  9 2019-09-19         500             23.2             14.2             19.4
+## 10 2019-08-28         563             27               29               18  
+## 11 2019-08-14         382             25               10               15  
+## 12 2019-08-02         439             26               22               23  
+## 13 2019-06-06         370             36               13               19  
+## 14 2019-05-09         389             29               24               12  
+## 15 2019-03-28         310             26.4             22.5              9.9
+## # ... with 3 more variables: `Pete Buttigieg` &lt;dbl&gt;, `Amy Klobuchar` &lt;dbl&gt;,
+## #   `Michael Bloomberg` &lt;dbl&gt;
 ```
 
 
@@ -913,13 +907,13 @@ timeNevada
 ## # A tibble: 6 x 16
 ##   candidate_name `2020-01-08` `2020-01-06` `2020-01-05` `2019-11-10`
 ##   &lt;chr&gt;                 &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;
-## 1 Joseph R. Bid…         19.4           28           23           24
-## 2 Bernard Sande…         17.6           29           17           18
-## 3 Elizabeth War…         10.6           14           12           18
+## 1 Joseph R. Bid~         19.4           28           23           24
+## 2 Bernard Sande~         17.6           29           17           18
+## 3 Elizabeth War~         10.6           14           12           18
 ## 4 Pete Buttigieg          8.2            6            6            8
 ## 5 Amy Klobuchar           3.6            4            2            2
-## 6 Michael Bloom…         NA             NA            2           NA
-## # … with 11 more variables: `2019-11-06` &lt;dbl&gt;, `2019-10-31` &lt;dbl&gt;,
+## 6 Michael Bloom~         NA             NA            2           NA
+## # ... with 11 more variables: `2019-11-06` &lt;dbl&gt;, `2019-10-31` &lt;dbl&gt;,
 ## #   `2019-10-28` &lt;dbl&gt;, `2019-09-22` &lt;dbl&gt;, `2019-09-19` &lt;dbl&gt;,
 ## #   `2019-08-28` &lt;dbl&gt;, `2019-08-14` &lt;dbl&gt;, `2019-08-02` &lt;dbl&gt;,
 ## #   `2019-06-06` &lt;dbl&gt;, `2019-05-09` &lt;dbl&gt;, `2019-03-28` &lt;dbl&gt;
