@@ -222,6 +222,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6.2" data-path="data-visualization-in-r.html"><a href="data-visualization-in-r.html#more-geom-options"><i class="fa fa-check"></i><b>6.2</b> More <code>geom</code> options</a></li>
 </ul></li>
+<li class="chapter" data-level="7" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html"><i class="fa fa-check"></i><b>7</b> dplyr and tidy</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#into-the-tidyverse"><i class="fa fa-check"></i><b>7.1</b> Into the tidyverse</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#our-example"><i class="fa fa-check"></i><b>7.1.1</b> Our example</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#back-to-dplyr"><i class="fa fa-check"></i><b>7.2</b> Back to <code>dplyr</code></a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#filter"><i class="fa fa-check"></i><b>7.2.1</b> <code>filter</code></a></li>
+<li class="chapter" data-level="7.2.2" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#arrange"><i class="fa fa-check"></i><b>7.2.2</b> <code>arrange</code></a></li>
+<li class="chapter" data-level="7.2.3" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#select"><i class="fa fa-check"></i><b>7.2.3</b> <code>select</code></a></li>
+<li class="chapter" data-level="7.2.4" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#mutate"><i class="fa fa-check"></i><b>7.2.4</b> <code>mutate</code></a></li>
+<li class="chapter" data-level="7.2.5" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#summarise"><i class="fa fa-check"></i><b>7.2.5</b> <code>summarise</code></a></li>
+<li class="chapter" data-level="7.2.6" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#piping"><i class="fa fa-check"></i><b>7.2.6</b> Piping</a></li>
+<li class="chapter" data-level="7.2.7" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#pivots"><i class="fa fa-check"></i><b>7.2.7</b> Pivots</a></li>
+</ul></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -308,31 +325,21 @@ The commands ls() and rm() are used to show or remove variables from the global 
 <span id="cb29-2"><a href="getting-started-in-r.html#cb29-2"></a>b &lt;-<span class="st"> </span><span class="dv">2</span></span>
 <span id="cb29-3"><a href="getting-started-in-r.html#cb29-3"></a><span class="kw">ls</span>()</span></code></pre></div>
 <pre><code>##  [1] &quot;a&quot;                        &quot;b&quot;                       
-##  [3] &quot;collapse&quot;                 &quot;i&quot;                       
-##  [5] &quot;j&quot;                        &quot;m&quot;                       
-##  [7] &quot;mat1&quot;                     &quot;mat2&quot;                    
-##  [9] &quot;mat3&quot;                     &quot;matdf&quot;                   
-## [11] &quot;matdf1&quot;                   &quot;matdf2&quot;                  
-## [13] &quot;matrix1&quot;                  &quot;n&quot;                       
-## [15] &quot;primaryPolls&quot;             &quot;random_states&quot;           
-## [17] &quot;states10&quot;                 &quot;states100&quot;               
-## [19] &quot;total.votes.ak&quot;           &quot;turnout.ak&quot;              
-## [21] &quot;voting.age.population.ak&quot; &quot;x&quot;                       
-## [23] &quot;y&quot;                        &quot;ys&quot;</code></pre>
+##  [3] &quot;basicPolls&quot;               &quot;basicPolls_grouped&quot;      
+##  [5] &quot;grouped_by&quot;               &quot;nevadaPrimaries&quot;         
+##  [7] &quot;primaryPolls&quot;             &quot;timeNevada&quot;              
+##  [9] &quot;total.votes.ak&quot;           &quot;turnout.ak&quot;              
+## [11] &quot;voting.age.population.ak&quot; &quot;wideNevada&quot;              
+## [13] &quot;x&quot;                        &quot;y&quot;</code></pre>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="getting-started-in-r.html#cb31-1"></a><span class="kw">rm</span>(a) <span class="co">#this removes a from the global environment</span></span>
 <span id="cb31-2"><a href="getting-started-in-r.html#cb31-2"></a><span class="kw">ls</span>()</span></code></pre></div>
-<pre><code>##  [1] &quot;b&quot;                        &quot;collapse&quot;                
-##  [3] &quot;i&quot;                        &quot;j&quot;                       
-##  [5] &quot;m&quot;                        &quot;mat1&quot;                    
-##  [7] &quot;mat2&quot;                     &quot;mat3&quot;                    
-##  [9] &quot;matdf&quot;                    &quot;matdf1&quot;                  
-## [11] &quot;matdf2&quot;                   &quot;matrix1&quot;                 
-## [13] &quot;n&quot;                        &quot;primaryPolls&quot;            
-## [15] &quot;random_states&quot;            &quot;states10&quot;                
-## [17] &quot;states100&quot;                &quot;total.votes.ak&quot;          
-## [19] &quot;turnout.ak&quot;               &quot;voting.age.population.ak&quot;
-## [21] &quot;x&quot;                        &quot;y&quot;                       
-## [23] &quot;ys&quot;</code></pre>
+<pre><code>##  [1] &quot;b&quot;                        &quot;basicPolls&quot;              
+##  [3] &quot;basicPolls_grouped&quot;       &quot;grouped_by&quot;              
+##  [5] &quot;nevadaPrimaries&quot;          &quot;primaryPolls&quot;            
+##  [7] &quot;timeNevada&quot;               &quot;total.votes.ak&quot;          
+##  [9] &quot;turnout.ak&quot;               &quot;voting.age.population.ak&quot;
+## [11] &quot;wideNevada&quot;               &quot;x&quot;                       
+## [13] &quot;y&quot;</code></pre>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="getting-started-in-r.html#cb33-1"></a>c &lt;-<span class="st"> </span><span class="dv">3</span></span>
 <span id="cb33-2"><a href="getting-started-in-r.html#cb33-2"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>()) <span class="co">#this removes all global variables</span></span></code></pre></div>
 <p>Some things are present in the working environment, but not shown in the global environment</p>
