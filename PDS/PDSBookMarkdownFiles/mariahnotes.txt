@@ -5,7 +5,14 @@ write an intro chapter?
 provide more narration between lines of code (even only a sentence or two)
 don't put things in comments
 
-package development (one of my projects)
+package development (one of my projects) -> draft by around spring break
+
+add pictures to version control / links / videos (more like a tutorial)
+expand on rstudio version control
+
+take notes at office hours
+
+integrating google drive into a workflow
 
 //done:
 
