@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7 dplyr and tidy | Political Data Science</title>
+  <meta name="description" content="7 dplyr and tidy | Political Data Science" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="7 dplyr and tidy | Political Data Science" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7 dplyr and tidy | Political Data Science" />
+  
+  
+  
+
+<meta name="author" content="Jacob Montgomery and Mariah Yelenick" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-visualization-in-r.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/elevate-section-attrs-2.0/elevate-section-attrs.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Don’t be a clown</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#as-easy-as-cake"><i class="fa fa-check"></i><b>1.1</b> As easy as cake</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#coding"><i class="fa fa-check"></i><b>1.1.1</b> Coding</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#data-acquision"><i class="fa fa-check"></i><b>1.1.2</b> Data acquision</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#algorithms"><i class="fa fa-check"></i><b>1.1.3</b> Algorithms</a></li>
+<li class="chapter" data-level="1.1.4" data-path="index.html"><a href="index.html#domain-knowledge"><i class="fa fa-check"></i><b>1.1.4</b> Domain knowledge</a></li>
+<li class="chapter" data-level="1.1.5" data-path="index.html"><a href="index.html#putting-it-together"><i class="fa fa-check"></i><b>1.1.5</b> Putting it together</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#class-structures"><i class="fa fa-check"></i><b>1.2</b> Class structures</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#learning-objective-1-team-based-learning"><i class="fa fa-check"></i><b>1.2.1</b> Learning objective #1: Team based learning</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#learning-objective-2-show-up-ready"><i class="fa fa-check"></i><b>1.2.2</b> Learning objective #2: Show up ready</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#learning-objective-3-how-is-this-going-to-work"><i class="fa fa-check"></i><b>1.2.3</b> Learning objective #3: How is this going to work?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html"><i class="fa fa-check"></i><b>2</b> Getting Started in R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#assigning-values-to-objects"><i class="fa fa-check"></i><b>2.2</b> Assigning values to objects</a></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#r-as-a-calculator"><i class="fa fa-check"></i><b>2.3</b> R as a calculator</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#the-global-environment-and-how-to-clean-it"><i class="fa fa-check"></i><b>2.4</b> The global environment and how to clean it</a></li>
+<li class="chapter" data-level="2.5" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#getting-help"><i class="fa fa-check"></i><b>2.5</b> Getting help</a></li>
+<li class="chapter" data-level="2.6" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#installing-packages"><i class="fa fa-check"></i><b>2.6</b> Installing packages</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-types-in-r.html"><a href="data-types-in-r.html"><i class="fa fa-check"></i><b>3</b> Data Types in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-types-in-r.html"><a href="data-types-in-r.html#functions"><i class="fa fa-check"></i><b>3.1</b> Functions</a></li>
+<li class="chapter" data-level="3.2" data-path="data-types-in-r.html"><a href="data-types-in-r.html#vectors"><i class="fa fa-check"></i><b>3.2</b> Vectors</a></li>
+<li class="chapter" data-level="3.3" data-path="data-types-in-r.html"><a href="data-types-in-r.html#functions-and-vectors"><i class="fa fa-check"></i><b>3.3</b> Functions and vectors</a></li>
+<li class="chapter" data-level="3.4" data-path="data-types-in-r.html"><a href="data-types-in-r.html#logicalsbooleans"><i class="fa fa-check"></i><b>3.4</b> Logicals/Booleans</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="data-types-in-r.html"><a href="data-types-in-r.html#boolean-logic"><i class="fa fa-check"></i><b>3.4.1</b> Boolean logic</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="data-types-in-r.html"><a href="data-types-in-r.html#charactersstrings"><i class="fa fa-check"></i><b>3.5</b> Characters/Strings</a></li>
+<li class="chapter" data-level="3.6" data-path="data-types-in-r.html"><a href="data-types-in-r.html#matrices"><i class="fa fa-check"></i><b>3.6</b> Matrices</a></li>
+<li class="chapter" data-level="3.7" data-path="data-types-in-r.html"><a href="data-types-in-r.html#matrix-algebra-optional"><i class="fa fa-check"></i><b>3.7</b> Matrix algebra (optional)</a></li>
+<li class="chapter" data-level="3.8" data-path="data-types-in-r.html"><a href="data-types-in-r.html#lists"><i class="fa fa-check"></i><b>3.8</b> Lists</a></li>
+<li class="chapter" data-level="3.9" data-path="data-types-in-r.html"><a href="data-types-in-r.html#arrays"><i class="fa fa-check"></i><b>3.9</b> Arrays</a></li>
+<li class="chapter" data-level="3.10" data-path="data-types-in-r.html"><a href="data-types-in-r.html#dataframes"><i class="fa fa-check"></i><b>3.10</b> Dataframes</a></li>
+<li class="chapter" data-level="3.11" data-path="data-types-in-r.html"><a href="data-types-in-r.html#general-info"><i class="fa fa-check"></i><b>3.11</b> General info</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html"><i class="fa fa-check"></i><b>4</b> Files, For Loops, and Functions</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#the-working-directory"><i class="fa fa-check"></i><b>4.1</b> The working directory</a></li>
+<li class="chapter" data-level="4.2" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#input-and-output"><i class="fa fa-check"></i><b>4.2</b> Input and output</a></li>
+<li class="chapter" data-level="4.3" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#if-else-ifelse"><i class="fa fa-check"></i><b>4.3</b> if, else, ifelse</a></li>
+<li class="chapter" data-level="4.4" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#repeat-and-while"><i class="fa fa-check"></i><b>4.4</b> repeat and while</a></li>
+<li class="chapter" data-level="4.5" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#for-loops"><i class="fa fa-check"></i><b>4.5</b> for loops</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#next-and-break"><i class="fa fa-check"></i><b>4.5.1</b> next and break</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#functions-1"><i class="fa fa-check"></i><b>4.6</b> Functions</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#the-basics"><i class="fa fa-check"></i><b>4.6.1</b> The basics</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#setting-defaults"><i class="fa fa-check"></i><b>4.7</b> Setting defaults</a></li>
+<li class="chapter" data-level="4.8" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#scope"><i class="fa fa-check"></i><b>4.8</b> Scope</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#advanced-scope-topics"><i class="fa fa-check"></i><b>4.8.1</b> Advanced scope topics</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#debugging"><i class="fa fa-check"></i><b>4.9</b> Debugging</a></li>
+<li class="chapter" data-level="4.10" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#benchmarking-and-code-improvements"><i class="fa fa-check"></i><b>4.10</b> Benchmarking and code improvements</a>
+<ul>
+<li class="chapter" data-level="4.10.1" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#vectorizing"><i class="fa fa-check"></i><b>4.10.1</b> Vectorizing</a></li>
+<li class="chapter" data-level="4.10.2" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#pastecollapse-and-copies"><i class="fa fa-check"></i><b>4.10.2</b> Paste/collapse and copies</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="version-control.html"><a href="version-control.html"><i class="fa fa-check"></i><b>5</b> Version Control</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="version-control.html"><a href="version-control.html#why-version-control"><i class="fa fa-check"></i><b>5.1</b> Why version control?</a></li>
+<li class="chapter" data-level="5.2" data-path="version-control.html"><a href="version-control.html#setup"><i class="fa fa-check"></i><b>5.2</b> Setup</a></li>
+<li class="chapter" data-level="5.3" data-path="version-control.html"><a href="version-control.html#workflow"><i class="fa fa-check"></i><b>5.3</b> Workflow</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="version-control.html"><a href="version-control.html#pull"><i class="fa fa-check"></i><b>5.3.1</b> Pull</a></li>
+<li class="chapter" data-level="5.3.2" data-path="version-control.html"><a href="version-control.html#commit"><i class="fa fa-check"></i><b>5.3.2</b> Commit</a></li>
+<li class="chapter" data-level="5.3.3" data-path="version-control.html"><a href="version-control.html#push"><i class="fa fa-check"></i><b>5.3.3</b> Push</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="version-control.html"><a href="version-control.html#branches"><i class="fa fa-check"></i><b>5.4</b> Branches</a></li>
+<li class="chapter" data-level="5.5" data-path="version-control.html"><a href="version-control.html#forking"><i class="fa fa-check"></i><b>5.5</b> Forking</a></li>
+<li class="chapter" data-level="5.6" data-path="version-control.html"><a href="version-control.html#reverting"><i class="fa fa-check"></i><b>5.6</b> Reverting</a></li>
+<li class="chapter" data-level="5.7" data-path="version-control.html"><a href="version-control.html#version-control-in-rstudio"><i class="fa fa-check"></i><b>5.7</b> Version Control in RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-visualization-in-r.html"><a href="data-visualization-in-r.html"><i class="fa fa-check"></i><b>6</b> Data Visualization in R</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="data-visualization-in-r.html"><a href="data-visualization-in-r.html#intro-to-ggplot2"><i class="fa fa-check"></i><b>6.1</b> Intro to ggplot2</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="data-visualization-in-r.html"><a href="data-visualization-in-r.html#example"><i class="fa fa-check"></i><b>6.1.1</b> Example</a></li>
+<li class="chapter" data-level="6.1.2" data-path="data-visualization-in-r.html"><a href="data-visualization-in-r.html#aesthetics"><i class="fa fa-check"></i><b>6.1.2</b> Aesthetics</a></li>
+<li class="chapter" data-level="6.1.3" data-path="data-visualization-in-r.html"><a href="data-visualization-in-r.html#facets"><i class="fa fa-check"></i><b>6.1.3</b> Facets</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="data-visualization-in-r.html"><a href="data-visualization-in-r.html#more-geom-options"><i class="fa fa-check"></i><b>6.2</b> More <code>geom</code> options</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html"><i class="fa fa-check"></i><b>7</b> dplyr and tidy</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#into-the-tidyverse"><i class="fa fa-check"></i><b>7.1</b> Into the tidyverse</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#our-example"><i class="fa fa-check"></i><b>7.1.1</b> Our example</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#back-to-dplyr"><i class="fa fa-check"></i><b>7.2</b> Back to <code>dplyr</code></a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#filter"><i class="fa fa-check"></i><b>7.2.1</b> <code>filter</code></a></li>
+<li class="chapter" data-level="7.2.2" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#arrange"><i class="fa fa-check"></i><b>7.2.2</b> <code>arrange</code></a></li>
+<li class="chapter" data-level="7.2.3" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#select"><i class="fa fa-check"></i><b>7.2.3</b> <code>select</code></a></li>
+<li class="chapter" data-level="7.2.4" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#mutate"><i class="fa fa-check"></i><b>7.2.4</b> <code>mutate</code></a></li>
+<li class="chapter" data-level="7.2.5" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#summarise"><i class="fa fa-check"></i><b>7.2.5</b> <code>summarise</code></a></li>
+<li class="chapter" data-level="7.2.6" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#piping"><i class="fa fa-check"></i><b>7.2.6</b> Piping</a></li>
+<li class="chapter" data-level="7.2.7" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#pivots"><i class="fa fa-check"></i><b>7.2.7</b> Pivots</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Political Data Science</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="dplyr-and-tidy" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> dplyr and tidy</h1>
+<div id="into-the-tidyverse" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Into the tidyverse</h2>
+<ul>
+<li><code>dplyr</code> is a handy package for changing data</li>
+<li><code>tidyr</code> is a handy package for reshaping data</li>
+<li>In combination they offer a powerful way to quickly extract insight from your data</li>
+</ul>
+<div id="our-example" class="section level3" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> Our example</h3>
+<p>Data comes from fivethirtyeight.com</p>
+<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="dplyr-and-tidy.html#cb497-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb497-2"><a href="dplyr-and-tidy.html#cb497-2"></a><span class="kw">library</span>(tidyr)</span>
+<span id="cb497-3"><a href="dplyr-and-tidy.html#cb497-3"></a><span class="kw">library</span>(readr)</span>
+<span id="cb497-4"><a href="dplyr-and-tidy.html#cb497-4"></a>primaryPolls&lt;-<span class="kw">read_csv</span>(<span class="st">&#39;https://jmontgomery.github.io/PDS/Datasets/president_primary_polls_feb2020.csv&#39;</span>)</span>
+<span id="cb497-5"><a href="dplyr-and-tidy.html#cb497-5"></a>primaryPolls<span class="op">$</span>start_date&lt;-<span class="kw">as.Date</span>(primaryPolls<span class="op">$</span>start_date, <span class="st">&quot;%m/%d/%y&quot;</span>)</span>
+<span id="cb497-6"><a href="dplyr-and-tidy.html#cb497-6"></a></span>
+<span id="cb497-7"><a href="dplyr-and-tidy.html#cb497-7"></a><span class="kw">class</span>(primaryPolls)</span></code></pre></div>
+<pre><code>## [1] &quot;spec_tbl_df&quot; &quot;tbl_df&quot;      &quot;tbl&quot;         &quot;data.frame&quot;</code></pre>
+<ul>
+<li>A tibble is basically a data frame</li>
+<li>They are both friendlier and more structured than traditional data frames</li>
+</ul>
+<div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb499-1"><a href="dplyr-and-tidy.html#cb499-1"></a>primaryPolls</span></code></pre></div>
+<pre><code>## # A tibble: 16,661 x 33
+##    question_id poll_id cycle state pollster_id pollster sponsor_ids sponsors
+##          &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;   
+##  1      116805   63512  2020 New ~        1515 Data fo~          NA &lt;NA&gt;    
+##  2      116805   63512  2020 New ~        1515 Data fo~          NA &lt;NA&gt;    
+##  3      116805   63512  2020 New ~        1515 Data fo~          NA &lt;NA&gt;    
+##  4      116805   63512  2020 New ~        1515 Data fo~          NA &lt;NA&gt;    
+##  5      116805   63512  2020 New ~        1515 Data fo~          NA &lt;NA&gt;    
+##  6      116805   63512  2020 New ~        1515 Data fo~          NA &lt;NA&gt;    
+##  7      116805   63512  2020 New ~        1515 Data fo~          NA &lt;NA&gt;    
+##  8      116805   63512  2020 New ~        1515 Data fo~          NA &lt;NA&gt;    
+##  9      116799   63511  2020 &lt;NA&gt;          744 Ipsos             71 Reuters 
+## 10      116799   63511  2020 &lt;NA&gt;          744 Ipsos             71 Reuters 
+## # ... with 16,651 more rows, and 25 more variables: display_name &lt;chr&gt;,
+## #   pollster_rating_id &lt;dbl&gt;, pollster_rating_name &lt;chr&gt;, fte_grade &lt;chr&gt;,
+## #   sample_size &lt;dbl&gt;, population &lt;chr&gt;, population_full &lt;chr&gt;,
+## #   methodology &lt;chr&gt;, office_type &lt;chr&gt;, start_date &lt;date&gt;, end_date &lt;chr&gt;,
+## #   sponsor_candidate &lt;lgl&gt;, internal &lt;lgl&gt;, partisan &lt;lgl&gt;, tracking &lt;lgl&gt;,
+## #   nationwide_batch &lt;lgl&gt;, created_at &lt;chr&gt;, notes &lt;chr&gt;, url &lt;chr&gt;,
+## #   stage &lt;chr&gt;, party &lt;chr&gt;, answer &lt;chr&gt;, candidate_id &lt;dbl&gt;,
+## #   candidate_name &lt;chr&gt;, pct &lt;dbl&gt;</code></pre>
+<p>You can also print the first 10 rows of all the columns</p>
+<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="dplyr-and-tidy.html#cb501-1"></a><span class="kw">print</span>(primaryPolls, <span class="dt">width=</span><span class="ot">Inf</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 16,661 x 33
+##    question_id poll_id cycle state         pollster_id pollster         
+##          &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;            
+##  1      116805   63512  2020 New Hampshire        1515 Data for Progress
+##  2      116805   63512  2020 New Hampshire        1515 Data for Progress
+##  3      116805   63512  2020 New Hampshire        1515 Data for Progress
+##  4      116805   63512  2020 New Hampshire        1515 Data for Progress
+##  5      116805   63512  2020 New Hampshire        1515 Data for Progress
+##  6      116805   63512  2020 New Hampshire        1515 Data for Progress
+##  7      116805   63512  2020 New Hampshire        1515 Data for Progress
+##  8      116805   63512  2020 New Hampshire        1515 Data for Progress
+##  9      116799   63511  2020 &lt;NA&gt;                  744 Ipsos            
+## 10      116799   63511  2020 &lt;NA&gt;                  744 Ipsos            
+##    sponsor_ids sponsors display_name      pollster_rating_id
+##          &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;                          &lt;dbl&gt;
+##  1          NA &lt;NA&gt;     Data for Progress                522
+##  2          NA &lt;NA&gt;     Data for Progress                522
+##  3          NA &lt;NA&gt;     Data for Progress                522
+##  4          NA &lt;NA&gt;     Data for Progress                522
+##  5          NA &lt;NA&gt;     Data for Progress                522
+##  6          NA &lt;NA&gt;     Data for Progress                522
+##  7          NA &lt;NA&gt;     Data for Progress                522
+##  8          NA &lt;NA&gt;     Data for Progress                522
+##  9          71 Reuters  Ipsos                            154
+## 10          71 Reuters  Ipsos                            154
+##    pollster_rating_name fte_grade sample_size population population_full
+##    &lt;chr&gt;                &lt;chr&gt;           &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;          
+##  1 Data for Progress    B/C              1295 lv         lv-d           
+##  2 Data for Progress    B/C              1295 lv         lv-d           
+##  3 Data for Progress    B/C              1295 lv         lv-d           
+##  4 Data for Progress    B/C              1295 lv         lv-d           
+##  5 Data for Progress    B/C              1295 lv         lv-d           
+##  6 Data for Progress    B/C              1295 lv         lv-d           
+##  7 Data for Progress    B/C              1295 lv         lv-d           
+##  8 Data for Progress    B/C              1295 lv         lv-d           
+##  9 Ipsos                B-                556 rv         rv-d           
+## 10 Ipsos                B-                556 rv         rv-d           
+##    methodology office_type    start_date end_date sponsor_candidate internal
+##    &lt;chr&gt;       &lt;chr&gt;          &lt;date&gt;     &lt;chr&gt;    &lt;lgl&gt;             &lt;lgl&gt;   
+##  1 Text        U.S. President 2020-02-07 2/10/20  NA                FALSE   
+##  2 Text        U.S. President 2020-02-07 2/10/20  NA                FALSE   
+##  3 Text        U.S. President 2020-02-07 2/10/20  NA                FALSE   
+##  4 Text        U.S. President 2020-02-07 2/10/20  NA                FALSE   
+##  5 Text        U.S. President 2020-02-07 2/10/20  NA                FALSE   
+##  6 Text        U.S. President 2020-02-07 2/10/20  NA                FALSE   
+##  7 Text        U.S. President 2020-02-07 2/10/20  NA                FALSE   
+##  8 Text        U.S. President 2020-02-07 2/10/20  NA                FALSE   
+##  9 Online      U.S. President 2020-02-06 2/10/20  NA                FALSE   
+## 10 Online      U.S. President 2020-02-06 2/10/20  NA                FALSE   
+##    partisan tracking nationwide_batch created_at    notes
+##    &lt;lgl&gt;    &lt;lgl&gt;    &lt;lgl&gt;            &lt;chr&gt;         &lt;chr&gt;
+##  1 NA       FALSE    FALSE            2/10/20 21:47 &lt;NA&gt; 
+##  2 NA       FALSE    FALSE            2/10/20 21:47 &lt;NA&gt; 
+##  3 NA       FALSE    FALSE            2/10/20 21:47 &lt;NA&gt; 
+##  4 NA       FALSE    FALSE            2/10/20 21:47 &lt;NA&gt; 
+##  5 NA       FALSE    FALSE            2/10/20 21:47 &lt;NA&gt; 
+##  6 NA       FALSE    FALSE            2/10/20 21:47 &lt;NA&gt; 
+##  7 NA       FALSE    FALSE            2/10/20 21:47 &lt;NA&gt; 
+##  8 NA       FALSE    FALSE            2/10/20 21:47 &lt;NA&gt; 
+##  9 NA       FALSE    FALSE            2/10/20 18:27 &lt;NA&gt; 
+## 10 NA       FALSE    FALSE            2/10/20 18:27 &lt;NA&gt; 
+##    url                                                                          
+##    &lt;chr&gt;                                                                        
+##  1 http://filesforprogress.org/datasets/2020/2/nh/new_hampshire_primary.pdf     
+##  2 http://filesforprogress.org/datasets/2020/2/nh/new_hampshire_primary.pdf     
+##  3 http://filesforprogress.org/datasets/2020/2/nh/new_hampshire_primary.pdf     
+##  4 http://filesforprogress.org/datasets/2020/2/nh/new_hampshire_primary.pdf     
+##  5 http://filesforprogress.org/datasets/2020/2/nh/new_hampshire_primary.pdf     
+##  6 http://filesforprogress.org/datasets/2020/2/nh/new_hampshire_primary.pdf     
+##  7 http://filesforprogress.org/datasets/2020/2/nh/new_hampshire_primary.pdf     
+##  8 http://filesforprogress.org/datasets/2020/2/nh/new_hampshire_primary.pdf     
+##  9 https://www.ipsos.com/sites/default/files/ct/news/documents/2020-02/topline_~
+## 10 https://www.ipsos.com/sites/default/files/ct/news/documents/2020-02/topline_~
+##    stage   party answer    candidate_id candidate_name        pct
+##    &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;            &lt;dbl&gt; &lt;chr&gt;               &lt;dbl&gt;
+##  1 primary DEM   Sanders          13257 Bernard Sanders        28
+##  2 primary DEM   Yang             13329 Andrew Yang             5
+##  3 primary DEM   Buttigieg        13345 Pete Buttigieg         26
+##  4 primary DEM   Biden            13256 Joseph R. Biden Jr.     9
+##  5 primary DEM   Gabbard          13343 Tulsi Gabbard           3
+##  6 primary DEM   Klobuchar        13310 Amy Klobuchar          13
+##  7 primary DEM   Warren           13258 Elizabeth Warren       14
+##  8 primary DEM   Steyer           13327 Tom Steyer              3
+##  9 primary DEM   Sanders          13257 Bernard Sanders        20
+## 10 primary DEM   Biden            13256 Joseph R. Biden Jr.    17
+## # ... with 16,651 more rows</code></pre>
+<ul>
+<li>You can access elements basically the same way</li>
+<li>They never allow partial matching (which is evil anyways)
+<ul>
+<li>Partial matching allows you to type the first few characters of a column name and it will figure out which one you meant</li>
+</ul></li>
+<li>You can use <code>as.tibble</code> or <code>as.data.frame</code> to jump back and forth</li>
+</ul>
+</div>
+</div>
+<div id="back-to-dplyr" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Back to <code>dplyr</code></h2>
+<ul>
+<li>Subset data by rows: <code>filter</code></li>
+<li>Reorder by rows: <code>arrange</code></li>
+<li>Subset data by column: <code>select</code></li>
+<li>Create new variables as a function of other variables: <code>mutate</code></li>
+<li>Collapse values down (or extract statistic): <code>summarise</code></li>
+<li>We can use <code>group_by</code> to make changes in the scope</li>
+</ul>
+<div id="filter" class="section level3" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> <code>filter</code></h3>
+<ul>
+<li><code>filter</code> allows you to easily subset data using conditions as we have done before using accessors</li>
+</ul>
+<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="dplyr-and-tidy.html#cb503-1"></a><span class="kw">filter</span>(primaryPolls, candidate_name <span class="op">==</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Amy Klobuchar&quot;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 874 x 33
+##    question_id poll_id cycle state pollster_id pollster sponsor_ids sponsors
+##          &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;   
+##  1      116805   63512  2020 New ~        1515 Data fo~          NA &lt;NA&gt;    
+##  2      116799   63511  2020 &lt;NA&gt;          744 Ipsos             71 Reuters 
+##  3      116732   63489  2020 New ~        1102 Emerson~          43 7News   
+##  4      116733   63490  2020 New ~         458 Suffolk~       68323 Boston ~
+##  5      116743   63493  2020 New ~          23 America~          NA &lt;NA&gt;    
+##  6      116798   63510  2020 New ~        1529 Elucd             NA &lt;NA&gt;    
+##  7      116745   63494  2020 New ~        1470 Univers~         143 CNN     
+##  8      116792   63508  2020 Cali~        1491 Capitol~          NA &lt;NA&gt;    
+##  9      116763   63496  2020 &lt;NA&gt;          396 Quinnip~          NA &lt;NA&gt;    
+## 10      116714   63483  2020 New ~        1102 Emerson~          43 7News   
+## # ... with 864 more rows, and 25 more variables: display_name &lt;chr&gt;,
+## #   pollster_rating_id &lt;dbl&gt;, pollster_rating_name &lt;chr&gt;, fte_grade &lt;chr&gt;,
+## #   sample_size &lt;dbl&gt;, population &lt;chr&gt;, population_full &lt;chr&gt;,
+## #   methodology &lt;chr&gt;, office_type &lt;chr&gt;, start_date &lt;date&gt;, end_date &lt;chr&gt;,
+## #   sponsor_candidate &lt;lgl&gt;, internal &lt;lgl&gt;, partisan &lt;lgl&gt;, tracking &lt;lgl&gt;,
+## #   nationwide_batch &lt;lgl&gt;, created_at &lt;chr&gt;, notes &lt;chr&gt;, url &lt;chr&gt;,
+## #   stage &lt;chr&gt;, party &lt;chr&gt;, answer &lt;chr&gt;, candidate_id &lt;dbl&gt;,
+## #   candidate_name &lt;chr&gt;, pct &lt;dbl&gt;</code></pre>
+<ul>
+<li>Or you can include multiple conditions</li>
+</ul>
+<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="dplyr-and-tidy.html#cb505-1"></a><span class="kw">filter</span>(primaryPolls, </span>
+<span id="cb505-2"><a href="dplyr-and-tidy.html#cb505-2"></a>       candidate_name <span class="op">==</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Amy Klobuchar&quot;</span>), </span>
+<span id="cb505-3"><a href="dplyr-and-tidy.html#cb505-3"></a>       state<span class="op">==</span><span class="st">&quot;New Hampshire&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 84 x 33
+##    question_id poll_id cycle state pollster_id pollster sponsor_ids sponsors
+##          &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;   
+##  1      116805   63512  2020 New ~        1515 Data fo~          NA &lt;NA&gt;    
+##  2      116732   63489  2020 New ~        1102 Emerson~          43 7News   
+##  3      116733   63490  2020 New ~         458 Suffolk~       68323 Boston ~
+##  4      116743   63493  2020 New ~          23 America~          NA &lt;NA&gt;    
+##  5      116798   63510  2020 New ~        1529 Elucd             NA &lt;NA&gt;    
+##  6      116745   63494  2020 New ~        1470 Univers~         143 CNN     
+##  7      116714   63483  2020 New ~        1102 Emerson~          43 7News   
+##  8      116715   63484  2020 New ~         458 Suffolk~       68323 Boston ~
+##  9      116717   63485  2020 New ~        1470 Univers~         143 CNN     
+## 10      116718   63486  2020 New ~         568 YouGov           133 CBS News
+## # ... with 74 more rows, and 25 more variables: display_name &lt;chr&gt;,
+## #   pollster_rating_id &lt;dbl&gt;, pollster_rating_name &lt;chr&gt;, fte_grade &lt;chr&gt;,
+## #   sample_size &lt;dbl&gt;, population &lt;chr&gt;, population_full &lt;chr&gt;,
+## #   methodology &lt;chr&gt;, office_type &lt;chr&gt;, start_date &lt;date&gt;, end_date &lt;chr&gt;,
+## #   sponsor_candidate &lt;lgl&gt;, internal &lt;lgl&gt;, partisan &lt;lgl&gt;, tracking &lt;lgl&gt;,
+## #   nationwide_batch &lt;lgl&gt;, created_at &lt;chr&gt;, notes &lt;chr&gt;, url &lt;chr&gt;,
+## #   stage &lt;chr&gt;, party &lt;chr&gt;, answer &lt;chr&gt;, candidate_id &lt;dbl&gt;,
+## #   candidate_name &lt;chr&gt;, pct &lt;dbl&gt;</code></pre>
+<ul>
+<li>Everything you have already learned about boolean operators applies here.</li>
+</ul>
+</div>
+<div id="arrange" class="section level3" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> <code>arrange</code></h3>
+<ul>
+<li><code>arrange</code> does the same thing, but organizes data by rows insead of subsetting by rows.</li>
+</ul>
+<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="dplyr-and-tidy.html#cb507-1"></a><span class="kw">arrange</span>(primaryPolls, state, pollster_id)</span></code></pre></div>
+<pre><code>## # A tibble: 16,661 x 33
+##    question_id poll_id cycle state pollster_id pollster sponsor_ids sponsors
+##          &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;   
+##  1       99478   58691  2020 Alab~        1193 SurveyM~         132 NBC News
+##  2       99478   58691  2020 Alab~        1193 SurveyM~         132 NBC News
+##  3       99478   58691  2020 Alab~        1193 SurveyM~         132 NBC News
+##  4       99478   58691  2020 Alab~        1193 SurveyM~         132 NBC News
+##  5       99478   58691  2020 Alab~        1193 SurveyM~         132 NBC News
+##  6       99478   58691  2020 Alab~        1193 SurveyM~         132 NBC News
+##  7       99478   58691  2020 Alab~        1193 SurveyM~         132 NBC News
+##  8       99478   58691  2020 Alab~        1193 SurveyM~         132 NBC News
+##  9       99478   58691  2020 Alab~        1193 SurveyM~         132 NBC News
+## 10       99478   58691  2020 Alab~        1193 SurveyM~         132 NBC News
+## # ... with 16,651 more rows, and 25 more variables: display_name &lt;chr&gt;,
+## #   pollster_rating_id &lt;dbl&gt;, pollster_rating_name &lt;chr&gt;, fte_grade &lt;chr&gt;,
+## #   sample_size &lt;dbl&gt;, population &lt;chr&gt;, population_full &lt;chr&gt;,
+## #   methodology &lt;chr&gt;, office_type &lt;chr&gt;, start_date &lt;date&gt;, end_date &lt;chr&gt;,
+## #   sponsor_candidate &lt;lgl&gt;, internal &lt;lgl&gt;, partisan &lt;lgl&gt;, tracking &lt;lgl&gt;,
+## #   nationwide_batch &lt;lgl&gt;, created_at &lt;chr&gt;, notes &lt;chr&gt;, url &lt;chr&gt;,
+## #   stage &lt;chr&gt;, party &lt;chr&gt;, answer &lt;chr&gt;, candidate_id &lt;dbl&gt;,
+## #   candidate_name &lt;chr&gt;, pct &lt;dbl&gt;</code></pre>
+<ul>
+<li>Or in descending order</li>
+</ul>
+<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="dplyr-and-tidy.html#cb509-1"></a><span class="kw">arrange</span>(primaryPolls, state, <span class="kw">desc</span>(pollster_id))</span></code></pre></div>
+<pre><code>## # A tibble: 16,661 x 33
+##    question_id poll_id cycle state pollster_id pollster sponsor_ids sponsors
+##          &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;   
+##  1       93812   57768  2020 Alab~        1365 Change ~          NA &lt;NA&gt;    
+##  2       93812   57768  2020 Alab~        1365 Change ~          NA &lt;NA&gt;    
+##  3       93812   57768  2020 Alab~        1365 Change ~          NA &lt;NA&gt;    
+##  4       93812   57768  2020 Alab~        1365 Change ~          NA &lt;NA&gt;    
+##  5       93812   57768  2020 Alab~        1365 Change ~          NA &lt;NA&gt;    
+##  6       93812   57768  2020 Alab~        1365 Change ~          NA &lt;NA&gt;    
+##  7       93812   57768  2020 Alab~        1365 Change ~          NA &lt;NA&gt;    
+##  8       93812   57768  2020 Alab~        1365 Change ~          NA &lt;NA&gt;    
+##  9       93812   57768  2020 Alab~        1365 Change ~          NA &lt;NA&gt;    
+## 10       93812   57768  2020 Alab~        1365 Change ~          NA &lt;NA&gt;    
+## # ... with 16,651 more rows, and 25 more variables: display_name &lt;chr&gt;,
+## #   pollster_rating_id &lt;dbl&gt;, pollster_rating_name &lt;chr&gt;, fte_grade &lt;chr&gt;,
+## #   sample_size &lt;dbl&gt;, population &lt;chr&gt;, population_full &lt;chr&gt;,
+## #   methodology &lt;chr&gt;, office_type &lt;chr&gt;, start_date &lt;date&gt;, end_date &lt;chr&gt;,
+## #   sponsor_candidate &lt;lgl&gt;, internal &lt;lgl&gt;, partisan &lt;lgl&gt;, tracking &lt;lgl&gt;,
+## #   nationwide_batch &lt;lgl&gt;, created_at &lt;chr&gt;, notes &lt;chr&gt;, url &lt;chr&gt;,
+## #   stage &lt;chr&gt;, party &lt;chr&gt;, answer &lt;chr&gt;, candidate_id &lt;dbl&gt;,
+## #   candidate_name &lt;chr&gt;, pct &lt;dbl&gt;</code></pre>
+</div>
+<div id="select" class="section level3" number="7.2.3">
+<h3><span class="header-section-number">7.2.3</span> <code>select</code></h3>
+<ul>
+<li>Select is just a much easier way to subset by column</li>
+</ul>
+<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="dplyr-and-tidy.html#cb511-1"></a><span class="kw">select</span>(primaryPolls, state, candidate_name, start_date)</span></code></pre></div>
+<pre><code>## # A tibble: 16,661 x 3
+##    state         candidate_name      start_date
+##    &lt;chr&gt;         &lt;chr&gt;               &lt;date&gt;    
+##  1 New Hampshire Bernard Sanders     2020-02-07
+##  2 New Hampshire Andrew Yang         2020-02-07
+##  3 New Hampshire Pete Buttigieg      2020-02-07
+##  4 New Hampshire Joseph R. Biden Jr. 2020-02-07
+##  5 New Hampshire Tulsi Gabbard       2020-02-07
+##  6 New Hampshire Amy Klobuchar       2020-02-07
+##  7 New Hampshire Elizabeth Warren    2020-02-07
+##  8 New Hampshire Tom Steyer          2020-02-07
+##  9 &lt;NA&gt;          Bernard Sanders     2020-02-06
+## 10 &lt;NA&gt;          Joseph R. Biden Jr. 2020-02-06
+## # ... with 16,651 more rows</code></pre>
+<ul>
+<li>It comes with a nice syntax for doing this without just listing</li>
+<li><code>var1:var20</code> will select all columns between these two</li>
+<li><code>-var1:var20</code> will select everything <em>except</em> that range</li>
+<li><code>starts_with("cand")</code> will select columns that start with “cand”</li>
+<li>Similar functionality for <code>ends_with</code>, <code>contains</code>, and matches</li>
+</ul>
+<p>A fun trick to move your favorite variables to the front, but keep it all:</p>
+<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb513-1"><a href="dplyr-and-tidy.html#cb513-1"></a><span class="kw">select</span>(primaryPolls, state, candidate_name, start_date, <span class="kw">everything</span>())</span></code></pre></div>
+<pre><code>## # A tibble: 16,661 x 33
+##    state candidate_name start_date question_id poll_id cycle pollster_id
+##    &lt;chr&gt; &lt;chr&gt;          &lt;date&gt;           &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;
+##  1 New ~ Bernard Sande~ 2020-02-07      116805   63512  2020        1515
+##  2 New ~ Andrew Yang    2020-02-07      116805   63512  2020        1515
+##  3 New ~ Pete Buttigieg 2020-02-07      116805   63512  2020        1515
+##  4 New ~ Joseph R. Bid~ 2020-02-07      116805   63512  2020        1515
+##  5 New ~ Tulsi Gabbard  2020-02-07      116805   63512  2020        1515
+##  6 New ~ Amy Klobuchar  2020-02-07      116805   63512  2020        1515
+##  7 New ~ Elizabeth War~ 2020-02-07      116805   63512  2020        1515
+##  8 New ~ Tom Steyer     2020-02-07      116805   63512  2020        1515
+##  9 &lt;NA&gt;  Bernard Sande~ 2020-02-06      116799   63511  2020         744
+## 10 &lt;NA&gt;  Joseph R. Bid~ 2020-02-06      116799   63511  2020         744
+## # ... with 16,651 more rows, and 26 more variables: pollster &lt;chr&gt;,
+## #   sponsor_ids &lt;dbl&gt;, sponsors &lt;chr&gt;, display_name &lt;chr&gt;,
+## #   pollster_rating_id &lt;dbl&gt;, pollster_rating_name &lt;chr&gt;, fte_grade &lt;chr&gt;,
+## #   sample_size &lt;dbl&gt;, population &lt;chr&gt;, population_full &lt;chr&gt;,
+## #   methodology &lt;chr&gt;, office_type &lt;chr&gt;, end_date &lt;chr&gt;,
+## #   sponsor_candidate &lt;lgl&gt;, internal &lt;lgl&gt;, partisan &lt;lgl&gt;, tracking &lt;lgl&gt;,
+## #   nationwide_batch &lt;lgl&gt;, created_at &lt;chr&gt;, notes &lt;chr&gt;, url &lt;chr&gt;,
+## #   stage &lt;chr&gt;, party &lt;chr&gt;, answer &lt;chr&gt;, candidate_id &lt;dbl&gt;, pct &lt;dbl&gt;</code></pre>
+<ul>
+<li>Note here that <code>rename</code> is the mythical easy way to rename a column, although syntax seems backwards</li>
+<li>You have to specify the new column name on the left side of the equal sign and the old column name on the right</li>
+</ul>
+<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="dplyr-and-tidy.html#cb515-1"></a>basicPolls&lt;-<span class="kw">select</span>(primaryPolls, state, candidate_name, start_date, pct)</span>
+<span id="cb515-2"><a href="dplyr-and-tidy.html#cb515-2"></a><span class="kw">rename</span>(basicPolls, <span class="dt">candidate =</span> candidate_name)</span></code></pre></div>
+<pre><code>## # A tibble: 16,661 x 4
+##    state         candidate           start_date   pct
+##    &lt;chr&gt;         &lt;chr&gt;               &lt;date&gt;     &lt;dbl&gt;
+##  1 New Hampshire Bernard Sanders     2020-02-07    28
+##  2 New Hampshire Andrew Yang         2020-02-07     5
+##  3 New Hampshire Pete Buttigieg      2020-02-07    26
+##  4 New Hampshire Joseph R. Biden Jr. 2020-02-07     9
+##  5 New Hampshire Tulsi Gabbard       2020-02-07     3
+##  6 New Hampshire Amy Klobuchar       2020-02-07    13
+##  7 New Hampshire Elizabeth Warren    2020-02-07    14
+##  8 New Hampshire Tom Steyer          2020-02-07     3
+##  9 &lt;NA&gt;          Bernard Sanders     2020-02-06    20
+## 10 &lt;NA&gt;          Joseph R. Biden Jr. 2020-02-06    17
+## # ... with 16,651 more rows</code></pre>
+</div>
+<div id="mutate" class="section level3" number="7.2.4">
+<h3><span class="header-section-number">7.2.4</span> <code>mutate</code></h3>
+<ul>
+<li><code>mutate</code> allows us to create a new variable that is a function of the others</li>
+<li>If you want to add the new column(s) to your existing tibble, you must use the assignment operator.
+<ul>
+<li>Otherwise it will just print it out and throw the results away</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb517-1"><a href="dplyr-and-tidy.html#cb517-1"></a><span class="kw">mutate</span>(basicPolls, <span class="dt">proportion=</span>pct<span class="op">/</span><span class="dv">100</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 16,661 x 5
+##    state         candidate_name      start_date   pct proportion
+##    &lt;chr&gt;         &lt;chr&gt;               &lt;date&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+##  1 New Hampshire Bernard Sanders     2020-02-07    28       0.28
+##  2 New Hampshire Andrew Yang         2020-02-07     5       0.05
+##  3 New Hampshire Pete Buttigieg      2020-02-07    26       0.26
+##  4 New Hampshire Joseph R. Biden Jr. 2020-02-07     9       0.09
+##  5 New Hampshire Tulsi Gabbard       2020-02-07     3       0.03
+##  6 New Hampshire Amy Klobuchar       2020-02-07    13       0.13
+##  7 New Hampshire Elizabeth Warren    2020-02-07    14       0.14
+##  8 New Hampshire Tom Steyer          2020-02-07     3       0.03
+##  9 &lt;NA&gt;          Bernard Sanders     2020-02-06    20       0.2 
+## 10 &lt;NA&gt;          Joseph R. Biden Jr. 2020-02-06    17       0.17
+## # ... with 16,651 more rows</code></pre>
+<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="dplyr-and-tidy.html#cb519-1"></a>basicPolls &lt;-<span class="st"> </span><span class="kw">mutate</span>(basicPolls, <span class="dt">proportion=</span>pct<span class="op">/</span><span class="dv">100</span>)</span></code></pre></div>
+<ul>
+<li>transmute creates and returns a new tibble with only the mutated variable(s)</li>
+</ul>
+<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="dplyr-and-tidy.html#cb520-1"></a><span class="kw">transmute</span>(basicPolls, <span class="dt">proportion=</span>pct<span class="op">/</span><span class="dv">100</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 16,661 x 1
+##    proportion
+##         &lt;dbl&gt;
+##  1       0.28
+##  2       0.05
+##  3       0.26
+##  4       0.09
+##  5       0.03
+##  6       0.13
+##  7       0.14
+##  8       0.03
+##  9       0.2 
+## 10       0.17
+## # ... with 16,651 more rows</code></pre>
+<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="dplyr-and-tidy.html#cb522-1"></a><span class="kw">transmute</span>(primaryPolls, <span class="dt">numberRespondents=</span><span class="kw">round</span>((pct<span class="op">/</span><span class="dv">100</span>)<span class="op">*</span>sample_size))</span></code></pre></div>
+<pre><code>## # A tibble: 16,661 x 1
+##    numberRespondents
+##                &lt;dbl&gt;
+##  1               363
+##  2                65
+##  3               337
+##  4               117
+##  5                39
+##  6               168
+##  7               181
+##  8                39
+##  9               111
+## 10                95
+## # ... with 16,651 more rows</code></pre>
+<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb524-1"><a href="dplyr-and-tidy.html#cb524-1"></a><span class="kw">transmute</span>(primaryPolls, </span>
+<span id="cb524-2"><a href="dplyr-and-tidy.html#cb524-2"></a>          <span class="dt">proportion=</span>pct<span class="op">/</span><span class="dv">100</span>,</span>
+<span id="cb524-3"><a href="dplyr-and-tidy.html#cb524-3"></a>          <span class="dt">numberRespondents=</span><span class="kw">round</span>(proportion<span class="op">*</span>sample_size),</span>
+<span id="cb524-4"><a href="dplyr-and-tidy.html#cb524-4"></a>          )</span></code></pre></div>
+<pre><code>## # A tibble: 16,661 x 2
+##    proportion numberRespondents
+##         &lt;dbl&gt;             &lt;dbl&gt;
+##  1       0.28               363
+##  2       0.05                65
+##  3       0.26               337
+##  4       0.09               117
+##  5       0.03                39
+##  6       0.13               168
+##  7       0.14               181
+##  8       0.03                39
+##  9       0.2                111
+## 10       0.17                95
+## # ... with 16,651 more rows</code></pre>
+<ul>
+<li>Note that you can use a ton of the basic functions we have already covered like <code>sum</code>, <code>mean</code>, <code>sqrt</code>, etc.</li>
+<li>A useful one is <code>n()</code>, which just counts the number of observations</li>
+<li>This includes logical comparisons</li>
+</ul>
+<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb526-1"><a href="dplyr-and-tidy.html#cb526-1"></a><span class="kw">mutate</span>(basicPolls, <span class="dt">top_tier=</span>(pct<span class="op">&gt;</span><span class="dv">10</span>)<span class="op">*</span><span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 16,661 x 6
+##    state         candidate_name      start_date   pct proportion top_tier
+##    &lt;chr&gt;         &lt;chr&gt;               &lt;date&gt;     &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;
+##  1 New Hampshire Bernard Sanders     2020-02-07    28       0.28        1
+##  2 New Hampshire Andrew Yang         2020-02-07     5       0.05        0
+##  3 New Hampshire Pete Buttigieg      2020-02-07    26       0.26        1
+##  4 New Hampshire Joseph R. Biden Jr. 2020-02-07     9       0.09        0
+##  5 New Hampshire Tulsi Gabbard       2020-02-07     3       0.03        0
+##  6 New Hampshire Amy Klobuchar       2020-02-07    13       0.13        1
+##  7 New Hampshire Elizabeth Warren    2020-02-07    14       0.14        1
+##  8 New Hampshire Tom Steyer          2020-02-07     3       0.03        0
+##  9 &lt;NA&gt;          Bernard Sanders     2020-02-06    20       0.2         1
+## 10 &lt;NA&gt;          Joseph R. Biden Jr. 2020-02-06    17       0.17        1
+## # ... with 16,651 more rows</code></pre>
+</div>
+<div id="summarise" class="section level3" number="7.2.5">
+<h3><span class="header-section-number">7.2.5</span> <code>summarise</code></h3>
+<ul>
+<li>We can easily extract summary statistics</li>
+</ul>
+<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="dplyr-and-tidy.html#cb528-1"></a><span class="kw">summarise</span>(basicPolls, <span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>())</span></code></pre></div>
+<pre><code>## # A tibble: 1 x 2
+##   average_candidate count
+##               &lt;dbl&gt; &lt;int&gt;
+## 1              6.34 16661</code></pre>
+<ul>
+<li>This is more powerful when also using the <code>group_by</code> function</li>
+</ul>
+<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="dplyr-and-tidy.html#cb530-1"></a>basicPolls_grouped&lt;-<span class="kw">group_by</span>(basicPolls, candidate_name)</span>
+<span id="cb530-2"><a href="dplyr-and-tidy.html#cb530-2"></a><span class="kw">summarise</span>(basicPolls_grouped, <span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>())</span></code></pre></div>
+<pre><code>## # A tibble: 76 x 3
+##    candidate_name   average_candidate count
+##    &lt;chr&gt;                        &lt;dbl&gt; &lt;int&gt;
+##  1 Amy Klobuchar                2.32    874
+##  2 Andrew Cuomo                 0.433    12
+##  3 Andrew Yang                  2.34    831
+##  4 Barack Obama                 0         2
+##  5 Ben Sasse                    0.711    36
+##  6 Bernard Sanders             18.3     960
+##  7 Beto O&#39;Rourke                3.76    653
+##  8 Bill de Blasio               0.534   318
+##  9 Bob Corker                   0.611    36
+## 10 Charles D. Baker            31.5       2
+## # ... with 66 more rows</code></pre>
+<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="dplyr-and-tidy.html#cb532-1"></a>basicPolls_grouped&lt;-<span class="kw">group_by</span>(basicPolls, candidate_name, state)</span>
+<span id="cb532-2"><a href="dplyr-and-tidy.html#cb532-2"></a><span class="kw">summarise</span>(basicPolls_grouped, <span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>())</span></code></pre></div>
+<pre><code>## # A tibble: 1,024 x 4
+## # Groups:   candidate_name [76]
+##    candidate_name state      average_candidate count
+##    &lt;chr&gt;          &lt;chr&gt;                  &lt;dbl&gt; &lt;int&gt;
+##  1 Amy Klobuchar  Alabama                 1        3
+##  2 Amy Klobuchar  Arizona                 1.18     6
+##  3 Amy Klobuchar  California              1.74    40
+##  4 Amy Klobuchar  Colorado                0.1      1
+##  5 Amy Klobuchar  Delaware                1        1
+##  6 Amy Klobuchar  Florida                 1.98    13
+##  7 Amy Klobuchar  Georgia                 1.27     4
+##  8 Amy Klobuchar  Illinois                2.15     2
+##  9 Amy Klobuchar  Indiana                 0        1
+## 10 Amy Klobuchar  Iowa                    5.97    61
+## # ... with 1,014 more rows</code></pre>
+</div>
+<div id="piping" class="section level3" number="7.2.6">
+<h3><span class="header-section-number">7.2.6</span> Piping</h3>
+<ul>
+<li>The tidyverse includes a nice syntax for combining multiple commands so we don’t have to create new objects all of the time.</li>
+<li>The <code>%?%</code> syntax allows us to pass on the results of one line to another</li>
+<li>The result from the left side of the <code>%&gt;%</code> is passed as the first parameter of the next function</li>
+</ul>
+<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="dplyr-and-tidy.html#cb534-1"></a>basicPolls <span class="op">%&gt;%</span></span>
+<span id="cb534-2"><a href="dplyr-and-tidy.html#cb534-2"></a><span class="st">  </span><span class="kw">group_by</span>(candidate_name, state) <span class="op">%&gt;%</span></span>
+<span id="cb534-3"><a href="dplyr-and-tidy.html#cb534-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>())</span></code></pre></div>
+<pre><code>## # A tibble: 1,024 x 4
+## # Groups:   candidate_name [76]
+##    candidate_name state      average_candidate count
+##    &lt;chr&gt;          &lt;chr&gt;                  &lt;dbl&gt; &lt;int&gt;
+##  1 Amy Klobuchar  Alabama                 1        3
+##  2 Amy Klobuchar  Arizona                 1.18     6
+##  3 Amy Klobuchar  California              1.74    40
+##  4 Amy Klobuchar  Colorado                0.1      1
+##  5 Amy Klobuchar  Delaware                1        1
+##  6 Amy Klobuchar  Florida                 1.98    13
+##  7 Amy Klobuchar  Georgia                 1.27     4
+##  8 Amy Klobuchar  Illinois                2.15     2
+##  9 Amy Klobuchar  Indiana                 0        1
+## 10 Amy Klobuchar  Iowa                    5.97    61
+## # ... with 1,014 more rows</code></pre>
+<ul>
+<li>The above code is equivalent to the following:</li>
+</ul>
+<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="dplyr-and-tidy.html#cb536-1"></a><span class="kw">summarise</span>(<span class="kw">group_by</span>(basicPolls, candidate_name, state), <span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>())</span></code></pre></div>
+<pre><code>## # A tibble: 1,024 x 4
+## # Groups:   candidate_name [76]
+##    candidate_name state      average_candidate count
+##    &lt;chr&gt;          &lt;chr&gt;                  &lt;dbl&gt; &lt;int&gt;
+##  1 Amy Klobuchar  Alabama                 1        3
+##  2 Amy Klobuchar  Arizona                 1.18     6
+##  3 Amy Klobuchar  California              1.74    40
+##  4 Amy Klobuchar  Colorado                0.1      1
+##  5 Amy Klobuchar  Delaware                1        1
+##  6 Amy Klobuchar  Florida                 1.98    13
+##  7 Amy Klobuchar  Georgia                 1.27     4
+##  8 Amy Klobuchar  Illinois                2.15     2
+##  9 Amy Klobuchar  Indiana                 0        1
+## 10 Amy Klobuchar  Iowa                    5.97    61
+## # ... with 1,014 more rows</code></pre>
+<ul>
+<li>Which is equivalent to this:</li>
+</ul>
+<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="dplyr-and-tidy.html#cb538-1"></a>grouped_by &lt;-<span class="st"> </span><span class="kw">group_by</span>(basicPolls, candidate_name, state)</span>
+<span id="cb538-2"><a href="dplyr-and-tidy.html#cb538-2"></a><span class="kw">summarise</span>(grouped_by, <span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>())</span></code></pre></div>
+<pre><code>## # A tibble: 1,024 x 4
+## # Groups:   candidate_name [76]
+##    candidate_name state      average_candidate count
+##    &lt;chr&gt;          &lt;chr&gt;                  &lt;dbl&gt; &lt;int&gt;
+##  1 Amy Klobuchar  Alabama                 1        3
+##  2 Amy Klobuchar  Arizona                 1.18     6
+##  3 Amy Klobuchar  California              1.74    40
+##  4 Amy Klobuchar  Colorado                0.1      1
+##  5 Amy Klobuchar  Delaware                1        1
+##  6 Amy Klobuchar  Florida                 1.98    13
+##  7 Amy Klobuchar  Georgia                 1.27     4
+##  8 Amy Klobuchar  Illinois                2.15     2
+##  9 Amy Klobuchar  Indiana                 0        1
+## 10 Amy Klobuchar  Iowa                    5.97    61
+## # ... with 1,014 more rows</code></pre>
+<ul>
+<li>See assigned readings for more useful summary variables and <code>ungroup</code></li>
+</ul>
+<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="dplyr-and-tidy.html#cb540-1"></a>basicPolls <span class="op">%&gt;%</span></span>
+<span id="cb540-2"><a href="dplyr-and-tidy.html#cb540-2"></a><span class="st">  </span><span class="kw">group_by</span>(candidate_name, state) <span class="op">%&gt;%</span></span>
+<span id="cb540-3"><a href="dplyr-and-tidy.html#cb540-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>()) <span class="op">%&gt;%</span></span>
+<span id="cb540-4"><a href="dplyr-and-tidy.html#cb540-4"></a><span class="st">  </span><span class="kw">filter</span>(count<span class="op">&gt;</span><span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 206 x 4
+## # Groups:   candidate_name [44]
+##    candidate_name state          average_candidate count
+##    &lt;chr&gt;          &lt;chr&gt;                      &lt;dbl&gt; &lt;int&gt;
+##  1 Amy Klobuchar  California                  1.74    40
+##  2 Amy Klobuchar  Florida                     1.98    13
+##  3 Amy Klobuchar  Iowa                        5.97    61
+##  4 Amy Klobuchar  Nevada                      1.71    15
+##  5 Amy Klobuchar  New Hampshire               5.42    84
+##  6 Amy Klobuchar  Pennsylvania                1.53    11
+##  7 Amy Klobuchar  South Carolina              1.27    34
+##  8 Amy Klobuchar  Texas                       1.47    23
+##  9 Amy Klobuchar  Wisconsin                   2.52    16
+## 10 Amy Klobuchar  &lt;NA&gt;                        1.62   503
+## # ... with 196 more rows</code></pre>
+<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="dplyr-and-tidy.html#cb542-1"></a>primaryPolls <span class="op">%&gt;%</span></span>
+<span id="cb542-2"><a href="dplyr-and-tidy.html#cb542-2"></a><span class="st">  </span><span class="kw">group_by</span>(candidate_name, state) <span class="op">%&gt;%</span></span>
+<span id="cb542-3"><a href="dplyr-and-tidy.html#cb542-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>()) <span class="op">%&gt;%</span></span>
+<span id="cb542-4"><a href="dplyr-and-tidy.html#cb542-4"></a><span class="st">  </span><span class="kw">filter</span>(count<span class="op">&gt;</span><span class="dv">10</span>) <span class="op">%&gt;%</span></span>
+<span id="cb542-5"><a href="dplyr-and-tidy.html#cb542-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">average_prop=</span>average_candidate<span class="op">/</span><span class="dv">100</span>) <span class="op">%&gt;%</span></span>
+<span id="cb542-6"><a href="dplyr-and-tidy.html#cb542-6"></a><span class="st">  </span><span class="kw">select</span>(average_prop, candidate_name, state, count)</span></code></pre></div>
+<pre><code>## # A tibble: 206 x 4
+## # Groups:   candidate_name [44]
+##    average_prop candidate_name state          count
+##           &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;          &lt;int&gt;
+##  1       0.0174 Amy Klobuchar  California        40
+##  2       0.0198 Amy Klobuchar  Florida           13
+##  3       0.0597 Amy Klobuchar  Iowa              61
+##  4       0.0171 Amy Klobuchar  Nevada            15
+##  5       0.0542 Amy Klobuchar  New Hampshire     84
+##  6       0.0153 Amy Klobuchar  Pennsylvania      11
+##  7       0.0127 Amy Klobuchar  South Carolina    34
+##  8       0.0147 Amy Klobuchar  Texas             23
+##  9       0.0252 Amy Klobuchar  Wisconsin         16
+## 10       0.0162 Amy Klobuchar  &lt;NA&gt;             503
+## # ... with 196 more rows</code></pre>
+</div>
+<div id="pivots" class="section level3" number="7.2.7">
+<h3><span class="header-section-number">7.2.7</span> Pivots</h3>
+<ul>
+<li><p>In many cases the data is not quite organized the way we want.</p></li>
+<li><p>Right now we have each poll as a separate row. But what if we want each candidate to be a row so we can analyze their trends in polls over time?</p></li>
+<li><p>Or what if we get the trend line and want to instead reorganize to look at each poll separately?</p></li>
+<li><p>The key commands here are <code>pivot_wider</code> and <code>pivot_longer</code></p></li>
+<li><p>See Chapter 12 for some additional (but less universally useful functions)</p></li>
+<li><p>In our running example we have one entry for each poll. How could we combine these to list the result from each unique poll togehter?</p></li>
+<li><p>The key here is that the <em>values</em> of interest are in the <code>pct</code> column and the <em>groupings</em> of interest are in the candidates column</p></li>
+</ul>
+<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="dplyr-and-tidy.html#cb544-1"></a>nevadaPrimaries&lt;-primaryPolls <span class="op">%&gt;%</span></span>
+<span id="cb544-2"><a href="dplyr-and-tidy.html#cb544-2"></a><span class="st"> </span><span class="kw">filter</span>(candidate_name <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Amy Klobuchar&quot;</span>, <span class="st">&quot;Bernard Sanders&quot;</span>, <span class="st">&quot;Elizabeth Warren&quot;</span>, <span class="st">&quot;Joseph R. Biden Jr.&quot;</span>, <span class="st">&quot;Michael Bloomberg&quot;</span>, <span class="st">&quot;Pete Buttigieg&quot;</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb544-3"><a href="dplyr-and-tidy.html#cb544-3"></a><span class="st">  </span><span class="kw">filter</span>(state<span class="op">==</span><span class="st">&quot;Nevada&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb544-4"><a href="dplyr-and-tidy.html#cb544-4"></a><span class="st">  </span><span class="kw">select</span>(candidate_name, pct, start_date, sample_size)</span>
+<span id="cb544-5"><a href="dplyr-and-tidy.html#cb544-5"></a><span class="kw">print</span>(nevadaPrimaries, <span class="dt">n=</span><span class="ot">Inf</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 76 x 4
+##    candidate_name        pct start_date sample_size
+##    &lt;chr&gt;               &lt;dbl&gt; &lt;date&gt;           &lt;dbl&gt;
+##  1 Joseph R. Biden Jr.  19.4 2020-01-08         500
+##  2 Bernard Sanders      17.6 2020-01-08         500
+##  3 Elizabeth Warren     10.6 2020-01-08         500
+##  4 Pete Buttigieg        8.2 2020-01-08         500
+##  5 Amy Klobuchar         3.6 2020-01-08         500
+##  6 Elizabeth Warren     14   2020-01-06         600
+##  7 Bernard Sanders      29   2020-01-06         600
+##  8 Joseph R. Biden Jr.  28   2020-01-06         600
+##  9 Pete Buttigieg        6   2020-01-06         600
+## 10 Amy Klobuchar         4   2020-01-06         600
+## 11 Joseph R. Biden Jr.  23   2020-01-05         635
+## 12 Bernard Sanders      17   2020-01-05         635
+## 13 Elizabeth Warren     12   2020-01-05         635
+## 14 Pete Buttigieg        6   2020-01-05         635
+## 15 Michael Bloomberg     2   2020-01-05         635
+## 16 Amy Klobuchar         2   2020-01-05         635
+## 17 Joseph R. Biden Jr.  24   2019-11-10         627
+## 18 Bernard Sanders      18   2019-11-10         627
+## 19 Elizabeth Warren     18   2019-11-10         627
+## 20 Pete Buttigieg        8   2019-11-10         627
+## 21 Amy Klobuchar         2   2019-11-10         627
+## 22 Joseph R. Biden Jr.  33   2019-11-06         626
+## 23 Bernard Sanders      23   2019-11-06         626
+## 24 Elizabeth Warren     21   2019-11-06         626
+## 25 Pete Buttigieg        9   2019-11-06         626
+## 26 Amy Klobuchar         2   2019-11-06         626
+## 27 Joseph R. Biden Jr.  29.9 2019-10-31         451
+## 28 Bernard Sanders      18.8 2019-10-31         451
+## 29 Elizabeth Warren     22.2 2019-10-31         451
+## 30 Pete Buttigieg        4.9 2019-10-31         451
+## 31 Amy Klobuchar         0.7 2019-10-31         451
+## 32 Joseph R. Biden Jr.  29.1 2019-10-28         600
+## 33 Pete Buttigieg        7.3 2019-10-28         600
+## 34 Amy Klobuchar         2.5 2019-10-28         600
+## 35 Bernard Sanders      19.1 2019-10-28         600
+## 36 Elizabeth Warren     19.2 2019-10-28         600
+## 37 Joseph R. Biden Jr.  22   2019-09-22         324
+## 38 Bernard Sanders      22   2019-09-22         324
+## 39 Elizabeth Warren     18   2019-09-22         324
+## 40 Pete Buttigieg        4   2019-09-22         324
+## 41 Amy Klobuchar         1   2019-09-22         324
+## 42 Joseph R. Biden Jr.  23.2 2019-09-19         500
+## 43 Pete Buttigieg        3.4 2019-09-19         500
+## 44 Amy Klobuchar         0.4 2019-09-19         500
+## 45 Bernard Sanders      14.2 2019-09-19         500
+## 46 Elizabeth Warren     19.4 2019-09-19         500
+## 47 Bernard Sanders      29   2019-08-28         563
+## 48 Joseph R. Biden Jr.  27   2019-08-28         563
+## 49 Elizabeth Warren     18   2019-08-28         563
+## 50 Pete Buttigieg        4   2019-08-28         563
+## 51 Amy Klobuchar         0   2019-08-28         563
+## 52 Joseph R. Biden Jr.  25   2019-08-14         382
+## 53 Elizabeth Warren     15   2019-08-14         382
+## 54 Bernard Sanders      10   2019-08-14         382
+## 55 Pete Buttigieg        5   2019-08-14         382
+## 56 Amy Klobuchar         2   2019-08-14         382
+## 57 Joseph R. Biden Jr.  26   2019-08-02         439
+## 58 Elizabeth Warren     23   2019-08-02         439
+## 59 Bernard Sanders      22   2019-08-02         439
+## 60 Pete Buttigieg        7   2019-08-02         439
+## 61 Amy Klobuchar         1   2019-08-02         439
+## 62 Joseph R. Biden Jr.  36   2019-06-06         370
+## 63 Elizabeth Warren     19   2019-06-06         370
+## 64 Bernard Sanders      13   2019-06-06         370
+## 65 Pete Buttigieg        7   2019-06-06         370
+## 66 Amy Klobuchar         1   2019-06-06         370
+## 67 Joseph R. Biden Jr.  29   2019-05-09         389
+## 68 Bernard Sanders      24   2019-05-09         389
+## 69 Pete Buttigieg       13   2019-05-09         389
+## 70 Elizabeth Warren     12   2019-05-09         389
+## 71 Amy Klobuchar         1   2019-05-09         389
+## 72 Elizabeth Warren      9.9 2019-03-28         310
+## 73 Pete Buttigieg        4.7 2019-03-28         310
+## 74 Joseph R. Biden Jr.  26.4 2019-03-28         310
+## 75 Bernard Sanders      22.5 2019-03-28         310
+## 76 Amy Klobuchar         2.4 2019-03-28         310</code></pre>
+<ul>
+<li>setting <code>n=Inf</code> in the print will ensure that all rows are shown (the equivalent for columns is <code>width=Inf</code>)</li>
+<li><code>nevadaPrimaries</code> contains one row for every combination of a Nevada poll (specified by <code>start_date</code> and <code>sample_size</code>) and a candidate</li>
+</ul>
+<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="dplyr-and-tidy.html#cb546-1"></a>wideNevada&lt;-<span class="kw">pivot_wider</span>(nevadaPrimaries, <span class="dt">names_from =</span> candidate_name, <span class="dt">values_from =</span> pct)</span>
+<span id="cb546-2"><a href="dplyr-and-tidy.html#cb546-2"></a><span class="kw">print</span>(wideNevada, <span class="dt">width=</span><span class="ot">Inf</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 15 x 8
+##    start_date sample_size `Joseph R. Biden Jr.` `Bernard Sanders`
+##    &lt;date&gt;           &lt;dbl&gt;                 &lt;dbl&gt;             &lt;dbl&gt;
+##  1 2020-01-08         500                  19.4              17.6
+##  2 2020-01-06         600                  28                29  
+##  3 2020-01-05         635                  23                17  
+##  4 2019-11-10         627                  24                18  
+##  5 2019-11-06         626                  33                23  
+##  6 2019-10-31         451                  29.9              18.8
+##  7 2019-10-28         600                  29.1              19.1
+##  8 2019-09-22         324                  22                22  
+##  9 2019-09-19         500                  23.2              14.2
+## 10 2019-08-28         563                  27                29  
+## 11 2019-08-14         382                  25                10  
+## 12 2019-08-02         439                  26                22  
+## 13 2019-06-06         370                  36                13  
+## 14 2019-05-09         389                  29                24  
+## 15 2019-03-28         310                  26.4              22.5
+##    `Elizabeth Warren` `Pete Buttigieg` `Amy Klobuchar` `Michael Bloomberg`
+##                 &lt;dbl&gt;            &lt;dbl&gt;           &lt;dbl&gt;               &lt;dbl&gt;
+##  1               10.6              8.2             3.6                  NA
+##  2               14                6               4                    NA
+##  3               12                6               2                     2
+##  4               18                8               2                    NA
+##  5               21                9               2                    NA
+##  6               22.2              4.9             0.7                  NA
+##  7               19.2              7.3             2.5                  NA
+##  8               18                4               1                    NA
+##  9               19.4              3.4             0.4                  NA
+## 10               18                4               0                    NA
+## 11               15                5               2                    NA
+## 12               23                7               1                    NA
+## 13               19                7               1                    NA
+## 14               12               13               1                    NA
+## 15                9.9              4.7             2.4                  NA</code></pre>
+<ul>
+<li><code>wideNevada</code> contains one row for every Nevada poll and a column for the pct each candidate got</li>
+</ul>
+<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="dplyr-and-tidy.html#cb548-1"></a><span class="kw">dim</span>(nevadaPrimaries)</span></code></pre></div>
+<pre><code>## [1] 76  4</code></pre>
+<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="dplyr-and-tidy.html#cb550-1"></a><span class="kw">dim</span>(wideNevada)</span></code></pre></div>
+<pre><code>## [1] 15  8</code></pre>
+<ul>
+<li>Or we could organize it into a time series ….</li>
+</ul>
+<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="dplyr-and-tidy.html#cb552-1"></a>timeNevada&lt;-<span class="kw">pivot_wider</span>(nevadaPrimaries, <span class="dt">id_cols=</span>candidate_name, </span>
+<span id="cb552-2"><a href="dplyr-and-tidy.html#cb552-2"></a>                        <span class="dt">names_from =</span> <span class="kw">c</span>(start_date), <span class="dt">values_from =</span> pct)</span>
+<span id="cb552-3"><a href="dplyr-and-tidy.html#cb552-3"></a><span class="kw">print</span>(timeNevada, <span class="dt">width=</span><span class="ot">Inf</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 16
+##   candidate_name      `2020-01-08` `2020-01-06` `2020-01-05` `2019-11-10`
+##   &lt;chr&gt;                      &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;
+## 1 Joseph R. Biden Jr.         19.4           28           23           24
+## 2 Bernard Sanders             17.6           29           17           18
+## 3 Elizabeth Warren            10.6           14           12           18
+## 4 Pete Buttigieg               8.2            6            6            8
+## 5 Amy Klobuchar                3.6            4            2            2
+## 6 Michael Bloomberg           NA             NA            2           NA
+##   `2019-11-06` `2019-10-31` `2019-10-28` `2019-09-22` `2019-09-19` `2019-08-28`
+##          &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;
+## 1           33         29.9         29.1           22         23.2           27
+## 2           23         18.8         19.1           22         14.2           29
+## 3           21         22.2         19.2           18         19.4           18
+## 4            9          4.9          7.3            4          3.4            4
+## 5            2          0.7          2.5            1          0.4            0
+## 6           NA         NA           NA             NA         NA             NA
+##   `2019-08-14` `2019-08-02` `2019-06-06` `2019-05-09` `2019-03-28`
+##          &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;
+## 1           25           26           36           29         26.4
+## 2           10           22           13           24         22.5
+## 3           15           23           19           12          9.9
+## 4            5            7            7           13          4.7
+## 5            2            1            1            1          2.4
+## 6           NA           NA           NA           NA         NA</code></pre>
+<ul>
+<li>Of course sometimes we want to do the reverse using <code>pivot_longer</code></li>
+<li>In this case, we no longer have a single indicator variable for the values of <code>start_date</code></li>
+</ul>
+<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="dplyr-and-tidy.html#cb554-1"></a>timeNevada <span class="op">%&gt;%</span></span>
+<span id="cb554-2"><a href="dplyr-and-tidy.html#cb554-2"></a><span class="st">  </span><span class="kw">select</span>(candidate_name, <span class="st">`</span><span class="dt">2020-01-08</span><span class="st">`</span>, <span class="st">`</span><span class="dt">2020-01-06</span><span class="st">`</span>) <span class="op">%&gt;%</span></span>
+<span id="cb554-3"><a href="dplyr-and-tidy.html#cb554-3"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="kw">c</span>(<span class="st">`</span><span class="dt">2020-01-08</span><span class="st">`</span>, <span class="st">`</span><span class="dt">2020-01-06</span><span class="st">`</span>), <span class="dt">names_to =</span> <span class="st">&quot;start_date_test&quot;</span>, <span class="dt">values_to =</span> <span class="st">&quot;pct_test&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 12 x 3
+##    candidate_name      start_date_test pct_test
+##    &lt;chr&gt;               &lt;chr&gt;              &lt;dbl&gt;
+##  1 Joseph R. Biden Jr. 2020-01-08          19.4
+##  2 Joseph R. Biden Jr. 2020-01-06          28  
+##  3 Bernard Sanders     2020-01-08          17.6
+##  4 Bernard Sanders     2020-01-06          29  
+##  5 Elizabeth Warren    2020-01-08          10.6
+##  6 Elizabeth Warren    2020-01-06          14  
+##  7 Pete Buttigieg      2020-01-08           8.2
+##  8 Pete Buttigieg      2020-01-06           6  
+##  9 Amy Klobuchar       2020-01-08           3.6
+## 10 Amy Klobuchar       2020-01-06           4  
+## 11 Michael Bloomberg   2020-01-08          NA  
+## 12 Michael Bloomberg   2020-01-06          NA</code></pre>
+<ul>
+<li>This will partially undo the <code>pivot_wider</code> command above</li>
+<li>Now, each row is a combination of one of the six candidates and one of the two start dates</li>
+<li>Note that to get this, we used <code>names_to</code> and <code>values_to</code> instead of <code>names_from</code> and <code>values_from</code></li>
+</ul>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-visualization-in-r.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
