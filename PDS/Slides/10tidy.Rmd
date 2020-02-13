@@ -102,7 +102,7 @@ print(primaryPolls, width=Inf)
 
 - You can access elements basically the same way
 - They never allow partial matching (which is evil anyways)
-- You can use `as.tibble` or `as.data.frame` to jump back and forth
+- You can use `as_tibble` or `as.data.frame` to jump back and forth
 
 
 ---
@@ -231,7 +231,7 @@ transmute(primaryPolls, numberRespondents=round((pct/100)*sample_size))
 ```{r, eval=TRUE, message=FALSE, warning=FALSE}
 transmute(primaryPolls, 
           proportion=pct/100,
-          numberRespondents=round(proportion*sample_size),
+          numberRespondents=round(proportion*sample_size)
           )
 ```
 
