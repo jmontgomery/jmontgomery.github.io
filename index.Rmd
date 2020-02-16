@@ -39,7 +39,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 [Problem Set 2](https://jmontgomery.github.io/PDS/Problem Sets/Problem Set 2/PS2_PDS.pdf)
 
-Problem Set 3
+[Problem Set 3](https://jmontgomery.github.io/PDS/Problem Sets/Problem Set 3/PS3_PDS.pdf)
 
 #### Activities
 
