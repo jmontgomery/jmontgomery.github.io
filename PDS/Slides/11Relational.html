@@ -347,7 +347,17 @@ Earlier we identified a duplicat in our data with the handles `robertgarcialb` a
 --
 
 - The latter is very useful for figuring out why your joins are not working as you expect.  
-- For important data merges, you should always run these to be sure that 
+- For important data merges, you should always run these to be sure that these are returning the values and numbers you expect.
+
+
+---
+
+### Drill
+
+- Use `semi_join` to append to the mayors data the number of total tweets each had.
+- Do the same with `anti_join`.  What does the resulting dataset represent?
+
+
 
 
 ---
@@ -361,6 +371,24 @@ Tidy also includes functions where it expects datasets with the same columns.
 - `setdiff(x, y)` will return observations in x, but not in y.
 
 This is useful for deduplication tasks and also for identifying problems from specific merge commands.
+
+
+---
+
+## Class exercise
+
+We are going to add a third set of data --- mentions
+
+
+```r
+mentions &lt;-read_csv(file="https://raw.githubusercontent.com/jmontgomery/jmontgomery.github.io/master/PDS/Datasets/TwitterMentions.csv")
+```
+
+
+1. For each mayor, calculate the number of times they were mentioned
+2. Add to the mentions datset the number of times each mayor tweeted.
+3. Create a combined dataset of all tweets from the tweets and mentions data.  Subset down to overlapping columns (and rename where needed) to make this easy.
+4. Are there any tweets in the mentions dataset from mayors?
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

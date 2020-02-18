@@ -257,5 +257,5 @@ mentions <-read_csv(file="https://raw.githubusercontent.com/jmontgomery/jmontgom
 
 1. For each mayor, calculate the number of times they were mentioned
 2. Add to the mentions datset the number of times each mayor tweeted.
-3. Create a combined dataset of all tweets from the tweets and mentinos data.  Subset down to overlapping columns (and rename where needed) to make this easy.
+3. Create a combined dataset of all tweets from the tweets and mentions data.  Subset down to overlapping columns (and rename where needed) to make this easy.
 4. Are there any tweets in the mentions dataset from mayors?
