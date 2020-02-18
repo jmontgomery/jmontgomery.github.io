@@ -1,0 +1,402 @@
+---
+title: "dplyr and tidy"
+author: |
+  | Jacob M. Montgomery
+  | *Washington University in St. Louis*
+  | *Department of Politcal Science*
+date: '2020'
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
+#   beamer_presentation: default
+#   slidy_presentation: default
+
+
+---
+
+
+## Orientation for today
+
+**Last time**
+
+
+
+**Before**
+
+1. Basic data viz
+    
+<br>
+
+--
+
+**Today**
+
+1. Data wrangling
+    + Recoding data
+    + Subsetting
+    + Reshaping
+    
+    
+--
+
+**Next class**
+1. Relational data
+    
+
+---
+
+## Into the tidyverse
+
+- `dplyr` is a handy package for changing data
+- `tidyr` is a handy package for reshaping data
+- In combination they offer a powerful way to quickly extract insight from your data
+
+
+
+---
+
+## Running example
+
+
+Data comes from fivethirtyeight.com
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+library(dplyr)
+library(tidyr)
+library(readr)
+primaryPolls<-read_csv('https://jmontgomery.github.io/PDS/Datasets/president_primary_polls_feb2020.csv')
+primaryPolls$start_date<-as.Date(primaryPolls$start_date, "%m/%d/%y")
+```
+
+
+---
+
+### Data object
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+class(primaryPolls)
+```
+
+- A tibble is basically a data frame 
+- They are both friendlier and more structured than traditional data frames
+
+
+---
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+primaryPolls
+```
+
+
+---
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+print(primaryPolls, width=Inf)
+```
+
+
+---
+
+- You can access elements basically the same way
+- They never allow partial matching (which is evil anyways)
+- You can use `as_tibble` or `as.data.frame` to jump back and forth
+
+
+---
+
+## Back to `dplyr`
+
+- Subset data by rows: `filter`
+- Reorder by rows: `arrange`
+- Subset data by column: `select`
+- Create new variables as a function of other variables: `mutate`
+- Collapse values down (or extract statistic): `summarise`
+- We can use `group_by` to make changes in the scope
+
+---
+
+## 10.1: `filter`
+
+- `filter` allows you to easily subset data using conditions as we have done before using accessors
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+filter(primaryPolls, candidate_name == c("Amy Klobuchar"))
+
+```
+
+---
+
+- Or you can include multiple conditions
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+filter(primaryPolls, 
+       candidate_name == c("Amy Klobuchar"), 
+       state=="New Hampshire")
+
+```
+
+
+- Everything you have already learned about boolean operators applies here.
+
+
+---
+
+## 10.2: `arrange`
+
+- `arrange`  does the same thing, but organizes data by rows insead of subsetting by rows.
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+arrange(primaryPolls, state, pollster_id)
+```
+
+
+---
+
+- Or in descending order
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+arrange(primaryPolls, state, desc(pollster_id))
+```
+
+---
+
+## 10.3: `select`
+
+- Select is just a much easier way to subset by column
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+select(primaryPolls, state, candidate_name, start_date)
+```
+
+
+---
+
+- It comes with a nice syntax for doing this without just listing
+- `var1:var20` will select all columns between these two
+- `-var1:var20` will select everything *except* that range
+- `starts_with("cand")` will select columns that start with "cand"
+- Similar functionality for `ends_with`, `contains`, and matches
+
+---
+
+A fun trick to move your favorite variables to the front, but keep it all:
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+select(primaryPolls, state, candidate_name, start_date, everything())
+```
+
+
+---
+
+- Note here that `rename` is the mythical easy way to rename a column, although syntax seems backwards
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+basicPolls<-select(primaryPolls, state, candidate_name, start_date, pct)
+rename(basicPolls, candidate = candidate_name)
+```
+
+---
+
+
+## 10.4: `mutate`: The glory
+
+- `mutate` allows us to create a new variable that is a function of the others
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+mutate(basicPolls, proportion=pct/100)
+```
+
+---
+
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+transmute(basicPolls, proportion=pct/100)
+```
+
+
+---
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+transmute(primaryPolls, numberRespondents=round((pct/100)*sample_size))
+```
+
+---
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+transmute(primaryPolls, 
+          proportion=pct/100,
+          numberRespondents=round(proportion*sample_size)
+          )
+```
+
+---
+
+- Note that you can use a ton of the basic functions we have already covered like `sum`, `mean`, `sqrt`, etc.
+- A useful one is `n()`, which just counts the number of observations
+- This includes logical comparisons
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+mutate(basicPolls, top_tier=(pct>10)*1)
+```
+
+---
+
+## 10.5: `summarise`
+
+- We can easily extract summary statistics
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+summarise(basicPolls, average_candidate=mean(pct), count=n())
+```
+
+---
+
+- This is more powerful when also using the `group_by` function
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+basicPolls_grouped<-group_by(basicPolls, candidate_name)
+summarise(basicPolls_grouped, average_candidate=mean(pct), count=n())
+```
+
+---
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+basicPolls_grouped<-group_by(basicPolls, candidate_name, state)
+summarise(basicPolls_grouped, average_candidate=mean(pct), count=n())
+```
+
+---
+
+## 10.6 Piping
+
+- The tidyverse includes a nice syntax for combining multiple commands so we don't have to create new objects all of the time.
+- The `%?%` syntax allows us to pass on the results of one line to another
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+basicPolls %>%
+  group_by(candidate_name, state) %>%
+  summarise(average_candidate=mean(pct), count=n())
+```
+
+- See assigned readings for more useful summary variabels and `ungroup`
+
+
+---
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+basicPolls %>%
+  group_by(candidate_name, state) %>%
+  summarise(average_candidate=mean(pct), count=n()) %>%
+  filter(count>10)
+```
+
+---
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+primaryPolls %>%
+  group_by(candidate_name, state) %>%
+  summarise(average_candidate=mean(pct), count=n()) %>%
+  filter(count>10) %>%
+  mutate(average_prop=average_candidate/100) %>%
+  select(average_prop, candidate_name, state, count)
+```
+
+
+---
+
+## Activity
+
+- Filter the data so it includes only polls taken in the last two months
+- Select down to only the start_date, pct, state, and candidate
+- Create a new variabele that is the proportion of respondents in favor
+- Find the median level of support for the top 10 candidates by state limited only to candidate/state combinations with at least 5 polls
+
+
+---
+
+## 10.7: Tidy data
+
+- In many cases the data is not quite organized the way we want.
+- Right now we have each poll as a separate row.  But what if we want each candidate to be a row so we can analyze their trends in polls over time?
+- Or what if we get the trend line and want to instead reorganize to look at each poll separately?
+- The key commands here are `pivot_wider` and `pivot_longer`
+- See Chapter 12 for some additional (but less universally useful functions)
+
+
+---
+
+## 10.8: Pivots
+
+
+- In our running example we have one entry for each poll.  How could we combine these to list the result from each unique poll togehter?
+- The key here is that the *values* of interest are in the `pct` column and the *groupings* of interest are in the candidates column
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+nevadaPrimaries<-primaryPolls %>%
+ filter(candidate_name %in% c("Amy Klobuchar", "Bernard Sanders", "Elizabeth Warren", "Joseph R. Biden Jr.", "Michael Bloomberg", "Pete Buttigieg")) %>%
+  filter(state=="Nevada") %>%
+  select(candidate_name, pct, start_date, sample_size)
+nevadaPrimaries
+```
+
+---
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+wideNevada<-pivot_wider(nevadaPrimaries, names_from = candidate_name, values_from = pct)
+wideNevada
+```
+
+
+---
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+dim(nevadaPrimaries)
+dim(wideNevada)
+```
+
+---
+
+- Or we could organize it into a time series ....
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+timeNevada<-pivot_wider(nevadaPrimaries, id_cols=candidate_name, 
+                        names_from = c(start_date), values_from = pct)
+timeNevada
+```
+
+
+--- 
+
+
+---
+
+
+- Of course sometimes we want to do the reverse using `pivot_longer`
+- In this case, we no longer have a single indicator variable for the values of `start_date`
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+timeNevada %>%
+  select(candidate_name, `2020-01-08`, `2020-01-06`) %>%
+  pivot_longer(c(`2020-01-08`, `2020-01-06`), names_to = "start_date_test", values_to = "pct_test")
+```
+
+
+---
+
+### Activity
+
+- Re-organize the dataset so that there is only one row for each candidate-state dyad
+- Feel free to limit this down to only the relevant candidates
+- Compare the size of this dataset to our original dataset using the `object_size` command.
+
+
