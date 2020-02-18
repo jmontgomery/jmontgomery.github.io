@@ -277,19 +277,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="our-example" class="section level3" number="7.1.1">
 <h3><span class="header-section-number">7.1.1</span> Our example</h3>
 <p>Data comes from fivethirtyeight.com</p>
-<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="dplyr-and-tidy.html#cb495-1"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb495-2"><a href="dplyr-and-tidy.html#cb495-2"></a><span class="kw">library</span>(tidyr)</span>
-<span id="cb495-3"><a href="dplyr-and-tidy.html#cb495-3"></a><span class="kw">library</span>(readr)</span>
-<span id="cb495-4"><a href="dplyr-and-tidy.html#cb495-4"></a>primaryPolls&lt;-<span class="kw">read_csv</span>(<span class="st">&#39;https://jmontgomery.github.io/PDS/Datasets/president_primary_polls_feb2020.csv&#39;</span>)</span>
-<span id="cb495-5"><a href="dplyr-and-tidy.html#cb495-5"></a>primaryPolls<span class="op">$</span>start_date&lt;-<span class="kw">as.Date</span>(primaryPolls<span class="op">$</span>start_date, <span class="st">&quot;%m/%d/%y&quot;</span>)</span>
-<span id="cb495-6"><a href="dplyr-and-tidy.html#cb495-6"></a></span>
-<span id="cb495-7"><a href="dplyr-and-tidy.html#cb495-7"></a><span class="kw">class</span>(primaryPolls)</span></code></pre></div>
+<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb493-1"><a href="dplyr-and-tidy.html#cb493-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb493-2"><a href="dplyr-and-tidy.html#cb493-2"></a><span class="kw">library</span>(tidyr)</span>
+<span id="cb493-3"><a href="dplyr-and-tidy.html#cb493-3"></a><span class="kw">library</span>(readr)</span>
+<span id="cb493-4"><a href="dplyr-and-tidy.html#cb493-4"></a>primaryPolls&lt;-<span class="kw">read_csv</span>(<span class="st">&#39;https://jmontgomery.github.io/PDS/Datasets/president_primary_polls_feb2020.csv&#39;</span>)</span>
+<span id="cb493-5"><a href="dplyr-and-tidy.html#cb493-5"></a>primaryPolls<span class="op">$</span>start_date&lt;-<span class="kw">as.Date</span>(primaryPolls<span class="op">$</span>start_date, <span class="st">&quot;%m/%d/%y&quot;</span>)</span>
+<span id="cb493-6"><a href="dplyr-and-tidy.html#cb493-6"></a></span>
+<span id="cb493-7"><a href="dplyr-and-tidy.html#cb493-7"></a><span class="kw">class</span>(primaryPolls)</span></code></pre></div>
 <pre><code>## [1] &quot;spec_tbl_df&quot; &quot;tbl_df&quot;      &quot;tbl&quot;         &quot;data.frame&quot;</code></pre>
 <ul>
 <li>A tibble is basically a data frame</li>
 <li>They are both friendlier and more structured than traditional data frames</li>
 </ul>
-<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="dplyr-and-tidy.html#cb497-1"></a>primaryPolls</span></code></pre></div>
+<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="dplyr-and-tidy.html#cb495-1"></a>primaryPolls</span></code></pre></div>
 <pre><code>## # A tibble: 16,661 x 33
 ##    question_id poll_id cycle state pollster_id pollster sponsor_ids sponsors
 ##          &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;   
@@ -312,7 +312,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## #   stage &lt;chr&gt;, party &lt;chr&gt;, answer &lt;chr&gt;, candidate_id &lt;dbl&gt;,
 ## #   candidate_name &lt;chr&gt;, pct &lt;dbl&gt;</code></pre>
 <p>You can also print the first 10 rows of all the columns</p>
-<div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb499-1"><a href="dplyr-and-tidy.html#cb499-1"></a><span class="kw">print</span>(primaryPolls, <span class="dt">width=</span><span class="ot">Inf</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="dplyr-and-tidy.html#cb497-1"></a><span class="kw">print</span>(primaryPolls, <span class="dt">width=</span><span class="ot">Inf</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 16,661 x 33
 ##    question_id poll_id cycle state         pollster_id pollster         
 ##          &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;            
@@ -424,7 +424,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><code>filter</code> allows you to easily subset data using conditions as we have done before using accessors</li>
 </ul>
-<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="dplyr-and-tidy.html#cb501-1"></a><span class="kw">filter</span>(primaryPolls, candidate_name <span class="op">==</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Amy Klobuchar&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb499-1"><a href="dplyr-and-tidy.html#cb499-1"></a><span class="kw">filter</span>(primaryPolls, candidate_name <span class="op">==</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Amy Klobuchar&quot;</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 874 x 33
 ##    question_id poll_id cycle state pollster_id pollster sponsor_ids sponsors
 ##          &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;   
@@ -449,9 +449,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Or you can include multiple conditions</li>
 </ul>
-<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="dplyr-and-tidy.html#cb503-1"></a><span class="kw">filter</span>(primaryPolls, </span>
-<span id="cb503-2"><a href="dplyr-and-tidy.html#cb503-2"></a>       candidate_name <span class="op">==</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Amy Klobuchar&quot;</span>), </span>
-<span id="cb503-3"><a href="dplyr-and-tidy.html#cb503-3"></a>       state<span class="op">==</span><span class="st">&quot;New Hampshire&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="dplyr-and-tidy.html#cb501-1"></a><span class="kw">filter</span>(primaryPolls, </span>
+<span id="cb501-2"><a href="dplyr-and-tidy.html#cb501-2"></a>       candidate_name <span class="op">==</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Amy Klobuchar&quot;</span>), </span>
+<span id="cb501-3"><a href="dplyr-and-tidy.html#cb501-3"></a>       state<span class="op">==</span><span class="st">&quot;New Hampshire&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 84 x 33
 ##    question_id poll_id cycle state pollster_id pollster sponsor_ids sponsors
 ##          &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;   
@@ -482,7 +482,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><code>arrange</code> does the same thing, but organizes data by rows insead of subsetting by rows.</li>
 </ul>
-<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="dplyr-and-tidy.html#cb505-1"></a><span class="kw">arrange</span>(primaryPolls, state, pollster_id)</span></code></pre></div>
+<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="dplyr-and-tidy.html#cb503-1"></a><span class="kw">arrange</span>(primaryPolls, state, pollster_id)</span></code></pre></div>
 <pre><code>## # A tibble: 16,661 x 33
 ##    question_id poll_id cycle state pollster_id pollster sponsor_ids sponsors
 ##          &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;   
@@ -507,7 +507,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Or in descending order</li>
 </ul>
-<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="dplyr-and-tidy.html#cb507-1"></a><span class="kw">arrange</span>(primaryPolls, state, <span class="kw">desc</span>(pollster_id))</span></code></pre></div>
+<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="dplyr-and-tidy.html#cb505-1"></a><span class="kw">arrange</span>(primaryPolls, state, <span class="kw">desc</span>(pollster_id))</span></code></pre></div>
 <pre><code>## # A tibble: 16,661 x 33
 ##    question_id poll_id cycle state pollster_id pollster sponsor_ids sponsors
 ##          &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;   
@@ -535,7 +535,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Select is just a much easier way to subset by column</li>
 </ul>
-<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="dplyr-and-tidy.html#cb509-1"></a><span class="kw">select</span>(primaryPolls, state, candidate_name, start_date)</span></code></pre></div>
+<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="dplyr-and-tidy.html#cb507-1"></a><span class="kw">select</span>(primaryPolls, state, candidate_name, start_date)</span></code></pre></div>
 <pre><code>## # A tibble: 16,661 x 3
 ##    state         candidate_name      start_date
 ##    &lt;chr&gt;         &lt;chr&gt;               &lt;date&gt;    
@@ -558,7 +558,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Similar functionality for <code>ends_with</code>, <code>contains</code>, and matches</li>
 </ul>
 <p>A fun trick to move your favorite variables to the front, but keep it all:</p>
-<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="dplyr-and-tidy.html#cb511-1"></a><span class="kw">select</span>(primaryPolls, state, candidate_name, start_date, <span class="kw">everything</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="dplyr-and-tidy.html#cb509-1"></a><span class="kw">select</span>(primaryPolls, state, candidate_name, start_date, <span class="kw">everything</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 16,661 x 33
 ##    state candidate_name start_date question_id poll_id cycle pollster_id
 ##    &lt;chr&gt; &lt;chr&gt;          &lt;date&gt;           &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;
@@ -584,8 +584,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Note here that <code>rename</code> is the mythical easy way to rename a column, although syntax seems backwards</li>
 <li>You have to specify the new column name on the left side of the equal sign and the old column name on the right</li>
 </ul>
-<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb513-1"><a href="dplyr-and-tidy.html#cb513-1"></a>basicPolls&lt;-<span class="kw">select</span>(primaryPolls, state, candidate_name, start_date, pct)</span>
-<span id="cb513-2"><a href="dplyr-and-tidy.html#cb513-2"></a><span class="kw">rename</span>(basicPolls, <span class="dt">candidate =</span> candidate_name)</span></code></pre></div>
+<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="dplyr-and-tidy.html#cb511-1"></a>basicPolls&lt;-<span class="kw">select</span>(primaryPolls, state, candidate_name, start_date, pct)</span>
+<span id="cb511-2"><a href="dplyr-and-tidy.html#cb511-2"></a><span class="kw">rename</span>(basicPolls, <span class="dt">candidate =</span> candidate_name)</span></code></pre></div>
 <pre><code>## # A tibble: 16,661 x 4
 ##    state         candidate           start_date   pct
 ##    &lt;chr&gt;         &lt;chr&gt;               &lt;date&gt;     &lt;dbl&gt;
@@ -610,7 +610,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Otherwise it will just print it out and throw the results away</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="dplyr-and-tidy.html#cb515-1"></a><span class="kw">mutate</span>(basicPolls, <span class="dt">proportion=</span>pct<span class="op">/</span><span class="dv">100</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb513-1"><a href="dplyr-and-tidy.html#cb513-1"></a><span class="kw">mutate</span>(basicPolls, <span class="dt">proportion=</span>pct<span class="op">/</span><span class="dv">100</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 16,661 x 5
 ##    state         candidate_name      start_date   pct proportion
 ##    &lt;chr&gt;         &lt;chr&gt;               &lt;date&gt;     &lt;dbl&gt;      &lt;dbl&gt;
@@ -625,11 +625,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9 &lt;NA&gt;          Bernard Sanders     2020-02-06    20       0.2 
 ## 10 &lt;NA&gt;          Joseph R. Biden Jr. 2020-02-06    17       0.17
 ## # ... with 16,651 more rows</code></pre>
-<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb517-1"><a href="dplyr-and-tidy.html#cb517-1"></a>basicPolls &lt;-<span class="st"> </span><span class="kw">mutate</span>(basicPolls, <span class="dt">proportion=</span>pct<span class="op">/</span><span class="dv">100</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="dplyr-and-tidy.html#cb515-1"></a>basicPolls &lt;-<span class="st"> </span><span class="kw">mutate</span>(basicPolls, <span class="dt">proportion=</span>pct<span class="op">/</span><span class="dv">100</span>)</span></code></pre></div>
 <ul>
 <li>transmute creates and returns a new tibble with only the mutated variable(s)</li>
 </ul>
-<div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb518-1"><a href="dplyr-and-tidy.html#cb518-1"></a><span class="kw">transmute</span>(basicPolls, <span class="dt">proportion=</span>pct<span class="op">/</span><span class="dv">100</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="dplyr-and-tidy.html#cb516-1"></a><span class="kw">transmute</span>(basicPolls, <span class="dt">proportion=</span>pct<span class="op">/</span><span class="dv">100</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 16,661 x 1
 ##    proportion
 ##         &lt;dbl&gt;
@@ -644,7 +644,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9       0.2 
 ## 10       0.17
 ## # ... with 16,651 more rows</code></pre>
-<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="dplyr-and-tidy.html#cb520-1"></a><span class="kw">transmute</span>(primaryPolls, <span class="dt">numberRespondents=</span><span class="kw">round</span>((pct<span class="op">/</span><span class="dv">100</span>)<span class="op">*</span>sample_size))</span></code></pre></div>
+<div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb518-1"><a href="dplyr-and-tidy.html#cb518-1"></a><span class="kw">transmute</span>(primaryPolls, <span class="dt">numberRespondents=</span><span class="kw">round</span>((pct<span class="op">/</span><span class="dv">100</span>)<span class="op">*</span>sample_size))</span></code></pre></div>
 <pre><code>## # A tibble: 16,661 x 1
 ##    numberRespondents
 ##                &lt;dbl&gt;
@@ -659,10 +659,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9               111
 ## 10                95
 ## # ... with 16,651 more rows</code></pre>
-<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="dplyr-and-tidy.html#cb522-1"></a><span class="kw">transmute</span>(primaryPolls, </span>
-<span id="cb522-2"><a href="dplyr-and-tidy.html#cb522-2"></a>          <span class="dt">proportion=</span>pct<span class="op">/</span><span class="dv">100</span>,</span>
-<span id="cb522-3"><a href="dplyr-and-tidy.html#cb522-3"></a>          <span class="dt">numberRespondents=</span><span class="kw">round</span>(proportion<span class="op">*</span>sample_size),</span>
-<span id="cb522-4"><a href="dplyr-and-tidy.html#cb522-4"></a>          )</span></code></pre></div>
+<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="dplyr-and-tidy.html#cb520-1"></a><span class="kw">transmute</span>(primaryPolls, </span>
+<span id="cb520-2"><a href="dplyr-and-tidy.html#cb520-2"></a>          <span class="dt">proportion=</span>pct<span class="op">/</span><span class="dv">100</span>,</span>
+<span id="cb520-3"><a href="dplyr-and-tidy.html#cb520-3"></a>          <span class="dt">numberRespondents=</span><span class="kw">round</span>(proportion<span class="op">*</span>sample_size),</span>
+<span id="cb520-4"><a href="dplyr-and-tidy.html#cb520-4"></a>          )</span></code></pre></div>
 <pre><code>## # A tibble: 16,661 x 2
 ##    proportion numberRespondents
 ##         &lt;dbl&gt;             &lt;dbl&gt;
@@ -682,7 +682,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>A useful one is <code>n()</code>, which just counts the number of observations</li>
 <li>This includes logical comparisons</li>
 </ul>
-<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb524-1"><a href="dplyr-and-tidy.html#cb524-1"></a><span class="kw">mutate</span>(basicPolls, <span class="dt">top_tier=</span>(pct<span class="op">&gt;</span><span class="dv">10</span>)<span class="op">*</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="dplyr-and-tidy.html#cb522-1"></a><span class="kw">mutate</span>(basicPolls, <span class="dt">top_tier=</span>(pct<span class="op">&gt;</span><span class="dv">10</span>)<span class="op">*</span><span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 16,661 x 6
 ##    state         candidate_name      start_date   pct proportion top_tier
 ##    &lt;chr&gt;         &lt;chr&gt;               &lt;date&gt;     &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;
@@ -703,7 +703,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>We can easily extract summary statistics</li>
 </ul>
-<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb526-1"><a href="dplyr-and-tidy.html#cb526-1"></a><span class="kw">summarise</span>(basicPolls, <span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb524-1"><a href="dplyr-and-tidy.html#cb524-1"></a><span class="kw">summarise</span>(basicPolls, <span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 1 x 2
 ##   average_candidate count
 ##               &lt;dbl&gt; &lt;int&gt;
@@ -711,8 +711,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>This is more powerful when also using the <code>group_by</code> function</li>
 </ul>
-<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="dplyr-and-tidy.html#cb528-1"></a>basicPolls_grouped&lt;-<span class="kw">group_by</span>(basicPolls, candidate_name)</span>
-<span id="cb528-2"><a href="dplyr-and-tidy.html#cb528-2"></a><span class="kw">summarise</span>(basicPolls_grouped, <span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb526-1"><a href="dplyr-and-tidy.html#cb526-1"></a>basicPolls_grouped&lt;-<span class="kw">group_by</span>(basicPolls, candidate_name)</span>
+<span id="cb526-2"><a href="dplyr-and-tidy.html#cb526-2"></a><span class="kw">summarise</span>(basicPolls_grouped, <span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 76 x 3
 ##    candidate_name   average_candidate count
 ##    &lt;chr&gt;                        &lt;dbl&gt; &lt;int&gt;
@@ -727,8 +727,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9 Bob Corker                   0.611    36
 ## 10 Charles D. Baker            31.5       2
 ## # ... with 66 more rows</code></pre>
-<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="dplyr-and-tidy.html#cb530-1"></a>basicPolls_grouped&lt;-<span class="kw">group_by</span>(basicPolls, candidate_name, state)</span>
-<span id="cb530-2"><a href="dplyr-and-tidy.html#cb530-2"></a><span class="kw">summarise</span>(basicPolls_grouped, <span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="dplyr-and-tidy.html#cb528-1"></a>basicPolls_grouped&lt;-<span class="kw">group_by</span>(basicPolls, candidate_name, state)</span>
+<span id="cb528-2"><a href="dplyr-and-tidy.html#cb528-2"></a><span class="kw">summarise</span>(basicPolls_grouped, <span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 1,024 x 4
 ## # Groups:   candidate_name [76]
 ##    candidate_name state      average_candidate count
@@ -752,9 +752,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>The <code>%?%</code> syntax allows us to pass on the results of one line to another</li>
 <li>The result from the left side of the <code>%&gt;%</code> is passed as the first parameter of the next function</li>
 </ul>
-<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="dplyr-and-tidy.html#cb532-1"></a>basicPolls <span class="op">%&gt;%</span></span>
-<span id="cb532-2"><a href="dplyr-and-tidy.html#cb532-2"></a><span class="st">  </span><span class="kw">group_by</span>(candidate_name, state) <span class="op">%&gt;%</span></span>
-<span id="cb532-3"><a href="dplyr-and-tidy.html#cb532-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="dplyr-and-tidy.html#cb530-1"></a>basicPolls <span class="op">%&gt;%</span></span>
+<span id="cb530-2"><a href="dplyr-and-tidy.html#cb530-2"></a><span class="st">  </span><span class="kw">group_by</span>(candidate_name, state) <span class="op">%&gt;%</span></span>
+<span id="cb530-3"><a href="dplyr-and-tidy.html#cb530-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 1,024 x 4
 ## # Groups:   candidate_name [76]
 ##    candidate_name state      average_candidate count
@@ -773,7 +773,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>The above code is equivalent to the following:</li>
 </ul>
-<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="dplyr-and-tidy.html#cb534-1"></a><span class="kw">summarise</span>(<span class="kw">group_by</span>(basicPolls, candidate_name, state), <span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="dplyr-and-tidy.html#cb532-1"></a><span class="kw">summarise</span>(<span class="kw">group_by</span>(basicPolls, candidate_name, state), <span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 1,024 x 4
 ## # Groups:   candidate_name [76]
 ##    candidate_name state      average_candidate count
@@ -792,8 +792,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Which is equivalent to this:</li>
 </ul>
-<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="dplyr-and-tidy.html#cb536-1"></a>grouped_by &lt;-<span class="st"> </span><span class="kw">group_by</span>(basicPolls, candidate_name, state)</span>
-<span id="cb536-2"><a href="dplyr-and-tidy.html#cb536-2"></a><span class="kw">summarise</span>(grouped_by, <span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="dplyr-and-tidy.html#cb534-1"></a>grouped_by &lt;-<span class="st"> </span><span class="kw">group_by</span>(basicPolls, candidate_name, state)</span>
+<span id="cb534-2"><a href="dplyr-and-tidy.html#cb534-2"></a><span class="kw">summarise</span>(grouped_by, <span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 1,024 x 4
 ## # Groups:   candidate_name [76]
 ##    candidate_name state      average_candidate count
@@ -812,10 +812,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>See assigned readings for more useful summary variables and <code>ungroup</code></li>
 </ul>
-<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="dplyr-and-tidy.html#cb538-1"></a>basicPolls <span class="op">%&gt;%</span></span>
-<span id="cb538-2"><a href="dplyr-and-tidy.html#cb538-2"></a><span class="st">  </span><span class="kw">group_by</span>(candidate_name, state) <span class="op">%&gt;%</span></span>
-<span id="cb538-3"><a href="dplyr-and-tidy.html#cb538-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>()) <span class="op">%&gt;%</span></span>
-<span id="cb538-4"><a href="dplyr-and-tidy.html#cb538-4"></a><span class="st">  </span><span class="kw">filter</span>(count<span class="op">&gt;</span><span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="dplyr-and-tidy.html#cb536-1"></a>basicPolls <span class="op">%&gt;%</span></span>
+<span id="cb536-2"><a href="dplyr-and-tidy.html#cb536-2"></a><span class="st">  </span><span class="kw">group_by</span>(candidate_name, state) <span class="op">%&gt;%</span></span>
+<span id="cb536-3"><a href="dplyr-and-tidy.html#cb536-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>()) <span class="op">%&gt;%</span></span>
+<span id="cb536-4"><a href="dplyr-and-tidy.html#cb536-4"></a><span class="st">  </span><span class="kw">filter</span>(count<span class="op">&gt;</span><span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 206 x 4
 ## # Groups:   candidate_name [44]
 ##    candidate_name state          average_candidate count
@@ -831,12 +831,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9 Amy Klobuchar  Wisconsin                   2.52    16
 ## 10 Amy Klobuchar  &lt;NA&gt;                        1.62   503
 ## # ... with 196 more rows</code></pre>
-<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="dplyr-and-tidy.html#cb540-1"></a>primaryPolls <span class="op">%&gt;%</span></span>
-<span id="cb540-2"><a href="dplyr-and-tidy.html#cb540-2"></a><span class="st">  </span><span class="kw">group_by</span>(candidate_name, state) <span class="op">%&gt;%</span></span>
-<span id="cb540-3"><a href="dplyr-and-tidy.html#cb540-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>()) <span class="op">%&gt;%</span></span>
-<span id="cb540-4"><a href="dplyr-and-tidy.html#cb540-4"></a><span class="st">  </span><span class="kw">filter</span>(count<span class="op">&gt;</span><span class="dv">10</span>) <span class="op">%&gt;%</span></span>
-<span id="cb540-5"><a href="dplyr-and-tidy.html#cb540-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">average_prop=</span>average_candidate<span class="op">/</span><span class="dv">100</span>) <span class="op">%&gt;%</span></span>
-<span id="cb540-6"><a href="dplyr-and-tidy.html#cb540-6"></a><span class="st">  </span><span class="kw">select</span>(average_prop, candidate_name, state, count)</span></code></pre></div>
+<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="dplyr-and-tidy.html#cb538-1"></a>primaryPolls <span class="op">%&gt;%</span></span>
+<span id="cb538-2"><a href="dplyr-and-tidy.html#cb538-2"></a><span class="st">  </span><span class="kw">group_by</span>(candidate_name, state) <span class="op">%&gt;%</span></span>
+<span id="cb538-3"><a href="dplyr-and-tidy.html#cb538-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>()) <span class="op">%&gt;%</span></span>
+<span id="cb538-4"><a href="dplyr-and-tidy.html#cb538-4"></a><span class="st">  </span><span class="kw">filter</span>(count<span class="op">&gt;</span><span class="dv">10</span>) <span class="op">%&gt;%</span></span>
+<span id="cb538-5"><a href="dplyr-and-tidy.html#cb538-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">average_prop=</span>average_candidate<span class="op">/</span><span class="dv">100</span>) <span class="op">%&gt;%</span></span>
+<span id="cb538-6"><a href="dplyr-and-tidy.html#cb538-6"></a><span class="st">  </span><span class="kw">select</span>(average_prop, candidate_name, state, count)</span></code></pre></div>
 <pre><code>## # A tibble: 206 x 4
 ## # Groups:   candidate_name [44]
 ##    average_prop candidate_name state          count
@@ -864,11 +864,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>In our running example we have one entry for each poll. How could we combine these to list the result from each unique poll togehter?</p></li>
 <li><p>The key here is that the <em>values</em> of interest are in the <code>pct</code> column and the <em>groupings</em> of interest are in the candidates column</p></li>
 </ul>
-<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="dplyr-and-tidy.html#cb542-1"></a>nevadaPrimaries&lt;-primaryPolls <span class="op">%&gt;%</span></span>
-<span id="cb542-2"><a href="dplyr-and-tidy.html#cb542-2"></a><span class="st"> </span><span class="kw">filter</span>(candidate_name <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Amy Klobuchar&quot;</span>, <span class="st">&quot;Bernard Sanders&quot;</span>, <span class="st">&quot;Elizabeth Warren&quot;</span>, <span class="st">&quot;Joseph R. Biden Jr.&quot;</span>, <span class="st">&quot;Michael Bloomberg&quot;</span>, <span class="st">&quot;Pete Buttigieg&quot;</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb542-3"><a href="dplyr-and-tidy.html#cb542-3"></a><span class="st">  </span><span class="kw">filter</span>(state<span class="op">==</span><span class="st">&quot;Nevada&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb542-4"><a href="dplyr-and-tidy.html#cb542-4"></a><span class="st">  </span><span class="kw">select</span>(candidate_name, pct, start_date, sample_size)</span>
-<span id="cb542-5"><a href="dplyr-and-tidy.html#cb542-5"></a><span class="kw">print</span>(nevadaPrimaries, <span class="dt">n=</span><span class="ot">Inf</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="dplyr-and-tidy.html#cb540-1"></a>nevadaPrimaries&lt;-primaryPolls <span class="op">%&gt;%</span></span>
+<span id="cb540-2"><a href="dplyr-and-tidy.html#cb540-2"></a><span class="st"> </span><span class="kw">filter</span>(candidate_name <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Amy Klobuchar&quot;</span>, <span class="st">&quot;Bernard Sanders&quot;</span>, <span class="st">&quot;Elizabeth Warren&quot;</span>, <span class="st">&quot;Joseph R. Biden Jr.&quot;</span>, <span class="st">&quot;Michael Bloomberg&quot;</span>, <span class="st">&quot;Pete Buttigieg&quot;</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb540-3"><a href="dplyr-and-tidy.html#cb540-3"></a><span class="st">  </span><span class="kw">filter</span>(state<span class="op">==</span><span class="st">&quot;Nevada&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb540-4"><a href="dplyr-and-tidy.html#cb540-4"></a><span class="st">  </span><span class="kw">select</span>(candidate_name, pct, start_date, sample_size)</span>
+<span id="cb540-5"><a href="dplyr-and-tidy.html#cb540-5"></a><span class="kw">print</span>(nevadaPrimaries, <span class="dt">n=</span><span class="ot">Inf</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 76 x 4
 ##    candidate_name        pct start_date sample_size
 ##    &lt;chr&gt;               &lt;dbl&gt; &lt;date&gt;           &lt;dbl&gt;
@@ -952,8 +952,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>setting <code>n=Inf</code> in the print will ensure that all rows are shown (the equivalent for columns is <code>width=Inf</code>)</li>
 <li><code>nevadaPrimaries</code> contains one row for every combination of a Nevada poll (specified by <code>start_date</code> and <code>sample_size</code>) and a candidate</li>
 </ul>
-<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="dplyr-and-tidy.html#cb544-1"></a>wideNevada&lt;-<span class="kw">pivot_wider</span>(nevadaPrimaries, <span class="dt">names_from =</span> candidate_name, <span class="dt">values_from =</span> pct)</span>
-<span id="cb544-2"><a href="dplyr-and-tidy.html#cb544-2"></a><span class="kw">print</span>(wideNevada, <span class="dt">width=</span><span class="ot">Inf</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="dplyr-and-tidy.html#cb542-1"></a>wideNevada&lt;-<span class="kw">pivot_wider</span>(nevadaPrimaries, <span class="dt">names_from =</span> candidate_name, <span class="dt">values_from =</span> pct)</span>
+<span id="cb542-2"><a href="dplyr-and-tidy.html#cb542-2"></a><span class="kw">print</span>(wideNevada, <span class="dt">width=</span><span class="ot">Inf</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 15 x 8
 ##    start_date sample_size `Joseph R. Biden Jr.` `Bernard Sanders`
 ##    &lt;date&gt;           &lt;dbl&gt;                 &lt;dbl&gt;             &lt;dbl&gt;
@@ -992,16 +992,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><code>wideNevada</code> contains one row for every Nevada poll and a column for the pct each candidate got</li>
 </ul>
-<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="dplyr-and-tidy.html#cb546-1"></a><span class="kw">dim</span>(nevadaPrimaries)</span></code></pre></div>
+<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="dplyr-and-tidy.html#cb544-1"></a><span class="kw">dim</span>(nevadaPrimaries)</span></code></pre></div>
 <pre><code>## [1] 76  4</code></pre>
-<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="dplyr-and-tidy.html#cb548-1"></a><span class="kw">dim</span>(wideNevada)</span></code></pre></div>
+<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="dplyr-and-tidy.html#cb546-1"></a><span class="kw">dim</span>(wideNevada)</span></code></pre></div>
 <pre><code>## [1] 15  8</code></pre>
 <ul>
 <li>Or we could organize it into a time series ….</li>
 </ul>
-<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="dplyr-and-tidy.html#cb550-1"></a>timeNevada&lt;-<span class="kw">pivot_wider</span>(nevadaPrimaries, <span class="dt">id_cols=</span>candidate_name, </span>
-<span id="cb550-2"><a href="dplyr-and-tidy.html#cb550-2"></a>                        <span class="dt">names_from =</span> <span class="kw">c</span>(start_date), <span class="dt">values_from =</span> pct)</span>
-<span id="cb550-3"><a href="dplyr-and-tidy.html#cb550-3"></a><span class="kw">print</span>(timeNevada, <span class="dt">width=</span><span class="ot">Inf</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="dplyr-and-tidy.html#cb548-1"></a>timeNevada&lt;-<span class="kw">pivot_wider</span>(nevadaPrimaries, <span class="dt">id_cols=</span>candidate_name, </span>
+<span id="cb548-2"><a href="dplyr-and-tidy.html#cb548-2"></a>                        <span class="dt">names_from =</span> <span class="kw">c</span>(start_date), <span class="dt">values_from =</span> pct)</span>
+<span id="cb548-3"><a href="dplyr-and-tidy.html#cb548-3"></a><span class="kw">print</span>(timeNevada, <span class="dt">width=</span><span class="ot">Inf</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 16
 ##   candidate_name      `2020-01-08` `2020-01-06` `2020-01-05` `2019-11-10`
 ##   &lt;chr&gt;                      &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;
@@ -1031,9 +1031,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Of course sometimes we want to do the reverse using <code>pivot_longer</code></li>
 <li>In this case, we no longer have a single indicator variable for the values of <code>start_date</code></li>
 </ul>
-<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="dplyr-and-tidy.html#cb552-1"></a>timeNevada <span class="op">%&gt;%</span></span>
-<span id="cb552-2"><a href="dplyr-and-tidy.html#cb552-2"></a><span class="st">  </span><span class="kw">select</span>(candidate_name, <span class="st">`</span><span class="dt">2020-01-08</span><span class="st">`</span>, <span class="st">`</span><span class="dt">2020-01-06</span><span class="st">`</span>) <span class="op">%&gt;%</span></span>
-<span id="cb552-3"><a href="dplyr-and-tidy.html#cb552-3"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="kw">c</span>(<span class="st">`</span><span class="dt">2020-01-08</span><span class="st">`</span>, <span class="st">`</span><span class="dt">2020-01-06</span><span class="st">`</span>), <span class="dt">names_to =</span> <span class="st">&quot;start_date_test&quot;</span>, <span class="dt">values_to =</span> <span class="st">&quot;pct_test&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="dplyr-and-tidy.html#cb550-1"></a>timeNevada <span class="op">%&gt;%</span></span>
+<span id="cb550-2"><a href="dplyr-and-tidy.html#cb550-2"></a><span class="st">  </span><span class="kw">select</span>(candidate_name, <span class="st">`</span><span class="dt">2020-01-08</span><span class="st">`</span>, <span class="st">`</span><span class="dt">2020-01-06</span><span class="st">`</span>) <span class="op">%&gt;%</span></span>
+<span id="cb550-3"><a href="dplyr-and-tidy.html#cb550-3"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="kw">c</span>(<span class="st">`</span><span class="dt">2020-01-08</span><span class="st">`</span>, <span class="st">`</span><span class="dt">2020-01-06</span><span class="st">`</span>), <span class="dt">names_to =</span> <span class="st">&quot;start_date_test&quot;</span>, <span class="dt">values_to =</span> <span class="st">&quot;pct_test&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 12 x 3
 ##    candidate_name      start_date_test pct_test
 ##    &lt;chr&gt;               &lt;chr&gt;              &lt;dbl&gt;
@@ -1073,12 +1073,12 @@ user information, one for each tweet and its author, one for each like, the user
 <li>Download and unzip the following: <a href="https://github.com/jmontgomery/jmontgomery.github.io/blob/master/PDS/Datasets/Tweets.csv.zip" class="uri">https://github.com/jmontgomery/jmontgomery.github.io/blob/master/PDS/Datasets/Tweets.csv.zip</a></li>
 <li>Read these in using the correct file address</li>
 </ul>
-<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="dplyr-and-tidy.html#cb554-1"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb554-2"><a href="dplyr-and-tidy.html#cb554-2"></a>mayors&lt;-<span class="kw">read_csv</span>(<span class="dt">file=</span><span class="st">&quot;https://raw.githubusercontent.com/jmontgomery/jmontgomery.github.io/master/PDS/Datasets/Mayors.csv&quot;</span>)</span>
-<span id="cb554-3"><a href="dplyr-and-tidy.html#cb554-3"></a>tweets&lt;-<span class="kw">read_csv</span>(<span class="st">&quot;C:/Users/maria/OneDrive/WUSTL/2019-20/PDS/Tweets.csv&quot;</span>)</span>
-<span id="cb554-4"><a href="dplyr-and-tidy.html#cb554-4"></a><span class="kw">print</span>(<span class="kw">object.size</span>(mayors), <span class="dt">units=</span><span class="st">&quot;auto&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="dplyr-and-tidy.html#cb552-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb552-2"><a href="dplyr-and-tidy.html#cb552-2"></a>mayors&lt;-<span class="kw">read_csv</span>(<span class="dt">file=</span><span class="st">&quot;https://raw.githubusercontent.com/jmontgomery/jmontgomery.github.io/master/PDS/Datasets/Mayors.csv&quot;</span>)</span>
+<span id="cb552-3"><a href="dplyr-and-tidy.html#cb552-3"></a>tweets&lt;-<span class="kw">read_csv</span>(<span class="st">&quot;C:/Users/maria/OneDrive/WUSTL/2019-20/PDS/Tweets.csv&quot;</span>)</span>
+<span id="cb552-4"><a href="dplyr-and-tidy.html#cb552-4"></a><span class="kw">print</span>(<span class="kw">object.size</span>(mayors), <span class="dt">units=</span><span class="st">&quot;auto&quot;</span>)</span></code></pre></div>
 <pre><code>## 1.5 Mb</code></pre>
-<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="dplyr-and-tidy.html#cb556-1"></a><span class="kw">print</span>(<span class="kw">object.size</span>(tweets), <span class="dt">units=</span><span class="st">&quot;auto&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="dplyr-and-tidy.html#cb554-1"></a><span class="kw">print</span>(<span class="kw">object.size</span>(tweets), <span class="dt">units=</span><span class="st">&quot;auto&quot;</span>)</span></code></pre></div>
 <pre><code>## 180.1 Mb</code></pre>
 <p>There are various ways we might want to work across levels</p>
 <ul>
@@ -1086,7 +1086,7 @@ user information, one for each tweet and its author, one for each like, the user
 <li><em>Filtering joins</em>, where you filter cases based on whether they match across. E.g., filter to mayors who have tweets.</li>
 <li><em>Combining</em> the datasets in various ways to construct new databases with rows and columns that meet desired specifications. E.g., Tweets of all moyors from Indiana.</li>
 </ul>
-<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="dplyr-and-tidy.html#cb558-1"></a>mayors</span></code></pre></div>
+<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="dplyr-and-tidy.html#cb556-1"></a>mayors</span></code></pre></div>
 <pre><code>## # A tibble: 1,473 x 51
 ##       X1 MayorID FullName LastName FirstName GenderMale GenderFemale RaceWhite
 ##    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;        &lt;dbl&gt;     &lt;dbl&gt;
@@ -1113,7 +1113,7 @@ user information, one for each tweet and its author, one for each like, the user
 ## #   CityHispanic &lt;dbl&gt;, CityOwner &lt;dbl&gt;, CityRenter &lt;dbl&gt;, GovWebsite &lt;chr&gt;,
 ## #   FacebookPageName &lt;chr&gt;, FacebookPageID &lt;dbl&gt;, FacebookLink &lt;chr&gt;,
 ## #   TwitterHandle &lt;chr&gt;, TwitterLink &lt;chr&gt;</code></pre>
-<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="dplyr-and-tidy.html#cb560-1"></a>tweets</span></code></pre></div>
+<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="dplyr-and-tidy.html#cb558-1"></a>tweets</span></code></pre></div>
 <pre><code>## # A tibble: 604,818 x 17
 ##       X1 TweetID ScreenName Text  CreatedTime         Favorited FavoritesCount
 ##    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt; &lt;dttm&gt;                  &lt;dbl&gt;          &lt;dbl&gt;
@@ -1138,8 +1138,8 @@ user information, one for each tweet and its author, one for each like, the user
 <li>These variables will serve to link across datasets.</li>
 <li>Let’s rename so they are the same</li>
 </ul>
-<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="dplyr-and-tidy.html#cb562-1"></a>tweets &lt;-<span class="st"> </span><span class="kw">rename</span>(tweets, <span class="dt">TwitterHandle=</span>ScreenName)</span>
-<span id="cb562-2"><a href="dplyr-and-tidy.html#cb562-2"></a>tweets</span></code></pre></div>
+<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="dplyr-and-tidy.html#cb560-1"></a>tweets &lt;-<span class="st"> </span><span class="kw">rename</span>(tweets, <span class="dt">TwitterHandle=</span>ScreenName)</span>
+<span id="cb560-2"><a href="dplyr-and-tidy.html#cb560-2"></a>tweets</span></code></pre></div>
 <pre><code>## # A tibble: 604,818 x 17
 ##       X1 TweetID TwitterHandle Text  CreatedTime         Favorited
 ##    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt; &lt;dttm&gt;                  &lt;dbl&gt;
@@ -1161,18 +1161,18 @@ user information, one for each tweet and its author, one for each like, the user
 <li>But each dataset will also need a <code>key</code> – a unique identier</li>
 <li>Let’s actually look to see if these are unique identifiers?</li>
 </ul>
-<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb564-1"><a href="dplyr-and-tidy.html#cb564-1"></a>mayors <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb564-2"><a href="dplyr-and-tidy.html#cb564-2"></a><span class="st">  </span><span class="kw">count</span>(TwitterHandle) <span class="op">%&gt;%</span></span>
-<span id="cb564-3"><a href="dplyr-and-tidy.html#cb564-3"></a><span class="st">  </span><span class="kw">filter</span>(n<span class="op">&gt;</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="dplyr-and-tidy.html#cb562-1"></a>mayors <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb562-2"><a href="dplyr-and-tidy.html#cb562-2"></a><span class="st">  </span><span class="kw">count</span>(TwitterHandle) <span class="op">%&gt;%</span></span>
+<span id="cb562-3"><a href="dplyr-and-tidy.html#cb562-3"></a><span class="st">  </span><span class="kw">filter</span>(n<span class="op">&gt;</span><span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 2
 ##   TwitterHandle      n
 ##   &lt;chr&gt;          &lt;int&gt;
 ## 1 robertgarcialb     2
 ## 2 rodhiggins2017     2
 ## 3 &lt;NA&gt;             743</code></pre>
-<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb566-1"><a href="dplyr-and-tidy.html#cb566-1"></a>tweets <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb566-2"><a href="dplyr-and-tidy.html#cb566-2"></a><span class="st">  </span><span class="kw">count</span>(TweetID) <span class="op">%&gt;%</span></span>
-<span id="cb566-3"><a href="dplyr-and-tidy.html#cb566-3"></a><span class="st">  </span><span class="kw">filter</span>(n<span class="op">&gt;</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb564-1"><a href="dplyr-and-tidy.html#cb564-1"></a>tweets <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb564-2"><a href="dplyr-and-tidy.html#cb564-2"></a><span class="st">  </span><span class="kw">count</span>(TweetID) <span class="op">%&gt;%</span></span>
+<span id="cb564-3"><a href="dplyr-and-tidy.html#cb564-3"></a><span class="st">  </span><span class="kw">filter</span>(n<span class="op">&gt;</span><span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 2 x 2
 ##   TweetID     n
 ##     &lt;dbl&gt; &lt;int&gt;
@@ -1184,9 +1184,9 @@ user information, one for each tweet and its author, one for each like, the user
 <ul>
 <li>A mutating join adds variables to the right on your datset</li>
 </ul>
-<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="dplyr-and-tidy.html#cb568-1"></a>tweets <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb568-2"><a href="dplyr-and-tidy.html#cb568-2"></a><span class="st">  </span><span class="kw">left_join</span>(<span class="kw">select</span>(mayors, TwitterHandle, LastName), </span>
-<span id="cb568-3"><a href="dplyr-and-tidy.html#cb568-3"></a>            <span class="dt">by=</span><span class="st">&quot;TwitterHandle&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb566-1"><a href="dplyr-and-tidy.html#cb566-1"></a>tweets <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb566-2"><a href="dplyr-and-tidy.html#cb566-2"></a><span class="st">  </span><span class="kw">left_join</span>(<span class="kw">select</span>(mayors, TwitterHandle, LastName), </span>
+<span id="cb566-3"><a href="dplyr-and-tidy.html#cb566-3"></a>            <span class="dt">by=</span><span class="st">&quot;TwitterHandle&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 608,006 x 18
 ##       X1 TweetID TwitterHandle Text  CreatedTime         Favorited
 ##    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt; &lt;dttm&gt;                  &lt;dbl&gt;
@@ -1255,7 +1255,7 @@ user information, one for each tweet and its author, one for each like, the user
 <div id="exercise" class="section level3" number="7.3.6">
 <h3><span class="header-section-number">7.3.6</span> Exercise</h3>
 <p>Add a third set of data — mentions</p>
-<div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb570-1"><a href="dplyr-and-tidy.html#cb570-1"></a>mentions &lt;-<span class="kw">read_csv</span>(<span class="dt">file=</span><span class="st">&quot;https://raw.githubusercontent.com/jmontgomery/jmontgomery.github.io/master/PDS/Datasets/TwitterMentions.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="dplyr-and-tidy.html#cb568-1"></a>mentions &lt;-<span class="kw">read_csv</span>(<span class="dt">file=</span><span class="st">&quot;https://raw.githubusercontent.com/jmontgomery/jmontgomery.github.io/master/PDS/Datasets/TwitterMentions.csv&quot;</span>)</span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>For each mayor, calculate the number of times they were mentioned</li>
 <li>Add to the mentions datset the number of times each mayor tweeted.</li>
