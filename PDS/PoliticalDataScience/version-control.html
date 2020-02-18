@@ -238,6 +238,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2.6" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#piping"><i class="fa fa-check"></i><b>7.2.6</b> Piping</a></li>
 <li class="chapter" data-level="7.2.7" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#pivots"><i class="fa fa-check"></i><b>7.2.7</b> Pivots</a></li>
 </ul></li>
+<li class="chapter" data-level="7.3" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#relational-data"><i class="fa fa-check"></i><b>7.3</b> Relational data</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#mutating-join"><i class="fa fa-check"></i><b>7.3.1</b> Mutating join</a></li>
+<li class="chapter" data-level="7.3.2" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#joins-topography"><i class="fa fa-check"></i><b>7.3.2</b> Joins topography</a></li>
+<li class="chapter" data-level="7.3.3" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#many-and-one-to-many"><i class="fa fa-check"></i><b>7.3.3</b> Many and one-to-many</a></li>
+<li class="chapter" data-level="7.3.4" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#filtering-joins"><i class="fa fa-check"></i><b>7.3.4</b> Filtering joins</a></li>
+<li class="chapter" data-level="7.3.5" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#set-operations"><i class="fa fa-check"></i><b>7.3.5</b> Set operations</a></li>
+<li class="chapter" data-level="7.3.6" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#exercise"><i class="fa fa-check"></i><b>7.3.6</b> Exercise</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -289,21 +298,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Every time you work on a group project that is stored in git, you should pull right away, do your work, then commit and push immediately.
 I recommend doing this workflow every time you make a significant change or start working on something else. It backs up your work so that
 you can go back to an earlier version in case you mess something up later.</p>
+<p>[!(images/githubDesktop.jpg)]</p>
 <div id="pull" class="section level3" number="5.3.1">
 <h3><span class="header-section-number">5.3.1</span> Pull</h3>
 <p>This updates your repository to the newest version so that when other people on your team make changes, you will be able to have the most recently
 updated version of the code/repository.</p>
+<p>In the picture above, to pull, click on “Fetch origin”.</p>
 </div>
 <div id="commit" class="section level3" number="5.3.2">
 <h3><span class="header-section-number">5.3.2</span> Commit</h3>
 <p>This is step 1 of adding your changes to GitHub (push is step 2). Committing your changes requires that you specify which changed files you want
 to commit as well as a brief commit message summarizing what you changed since the last commit.</p>
+<p>In the picture above, to commit, click on “Commit to master” once you’ve selected the files to commit in the left pane.</p>
 </div>
 <div id="push" class="section level3" number="5.3.3">
 <h3><span class="header-section-number">5.3.3</span> Push</h3>
 <p>This is step 2 of adding your changes to GitHub. You can think of committimg as wrapping up a gift that you made and pushing is mailing it to the recipient.
 They don’t “open” the gift until they Pull and see what you pushed. Pushing uploads all un-pushed commits to GitHub so that you can see them
 in GitHub desktop as well as your repository online.</p>
+<p>[!(images/githubDesktop2.jpg)]</p>
+<p>In the picture above, after you’ve committed, to push, click on “Push origin”.</p>
 </div>
 </div>
 <div id="branches" class="section level2" number="5.4">
@@ -311,6 +325,7 @@ in GitHub desktop as well as your repository online.</p>
 <p>Large software projects use branches to have a production environment that is always working, and other branches for new feature development.
 Once a feature is ready, the development branch can be merged with the production branch (typically master). You’ll have to manually choose which
 version of each file to keep.</p>
+<p>In the picture above, to switch branches, click on the “Current branch” button and either create a new branch or select an existing one.</p>
 </div>
 <div id="forking" class="section level2" number="5.5">
 <h2><span class="header-section-number">5.5</span> Forking</h2>
@@ -337,7 +352,7 @@ like at that exact moment in time.</p>
 </ol>
 <p>Note: if you want to switch branches, you can click on “master” in the git tab. To switch projects, click on the cube icon in the top right
 corner. This gives you options for creating a new project, viewing recent projects, and opening existing projects.</p>
-<p>For more info, check out <a href="https://support.rstudio.com/hc/en-us/articles/200532077?version=1.1.463&amp;mode=desktop">this link</a></p>
+<p>For more info, check out <a href="https://support.rstudio.com/hc/en-us/articles/200532077?version=1.1.463&amp;mode=desktop">this link</a> or <a href="https://www.youtube.com/watch?v=kL6L2MNqPHg">this video</a></p>
 
 </div>
 </div>

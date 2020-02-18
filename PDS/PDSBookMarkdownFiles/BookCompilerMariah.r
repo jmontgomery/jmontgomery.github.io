@@ -5,4 +5,3 @@ library("bookdown")
 setwd("C:/Users/maria/OneDrive/WUSTL/2019-20/PDS/jmontgomery.github.io/PDS/PDSBookMarkdownFiles")
 
 bookdown::render_book(input="index.Rmd", output_dir="C:/Users/maria/OneDrive/WUSTL/2019-20/PDS/jmontgomery.github.io/PDS/PoliticalDataScience")
-
