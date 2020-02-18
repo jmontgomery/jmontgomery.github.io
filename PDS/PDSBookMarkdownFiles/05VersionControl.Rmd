@@ -28,7 +28,7 @@ Every time you work on a group project that is stored in git, you should pull ri
 I recommend doing this workflow every time you make a significant change or start working on something else. It backs up your work so that 
 you can go back to an earlier version in case you mess something up later.
 
-[!(images/githubDesktop.jpg)]
+![](images/githubDesktop.jpg)
 
 ### Pull
 
@@ -50,7 +50,7 @@ This is step 2 of adding your changes to GitHub. You can think of committimg as 
 They don't "open" the gift until they Pull and see what you pushed. Pushing uploads all un-pushed commits to GitHub so that you can see them
 in GitHub desktop as well as your repository online. 
 
-[!(images/githubDesktop2.jpg)]
+![](images/githubDesktop2.jpg)
 
 In the picture above, after you've committed, to push, click on "Push origin".
 
@@ -88,4 +88,5 @@ If you have a GitHub repository that you want to open in RStudio, here are the s
 Note: if you want to switch branches, you can click on "master" in the git tab. To switch projects, click on the cube icon in the top right
 corner. This gives you options for creating a new project, viewing recent projects, and opening existing projects.
 
-For more info, check out [this link](https://support.rstudio.com/hc/en-us/articles/200532077?version=1.1.463&mode=desktop) or [this video](https://www.youtube.com/watch?v=kL6L2MNqPHg)
+For more info, check out [this link](https://support.rstudio.com/hc/en-us/articles/200532077?version=1.1.463&mode=desktop) or this video:
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kL6L2MNqPHg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
