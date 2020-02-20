@@ -73,6 +73,23 @@ If you make a mistake and commit and push it (or your team member does), you can
 to commit and push regularly!!! You can revert from any commit which will set your current repository state back to exactly what it looked 
 like at that exact moment in time.
 
+## Conflict management
+
+To create a conflict, you'll need two people with access to the same repository (or two computers that both have the repo cloned).
+- Both people/computers sync back up
+- Person/computer 1 should add a new file
+- Person/computer 1 should commit and push their new file
+- Person/computer 2 should pull and see the new file
+- Person/computer 1 should type something in this file like "hello world"
+- Person/computer 1 should commit and push
+- Person/computer 2 should type something in this file like "helol world"
+- When person/computer 2 commits and pushes, it will cause a conflict that they will have to resolve
+
+Here's a gif of how merge conflicts work in GitHub desktop
+
+![](images/githubdesktop.gif)
+
+
 ## Version Control in RStudio
 
 If you have a GitHub repository that you want to open in RStudio, here are the steps:
