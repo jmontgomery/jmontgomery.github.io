@@ -210,7 +210,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.4" data-path="version-control.html"><a href="version-control.html#branches"><i class="fa fa-check"></i><b>5.4</b> Branches</a></li>
 <li class="chapter" data-level="5.5" data-path="version-control.html"><a href="version-control.html#forking"><i class="fa fa-check"></i><b>5.5</b> Forking</a></li>
 <li class="chapter" data-level="5.6" data-path="version-control.html"><a href="version-control.html#reverting"><i class="fa fa-check"></i><b>5.6</b> Reverting</a></li>
-<li class="chapter" data-level="5.7" data-path="version-control.html"><a href="version-control.html#version-control-in-rstudio"><i class="fa fa-check"></i><b>5.7</b> Version Control in RStudio</a></li>
+<li class="chapter" data-level="5.7" data-path="version-control.html"><a href="version-control.html#conflict-management"><i class="fa fa-check"></i><b>5.7</b> Conflict management</a></li>
+<li class="chapter" data-level="5.8" data-path="version-control.html"><a href="version-control.html#version-control-in-rstudio"><i class="fa fa-check"></i><b>5.8</b> Version Control in RStudio</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="data-visualization-in-r.html"><a href="data-visualization-in-r.html"><i class="fa fa-check"></i><b>6</b> Data Visualization in R</a>
 <ul>
@@ -338,8 +339,22 @@ you can “fork” the repository. This gives you your own copy of it to mess wi
 to commit and push regularly!!! You can revert from any commit which will set your current repository state back to exactly what it looked
 like at that exact moment in time.</p>
 </div>
-<div id="version-control-in-rstudio" class="section level2" number="5.7">
-<h2><span class="header-section-number">5.7</span> Version Control in RStudio</h2>
+<div id="conflict-management" class="section level2" number="5.7">
+<h2><span class="header-section-number">5.7</span> Conflict management</h2>
+<p>To create a conflict, you’ll need two people with access to the same repository (or two computers that both have the repo cloned).
+- Both people/computers sync back up
+- Person/computer 1 should add a new file
+- Person/computer 1 should commit and push their new file
+- Person/computer 2 should pull and see the new file
+- Person/computer 1 should type something in this file like “hello world”
+- Person/computer 1 should commit and push
+- Person/computer 2 should type something in this file like “helol world”
+- When person/computer 2 commits and pushes, it will cause a conflict that they will have to resolve</p>
+<p>Here’s a gif of how merge conflicts work in GitHub desktop</p>
+<p><img src="images/githubdesktop.gif" /></p>
+</div>
+<div id="version-control-in-rstudio" class="section level2" number="5.8">
+<h2><span class="header-section-number">5.8</span> Version Control in RStudio</h2>
 <p>If you have a GitHub repository that you want to open in RStudio, here are the steps:</p>
 <ol style="list-style-type: decimal">
 <li>Open RStudio</li>
