@@ -32,7 +32,7 @@ output:
 
 **Today**
 
-1. Advnanced text topics (`stringr`)
+1. Advanced text topics (`stringr`)
 
 <br>
 
@@ -50,7 +50,7 @@ output:
 
 ```{r, eval=TRUE, message=FALSE, warning=FALSE}
 library(tidyverse)
-tweets<-read_csv("~/Dropbox/Classes/PDSBigData/Tweets.csv")
+tweets<-read_csv("C:/Users/dl0ck/OneDrive/Spring2020/Political Data Science/Tweets.csv")
 ```
 
 
@@ -166,7 +166,7 @@ colors
 
 
 1. Filter down to all of the tweets from Mayor Lyda Krewson in our data
-2. Find the mean number of words in her tweets. Find the total.
+2. Find the mean number of words in her tweets. Find the unique total.
 3. Take all of the words she has used and reduce them down to only their first five letters.  Repeat (2) and compare.
 
 
@@ -182,12 +182,12 @@ colors
 - Like many things, this is not native to R but a general approach to pattern matching.
 - The potentials for pattern matching are not limitless, but can become extremely complex.
 - Probably the most frustrating part for you is that the syntax itself uses `(`, `\`, `.`, `*`, `?`, `{`, and other symbols you might want to search for themselves.
-- You are going to want to use escapes.  But because `\` is itself part of the regular expressions syntax you need to double escape `\\`.  So to find `.` you need to search for `\\.`  (And you will need to use `\\\\` to searc for `\`)
+- You are going to want to use escapes.  But because `\` is itself part of the regular expressions syntax you need to double escape `\\`.  So to find `.` you need to search for `\\.`  (And you will need to use `\\\\` to search for `\`)
 
 ---
 
 
-- I cannot cover this all today, but here are some things you can do (and are covered in the book ... but there are entire books on regular expressions:
+- I cannot cover this all today, but here are some things you can do (and are covered in the book ...) but there are entire books on regular expressions:
     - Find a specific pattern
     - Find a approximate pattern
     - Matching only on the start of a string
@@ -220,9 +220,10 @@ colors
 
 ## Drill
 
-1. Count the number of times that Krewson tweets included the string 'polic'. Count the number of times that Krewson tweets the *word* 'police' (See 14.3.2).
-2. Count the numer of times her twweets include a link (look at http)
-3. Subset to tweets that include the string "Black Lives".  See section 14.5 in the book to see how to do this while ignoring the case.
+1. Count the number of times that Krewson tweets included the string 'polic'. 
+2. Count the number of times that Krewson tweets the *word* 'police' (See 14.3.2).
+3. Count the numer of times her twweets include a link (look at http)
+4. Subset to tweets that include the string "Black Lives".  See section 14.5 in the book to see how to do this while ignoring the case.
 
 
 ---
