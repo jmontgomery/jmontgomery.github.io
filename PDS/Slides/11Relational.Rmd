@@ -75,7 +75,7 @@ Data comes from twitter.com.
 library(tidyverse)
 mayors<-read_csv(file="https://raw.githubusercontent.com/jmontgomery/jmontgomery.github.io/master
 /PDS/Datasets/Mayors.csv")
-tweets<-read_csv("C:/Users/dl0ck/OneDrive/Spring2020/Political Data Science/Tweets.csv")
+tweets<-read_csv("~/Dropbox/Classes/PDSBigData/Tweets.csv")
 print(object.size(mayors), units="auto")
 print(object.size(tweets), units="auto")
 ```
