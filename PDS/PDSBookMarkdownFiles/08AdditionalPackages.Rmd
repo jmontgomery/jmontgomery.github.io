@@ -1,0 +1,87 @@
+# More useful packages
+
+## `stringr`
+
+`stringr` is a tidy package that is used for processing strings and text data
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+tweets<-read_csv("C:/Users/maria/OneDrive/WUSTL/2019-20/PDS/Tweets.csv")
+
+aTweet<-tweets[1,]$Text
+aTweet
+
+str_length(aTweet)
+words<-str_split(aTweet, pattern = " ")
+words
+
+str_c(words)
+str_c(unlist(words))
+
+str_c(unlist(words), "Added")
+
+str_c(unlist(words), "Added", sep=" ")
+str_c("Before", unlist(words), "Added", sep=" ")
+```
+
+Or you may want to assemble it all into all back into a coherent whole
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+str_c(unlist(words), collapse=" ")
+```
+
+### Things you haven't thought about strings
+
+- Strings in memory are different than how they appear on the screen
+- You can use the function `writeLines` to see how a function would atually render to a reader (as opposed to how it is stored in the computer.)
+- The big confusion is that special characters have to be "escaped" or else they get in the way (From R4DS)
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+x <- c("\"", "\\")
+x
+writeLines(x)
+```
+
+- Others to watch out for are `"\n"` and `"\t"` for `next line` and `tab`
+- `na` is a problem, so you might use `str_replace_na`
+
+- `stringr` replicates a lot of the functions we have already used for characters with (sometimes) slightly different syntax
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+colors <- c("red", "yellow", "blue", "green", "magenta", "cyan")
+str_sub(colors, 1, 3)
+str_sub(colors, -3, -1) #count back from the end
+str_sub(colors, 1, 10) # Robust to going out of index
+
+str_sub(colors, 1, 3)<-str_to_upper(str_sub(colors, 1, 3))
+colors
+
+colors<-str_to_lower(colors)
+colors
+```
+
+Example:
+
+1. Filter down to all of the tweets from Mayor Lyda Krewson in our data
+2. Find the mean number of words in her tweets. Find the total.
+3. Take all of the words she has used and reduce them down to only their first five letters.  Repeat (2) and compare.
+
+
+Question 2
+
+```{r}
+hertweets <- filter(tweets, ScreenName == "lydakrewson")["Text"]
+numWords <- hertweets %>% 
+    rowwise() %>% 
+    transmute(numWords= length(unlist(str_split(Text, " "))))
+numWords
+mean(numWords$numWords)
+
+length(unique(unlist(str_split(hertweets$Text, " "))))
+```
+
+Question 3
+
+```{r}
+length(unique(str_sub(unlist(str_split(hertweets$Text, " ")), 1, 5)))
+```

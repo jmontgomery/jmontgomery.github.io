@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="data-visualization-in-r.html"/>
-
+<link rel="next" href="more-useful-packages.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <script src="libs/elevate-section-attrs-2.0/elevate-section-attrs.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -247,6 +247,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3.4" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#filtering-joins"><i class="fa fa-check"></i><b>7.3.4</b> Filtering joins</a></li>
 <li class="chapter" data-level="7.3.5" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#set-operations"><i class="fa fa-check"></i><b>7.3.5</b> Set operations</a></li>
 <li class="chapter" data-level="7.3.6" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#exercise"><i class="fa fa-check"></i><b>7.3.6</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="more-useful-packages.html"><a href="more-useful-packages.html"><i class="fa fa-check"></i><b>8</b> More useful packages</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="more-useful-packages.html"><a href="more-useful-packages.html#stringr"><i class="fa fa-check"></i><b>8.1</b> <code>stringr</code></a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="more-useful-packages.html"><a href="more-useful-packages.html#things-you-havent-thought-about-strings"><i class="fa fa-check"></i><b>8.1.1</b> Things you haven’t thought about strings</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -1259,27 +1266,76 @@ user information, one for each tweet and its author, one for each like, the user
 <div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="dplyr-and-tidy.html#cb568-1"></a>mentions &lt;-<span class="kw">read_csv</span>(<span class="dt">file=</span><span class="st">&quot;https://raw.githubusercontent.com/jmontgomery/jmontgomery.github.io/master/PDS/Datasets/TwitterMentions.csv&quot;</span>)</span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>For each mayor, calculate the number of times they were mentioned</li>
-<li>Add to the mentions datset the number of times each mayor tweeted.</li>
-<li>Create a combined dataset of all tweets from the tweets and mentions data. Subset down to overlapping columns (and rename where needed) to make this easy.</li>
-<li>Are there any tweets in the mentions dataset from mayors?</li>
 </ol>
+<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="dplyr-and-tidy.html#cb569-1"></a>mentions</span></code></pre></div>
+<pre><code>## # A tibble: 61,570 x 18
+##       X1 TweetID ScreenName Text  MayorHandle CreatedTime         Favorited
+##    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;       &lt;dttm&gt;                  &lt;dbl&gt;
+##  1     1 9.91e17 visitdelr~ Join~ a_silberbe~ 2018-04-30 16:59:14         0
+##  2     2 9.91e17 SatirclAlx .@AC~ a_silberbe~ 2018-04-30 15:44:37         0
+##  3     3 9.91e17 Madelined~ @A_S~ a_silberbe~ 2018-04-30 00:28:15         0
+##  4     4 9.90e17 Her_Grace_ Anot~ a_silberbe~ 2018-04-29 04:02:13         0
+##  5     5 9.90e17 jamesjhare @nat~ a_silberbe~ 2018-04-29 00:04:25         0
+##  6     6 9.90e17 A_Silberb~ Many~ a_silberbe~ 2018-04-28 22:26:48         0
+##  7     7 9.90e17 rossi4va   @hok~ a_silberbe~ 2018-04-28 22:22:11         0
+##  8     8 9.90e17 hokiesmas~ @nat~ a_silberbe~ 2018-04-28 22:21:00         0
+##  9     9 9.90e17 rossi4va   RT @~ a_silberbe~ 2018-04-28 22:19:42         0
+## 10    10 9.90e17 A_Silberb~ Such~ a_silberbe~ 2018-04-28 22:13:38         0
+## # ... with 61,560 more rows, and 11 more variables: FavoritesCount &lt;dbl&gt;,
+## #   IsRetweet &lt;dbl&gt;, RetweetCount &lt;dbl&gt;, Retweeted &lt;dbl&gt;, ReplyToSN &lt;chr&gt;,
+## #   ReplyToSID &lt;dbl&gt;, ReplyToUID &lt;dbl&gt;, Truncated &lt;dbl&gt;, StatusSource &lt;chr&gt;,
+## #   Longitude &lt;dbl&gt;, Latitude &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="dplyr-and-tidy.html#cb571-1"></a>mayors</span></code></pre></div>
+<pre><code>## # A tibble: 1,473 x 51
+##       X1 MayorID FullName LastName FirstName GenderMale GenderFemale RaceWhite
+##    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;        &lt;dbl&gt;     &lt;dbl&gt;
+##  1     1       1 Marty H~ Handlon  Marty              0            1         1
+##  2     2       2 Bill Ha~ Ham Jr.  Bill               1            0         1
+##  3     3       3 Randall~ Woodfin  Randall            1            0         0
+##  4     4       4 Tab Bow~ Bowling  Tab                1            0         1
+##  5     5       5 Mark Sa~ Saliba   Mark               1            0         1
+##  6     6       6 Steve H~ Holt     Steve              1            0         1
+##  7     7       7 Sherman~ Guyton   Sherman            1            0         1
+##  8     8       8 Frank V~ Brocato  Frank V.           1            0         1
+##  9     9       9 Tommy B~ Battle   Tommy              1            0         1
+## 10    10      10 Paul Fi~ Finley   Paul               1            0         1
+## # ... with 1,463 more rows, and 43 more variables: RaceBlack &lt;dbl&gt;,
+## #   RaceHispanic &lt;dbl&gt;, RaceOther &lt;dbl&gt;, PartyRepublican &lt;dbl&gt;,
+## #   PartyDemocrat &lt;dbl&gt;, PartyNonPartisan &lt;dbl&gt;, PartyOther &lt;dbl&gt;,
+## #   Ideology &lt;dbl&gt;, IdeologySD &lt;dbl&gt;, LastElectionDate &lt;chr&gt;,
+## #   PercentVote &lt;dbl&gt;, YearsCurrentPosition &lt;dbl&gt;, CityManager &lt;dbl&gt;,
+## #   CouncilManager &lt;dbl&gt;, MayorCouncil &lt;dbl&gt;, Title &lt;chr&gt;, CityID &lt;dbl&gt;,
+## #   CityName &lt;chr&gt;, CityNameFull &lt;chr&gt;, CensusID &lt;chr&gt;, CensusID2 &lt;dbl&gt;,
+## #   State &lt;chr&gt;, StateAB &lt;chr&gt;, Region &lt;dbl&gt;, Division &lt;dbl&gt;, StateFIPS &lt;dbl&gt;,
+## #   Population &lt;dbl&gt;, Latitude &lt;dbl&gt;, Longitude &lt;dbl&gt;, CityAge &lt;dbl&gt;,
+## #   CityMale &lt;dbl&gt;, CityFemale &lt;dbl&gt;, CityWhite &lt;dbl&gt;, CityBlack &lt;dbl&gt;,
+## #   CityHispanic &lt;dbl&gt;, CityOwner &lt;dbl&gt;, CityRenter &lt;dbl&gt;, GovWebsite &lt;chr&gt;,
+## #   FacebookPageName &lt;chr&gt;, FacebookPageID &lt;dbl&gt;, FacebookLink &lt;chr&gt;,
+## #   TwitterHandle &lt;chr&gt;, TwitterLink &lt;chr&gt;</code></pre>
+<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="dplyr-and-tidy.html#cb573-1"></a>mentions &lt;-<span class="st"> </span><span class="kw">rename</span>(mentions, <span class="dt">TwitterHandle =</span> <span class="st">&quot;ScreenName&quot;</span>)</span>
+<span id="cb573-2"><a href="dplyr-and-tidy.html#cb573-2"></a>mentionsCount &lt;-<span class="st"> </span>mentions <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(MayorHandle) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tally</span>()</span>
+<span id="cb573-3"><a href="dplyr-and-tidy.html#cb573-3"></a>answer1 &lt;-<span class="st"> </span>mayors <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(mentionsCount, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;TwitterHandle&quot;</span> =<span class="st"> &quot;MayorHandle&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(TwitterHandle, FullName, n) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(n))</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Add to the mayors datset the number of times each mayor tweeted.</li>
+</ol>
+<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="dplyr-and-tidy.html#cb574-1"></a>tweetCounts &lt;-<span class="st"> </span>tweets <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(TwitterHandle) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tally</span>()</span>
+<span id="cb574-2"><a href="dplyr-and-tidy.html#cb574-2"></a>answer2 &lt;-<span class="st"> </span>mayors <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(tweetCounts, <span class="dt">by=</span><span class="st">&quot;TwitterHandle&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(n))</span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>Create a combined dataset of all tweets from the tweets and mentions data. Subset down to overlapping columns (and rename where needed) to make this easy.</li>
+</ol>
+<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="dplyr-and-tidy.html#cb575-1"></a>allData &lt;-<span class="st"> </span><span class="kw">full_join</span>(tweets, mentions)</span></code></pre></div>
+<pre><code>## Joining, by = c(&quot;X1&quot;, &quot;TweetID&quot;, &quot;TwitterHandle&quot;, &quot;Text&quot;, &quot;CreatedTime&quot;, &quot;Favorited&quot;, &quot;FavoritesCount&quot;, &quot;IsRetweet&quot;, &quot;RetweetCount&quot;, &quot;Retweeted&quot;, &quot;ReplyToSN&quot;, &quot;ReplyToSID&quot;, &quot;ReplyToUID&quot;, &quot;Truncated&quot;, &quot;StatusSource&quot;, &quot;Longitude&quot;, &quot;Latitude&quot;)</code></pre>
 
 </div>
 </div>
 </div>
-
-
-
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="data-visualization-in-r.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="data-visualization-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="more-useful-packages.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

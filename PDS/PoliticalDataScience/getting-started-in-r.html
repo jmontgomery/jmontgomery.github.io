@@ -249,6 +249,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3.6" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#exercise"><i class="fa fa-check"></i><b>7.3.6</b> Exercise</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="more-useful-packages.html"><a href="more-useful-packages.html"><i class="fa fa-check"></i><b>8</b> More useful packages</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="more-useful-packages.html"><a href="more-useful-packages.html#stringr"><i class="fa fa-check"></i><b>8.1</b> <code>stringr</code></a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="more-useful-packages.html"><a href="more-useful-packages.html#things-you-havent-thought-about-strings"><i class="fa fa-check"></i><b>8.1.1</b> Things you haven’t thought about strings</a></li>
+</ul></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -334,41 +341,54 @@ The commands ls() and rm() are used to show or remove variables from the global 
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="getting-started-in-r.html#cb29-1"></a>a &lt;-<span class="st"> </span><span class="dv">1</span></span>
 <span id="cb29-2"><a href="getting-started-in-r.html#cb29-2"></a>b &lt;-<span class="st"> </span><span class="dv">2</span></span>
 <span id="cb29-3"><a href="getting-started-in-r.html#cb29-3"></a><span class="kw">ls</span>()</span></code></pre></div>
-<pre><code>##  [1] &quot;a&quot;                        &quot;b&quot;                       
-##  [3] &quot;basicPolls&quot;               &quot;basicPolls_grouped&quot;      
-##  [5] &quot;collapse&quot;                 &quot;grouped_by&quot;              
-##  [7] &quot;i&quot;                        &quot;j&quot;                       
-##  [9] &quot;m&quot;                        &quot;mat1&quot;                    
-## [11] &quot;mat2&quot;                     &quot;mat3&quot;                    
-## [13] &quot;matdf&quot;                    &quot;matdf1&quot;                  
-## [15] &quot;matdf2&quot;                   &quot;matrix1&quot;                 
-## [17] &quot;mayors&quot;                   &quot;mentions&quot;                
-## [19] &quot;n&quot;                        &quot;nevadaPrimaries&quot;         
-## [21] &quot;primaryPolls&quot;             &quot;random_states&quot;           
-## [23] &quot;states10&quot;                 &quot;states100&quot;               
-## [25] &quot;timeNevada&quot;               &quot;total.votes.ak&quot;          
-## [27] &quot;turnout.ak&quot;               &quot;tweets&quot;                  
-## [29] &quot;voting.age.population.ak&quot; &quot;wideNevada&quot;              
-## [31] &quot;x&quot;                        &quot;y&quot;                       
-## [33] &quot;ys&quot;</code></pre>
+<pre><code>##  [1] &quot;a&quot;                        &quot;allData&quot;                 
+##  [3] &quot;answer&quot;                   &quot;answer1&quot;                 
+##  [5] &quot;answer2&quot;                  &quot;b&quot;                       
+##  [7] &quot;basicPolls&quot;               &quot;basicPolls_grouped&quot;      
+##  [9] &quot;collapse&quot;                 &quot;grouped_by&quot;              
+## [11] &quot;hertweets&quot;                &quot;hertweets5&quot;              
+## [13] &quot;i&quot;                        &quot;j&quot;                       
+## [15] &quot;m&quot;                        &quot;mat1&quot;                    
+## [17] &quot;mat2&quot;                     &quot;mat3&quot;                    
+## [19] &quot;matdf&quot;                    &quot;matdf1&quot;                  
+## [21] &quot;matdf2&quot;                   &quot;matrix1&quot;                 
+## [23] &quot;mayors&quot;                   &quot;meanWords&quot;               
+## [25] &quot;mentions&quot;                 &quot;mentionsCount&quot;           
+## [27] &quot;n&quot;                        &quot;nevadaPrimaries&quot;         
+## [29] &quot;newdata&quot;                  &quot;numUniqueWords&quot;          
+## [31] &quot;numWords&quot;                 &quot;primaryPolls&quot;            
+## [33] &quot;random_states&quot;            &quot;states10&quot;                
+## [35] &quot;states100&quot;                &quot;timeNevada&quot;              
+## [37] &quot;total.votes.ak&quot;           &quot;turnout.ak&quot;              
+## [39] &quot;tweetCounts&quot;              &quot;tweetLengths&quot;            
+## [41] &quot;tweets&quot;                   &quot;voting.age.population.ak&quot;
+## [43] &quot;wideNevada&quot;               &quot;x&quot;                       
+## [45] &quot;y&quot;                        &quot;ys&quot;</code></pre>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="getting-started-in-r.html#cb31-1"></a><span class="kw">rm</span>(a) <span class="co">#this removes a from the global environment</span></span>
 <span id="cb31-2"><a href="getting-started-in-r.html#cb31-2"></a><span class="kw">ls</span>()</span></code></pre></div>
-<pre><code>##  [1] &quot;b&quot;                        &quot;basicPolls&quot;              
-##  [3] &quot;basicPolls_grouped&quot;       &quot;collapse&quot;                
-##  [5] &quot;grouped_by&quot;               &quot;i&quot;                       
-##  [7] &quot;j&quot;                        &quot;m&quot;                       
-##  [9] &quot;mat1&quot;                     &quot;mat2&quot;                    
-## [11] &quot;mat3&quot;                     &quot;matdf&quot;                   
-## [13] &quot;matdf1&quot;                   &quot;matdf2&quot;                  
-## [15] &quot;matrix1&quot;                  &quot;mayors&quot;                  
-## [17] &quot;mentions&quot;                 &quot;n&quot;                       
-## [19] &quot;nevadaPrimaries&quot;          &quot;primaryPolls&quot;            
-## [21] &quot;random_states&quot;            &quot;states10&quot;                
-## [23] &quot;states100&quot;                &quot;timeNevada&quot;              
-## [25] &quot;total.votes.ak&quot;           &quot;turnout.ak&quot;              
-## [27] &quot;tweets&quot;                   &quot;voting.age.population.ak&quot;
-## [29] &quot;wideNevada&quot;               &quot;x&quot;                       
-## [31] &quot;y&quot;                        &quot;ys&quot;</code></pre>
+<pre><code>##  [1] &quot;allData&quot;                  &quot;answer&quot;                  
+##  [3] &quot;answer1&quot;                  &quot;answer2&quot;                 
+##  [5] &quot;b&quot;                        &quot;basicPolls&quot;              
+##  [7] &quot;basicPolls_grouped&quot;       &quot;collapse&quot;                
+##  [9] &quot;grouped_by&quot;               &quot;hertweets&quot;               
+## [11] &quot;hertweets5&quot;               &quot;i&quot;                       
+## [13] &quot;j&quot;                        &quot;m&quot;                       
+## [15] &quot;mat1&quot;                     &quot;mat2&quot;                    
+## [17] &quot;mat3&quot;                     &quot;matdf&quot;                   
+## [19] &quot;matdf1&quot;                   &quot;matdf2&quot;                  
+## [21] &quot;matrix1&quot;                  &quot;mayors&quot;                  
+## [23] &quot;meanWords&quot;                &quot;mentions&quot;                
+## [25] &quot;mentionsCount&quot;            &quot;n&quot;                       
+## [27] &quot;nevadaPrimaries&quot;          &quot;newdata&quot;                 
+## [29] &quot;numUniqueWords&quot;           &quot;numWords&quot;                
+## [31] &quot;primaryPolls&quot;             &quot;random_states&quot;           
+## [33] &quot;states10&quot;                 &quot;states100&quot;               
+## [35] &quot;timeNevada&quot;               &quot;total.votes.ak&quot;          
+## [37] &quot;turnout.ak&quot;               &quot;tweetCounts&quot;             
+## [39] &quot;tweetLengths&quot;             &quot;tweets&quot;                  
+## [41] &quot;voting.age.population.ak&quot; &quot;wideNevada&quot;              
+## [43] &quot;x&quot;                        &quot;y&quot;                       
+## [45] &quot;ys&quot;</code></pre>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="getting-started-in-r.html#cb33-1"></a>c &lt;-<span class="st"> </span><span class="dv">3</span></span>
 <span id="cb33-2"><a href="getting-started-in-r.html#cb33-2"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>()) <span class="co">#this removes all global variables</span></span></code></pre></div>
 <p>Some things are present in the working environment, but not shown in the global environment</p>

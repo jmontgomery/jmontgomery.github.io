@@ -7,13 +7,13 @@ don't put things in comments
 
 package development (one of my projects) -> draft by around spring break
 
-conflicts in version control
-
 take notes at office hours
 
 integrating google drive into a workflow
 
 do the relational data exercises (give them the code/solutions) and non-unique identifiers
+
+stringr slides write book chapter
 
 //done:
 
@@ -40,3 +40,5 @@ need to be able to set up a repository, clone, commit/push, sync/pull, fork, how
 
 add pictures to version control / links / videos (more like a tutorial)
 expand on rstudio version control
+
+conflicts in version control
