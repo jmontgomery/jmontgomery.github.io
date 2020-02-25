@@ -38,6 +38,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 [Lecture 12](https://jmontgomery.github.io/PDS/Slides/12Text.html)
 
+[Lecture 13](https://jmontgomery.github.io/PDS/Slides/13PipesMapWalk.html)
+
 #### Problem Sets
 [Problem Set 1](https://jmontgomery.github.io/PDS/Problem Sets/Problem Set 1/PS1_PDS.pdf)
 
