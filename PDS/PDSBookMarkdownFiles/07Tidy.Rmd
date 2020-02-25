@@ -398,6 +398,7 @@ mayors
 mentions <- rename(mentions, TwitterHandle = "ScreenName")
 mentionsCount <- mentions %>% group_by(MayorHandle) %>% tally()
 answer1 <- mayors %>% left_join(mentionsCount, by=c("TwitterHandle" = "MayorHandle")) %>% select(TwitterHandle, FullName, n) %>% arrange(desc(n))
+answer1
 ```
 
 2. Add to the mayors datset the number of times each mayor tweeted.
@@ -405,6 +406,7 @@ answer1 <- mayors %>% left_join(mentionsCount, by=c("TwitterHandle" = "MayorHand
 ```{r}
 tweetCounts <- tweets %>% group_by(TwitterHandle) %>% tally()
 answer2 <- mayors %>% left_join(tweetCounts, by="TwitterHandle") %>% arrange(desc(n))
+answer2
 ```
 
 
@@ -412,4 +414,5 @@ answer2 <- mayors %>% left_join(tweetCounts, by="TwitterHandle") %>% arrange(des
 
 ```{r}
 allData <- full_join(tweets, mentions)
+allData
 ```

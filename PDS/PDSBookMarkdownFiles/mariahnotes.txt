@@ -11,10 +11,6 @@ take notes at office hours
 
 integrating google drive into a workflow
 
-do the relational data exercises (give them the code/solutions) and non-unique identifiers
-
-stringr slides write book chapter
-
 //done:
 
 projects in RStudio (another project maybe?)
@@ -42,3 +38,7 @@ add pictures to version control / links / videos (more like a tutorial)
 expand on rstudio version control
 
 conflicts in version control
+
+do the relational data exercises (give them the code/solutions) and non-unique identifiers
+
+stringr slides write book chapter
