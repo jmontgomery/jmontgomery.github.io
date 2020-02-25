@@ -1,0 +1,310 @@
+---
+title: "pipes, map"
+author: |
+  | Jacob M. Montgomery
+  | *Washington University in St. Louis*
+  | *Department of Politcal Science*
+date: '2020'
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
+#   beamer_presentation: default
+#   slidy_presentation: default
+
+
+---
+
+
+## Orientation for today
+
+**Last time**
+
+
+
+1. Advanced text topics (`stringr`)
+
+      
+<br>
+
+--
+
+**Today**
+
+
+1. More on pipes
+2. map
+
+<br>
+
+--
+
+**Next class**
+
+1. Functional programming
+    
+
+---
+
+## Get set up
+
+Today we are going to use the 2019 data release from the Voter Study Group
+
+- Download: https://www.voterstudygroup.org/publication/2019-voter-survey-full-data-set
+- Codebook: https://www.voterstudygroup.org/publication/2019-voter-survey-full-data-set
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+library(tidyverse)
+VSG<-read_csv("~/Downloads/VOTER_Survey_Jan217_Release1-csv.csv")
+```
+
+
+---
+
+## Start simple: Is there a lane?
+
+We are going to:
+
+- Subset the data to just favorability raitings for Elizabeth Warren and Bernie Sanders
+- Recode these variables into "approve" and "not approve"
+- Find the proportion of respondents who either approve or disapprove of *both*
+
+
+---
+
+One strategy is just to make new datsets for each step
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+VSG.two <- select(VSG, fav_sanders_2019, fav_warren_2019)
+VSG.three<-mutate(VSG.two, fav_sanders_binary = (fav_sanders_2019<=2))
+VSG.four<-mutate(VSG.three, fav_sanders_binary= na_if(fav_sanders_2019, fav_sanders_2019>4))
+```
+
+ugh
+
+---
+
+Another strategy is just to overwrite the same dataset
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+VSG <- select(VSG, fav_sanders_2019, fav_warren_2019)
+VSG.<-mutate(VSG, fav_sanders_binary = (fav_sanders_2019<=2)*1)
+VSG<-mutate(VSG, fav_sanders_binary= na_if(fav_sanders_2019, fav_sanders_2019>4))
+```
+
+Still ugh
+
+--
+
+An even more difficult way would be write a function where the output of each stage are passed onto an outer layer.
+
+
+---
+
+Or we can use the pipes
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+VSG<-read_csv("~/Downloads/VOTER_Survey_Jan217_Release1-csv.csv")
+VSG %>% 
+  select( fav_sanders_2019, fav_warren_2019) %>%
+  mutate(fav_sanders_binary= na_if(fav_sanders_2019, fav_sanders_2019>4)) %>%
+  mutate(fav_sanders_binary = (fav_sanders_2019<=2)*1) 
+```
+
+---
+## How does this work?
+
+
+- Piping works by creating a new function where object manipulations are passed from one to another
+- This means that piping won't work in cases where:
+    + The function uses the current environment such as assign, load, or get
+    + Functions that use lazy evaluation such as tryCatch, try, or supressMessages
+    
+    
+---
+
+## The limites of pipes
+
+- Pipes are not good in all situations
+- If you do more than 4 or 5 pipes, go ahead and make in intermediate object.  Otherwise debugging is a pain.
+- If you are not actually working on just one object but instead combinig multiple objects, this is just not worth it.
+- Where ther are interdepencies (e.g., complex recoding based on multiple variables)
+
+---
+ 
+---    
+
+## Some other tools
+
+- The `magrittr` package comes with some other tools for using in specific situations
+- The `%T>%` pipe works by calling the function to the right, but returning the function to the left
+
+
+---
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+library(magrittr)
+VSG %>% 
+  select( fav_sanders_2019, fav_warren_2019) %>%
+  mutate(fav_sanders_binary= na_if(fav_sanders_2019, fav_sanders_2019>4)) %>%
+  mutate(fav_sanders_binary = (fav_sanders_2019<=2)*1) %T>%
+  plot()
+```
+
+
+---
+
+- We may also want to use specific elements from a dataframe using the `%$%` operator
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+VSG<- VSG %>% 
+  select(fav_sanders_2019, fav_warren_2019) %>%
+  mutate(fav_sanders_binary= na_if(fav_sanders_2019, fav_sanders_2019>4)) %>%
+  mutate(fav_sanders_binary = (fav_sanders_2019<=2)*1) %>%
+  mutate(fav_warrem_binary= na_if(fav_warren_2019, fav_warren_2019>4)) %>%
+  mutate(fav_warren_binary = (fav_warren_2019<=2)*1)
+
+```
+
+---
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+library(magrittr)
+VSG<- VSG %$% 
+  plot(table(fav_sanders_binary, fav_warren_binary))
+```
+
+---
+
+## Exercise
+
+- Go back to the original dataset
+- To through the same analysis above, to compare support for Sanders/Biden
+    + Start by writing the full syntax using overwrites in base R
+    + Make a new version using pipes.
+    + The target is the same plot we made for Sanders/Warren, but for Sanders/Biden.
+    
+    
+---
+
+## Beyond the loop
+
+- Early in the class, we covered the all powerful for loop.
+- But we can do better.
+- Let's start by making a dataset we want to loop over
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+VSG<-read_csv("~/Downloads/VOTER_Survey_Jan217_Release1-csv.csv")
+VSG.fav<-VSG %>% 
+  select(starts_with("fav")) 
+```
+
+---
+
+So we want to loop over these data and recode all of the columns according to our rules
+
+- Anything above a 4 gets moved to NA
+- Then we turn them into a binary based on whether they are 2 and less or not
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+output<-as.data.frame(matrix(NA, nrow(VSG.fav), ncol(VSG.fav)))
+for(i in seq_along(VSG.fav)){
+  output[,i]<-(VSG.fav[,i]<=2)*1
+}
+```
+
+
+---
+
+## Can we do better?
+
+- We could do this without making a new object
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+for(i in seq_along(VSG.fav)){
+  VSG.fav[,i]= na_if(VSG.fav[[i]],VSG.fav[[i]]>4)
+  VSG.fav[,i]<-(VSG.fav[,i]<=2)*1
+}
+head(VSG.fav)
+```
+
+---
+
+- We can also loop where we aren't sure how long the final output is
+- This can be done by adding each element to the end of a vector as we did in some previous lectures
+- This is computationally expensive
+- A better solution is to add all of them to a list and then combine them back at the end.
+- See Chapter 23.3.3 in the book for more
+- Or Chapter 23.3.4 for while loops (which we have already covered)
+
+
+---
+
+## `map` 
+
+- Looping is such a pervasive task, that there are functions to make it easier
+- The `map` family will do this, and you can carefully control the output
+  + `map` makes a list
+  + `map_lgl` makes a logical vector
+  + `map_int` makes an integer
+  + `map_dbl` makes a double vector
+  + `map_chr` makes a character
+  
+  
+---
+
+## Orientation to maps
+
+- These functions takes in a vector as an input and applies that function
+- Let's say that we want to find the mean level of favorability in our dataset
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+map(VSG.fav, mean, na.rm=TRUE)
+```
+
+
+---
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+map_dbl(VSG.fav, mean, na.rm=TRUE)
+```
+
+---
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+map_chr(VSG.fav, mean, na.rm=TRUE)
+```
+
+---
+
+## walk, purrr, and more
+
+- See Chapter 21.8 for a discussion of `walk`
+- Main idea here is when you want to use a function for its side operations (e.g., plot) rather than to manipulate the data
+- See also Chapter 21.9.1 for some additional functionality that is occasionally useful:
+    + `keep`
+    + `discard`
+    + `some`
+    + `every`
+- See Chapter 21.9.2 for even more advanced approaches to extracting data
+- Note that I will note require this knowledge for the exam, but this is fair game for the problem set.
+
+
+---
+
+
+## Group assignment
+
+- Using the tools from this lecture:
+    + Go to the variables that start with `inst`, which represent the level of trust that Americans have in different insitutions.
+    + Write a simple set of code to recode these variables to accurately reflect NAs
+    + Find the mean level of support for each insitutution
+    + Find the median level of support for each institution
+    + Make a plot showing trust in institutions ordering institutiosn from least trusted to most trusted among the American public
+
+
+
