@@ -25,7 +25,7 @@ header-includes:
   \item As with all aspects of this class, there is not going to be a single "right" answer.  That is not how real data analysis works. But I will try and provide you a lot of guidance.  If you are confused, go ahead and ping me on slack.  I can't promise I'll answer right away, but I will when I can.
 \eenum
 
-\section*{Introduction and orientation}
+\section*{Part 1: State policy data}
 
 You are going to be using the following dataset:
 http://ippsr.msu.edu/sites/default/files/correlatesofstatepolicyprojectv2_1.csv
@@ -36,9 +36,41 @@ This is data from the *correlates of state policy* database.  You can read more 
 
 Here is the complete codebook: https://ippsr.msu.edu/sites/default/files/CorrelatesCodebook.pdf
 
+1. There is one observation in this dataset for each state for each year.
+2. The dataset contains 118 years, but most variables are only available for a few years.
+
 
 ----
 
 
+
+
+1. Data cleaning
+
++ Remove Washington, DC from the data
++ Remove all data from before 1940
++ Add a variable to the data that indicates the decade (e.g., 80s, 90s, etc)
++ Reduce the data down to the following columns: `incshare_top10`, `region`, `poptotal`, `undocumented_immigrants`, and the new decade variable you made before.  Take a minute to read the codebook for these variables.
++ Create a new variable that is the percent of each state that is an undocumented immigrant.
+
+
+2. Some basic visualization
+
++ Create a plot that shows the trend in the `inshare_top10` by region over time.  The x-axis should be time and the y-axis should be `inshare_top10`.  I want all 50 states to appear on the plot.  There should be 50 lines.  But the lines should be broken up by region.
++ There is no "right" answer here, but here are a few things to consider, but I should be able to interpret the results clearly.  This means clear labels on the axes, a legend, etc.  Remember I am looking at the code, so useful comments are helpful here.
+
+
+2. Making data play nice with other data
+
+mayors<-read_csv(file="https://raw.githubusercontent.com/jmontgomery/jmontgomery.github.io/master/PDS/Datasets/Mayors.csv")
+
+
+3. Text
+
+
+4. Functions
+
+
+5. 
 
 
