@@ -31,9 +31,9 @@
   
   
 <link rel="prev" href="data-visualization-in-r.html"/>
-
+<link rel="next" href="functions-and-packages.html"/>
+<script src="libs/header-attrs-2.1/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
-<script src="libs/elevate-section-attrs-2.0/elevate-section-attrs.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -258,6 +258,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.6" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#map"><i class="fa fa-check"></i><b>7.6</b> <code>map</code></a></li>
 <li class="chapter" data-level="7.7" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#walk-purrr-and-more"><i class="fa fa-check"></i><b>7.7</b> walk, purrr, and more</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="functions-and-packages.html"><a href="functions-and-packages.html"><i class="fa fa-check"></i><b>8</b> Functions and Packages</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="functions-and-packages.html"><a href="functions-and-packages.html#apply-and-its-friends"><i class="fa fa-check"></i><b>8.1</b> <code>apply</code> and its friends</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="functions-and-packages.html"><a href="functions-and-packages.html#apply"><i class="fa fa-check"></i><b>8.1.1</b> <code>apply</code></a></li>
+<li class="chapter" data-level="8.1.2" data-path="functions-and-packages.html"><a href="functions-and-packages.html#lapply"><i class="fa fa-check"></i><b>8.1.2</b> <code>lapply</code></a></li>
+<li class="chapter" data-level="8.1.3" data-path="functions-and-packages.html"><a href="functions-and-packages.html#sapply"><i class="fa fa-check"></i><b>8.1.3</b> <code>sapply</code></a></li>
+<li class="chapter" data-level="8.1.4" data-path="functions-and-packages.html"><a href="functions-and-packages.html#tapply"><i class="fa fa-check"></i><b>8.1.4</b> <code>tapply</code></a></li>
+<li class="chapter" data-level="8.1.5" data-path="functions-and-packages.html"><a href="functions-and-packages.html#sweep"><i class="fa fa-check"></i><b>8.1.5</b> <code>sweep</code></a></li>
+<li class="chapter" data-level="8.1.6" data-path="functions-and-packages.html"><a href="functions-and-packages.html#by"><i class="fa fa-check"></i><b>8.1.6</b> <code>by</code></a></li>
+<li class="chapter" data-level="8.1.7" data-path="functions-and-packages.html"><a href="functions-and-packages.html#vapply-and-more"><i class="fa fa-check"></i><b>8.1.7</b> <code>vapply</code> And more</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="functions-and-packages.html"><a href="functions-and-packages.html#plyr"><i class="fa fa-check"></i><b>8.2</b> <code>plyr</code></a></li>
 </ul></li>
 </ul>
 
@@ -1128,16 +1142,16 @@ user information, one for each tweet and its author, one for each like, the user
 <pre><code>## # A tibble: 604,818 x 17
 ##       X1 TweetID ScreenName Text  CreatedTime         Favorited FavoritesCount
 ##    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt; &lt;dttm&gt;                  &lt;dbl&gt;          &lt;dbl&gt;
-##  1     1 9.90e17 a_silberb~ Many~ 2018-04-28 22:26:48         0              9
-##  2     2 9.90e17 a_silberb~ Such~ 2018-04-28 22:13:38         0              8
-##  3     3 9.90e17 a_silberb~ Wond~ 2018-04-28 19:42:14         0             11
-##  4     4 9.90e17 a_silberb~ I en~ 2018-04-28 14:42:20         0              8
-##  5     5 9.90e17 a_silberb~ At 8~ 2018-04-28 13:58:39         0              7
-##  6     6 9.90e17 a_silberb~ Wond~ 2018-04-28 13:53:21         0              6
-##  7     7 9.90e17 a_silberb~ RT @~ 2018-04-28 12:26:17         0              0
+##  1     1 9.90e17 a_silberb~ &quot;Man~ 2018-04-28 22:26:48         0              9
+##  2     2 9.90e17 a_silberb~ &quot;Suc~ 2018-04-28 22:13:38         0              8
+##  3     3 9.90e17 a_silberb~ &quot;Won~ 2018-04-28 19:42:14         0             11
+##  4     4 9.90e17 a_silberb~ &quot;I e~ 2018-04-28 14:42:20         0              8
+##  5     5 9.90e17 a_silberb~ &quot;At ~ 2018-04-28 13:58:39         0              7
+##  6     6 9.90e17 a_silberb~ &quot;Won~ 2018-04-28 13:53:21         0              6
+##  7     7 9.90e17 a_silberb~ &quot;RT ~ 2018-04-28 12:26:17         0              0
 ##  8     8 9.90e17 a_silberb~ &quot;My ~ 2018-04-27 16:31:34         0              4
-##  9     9 9.90e17 a_silberb~ At t~ 2018-04-27 16:31:23         0              6
-## 10    10 9.90e17 a_silberb~ I en~ 2018-04-27 03:19:42         0              6
+##  9     9 9.90e17 a_silberb~ &quot;At ~ 2018-04-27 16:31:23         0              6
+## 10    10 9.90e17 a_silberb~ &quot;I e~ 2018-04-27 03:19:42         0              6
 ## # ... with 604,808 more rows, and 10 more variables: IsRetweet &lt;dbl&gt;,
 ## #   RetweetCount &lt;dbl&gt;, Retweeted &lt;dbl&gt;, ReplyToSN &lt;chr&gt;, ReplyToSID &lt;dbl&gt;,
 ## #   ReplyToUID &lt;dbl&gt;, Truncated &lt;dbl&gt;, StatusSource &lt;chr&gt;, Longitude &lt;dbl&gt;,
@@ -1154,16 +1168,16 @@ user information, one for each tweet and its author, one for each like, the user
 <pre><code>## # A tibble: 604,818 x 17
 ##       X1 TweetID TwitterHandle Text  CreatedTime         Favorited
 ##    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt; &lt;dttm&gt;                  &lt;dbl&gt;
-##  1     1 9.90e17 a_silberberg  Many~ 2018-04-28 22:26:48         0
-##  2     2 9.90e17 a_silberberg  Such~ 2018-04-28 22:13:38         0
-##  3     3 9.90e17 a_silberberg  Wond~ 2018-04-28 19:42:14         0
-##  4     4 9.90e17 a_silberberg  I en~ 2018-04-28 14:42:20         0
-##  5     5 9.90e17 a_silberberg  At 8~ 2018-04-28 13:58:39         0
-##  6     6 9.90e17 a_silberberg  Wond~ 2018-04-28 13:53:21         0
-##  7     7 9.90e17 a_silberberg  RT @~ 2018-04-28 12:26:17         0
+##  1     1 9.90e17 a_silberberg  &quot;Man~ 2018-04-28 22:26:48         0
+##  2     2 9.90e17 a_silberberg  &quot;Suc~ 2018-04-28 22:13:38         0
+##  3     3 9.90e17 a_silberberg  &quot;Won~ 2018-04-28 19:42:14         0
+##  4     4 9.90e17 a_silberberg  &quot;I e~ 2018-04-28 14:42:20         0
+##  5     5 9.90e17 a_silberberg  &quot;At ~ 2018-04-28 13:58:39         0
+##  6     6 9.90e17 a_silberberg  &quot;Won~ 2018-04-28 13:53:21         0
+##  7     7 9.90e17 a_silberberg  &quot;RT ~ 2018-04-28 12:26:17         0
 ##  8     8 9.90e17 a_silberberg  &quot;My ~ 2018-04-27 16:31:34         0
-##  9     9 9.90e17 a_silberberg  At t~ 2018-04-27 16:31:23         0
-## 10    10 9.90e17 a_silberberg  I en~ 2018-04-27 03:19:42         0
+##  9     9 9.90e17 a_silberberg  &quot;At ~ 2018-04-27 16:31:23         0
+## 10    10 9.90e17 a_silberberg  &quot;I e~ 2018-04-27 03:19:42         0
 ## # ... with 604,808 more rows, and 11 more variables: FavoritesCount &lt;dbl&gt;,
 ## #   IsRetweet &lt;dbl&gt;, RetweetCount &lt;dbl&gt;, Retweeted &lt;dbl&gt;, ReplyToSN &lt;chr&gt;,
 ## #   ReplyToSID &lt;dbl&gt;, ReplyToUID &lt;dbl&gt;, Truncated &lt;dbl&gt;, StatusSource &lt;chr&gt;,
@@ -1201,16 +1215,16 @@ user information, one for each tweet and its author, one for each like, the user
 <pre><code>## # A tibble: 608,006 x 18
 ##       X1 TweetID TwitterHandle Text  CreatedTime         Favorited
 ##    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt; &lt;dttm&gt;                  &lt;dbl&gt;
-##  1     1 9.90e17 a_silberberg  Many~ 2018-04-28 22:26:48         0
-##  2     2 9.90e17 a_silberberg  Such~ 2018-04-28 22:13:38         0
-##  3     3 9.90e17 a_silberberg  Wond~ 2018-04-28 19:42:14         0
-##  4     4 9.90e17 a_silberberg  I en~ 2018-04-28 14:42:20         0
-##  5     5 9.90e17 a_silberberg  At 8~ 2018-04-28 13:58:39         0
-##  6     6 9.90e17 a_silberberg  Wond~ 2018-04-28 13:53:21         0
-##  7     7 9.90e17 a_silberberg  RT @~ 2018-04-28 12:26:17         0
+##  1     1 9.90e17 a_silberberg  &quot;Man~ 2018-04-28 22:26:48         0
+##  2     2 9.90e17 a_silberberg  &quot;Suc~ 2018-04-28 22:13:38         0
+##  3     3 9.90e17 a_silberberg  &quot;Won~ 2018-04-28 19:42:14         0
+##  4     4 9.90e17 a_silberberg  &quot;I e~ 2018-04-28 14:42:20         0
+##  5     5 9.90e17 a_silberberg  &quot;At ~ 2018-04-28 13:58:39         0
+##  6     6 9.90e17 a_silberberg  &quot;Won~ 2018-04-28 13:53:21         0
+##  7     7 9.90e17 a_silberberg  &quot;RT ~ 2018-04-28 12:26:17         0
 ##  8     8 9.90e17 a_silberberg  &quot;My ~ 2018-04-27 16:31:34         0
-##  9     9 9.90e17 a_silberberg  At t~ 2018-04-27 16:31:23         0
-## 10    10 9.90e17 a_silberberg  I en~ 2018-04-27 03:19:42         0
+##  9     9 9.90e17 a_silberberg  &quot;At ~ 2018-04-27 16:31:23         0
+## 10    10 9.90e17 a_silberberg  &quot;I e~ 2018-04-27 03:19:42         0
 ## # ... with 607,996 more rows, and 12 more variables: FavoritesCount &lt;dbl&gt;,
 ## #   IsRetweet &lt;dbl&gt;, RetweetCount &lt;dbl&gt;, Retweeted &lt;dbl&gt;, ReplyToSN &lt;chr&gt;,
 ## #   ReplyToSID &lt;dbl&gt;, ReplyToUID &lt;dbl&gt;, Truncated &lt;dbl&gt;, StatusSource &lt;chr&gt;,
@@ -1374,16 +1388,16 @@ user information, one for each tweet and its author, one for each like, the user
 <pre><code>## # A tibble: 666,388 x 18
 ##       X1 TweetID TwitterHandle Text  CreatedTime         Favorited
 ##    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt; &lt;dttm&gt;                  &lt;dbl&gt;
-##  1     1 9.90e17 a_silberberg  Many~ 2018-04-28 22:26:48         0
-##  2     2 9.90e17 a_silberberg  Such~ 2018-04-28 22:13:38         0
-##  3     3 9.90e17 a_silberberg  Wond~ 2018-04-28 19:42:14         0
-##  4     4 9.90e17 a_silberberg  I en~ 2018-04-28 14:42:20         0
-##  5     5 9.90e17 a_silberberg  At 8~ 2018-04-28 13:58:39         0
-##  6     6 9.90e17 a_silberberg  Wond~ 2018-04-28 13:53:21         0
-##  7     7 9.90e17 a_silberberg  RT @~ 2018-04-28 12:26:17         0
+##  1     1 9.90e17 a_silberberg  &quot;Man~ 2018-04-28 22:26:48         0
+##  2     2 9.90e17 a_silberberg  &quot;Suc~ 2018-04-28 22:13:38         0
+##  3     3 9.90e17 a_silberberg  &quot;Won~ 2018-04-28 19:42:14         0
+##  4     4 9.90e17 a_silberberg  &quot;I e~ 2018-04-28 14:42:20         0
+##  5     5 9.90e17 a_silberberg  &quot;At ~ 2018-04-28 13:58:39         0
+##  6     6 9.90e17 a_silberberg  &quot;Won~ 2018-04-28 13:53:21         0
+##  7     7 9.90e17 a_silberberg  &quot;RT ~ 2018-04-28 12:26:17         0
 ##  8     8 9.90e17 a_silberberg  &quot;My ~ 2018-04-27 16:31:34         0
-##  9     9 9.90e17 a_silberberg  At t~ 2018-04-27 16:31:23         0
-## 10    10 9.90e17 a_silberberg  I en~ 2018-04-27 03:19:42         0
+##  9     9 9.90e17 a_silberberg  &quot;At ~ 2018-04-27 16:31:23         0
+## 10    10 9.90e17 a_silberberg  &quot;I e~ 2018-04-27 03:19:42         0
 ## # ... with 666,378 more rows, and 12 more variables: FavoritesCount &lt;dbl&gt;,
 ## #   IsRetweet &lt;dbl&gt;, RetweetCount &lt;dbl&gt;, Retweeted &lt;dbl&gt;, ReplyToSN &lt;chr&gt;,
 ## #   ReplyToSID &lt;dbl&gt;, ReplyToUID &lt;dbl&gt;, Truncated &lt;dbl&gt;, StatusSource &lt;chr&gt;,
@@ -2054,19 +2068,13 @@ user information, one for each tweet and its author, one for each like, the user
 
 </div>
 </div>
-
-
-
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="data-visualization-in-r.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="data-visualization-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="functions-and-packages.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
