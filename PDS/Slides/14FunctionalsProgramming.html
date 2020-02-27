@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Functional programming and functionals</title>
+    <meta charset="utf-8" />
+    <meta name="date" content="2020-01-01" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Functional programming and functionals
+### <p>Jacob M. Montgomery<br />
+<em>Washington University in St. Louis</em><br />
+<em>Department of Politcal Science</em></p>
+### 2020
+
+---
+
+
+
+## Orientation for today
+
+**Last time**
+
+
+
+1. More on pipes
+2. map
+
+      
+&lt;br&gt;
+
+--
+
+**Today**
+
+1. Functional programming (not coverd on exam)
+
+&lt;br&gt;
+
+--
+
+**Next class**
+
+1. Introduction to machine learning
+    
+
+---
+
+## 14.1: Introduction to `apply`
+
+- We are going to jump back for a day to some vegetables 
+- `apply` is a fundamental function in R and this family can be dead useful in many situations
+
+---
+
+
+
+```r
+apply(array, margin, function , ...)
+```
+
+
+1. An array (including potentially a matrix)
+2. The margin argument controls how each matrix is analyzed.  Should the function execute on each row (margin = 1) or each column (margin = 2)?
+3. The function is what you want done on each row/column/whatever
+4. IMPORTANTLY, the ... refers to any arguments you want to pass to the function
+
+
+---
+
+
+```r
+mat1 &lt;- matrix(rep(seq(4), 4), ncol = 4)
+mat1
+```
+
+```
+##      [,1] [,2] [,3] [,4]
+## [1,]    1    1    1    1
+## [2,]    2    2    2    2
+## [3,]    3    3    3    3
+## [4,]    4    4    4    4
+```
+
+
+--
+
+Let's calculate the sum of each row
+
+```r
+apply(mat1, 1, sum)
+```
+
+```
+## [1]  4  8 12 16
+```
+
+--
+
+Now the sum of each column
+
+```r
+apply(mat1, 2, sum)
+```
+
+```
+## [1] 10 10 10 10
+```
+
+---
+
+
+- Usefully, we are not constrained to the functions that already exist in R.  We can write our own functions.  
+
+
+```r
+#using a user defined function
+sum.plus.2 &lt;- function(x){
+	sum(x) + 2
+}
+```
+
+--
+
+Now we can use that function on the rows of our matrix
+
+```r
+apply(mat1, 1, sum.plus.2)
+```
+
+```
+## [1]  6 10 14 18
+```
+
+---
+
+- We can generalize this to add some generic number to our sum.
+- And we can also create `anonymous` functions that are never assigned into memory
+- What's going on here?
+
+
+
+```r
+apply(mat1, 1, function(x, y) sum(x) + y, y=3)
+```
+
+```
+## [1]  7 11 15 19
+```
+
+--
+
+- And here?
+
+
+```r
+apply(mat1, 2, function(x, y) sum(x) + y, y=5)
+```
+
+```
+## [1] 15 15 15 15
+```
+
+---
+
+## 14.2 `lapply`
+
+
+- There are several related functions in R that work the same but with 
+
+
+```r
+## lapply(list, function, ...)
+```
+
+--
+
+- Many functions in R produce lists and even dataframes are related to lists.
+
+
+```r
+mat1.df &lt;- data.frame(mat1)
+mat1.df
+```
+
+```
+##   X1 X2 X3 X4
+## 1  1  1  1  1
+## 2  2  2  2  2
+## 3  3  3  3  3
+## 4  4  4  4  4
+```
+
+```r
+is.list(mat1.df)
+```
+
+```
+## [1] TRUE
+```
+
+---
+
+- So `lapply` can help you work withs lists and data.frames
+
+
+```r
+lapply(mat1.df, sum)
+```
+
+```
+## $X1
+## [1] 10
+## 
+## $X2
+## [1] 10
+## 
+## $X3
+## [1] 10
+## 
+## $X4
+## [1] 10
+```
+
+- Note that the output of this is a list
+
+
+---
+
+
+- Another useful application of the lapply function is with a "dummy sequence". 
+- The list argument is the dummy sequence and it is only  used to specify how many iterations we would like to have the function executed. 
+- When the lapply functions is used in this way it can replace a for loop very easily, although often the `map` functions discussed last class are better for this.
+
+
+
+```r
+unlist(lapply(1:5, function(i) 5+i ))
+```
+
+```
+## [1]  6  7  8  9 10
+```
+
+---
+
+## 14.3 `sapply`
+
+
+- This is a "simplified" version of `lapply`
+- The key difference is that it changes hat kind of object is returned depending on what the outcomes look like.
+    + If the output is a scalar, the result is a vector
+    + If the output is all vectors of the same length, it will return a matrix
+
+
+```r
+## sapply(list, function, ..., simplify)
+```
+
+
+---
+
+
+
+
+```r
+sapply(mat1.df, function(x, y) sum(x) + y, y = 5)
+```
+
+```
+## X1 X2 X3 X4 
+## 15 15 15 15
+```
+
+- This is a vector, not a list
+
+
+---
+
+## 14.4: `tapply`
+
+- This is less intuitive, but can be very useful for recoding tasks, handling data, etc.
+- The key here is to understand that the "indices" here are the values of some other object.
+
+
+```r
+tapply(array, indicies, function, ..., simplify)
+```
+
+
+---
+
+
+```r
+x1 &lt;- runif(16)
+x1
+```
+
+```
+##  [1] 0.672947571 0.933300503 0.542283984 0.532901557 0.900288417
+##  [6] 0.077101380 0.141137283 0.329492185 0.065679308 0.340883382
+## [11] 0.400849608 0.943074732 0.002172354 0.650009930 0.591114264
+## [16] 0.865375845
+```
+
+```r
+cat1 &lt;- rep(1:4, 4)
+cat1
+```
+
+```
+##  [1] 1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4
+```
+
+```r
+cat2 &lt;- c(rep(1, 8), rep(2, 8))
+cat2
+```
+
+```
+##  [1] 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2
+```
+
+---
+
+
+```r
+mat2.df &lt;- data.frame(x1)
+names(mat2.df) &lt;- c("x1")
+mat2.df$cat1 &lt;- cat1
+mat2.df$cat2 &lt;- cat2
+mat2.df
+```
+
+```
+##             x1 cat1 cat2
+## 1  0.672947571    1    1
+## 2  0.933300503    2    1
+## 3  0.542283984    3    1
+## 4  0.532901557    4    1
+## 5  0.900288417    1    1
+## 6  0.077101380    2    1
+## 7  0.141137283    3    1
+## 8  0.329492185    4    1
+## 9  0.065679308    1    2
+## 10 0.340883382    2    2
+## 11 0.400849608    3    2
+## 12 0.943074732    4    2
+## 13 0.002172354    1    2
+## 14 0.650009930    2    2
+## 15 0.591114264    3    2
+## 16 0.865375845    4    2
+```
+
+---
+  
+
+```r
+tapply(mat2.df$x1, INDEX = mat2.df$cat1, FUN=mean)
+```
+
+```
+##         1         2         3         4 
+## 0.4102719 0.5003238 0.4188463 0.6677111
+```
+
+And you can do this for combinations of values of variables 
+
+
+```r
+tapply(mat2.df$x1, list(mat2.df$cat1, mat2.df$cat2), mean)
+```
+
+```
+##           1          2
+## 1 0.7866180 0.03392583
+## 2 0.5052009 0.49544666
+## 3 0.3417106 0.49598194
+## 4 0.4311969 0.90422529
+```
+
+
+--
+
+The first sell here is equivalent to:
+
+```r
+mean(mat2.df$x1[mat2.df$cat1==1 &amp; mat2.df$cat2==1])
+```
+
+```
+## [1] 0.786618
+```
+
+---
+
+## 14.4: `sweep` 
+
+
+
+```r
+# sweep(array, margin, stats, function, ...)
+```
+
+- This is used if you want, for instance, mean center your variables
+- The name is horrible, but the idea is that you can alter each variable as a functino of the variable.  Easiest to understand by example.
+
+
+```r
+a &lt;- matrix(runif(100, 1, 2),20)
+a.df &lt;- data.frame(a)
+a
+```
+
+```
+##           [,1]     [,2]     [,3]     [,4]     [,5]
+##  [1,] 1.564341 1.109682 1.917555 1.888933 1.602887
+##  [2,] 1.945174 1.787938 1.599162 1.128898 1.078931
+##  [3,] 1.004682 1.469317 1.656009 1.488507 1.894696
+##  [4,] 1.301025 1.688423 1.780453 1.737810 1.046276
+##  [5,] 1.178886 1.638123 1.675186 1.482832 1.143219
+##  [6,] 1.101246 1.465828 1.879717 1.328928 1.609420
+##  [7,] 1.522837 1.198980 1.550564 1.966797 1.945626
+##  [8,] 1.681784 1.686068 1.491466 1.505575 1.538711
+##  [9,] 1.005266 1.518104 1.855086 1.158408 1.767088
+## [10,] 1.993855 1.244074 1.144518 1.709103 1.862100
+## [11,] 1.951247 1.402741 1.865298 1.012294 1.163521
+## [12,] 1.680799 1.017800 1.114298 1.131806 1.867843
+## [13,] 1.078268 1.249000 1.073223 1.905564 1.264450
+## [14,] 1.318785 1.515159 1.300505 1.379142 1.815587
+## [15,] 1.364307 1.565587 1.988810 1.552214 1.300902
+## [16,] 1.644221 1.683551 1.041825 1.771011 1.693870
+## [17,] 1.802974 1.158796 1.413981 1.743640 1.542548
+## [18,] 1.523019 1.791920 1.523362 1.177986 1.489865
+## [19,] 1.561943 1.466386 1.149038 1.006138 1.188594
+## [20,] 1.773861 1.867726 1.826635 1.692764 1.898099
+```
+
+---
+
+- Now let's subtract the mean from each column
+
+
+```r
+a1 &lt;- sweep(a, 2, colMeans(a), "-")
+a1[1:5,]
+```
+
+```
+##             [,1]         [,2]       [,3]          [,4]        [,5]
+## [1,]  0.06441498 -0.366578579 0.37522020  4.005155e-01  0.06717539
+## [2,]  0.44524851  0.311678065 0.05682781 -3.595191e-01 -0.45678059
+## [3,] -0.49524381 -0.006943526 0.11367467  8.988386e-05  0.35898470
+## [4,] -0.19890135  0.212162822 0.23811797  2.493927e-01 -0.48943526
+## [5,] -0.32103947  0.161863231 0.13285154 -5.585563e-03 -0.39249271
+```
+
+```r
+colMeans(a1) ## column means are all now about zero
+```
+
+```
+## [1]  8.881784e-17 -4.440892e-17  8.881784e-17  0.000000e+00  8.881784e-17
+```
+
+
+---
+
+## 14.5 `by`
+
+
+```r
+ by(data, INDICES, FUN, ..., simplify = TRUE)
+```
+
+`by` is a wrapper for `tapply` that is supposed to make it easier to use
+
+---
+
+
+
+```r
+tapply(mat2.df$x1, INDEX = mat2.df$cat1, FUN=mean)
+```
+
+```
+##         1         2         3         4 
+## 0.4102719 0.5003238 0.4188463 0.6677111
+```
+
+```r
+byOut &lt;- by(data=mat2.df$x1, INDICES=mat2.df$cat1, mean)
+byOut
+```
+
+```
+## mat2.df$cat1: 1
+## [1] 0.4102719
+## -------------------------------------------------------- 
+## mat2.df$cat1: 2
+## [1] 0.5003238
+## -------------------------------------------------------- 
+## mat2.df$cat1: 3
+## [1] 0.4188463
+## -------------------------------------------------------- 
+## mat2.df$cat1: 4
+## [1] 0.6677111
+```
+
+```r
+class(byOut)
+```
+
+```
+## [1] "by"
+```
+
+
+---
+
+## 14.6: `vapply` And more
+
+Base R comes with a variety of related functions that are a variety on a theme
+
+- `vapply` is mucht the same except
+- The argument `FUN.VALUE` provides a template for what the output should look like
+
+
+```r
+vapply(X, FUN, FUN.VALUE, ..., USE.NAMES = TRUE)
+```
+
+
+---
+
+
+```r
+l &lt;- list(a = 1:10, b = 11:20)
+l
+```
+
+```
+## $a
+##  [1]  1  2  3  4  5  6  7  8  9 10
+## 
+## $b
+##  [1] 11 12 13 14 15 16 17 18 19 20
+```
+
+---
+
+
+```r
+l.fivenum &lt;- vapply(X=l, FUN=fivenum, FUN.VALUE=c(Min.=0, "1st Qu."=0, Median=0, "3rd Qu."=0, Max.=0))
+class(l.fivenum)
+```
+
+```
+## [1] "matrix"
+```
+
+```r
+l.fivenum
+```
+
+```
+##            a    b
+## Min.     1.0 11.0
+## 1st Qu.  3.0 13.0
+## Median   5.5 15.5
+## 3rd Qu.  8.0 18.0
+## Max.    10.0 20.0
+```
+
+---
+
+Other options include:
+- `replicate`, which executes the same function multiple times
+- `mapply`, which is a multivariate version of `sapply`
+- `rapply`, which allows for final handling of outputs
+- And more, including:
+    + ave
+    + colMeans
+    + rowSums
+    + aggregate
+    + eapply
+    
+---
+
+## 14.7: `plyr`
+
+The `plyr` package is designed to make all of this a bit easier to handle by adding the followign features
+
+- Consistent naming protocols for functions in terms of what is going in and coming out
+- Easy to make parallel
+- Built-in error recovery
+- Better handling of labels
+- Flesible handling of all basic data types
+- This content taken from: https://www.r-bloggers.com/a-fast-intro-to-plyr-for-r/
+
+
+```r
+library(plyr)
+```
+
+---
+
+Let's make some example data
+
+
+
+```r
+dd&lt;-data.frame(matrix(rnorm(216),72,3),c(rep("A",24),rep("B",24),rep("C",24)),c(rep("J",36),rep("K",36)))
+colnames(dd) &lt;- c("v1", "v2", "v3", "dim1", "dim2")
+head(dd)
+```
+
+```
+##            v1          v2          v3 dim1 dim2
+## 1 -0.43118437 -1.78329534 -0.61437759    A    J
+## 2 -1.08311392  0.87758068  0.05577323    A    J
+## 3  0.66959141  0.40206292  0.71109551    A    J
+## 4 -0.05073536  0.88828656  1.66990655    A    J
+## 5  0.87348321 -0.28235101  1.41445243    A    J
+## 6 -1.14998467 -0.04505164 -0.30765937    A    J
+```
+
+```r
+dd
+```
+
+```
+##             v1          v2           v3 dim1 dim2
+## 1  -0.43118437 -1.78329534 -0.614377591    A    J
+## 2  -1.08311392  0.87758068  0.055773233    A    J
+## 3   0.66959141  0.40206292  0.711095509    A    J
+## 4  -0.05073536  0.88828656  1.669906548    A    J
+## 5   0.87348321 -0.28235101  1.414452429    A    J
+## 6  -1.14998467 -0.04505164 -0.307659371    A    J
+## 7   1.20625824  0.94710234 -0.340161524    A    J
+## 8   0.14690373  0.61762103  0.396258302    A    J
+## 9   1.30662478  0.48440214  0.878669669    A    J
+## 10 -0.18690630 -1.44915394  0.243986108    A    J
+## 11 -0.13037774 -0.46347448 -2.389484679    A    J
+## 12 -2.65395730 -0.84661622 -1.449611935    A    J
+## 13  0.34033907 -0.39214721 -1.674282710    A    J
+## 14  1.70308387  1.00677819 -0.274591688    A    J
+## 15 -0.18386078  0.23738704 -2.508920322    A    J
+## 16  0.72673559  0.96842801 -0.048574846    A    J
+## 17  0.07404472  0.02168903 -0.558107506    A    J
+## 18 -0.50352100  1.39004441 -0.974823352    A    J
+## 19 -1.10456159  0.44396041  1.703466932    A    J
+## 20  1.90296151  0.16031390 -0.290819399    A    J
+## 21  0.41915799  1.93189642 -1.049133327    A    J
+## 22  1.75890353 -0.90484827  2.608134344    A    J
+## 23  0.21404183  0.11712990  1.101902778    A    J
+## 24  0.88461823 -0.64494941 -0.836681987    A    J
+## 25  1.06458651  1.34908616 -1.147906816    B    J
+## 26 -0.67513360  0.17928373  0.857215413    B    J
+## 27 -0.37368521 -1.40019929  1.154878970    B    J
+## 28 -0.13747521 -1.97699538  1.165980557    B    J
+## 29  0.35091372  0.46133245 -1.068111553    B    J
+## 30  1.35434183 -3.42103143  1.832899998    B    J
+## 31 -3.43748539  0.39818908 -0.407058217    B    J
+## 32  0.02143305  1.47170702 -0.670249313    B    J
+## 33 -1.41718876  0.04600429 -1.407729498    B    J
+## 34 -0.15481305 -0.18929479  0.265007160    B    J
+## 35 -0.87438016  0.52970689 -0.561272392    B    J
+## 36  0.63821842 -1.33667568 -0.990205536    B    J
+## 37  1.10106865  2.13401984  1.356901291    B    K
+## 38 -1.64969782  0.01531862 -1.337678339    B    K
+## 39  2.52138939 -1.43226819  1.417258694    B    K
+## 40  0.82617441 -0.46980822  0.006063687    B    K
+## 41 -0.82791156 -1.93402379  0.304793689    B    K
+## 42  0.46535010  0.75484256 -0.729524546    B    K
+## 43  0.84303999  0.04669974 -0.222792014    B    K
+## 44 -0.42465055  1.22552827 -0.084057246    B    K
+## 45 -0.82304245 -0.64254999  0.521142838    B    K
+## 46  0.65298346 -0.78774879  0.839533217    B    K
+## 47 -0.64566993 -0.90946003  1.180855078    B    K
+## 48  0.11195847 -0.46132630 -1.786995081    B    K
+## 49  1.36368204 -2.06266497  0.531451187    C    K
+## 50  0.66802968 -0.33548906 -1.491256446    C    K
+## 51 -0.11599317 -1.41498398  0.202585057    C    K
+## 52 -0.58351521  0.08172442 -0.583817542    C    K
+## 53 -1.16263021 -0.58698324 -0.329758245    C    K
+## 54 -0.95995383 -0.88813517  1.510278079    C    K
+## 55 -1.52729436  0.90794906  0.639593874    C    K
+## 56  1.09714501  2.00812810 -0.688913874    C    K
+## 57  0.26981925  0.92358588 -0.676984804    C    K
+## 58  0.03892377  0.85988823 -0.411568651    C    K
+## 59  0.60520415  0.69070400  0.193497369    C    K
+## 60  1.73260235 -0.19772199 -0.791886101    C    K
+## 61  0.44975966 -1.16889542  0.097837095    C    K
+## 62 -0.14360406  1.00709187  1.051003830    C    K
+## 63 -0.18694096 -0.69535818  1.398904501    C    K
+## 64 -0.28403634  0.30328041  0.026507263    C    K
+## 65  1.32112203  0.60933726  0.725876939    C    K
+## 66  1.02829723  0.62433795  0.091328216    C    K
+## 67 -0.12536663 -1.09773344 -0.736387187    C    K
+## 68 -0.60137749 -1.03666137  0.410673544    C    K
+## 69  0.22218406 -0.20720832  0.550806154    C    K
+## 70 -1.38751027 -1.18839063 -0.252046249    C    K
+## 71  2.20378352  0.79166410 -1.223668604    C    K
+## 72  0.58268122  0.62834678  0.439082795    C    K
+```
+
+---
+
+The main functions we want to use are a_ply, aaply, adply, alply, d_ply, daply, ddply, dlply, l_ply, laply, llply, m_ply, maply, mdply, mlply
+
+
+- The first letter for each tells us what kind of input we have
+    + a=array
+    + d = data.frame
+    + l=list
+    + m=matrix
+- The second letter tells us what we want in terms of output
+    + a=array
+    + d=data.frame
+    + l=list
+    + m=matrix
+    + _=discard the results
+    
+---
+
+Example: 
+
+
+```r
+ddply(.data=dd, .variables=c("dim1","dim2"), .fun=function(df) mean(df$v1))
+```
+
+```
+##   dim1 dim2         V1
+## 1    A    J  0.1978560
+## 2    B    J -0.3033890
+## 3    B    K  0.1792493
+## 4    C    K  0.1877088
+```
+
+--
+
+
+```r
+daply(.data=dd, .variables=c("dim1","dim2"), .fun=function(df)mean(df$v1))
+```
+
+```
+##     dim2
+## dim1         J         K
+##    A  0.197856        NA
+##    B -0.303389 0.1792493
+##    C        NA 0.1877088
+```
+
+
+---
+
+Most combinations we want are here
+
+
+```r
+l_ply(1:100, identity)
+llply(1:100, identity)
+```
+
+```
+## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] 2
+## 
+## [[3]]
+## [1] 3
+## 
+## [[4]]
+## [1] 4
+## 
+## [[5]]
+## [1] 5
+## 
+## [[6]]
+## [1] 6
+## 
+## [[7]]
+## [1] 7
+## 
+## [[8]]
+## [1] 8
+## 
+## [[9]]
+## [1] 9
+## 
+## [[10]]
+## [1] 10
+## 
+## [[11]]
+## [1] 11
+## 
+## [[12]]
+## [1] 12
+## 
+## [[13]]
+## [1] 13
+## 
+## [[14]]
+## [1] 14
+## 
+## [[15]]
+## [1] 15
+## 
+## [[16]]
+## [1] 16
+## 
+## [[17]]
+## [1] 17
+## 
+## [[18]]
+## [1] 18
+## 
+## [[19]]
+## [1] 19
+## 
+## [[20]]
+## [1] 20
+## 
+## [[21]]
+## [1] 21
+## 
+## [[22]]
+## [1] 22
+## 
+## [[23]]
+## [1] 23
+## 
+## [[24]]
+## [1] 24
+## 
+## [[25]]
+## [1] 25
+## 
+## [[26]]
+## [1] 26
+## 
+## [[27]]
+## [1] 27
+## 
+## [[28]]
+## [1] 28
+## 
+## [[29]]
+## [1] 29
+## 
+## [[30]]
+## [1] 30
+## 
+## [[31]]
+## [1] 31
+## 
+## [[32]]
+## [1] 32
+## 
+## [[33]]
+## [1] 33
+## 
+## [[34]]
+## [1] 34
+## 
+## [[35]]
+## [1] 35
+## 
+## [[36]]
+## [1] 36
+## 
+## [[37]]
+## [1] 37
+## 
+## [[38]]
+## [1] 38
+## 
+## [[39]]
+## [1] 39
+## 
+## [[40]]
+## [1] 40
+## 
+## [[41]]
+## [1] 41
+## 
+## [[42]]
+## [1] 42
+## 
+## [[43]]
+## [1] 43
+## 
+## [[44]]
+## [1] 44
+## 
+## [[45]]
+## [1] 45
+## 
+## [[46]]
+## [1] 46
+## 
+## [[47]]
+## [1] 47
+## 
+## [[48]]
+## [1] 48
+## 
+## [[49]]
+## [1] 49
+## 
+## [[50]]
+## [1] 50
+## 
+## [[51]]
+## [1] 51
+## 
+## [[52]]
+## [1] 52
+## 
+## [[53]]
+## [1] 53
+## 
+## [[54]]
+## [1] 54
+## 
+## [[55]]
+## [1] 55
+## 
+## [[56]]
+## [1] 56
+## 
+## [[57]]
+## [1] 57
+## 
+## [[58]]
+## [1] 58
+## 
+## [[59]]
+## [1] 59
+## 
+## [[60]]
+## [1] 60
+## 
+## [[61]]
+## [1] 61
+## 
+## [[62]]
+## [1] 62
+## 
+## [[63]]
+## [1] 63
+## 
+## [[64]]
+## [1] 64
+## 
+## [[65]]
+## [1] 65
+## 
+## [[66]]
+## [1] 66
+## 
+## [[67]]
+## [1] 67
+## 
+## [[68]]
+## [1] 68
+## 
+## [[69]]
+## [1] 69
+## 
+## [[70]]
+## [1] 70
+## 
+## [[71]]
+## [1] 71
+## 
+## [[72]]
+## [1] 72
+## 
+## [[73]]
+## [1] 73
+## 
+## [[74]]
+## [1] 74
+## 
+## [[75]]
+## [1] 75
+## 
+## [[76]]
+## [1] 76
+## 
+## [[77]]
+## [1] 77
+## 
+## [[78]]
+## [1] 78
+## 
+## [[79]]
+## [1] 79
+## 
+## [[80]]
+## [1] 80
+## 
+## [[81]]
+## [1] 81
+## 
+## [[82]]
+## [1] 82
+## 
+## [[83]]
+## [1] 83
+## 
+## [[84]]
+## [1] 84
+## 
+## [[85]]
+## [1] 85
+## 
+## [[86]]
+## [1] 86
+## 
+## [[87]]
+## [1] 87
+## 
+## [[88]]
+## [1] 88
+## 
+## [[89]]
+## [1] 89
+## 
+## [[90]]
+## [1] 90
+## 
+## [[91]]
+## [1] 91
+## 
+## [[92]]
+## [1] 92
+## 
+## [[93]]
+## [1] 93
+## 
+## [[94]]
+## [1] 94
+## 
+## [[95]]
+## [1] 95
+## 
+## [[96]]
+## [1] 96
+## 
+## [[97]]
+## [1] 97
+## 
+## [[98]]
+## [1] 98
+## 
+## [[99]]
+## [1] 99
+## 
+## [[100]]
+## [1] 100
+```
+
+---
+
+
+```r
+laply(1:100, identity)
+```
+
+```
+##   [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17
+##  [18]  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34
+##  [35]  35  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51
+##  [52]  52  53  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68
+##  [69]  69  70  71  72  73  74  75  76  77  78  79  80  81  82  83  84  85
+##  [86]  86  87  88  89  90  91  92  93  94  95  96  97  98  99 100
+```
+
+```r
+ldply(1:100, identity)
+```
+
+```
+##      V1
+## 1     1
+## 2     2
+## 3     3
+## 4     4
+## 5     5
+## 6     6
+## 7     7
+## 8     8
+## 9     9
+## 10   10
+## 11   11
+## 12   12
+## 13   13
+## 14   14
+## 15   15
+## 16   16
+## 17   17
+## 18   18
+## 19   19
+## 20   20
+## 21   21
+## 22   22
+## 23   23
+## 24   24
+## 25   25
+## 26   26
+## 27   27
+## 28   28
+## 29   29
+## 30   30
+## 31   31
+## 32   32
+## 33   33
+## 34   34
+## 35   35
+## 36   36
+## 37   37
+## 38   38
+## 39   39
+## 40   40
+## 41   41
+## 42   42
+## 43   43
+## 44   44
+## 45   45
+## 46   46
+## 47   47
+## 48   48
+## 49   49
+## 50   50
+## 51   51
+## 52   52
+## 53   53
+## 54   54
+## 55   55
+## 56   56
+## 57   57
+## 58   58
+## 59   59
+## 60   60
+## 61   61
+## 62   62
+## 63   63
+## 64   64
+## 65   65
+## 66   66
+## 67   67
+## 68   68
+## 69   69
+## 70   70
+## 71   71
+## 72   72
+## 73   73
+## 74   74
+## 75   75
+## 76   76
+## 77   77
+## 78   78
+## 79   79
+## 80   80
+## 81   81
+## 82   82
+## 83   83
+## 84   84
+## 85   85
+## 86   86
+## 87   87
+## 88   88
+## 89   89
+## 90   90
+## 91   91
+## 92   92
+## 93   93
+## 94   94
+## 95   95
+## 96   96
+## 97   97
+## 98   98
+## 99   99
+## 100 100
+```
+
+---
+
+## 14.7: Going parallel
+
+- There are a bunch of features here, many of which are used in tidyverse
+- But let's focus on parallel programming
+
+
+```r
+library('doMC')
+```
+
+```
+## Loading required package: foreach
+```
+
+```
+## Loading required package: iterators
+```
+
+```
+## Loading required package: parallel
+```
+
+```r
+library('foreach')
+```
+
+
+---
+
+
+```r
+myX &lt;- 20
+
+myY &lt;- c(1:100)
+
+myFunction &lt;- function(x,y){
+
+  for(i in 1:5000000){
+   2+2
+  }
+  return(x+y)
+
+}
+myY
+```
+
+```
+##   [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17
+##  [18]  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34
+##  [35]  35  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51
+##  [52]  52  53  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68
+##  [69]  69  70  71  72  73  74  75  76  77  78  79  80  81  82  83  84  85
+##  [86]  86  87  88  89  90  91  92  93  94  95  96  97  98  99 100
+```
+
+---
+
+
+```r
+system.time(out &lt;- laply(myY, myFunction, x=myX))
+```
+
+```
+##    user  system elapsed 
+##   6.865   0.004   6.869
+```
+
+```r
+registerDoMC(cores=32)
+system.time(out2 &lt;- laply(myY, myFunction, x=myX, .parallel=TRUE))
+```
+
+```
+##    user  system elapsed 
+##  13.871   0.164   0.696
+```
+
+
+---
+
+## 14.8: Functinal programming
+
+- Functions in R are simply other objects in memory that can themselves be manipulated, edited, or created by other functions
+- This seems simple enough, but in fact offers a powerful set of tools for more complex tasks.  
+- This is easiest to see as an example 
+- This taken from Advanced R chapter 10.
+
+---
+
+
+Let's make a datset that contains missing data coded as -99
+
+```r
+set.seed(1014)
+df&lt;-data.frame(replicate(6, sample(c(1:10, -99), 6, rep=TRUE)))
+names(df)&lt;-letters[1:6]
+df
+```
+
+```
+##    a  b c   d   e f
+## 1  1  6 1   5 -99 1
+## 2 10  4 4 -99   9 3
+## 3  7  9 5   4   1 4
+## 4  2  9 3   8   6 8
+## 5  1 10 5   9   8 6
+## 6  6  2 1   3   8 5
+```
+
+---
+
+- We could get recode this variable by variable as a for loop
+- We could also try map or some apply-like function
+- But what if missing values are also indicated by -999 or -98 or 4?
+
+---
+
+- Let's look through this code
+
+
+```r
+my.fun&lt;-function(x, na_value){
+  x[x == na_value]&lt;-NA
+  return(x)
+}
+```
+
+---
+
+- We could apply this function across our dataset.
+- But what if we instead did this?
+
+
+
+```r
+missing_fixer&lt;-function(na_value){
+  function(x){
+    x[x == na_value]&lt;-NA
+    x
+  }
+}  
+```
+
+
+- Note that we are actually *returning* a function from this function
+
+---
+
+- Now we have a function that can write other functions!
+- So if we want to recode all values that equal 99 to NA, we can just say
+
+
+
+```r
+fix_missing_99&lt;-missing_fixer(-99)
+fix_missing_99
+```
+
+```
+## function(x){
+##     x[x == na_value]&lt;-NA
+##     x
+##   }
+## &lt;environment: 0x7ffeea70b2b0&gt;
+```
+
+
+---
+
+
+```r
+fix_missing_99(df)
+```
+
+```
+##    a  b c  d  e f
+## 1  1  6 1  5 NA 1
+## 2 10  4 4 NA  9 3
+## 3  7  9 5  4  1 4
+## 4  2  9 3  8  6 8
+## 5  1 10 5  9  8 6
+## 6  6  2 1  3  8 5
+```
+
+The key here is that we could easily create any number of related functions for similar purposes.
+
+
+---
+
+Note that we have created an "enclusure".  Let's make the following function.
+
+
+```r
+fix_missing_98&lt;-missing_fixer(-98)
+fix_missing_98
+```
+
+```
+## function(x){
+##     x[x == na_value]&lt;-NA
+##     x
+##   }
+## &lt;bytecode: 0x7ffeecca59f0&gt;
+## &lt;environment: 0x7ffeecb19018&gt;
+```
+
+--
+
+When it prints out, it looks the same as `fix_missing_98`.  The only difference here is the environment that is associated with each, meaning that the function itself is enclosed in a different environment
+
+- If this is confusing to you, don't panick. It's not required material.
+- But this may help you as you navigate R when you see functions that come with environment specificaitons.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
