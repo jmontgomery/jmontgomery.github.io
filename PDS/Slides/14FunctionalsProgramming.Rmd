@@ -34,7 +34,7 @@ output:
 
 **Today**
 
-1. Functional programming (not coverd on exam)
+1. Functional programming (not covered on exam)
 
 <br>
 
@@ -62,7 +62,7 @@ apply(array, margin, function , ...)
 
 1. An array (including potentially a matrix)
 2. The margin argument controls how each matrix is analyzed.  Should the function execute on each row (margin = 1) or each column (margin = 2)?
-3. The function is what you want done on each row/column/whatever
+3. The function is what you want done on each row/column/whatever.
 4. IMPORTANTLY, the ... refers to any arguments you want to pass to the function
 
 
@@ -131,10 +131,10 @@ apply(mat1, 2, function(x, y) sum(x) + y, y=5)
 ## 14.2 `lapply`
 
 
-- There are several related functions in R that work the same but with 
+- There are several related functions in R that work the same but with different inputs.
 
 ```{r, eval=FALSE}
-## lapply(list, function, ...)
+lapply(list, function, ...)
 ```
 
 --
@@ -181,7 +181,7 @@ unlist(lapply(1:5, function(i) 5+i ))
     + If the output is all vectors of the same length, it will return a matrix
 
 ```{r, eval=FALSE}
-## sapply(list, function, ..., simplify)
+sapply(list, function, ..., simplify)
 ```
 
 
@@ -246,7 +246,7 @@ tapply(mat2.df$x1, list(mat2.df$cat1, mat2.df$cat2), mean)
 
 --
 
-The first sell here is equivalent to:
+The first cell here is equivalent to:
 ```{r}
 mean(mat2.df$x1[mat2.df$cat1==1 & mat2.df$cat2==1])
 ```
@@ -257,7 +257,7 @@ mean(mat2.df$x1[mat2.df$cat1==1 & mat2.df$cat2==1])
 
 
 ```{r, eval=FALSE}
-# sweep(array, margin, stats, function, ...)
+sweep(array, margin, stats, function, ...)
 ```
 
 - This is used if you want, for instance, mean center your variables
@@ -548,8 +548,26 @@ fix_missing_98
 
 ---
 
-When it prints out, it looks the same as `fix_missing_98`.  The only difference here is the environment that is associated with each, meaning that the function itself is enclosed in a different environment
+When it prints out, it looks the same as `fix_missing_99`.  The only difference here is the environment that is associated with each, meaning that the function itself is enclosed in a different environment
 
 - If this is confusing to you, don't panick. It's not required material.
 - But this may help you as you navigate R when you see functions that come with environment specificaitons.
+- And it can make you a much more powerful programmer.
+
+
+---
+
+## Team activity
+
+http://ippsr.msu.edu/sites/default/files/correlatesofstatepolicyprojectv2_1.csv
+
+
+- Get this dataset
+- Codebook: http://ippsr.msu.edu/public-policy/correlates-state-policy
+- Find the mean value for all variables that look like this using some form of `apply` `incshare_top10`
+- Find the mean value of this variable for each year
+- Write your own function to calculate the proportion (divide the mean by 100) and apply that.
+- If time: Use functional programming that will do this same set of commands:
+
+
 
