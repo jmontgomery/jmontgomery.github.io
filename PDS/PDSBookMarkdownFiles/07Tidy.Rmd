@@ -416,3 +416,251 @@ answer2
 allData <- full_join(tweets, mentions)
 allData
 ```
+
+## `stringr`
+
+`stringr` is a tidy package that is used for processing strings and text data
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+tweets<-read_csv("C:/Users/maria/OneDrive/WUSTL/2019-20/PDS/Tweets.csv")
+
+aTweet<-tweets[1,]$Text
+aTweet
+
+str_length(aTweet)
+words<-str_split(aTweet, pattern = " ")
+words
+
+str_c(words)
+str_c(unlist(words))
+
+str_c(unlist(words), "Added")
+
+str_c(unlist(words), "Added", sep=" ")
+str_c("Before", unlist(words), "Added", sep=" ")
+```
+
+Or you may want to assemble it all into all back into a coherent whole
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+str_c(unlist(words), collapse=" ")
+```
+
+### Things you haven't thought about strings
+
+- Strings in memory are different than how they appear on the screen
+- You can use the function `writeLines` to see how a function would atually render to a reader (as opposed to how it is stored in the computer.)
+- The big confusion is that special characters have to be "escaped" or else they get in the way (From R4DS)
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+x <- c("\"", "\\")
+x
+writeLines(x)
+```
+
+- Others to watch out for are `"\n"` and `"\t"` for `next line` and `tab`
+- `na` is a problem, so you might use `str_replace_na`
+
+- `stringr` replicates a lot of the functions we have already used for characters with (sometimes) slightly different syntax
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+colors <- c("red", "yellow", "blue", "green", "magenta", "cyan")
+str_sub(colors, 1, 3)
+str_sub(colors, -3, -1) #count back from the end
+str_sub(colors, 1, 10) # Robust to going out of index
+
+str_sub(colors, 1, 3)<-str_to_upper(str_sub(colors, 1, 3))
+colors
+
+colors<-str_to_lower(colors)
+colors
+```
+
+Example:
+
+1. Filter down to all of the tweets from Mayor Lyda Krewson in our data
+2. Find the mean number of words in her tweets. Find the total.
+3. Take all of the words she has used and reduce them down to only their first five letters.  Repeat (2) and compare.
+
+
+Question 2
+
+```{r}
+hertweets <- filter(tweets, ScreenName == "lydakrewson")["Text"]
+numWords <- hertweets %>% 
+    rowwise() %>% 
+    transmute(numWords= length(unlist(str_split(Text, " "))))
+numWords
+mean(numWords$numWords)
+
+length(unique(unlist(str_split(hertweets$Text, " "))))
+```
+
+Question 3
+
+```{r}
+length(unique(str_sub(unlist(str_split(hertweets$Text, " ")), 1, 5)))
+```
+
+## Pipes and maps
+
+- Download: https://www.voterstudygroup.org/publication/2019-voter-survey-full-data-set
+- Codebook: https://www.voterstudygroup.org/publication/2019-voter-survey-full-data-set
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+library(tidyverse)
+VSG<-read_csv("C:/Users/maria/OneDrive/WUSTL/2019-20/PDS/VOTER_Survey_Jan217_Release1-csv.csv", col_types=cols(weight_18_24_2018="d"))
+```
+
+Question: Is there a lane?
+
+We are going to:
+
+- Subset the data to just favorability raitings for Elizabeth Warren and Bernie Sanders
+- Recode these variables into "approve" and "not approve"
+- Find the proportion of respondents who either approve or disapprove of *both*
+
+
+One strategy is just to make new datsets for each step
+
+```{r, eval=FALSE, message=FALSE, warning=FALSE}
+VSG.two <- select(VSG, fav_sanders_2019, fav_warren_2019)
+VSG.three<-mutate(VSG.two, fav_sanders_binary = (fav_sanders_2019<=2))
+VSG.four<-mutate(VSG.three, fav_sanders_binary= na_if(fav_sanders_2019, fav_sanders_2019>4))
+```
+This is bad because we're wasting a lot of memory in our environment that we'll never use again.
+
+
+Another strategy is just to overwrite the same dataset
+
+```{r, eval=FALSE, message=FALSE, warning=FALSE}
+VSG <- select(VSG, fav_sanders_2019, fav_warren_2019)
+VSG < -mutate(VSG, fav_sanders_binary = (fav_sanders_2019<=2)*1)
+VSG <- mutate(VSG, fav_sanders_binary= na_if(fav_sanders_2019, fav_sanders_2019>4))
+```
+This still wastes a lot of memory because of the way memory is managed in R. It also would be terrible to debug if something goes wrong.
+
+An even more difficult way would be write a function where the output of each stage are passed onto an outer layer.
+
+Or we can use the pipes
+
+```{r, eval=FALSE, message=FALSE, warning=FALSE}
+VSG %>% 
+  select(fav_sanders_2019, fav_warren_2019) %>%
+  mutate(fav_sanders_binary= na_if(fav_sanders_2019, fav_sanders_2019>4)) %>%
+  mutate(fav_sanders_binary = (fav_sanders_2019<=2)*1) 
+```
+
+### Limitations of Pipes
+
+- Piping works by creating a new function where object manipulations are passed from one to another
+- This means that piping won't work in cases where:
+    + The function uses the current environment such as assign, load, or get
+    + Functions that use lazy evaluation such as tryCatch, try, or supressMessages
+- Pipes are not good in all situations
+- If you do more than 4 or 5 pipes, go ahead and make in intermediate object.  Otherwise debugging is a pain.
+- If you are not actually working on just one object but instead combinig multiple objects, this is just not worth it.
+- Where ther are interdepencies (e.g., complex recoding based on multiple variables)
+
+
+
+- The `magrittr` package comes with some other tools for using in specific situations
+- The `%T>%` pipe works by calling the function to the right, but returning the function to the left
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+library(magrittr)
+VSG<-read_csv("C:/Users/maria/OneDrive/WUSTL/2019-20/PDS/VOTER_Survey_Jan217_Release1-csv.csv", col_types=cols(weight_18_24_2018="d"))
+VSG %>% 
+  select(fav_sanders_2019, fav_warren_2019) %>%
+  mutate(fav_sanders_binary= na_if(fav_sanders_2019, fav_sanders_2019>4)) %>%
+  mutate(fav_sanders_binary = (fav_sanders_2019<=2)*1) %T>%
+  plot()
+```
+
+
+- We may also want to use specific elements from a dataframe using the `%$%` operator
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+VSG<- VSG %>% 
+  select(fav_sanders_2019, fav_warren_2019) %>%
+  mutate(fav_sanders_binary= na_if(fav_sanders_2019, fav_sanders_2019>4)) %>%
+  mutate(fav_sanders_binary = (fav_sanders_2019<=2)*1) %>%
+  mutate(fav_warren_binary= na_if(fav_warren_2019, fav_warren_2019>4)) %>%
+  mutate(fav_warren_binary = (fav_warren_2019<=2)*1)
+
+library(magrittr)
+VSG<- VSG %$% 
+  plot(table(fav_sanders_binary, fav_warren_binary))
+```
+
+## `map`
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+VSG<-read_csv("C:/Users/maria/OneDrive/WUSTL/2019-20/PDS/VOTER_Survey_Jan217_Release1-csv.csv", col_types=cols(weight_18_24_2018="d"))
+VSG.fav<-VSG %>% 
+  select(starts_with("fav")) 
+```
+
+We want to loop over these data and recode all of the columns according to our rules
+
+- Anything above a 4 gets moved to NA
+- Then we turn them into a binary based on whether they are 2 and less or not
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+output<-as.data.frame(matrix(NA, nrow(VSG.fav), ncol(VSG.fav)))
+for(i in seq_along(VSG.fav)){
+  output[,i]<-(VSG.fav[,i]<=2)*1
+}
+```
+
+- We could do this without making a new object
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+for(i in seq_along(VSG.fav)){
+  VSG.fav[,i]= na_if(VSG.fav[[i]],VSG.fav[[i]]>4)
+  VSG.fav[,i]<-(VSG.fav[,i]<=2)*1
+}
+head(VSG.fav)
+```
+
+- We can also loop where we aren't sure how long the final output is
+- This can be done by adding each element to the end of a vector as we did in some previous lectures
+- This is computationally expensive
+- A better solution is to add all of them to a list and then combine them back at the end.
+- See Chapter 23.3.3 in the book for more
+- Or Chapter 23.3.4 for while loops (which we have already covered)
+
+- Looping is such a pervasive task, that there are functions to make it easier
+- The `map` family will do this, and you can carefully control the output
+  + `map` makes a list
+  + `map_lgl` makes a logical vector
+  + `map_int` makes an integer
+  + `map_dbl` makes a double vector
+  + `map_chr` makes a character
+
+- These functions takes in a vector as an input and applies that function
+- Let's say that we want to find the mean level of favorability in our dataset
+- This is *very* similar to `lapply` in base R
+  + For a comparison, check [this](https://jennybc.github.io/purrr-tutorial/bk01_base-functions.html#lapply()_vs_purrr::map()) link out
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+map(VSG.fav, mean, na.rm=TRUE)
+
+map_dbl(VSG.fav, mean, na.rm=TRUE)
+
+map_chr(VSG.fav, mean, na.rm=TRUE)
+```
+
+## walk, purrr, and more
+
+- See Chapter 21.8 for a discussion of `walk`
+- Main idea here is when you want to use a function for its side operations (e.g., plot) rather than to manipulate the data
+- See also Chapter 21.9.1 for some additional functionality that is occasionally useful:
+    + `keep`
+    + `discard`
+    + `some`
+    + `every`
+- See Chapter 21.9.2 for even more advanced approaches to extracting data

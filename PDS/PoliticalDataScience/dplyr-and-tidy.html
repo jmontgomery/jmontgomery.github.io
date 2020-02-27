@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="data-visualization-in-r.html"/>
-<link rel="next" href="more-useful-packages.html"/>
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <script src="libs/elevate-section-attrs-2.0/elevate-section-attrs.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -248,13 +248,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3.5" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#set-operations"><i class="fa fa-check"></i><b>7.3.5</b> Set operations</a></li>
 <li class="chapter" data-level="7.3.6" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#exercise"><i class="fa fa-check"></i><b>7.3.6</b> Exercise</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="more-useful-packages.html"><a href="more-useful-packages.html"><i class="fa fa-check"></i><b>8</b> More useful packages</a>
+<li class="chapter" data-level="7.4" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#stringr"><i class="fa fa-check"></i><b>7.4</b> <code>stringr</code></a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="more-useful-packages.html"><a href="more-useful-packages.html#stringr"><i class="fa fa-check"></i><b>8.1</b> <code>stringr</code></a>
-<ul>
-<li class="chapter" data-level="8.1.1" data-path="more-useful-packages.html"><a href="more-useful-packages.html#things-you-havent-thought-about-strings"><i class="fa fa-check"></i><b>8.1.1</b> Things you haven’t thought about strings</a></li>
+<li class="chapter" data-level="7.4.1" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#things-you-havent-thought-about-strings"><i class="fa fa-check"></i><b>7.4.1</b> Things you haven’t thought about strings</a></li>
 </ul></li>
+<li class="chapter" data-level="7.5" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#pipes-and-maps"><i class="fa fa-check"></i><b>7.5</b> Pipes and maps</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#limitations-of-pipes"><i class="fa fa-check"></i><b>7.5.1</b> Limitations of Pipes</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#map"><i class="fa fa-check"></i><b>7.6</b> <code>map</code></a></li>
+<li class="chapter" data-level="7.7" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#walk-purrr-and-more"><i class="fa fa-check"></i><b>7.7</b> walk, purrr, and more</a></li>
 </ul></li>
 </ul>
 
@@ -1314,28 +1317,756 @@ user information, one for each tweet and its author, one for each like, the user
 ## #   TwitterHandle &lt;chr&gt;, TwitterLink &lt;chr&gt;</code></pre>
 <div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="dplyr-and-tidy.html#cb573-1"></a>mentions &lt;-<span class="st"> </span><span class="kw">rename</span>(mentions, <span class="dt">TwitterHandle =</span> <span class="st">&quot;ScreenName&quot;</span>)</span>
 <span id="cb573-2"><a href="dplyr-and-tidy.html#cb573-2"></a>mentionsCount &lt;-<span class="st"> </span>mentions <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(MayorHandle) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tally</span>()</span>
-<span id="cb573-3"><a href="dplyr-and-tidy.html#cb573-3"></a>answer1 &lt;-<span class="st"> </span>mayors <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(mentionsCount, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;TwitterHandle&quot;</span> =<span class="st"> &quot;MayorHandle&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(TwitterHandle, FullName, n) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(n))</span></code></pre></div>
+<span id="cb573-3"><a href="dplyr-and-tidy.html#cb573-3"></a>answer1 &lt;-<span class="st"> </span>mayors <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(mentionsCount, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;TwitterHandle&quot;</span> =<span class="st"> &quot;MayorHandle&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(TwitterHandle, FullName, n) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(n))</span>
+<span id="cb573-4"><a href="dplyr-and-tidy.html#cb573-4"></a>answer1</span></code></pre></div>
+<pre><code>## # A tibble: 1,473 x 3
+##    TwitterHandle   FullName                    n
+##    &lt;chr&gt;           &lt;chr&gt;                   &lt;int&gt;
+##  1 markfarrellsf   Mark Farrell             1000
+##  2 sam_hindi       Sam Hindi                1000
+##  3 andrewgillum    Andrew D. Gillum         1000
+##  4 keishabottoms   Keisha Lance Bottoms     1000
+##  5 chicagosmayor   Rahm Emmanuel            1000
+##  6 indymayorjoe    Joseph &#39;Joe&#39; H. Hogsett  1000
+##  7 louisvillemayor Greg Fischer             1000
+##  8 billdeblasio    Bill de Blasio           1000
+##  9 billpeduto      William Peduto           1000
+## 10 mayorbriley     David Briley              999
+## # ... with 1,463 more rows</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Add to the mayors datset the number of times each mayor tweeted.</li>
 </ol>
-<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="dplyr-and-tidy.html#cb574-1"></a>tweetCounts &lt;-<span class="st"> </span>tweets <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(TwitterHandle) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tally</span>()</span>
-<span id="cb574-2"><a href="dplyr-and-tidy.html#cb574-2"></a>answer2 &lt;-<span class="st"> </span>mayors <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(tweetCounts, <span class="dt">by=</span><span class="st">&quot;TwitterHandle&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(n))</span></code></pre></div>
+<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="dplyr-and-tidy.html#cb575-1"></a>tweetCounts &lt;-<span class="st"> </span>tweets <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(TwitterHandle) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tally</span>()</span>
+<span id="cb575-2"><a href="dplyr-and-tidy.html#cb575-2"></a>answer2 &lt;-<span class="st"> </span>mayors <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(tweetCounts, <span class="dt">by=</span><span class="st">&quot;TwitterHandle&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(n))</span>
+<span id="cb575-3"><a href="dplyr-and-tidy.html#cb575-3"></a>answer2</span></code></pre></div>
+<pre><code>## # A tibble: 1,473 x 52
+##       X1 MayorID FullName LastName FirstName GenderMale GenderFemale RaceWhite
+##    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;        &lt;dbl&gt;     &lt;dbl&gt;
+##  1    11      11 William~ Stimpson William ~          1            0         1
+##  2   443     443 Thomas ~ Masters  Thomas A.          1            0         0
+##  3   498     498 Rahm Em~ Emmanuel Rahm               1            0         1
+##  4   778     778 Emily L~ Larson   Emily              0            1         1
+##  5   812     812 Jason L~ Shelton  Jason L.           1            0         1
+##  6   902     902 Derek A~ Armstead Derek              1            0         0
+##  7  1070    1071 Greg Pe~ Peterson Greg               1            0         1
+##  8  1140    1141 Jim Ken~ Kenney   Jim                1            0         1
+##  9  1142    1143 Ed Pawl~ Pawlows~ Ed                 1            0         1
+## 10    37      37 Greg St~ Stanton  Greg               1            0         1
+## # ... with 1,463 more rows, and 44 more variables: RaceBlack &lt;dbl&gt;,
+## #   RaceHispanic &lt;dbl&gt;, RaceOther &lt;dbl&gt;, PartyRepublican &lt;dbl&gt;,
+## #   PartyDemocrat &lt;dbl&gt;, PartyNonPartisan &lt;dbl&gt;, PartyOther &lt;dbl&gt;,
+## #   Ideology &lt;dbl&gt;, IdeologySD &lt;dbl&gt;, LastElectionDate &lt;chr&gt;,
+## #   PercentVote &lt;dbl&gt;, YearsCurrentPosition &lt;dbl&gt;, CityManager &lt;dbl&gt;,
+## #   CouncilManager &lt;dbl&gt;, MayorCouncil &lt;dbl&gt;, Title &lt;chr&gt;, CityID &lt;dbl&gt;,
+## #   CityName &lt;chr&gt;, CityNameFull &lt;chr&gt;, CensusID &lt;chr&gt;, CensusID2 &lt;dbl&gt;,
+## #   State &lt;chr&gt;, StateAB &lt;chr&gt;, Region &lt;dbl&gt;, Division &lt;dbl&gt;, StateFIPS &lt;dbl&gt;,
+## #   Population &lt;dbl&gt;, Latitude &lt;dbl&gt;, Longitude &lt;dbl&gt;, CityAge &lt;dbl&gt;,
+## #   CityMale &lt;dbl&gt;, CityFemale &lt;dbl&gt;, CityWhite &lt;dbl&gt;, CityBlack &lt;dbl&gt;,
+## #   CityHispanic &lt;dbl&gt;, CityOwner &lt;dbl&gt;, CityRenter &lt;dbl&gt;, GovWebsite &lt;chr&gt;,
+## #   FacebookPageName &lt;chr&gt;, FacebookPageID &lt;dbl&gt;, FacebookLink &lt;chr&gt;,
+## #   TwitterHandle &lt;chr&gt;, TwitterLink &lt;chr&gt;, n &lt;int&gt;</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Create a combined dataset of all tweets from the tweets and mentions data. Subset down to overlapping columns (and rename where needed) to make this easy.</li>
 </ol>
-<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="dplyr-and-tidy.html#cb575-1"></a>allData &lt;-<span class="st"> </span><span class="kw">full_join</span>(tweets, mentions)</span></code></pre></div>
+<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="dplyr-and-tidy.html#cb577-1"></a>allData &lt;-<span class="st"> </span><span class="kw">full_join</span>(tweets, mentions)</span></code></pre></div>
 <pre><code>## Joining, by = c(&quot;X1&quot;, &quot;TweetID&quot;, &quot;TwitterHandle&quot;, &quot;Text&quot;, &quot;CreatedTime&quot;, &quot;Favorited&quot;, &quot;FavoritesCount&quot;, &quot;IsRetweet&quot;, &quot;RetweetCount&quot;, &quot;Retweeted&quot;, &quot;ReplyToSN&quot;, &quot;ReplyToSID&quot;, &quot;ReplyToUID&quot;, &quot;Truncated&quot;, &quot;StatusSource&quot;, &quot;Longitude&quot;, &quot;Latitude&quot;)</code></pre>
+<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="dplyr-and-tidy.html#cb579-1"></a>allData</span></code></pre></div>
+<pre><code>## # A tibble: 666,388 x 18
+##       X1 TweetID TwitterHandle Text  CreatedTime         Favorited
+##    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt; &lt;dttm&gt;                  &lt;dbl&gt;
+##  1     1 9.90e17 a_silberberg  Many~ 2018-04-28 22:26:48         0
+##  2     2 9.90e17 a_silberberg  Such~ 2018-04-28 22:13:38         0
+##  3     3 9.90e17 a_silberberg  Wond~ 2018-04-28 19:42:14         0
+##  4     4 9.90e17 a_silberberg  I en~ 2018-04-28 14:42:20         0
+##  5     5 9.90e17 a_silberberg  At 8~ 2018-04-28 13:58:39         0
+##  6     6 9.90e17 a_silberberg  Wond~ 2018-04-28 13:53:21         0
+##  7     7 9.90e17 a_silberberg  RT @~ 2018-04-28 12:26:17         0
+##  8     8 9.90e17 a_silberberg  &quot;My ~ 2018-04-27 16:31:34         0
+##  9     9 9.90e17 a_silberberg  At t~ 2018-04-27 16:31:23         0
+## 10    10 9.90e17 a_silberberg  I en~ 2018-04-27 03:19:42         0
+## # ... with 666,378 more rows, and 12 more variables: FavoritesCount &lt;dbl&gt;,
+## #   IsRetweet &lt;dbl&gt;, RetweetCount &lt;dbl&gt;, Retweeted &lt;dbl&gt;, ReplyToSN &lt;chr&gt;,
+## #   ReplyToSID &lt;dbl&gt;, ReplyToUID &lt;dbl&gt;, Truncated &lt;dbl&gt;, StatusSource &lt;chr&gt;,
+## #   Longitude &lt;dbl&gt;, Latitude &lt;dbl&gt;, MayorHandle &lt;chr&gt;</code></pre>
+</div>
+</div>
+<div id="stringr" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> <code>stringr</code></h2>
+<p><code>stringr</code> is a tidy package that is used for processing strings and text data</p>
+<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="dplyr-and-tidy.html#cb581-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb581-2"><a href="dplyr-and-tidy.html#cb581-2"></a>tweets&lt;-<span class="kw">read_csv</span>(<span class="st">&quot;C:/Users/maria/OneDrive/WUSTL/2019-20/PDS/Tweets.csv&quot;</span>)</span>
+<span id="cb581-3"><a href="dplyr-and-tidy.html#cb581-3"></a></span>
+<span id="cb581-4"><a href="dplyr-and-tidy.html#cb581-4"></a>aTweet&lt;-tweets[<span class="dv">1</span>,]<span class="op">$</span>Text</span>
+<span id="cb581-5"><a href="dplyr-and-tidy.html#cb581-5"></a>aTweet</span></code></pre></div>
+<pre><code>## [1] &quot;Many thanks to everyone involved in Alexandria&#39;s #EarthDay celebration. Together, we are reducing pollution and was… https://t.co/wwMOIg4t1w&quot;</code></pre>
+<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb583-1"><a href="dplyr-and-tidy.html#cb583-1"></a><span class="kw">str_length</span>(aTweet)</span></code></pre></div>
+<pre><code>## [1] 140</code></pre>
+<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="dplyr-and-tidy.html#cb585-1"></a>words&lt;-<span class="kw">str_split</span>(aTweet, <span class="dt">pattern =</span> <span class="st">&quot; &quot;</span>)</span>
+<span id="cb585-2"><a href="dplyr-and-tidy.html#cb585-2"></a>words</span></code></pre></div>
+<pre><code>## [[1]]
+##  [1] &quot;Many&quot;                    &quot;thanks&quot;                 
+##  [3] &quot;to&quot;                      &quot;everyone&quot;               
+##  [5] &quot;involved&quot;                &quot;in&quot;                     
+##  [7] &quot;Alexandria&#39;s&quot;            &quot;#EarthDay&quot;              
+##  [9] &quot;celebration.&quot;            &quot;Together,&quot;              
+## [11] &quot;we&quot;                      &quot;are&quot;                    
+## [13] &quot;reducing&quot;                &quot;pollution&quot;              
+## [15] &quot;and&quot;                     &quot;was…&quot;                   
+## [17] &quot;https://t.co/wwMOIg4t1w&quot;</code></pre>
+<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="dplyr-and-tidy.html#cb587-1"></a><span class="kw">str_c</span>(words)</span></code></pre></div>
+<pre><code>## [1] &quot;c(\&quot;Many\&quot;, \&quot;thanks\&quot;, \&quot;to\&quot;, \&quot;everyone\&quot;, \&quot;involved\&quot;, \&quot;in\&quot;, \&quot;Alexandria&#39;s\&quot;, \&quot;#EarthDay\&quot;, \&quot;celebration.\&quot;, \&quot;Together,\&quot;, \&quot;we\&quot;, \&quot;are\&quot;, \&quot;reducing\&quot;, \&quot;pollution\&quot;, \&quot;and\&quot;, \&quot;was…\&quot;, \&quot;https://t.co/wwMOIg4t1w\&quot;)&quot;</code></pre>
+<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="dplyr-and-tidy.html#cb589-1"></a><span class="kw">str_c</span>(<span class="kw">unlist</span>(words))</span></code></pre></div>
+<pre><code>##  [1] &quot;Many&quot;                    &quot;thanks&quot;                 
+##  [3] &quot;to&quot;                      &quot;everyone&quot;               
+##  [5] &quot;involved&quot;                &quot;in&quot;                     
+##  [7] &quot;Alexandria&#39;s&quot;            &quot;#EarthDay&quot;              
+##  [9] &quot;celebration.&quot;            &quot;Together,&quot;              
+## [11] &quot;we&quot;                      &quot;are&quot;                    
+## [13] &quot;reducing&quot;                &quot;pollution&quot;              
+## [15] &quot;and&quot;                     &quot;was…&quot;                   
+## [17] &quot;https://t.co/wwMOIg4t1w&quot;</code></pre>
+<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="dplyr-and-tidy.html#cb591-1"></a><span class="kw">str_c</span>(<span class="kw">unlist</span>(words), <span class="st">&quot;Added&quot;</span>)</span></code></pre></div>
+<pre><code>##  [1] &quot;ManyAdded&quot;                    &quot;thanksAdded&quot;                 
+##  [3] &quot;toAdded&quot;                      &quot;everyoneAdded&quot;               
+##  [5] &quot;involvedAdded&quot;                &quot;inAdded&quot;                     
+##  [7] &quot;Alexandria&#39;sAdded&quot;            &quot;#EarthDayAdded&quot;              
+##  [9] &quot;celebration.Added&quot;            &quot;Together,Added&quot;              
+## [11] &quot;weAdded&quot;                      &quot;areAdded&quot;                    
+## [13] &quot;reducingAdded&quot;                &quot;pollutionAdded&quot;              
+## [15] &quot;andAdded&quot;                     &quot;was…Added&quot;                   
+## [17] &quot;https://t.co/wwMOIg4t1wAdded&quot;</code></pre>
+<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="dplyr-and-tidy.html#cb593-1"></a><span class="kw">str_c</span>(<span class="kw">unlist</span>(words), <span class="st">&quot;Added&quot;</span>, <span class="dt">sep=</span><span class="st">&quot; &quot;</span>)</span></code></pre></div>
+<pre><code>##  [1] &quot;Many Added&quot;                    &quot;thanks Added&quot;                 
+##  [3] &quot;to Added&quot;                      &quot;everyone Added&quot;               
+##  [5] &quot;involved Added&quot;                &quot;in Added&quot;                     
+##  [7] &quot;Alexandria&#39;s Added&quot;            &quot;#EarthDay Added&quot;              
+##  [9] &quot;celebration. Added&quot;            &quot;Together, Added&quot;              
+## [11] &quot;we Added&quot;                      &quot;are Added&quot;                    
+## [13] &quot;reducing Added&quot;                &quot;pollution Added&quot;              
+## [15] &quot;and Added&quot;                     &quot;was… Added&quot;                   
+## [17] &quot;https://t.co/wwMOIg4t1w Added&quot;</code></pre>
+<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="dplyr-and-tidy.html#cb595-1"></a><span class="kw">str_c</span>(<span class="st">&quot;Before&quot;</span>, <span class="kw">unlist</span>(words), <span class="st">&quot;Added&quot;</span>, <span class="dt">sep=</span><span class="st">&quot; &quot;</span>)</span></code></pre></div>
+<pre><code>##  [1] &quot;Before Many Added&quot;                   
+##  [2] &quot;Before thanks Added&quot;                 
+##  [3] &quot;Before to Added&quot;                     
+##  [4] &quot;Before everyone Added&quot;               
+##  [5] &quot;Before involved Added&quot;               
+##  [6] &quot;Before in Added&quot;                     
+##  [7] &quot;Before Alexandria&#39;s Added&quot;           
+##  [8] &quot;Before #EarthDay Added&quot;              
+##  [9] &quot;Before celebration. Added&quot;           
+## [10] &quot;Before Together, Added&quot;              
+## [11] &quot;Before we Added&quot;                     
+## [12] &quot;Before are Added&quot;                    
+## [13] &quot;Before reducing Added&quot;               
+## [14] &quot;Before pollution Added&quot;              
+## [15] &quot;Before and Added&quot;                    
+## [16] &quot;Before was… Added&quot;                   
+## [17] &quot;Before https://t.co/wwMOIg4t1w Added&quot;</code></pre>
+<p>Or you may want to assemble it all into all back into a coherent whole</p>
+<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="dplyr-and-tidy.html#cb597-1"></a><span class="kw">str_c</span>(<span class="kw">unlist</span>(words), <span class="dt">collapse=</span><span class="st">&quot; &quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Many thanks to everyone involved in Alexandria&#39;s #EarthDay celebration. Together, we are reducing pollution and was… https://t.co/wwMOIg4t1w&quot;</code></pre>
+<div id="things-you-havent-thought-about-strings" class="section level3" number="7.4.1">
+<h3><span class="header-section-number">7.4.1</span> Things you haven’t thought about strings</h3>
+<ul>
+<li>Strings in memory are different than how they appear on the screen</li>
+<li>You can use the function <code>writeLines</code> to see how a function would atually render to a reader (as opposed to how it is stored in the computer.)</li>
+<li>The big confusion is that special characters have to be “escaped” or else they get in the way (From R4DS)</li>
+</ul>
+<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="dplyr-and-tidy.html#cb599-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;</span><span class="ch">\&quot;</span><span class="st">&quot;</span>, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">&quot;</span>)</span>
+<span id="cb599-2"><a href="dplyr-and-tidy.html#cb599-2"></a>x</span></code></pre></div>
+<pre><code>## [1] &quot;\&quot;&quot; &quot;\\&quot;</code></pre>
+<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb601-1"><a href="dplyr-and-tidy.html#cb601-1"></a><span class="kw">writeLines</span>(x)</span></code></pre></div>
+<pre><code>## &quot;
+## \</code></pre>
+<ul>
+<li><p>Others to watch out for are <code>"\n"</code> and <code>"\t"</code> for <code>next line</code> and <code>tab</code></p></li>
+<li><p><code>na</code> is a problem, so you might use <code>str_replace_na</code></p></li>
+<li><p><code>stringr</code> replicates a lot of the functions we have already used for characters with (sometimes) slightly different syntax</p></li>
+</ul>
+<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb603-1"><a href="dplyr-and-tidy.html#cb603-1"></a>colors &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;magenta&quot;</span>, <span class="st">&quot;cyan&quot;</span>)</span>
+<span id="cb603-2"><a href="dplyr-and-tidy.html#cb603-2"></a><span class="kw">str_sub</span>(colors, <span class="dv">1</span>, <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;red&quot; &quot;yel&quot; &quot;blu&quot; &quot;gre&quot; &quot;mag&quot; &quot;cya&quot;</code></pre>
+<div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb605-1"><a href="dplyr-and-tidy.html#cb605-1"></a><span class="kw">str_sub</span>(colors, <span class="dv">-3</span>, <span class="dv">-1</span>) <span class="co">#count back from the end</span></span></code></pre></div>
+<pre><code>## [1] &quot;red&quot; &quot;low&quot; &quot;lue&quot; &quot;een&quot; &quot;nta&quot; &quot;yan&quot;</code></pre>
+<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="dplyr-and-tidy.html#cb607-1"></a><span class="kw">str_sub</span>(colors, <span class="dv">1</span>, <span class="dv">10</span>) <span class="co"># Robust to going out of index</span></span></code></pre></div>
+<pre><code>## [1] &quot;red&quot;     &quot;yellow&quot;  &quot;blue&quot;    &quot;green&quot;   &quot;magenta&quot; &quot;cyan&quot;</code></pre>
+<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb609-1"><a href="dplyr-and-tidy.html#cb609-1"></a><span class="kw">str_sub</span>(colors, <span class="dv">1</span>, <span class="dv">3</span>)&lt;-<span class="kw">str_to_upper</span>(<span class="kw">str_sub</span>(colors, <span class="dv">1</span>, <span class="dv">3</span>))</span>
+<span id="cb609-2"><a href="dplyr-and-tidy.html#cb609-2"></a>colors</span></code></pre></div>
+<pre><code>## [1] &quot;RED&quot;     &quot;YELlow&quot;  &quot;BLUe&quot;    &quot;GREen&quot;   &quot;MAGenta&quot; &quot;CYAn&quot;</code></pre>
+<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb611-1"><a href="dplyr-and-tidy.html#cb611-1"></a>colors&lt;-<span class="kw">str_to_lower</span>(colors)</span>
+<span id="cb611-2"><a href="dplyr-and-tidy.html#cb611-2"></a>colors</span></code></pre></div>
+<pre><code>## [1] &quot;red&quot;     &quot;yellow&quot;  &quot;blue&quot;    &quot;green&quot;   &quot;magenta&quot; &quot;cyan&quot;</code></pre>
+<p>Example:</p>
+<ol style="list-style-type: decimal">
+<li>Filter down to all of the tweets from Mayor Lyda Krewson in our data</li>
+<li>Find the mean number of words in her tweets. Find the total.</li>
+<li>Take all of the words she has used and reduce them down to only their first five letters. Repeat (2) and compare.</li>
+</ol>
+<p>Question 2</p>
+<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb613-1"><a href="dplyr-and-tidy.html#cb613-1"></a>hertweets &lt;-<span class="st"> </span><span class="kw">filter</span>(tweets, ScreenName <span class="op">==</span><span class="st"> &quot;lydakrewson&quot;</span>)[<span class="st">&quot;Text&quot;</span>]</span>
+<span id="cb613-2"><a href="dplyr-and-tidy.html#cb613-2"></a>numWords &lt;-<span class="st"> </span>hertweets <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb613-3"><a href="dplyr-and-tidy.html#cb613-3"></a><span class="st">    </span><span class="kw">rowwise</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb613-4"><a href="dplyr-and-tidy.html#cb613-4"></a><span class="st">    </span><span class="kw">transmute</span>(<span class="dt">numWords=</span> <span class="kw">length</span>(<span class="kw">unlist</span>(<span class="kw">str_split</span>(Text, <span class="st">&quot; &quot;</span>))))</span>
+<span id="cb613-5"><a href="dplyr-and-tidy.html#cb613-5"></a>numWords</span></code></pre></div>
+<pre><code>## Source: local data frame [3,191 x 1]
+## Groups: &lt;by row&gt;
+## 
+## # A tibble: 3,191 x 1
+##    numWords
+##       &lt;int&gt;
+##  1       20
+##  2       25
+##  3       20
+##  4       20
+##  5       17
+##  6       21
+##  7        8
+##  8       11
+##  9       19
+## 10       13
+## # ... with 3,181 more rows</code></pre>
+<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb615-1"><a href="dplyr-and-tidy.html#cb615-1"></a><span class="kw">mean</span>(numWords<span class="op">$</span>numWords)</span></code></pre></div>
+<pre><code>## [1] 16.58602</code></pre>
+<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb617-1"><a href="dplyr-and-tidy.html#cb617-1"></a><span class="kw">length</span>(<span class="kw">unique</span>(<span class="kw">unlist</span>(<span class="kw">str_split</span>(hertweets<span class="op">$</span>Text, <span class="st">&quot; &quot;</span>))))</span></code></pre></div>
+<pre><code>## [1] 15960</code></pre>
+<p>Question 3</p>
+<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb619-1"><a href="dplyr-and-tidy.html#cb619-1"></a><span class="kw">length</span>(<span class="kw">unique</span>(<span class="kw">str_sub</span>(<span class="kw">unlist</span>(<span class="kw">str_split</span>(hertweets<span class="op">$</span>Text, <span class="st">&quot; &quot;</span>)), <span class="dv">1</span>, <span class="dv">5</span>)))</span></code></pre></div>
+<pre><code>## [1] 9831</code></pre>
+</div>
+</div>
+<div id="pipes-and-maps" class="section level2" number="7.5">
+<h2><span class="header-section-number">7.5</span> Pipes and maps</h2>
+<ul>
+<li>Download: <a href="https://www.voterstudygroup.org/publication/2019-voter-survey-full-data-set" class="uri">https://www.voterstudygroup.org/publication/2019-voter-survey-full-data-set</a></li>
+<li>Codebook: <a href="https://www.voterstudygroup.org/publication/2019-voter-survey-full-data-set" class="uri">https://www.voterstudygroup.org/publication/2019-voter-survey-full-data-set</a></li>
+</ul>
+<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb621-1"><a href="dplyr-and-tidy.html#cb621-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb621-2"><a href="dplyr-and-tidy.html#cb621-2"></a>VSG&lt;-<span class="kw">read_csv</span>(<span class="st">&quot;C:/Users/maria/OneDrive/WUSTL/2019-20/PDS/VOTER_Survey_Jan217_Release1-csv.csv&quot;</span>, <span class="dt">col_types=</span><span class="kw">cols</span>(<span class="dt">weight_18_24_2018=</span><span class="st">&quot;d&quot;</span>))</span></code></pre></div>
+<p>Question: Is there a lane?</p>
+<p>We are going to:</p>
+<ul>
+<li>Subset the data to just favorability raitings for Elizabeth Warren and Bernie Sanders</li>
+<li>Recode these variables into “approve” and “not approve”</li>
+<li>Find the proportion of respondents who either approve or disapprove of <em>both</em></li>
+</ul>
+<p>One strategy is just to make new datsets for each step</p>
+<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="dplyr-and-tidy.html#cb622-1"></a>VSG.two &lt;-<span class="st"> </span><span class="kw">select</span>(VSG, fav_sanders_<span class="dv">2019</span>, fav_warren_<span class="dv">2019</span>)</span>
+<span id="cb622-2"><a href="dplyr-and-tidy.html#cb622-2"></a>VSG.three&lt;-<span class="kw">mutate</span>(VSG.two, <span class="dt">fav_sanders_binary =</span> (fav_sanders_<span class="dv">2019</span><span class="op">&lt;=</span><span class="dv">2</span>))</span>
+<span id="cb622-3"><a href="dplyr-and-tidy.html#cb622-3"></a>VSG.four&lt;-<span class="kw">mutate</span>(VSG.three, <span class="dt">fav_sanders_binary=</span> <span class="kw">na_if</span>(fav_sanders_<span class="dv">2019</span>, fav_sanders_<span class="dv">2019</span><span class="op">&gt;</span><span class="dv">4</span>))</span></code></pre></div>
+<p>This is bad because we’re wasting a lot of memory in our environment that we’ll never use again.</p>
+<p>Another strategy is just to overwrite the same dataset</p>
+<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="dplyr-and-tidy.html#cb623-1"></a>VSG &lt;-<span class="st"> </span><span class="kw">select</span>(VSG, fav_sanders_<span class="dv">2019</span>, fav_warren_<span class="dv">2019</span>)</span>
+<span id="cb623-2"><a href="dplyr-and-tidy.html#cb623-2"></a>VSG <span class="op">&lt;</span><span class="st"> </span><span class="op">-</span><span class="kw">mutate</span>(VSG, <span class="dt">fav_sanders_binary =</span> (fav_sanders_<span class="dv">2019</span><span class="op">&lt;=</span><span class="dv">2</span>)<span class="op">*</span><span class="dv">1</span>)</span>
+<span id="cb623-3"><a href="dplyr-and-tidy.html#cb623-3"></a>VSG &lt;-<span class="st"> </span><span class="kw">mutate</span>(VSG, <span class="dt">fav_sanders_binary=</span> <span class="kw">na_if</span>(fav_sanders_<span class="dv">2019</span>, fav_sanders_<span class="dv">2019</span><span class="op">&gt;</span><span class="dv">4</span>))</span></code></pre></div>
+<p>This still wastes a lot of memory because of the way memory is managed in R. It also would be terrible to debug if something goes wrong.</p>
+<p>An even more difficult way would be write a function where the output of each stage are passed onto an outer layer.</p>
+<p>Or we can use the pipes</p>
+<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="dplyr-and-tidy.html#cb624-1"></a>VSG <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb624-2"><a href="dplyr-and-tidy.html#cb624-2"></a><span class="st">  </span><span class="kw">select</span>(fav_sanders_<span class="dv">2019</span>, fav_warren_<span class="dv">2019</span>) <span class="op">%&gt;%</span></span>
+<span id="cb624-3"><a href="dplyr-and-tidy.html#cb624-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">fav_sanders_binary=</span> <span class="kw">na_if</span>(fav_sanders_<span class="dv">2019</span>, fav_sanders_<span class="dv">2019</span><span class="op">&gt;</span><span class="dv">4</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb624-4"><a href="dplyr-and-tidy.html#cb624-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">fav_sanders_binary =</span> (fav_sanders_<span class="dv">2019</span><span class="op">&lt;=</span><span class="dv">2</span>)<span class="op">*</span><span class="dv">1</span>) </span></code></pre></div>
+<div id="limitations-of-pipes" class="section level3" number="7.5.1">
+<h3><span class="header-section-number">7.5.1</span> Limitations of Pipes</h3>
+<ul>
+<li><p>Piping works by creating a new function where object manipulations are passed from one to another</p></li>
+<li><p>This means that piping won’t work in cases where:</p>
+<ul>
+<li>The function uses the current environment such as assign, load, or get</li>
+<li>Functions that use lazy evaluation such as tryCatch, try, or supressMessages</li>
+</ul></li>
+<li><p>Pipes are not good in all situations</p></li>
+<li><p>If you do more than 4 or 5 pipes, go ahead and make in intermediate object. Otherwise debugging is a pain.</p></li>
+<li><p>If you are not actually working on just one object but instead combinig multiple objects, this is just not worth it.</p></li>
+<li><p>Where ther are interdepencies (e.g., complex recoding based on multiple variables)</p></li>
+<li><p>The <code>magrittr</code> package comes with some other tools for using in specific situations</p></li>
+<li><p>The <code>%T&gt;%</code> pipe works by calling the function to the right, but returning the function to the left</p></li>
+</ul>
+<div class="sourceCode" id="cb625"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb625-1"><a href="dplyr-and-tidy.html#cb625-1"></a><span class="kw">library</span>(magrittr)</span>
+<span id="cb625-2"><a href="dplyr-and-tidy.html#cb625-2"></a>VSG&lt;-<span class="kw">read_csv</span>(<span class="st">&quot;C:/Users/maria/OneDrive/WUSTL/2019-20/PDS/VOTER_Survey_Jan217_Release1-csv.csv&quot;</span>, <span class="dt">col_types=</span><span class="kw">cols</span>(<span class="dt">weight_18_24_2018=</span><span class="st">&quot;d&quot;</span>))</span>
+<span id="cb625-3"><a href="dplyr-and-tidy.html#cb625-3"></a>VSG <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb625-4"><a href="dplyr-and-tidy.html#cb625-4"></a><span class="st">  </span><span class="kw">select</span>(fav_sanders_<span class="dv">2019</span>, fav_warren_<span class="dv">2019</span>) <span class="op">%&gt;%</span></span>
+<span id="cb625-5"><a href="dplyr-and-tidy.html#cb625-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">fav_sanders_binary=</span> <span class="kw">na_if</span>(fav_sanders_<span class="dv">2019</span>, fav_sanders_<span class="dv">2019</span><span class="op">&gt;</span><span class="dv">4</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb625-6"><a href="dplyr-and-tidy.html#cb625-6"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">fav_sanders_binary =</span> (fav_sanders_<span class="dv">2019</span><span class="op">&lt;=</span><span class="dv">2</span>)<span class="op">*</span><span class="dv">1</span>) <span class="op">%T&gt;%</span></span>
+<span id="cb625-7"><a href="dplyr-and-tidy.html#cb625-7"></a><span class="st">  </span><span class="kw">plot</span>()</span></code></pre></div>
+<p><img src="images/unnamed-chunk-186-1.png" width="672" /></p>
+<pre><code>## # A tibble: 9,548 x 3
+##    fav_sanders_2019 fav_warren_2019 fav_sanders_binary
+##               &lt;dbl&gt;           &lt;dbl&gt;              &lt;dbl&gt;
+##  1                1               1                  1
+##  2               NA              NA                 NA
+##  3                2               1                  1
+##  4                4               3                  0
+##  5                3               4                  0
+##  6                3               1                  0
+##  7                3               2                  0
+##  8               NA              NA                 NA
+##  9               NA              NA                 NA
+## 10                2               1                  1
+## # ... with 9,538 more rows</code></pre>
+<ul>
+<li>We may also want to use specific elements from a dataframe using the <code>%$%</code> operator</li>
+</ul>
+<div class="sourceCode" id="cb627"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb627-1"><a href="dplyr-and-tidy.html#cb627-1"></a>VSG&lt;-<span class="st"> </span>VSG <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb627-2"><a href="dplyr-and-tidy.html#cb627-2"></a><span class="st">  </span><span class="kw">select</span>(fav_sanders_<span class="dv">2019</span>, fav_warren_<span class="dv">2019</span>) <span class="op">%&gt;%</span></span>
+<span id="cb627-3"><a href="dplyr-and-tidy.html#cb627-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">fav_sanders_binary=</span> <span class="kw">na_if</span>(fav_sanders_<span class="dv">2019</span>, fav_sanders_<span class="dv">2019</span><span class="op">&gt;</span><span class="dv">4</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb627-4"><a href="dplyr-and-tidy.html#cb627-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">fav_sanders_binary =</span> (fav_sanders_<span class="dv">2019</span><span class="op">&lt;=</span><span class="dv">2</span>)<span class="op">*</span><span class="dv">1</span>) <span class="op">%&gt;%</span></span>
+<span id="cb627-5"><a href="dplyr-and-tidy.html#cb627-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">fav_warren_binary=</span> <span class="kw">na_if</span>(fav_warren_<span class="dv">2019</span>, fav_warren_<span class="dv">2019</span><span class="op">&gt;</span><span class="dv">4</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb627-6"><a href="dplyr-and-tidy.html#cb627-6"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">fav_warren_binary =</span> (fav_warren_<span class="dv">2019</span><span class="op">&lt;=</span><span class="dv">2</span>)<span class="op">*</span><span class="dv">1</span>)</span>
+<span id="cb627-7"><a href="dplyr-and-tidy.html#cb627-7"></a></span>
+<span id="cb627-8"><a href="dplyr-and-tidy.html#cb627-8"></a><span class="kw">library</span>(magrittr)</span>
+<span id="cb627-9"><a href="dplyr-and-tidy.html#cb627-9"></a>VSG&lt;-<span class="st"> </span>VSG <span class="op">%$%</span><span class="st"> </span></span>
+<span id="cb627-10"><a href="dplyr-and-tidy.html#cb627-10"></a><span class="st">  </span><span class="kw">plot</span>(<span class="kw">table</span>(fav_sanders_binary, fav_warren_binary))</span></code></pre></div>
+<p><img src="images/unnamed-chunk-187-1.png" width="672" /></p>
+</div>
+</div>
+<div id="map" class="section level2" number="7.6">
+<h2><span class="header-section-number">7.6</span> <code>map</code></h2>
+<div class="sourceCode" id="cb628"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb628-1"><a href="dplyr-and-tidy.html#cb628-1"></a>VSG&lt;-<span class="kw">read_csv</span>(<span class="st">&quot;C:/Users/maria/OneDrive/WUSTL/2019-20/PDS/VOTER_Survey_Jan217_Release1-csv.csv&quot;</span>, <span class="dt">col_types=</span><span class="kw">cols</span>(<span class="dt">weight_18_24_2018=</span><span class="st">&quot;d&quot;</span>))</span>
+<span id="cb628-2"><a href="dplyr-and-tidy.html#cb628-2"></a>VSG.fav&lt;-VSG <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb628-3"><a href="dplyr-and-tidy.html#cb628-3"></a><span class="st">  </span><span class="kw">select</span>(<span class="kw">starts_with</span>(<span class="st">&quot;fav&quot;</span>)) </span></code></pre></div>
+<p>We want to loop over these data and recode all of the columns according to our rules</p>
+<ul>
+<li>Anything above a 4 gets moved to NA</li>
+<li>Then we turn them into a binary based on whether they are 2 and less or not</li>
+</ul>
+<div class="sourceCode" id="cb629"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb629-1"><a href="dplyr-and-tidy.html#cb629-1"></a>output&lt;-<span class="kw">as.data.frame</span>(<span class="kw">matrix</span>(<span class="ot">NA</span>, <span class="kw">nrow</span>(VSG.fav), <span class="kw">ncol</span>(VSG.fav)))</span>
+<span id="cb629-2"><a href="dplyr-and-tidy.html#cb629-2"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="kw">seq_along</span>(VSG.fav)){</span>
+<span id="cb629-3"><a href="dplyr-and-tidy.html#cb629-3"></a>  output[,i]&lt;-(VSG.fav[,i]<span class="op">&lt;=</span><span class="dv">2</span>)<span class="op">*</span><span class="dv">1</span></span>
+<span id="cb629-4"><a href="dplyr-and-tidy.html#cb629-4"></a>}</span></code></pre></div>
+<ul>
+<li>We could do this without making a new object</li>
+</ul>
+<div class="sourceCode" id="cb630"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb630-1"><a href="dplyr-and-tidy.html#cb630-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="kw">seq_along</span>(VSG.fav)){</span>
+<span id="cb630-2"><a href="dplyr-and-tidy.html#cb630-2"></a>  VSG.fav[,i]=<span class="st"> </span><span class="kw">na_if</span>(VSG.fav[[i]],VSG.fav[[i]]<span class="op">&gt;</span><span class="dv">4</span>)</span>
+<span id="cb630-3"><a href="dplyr-and-tidy.html#cb630-3"></a>  VSG.fav[,i]&lt;-(VSG.fav[,i]<span class="op">&lt;=</span><span class="dv">2</span>)<span class="op">*</span><span class="dv">1</span></span>
+<span id="cb630-4"><a href="dplyr-and-tidy.html#cb630-4"></a>}</span>
+<span id="cb630-5"><a href="dplyr-and-tidy.html#cb630-5"></a><span class="kw">head</span>(VSG.fav)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 68
+##   fav_trump_2019[~ fav_obama_2019[~ fav_hrc_2019[,&quot;~ fav_sanders_201~
+##              &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+## 1                0                1                1                1
+## 2               NA               NA               NA               NA
+## 3                0                1                1                1
+## 4                0                1                0                0
+## 5                1                1                0                0
+## 6                0                1                1                0
+## # ... with 64 more variables: fav_putin_2019[,&quot;fav_putin_2019&quot;] &lt;dbl&gt;,
+## #   fav_schumer_2019[,&quot;fav_schumer_2019&quot;] &lt;dbl&gt;,
+## #   fav_pelosi_2019[,&quot;fav_pelosi_2019&quot;] &lt;dbl&gt;,
+## #   fav_comey_2019[,&quot;fav_comey_2019&quot;] &lt;dbl&gt;,
+## #   fav_mueller_2019[,&quot;fav_mueller_2019&quot;] &lt;dbl&gt;,
+## #   fav_mcconnell_2019[,&quot;fav_mcconnell_2019&quot;] &lt;dbl&gt;,
+## #   fav_kavanaugh_2019[,&quot;fav_kavanaugh_2019&quot;] &lt;dbl&gt;,
+## #   fav_biden_2019[,&quot;fav_biden_2019&quot;] &lt;dbl&gt;,
+## #   fav_warren_2019[,&quot;fav_warren_2019&quot;] &lt;dbl&gt;,
+## #   fav_harris_2019[,&quot;fav_harris_2019&quot;] &lt;dbl&gt;,
+## #   fav_gillibrand_2019[,&quot;fav_gillibrand_2019&quot;] &lt;dbl&gt;,
+## #   fav_patrick_2019[,&quot;fav_patrick_2019&quot;] &lt;dbl&gt;,
+## #   fav_booker_2019[,&quot;fav_booker_2019&quot;] &lt;dbl&gt;,
+## #   fav_garcetti_2019[,&quot;fav_garcetti_2019&quot;] &lt;dbl&gt;,
+## #   fav_klobuchar_2019[,&quot;fav_klobuchar_2019&quot;] &lt;dbl&gt;,
+## #   fav_gorsuch_2019[,&quot;fav_gorsuch_2019&quot;] &lt;dbl&gt;,
+## #   fav_kasich_2019[,&quot;fav_kasich_2019&quot;] &lt;dbl&gt;,
+## #   fav_haley_2019[,&quot;fav_haley_2019&quot;] &lt;dbl&gt;,
+## #   fav_bloomberg_2019[,&quot;fav_bloomberg_2019&quot;] &lt;dbl&gt;,
+## #   fav_holder_2019[,&quot;fav_holder_2019&quot;] &lt;dbl&gt;,
+## #   fav_avenatti_2019[,&quot;fav_avenatti_2019&quot;] &lt;dbl&gt;,
+## #   fav_castro_2019[,&quot;fav_castro_2019&quot;] &lt;dbl&gt;,
+## #   fav_landrieu_2019[,&quot;fav_landrieu_2019&quot;] &lt;dbl&gt;,
+## #   fav_orourke_2019[,&quot;fav_orourke_2019&quot;] &lt;dbl&gt;,
+## #   fav_hickenlooper_2019[,&quot;fav_hickenlooper_2019&quot;] &lt;dbl&gt;,
+## #   fav_pence_2019[,&quot;fav_pence_2019&quot;] &lt;dbl&gt;,
+## #   favorhealth_2019[,&quot;favorhealth_2019&quot;] &lt;dbl&gt;,
+## #   fav_trump_2018[,&quot;fav_trump_2018&quot;] &lt;dbl&gt;,
+## #   fav_ryan_2018[,&quot;fav_ryan_2018&quot;] &lt;dbl&gt;,
+## #   fav_obama_2018[,&quot;fav_obama_2018&quot;] &lt;dbl&gt;,
+## #   fav_hrc_2018[,&quot;fav_hrc_2018&quot;] &lt;dbl&gt;,
+## #   fav_sanders_2018[,&quot;fav_sanders_2018&quot;] &lt;dbl&gt;,
+## #   fav_putin_2018[,&quot;fav_putin_2018&quot;] &lt;dbl&gt;,
+## #   fav_schumer_2018[,&quot;fav_schumer_2018&quot;] &lt;dbl&gt;,
+## #   fav_pelosi_2018[,&quot;fav_pelosi_2018&quot;] &lt;dbl&gt;,
+## #   fav_comey_2018[,&quot;fav_comey_2018&quot;] &lt;dbl&gt;,
+## #   fav_mueller_2018[,&quot;fav_mueller_2018&quot;] &lt;dbl&gt;,
+## #   fav_mcconnell_2018[,&quot;fav_mcconnell_2018&quot;] &lt;dbl&gt;,
+## #   fav_trump_2017[,&quot;fav_trump_2017&quot;] &lt;dbl&gt;,
+## #   fav_ryan_2017[,&quot;fav_ryan_2017&quot;] &lt;dbl&gt;,
+## #   fav_obama_2017[,&quot;fav_obama_2017&quot;] &lt;dbl&gt;,
+## #   fav_hrc_2017[,&quot;fav_hrc_2017&quot;] &lt;dbl&gt;,
+## #   fav_sanders_2017[,&quot;fav_sanders_2017&quot;] &lt;dbl&gt;,
+## #   fav_putin_2017[,&quot;fav_putin_2017&quot;] &lt;dbl&gt;,
+## #   fav_trump_2016[,&quot;fav_trump_2016&quot;] &lt;dbl&gt;,
+## #   fav_cruz_2016[,&quot;fav_cruz_2016&quot;] &lt;dbl&gt;,
+## #   fav_ryan_2016[,&quot;fav_ryan_2016&quot;] &lt;dbl&gt;,
+## #   fav_romn_2016[,&quot;fav_romn_2016&quot;] &lt;dbl&gt;,
+## #   fav_obama_2016[,&quot;fav_obama_2016&quot;] &lt;dbl&gt;,
+## #   fav_hrc_2016[,&quot;fav_hrc_2016&quot;] &lt;dbl&gt;,
+## #   fav_sanders_2016[,&quot;fav_sanders_2016&quot;] &lt;dbl&gt;,
+## #   fav_rubio_2016[,&quot;fav_rubio_2016&quot;] &lt;dbl&gt;,
+## #   fav_grid_row_rnd_2016[,&quot;fav_grid_row_rnd_2016&quot;] &lt;dbl&gt;,
+## #   fav_grid_col_rnd_2016[,&quot;fav_grid_col_rnd_2016&quot;] &lt;dbl&gt;,
+## #   fav_romn_baseline[,&quot;fav_romn_baseline&quot;] &lt;dbl&gt;,
+## #   fav_ging_baseline[,&quot;fav_ging_baseline&quot;] &lt;dbl&gt;,
+## #   fav_hunt_baseline[,&quot;fav_hunt_baseline&quot;] &lt;dbl&gt;,
+## #   fav_bach_baseline[,&quot;fav_bach_baseline&quot;] &lt;dbl&gt;,
+## #   fav_ronp_baseline[,&quot;fav_ronp_baseline&quot;] &lt;dbl&gt;,
+## #   fav_sant_baseline[,&quot;fav_sant_baseline&quot;] &lt;dbl&gt;,
+## #   fav_perr_baseline[,&quot;fav_perr_baseline&quot;] &lt;dbl&gt;,
+## #   fav_obama_baseline[,&quot;fav_obama_baseline&quot;] &lt;dbl&gt;,
+## #   fav_hrc_baseline[,&quot;fav_hrc_baseline&quot;] &lt;dbl&gt;,
+## #   fav_biden_baseline[,&quot;fav_biden_baseline&quot;] &lt;dbl&gt;</code></pre>
+<ul>
+<li><p>We can also loop where we aren’t sure how long the final output is</p></li>
+<li><p>This can be done by adding each element to the end of a vector as we did in some previous lectures</p></li>
+<li><p>This is computationally expensive</p></li>
+<li><p>A better solution is to add all of them to a list and then combine them back at the end.</p></li>
+<li><p>See Chapter 23.3.3 in the book for more</p></li>
+<li><p>Or Chapter 23.3.4 for while loops (which we have already covered)</p></li>
+<li><p>Looping is such a pervasive task, that there are functions to make it easier</p></li>
+<li><p>The <code>map</code> family will do this, and you can carefully control the output</p>
+<ul>
+<li><code>map</code> makes a list</li>
+<li><code>map_lgl</code> makes a logical vector</li>
+<li><code>map_int</code> makes an integer</li>
+<li><code>map_dbl</code> makes a double vector</li>
+<li><code>map_chr</code> makes a character</li>
+</ul></li>
+<li><p>These functions takes in a vector as an input and applies that function</p></li>
+<li><p>Let’s say that we want to find the mean level of favorability in our dataset</p></li>
+<li><p>This is <em>very</em> similar to <code>lapply</code> in base R</p>
+<ul>
+<li>For a comparison, check <a href="https://jennybc.github.io/purrr-tutorial/bk01_base-functions.html#lapply()_vs_purrr::map()">this</a> link out</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb632"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb632-1"><a href="dplyr-and-tidy.html#cb632-1"></a><span class="kw">map</span>(VSG.fav, mean, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</span></code></pre></div>
+<pre><code>## $fav_trump_2019
+## [1] 0.4214486
+## 
+## $fav_obama_2019
+## [1] 0.5311993
+## 
+## $fav_hrc_2019
+## [1] 0.3907656
+## 
+## $fav_sanders_2019
+## [1] 0.4724886
+## 
+## $fav_putin_2019
+## [1] 0.08172297
+## 
+## $fav_schumer_2019
+## [1] 0.3249742
+## 
+## $fav_pelosi_2019
+## [1] 0.3808821
+## 
+## $fav_comey_2019
+## [1] 0.2996017
+## 
+## $fav_mueller_2019
+## [1] 0.4549344
+## 
+## $fav_mcconnell_2019
+## [1] 0.2793922
+## 
+## $fav_kavanaugh_2019
+## [1] 0.4047795
+## 
+## $fav_biden_2019
+## [1] 0.5340021
+## 
+## $fav_warren_2019
+## [1] 0.4173182
+## 
+## $fav_harris_2019
+## [1] 0.322909
+## 
+## $fav_gillibrand_2019
+## [1] 0.2838177
+## 
+## $fav_patrick_2019
+## [1] 0.1606432
+## 
+## $fav_booker_2019
+## [1] 0.3462163
+## 
+## $fav_garcetti_2019
+## [1] 0.1048827
+## 
+## $fav_klobuchar_2019
+## [1] 0.2283523
+## 
+## $fav_gorsuch_2019
+## [1] 0.354182
+## 
+## $fav_kasich_2019
+## [1] 0.3192211
+## 
+## $fav_haley_2019
+## [1] 0.420416
+## 
+## $fav_bloomberg_2019
+## [1] 0.3218764
+## 
+## $fav_holder_2019
+## [1] 0.3221714
+## 
+## $fav_avenatti_2019
+## [1] 0.1737719
+## 
+## $fav_castro_2019
+## [1] 0.2015046
+## 
+## $fav_landrieu_2019
+## [1] 0.1274524
+## 
+## $fav_orourke_2019
+## [1] 0.364213
+## 
+## $fav_hickenlooper_2019
+## [1] 0.1295176
+## 
+## $fav_pence_2019
+## [1] 0.4437233
+## 
+## $favorhealth_2019
+## [1] 0.476914
+## 
+## $fav_trump_2018
+## [1] 0.3953372
+## 
+## $fav_ryan_2018
+## [1] 0.2812656
+## 
+## $fav_obama_2018
+## [1] 0.5322231
+## 
+## $fav_hrc_2018
+## [1] 0.3900083
+## 
+## $fav_sanders_2018
+## [1] 0.4814321
+## 
+## $fav_putin_2018
+## [1] 0.07693589
+## 
+## $fav_schumer_2018
+## [1] 0.3080766
+## 
+## $fav_pelosi_2018
+## [1] 0.3233972
+## 
+## $fav_comey_2018
+## [1] 0.3172356
+## 
+## $fav_mueller_2018
+## [1] 0.4066611
+## 
+## $fav_mcconnell_2018
+## [1] 0.1567027
+## 
+## $fav_trump_2017
+## [1] 0.43642
+## 
+## $fav_ryan_2017
+## [1] 0.2748614
+## 
+## $fav_obama_2017
+## [1] 0.4928269
+## 
+## $fav_hrc_2017
+## [1] 0.4029997
+## 
+## $fav_sanders_2017
+## [1] 0.4768503
+## 
+## $fav_putin_2017
+## [1] 0.1092273
+## 
+## $fav_trump_2016
+## [1] 0.4416231
+## 
+## $fav_cruz_2016
+## [1] 0.3446602
+## 
+## $fav_ryan_2016
+## [1] 0.3635798
+## 
+## $fav_romn_2016
+## [1] 0.3480209
+## 
+## $fav_obama_2016
+## [1] 0.4887976
+## 
+## $fav_hrc_2016
+## [1] 0.418347
+## 
+## $fav_sanders_2016
+## [1] 0.5373413
+## 
+## $fav_rubio_2016
+## [1] 0.4218322
+## 
+## $fav_grid_row_rnd_2016
+## [1] 0
+## 
+## $fav_grid_col_rnd_2016
+## [1] 0
+## 
+## $fav_romn_baseline
+## [1] 0.4337814
+## 
+## $fav_ging_baseline
+## [1] 0.3297237
+## 
+## $fav_hunt_baseline
+## [1] 0.3512572
+## 
+## $fav_bach_baseline
+## [1] 0.3188947
+## 
+## $fav_ronp_baseline
+## [1] 0.3409261
+## 
+## $fav_sant_baseline
+## [1] 0.377645
+## 
+## $fav_perr_baseline
+## [1] 0.3066965
+## 
+## $fav_obama_baseline
+## [1] 0.4814538
+## 
+## $fav_hrc_baseline
+## [1] 0.5892457
+## 
+## $fav_biden_baseline
+## [1] 0.4600448</code></pre>
+<div class="sourceCode" id="cb634"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb634-1"><a href="dplyr-and-tidy.html#cb634-1"></a><span class="kw">map_dbl</span>(VSG.fav, mean, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</span></code></pre></div>
+<pre><code>##        fav_trump_2019        fav_obama_2019          fav_hrc_2019 
+##            0.42144859            0.53119929            0.39076560 
+##      fav_sanders_2019        fav_putin_2019      fav_schumer_2019 
+##            0.47248857            0.08172297            0.32497418 
+##       fav_pelosi_2019        fav_comey_2019      fav_mueller_2019 
+##            0.38088214            0.29960171            0.45493436 
+##    fav_mcconnell_2019    fav_kavanaugh_2019        fav_biden_2019 
+##            0.27939224            0.40477947            0.53400207 
+##       fav_warren_2019       fav_harris_2019   fav_gillibrand_2019 
+##            0.41731819            0.32290898            0.28381767 
+##      fav_patrick_2019       fav_booker_2019     fav_garcetti_2019 
+##            0.16064316            0.34621626            0.10488273 
+##    fav_klobuchar_2019      fav_gorsuch_2019       fav_kasich_2019 
+##            0.22835226            0.35418203            0.31922112 
+##        fav_haley_2019    fav_bloomberg_2019       fav_holder_2019 
+##            0.42041599            0.32187638            0.32217141 
+##     fav_avenatti_2019       fav_castro_2019     fav_landrieu_2019 
+##            0.17377194            0.20150465            0.12745243 
+##      fav_orourke_2019 fav_hickenlooper_2019        fav_pence_2019 
+##            0.36421301            0.12951763            0.44372326 
+##      favorhealth_2019        fav_trump_2018         fav_ryan_2018 
+##            0.47691400            0.39533722            0.28126561 
+##        fav_obama_2018          fav_hrc_2018      fav_sanders_2018 
+##            0.53222315            0.39000833            0.48143214 
+##        fav_putin_2018      fav_schumer_2018       fav_pelosi_2018 
+##            0.07693589            0.30807660            0.32339717 
+##        fav_comey_2018      fav_mueller_2018    fav_mcconnell_2018 
+##            0.31723564            0.40666112            0.15670275 
+##        fav_trump_2017         fav_ryan_2017        fav_obama_2017 
+##            0.43641995            0.27486143            0.49282687 
+##          fav_hrc_2017      fav_sanders_2017        fav_putin_2017 
+##            0.40299967            0.47685034            0.10922726 
+##        fav_trump_2016         fav_cruz_2016         fav_ryan_2016 
+##            0.44162310            0.34466019            0.36357979 
+##         fav_romn_2016        fav_obama_2016          fav_hrc_2016 
+##            0.34802091            0.48879761            0.41834703 
+##      fav_sanders_2016        fav_rubio_2016 fav_grid_row_rnd_2016 
+##            0.53734130            0.42183221            0.00000000 
+## fav_grid_col_rnd_2016     fav_romn_baseline     fav_ging_baseline 
+##            0.00000000            0.43378143            0.32972367 
+##     fav_hunt_baseline     fav_bach_baseline     fav_ronp_baseline 
+##            0.35125716            0.31889470            0.34092606 
+##     fav_sant_baseline     fav_perr_baseline    fav_obama_baseline 
+##            0.37764501            0.30669654            0.48145382 
+##      fav_hrc_baseline    fav_biden_baseline 
+##            0.58924571            0.46004481</code></pre>
+<div class="sourceCode" id="cb636"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb636-1"><a href="dplyr-and-tidy.html#cb636-1"></a><span class="kw">map_chr</span>(VSG.fav, mean, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</span></code></pre></div>
+<pre><code>##        fav_trump_2019        fav_obama_2019          fav_hrc_2019 
+##            &quot;0.421449&quot;            &quot;0.531199&quot;            &quot;0.390766&quot; 
+##      fav_sanders_2019        fav_putin_2019      fav_schumer_2019 
+##            &quot;0.472489&quot;            &quot;0.081723&quot;            &quot;0.324974&quot; 
+##       fav_pelosi_2019        fav_comey_2019      fav_mueller_2019 
+##            &quot;0.380882&quot;            &quot;0.299602&quot;            &quot;0.454934&quot; 
+##    fav_mcconnell_2019    fav_kavanaugh_2019        fav_biden_2019 
+##            &quot;0.279392&quot;            &quot;0.404779&quot;            &quot;0.534002&quot; 
+##       fav_warren_2019       fav_harris_2019   fav_gillibrand_2019 
+##            &quot;0.417318&quot;            &quot;0.322909&quot;            &quot;0.283818&quot; 
+##      fav_patrick_2019       fav_booker_2019     fav_garcetti_2019 
+##            &quot;0.160643&quot;            &quot;0.346216&quot;            &quot;0.104883&quot; 
+##    fav_klobuchar_2019      fav_gorsuch_2019       fav_kasich_2019 
+##            &quot;0.228352&quot;            &quot;0.354182&quot;            &quot;0.319221&quot; 
+##        fav_haley_2019    fav_bloomberg_2019       fav_holder_2019 
+##            &quot;0.420416&quot;            &quot;0.321876&quot;            &quot;0.322171&quot; 
+##     fav_avenatti_2019       fav_castro_2019     fav_landrieu_2019 
+##            &quot;0.173772&quot;            &quot;0.201505&quot;            &quot;0.127452&quot; 
+##      fav_orourke_2019 fav_hickenlooper_2019        fav_pence_2019 
+##            &quot;0.364213&quot;            &quot;0.129518&quot;            &quot;0.443723&quot; 
+##      favorhealth_2019        fav_trump_2018         fav_ryan_2018 
+##            &quot;0.476914&quot;            &quot;0.395337&quot;            &quot;0.281266&quot; 
+##        fav_obama_2018          fav_hrc_2018      fav_sanders_2018 
+##            &quot;0.532223&quot;            &quot;0.390008&quot;            &quot;0.481432&quot; 
+##        fav_putin_2018      fav_schumer_2018       fav_pelosi_2018 
+##            &quot;0.076936&quot;            &quot;0.308077&quot;            &quot;0.323397&quot; 
+##        fav_comey_2018      fav_mueller_2018    fav_mcconnell_2018 
+##            &quot;0.317236&quot;            &quot;0.406661&quot;            &quot;0.156703&quot; 
+##        fav_trump_2017         fav_ryan_2017        fav_obama_2017 
+##            &quot;0.436420&quot;            &quot;0.274861&quot;            &quot;0.492827&quot; 
+##          fav_hrc_2017      fav_sanders_2017        fav_putin_2017 
+##            &quot;0.403000&quot;            &quot;0.476850&quot;            &quot;0.109227&quot; 
+##        fav_trump_2016         fav_cruz_2016         fav_ryan_2016 
+##            &quot;0.441623&quot;            &quot;0.344660&quot;            &quot;0.363580&quot; 
+##         fav_romn_2016        fav_obama_2016          fav_hrc_2016 
+##            &quot;0.348021&quot;            &quot;0.488798&quot;            &quot;0.418347&quot; 
+##      fav_sanders_2016        fav_rubio_2016 fav_grid_row_rnd_2016 
+##            &quot;0.537341&quot;            &quot;0.421832&quot;            &quot;0.000000&quot; 
+## fav_grid_col_rnd_2016     fav_romn_baseline     fav_ging_baseline 
+##            &quot;0.000000&quot;            &quot;0.433781&quot;            &quot;0.329724&quot; 
+##     fav_hunt_baseline     fav_bach_baseline     fav_ronp_baseline 
+##            &quot;0.351257&quot;            &quot;0.318895&quot;            &quot;0.340926&quot; 
+##     fav_sant_baseline     fav_perr_baseline    fav_obama_baseline 
+##            &quot;0.377645&quot;            &quot;0.306697&quot;            &quot;0.481454&quot; 
+##      fav_hrc_baseline    fav_biden_baseline 
+##            &quot;0.589246&quot;            &quot;0.460045&quot;</code></pre>
+</div>
+<div id="walk-purrr-and-more" class="section level2" number="7.7">
+<h2><span class="header-section-number">7.7</span> walk, purrr, and more</h2>
+<ul>
+<li>See Chapter 21.8 for a discussion of <code>walk</code></li>
+<li>Main idea here is when you want to use a function for its side operations (e.g., plot) rather than to manipulate the data</li>
+<li>See also Chapter 21.9.1 for some additional functionality that is occasionally useful:
+<ul>
+<li><code>keep</code></li>
+<li><code>discard</code></li>
+<li><code>some</code></li>
+<li><code>every</code></li>
+</ul></li>
+<li>See Chapter 21.9.2 for even more advanced approaches to extracting data</li>
+</ul>
 
 </div>
 </div>
-</div>
+
+
+
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="data-visualization-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="more-useful-packages.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-visualization-in-r.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
