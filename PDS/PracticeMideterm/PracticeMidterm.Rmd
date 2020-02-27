@@ -1,0 +1,76 @@
+---
+title: ""
+output: pdf_document
+header-includes:
+- \newcommand{\benum}{\begin{enumerate}}
+- \newcommand{\eenum}{\end{enumerate}}
+- \newcommand{\beit}{\begin{itemize}}
+- \newcommand{\eeit}{\end{itemize}}
+---
+
+\begin{center}
+{\Large{\textbf{Practice Midterm}}} \\
+\vspace{4 bp}
+
+\end{center}
+
+\section*{Instructions}
+
+\benum
+  \item The following questions should each be answered within an R script. Be sure to provide many comments in the script to facilitate grading. Undocumented code will not be graded. 
+  \item For the real midterm you may NOT work in teams.  So you should practice that.  But once you are done you should compare results with eachother to better leran from your peers.
+  \item This is open note, open book, open Internet test.  But each keystroke in the assignment should be your own. Do not copy and paste from each other or from the Internet or even from the notes.
+  \item The test is designed to take approximately 5 hours.  But you can spend up to eight hours to do it.
+  \item Part of your grade will be based on the readibility of your script.  I will be running all of your code.  If I don't understand what you are doing, I can't give partial credit.  So pay attention to tabs, comments, and other tricks we have talked about for organizing your code.
+  \item As with all aspects of this class, there is not going to be a single "right" answer.  That is not how real data analysis works. But I will try and provide you a lot of guidance.  If you are confused, go ahead and ping me on slack.  I can't promise I'll answer right away, but I will when I can.
+\eenum
+
+\section*{Part 1: State policy data}
+
+You are going to be using the following dataset:
+http://ippsr.msu.edu/sites/default/files/correlatesofstatepolicyprojectv2_1.csv
+
+This is data from the *correlates of state policy* database.  You can read more about that here: http://ippsr.msu.edu/public-policy/correlates-state-policy
+
+> The Correlates of State Policy Project aims to compile, disseminate, and encourage the use of data relevant to U.S. state policy research, tracking policy differences across the 50 states and changes over time. We have gathered more than 900 variables from various sources and assembled them into one large, useful dataset. We hope this project will become a “one-stop shop” for academics, policy analysts, students, and researchers looking for variables germane to the study of state policies and politics.
+
+Here is the complete codebook: https://ippsr.msu.edu/sites/default/files/CorrelatesCodebook.pdf
+
+1. There is one observation in this dataset for each state for each year.
+2. The dataset contains 118 years, but most variables are only available for a few years.
+
+
+----
+
+
+
+
+1. Data cleaning
+
++ Remove Washington, DC from the data
++ Remove all data from before 1940
++ Add a variable to the data that indicates the decade (e.g., 80s, 90s, etc)
++ Reduce the data down to the following columns: `incshare_top10`, `region`, `poptotal`, `undocumented_immigrants`, and the new decade variable you made before.  Take a minute to read the codebook for these variables.
++ Create a new variable that is the percent of each state that is an undocumented immigrant.
+
+
+2. Some basic visualization
+
++ Create a plot that shows the trend in the `inshare_top10` by region over time.  The x-axis should be time and the y-axis should be `inshare_top10`.  I want all 50 states to appear on the plot.  There should be 50 lines.  But the lines should be broken up by region.
++ There is no "right" answer here, but here are a few things to consider, but I should be able to interpret the results clearly.  This means clear labels on the axes, a legend, etc.  Remember I am looking at the code, so useful comments are helpful here.
+
+
+2. Making data play nice with other data
+
+mayors<-read_csv(file="https://raw.githubusercontent.com/jmontgomery/jmontgomery.github.io/master/PDS/Datasets/Mayors.csv")
+
+
+3. Text
+
+
+4. Functions
+
+
+5. 
+
+
