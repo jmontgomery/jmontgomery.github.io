@@ -11,6 +11,8 @@ take notes at office hours
 
 integrating google drive into a workflow
 
+functional programming notes
+
 //done:
 
 projects in RStudio (another project maybe?)
