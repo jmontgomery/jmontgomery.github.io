@@ -176,7 +176,7 @@ unlist(lapply(1:5, function(i) 5+i ))
 
 
 - This is a "simplified" version of `lapply`
-- The key difference is that it changes hat kind of object is returned depending on what the outcomes look like.
+- The key difference is that it changes what kind of object is returned depending on what the outcomes look like.
     + If the output is a scalar, the result is a vector
     + If the output is all vectors of the same length, it will return a matrix
 
@@ -261,7 +261,7 @@ sweep(array, margin, stats, function, ...)
 ```
 
 - This is used if you want, for instance, mean center your variables
-- The name is horrible, but the idea is that you can alter each variable as a functino of the variable.  Easiest to understand by example.
+- The name is horrible, but the idea is that you can alter each variable as a function of the variable.  Easiest to understand by example.
 
 ```{r}
 a <- matrix(runif(100, 1, 2),20)
@@ -307,7 +307,7 @@ class(byOut)
 
 Base R comes with a variety of related functions that are a variety on a theme
 
-- `vapply` is mucht the same except
+- `vapply` is much the same except
 - The argument `FUN.VALUE` provides a template for what the output should look like
 
 ```{r, eval=FALSE}
@@ -353,7 +353,7 @@ The `plyr` package is designed to make all of this a bit easier to handle by add
 - Easy to make parallel
 - Built-in error recovery
 - Better handling of labels
-- Flesible handling of all basic data types
+- Flexible handling of all basic data types
 - This content taken from: https://www.r-bloggers.com/a-fast-intro-to-plyr-for-r/
 
 ```{r}
@@ -463,7 +463,7 @@ system.time(out2 <- laply(myY, myFunction, x=myX, .parallel=TRUE))
 
 ---
 
-## 14.8: Functinal programming
+## 14.8: Functional programming
 
 - Functions in R are simply other objects in memory that can themselves be manipulated, edited, or created by other functions
 - This seems simple enough, but in fact offers a powerful set of tools for more complex tasks.  
