@@ -348,7 +348,7 @@ tweets %>%
 - "Inner joins" produce results only where the linking variable appears on both tables
 - "Outer joins" produce results with all data, and fills in missing values as necessary
   + Left join keeps only observations from the first specified data if their is no match.
-  + Right join keeps only observations from teh second data
+  + Right join keeps only observations from the second data
   + Full join keeps everything
 - Let's draw up the venn diagrams for:
   + Inner joins

@@ -1,0 +1,1952 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>9 Using SQL syntax on an R dataframe | Political Data Science</title>
+  <meta name="description" content="9 Using SQL syntax on an R dataframe | Political Data Science" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="9 Using SQL syntax on an R dataframe | Political Data Science" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="9 Using SQL syntax on an R dataframe | Political Data Science" />
+  
+  
+  
+
+<meta name="author" content="Jacob Montgomery and Mariah Yelenick" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="functions-and-packages.html"/>
+
+<script src="libs/header-attrs-2.1/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Don’t be a clown</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#as-easy-as-cake"><i class="fa fa-check"></i><b>1.1</b> As easy as cake</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#coding"><i class="fa fa-check"></i><b>1.1.1</b> Coding</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#data-acquision"><i class="fa fa-check"></i><b>1.1.2</b> Data acquision</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#algorithms"><i class="fa fa-check"></i><b>1.1.3</b> Algorithms</a></li>
+<li class="chapter" data-level="1.1.4" data-path="index.html"><a href="index.html#domain-knowledge"><i class="fa fa-check"></i><b>1.1.4</b> Domain knowledge</a></li>
+<li class="chapter" data-level="1.1.5" data-path="index.html"><a href="index.html#putting-it-together"><i class="fa fa-check"></i><b>1.1.5</b> Putting it together</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#class-structures"><i class="fa fa-check"></i><b>1.2</b> Class structures</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#learning-objective-1-team-based-learning"><i class="fa fa-check"></i><b>1.2.1</b> Learning objective #1: Team based learning</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#learning-objective-2-show-up-ready"><i class="fa fa-check"></i><b>1.2.2</b> Learning objective #2: Show up ready</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#learning-objective-3-how-is-this-going-to-work"><i class="fa fa-check"></i><b>1.2.3</b> Learning objective #3: How is this going to work?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html"><i class="fa fa-check"></i><b>2</b> Getting Started in R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#assigning-values-to-objects"><i class="fa fa-check"></i><b>2.2</b> Assigning values to objects</a></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#r-as-a-calculator"><i class="fa fa-check"></i><b>2.3</b> R as a calculator</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#the-global-environment-and-how-to-clean-it"><i class="fa fa-check"></i><b>2.4</b> The global environment and how to clean it</a></li>
+<li class="chapter" data-level="2.5" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#getting-help"><i class="fa fa-check"></i><b>2.5</b> Getting help</a></li>
+<li class="chapter" data-level="2.6" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#installing-packages"><i class="fa fa-check"></i><b>2.6</b> Installing packages</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-types-in-r.html"><a href="data-types-in-r.html"><i class="fa fa-check"></i><b>3</b> Data Types in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-types-in-r.html"><a href="data-types-in-r.html#functions"><i class="fa fa-check"></i><b>3.1</b> Functions</a></li>
+<li class="chapter" data-level="3.2" data-path="data-types-in-r.html"><a href="data-types-in-r.html#vectors"><i class="fa fa-check"></i><b>3.2</b> Vectors</a></li>
+<li class="chapter" data-level="3.3" data-path="data-types-in-r.html"><a href="data-types-in-r.html#functions-and-vectors"><i class="fa fa-check"></i><b>3.3</b> Functions and vectors</a></li>
+<li class="chapter" data-level="3.4" data-path="data-types-in-r.html"><a href="data-types-in-r.html#logicalsbooleans"><i class="fa fa-check"></i><b>3.4</b> Logicals/Booleans</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="data-types-in-r.html"><a href="data-types-in-r.html#boolean-logic"><i class="fa fa-check"></i><b>3.4.1</b> Boolean logic</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="data-types-in-r.html"><a href="data-types-in-r.html#charactersstrings"><i class="fa fa-check"></i><b>3.5</b> Characters/Strings</a></li>
+<li class="chapter" data-level="3.6" data-path="data-types-in-r.html"><a href="data-types-in-r.html#matrices"><i class="fa fa-check"></i><b>3.6</b> Matrices</a></li>
+<li class="chapter" data-level="3.7" data-path="data-types-in-r.html"><a href="data-types-in-r.html#matrix-algebra-optional"><i class="fa fa-check"></i><b>3.7</b> Matrix algebra (optional)</a></li>
+<li class="chapter" data-level="3.8" data-path="data-types-in-r.html"><a href="data-types-in-r.html#lists"><i class="fa fa-check"></i><b>3.8</b> Lists</a></li>
+<li class="chapter" data-level="3.9" data-path="data-types-in-r.html"><a href="data-types-in-r.html#arrays"><i class="fa fa-check"></i><b>3.9</b> Arrays</a></li>
+<li class="chapter" data-level="3.10" data-path="data-types-in-r.html"><a href="data-types-in-r.html#dataframes"><i class="fa fa-check"></i><b>3.10</b> Dataframes</a></li>
+<li class="chapter" data-level="3.11" data-path="data-types-in-r.html"><a href="data-types-in-r.html#general-info"><i class="fa fa-check"></i><b>3.11</b> General info</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html"><i class="fa fa-check"></i><b>4</b> Files, For Loops, and Functions</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#the-working-directory"><i class="fa fa-check"></i><b>4.1</b> The working directory</a></li>
+<li class="chapter" data-level="4.2" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#input-and-output"><i class="fa fa-check"></i><b>4.2</b> Input and output</a></li>
+<li class="chapter" data-level="4.3" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#if-else-ifelse"><i class="fa fa-check"></i><b>4.3</b> if, else, ifelse</a></li>
+<li class="chapter" data-level="4.4" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#repeat-and-while"><i class="fa fa-check"></i><b>4.4</b> repeat and while</a></li>
+<li class="chapter" data-level="4.5" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#for-loops"><i class="fa fa-check"></i><b>4.5</b> for loops</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#next-and-break"><i class="fa fa-check"></i><b>4.5.1</b> next and break</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#functions-1"><i class="fa fa-check"></i><b>4.6</b> Functions</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#the-basics"><i class="fa fa-check"></i><b>4.6.1</b> The basics</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#setting-defaults"><i class="fa fa-check"></i><b>4.7</b> Setting defaults</a></li>
+<li class="chapter" data-level="4.8" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#scope"><i class="fa fa-check"></i><b>4.8</b> Scope</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#advanced-scope-topics"><i class="fa fa-check"></i><b>4.8.1</b> Advanced scope topics</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#debugging"><i class="fa fa-check"></i><b>4.9</b> Debugging</a></li>
+<li class="chapter" data-level="4.10" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#benchmarking-and-code-improvements"><i class="fa fa-check"></i><b>4.10</b> Benchmarking and code improvements</a>
+<ul>
+<li class="chapter" data-level="4.10.1" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#vectorizing"><i class="fa fa-check"></i><b>4.10.1</b> Vectorizing</a></li>
+<li class="chapter" data-level="4.10.2" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#pastecollapse-and-copies"><i class="fa fa-check"></i><b>4.10.2</b> Paste/collapse and copies</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="version-control.html"><a href="version-control.html"><i class="fa fa-check"></i><b>5</b> Version Control</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="version-control.html"><a href="version-control.html#why-version-control"><i class="fa fa-check"></i><b>5.1</b> Why version control?</a></li>
+<li class="chapter" data-level="5.2" data-path="version-control.html"><a href="version-control.html#setup"><i class="fa fa-check"></i><b>5.2</b> Setup</a></li>
+<li class="chapter" data-level="5.3" data-path="version-control.html"><a href="version-control.html#workflow"><i class="fa fa-check"></i><b>5.3</b> Workflow</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="version-control.html"><a href="version-control.html#pull"><i class="fa fa-check"></i><b>5.3.1</b> Pull</a></li>
+<li class="chapter" data-level="5.3.2" data-path="version-control.html"><a href="version-control.html#commit"><i class="fa fa-check"></i><b>5.3.2</b> Commit</a></li>
+<li class="chapter" data-level="5.3.3" data-path="version-control.html"><a href="version-control.html#push"><i class="fa fa-check"></i><b>5.3.3</b> Push</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="version-control.html"><a href="version-control.html#branches"><i class="fa fa-check"></i><b>5.4</b> Branches</a></li>
+<li class="chapter" data-level="5.5" data-path="version-control.html"><a href="version-control.html#forking"><i class="fa fa-check"></i><b>5.5</b> Forking</a></li>
+<li class="chapter" data-level="5.6" data-path="version-control.html"><a href="version-control.html#reverting"><i class="fa fa-check"></i><b>5.6</b> Reverting</a></li>
+<li class="chapter" data-level="5.7" data-path="version-control.html"><a href="version-control.html#conflict-management"><i class="fa fa-check"></i><b>5.7</b> Conflict management</a></li>
+<li class="chapter" data-level="5.8" data-path="version-control.html"><a href="version-control.html#version-control-in-rstudio"><i class="fa fa-check"></i><b>5.8</b> Version Control in RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-visualization-in-r.html"><a href="data-visualization-in-r.html"><i class="fa fa-check"></i><b>6</b> Data Visualization in R</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="data-visualization-in-r.html"><a href="data-visualization-in-r.html#intro-to-ggplot2"><i class="fa fa-check"></i><b>6.1</b> Intro to ggplot2</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="data-visualization-in-r.html"><a href="data-visualization-in-r.html#example"><i class="fa fa-check"></i><b>6.1.1</b> Example</a></li>
+<li class="chapter" data-level="6.1.2" data-path="data-visualization-in-r.html"><a href="data-visualization-in-r.html#aesthetics"><i class="fa fa-check"></i><b>6.1.2</b> Aesthetics</a></li>
+<li class="chapter" data-level="6.1.3" data-path="data-visualization-in-r.html"><a href="data-visualization-in-r.html#facets"><i class="fa fa-check"></i><b>6.1.3</b> Facets</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="data-visualization-in-r.html"><a href="data-visualization-in-r.html#more-geom-options"><i class="fa fa-check"></i><b>6.2</b> More <code>geom</code> options</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html"><i class="fa fa-check"></i><b>7</b> dplyr and tidy</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#into-the-tidyverse"><i class="fa fa-check"></i><b>7.1</b> Into the tidyverse</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#our-example"><i class="fa fa-check"></i><b>7.1.1</b> Our example</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#back-to-dplyr"><i class="fa fa-check"></i><b>7.2</b> Back to <code>dplyr</code></a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#filter"><i class="fa fa-check"></i><b>7.2.1</b> <code>filter</code></a></li>
+<li class="chapter" data-level="7.2.2" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#arrange"><i class="fa fa-check"></i><b>7.2.2</b> <code>arrange</code></a></li>
+<li class="chapter" data-level="7.2.3" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#select"><i class="fa fa-check"></i><b>7.2.3</b> <code>select</code></a></li>
+<li class="chapter" data-level="7.2.4" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#mutate"><i class="fa fa-check"></i><b>7.2.4</b> <code>mutate</code></a></li>
+<li class="chapter" data-level="7.2.5" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#summarise"><i class="fa fa-check"></i><b>7.2.5</b> <code>summarise</code></a></li>
+<li class="chapter" data-level="7.2.6" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#piping"><i class="fa fa-check"></i><b>7.2.6</b> Piping</a></li>
+<li class="chapter" data-level="7.2.7" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#pivots"><i class="fa fa-check"></i><b>7.2.7</b> Pivots</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#relational-data"><i class="fa fa-check"></i><b>7.3</b> Relational data</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#mutating-join"><i class="fa fa-check"></i><b>7.3.1</b> Mutating join</a></li>
+<li class="chapter" data-level="7.3.2" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#joins-topography"><i class="fa fa-check"></i><b>7.3.2</b> Joins topography</a></li>
+<li class="chapter" data-level="7.3.3" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#many-and-one-to-many"><i class="fa fa-check"></i><b>7.3.3</b> Many and one-to-many</a></li>
+<li class="chapter" data-level="7.3.4" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#filtering-joins"><i class="fa fa-check"></i><b>7.3.4</b> Filtering joins</a></li>
+<li class="chapter" data-level="7.3.5" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#set-operations"><i class="fa fa-check"></i><b>7.3.5</b> Set operations</a></li>
+<li class="chapter" data-level="7.3.6" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#exercise"><i class="fa fa-check"></i><b>7.3.6</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#stringr"><i class="fa fa-check"></i><b>7.4</b> <code>stringr</code></a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#things-you-havent-thought-about-strings"><i class="fa fa-check"></i><b>7.4.1</b> Things you haven’t thought about strings</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#pipes-and-maps"><i class="fa fa-check"></i><b>7.5</b> Pipes and maps</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#limitations-of-pipes"><i class="fa fa-check"></i><b>7.5.1</b> Limitations of Pipes</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#map"><i class="fa fa-check"></i><b>7.6</b> <code>map</code></a></li>
+<li class="chapter" data-level="7.7" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#walk-purrr-and-more"><i class="fa fa-check"></i><b>7.7</b> walk, purrr, and more</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="functions-and-packages.html"><a href="functions-and-packages.html"><i class="fa fa-check"></i><b>8</b> Functions and Packages</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="functions-and-packages.html"><a href="functions-and-packages.html#apply-and-its-friends"><i class="fa fa-check"></i><b>8.1</b> <code>apply</code> and its friends</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="functions-and-packages.html"><a href="functions-and-packages.html#apply"><i class="fa fa-check"></i><b>8.1.1</b> <code>apply</code></a></li>
+<li class="chapter" data-level="8.1.2" data-path="functions-and-packages.html"><a href="functions-and-packages.html#lapply"><i class="fa fa-check"></i><b>8.1.2</b> <code>lapply</code></a></li>
+<li class="chapter" data-level="8.1.3" data-path="functions-and-packages.html"><a href="functions-and-packages.html#sapply"><i class="fa fa-check"></i><b>8.1.3</b> <code>sapply</code></a></li>
+<li class="chapter" data-level="8.1.4" data-path="functions-and-packages.html"><a href="functions-and-packages.html#tapply"><i class="fa fa-check"></i><b>8.1.4</b> <code>tapply</code></a></li>
+<li class="chapter" data-level="8.1.5" data-path="functions-and-packages.html"><a href="functions-and-packages.html#sweep"><i class="fa fa-check"></i><b>8.1.5</b> <code>sweep</code></a></li>
+<li class="chapter" data-level="8.1.6" data-path="functions-and-packages.html"><a href="functions-and-packages.html#by"><i class="fa fa-check"></i><b>8.1.6</b> <code>by</code></a></li>
+<li class="chapter" data-level="8.1.7" data-path="functions-and-packages.html"><a href="functions-and-packages.html#vapply-and-more"><i class="fa fa-check"></i><b>8.1.7</b> <code>vapply</code> And more</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="functions-and-packages.html"><a href="functions-and-packages.html#plyr"><i class="fa fa-check"></i><b>8.2</b> <code>plyr</code></a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html"><i class="fa fa-check"></i><b>9</b> Using SQL syntax on an R dataframe</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html#sql"><i class="fa fa-check"></i><b>9.1</b> SQL</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html#select-and-from"><i class="fa fa-check"></i><b>9.1.1</b> <code>SELECT</code> and <code>FROM</code></a></li>
+<li class="chapter" data-level="9.1.2" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html#where"><i class="fa fa-check"></i><b>9.1.2</b> <code>WHERE</code></a></li>
+<li class="chapter" data-level="9.1.3" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html#functions-2"><i class="fa fa-check"></i><b>9.1.3</b> Functions</a></li>
+<li class="chapter" data-level="9.1.4" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html#having"><i class="fa fa-check"></i><b>9.1.4</b> <code>HAVING</code></a></li>
+<li class="chapter" data-level="9.1.5" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html#withas-and-subqueries"><i class="fa fa-check"></i><b>9.1.5</b> <code>WITH</code>/<code>AS</code> and Subqueries</a></li>
+<li class="chapter" data-level="9.1.6" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html#joins"><i class="fa fa-check"></i><b>9.1.6</b> Joins</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html#the-sqldf-package"><i class="fa fa-check"></i><b>9.2</b> The <code>sqldf</code> package</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Political Data Science</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="using-sql-syntax-on-an-r-dataframe" class="section level1" number="9">
+<h1><span class="header-section-number">9</span> Using SQL syntax on an R dataframe</h1>
+<div id="sql" class="section level2" number="9.1">
+<h2><span class="header-section-number">9.1</span> SQL</h2>
+<p>SQL (Structured Query Language) is the universally most widely used querying language for databases. There are variations of SQL,
+the most popular being MySQL and PostgreSQL. The syntax is very similar for all versions of SQL.</p>
+<p><a href="https://www.sqltutorial.org/sql-syntax/">Here</a>’s a helpful tutorial for SQl commands, but a few basic examples of each keyword are shown below:</p>
+<div id="select-and-from" class="section level3" number="9.1.1">
+<h3><span class="header-section-number">9.1.1</span> <code>SELECT</code> and <code>FROM</code></h3>
+<pre><code>SELECT col1, col2, col3 FROM table1
+
+SELECT * FROM table1</code></pre>
+<p>The first example selects the three columns specified from a table called table1. It will select all rows from table1 and return them in a new, temporary table
+unless the result is stored or used somewhere examples</p>
+<p>The second example selects all columns (and rows) from table1.</p>
+</div>
+<div id="where" class="section level3" number="9.1.2">
+<h3><span class="header-section-number">9.1.2</span> <code>WHERE</code></h3>
+<pre><code>SELECT movie_title, user, rating 
+    FROM movies 
+    WHERE rating &gt; 4 AND user NOT NULL</code></pre>
+<p>This will select all of the rating data (movie_title, user, and rating) from the movies table with a rating &gt; 4 and a not-null user</p>
+</div>
+<div id="functions-2" class="section level3" number="9.1.3">
+<h3><span class="header-section-number">9.1.3</span> Functions</h3>
+<p>We can use aggregate functions like sum, min, max, count, or average with group by to apply that function to each group.</p>
+<p>Remember that your group by variable must be included in your select statement!</p>
+<pre><code>-- valid
+SELECT movie_title, AVG(rating) 
+    FROM movies 
+    GROUP BY movie_title 
+
+-- invalid (we wouldn&#39;t know which avg goes with which movie!!)
+SELECT AVG(rating) 
+    FROM movies 
+    GROUP BY movie_title </code></pre>
+<p>We can also specify what we want the resulting aggregate column to be called. The above example would give us nicer output with this code:</p>
+<pre><code>SELECT movie_title, AVG(rating) AS rating_avg
+    FROM movies 
+    GROUP BY movie_title </code></pre>
+<p>We can limit the number of results returned, find only unique values, and sort our results as well.</p>
+<pre><code>SELECT DISTINCT student_id, student_full_name 
+    FROM assignments 
+    ORDER BY student_full_name DESC 
+    LIMIT 100</code></pre>
+<p>This query will grab the first 100 distinct students (uniqueness determined by id and full name) sorted in reverse alphabetical order.</p>
+</div>
+<div id="having" class="section level3" number="9.1.4">
+<h3><span class="header-section-number">9.1.4</span> <code>HAVING</code></h3>
+<p><code>HAVING</code> is the equivalent function of <code>WHERE</code> for aggregate conditions. For example,</p>
+<pre><code>SELECT movie_title, AVG(rating) AS rating_avg 
+    FROM movies 
+    GROUP BY movie_title 
+    HAVING rating_avg &lt; 2</code></pre>
+<p>This pulls all the movies and their average ratings that had an average rating less than 2.</p>
+</div>
+<div id="withas-and-subqueries" class="section level3" number="9.1.5">
+<h3><span class="header-section-number">9.1.5</span> <code>WITH</code>/<code>AS</code> and Subqueries</h3>
+<p>Subqueries are very powerful and come in two syntatical forms. They allow us to create temporary tables which only exist for that query
+then disappear.</p>
+<pre><code>SELECT employee_id, first_name, last_name, salary 
+    FROM employees 
+    WHERE salary = (
+        SELECT MAX(salary) 
+        FROM employees
+    ) 
+    ORDER BY first_name, last_name</code></pre>
+<p>This syntax is equivalent to the following:</p>
+<pre><code>WITH temp_table AS (SELECT MAX(salary) FROM employees)
+    SELECT employee_id, first_name, last_name, salary 
+    ORDER BY first_name, last_name
+</code></pre>
+</div>
+<div id="joins" class="section level3" number="9.1.6">
+<h3><span class="header-section-number">9.1.6</span> Joins</h3>
+<p>Joins work the same way as they did in the tidyverse. There are a few types of joins:</p>
+<ul>
+<li>“Inner joins” produce results only where the linking variable appears on both tables</li>
+<li>“Outer joins” produce results with all data, and fills in missing values as necessary
+<ul>
+<li>Left join keeps only observations from the first specified data if their is no match.</li>
+<li>Right join keeps only observations from the second data</li>
+<li>Full join keeps everything</li>
+</ul></li>
+</ul>
+<p>Here’s an example SQL query using two tables (movies, users)</p>
+<pre><code>SELECT users.*, count(movie_id) 
+    FROM users 
+    LEFT JOIN movies 
+        ON users.user_id = movies.viewer_id 
+    GROUP BY users.user_id 
+    LIMIT 10</code></pre>
+<p>This will select the first 10 users from the users table (users.*) and add a new column with the count of the number of movies they saw.</p>
+<p>If both tables had a field called user_id that we wanted to join on, we could say <code>LEFT JOIN movies ON user_id</code> instead of specifying
+what the column is called in each table. If the column name is ambiguous (because it’s present in both tables), a GROUP BY or ORDER BY or SELECT
+should specify which table to take the column from by saying <code>table.column</code></p>
+</div>
+</div>
+<div id="the-sqldf-package" class="section level2" number="9.2">
+<h2><span class="header-section-number">9.2</span> The <code>sqldf</code> package</h2>
+<p>The main package we’ll be using to convert SQL commands to R manipulations is <code>sqldf</code>.</p>
+<p>Here’s an example using the same data from the Tidy chapter.</p>
+<p>Data comes from fivethirtyeight.com</p>
+<div class="sourceCode" id="cb730"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb730-1"><a href="using-sql-syntax-on-an-r-dataframe.html#cb730-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb730-2"><a href="using-sql-syntax-on-an-r-dataframe.html#cb730-2"></a><span class="kw">library</span>(tidyr)</span>
+<span id="cb730-3"><a href="using-sql-syntax-on-an-r-dataframe.html#cb730-3"></a><span class="kw">library</span>(readr)</span>
+<span id="cb730-4"><a href="using-sql-syntax-on-an-r-dataframe.html#cb730-4"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb730-5"><a href="using-sql-syntax-on-an-r-dataframe.html#cb730-5"></a>mayors&lt;-<span class="kw">read_csv</span>(<span class="dt">file=</span><span class="st">&quot;https://raw.githubusercontent.com/jmontgomery/jmontgomery.github.io/master/PDS/Datasets/Mayors.csv&quot;</span>)</span>
+<span id="cb730-6"><a href="using-sql-syntax-on-an-r-dataframe.html#cb730-6"></a>tweets&lt;-<span class="kw">read_csv</span>(<span class="st">&quot;C:/Users/maria/OneDrive/WUSTL/2019-20/PDS/Tweets.csv&quot;</span>)</span></code></pre></div>
+<p><code>mayors</code> and <code>tweets</code> are tibbles, but we want to operate our SQL queries on data frames</p>
+<div class="sourceCode" id="cb731"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb731-1"><a href="using-sql-syntax-on-an-r-dataframe.html#cb731-1"></a>mayorsDF &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(mayors)</span>
+<span id="cb731-2"><a href="using-sql-syntax-on-an-r-dataframe.html#cb731-2"></a>tweetsDF &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(tweets)</span></code></pre></div>
+<p>Now we can start using our newfound SQL powers to truly explore our data. For a warm-up, let’s count how many mayors are present in our dataset.</p>
+<div class="sourceCode" id="cb732"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb732-1"><a href="using-sql-syntax-on-an-r-dataframe.html#cb732-1"></a><span class="kw">library</span>(sqldf)</span>
+<span id="cb732-2"><a href="using-sql-syntax-on-an-r-dataframe.html#cb732-2"></a><span class="kw">sqldf</span>( <span class="st">&quot;SELECT COUNT(DISTINCT FullName) </span></span>
+<span id="cb732-3"><a href="using-sql-syntax-on-an-r-dataframe.html#cb732-3"></a><span class="st">            FROM mayorsDF&quot;</span> )</span></code></pre></div>
+<pre><code>##   COUNT(DISTINCT FullName)
+## 1                     1406</code></pre>
+<p>We can confirm this with our tidy skills:</p>
+<div class="sourceCode" id="cb734"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb734-1"><a href="using-sql-syntax-on-an-r-dataframe.html#cb734-1"></a>mayors <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb734-2"><a href="using-sql-syntax-on-an-r-dataframe.html#cb734-2"></a><span class="st">    </span><span class="kw">select</span>(<span class="st">&quot;FullName&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb734-3"><a href="using-sql-syntax-on-an-r-dataframe.html#cb734-3"></a><span class="st">    </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(FullName)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb734-4"><a href="using-sql-syntax-on-an-r-dataframe.html#cb734-4"></a><span class="st">    </span><span class="kw">unique</span>() <span class="op">%&gt;%</span></span>
+<span id="cb734-5"><a href="using-sql-syntax-on-an-r-dataframe.html#cb734-5"></a><span class="st">    </span><span class="kw">count</span>()</span></code></pre></div>
+<pre><code>##                             FullName freq
+## 1                        A Max Bacon    1
+## 2                   Aaron T. Shepley    1
+## 3                  Acquanetta Warren    1
+## 4                       Adam A. Paul    1
+## 5                     Adam Schneider    1
+## 6                        Adrian Mapp    1
+## 7                          Aja Brown    1
+## 8                         Al Heggins    1
+## 9                          Al Larson    1
+## 10                         Al Murray    1
+## 11                     Alan Krasnoff    1
+## 12                      Alan L. Nagy    1
+## 13                    Alan Nakanishi    1
+## 14                        Alan Simon    1
+## 15                      Albert Kling    1
+## 16                     Albert Robles    1
+## 17                    Alberto Santos    1
+## 18                 Alex B. Morse III    1
+## 19                       Alex Vargas    1
+## 20                   Alice M. Patino    1
+## 21                        Allan Fung    1
+## 22                       Allen Brown    1
+## 23                      Allen Joines    1
+## 24                        Allen Owen    1
+## 25                   Allen Pomraning    1
+## 26                Allison Silberberg    1
+## 27                Ambrosio Hernandez    1
+## 28                       Amy Strouse    1
+## 29                Amy Thomas Howorth    1
+## 30                         Amy Walen    1
+## 31                    Anan Abu-Taleb    1
+## 32                  Andi Summerville    1
+## 33                    Andre Quintero    1
+## 34              Andrew &#39;FoFo&#39; Gilich    1
+## 35                  Andrew D. Gillum    1
+## 36                 Andrew Deslaurier    1
+## 37                    Andrew Ginther    1
+## 38                Andrew J. Medellin    1
+## 39                     Andrew Nelson    1
+## 40                     Andrew P. Fox    1
+## 41                        Andy Berke    1
+## 42                   Andy Brauninger    1
+## 43                         Andy Cook    1
+## 44                         Andy Mack    1
+## 45                      Andy Rheaume    1
+## 46                        Andy Ryder    1
+## 47                        Andy Schor    1
+## 48                     Angel Barajas    1
+## 49                   Angie Carpenter    1
+## 50                       Anne Gerwig    1
+## 51                Anne McEnerny-Ogle    1
+## 52                   Anthony Ammiano    1
+## 53                   Anthony Cardone    1
+## 54                  Anthony Colavita    1
+## 55                   Anthony Coppola    1
+## 56                     Anthony Eramo    1
+## 57                   Anthony Fanucci    1
+## 58                  Anthony Williams    1
+## 59                  Antonio Martinez    1
+## 60                   Ardell F. Brede    1
+## 61                 Arlene A. Juracek    1
+## 62                Arlene R. Schwartz    1
+## 63                        Art Bishop    1
+## 64               Arthur G. Goldstein    1
+## 65                 Arthur G. Vigeant    1
+## 66                     Arthur Pappas    1
+## 67                   Ashley C. Curry    1
+## 68                 Ashton J. Hayward    1
+## 69                  Barbara Halliday    1
+## 70                    Barron Casteel    1
+## 71                       Barry Moore    1
+## 72                      Barry Wright    1
+## 73                  Bart Castleberry    1
+## 74                        Becky Ames    1
+## 75                      Becky Tooley    1
+## 76                        Ben Benoit    1
+## 77                       Ben Sprague    1
+## 78                         Ben Walsh    1
+## 79                          Ben Zahn    1
+## 80                 Benjamin G. Blake    1
+## 81                     Bennett David    1
+## 82                        Bernie Ash    1
+## 83                    Bert Steinmann    1
+## 84                       Betsy Price    1
+## 85                   Beverly Sussman    1
+## 86                       Biff Traber    1
+## 87                        Bill Brand    1
+## 88                    Bill Carpenter    1
+## 89                         Bill Cole    1
+## 90                   Bill Courtright    1
+## 91                    Bill de Blasio    1
+## 92                      Bill Falkner    1
+## 93                         Bill Ganz    1
+## 94                      Bill Ham Jr.    1
+## 95                     Bill Hennessy    1
+## 96                      Bill Kawecki    1
+## 97                   Bill Partington    1
+## 98                      Bill Reilich    1
+## 99                        Bill Saffo    1
+## 100                       Bill Wells    1
+## 101                   Billie D. Roth    1
+## 102                      Billy Hewes    1
+## 103                      Bob Andeweg    1
+## 104                        Bob Brown    1
+## 105                    Bob Bruggeman    1
+## 106                     Bob Buckhorn    1
+## 107                       Bob Coburn    1
+## 108                      Bob Crowell    1
+## 109                    Bob Gallagher    1
+## 110                         Bob Gatt    1
+## 111                        Bob Huber    1
+## 112                        Bob Kelly    1
+## 113                        Bob Lingl    1
+## 114                     Bob McCaslin    1
+## 115                       Bob Nation    1
+## 116                     Bob O&#39;Dekirk    1
+## 117                     Bob Sampayan    1
+## 118                        Bob Scott    1
+## 119                    Bob Stevenson    1
+## 120                        Bob Stone    1
+## 121                       Bob Whalen    1
+## 122                Bobby J. Hopewell    1
+## 123                    Bobby Kilgore    1
+## 124                       Brad Cohen    1
+## 125                        Brad Hart    1
+## 126                     Brad McCloud    1
+## 127                     Brad Wiersum    1
+## 128              Bradley T. Dantzler    1
+## 129                    Brenda Gunter    1
+## 130                       Brian Blad    1
+## 131         Brian Christian Hartwell    1
+## 132                  Brian J. Bagley    1
+## 133                      Brian Kulpa    1
+## 134                  Brian M. Arrigo    1
+## 135                Brian P. Sullivan    1
+## 136                      Brian Stack    1
+## 137                     Brian Treece    1
+## 138                     Brian Wahler    1
+## 139           Bridget Donnell Newton    1
+## 140                  Bruce Wilkerson    1
+## 141                 Bryan K. Barnett    1
+## 142                      Bud Starker    1
+## 143                       Buddy Dyer    1
+## 144                      Byron Brown    1
+## 145                     C Bruce Rose    1
+## 146             C. Danny Dunagan Jr.    1
+## 147                    Carl Fulgenzi    1
+## 148                  Carl R. Gerlach    1
+## 149                Carlo DeMaria Jr.    1
+## 150              Carlos A. Hernandez    1
+## 151                    Carlton Jones    1
+## 152                     Carmen Amato    1
+## 153                      Carol Dodge    1
+## 154              Carol Dutra-Vernaci    1
+## 155                        Carol Roe    1
+## 156                Caroline McCarley    1
+## 157                  Carolyn Goodman    1
+## 158                   Carolyn Riggle    1
+## 159                    Carrie Tergin    1
+## 160                      Carson Ross    1
+## 161                 Carter Hendricks    1
+## 162                  Cary Glickstein    1
+## 163                      Casey Roats    1
+## 164                  Cassie Franklin    1
+## 165                Catherine E. Pugh    1
+## 166          Catherine S. Blakespear    1
+## 167                     Cathy Carlat    1
+## 168                      Cathy Clark    1
+## 169                    Cathy Murillo    1
+## 170                   Chad Lupinacci    1
+## 171                    Chad P. Wanke    1
+## 172                    Charles Lacey    1
+## 173                     Charles Lamb    1
+## 174                 Charles Lombardi    1
+## 175                 Charlotte Craven    1
+## 176                  Chase Ritenauer    1
+## 177                     Cheryl Selby    1
+## 178             Cheryl Viegas-Walker    1
+## 179        Chokwe Antar Lumumba Esq.    1
+## 180                    Chris Beutler    1
+## 181                    Chris Coursey    1
+## 182                        Chris Day    1
+## 183                       Chris Koos    1
+## 184                     Chris Nicoll    1
+## 185                     Chris Vierra    1
+## 186                      Chris Watts    1
+## 187                  Christian Price    1
+## 188                 Christie Malchow    1
+## 189               Christine Lundberg    1
+## 190              Christopher Bobbitt    1
+## 191              Christopher Boswell    1
+## 192              Christopher Fielder    1
+## 193          Christopher J. Palmieri    1
+## 194          Christopher L. Cabaldon    1
+## 195               Christopher Taylor    1
+## 196              Christopher Vergano    1
+## 197                      Chuck Allen    1
+## 198                     Chuck Barney    1
+## 199                    Chuck Bennett    1
+## 200                       Chuck Cahn    1
+## 201                       Clark John    1
+## 202                   Clint Lorimore    1
+## 203                      Coral Evans    1
+## 204                       Cory Mason    1
+## 205                 Craig B. Johnson    1
+## 206                      Craig Bowen    1
+## 207                  Craig McFarland    1
+## 208                     Craig Morgan    1
+## 209                   Craig Thurmond    1
+## 210                    Craig Treneff    1
+## 211                     Crystal Ruiz    1
+## 212                Curt Balzano Leng    1
+## 213                    Curtis Morris    1
+## 214               Curtistene McCowan    1
+## 215               Cynthia Sternquist    1
+## 216                   Cynthya Andrus    1
+## 217                     D Blair Camp    1
+## 218                    Dale Copeland    1
+## 219                        Dale Ross    1
+## 220                     Damali Vidot    1
+## 221                 Damian Ulatowski    1
+## 222                       Dan Devine    1
+## 223                       Dan Gelber    1
+## 224                     Dan Holladay    1
+## 225                  Dan Kirkpatrick    1
+## 226                         Dan Pope    1
+## 227                          Dan Roe    1
+## 228                      Dana Outlaw    1
+## 229                       Dana Ralph    1
+## 230                      Dane Slater    1
+## 231                    Danene Sorace    1
+## 232                  Daniel Bernheim    1
+## 233                 Daniel Bukiewicz    1
+## 234                     Daniel Hayes    1
+## 235                  Daniel Horrigan    1
+## 236                Daniel J. Stermer    1
+## 237                    Daniel Norris    1
+## 238                    Daniel Rivera    1
+## 239                Daniel S. Paletko    1
+## 240                   Daniel T. Drew    1
+## 241                       Danny Dunn    1
+## 242                      Danny Jones    1
+## 243                       Darcy Paul    1
+## 244                     Darin Fowler    1
+## 245                  Darrell Hinnant    1
+## 246                Darrell Steinberg    1
+## 247               Darren Musselwhite    1
+## 248                    Darvis Holley    1
+## 249                     Dave Earling    1
+## 250                  Dave Harrington    1
+## 251                       Dave Kleis    1
+## 252                      Dave Palmer    1
+## 253                        Dave Snow    1
+## 254                        Dave Wood    1
+## 255                David A. Gonzalez    1
+## 256                      David Alvey    1
+## 257                      David Ament    1
+## 258                    David Averitt    1
+## 259                      David Ayers    1
+## 260                     David Berger    1
+## 261                     David Briley    1
+## 262                     David Butler    1
+## 263       David Christian Belle Isle    1
+## 264                      David Combs    1
+## 265                       David Cook    1
+## 266                 David G. Haubert    1
+## 267                      David Glass    1
+## 268                      David Green    1
+## 269                  David H. Bieter    1
+## 270                    David Hillock    1
+## 271                 David J. Shawver    1
+## 272                    David Kaptain    1
+## 273                   David Lansford    1
+## 274                     David Martin    1
+## 275                  David Mattingly    1
+## 276                      David Mayer    1
+## 277                     David Plyler    1
+## 278                  David Scheffler    1
+## 279                     David Seeley    1
+## 280                     David Suarez    1
+## 281                   David Terrazas    1
+## 282                     David Tomita    1
+## 283                     David Turner    1
+## 284                   David VanLuven    1
+## 285                      David Watts    1
+## 286                      Dawn Ramsey    1
+## 287                      Dean Dickey    1
+## 288               Dean J. Mazzarella    1
+## 289           Deana Holiday Ingraham    1
+## 290                      Deanna Reed    1
+## 291                  Debbie Brinkman    1
+## 292                   Debbie Goettel    1
+## 293                     Debbie Kling    1
+## 294                     Debbie Stone    1
+## 295                      Debbie Winn    1
+## 296             Deborah Frank Feinen    1
+## 297                  Deborah Johnson    1
+## 298                Deborah Robertson    1
+## 299                      Debra March    1
+## 300                        Dee Margo    1
+## 301                 Deirdre Waterman    1
+## 302                 Del Rae Williams    1
+## 303                        Denis Law    1
+## 304                    Denis Shortal    1
+## 305                  Dennis Browning    1
+## 306                    Dennis Clough    1
+## 307                 Dennis K. Wright    1
+## 308                   Dennis Kintigh    1
+## 309                      Dennis Mock    1
+## 310                     Dennis Tyler    1
+## 311                   Dennis Waldron    1
+## 312                      Denny Doyle    1
+## 313                   Derek Armstead    1
+## 314                     Derek Dobies    1
+## 315                 Derek Easterling    1
+## 316                  Derrick Freeman    1
+## 317                 Derrick L. Henry    1
+## 318                Diane Benczkowski    1
+## 319                     Diane DuBois    1
+## 320                  Diane E. Whalen    1
+## 321         Diane Veltri-Bendedkobic    1
+## 322                  Diane W. Marlin    1
+## 323                       Dick Sears    1
+## 324                 Domenic J. Sarno    1
+## 325              Dominic Persampiere    1
+## 326                     Don Anderson    1
+## 327                      Don Britain    1
+## 328                         Don Hahn    1
+## 329                       Don Jensen    1
+## 330                    Don Patterson    1
+## 331                         Don Ryan    1
+## 332                      Don Walters    1
+## 333               Donald A. Kendrick    1
+## 334                   Donald Grebien    1
+## 335               Donald O. Burnette    1
+## 336                 Donald P. Wagner    1
+## 337                Donald Schonhardt    1
+## 338                      Donnie Tuck    1
+## 339                  Dorothy Hubbard    1
+## 340                     Doug Chaffee    1
+## 341                      Doug Echols    1
+## 342                     Doug Sprouse    1
+## 343                    Douglas Athas    1
+## 344              Douglas J. Nicholls    1
+## 345                 Douglas Marklein    1
+## 346              Douglas P. Anderson    1
+## 347                   Douglas Sample    1
+## 348                Douglas Slaughter    1
+## 349                    Doyle Matthew    1
+## 350                  Duke A. Bennett    1
+## 351                    Dwayne Warren    1
+## 352                           Ed Eng    1
+## 353                       Ed Hagerty    1
+## 354                         Ed Honea    1
+## 355                     Ed Pawlowski    1
+## 356                         Ed Sachs    1
+## 357                    Eddie DeLoach    1
+## 358                    Eddie N. Lowe    1
+## 359                    Edi E. Birsan    1
+## 360                  Edmond Theobald    1
+## 361        Edward A. Bettencourt Jr.    1
+## 362                   Edward Romaine    1
+## 363                  Edward Wehrheim    1
+## 364                       Edwin Fare    1
+## 365                      Eileen Weir    1
+## 366                  Elaine Gennawey    1
+## 367                      Elia Garcia    1
+## 368                   Elinor Carbone    1
+## 369     Elizabeth &#39;Beth&#39; Swift Ed.D.    1
+## 370               Elizabeth B. Kautz    1
+## 371                Ellen Zoppo Sassu    1
+## 372                     Emily Larson    1
+## 373                     Enid Weisman    1
+## 374                    Eric Anderson    1
+## 375                    Eric Garcetti    1
+## 376                       Eric Hogue    1
+## 377                     Eric Jackson    1
+## 378                   Eric Papenfuse    1
+## 379              Eric R. Steinhilber    1
+## 380                  Erin E. Stewart    1
+## 381                Errick D. Simmons    1
+## 382                 Esther Manheimer    1
+## 383                  Ethan Berkowitz    1
+## 384               Ethan K. Strimling    1
+## 385          Eugene &#39;Gene&#39; Hernandez    1
+## 386                  Eunice M. Ulloa    1
+## 387                      Felix Roque    1
+## 388           Fidencio Joel Gallardo    1
+## 389                   Francis Womack    1
+## 390                Francis X. Suarez    1
+## 391                  Francisco Moran    1
+## 392                   Frank C. Ortis    1
+## 393                  Frank Gambatese    1
+## 394                    Frank Gilliam    1
+## 395                    Frank Jackson    1
+## 396                    Frank Klipsch    1
+## 397                      Frank Kuntz    1
+## 398              Frank S. Gracie III    1
+## 399                   Frank Saverino    1
+## 400                   Frank Seffrood    1
+## 401                 Frank V. Brocato    1
+## 402                       Fred Fitch    1
+## 403                       Fred Pinto    1
+## 404                  Freddie DeCourt    1
+## 405                  G David Gillock    1
+## 406             G Frederick Robinson    1
+## 407                      G. T. Bynum    1
+## 408                         Gail Ash    1
+## 409                      Gail Barney    1
+## 410                     Gail Johnson    1
+## 411               Garret L. Nancolas    1
+## 412                       Gary Boyer    1
+## 413                 Gary Christenson    1
+## 414                      Gary Lorenz    1
+## 415                    Gary McCarthy    1
+## 416                 Gary O. Phillips    1
+## 417                     Gary Soiseth    1
+## 418                     Gary Wheeler    1
+## 419                    Gavin Buckley    1
+## 420                    Gene Winstead    1
+## 421                     Geno Martini    1
+## 422              George C. Van Dusen    1
+## 423                    George Fuller    1
+## 424                  George Hoehmann    1
+## 425                     George Moyer    1
+## 426               George N. Cretekos    1
+## 427                     George Reese    1
+## 428                 George Tourville    1
+## 429                   George Vallejo    1
+## 430                     Georgia Lord    1
+## 431                  Gerald Tamburro    1
+## 432     Geraldine &#39;Jeri&#39; Muoio Ph.D.    1
+## 433          Gerardo &#39;Jerry&#39; Sanchez    1
+## 434            Gina Cunningham-Picek    1
+## 435                       Gina Noble    1
+## 436                  Ginger Gherardi    1
+## 437                    Ginger Nelson    1
+## 438                  Glenn Hendricks    1
+## 439                    Glenn Johnson    1
+## 440                      Glenn Lewis    1
+## 441                     Glenn Parker    1
+## 442                    Gloria Garcia    1
+## 443                  Gloria McCauley    1
+## 444                      Gordy Bunch    1
+## 445                         Grace Hu    1
+## 446                    Grace Vallejo    1
+## 447                    Graham Waters    1
+## 448                        Greg Bogh    1
+## 449                   Greg Brudnicki    1
+## 450                     Greg Fischer    1
+## 451                   Greg Goodnight    1
+## 452                       Greg Hines    1
+## 453                  Greg Mengarelli    1
+## 454                    Greg Peterson    1
+## 455                        Greg Ross    1
+## 456                     Greg Stanton    1
+## 457                     Greg Wheeler    1
+## 458                    Greggory Hull    1
+## 459                Gregory J. Oravec    1
+## 460               Gustavo V. Camacho    1
+## 461                        Guy Fugal    1
+## 462            H &#39;Bill&#39; William Mutz    1
+## 463                       Hank Guess    1
+## 464                 Hardie Davis Jr.    1
+## 465                    Harold Perrin    1
+## 466                Harold Weinbrecht    1
+## 467                   Harry Dressler    1
+## 468                 Harry E. Rediger    1
+## 469                        Harry Kim    1
+## 470                Harry LaRosiliere    1
+## 471                    Harry Parrish    1
+## 472                    Harry Rilling    1
+## 473                   Harry T. Price    1
+## 474                  Harvey C. Skoog    1
+## 475                   Hazelle Rogers    1
+## 476                      Hector Lora    1
+## 477                     Heidi Harmon    1
+## 478                Heidi K. Williams    1
+## 479                    Herb Atchison    1
+## 480                  Hillary Schieve    1
+## 481                     Holly Brinda    1
+## 482                     Holly Daines    1
+## 483                  Howard Phillips    1
+## 484                         Ian Bain    1
+## 485                     Ian Baltutis    1
+## 486                Ignacio Velazquez    1
+## 487                     Ilan Gilbert    1
+## 488             J Christian Bollwage    1
+## 489                       Jack Allen    1
+## 490                       Jack Brady    1
+## 491                     Jack Killion    1
+## 492                     Jack McNaboe    1
+## 493                        Jack Poll    1
+## 494                      Jacki Marsh    1
+## 495                   Jackie A. Meck    1
+## 496                 Jackie Biskupski    1
+## 497              Jacob C. Vandenberg    1
+## 498                       Jacob Frey    1
+## 499                     Jacob R. Day    1
+## 500                  Jacqueline Izzo    1
+## 501              Jacques Maurice Roy    1
+## 502                       Jake Spano    1
+## 503                     Jamael Brown    1
+## 504            James &#39;Jamie&#39; E. Mayo    1
+## 505                    James Anzaldi    1
+## 506                 James B. Hovland    1
+## 507                   James Brainard    1
+## 508                     James Briden    1
+## 509             James C. Ledford Jr.    1
+## 510                     James Cahill    1
+## 511                      James Davis    1
+## 512                  James E. Snyder    1
+## 513              James J. Fiorentini    1
+## 514                 James McCullough    1
+## 515              James O. Langfelder    1
+## 516                  James P. Jajuga    1
+## 517                   James R. Fouts    1
+## 518               James T. Butts Jr.    1
+## 519                James W. Schwantz    1
+## 520                  James Yarbrough    1
+## 521                      Jamie Clary    1
+## 522                       Jamie Doss    1
+## 523             Jane Williams-Warren    1
+## 524                   Janet Williams    1
+## 525                    Janice Parvin    1
+## 526             Jasiel F. Correia II    1
+## 527                 Jason L. Shelton    1
+## 528                  Javier Gonzales    1
+## 529                        Jay Moran    1
+## 530                   Jay Tibshraeny    1
+## 531                       Jay Wagner    1
+## 532                    Jean Stothert    1
+## 533            Jeannette A. McCarthy    1
+## 534                      Jeff Cheney    1
+## 535                        Jeff Gore    1
+## 536                        Jeff Hall    1
+## 537                    Jeff Longwell    1
+## 538                    Jeff M. Gahan    1
+## 539                       Jeff Serdy    1
+## 540                 Jeff Silvestrini    1
+## 541                    Jeff Triplett    1
+## 542                      Jeff Wagner    1
+## 543                    Jeff Williams    1
+## 544         Jeffrey &#39;Jeff&#39; D. Porter    1
+## 545                   Jeffrey Cooper    1
+## 546                    Jeffrey Lunde    1
+## 547                     Jenn Daniels    1
+## 548                   Jennifer Green    1
+## 549                     Jenny Durkan    1
+## 550                    Jeremy Jensen    1
+## 551                  Jeremy Stutsman    1
+## 552                      Jerry Fiala    1
+## 553                       Jerry Gist    1
+## 554                       Jerry Koch    1
+## 555                    Jerry Morales    1
+## 556                     Jerry Mouton    1
+## 557                      Jerry Smith    1
+## 558                     Jerry Thorne    1
+## 559                     Jerry Weiers    1
+## 560                   Jesse Arreguin    1
+## 561                    Jill Boudreau    1
+## 562                      Jill Burgin    1
+## 563                      Jill Techel    1
+## 564                        Jim Ardis    1
+## 565                       Jim Barnes    1
+## 566                       Jim Bouley    1
+## 567                       Jim Bowlin    1
+## 568                        Jim Brown    1
+## 569                      Jim Darling    1
+## 570                      Jim Desmond    1
+## 571                     Jim Donchess    1
+## 572                      Jim Ferrell    1
+## 573                      Jim Gardner    1
+## 574                         Jim Gray    1
+## 575                      Jim Griffin    1
+## 576                       Jim Kenney    1
+## 577                     Jim Lienhoop    1
+## 578                     Jim Matherly    1
+## 579                    Jim Patterson    1
+## 580                       Jim Pruitt    1
+## 581                       Jim Riding    1
+## 582                      Jim Schmitt    1
+## 583                   Jim Strickland    1
+## 584                     Jim Thornton    1
+## 585                  Jim Throgmorton    1
+## 586                      Jimmy Matta    1
+## 587                      Joan Foster    1
+## 588                 Joann Gattinelli    1
+## 589                     Joe A. Smith    1
+## 590                     Joe Coviello    1
+## 591                        Joe Ganim    1
+## 592                       Joe Gunter    1
+## 593                    Joe Jefferson    1
+## 594                   Joe Kilsheimer    1
+## 595                     Joe Lockwood    1
+## 596                       Joe McComb    1
+## 597                     Joe McCourry    1
+## 598                     Joe McElveen    1
+## 599                     Joe Schember    1
+## 600                    Joe Vinatieri    1
+## 601                    Joe Zimmerman    1
+## 602                      Joel Flores    1
+## 603                   Joel Robideaux    1
+## 604            John &#39;Jack&#39; P. Seiler    1
+## 605                    John Aneralla    1
+## 606                  John Antaramian    1
+## 607            John Arthur Ernst Jr.    1
+## 608             John B. O&#39;Reilly Jr.    1
+## 609           John C. Masiarczyk Sr.    1
+## 610                  John Chelminiak    1
+## 611                        John Cook    1
+## 612                    John Cosgrove    1
+## 613                     John Cranley    1
+## 614                     John D. Noak    1
+## 615                    John Ditslear    1
+## 616                       John Ducey    1
+## 617                       John Engen    1
+## 618                       John Gates    1
+## 619                       John Giles    1
+## 620                    John Gilstrap    1
+## 621                       John Haila    1
+## 622                    John Hamilton    1
+## 623                     John Heilman    1
+## 624                  John I. Lebeaux    1
+## 625                      John Keener    1
+## 626                     John Krueger    1
+## 627                    John Labrosse    1
+## 628                         John Lee    1
+## 629                       John Lewis    1
+## 630                 John M. Skillman    1
+## 631                   John Marchione    1
+## 632                      John McCabe    1
+## 633                    John McCormac    1
+## 634                      John Monaco    1
+## 635                      John Morgan    1
+## 636                 John P. Marchand    1
+## 637                      John Palmer    1
+## 638                   John Pritchard    1
+## 639                   John R. Dennis    1
+## 640                        John Rees    1
+## 641                        John Rowe    1
+## 642                     John Schmitt    1
+## 643                     John Spencer    1
+## 644                     John Suthers    1
+## 645                 John Tecklenburg    1
+## 646                   John Thomaides    1
+## 647                    John W. Gayle    1
+## 648                    John W. Minto    1
+## 649                   Johnny Burgess    1
+## 650                       Jon Costas    1
+## 651                     Jon Daveline    1
+## 652                     Jon Mitchell    1
+## 653                      Jon Nehring    1
+## 654                         Jon Peat    1
+## 655                         Jon Pike    1
+## 656                Jonathan Freedman    1
+## 657                  Jonathan Hornik    1
+## 658                  Jonathan Ingram    1
+## 659                Jonathan McCollar    1
+## 660              Jonathan Rothschild    1
+## 661                 Jorge A. Marquez    1
+## 662                     Jorge Elorza    1
+## 663                  Jose A. Alvarez    1
+## 664                Jose Luis Solache    1
+## 665                     Jose Segarra    1
+## 666          Joseph &#39;Joe&#39; H. Hogsett    1
+## 667               Joseph A. Curro Jr    1
+## 668              Joseph A. Curtatone    1
+## 669               Joseph C. Sullivan    1
+## 670                Joseph DiGirolamo    1
+## 671                  Joseph G. Kuspa    1
+## 672                  Joseph M. Petty    1
+## 673                     Joseph Moore    1
+## 674                  Joseph R. Rocha    1
+## 675                  Joseph Saladino    1
+## 676                  Joseph U. Meyer    1
+## 677                        Josh Cohn    1
+## 678                      Josh Fryday    1
+## 679                        Josh Levy    1
+## 680                   Joshua Bourdon    1
+## 681                       Joy Cooper    1
+## 682                      Joyce Craig    1
+## 683             Juan Carlos Bermudez    1
+## 684                       Jud Ashman    1
+## 685                    Judi Bosworth    1
+## 686               Judith &#39;Judy&#39; Paul    1
+## 687              Judy Jordan Johnson    1
+## 688                     Judy Kennedy    1
+## 689                      Judy Ritter    1
+## 690                    Juli Costanzo    1
+## 691                Julie Moore-Wolfe    1
+## 692                      Julie Trude    1
+## 693              Julie Ward Bujalski    1
+## 694                      Junie White    1
+## 695                 Juslyn C. Manalo    1
+## 696                   Justin Nickels    1
+## 697                     Justin Wedel    1
+## 698                       Karen Hunt    1
+## 699                     Karen K. Goh    1
+## 700          Karen M. Freeman-Wilson    1
+## 701                    Karen Spiegel    1
+## 702                     Karen Weaver    1
+## 703                     Karen Weston    1
+## 704                      Karl Mooney    1
+## 705                        Karl Ryan    1
+## 706                   Kathleen Ehley    1
+## 707              Kathleen L. Newsham    1
+## 708             Kathy Catazaro-Perry    1
+## 709                     Kathy Coffey    1
+## 710                     Kathy Meehan    1
+## 711                    Kathy Sheehan    1
+## 712                    Katie Cristol    1
+## 713                    Katrina Foley    1
+## 714             Keisha Lance Bottoms    1
+## 715                      Keith Brady    1
+## 716                   Keith McDonald    1
+## 717                      Keith Pekau    1
+## 718               Keith T. Giagnorio    1
+## 719                   Kelli Linville    1
+## 720                       Kelly Bush    1
+## 721                      Kelly Yaede    1
+## 722                     Ken Broadway    1
+## 723                      Ken Koelsch    1
+## 724                     Ken Kreutzer    1
+## 725                      Ken McClure    1
+## 726                        Ken Moore    1
+## 727                      Ken Shetter    1
+## 728                       Kenn Weise    1
+## 729                  Kennedy O&#39;Brien    1
+## 730               Kenneth A. Tavares    1
+## 731                Kenneth Alexander    1
+## 732                   Kenneth Massey    1
+## 733              Kenneth Miyagishima    1
+## 734                   Kenneth Palmer    1
+## 735                  Kenneth Schmitt    1
+## 736                  Kenneth Tavares    1
+## 737                  Kenson J. Siver    1
+## 738                       Kent Guinn    1
+## 739                        Kent Keel    1
+## 740                  Kent Studebaker    1
+## 741                    Kerry Kincaid    1
+## 742                   Kevin Falconer    1
+## 743                    Kevin Holland    1
+## 744                    Kevin Kennedy    1
+## 745               Kevin L. Faulconer    1
+## 746                Kevin M. Scarpati    1
+## 747                   Kevin Strength    1
+## 748                    Kevin Wallace    1
+## 749                     Kim McMillan    1
+## 750                Kimberly Driscoll    1
+## 751                    Kirk Caldwell    1
+## 752                     Kirsten Gail    1
+## 753                       Knox White    1
+## 754                 Kraig Sadownikow    1
+## 755                 Kristen Schreder    1
+## 756                  Kristie Overson    1
+## 757                 Kristina Kovarik    1
+## 758                    Kurt Bradburn    1
+## 759                    Kyle A. Moore    1
+## 760                      Kyle Deaver    1
+## 761                 L Dennis Michael    1
+## 762                     Lamar Fisher    1
+## 763                        Lana Mook    1
+## 764                      Lance Olive    1
+## 765                   Larry Dominick    1
+## 766                   Larry McCallon    1
+## 767                  Larry Schroeder    1
+## 768                  Latoya Cantrell    1
+## 769                       Laura Hill    1
+## 770                    Laura Hoydick    1
+## 771                 Laura Jens-Smith    1
+## 772                       Lauren Poe    1
+## 773                Lawrence Mulligan    1
+## 774                        Lee Brand    1
+## 775                    Len Augustine    1
+## 776                       Len Pagano    1
+## 777                      Lenny Curry    1
+## 778              Leon Rockingham Jr.    1
+## 779                   Leonard Siegel    1
+## 780               Leslie Hager-Smith    1
+## 781                     Leslie Soden    1
+## 782                     Levar Stoney    1
+## 783                     Libby Schaaf    1
+## 784                       Lili Bosse    1
+## 785                         Lily Mei    1
+## 786                      Linda Budge    1
+## 787                      Linda Evans    1
+## 788                     Linda Hudson    1
+## 789                    Linda Jackson    1
+## 790                    Linda Johnson    1
+## 791                     Linda Martin    1
+## 792                      Linda Morse    1
+## 793                    Linda Puglisi    1
+## 794                       Linda Tyer    1
+## 795                   Lioneld Jordan    1
+## 796               Lisa Baldelli-Hunt    1
+## 797                    Lisa Borowski    1
+## 798                  Lisa M. Gillmor    1
+## 799                      Liz Gibbons    1
+## 800                        Liz Kniss    1
+## 801                      Liz Lempert    1
+## 802                    Liza Normandy    1
+## 803                Lloyd W. Winnecke    1
+## 804            Lorenz &#39;Lo&#39; J. Walker    1
+## 805                       Lori Henry    1
+## 806                      Lori Luther    1
+## 807           Louis &#39;Woody&#39; L. Brown    1
+## 808                      Louis Rigby    1
+## 809               Louise Carter-King    1
+## 810                    Lovely Warren    1
+## 811                     Lowell Hurst    1
+## 812                       Lucy Vinis    1
+## 813                    Luigi Vernola    1
+## 814                      Luke Bronin    1
+## 815                      Luker Wayne    1
+## 816                     Lyda Krewson    1
+## 817                    Lydia Mihalik    1
+## 818                  Lyndell Brenton    1
+## 819                     Lyndell Dunn    1
+## 820                     Lynne Miller    1
+## 821                  Madeline Rogero    1
+## 822                     Maile Wilson    1
+## 823                        Manny Cid    1
+## 824                    Manuel Lozano    1
+## 825                 Marc C. McGovern    1
+## 826                    Marc Williams    1
+## 827                Marcia A. Leclerc    1
+## 828                    Marcus Knight    1
+## 829                   Margaret Healy    1
+## 830                     Maria Davila    1
+## 831                  Maria G. Marino    1
+## 832                     Maria Pulido    1
+## 833                    Marian J. Orr    1
+## 834                 Marilyn Sanabria    1
+## 835                      Mario Garza    1
+## 836                  Maritza Hurtado    1
+## 837                 Mark A. Lauretti    1
+## 838                Mark Arapostathis    1
+## 839                      Mark Behnke    1
+## 840                 Mark D. Boughton    1
+## 841                      Mark Eckert    1
+## 842                     Mark Farrell    1
+## 843                     Mark Johnson    1
+## 844                       Mark McKee    1
+## 845                     Mark Nicotra    1
+## 846                  Mark S. Meadows    1
+## 847                   Mark S. Nexsen    1
+## 848                  Mark S. Sideris    1
+## 849                      Mark Saliba    1
+## 850                    Mark Shepherd    1
+## 851                    Mark Sokolich    1
+## 852                     Mark Stodola    1
+## 853               Mark V. Steffenson    1
+## 854                     Mark Venesky    1
+## 855                 Mark W. Mitchell    1
+## 856                    Mark W. Myers    1
+## 857                    Marsha McLean    1
+## 858        Marshall &#39;Duffy&#39; Duffield    1
+## 859                    Martin Heines    1
+## 860                  Martin J. Walsh    1
+## 861                  Martin T. Tully    1
+## 862                    Marty Handlon    1
+## 863                    Marty Maloney    1
+## 864               Mary-Lynne Bernald    1
+## 865              Mary Casillas Salas    1
+## 866                 Mary Esther Reed    1
+## 867           Mary Giuliani Stephens    1
+## 868               Mary Hamann-Roland    1
+## 869                   Mary Lou Pauly    1
+## 870                          Mary Su    1
+## 871                        Matt Hall    1
+## 872                       Matt Kelly    1
+## 873                        Matt Pina    1
+## 874                      Matt Powell    1
+## 875                        Matt Rahn    1
+## 876                       Matt Walsh    1
+## 877                    Matthew Dukes    1
+## 878                Matthew J. Bogusz    1
+## 879                 Matthew Pacifico    1
+## 880                  Matthew Watkins    1
+## 881                   Maureen Donker    1
+## 882                   McKinley Price    1
+## 883                      Mel Carruth    1
+## 884                    Melvin Carter    1
+## 885                 Michael A. Boehm    1
+## 886                  Michael Alvarez    1
+## 887               Michael B. Hancock    1
+## 888                   Michael Barker    1
+## 889                   Michael Bodker    1
+## 890                    Michael Brown    1
+## 891                Michael C. Taylor    1
+## 892               Michael C. Tetreau    1
+## 893                Michael Carpenter    1
+## 894                  Michael Collins    1
+## 895                 Michael Copeland    1
+## 896                 Michael D. Tubbs    1
+## 897                 Michael Fournier    1
+## 898                Michael H. Wilson    1
+## 899                 Michael Heitzler    1
+## 900                 Michael Helfrich    1
+## 901                   Michael Irving    1
+## 902                 Michael J. Gresk    1
+## 903                  Michael J. Ryan    1
+## 904                  Michael Ludwick    1
+## 905                Michael M. Vargas    1
+## 906                  Michael Neitzke    1
+## 907                 Michael O&#39;Connor    1
+## 908                Michael P. Cahill    1
+## 909               Michael P. Collins    1
+## 910                 Michael Perciful    1
+## 911                    Michael Reina    1
+## 912              Michael S. Purzycki    1
+## 913                  Michael Seibert    1
+## 914                  Michael Soriano    1
+## 915                   Michael Specht    1
+## 916                  Michael Summers    1
+## 917                  Michael Sweeton    1
+## 918              Michael Vandersteen    1
+## 919                   Michael Vaughn    1
+## 920                  Michael Venezia    1
+## 921                       Michael Vo    1
+## 922                 Micheal Goodland    1
+## 923                 Michelle Brindle    1
+## 924              Michelle De La Isla    1
+## 925                 Michelle Distler    1
+## 926                 Michelle Kaufusi    1
+## 927  Michelle Markiewicz Qualkinbush    1
+## 928                     Mick Cornett    1
+## 929                 Miguel A. Pulido    1
+## 930                    Mike Caldwell    1
+## 931                      Mike Duggan    1
+## 932                     Mike Huether    1
+## 933                     Mike Maguire    1
+## 934                       Mike Mason    1
+## 935                       Mike Moore    1
+## 936                      Mike Murphy    1
+## 937                   Mike Palazzolo    1
+## 938                    Mike Peterson    1
+## 939                       Mike Posey    1
+## 940                    Mike Rawlings    1
+## 941                    Mike Seminary    1
+## 942                       Mike Spano    1
+## 943                      Mike Spence    1
+## 944                       Mike Thoms    1
+## 945                    Mike Villalta    1
+## 946                        Mike Waid    1
+## 947                     Miles Atkins    1
+## 948                  Milissa Holland    1
+## 949              Milton &#39;Milt&#39; Stowe    1
+## 950                  Miro Weinberger    1
+## 951                     Mitch Colvin    1
+## 952             Mohammed Hameeduddin    1
+## 953                    Muriel Bowser    1
+## 954                    Myrick Svante    1
+## 955                     Myron Bailey    1
+## 956         N &#39;Pete&#39; Warren Hess III    1
+## 957                          N/A N/A    1
+## 958                       Nan Whaley    1
+## 959                  Nancy B. Denson    1
+## 960                     Nancy Backus    1
+## 961                    Nancy Carroll    1
+## 962                  Nancy D. Bauder    1
+## 963                     Nancy DeBoer    1
+## 964                  Nancy McFarlane    1
+## 965                   Nancy R. Rossi    1
+## 966                Nancy Tyra-Lukens    1
+## 967                    Nancy Vaughan    1
+## 968                  Natasha Johnson    1
+## 969                 Nathan Blackwell    1
+## 970                     Neal Andrews    1
+## 971                  Neil M. O&#39;Leary    1
+## 972                   Neil R. Winter    1
+## 973                   Neil Wishinsky    1
+## 974                  Newell Arnerich    1
+## 975            Nicholas &#39;Nic&#39; Hunter    1
+## 976                   Nicholas Sacco    1
+## 977                    Nick Guccione    1
+## 978                     Nicola Smith    1
+## 979               Nicolas AbouAssaly    1
+## 980                   Nikuyah Walker    1
+## 981                     Noam Bramson    1
+## 982                      Nora Slawik    1
+## 983                  Norbeto Salinas    1
+## 984            Oliver G. Gilbert III    1
+## 985                   Ollie S. Tyler    1
+## 986                    Oscar Trevino    1
+## 987                       Owen Henry    1
+## 988                      Paige Brown    1
+## 989                    Pam Hemminger    1
+## 990                     Pam Stafford    1
+## 991                       Pam Triolo    1
+## 992                     Pat Hallisey    1
+## 993                       Pat McCabe    1
+## 994                      Pat McGrail    1
+## 995                      Pat Moeller    1
+## 996                       Pat Wojtas    1
+## 997               Patrice Granatosky    1
+## 998                   Patricia Bates    1
+## 999              Patricia M. Randall    1
+## 1000                 Patrick Casilio    1
+## 1001                 Patrick Horcher    1
+## 1002                Patrick J. Furey    1
+## 1003               Patrick L. Wojahn    1
+## 1004                  Patrick Madden    1
+## 1005                     Paul Bailey    1
+## 1006                     Paul Dyster    1
+## 1007                      Paul Esser    1
+## 1008                     Paul Feiner    1
+## 1009                     Paul Finley    1
+## 1010                     Paul Heroux    1
+## 1011                 Paul J. Salafia    1
+## 1012                   Paul M. Eaton    1
+## 1013                     Paul Medany    1
+## 1014                    Paul Polasek    1
+## 1015                    Paul S. Leon    1
+## 1016                     Paul Soglin    1
+## 1017                    Paul Voelker    1
+## 1018                  Paul W. Foster    1
+## 1019                     Paula Mahan    1
+## 1020                   Paula Perotte    1
+## 1021                   Paula Zelenko    1
+## 1022                    Pauline Repp    1
+## 1023            Pauline Russo Cutter    1
+## 1024                      Peggy Bell    1
+## 1025                   Peggy J. Dunn    1
+## 1026                    Peggy Lemons    1
+## 1027              Percy L. Bland III    1
+## 1028                  Pete Buttigieg    1
+## 1029                   Pete Longmire    1
+## 1030                      Pete Saenz    1
+## 1031                 Pete Sutherland    1
+## 1032            Peter Albert Nystrom    1
+## 1033                  Peter Amundson    1
+## 1034                    Peter Barber    1
+## 1035                 Peter I. Ohtaki    1
+## 1036                    Peter Rogers    1
+## 1037                   Peter Simmons    1
+## 1038                     Peter Tesei    1
+## 1039                     Peter Weiss    1
+## 1040                  Philip Barrett    1
+## 1041                  Phillip Kramer    1
+## 1042                     PJ Connelly    1
+## 1043                       Polly Low    1
+## 1044                    Polly Sierer    1
+## 1045                    Preet Didbal    1
+## 1046                 Quentin M. Hart    1
+## 1047                    R Rex Parris    1
+## 1048                  R. Carey Davis    1
+## 1049                 R. Keith Summey    1
+## 1050                   Rahm Emmanuel    1
+## 1051                     Ralph Rubio    1
+## 1052                  Randall Newman    1
+## 1053        Randall P. Henderson Jr.    1
+## 1054                 Randall Woodfin    1
+## 1055                    Randy Ahrens    1
+## 1056                     Randy Brown    1
+## 1057                     Randy Lewis    1
+## 1058                      Randy Pope    1
+## 1059                    Randy Rhoads    1
+## 1060                      Randy Toms    1
+## 1061                      Ras Baraka    1
+## 1062            Raul J. Valdes-Fauli    1
+## 1063                 Ravinder Bhalla    1
+## 1064                     Ray Pacheco    1
+## 1065                   Raymond Coles    1
+## 1066                  Raymond Kimble    1
+## 1067               Raymond P. Rogina    1
+## 1068                  Rebecca Casper    1
+## 1069                     Reid Walker    1
+## 1070                       Rich Kerr    1
+## 1071                    Rich Mattern    1
+## 1072                       Rich Tran    1
+## 1073                  Rich Van Noord    1
+## 1074                   Rich Veenstra    1
+## 1075             Richard A. Delarosa    1
+## 1076             Richard A. Viczorek    1
+## 1077                  Richard Brunst    1
+## 1078                Richard C. Irvin    1
+## 1079                   Richard Child    1
+## 1080                   Richard David    1
+## 1081                 Richard Edwards    1
+## 1082                  Richard Finley    1
+## 1083                  Richard Garcia    1
+## 1084                  Richard Hadley    1
+## 1085                Richard Hardaway    1
+## 1086               Richard J. Kaplan    1
+## 1087                  Richard J. Kos    1
+## 1088              Richard Rigoglioso    1
+## 1089                Richard Schaffer    1
+## 1090                   Richard Stage    1
+## 1091                  Richard Thomas    1
+## 1092                    Richard Ward    1
+## 1093                    Rick A. Lott    1
+## 1094                    Rick Bonilla    1
+## 1095                      Rick Davis    1
+## 1096                     Rick Graham    1
+## 1097                   Rick Kriseman    1
+## 1098                    Rick Mueller    1
+## 1099                      Rick Osbon    1
+## 1100                    Rick Sollars    1
+## 1101                    Rick Stopfer    1
+## 1102                    Rick Taggart    1
+## 1103                   Ricky Shelton    1
+## 1104                  Rico E. Medina    1
+## 1105                    Rita Sanders    1
+## 1106                      Rob Rennie    1
+## 1107                    Rob Schroder    1
+## 1108                      Robb Davis    1
+## 1109            Robert A.B. Reichert    1
+## 1110                    Robert Dahle    1
+## 1111                   Robert Dandoy    1
+## 1112                  Robert Donchez    1
+## 1113                      Robert Dye    1
+## 1114            Robert E. Bruchey II    1
+## 1115                 Robert F. Apgar    1
+## 1116                   Robert Franke    1
+## 1117                   Robert Garcia    1
+## 1118                    Robert Garza    1
+## 1119                     Robert Hale    1
+## 1120                   Robert Harvie    1
+## 1121                Robert J. Lovero    1
+## 1122                  Robert Jackson    1
+## 1123                  Robert Kennedy    1
+## 1124               Robert L. Hedlund    1
+## 1125                   Robert Mielke    1
+## 1126                     Robert Moon    1
+## 1127                 Robert Palmieri    1
+## 1128                   Robert Parisi    1
+## 1129             Robert Pullen-Miles    1
+## 1130                Robert R. Taylor    1
+## 1131                  Robert Rickman    1
+## 1132                  Robert Rolison    1
+## 1133                 Robert Stefanik    1
+## 1134                   Robert Taylor    1
+## 1135                 Robert Thompson    1
+## 1136                  Robert Willert    1
+## 1137           Robin R. Christiansen    1
+## 1138               Rochelle Robinson    1
+## 1139                     Rod Higgins    1
+## 1140                 Rodney S. Craig    1
+## 1141                  Roger C. Claar    1
+## 1142                  Roland Velasco    1
+## 1143                     Ron Bigelow    1
+## 1144                     Ron Falconi    1
+## 1145                    Ron Jacobson    1
+## 1146                      Ron Jensen    1
+## 1147                    Ron Morrison    1
+## 1148                Ron Schnablegger    1
+## 1149                  Ronald A. Meer    1
+## 1150                  Ronald Beitler    1
+## 1151                  Ronald Nesbitt    1
+## 1152                Ronald Nirenberg    1
+## 1153                  Rosalynn Bliss    1
+## 1154                      Rose Sotak    1
+## 1155                     Roy D. Buol    1
+## 1156                   Roy Zartarian    1
+## 1157                     Rudy Durham    1
+## 1158          Russell &#39;Russ&#39; Blewett    1
+## 1159         Russell &#39;Rusty&#39; K. Paul    1
+## 1160                    Rusty Bailey    1
+## 1161                   Rusty Johnson    1
+## 1162                     Ruth M. Low    1
+## 1163                Ruth Penney Bell    1
+## 1164                 Ruthanne Fuller    1
+## 1165                  Sabby Jonathan    1
+## 1166                     Sally Faith    1
+## 1167                        Sam Abed    1
+## 1168                        Sam Cobb    1
+## 1169                  Sam Cunningham    1
+## 1170                       Sam Hindi    1
+## 1171                    Sam Liccardo    1
+## 1172                  Sammy Phillips    1
+## 1173                   Samuel Parham    1
+## 1174     Sandra &#39;Sandy &#39;Lee Bradbury    1
+## 1175                     Sandra Bury    1
+## 1176                  Sandra E. Frum    1
+## 1177                   Sandy Sanders    1
+## 1178                      Sara Kline    1
+## 1179                       Sara Kuhn    1
+## 1180       Satish I. Hiremath D.D.S.    1
+## 1181                 Scott Avedisian    1
+## 1182                      Scott Cain    1
+## 1183                 Scott D. Galvin    1
+## 1184                Scott Eisenhauer    1
+## 1185                   Scott Fadness    1
+## 1186                      Scott Hill    1
+## 1187                  Scott Phillips    1
+## 1188                 Scott Schertzer    1
+## 1189                     Sean Ashton    1
+## 1190                       Sean Ford    1
+## 1191                     Sean Morgan    1
+## 1192                     Sean Wright    1
+## 1193                   Sergio Farias    1
+## 1194                     Shane Bemis    1
+## 1195                  Shane Bouchard    1
+## 1196                 Shane McFarland    1
+## 1197                    Shari Cantor    1
+## 1198                   Sharon Konopa    1
+## 1199            Sharon Weston Broome    1
+## 1200                  Sharon Wolcott    1
+## 1201                   Shawn Barigar    1
+## 1202                    Shawn Reilly    1
+## 1203                   Sheila Meegan    1
+## 1204                  Shelley Brophy    1
+## 1205                  Shelley Welsch    1
+## 1206           Shelli Freeland Eddie    1
+## 1207                  Sherman Guyton    1
+## 1208                     Sherman Lea    1
+## 1209              Shirley Washington    1
+## 1210                    Smith Joseph    1
+## 1211                   Sonya Sanders    1
+## 1212                     Stan Joyner    1
+## 1213                      Stan Nader    1
+## 1214                  Stanley Clouse    1
+## 1215                Stanley E. Henry    1
+## 1216                  Stephanie Acri    1
+## 1217         Stephanie Muccini Burke    1
+## 1218                Stephanie Murray    1
+## 1219                  Stephanie Piko    1
+## 1220          Stephen &quot;Steve&quot; DeBrum    1
+## 1221                Stephen Benjamin    1
+## 1222               Stephen DonCarlos    1
+## 1223              Stephen H. Hagerty    1
+## 1224                 Stephen K. Sham    1
+## 1225                  Stephen Kepley    1
+## 1226             Stephen L. DiNatale    1
+## 1227                     Stephen Lam    1
+## 1228              Stephen Santellana    1
+## 1229                 Stephen Terrell    1
+## 1230                Stephen Williams    1
+## 1231                  Stephen Wukela    1
+## 1232          Steve &#39;Thunder&#39; Tumlin    1
+## 1233                     Steve Adler    1
+## 1234                  Steve Allender    1
+## 1235                  Steve Callaway    1
+## 1236                   Steve Chirico    1
+## 1237                   Steve Collier    1
+## 1238                  Steve Cummings    1
+## 1239                    Steve Gawron    1
+## 1240                     Steve Hiatt    1
+## 1241                     Steve Hogan    1
+## 1242                      Steve Holt    1
+## 1243                     Steve Leary    1
+## 1244                   Steve Leifson    1
+## 1245                     Steve Lentz    1
+## 1246                        Steve Ly    1
+## 1247                    Steve Miklos    1
+## 1248                    Steve Miller    1
+## 1249                     Steve Olson    1
+## 1250                   Steve Schewel    1
+## 1251                   Steve Schultz    1
+## 1252                 Steve Silverman    1
+## 1253                      Steve Tate    1
+## 1254                      Steve Vaus    1
+## 1255                   Steve Widmyer    1
+## 1256                 Steven B. Grant    1
+## 1257                    Steven Fulop    1
+## 1258                Steven Hernandez    1
+## 1259                  Steven K. Gaer    1
+## 1260                Steven M. Morley    1
+## 1261                    Steven Ponto    1
+## 1262                 Steven R. Jones    1
+## 1263                Steven W. Martin    1
+## 1264                    Susan Haynie    1
+## 1265                  Susan L. Moran    1
+## 1266                 Susan M. Brooks    1
+## 1267                     Susan Rohan    1
+## 1268                     Susie Galea    1
+## 1269                Suzanne E. Barry    1
+## 1270                   Suzanne Jones    1
+## 1271                  Suzanne Pixley    1
+## 1272                 Suzette Cavadas    1
+## 1273         Sylvester Sly James Jr.    1
+## 1274                Sylvester Turner    1
+## 1275                     Tab Bowling    1
+## 1276                    Tamara James    1
+## 1277              Tammy Dana-Bashian    1
+## 1278                  Tammy de Weerd    1
+## 1279                     Tari Renner    1
+## 1280                     Tasha Cerda    1
+## 1281                   Ted Brandvold    1
+## 1282                     Ted Wheeler    1
+## 1283                    Ted Winterer    1
+## 1284             Teresa &#39;Tita&#39; Smith    1
+## 1285           Teresa Pike Tomlinson    1
+## 1286                    Terry Tornek    1
+## 1287               Thaddeus Kirkland    1
+## 1288                  Theodore Green    1
+## 1289                  Theresa Berger    1
+## 1290           Thomas &#39;Tom&#39; C. Henry    1
+## 1291               Thomas A. Masters    1
+## 1292                  Thomas Barrett    1
+## 1293                 Thomas Bernabei    1
+## 1294            Thomas Broderick Jr.    1
+## 1295                   Thomas Dardar    1
+## 1296                Thomas E. Karnes    1
+## 1297                 Thomas Hoye Jr.    1
+## 1298                  Thomas K. Butt    1
+## 1299                  Thomas Kelaher    1
+## 1300                 Thomas Kneeland    1
+## 1301                   Thomas Lankey    1
+## 1302         Thomas M. McDermott Jr.    1
+## 1303                 Thomas M. McGee    1
+## 1304                 Thomas Micozzie    1
+## 1305                    Thomas Moses    1
+## 1306                  Thomas P. Koch    1
+## 1307              Thomas P. McNamara    1
+## 1308             Thomas P. Schneider    1
+## 1309                  Thomas Perciak    1
+## 1310                    Thomas Roach    1
+## 1311                 Thomas W. Hayes    1
+## 1312                       Tim Brown    1
+## 1313                       Tim Kabat    1
+## 1314                      Tim Keller    1
+## 1315                    Tim Lonergan    1
+## 1316                     Tim Mahoney    1
+## 1317                       Tim Neese    1
+## 1318                       Tim Pogue    1
+## 1319                    Tim Sandoval    1
+## 1320                        Tim Shaw    1
+## 1321                     Tim Willson    1
+## 1322                Timothy B. Flynn    1
+## 1323                Timothy DeGeeter    1
+## 1324                   Timothy Hanna    1
+## 1325             Timothy M. Flaherty    1
+## 1326                 Timothy Theaker    1
+## 1327                     Toby Barker    1
+## 1328                     Toby Powell    1
+## 1329                    Todd Strange    1
+## 1330                   Todd Wodraska    1
+## 1331                       Tom Adams    1
+## 1332                       Tom Brady    1
+## 1333                      Tom Hayden    1
+## 1334                       Tom Joyce    1
+## 1335                     Tom Prather    1
+## 1336                        Tom Reid    1
+## 1337                     Tom Rowland    1
+## 1338                        Tom Ryan    1
+## 1339                        Tom Tait    1
+## 1340                      Tom Watson    1
+## 1341                    Tommy Battle    1
+## 1342                   Tommy Roberts    1
+## 1343                    Toni N. Harp    1
+## 1344                     Tony George    1
+## 1345                 Tony LaFountain    1
+## 1346                  Tony Roswarski    1
+## 1347                      Tony Vauss    1
+## 1348                 Travis Mitchell    1
+## 1349                    Trent Staggs    1
+## 1350                          Tri Ta    1
+## 1351           Trish Herrera Spencer    1
+## 1352                     Troy Walker    1
+## 1353                Vanessa Carusone    1
+## 1354                 Vanessa Delgado    1
+## 1355                 Vanessa Fleisch    1
+## 1356               Vartan Gharpetian    1
+## 1357                        Vi Lyles    1
+## 1358                 Vicki A. Tesoro    1
+## 1359                 Victor Gonzales    1
+## 1360                     Victor Kidd    1
+## 1361                Victoria Gearity    1
+## 1362               Victoria Woodards    1
+## 1363                   Violeta Lewis    1
+## 1364          Virginia Hillman Young    1
+## 1365                    Vivian Jones    1
+## 1366                      W.J.  Lane    1
+## 1367              Wade Kapszukiewicz    1
+## 1368                    Wade Troxell    1
+## 1369                     Wally Scott    1
+## 1370                    Walt Johnson    1
+## 1371          Walter &#39;Skip&#39; Campbell    1
+## 1372                   Walter Maddox    1
+## 1373                 Warren Copeland    1
+## 1374                   Warren Gubler    1
+## 1375                 Wayne H. Poston    1
+## 1376                 Wayne M. Messam    1
+## 1377                      Wilda Diaz    1
+## 1378                   Wiley Johnson    1
+## 1379                       Will Hall    1
+## 1380                     Will Haynie    1
+## 1381                     Will Rogers    1
+## 1382         William &#39;Bill&#39; Clarkson    1
+## 1383        William &#39;Bill&#39; D. McLeod    1
+## 1384                  William Benton    1
+## 1385                  William Capote    1
+## 1386           William Dickinson Jr.    1
+## 1387                   William Dusch    1
+## 1388                William Franklin    1
+## 1389                    William Hawk    1
+## 1390                  William Moehle    1
+## 1391                  William Murray    1
+## 1392                 William P. Mars    1
+## 1393                  William Peduto    1
+## 1394                 William R. Wild    1
+## 1395                 William Samaras    1
+## 1396               William Schroeder    1
+## 1397                 William Sessoms    1
+## 1398                  William Shewey    1
+## 1399                William Stimpson    1
+## 1400                    William Tate    1
+## 1401        William W. Gillespie Jr.    1
+## 1402                William Wechsler    1
+## 1403                  Wilmot Collins    1
+## 1404                Yvonne M. Spicer    1
+## 1405               Yxstian Gutierrez    1
+## 1406                  Zachary Haigis    1</code></pre>
+<p>Note that we need to filter out NA/null values from the dataset before taking unique values in tidy. Tidy counts null as a unique value.</p>
+<p>How about adding a column to the mayors dataset that counts the number of tweets they have made?</p>
+<p>With SQL:</p>
+<div class="sourceCode" id="cb736"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb736-1"><a href="using-sql-syntax-on-an-r-dataframe.html#cb736-1"></a>mayors_newDF &lt;-<span class="st"> </span><span class="kw">sqldf</span>( <span class="st">&quot;SELECT mayorsDF.*, COUNT(TweetID) AS nTweets</span></span>
+<span id="cb736-2"><a href="using-sql-syntax-on-an-r-dataframe.html#cb736-2"></a><span class="st">                            FROM mayorsDF </span></span>
+<span id="cb736-3"><a href="using-sql-syntax-on-an-r-dataframe.html#cb736-3"></a><span class="st">                            INNER JOIN tweetsDF </span></span>
+<span id="cb736-4"><a href="using-sql-syntax-on-an-r-dataframe.html#cb736-4"></a><span class="st">                            ON mayorsDF.TwitterHandle = tweetsDF.ScreenName </span></span>
+<span id="cb736-5"><a href="using-sql-syntax-on-an-r-dataframe.html#cb736-5"></a><span class="st">                            GROUP BY MayorID</span></span>
+<span id="cb736-6"><a href="using-sql-syntax-on-an-r-dataframe.html#cb736-6"></a><span class="st">                            ORDER BY nTweets DESC, FullName ASC&quot;</span> )</span>
+<span id="cb736-7"><a href="using-sql-syntax-on-an-r-dataframe.html#cb736-7"></a><span class="kw">head</span>(mayors_newDF[<span class="kw">c</span>(<span class="st">&quot;MayorID&quot;</span>, <span class="st">&quot;FullName&quot;</span>, <span class="st">&quot;TwitterHandle&quot;</span>, <span class="st">&quot;nTweets&quot;</span>)], <span class="dt">n=</span><span class="dv">10</span>)</span></code></pre></div>
+<pre><code>##    MayorID          FullName   TwitterHandle nTweets
+## 1      902    Derek Armstead  derek_armstead    3200
+## 2     1143      Ed Pawlowski    ed_pawlowski    3200
+## 3      778      Emily Larson larsonforduluth    3200
+## 4     1071     Greg Peterson      dublinohio    3200
+## 5      812  Jason L. Shelton tupmayorsoffice    3200
+## 6     1141        Jim Kenney     phillymayor    3200
+## 7      498     Rahm Emmanuel   chicagosmayor    3200
+## 8      443 Thomas A. Masters    mayormasters    3200
+## 9       11  William Stimpson   mayorstimpson    3200
+## 10     715        Andy Schor       andyschor    3199</code></pre>
+<p>With tidy:</p>
+<div class="sourceCode" id="cb738"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb738-1"><a href="using-sql-syntax-on-an-r-dataframe.html#cb738-1"></a>tweetCounts &lt;-<span class="st"> </span>tweets <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb738-2"><a href="using-sql-syntax-on-an-r-dataframe.html#cb738-2"></a><span class="st">    </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(ScreenName)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb738-3"><a href="using-sql-syntax-on-an-r-dataframe.html#cb738-3"></a><span class="st">    </span><span class="kw">group_by</span>(ScreenName) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb738-4"><a href="using-sql-syntax-on-an-r-dataframe.html#cb738-4"></a><span class="st">    </span><span class="kw">tally</span>()</span>
+<span id="cb738-5"><a href="using-sql-syntax-on-an-r-dataframe.html#cb738-5"></a>mayors_new &lt;-<span class="st"> </span>mayors <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb738-6"><a href="using-sql-syntax-on-an-r-dataframe.html#cb738-6"></a><span class="st">    </span><span class="kw">inner_join</span>(tweetCounts, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;TwitterHandle&quot;</span>=<span class="st">&quot;ScreenName&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb738-7"><a href="using-sql-syntax-on-an-r-dataframe.html#cb738-7"></a><span class="st">    </span><span class="kw">group_by</span>(MayorID) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb738-8"><a href="using-sql-syntax-on-an-r-dataframe.html#cb738-8"></a><span class="st">    </span><span class="kw">arrange</span>(FullName) <span class="op">%&gt;%</span></span>
+<span id="cb738-9"><a href="using-sql-syntax-on-an-r-dataframe.html#cb738-9"></a><span class="st">    </span><span class="kw">arrange</span>(<span class="kw">desc</span>(n)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb738-10"><a href="using-sql-syntax-on-an-r-dataframe.html#cb738-10"></a><span class="st">    </span><span class="kw">select</span>(<span class="st">&quot;MayorID&quot;</span>, <span class="st">&quot;FullName&quot;</span>, <span class="st">&quot;TwitterHandle&quot;</span>, <span class="st">&quot;n&quot;</span>)</span>
+<span id="cb738-11"><a href="using-sql-syntax-on-an-r-dataframe.html#cb738-11"></a>mayors_new</span></code></pre></div>
+<pre><code>## # A tibble: 572 x 4
+## # Groups:   MayorID [572]
+##    MayorID FullName          TwitterHandle       n
+##      &lt;dbl&gt; &lt;chr&gt;             &lt;chr&gt;           &lt;int&gt;
+##  1     902 Derek Armstead    derek_armstead   3200
+##  2    1143 Ed Pawlowski      ed_pawlowski     3200
+##  3     778 Emily Larson      larsonforduluth  3200
+##  4    1071 Greg Peterson     dublinohio       3200
+##  5     812 Jason L. Shelton  tupmayorsoffice  3200
+##  6    1141 Jim Kenney        phillymayor      3200
+##  7     498 Rahm Emmanuel     chicagosmayor    3200
+##  8     443 Thomas A. Masters mayormasters     3200
+##  9      11 William Stimpson  mayorstimpson    3200
+## 10     715 Andy Schor        andyschor        3199
+## # ... with 562 more rows</code></pre>
+
+</div>
+</div>
+
+
+
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="functions-and-packages.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
