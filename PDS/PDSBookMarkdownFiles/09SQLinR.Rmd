@@ -172,8 +172,7 @@ We can confirm this with our tidy skills:
 mayors %>% 
     select("FullName") %>%
     filter(!is.na(FullName)) %>% 
-    unique() %>%
-    count()
+    n_distinct()
 ```
 
 Note that we need to filter out NA/null values from the dataset before taking unique values in tidy. Tidy counts null as a unique value.
