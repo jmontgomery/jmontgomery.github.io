@@ -9,7 +9,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### PS 4625: Political Data Science (Beta)
 
-[Syllabus](https://jmontgomery.github.io/PDS/Syllabus/PDS2020.pdf)  
+[Syllabus](https://jmontgomery.github.io/PDS/Syllabus/PDS2020_pandemic.pdf)  
 
 [Online Course Book](http://jmontgomery.github.io/PDS/PoliticalDataScience/)
 

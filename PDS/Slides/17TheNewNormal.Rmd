@@ -1,0 +1,373 @@
+---
+title: "Probability and inference"
+author: |
+  | Jacob M. Montgomery
+  | *Washington University in St. Louis*
+  | *Department of Politcal Science*
+date: '2020'
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
+#   beamer_presentation: default
+#   slidy_presentation: default
+
+
+---
+
+
+## Orientation for today
+
+Last time
+
+
+1. Orientation for machine learning
+
+--
+
+This time
+
+1. Very fast introduction to inference
+
+--
+
+Next time
+
+1. Supervised learning
+
+
+---
+
+
+## Introduction to inference
+
+- We are usually interested in making some statement about a population.
+
+- But we only have a subset of the cases?  What to do?
+
+--
+
+- The answer most often used is some variation of this:
+    + Gather the sample.
+    + Make some assumptions appropriate to how the sample was collected.
+    + Use logic and probability theory to then make an inference about the population.
+
+
+---
+
+## How is this typically done?
+
+
+1. Imagine that we have taken a random sample from a population.
+
+2. We calculate some statistic from this sample like the mean.  
+    + This is our estimate.
+    + But how accurate is it?
+
+---
+
+3. Statisticians often use
+    + Knowledge about what that statistics will look like *if* we had followed this procedure again, and again, and again.
+    + Simulating as if we had followed this same procedure again, and again, and again.
+
+
+
+
+---
+
+
+## Get set up
+
+Today we are going to use the 2019 data release from the Voter Study Group
+
+- Download: https://www.voterstudygroup.org/publication/2019-voter-survey-full-data-set
+- Codebook: https://www.voterstudygroup.org/publication/2019-voter-survey-full-data-set
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+library(tidyverse)
+VSG<-read_csv("~/Downloads/VOTER_Survey_Jan217_Release1-csv.csv")
+```
+
+---
+
+## Recode a bit
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+with(VSG, table(fav_biden_2019))
+VSG<-VSG %>% 
+  mutate(fav_biden_2019=na_if(fav_biden_2019, 8)) %>%
+  mutate(fav_biden_2019=na_if(fav_biden_2019, 98))
+with(VSG, table(fav_biden_2019))
+```
+
+Here is the mean value:
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+mean(VSG$fav_biden_2019, na.rm=TRUE)
+```
+
+
+---
+
+## Now sample
+
+- Now for our learning purposes, we are going to take a sample.
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+set.seed(201)
+sample_100= VSG %>%
+  sample_n(size=100)
+```
+
+
+- Can we use this to guess back to the mean value in the larger dataset?
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+mean(sample_100$fav_biden_2019, na.rm=TRUE)
+```
+
+
+---
+
+## Uhhhh ... that seems cool
+
+- So that seems like a pretty good approach.
+
+- Were we just lucky, or will this work more generally?
+
+--
+
+- (At least) two ways to think about that.
+    + Probability theory
+    + Resampling
+    
+    
+---
+
+
+
+## Sampling Distributions
+
+
+> A **sampling distribution** is the distribution of a **statistic** given repeated sampling.  
+
+
+
+We use probability theory to derive a **distribution for a statistic**, which allows us (eventually) to make inferences about **populations**.  
+  
+  
+---
+
+### Central limit theorem
+
+For random sampling with a **large** sample size $n$, the sampling distribution of the sample mean $\bar{y}$ is approximately normal, where $\bar{y} \sim N\left(\mu, \frac{\sigma}{\sqrt{n}}\right)$.
+
+
+
+
+
+- $\sigma/\sqrt{n}$ is called the standard error.
+
+    - It is the standard deviation of the sampling distribution.
+    - Note that the formula includes the population standard deviation $\sigma$.
+    - Pay attention or you will get them mixed up. 
+- As $n \rightarrow \infty$, the standard error is going to get smaller and smaller.
+- **This** is why the normal distribution is very important.   
+
+
+---
+
+## Class exercise
+
+1. Find the standard deviation for `fav_biden_2019` using `sd`.
+2. Calculate the `sd/sqrt(400)` 
+3. Repeat what I did above 500 times, but save the mean you calculate.  Use a sample size of 400.
+4. Calculate the standard deviation of these means.
+5. Compare (4) to (2).
+
+
+---
+
+## So how does that actually work?
+
+- So that's cool, but in real life we ony have *one* sample from the population to work with.
+
+- One approach is to just use the formula above, but guess at things like $\mu$ and $\sigma$ based on our data.
+
+--
+
+- We want: $\bar{y} \sim N\left(\mu, \frac{\sigma}{\sqrt{n}}\right)$
+
+--
+
+- We approximate this with:
+$$\bar{y} \sim N\left(\bar{y}, \frac{sd}{\sqrt{n}}\right)$$
+
+
+---
+
+##Confidence Intervals for the Mean of Populations 
+
+- Obtain $\bar{y}=\frac{\sum{y_i}}{n}$
+
+- Obtain $\sigma_{\bar{y}}=\frac{\sigma}{\sqrt{n}}$ or $\hat{\sigma}_{\bar{y}}=\frac{S}{\sqrt{n}}$
+
+- Choose a confidence level
+ 
+- Obtain confidence coefficient: $\frac{\text{confidence level}}{100}$
+
+- Find the Z-score that corresponds to $\frac{(\text{1-confidence coefficient})}{2}$ [Normal Table or R]
+
+
+Confidence Interval for your chosen confidence level: 
+
+$$(\bar{y}-z*\sigma_{\bar{y}},\bar{y}+z*\sigma_{\bar{y}})$$
+
+---
+
+## In R: 
+
+
+- Get the mean, standard deviation and number of observations of thevariable you are interested in
+- The <code>qnorm()</code> gives you the required z-score.
+
+```{r, eval=F} 
+z.score = qnorm(1-confidence coefficient/2)
+```
+
+---
+
+For example, for a 99\% confidence interval, I could use 
+```{r, eval=T} 
+z.score = qnorm((1-.01/2))
+z.score
+```
+
+
+---
+
+1) Get mean, sd, and n of the variable and save in appropriately named objects:
+
+```{r, eval=F}
+mean.variable = mean(nameofdataset$nameofvariable,na.rm=T)
+sd.variable = sd(nameofdataset$nameofvariable,na.rm=T)
+n = length(na.omit(nameofdataset$nameofvariable))
+```
+
+
+2) Compute lower bound: 
+
+```{r, eval=F}
+mean.variable - z.score*sd.variable/sqrt(n)
+```
+
+3) Compute upper bound:
+
+```{r, eval=F}
+mean.variable+ z.score*sd.variable/sqrt(n)
+```
+
+---
+
+## Class exercise
+
+1. Take **one** sample of size 300 from our larger dataset.
+
+2. Imagine that we only had this data.  Estimate a 95\% confidence interval for the population.
+
+--
+
+3. What do we mean by a 95\% confidence interval?
+
+---
+
+## Bootstrapping
+
+A related idea goes like this:
+
+1. Treat your sample as if it pretty much represents the population.
+2. Re-sample your own data **WITH** replacement over and over again. You will want to use the `replace=TRUE` option for `sample_n` 
+3. For each re-sample, calculate your statistic of interest.
+4. The *standard deviation* of the resulting output is a good estimate of the standard error again. 
+5. The quantiles can also be used, but you will want to do a lot more re-sampling (at least 500).
+
+---
+
+## Class activity
+
+1. Make a function that will re-sample your sample (with replacement). Seems weird, but that's what we are doing.
+2. Take 1,000 re-samples and calculate the mean of each.
+3. Find the standard deviation of those **MEANS** and use that to calculate a 95% CI.
+4. Use the quantile function to calculate the 95% CI for the mean and compare.
+4. Calculate the standard deviation.  Use this as your estimate of the standard error and find a 95% confidence interval.
+
+
+---
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+VSG<-VSG %>% 
+  mutate(Democrats_2019=na_if(Democrats_2019, 997)) %>%
+  mutate(Democrats_2019=na_if(Democrats_2019, 998))
+plot(density(VSG$Democrats_2019, na.rm=TRUE))
+```
+
+
+---
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.height=4}
+therm_plot<-ggplot(data=VSG, aes(x=Democrats_2019, y=fav_biden_2019)) +
+  geom_point() + geom_smooth(method="lm") +
+  geom_jitter() +
+  ylab("Biden disapproval") +
+  xlab("Democratic thermometer") 
+therm_plot
+```
+
+
+---
+
+## Linear regression
+
+More formally:
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+Therm_model<-lm(fav_biden_2019 ~ Democrats_2019, data=VSG)
+summary(Therm_model)
+```
+
+
+
+---
+
+GAH!
+
+---
+
+
+--- 
+
+## But there is always the possibility of lurking variable?
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+VSG<-VSG %>% 
+  mutate(imiss_y_2019 =na_if(imiss_y_2019 , 8))
+with(VSG, table(imiss_y_2019))
+```
+
+
+---
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+Therm_model2<-lm(fav_biden_2019 ~ Democrats_2019 + imiss_y_2019, data=VSG)
+summary(Therm_model2)
+```
+
+
+
