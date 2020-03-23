@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Probability and inference</title>
+    <meta charset="utf-8">
+    <meta name="date" content="2020-01-01" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Probability and inference
+### <div style="white-space: pre-line;">Jacob M. Montgomery
+<em>Washington University in St. Louis</em>
+<em>Department of Politcal Science</em></div>
+### 2020
+
+---
+
+
+
+## Orientation for today
+
+Last time
+
+
+1. Orientation for machine learning
+
+--
+
+This time
+
+1. Very fast introduction to inference
+
+--
+
+Next time
+
+1. Supervised learning
+
+
+---
+
+
+## Introduction to inference
+
+- We are usually interested in making some statement about a population.
+
+- But we only have a subset of the cases?  What to do?
+
+--
+
+- The answer most often used is some variation of this:
+    + Gather the sample.
+    + Make some assumptions appropriate to how the sample was collected.
+    + Use logic and probability theory to then make an inference about the population.
+
+
+---
+
+## How is this typically done?
+
+
+1. Imagine that we have taken a random sample from a population.
+
+2. We calculate some statistic from this sample like the mean.  
+    + This is our estimate.
+    + But how accurate is it?
+
+---
+
+3. Statisticians often use
+    + Knowledge about what that statistics will look like *if* we had followed this procedure again, and again, and again.
+    + Simulating as if we had followed this same procedure agian, and again, and again.
+
+
+
+
+---
+
+
+## Get set up
+
+Today we are going to use the 2019 data release from the Voter Study Group
+
+- Download: https://www.voterstudygroup.org/publication/2019-voter-survey-full-data-set
+- Codebook: https://www.voterstudygroup.org/publication/2019-voter-survey-full-data-set
+
+
+
+```r
+library(tidyverse)
+VSG&lt;-read_csv("~/Downloads/VOTER_Survey_Jan217_Release1-csv.csv")
+```
+
+---
+
+## Recode a bit
+
+
+```r
+with(VSG, table(fav_biden_2019))
+```
+
+```
+## fav_biden_2019
+##    1    2    3    4    8   98 
+## 2230 1390  916 1815  344   84
+```
+
+```r
+VSG&lt;-VSG %&gt;% 
+  mutate(fav_biden_2019=na_if(fav_biden_2019, 8)) %&gt;%
+  mutate(fav_biden_2019=na_if(fav_biden_2019, 98))
+with(VSG, table(fav_biden_2019))
+```
+
+```
+## fav_biden_2019
+##    1    2    3    4 
+## 2230 1390  916 1815
+```
+
+Here is the mean value:
+
+
+```r
+mean(VSG$fav_biden_2019, na.rm=TRUE)
+```
+
+```
+## [1] 2.364667
+```
+
+
+---
+
+## Now sample
+
+- Now for our learning purposes, we are going to take a sample.
+
+
+
+```r
+set.seed(201)
+sample_100= VSG %&gt;%
+  sample_n(size=100)
+```
+
+
+- Can we use this to guess back to the mean value in the larger dataset?
+
+
+```r
+mean(sample_100$fav_biden_2019, na.rm=TRUE)
+```
+
+```
+## [1] 2.234375
+```
+
+
+---
+
+## Uhhhh ... that seems cool
+
+- So that seems like a pretty good approach.
+
+- Were we just lucky, or will this work more generally?
+
+--
+
+- (At least) two ways to think about that.
+    + Probability theory
+    + Resampling
+    
+    
+---
+
+
+
+## Sampling Distributions
+
+
+&gt; A **sampling distribution** is the distribution of a **statistic** given repeated sampling.  
+
+
+
+We use probability theory to derive a **distribution for a statistic**, which allows us (eventually) to make inferences about **populations**.  
+  
+  
+---
+
+### Central limit theorem
+
+For random sampling with a **large** sample size `\(n\)`, the sampling distribution of the sample mean `\(\bar{y}\)` is approximately normal, where `\(\bar{y} \sim N\left(\mu, \frac{\sigma}{\sqrt{n}}\right)\)`.
+
+
+
+
+
+- `\(\sigma/\sqrt{n}\)` is called the standard error.
+
+    - It is the standard deviation of the sampling distribution.
+    - Note that the formula includes the population standard deviation `\(\sigma\)`.
+    - Pay attention or you will get them mixed up. 
+- As `\(n \rightarrow \infty\)`, the standard error is going to get smaller and smaller.
+- **This** is why the normal distribution is very important.   
+
+
+---
+
+## Class exercise
+
+1. Find the standard deviation for `fav_biden_2019` using `sd`.
+2. Calculate the `sd/sqrt(400)` 
+3. Repeat what I did above 500 times, but save the mean you calculate.  Use a sample size of 400.
+4. Calculate the standard deviation of these means.
+5. Compare (4) to (2).
+
+
+---
+
+## So how does that actually work?
+
+- So that's cool, but in real life we ony have *one* sample from the population to work with.
+
+- One approach is to just use the formula above, but guess at things like `\(\mu\)` and `\(\sigma\)` based on our data.
+
+--
+
+- We want: `\(\bar{y} \sim N\left(\mu, \frac{\sigma}{\sqrt{n}}\right)\)`
+
+--
+
+- We approximate this with:
+`$$\bar{y} \sim N\left(\bar{y}, \frac{sd}{\sqrt{n}}\right)$$`
+
+
+---
+
+##Confidence Intervals for the Mean of Populations 
+
+- Obtain `\(\bar{y}=\frac{\sum{y_i}}{n}\)`
+
+- Obtain `\(\sigma_{\bar{y}}=\frac{\sigma}{\sqrt{n}}\)` or `\(\hat{\sigma}_{\bar{y}}=\frac{S}{\sqrt{n}}\)`
+
+- Choose a confidence level
+ 
+- Obtain confidence coefficient: `\(\frac{\text{confidence level}}{100}\)`
+
+- Find the Z-score that corresponds to `\(\frac{(\text{1-confidence coefficient})}{2}\)` [Normal Table or R]
+
+
+Confidence Interval for your chosen confidence level: 
+
+`$$(\bar{y}-z*\sigma_{\bar{y}},\bar{y}+z*\sigma_{\bar{y}})$$`
+
+---
+
+## In R: 
+
+
+- Get the mean, standard deviation and number of observations of thevariable you are interested in
+- The &lt;code&gt;qnorm()&lt;/code&gt; gives you the required z-score.
+
+
+```r
+z.score = qnorm(1-confidence coefficient/2)
+```
+
+---
+
+For example, for a 99\% confidence interval, I could use 
+
+```r
+z.score = qnorm((1-.01/2))
+z.score
+```
+
+```
+## [1] 2.575829
+```
+
+
+---
+
+1) Get mean, sd, and n of the variable and save in appropriately named objects:
+
+
+```r
+mean.variable = mean(nameofdataset$nameofvariable,na.rm=T)
+sd.variable = sd(nameofdataset$nameofvariable,na.rm=T)
+n = length(na.omit(nameofdataset$nameofvariable))
+```
+
+
+2) Compute lower bound: 
+
+
+```r
+mean.variable - z.score*sd.variable/sqrt(n)
+```
+
+3) Compute upper bound:
+
+
+```r
+mean.variable+ z.score*sd.variable/sqrt(n)
+```
+
+---
+
+## Class exercise
+
+1. Take **one** sample of size 300 from our larger dataset.
+
+2. Imagine that we only had this data.  Estimate a 95\% confidence interval for the population.
+
+--
+
+3. What do we mean by a 95\% confidence interval?
+
+---
+
+## Bootstrapping
+
+A related idea goes like this:
+
+1. Treat your sample as if it pretty much represents the population.
+2. Re-sample your own data **WITH** replacement over and over again. You will want to use the `replace=TRUE` option for `sample_n` 
+3. For each re-sample, calculate your statistic of interest.
+4. The *standard deviation* of the resulting output is a good estimate of the standard error again. 
+5. The quantiles can also be used, but you will want to do a lot more re-sampling (at least 500).
+
+---
+
+## Class activity
+
+1. Make a function that will re-sample your sample (with replacement). Seems weird, but that's what we are doing.
+2. Take 1,000 re-samples and calculate the mean of each.
+3. Find the standard deviation of those **MEANS** and use that to calculate a 95% CI.
+4. Use the quantile function to calculate the 95% CI for the mean and compare.
+4. Calculate the standard deviation.  Use this as your estimate of the standard error and find a 95% confidence interval.
+
+
+---
+
+
+
+```r
+VSG&lt;-VSG %&gt;% 
+  mutate(Democrats_2019=na_if(Democrats_2019, 997)) %&gt;%
+  mutate(Democrats_2019=na_if(Democrats_2019, 998))
+plot(density(VSG$Democrats_2019, na.rm=TRUE))
+```
+
+![](16ProbabilityAndInference_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
+
+
+---
+
+
+
+```r
+therm_plot&lt;-ggplot(data=VSG, aes(x=Democrats_2019, y=fav_biden_2019)) +
+  geom_point() + geom_smooth(method="lm") +
+  geom_jitter() +
+  ylab("Biden disapproval") +
+  xlab("Democratic thermometer") 
+therm_plot
+```
+
+![](16ProbabilityAndInference_files/figure-html/unnamed-chunk-12-1.png)&lt;!-- --&gt;
+
+
+---
+
+## Linear regression
+
+More formally:
+
+
+```r
+Therm_model&lt;-lm(fav_biden_2019 ~ Democrats_2019, data=VSG)
+summary(Therm_model)
+```
+
+```
+## 
+## Call:
+## lm(formula = fav_biden_2019 ~ Democrats_2019, data = VSG)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -2.54889 -0.43034  0.04633  0.47760  3.09929 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)     3.5488857  0.0156069   227.4   &lt;2e-16 ***
+## Democrats_2019 -0.0264818  0.0002625  -100.9   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.7281 on 5668 degrees of freedom
+##   (3878 observations deleted due to missingness)
+## Multiple R-squared:  0.6422,	Adjusted R-squared:  0.6422 
+## F-statistic: 1.017e+04 on 1 and 5668 DF,  p-value: &lt; 2.2e-16
+```
+
+
+
+---
+
+GAH!
+
+---
+
+
+--- 
+
+## But there is always the possibility of lurking variable?
+
+
+```r
+VSG&lt;-VSG %&gt;% 
+  mutate(imiss_y_2019 =na_if(imiss_y_2019 , 8))
+with(VSG, table(imiss_y_2019))
+```
+
+```
+## imiss_y_2019
+##    1    2    3    4 
+## 2613 1993 1110  996
+```
+
+
+---
+
+
+
+```r
+Therm_model2&lt;-lm(fav_biden_2019 ~ Democrats_2019 + imiss_y_2019, data=VSG)
+summary(Therm_model2)
+```
+
+```
+## 
+## Call:
+## lm(formula = fav_biden_2019 ~ Democrats_2019 + imiss_y_2019, 
+##     data = VSG)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -2.7102 -0.4241  0.0299  0.4699  3.1255 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)     3.1094048  0.0343043   90.64   &lt;2e-16 ***
+## Democrats_2019 -0.0239112  0.0003147  -75.98   &lt;2e-16 ***
+## imiss_y_2019    0.1561781  0.0109040   14.32   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.7157 on 5623 degrees of freedom
+##   (3922 observations deleted due to missingness)
+## Multiple R-squared:  0.6545,	Adjusted R-squared:  0.6544 
+## F-statistic:  5326 on 2 and 5623 DF,  p-value: &lt; 2.2e-16
+```
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

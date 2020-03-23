@@ -1,10 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2019.12.11)  23 MAR 2020 09:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2019.12.11)  23 MAR 2020 11:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**\input PDS2020.tex
-(./PDS2020.tex (/usr/local/texlive/2017/texmf-dist/tex/latex/base/article.cls
+**\input PDS2020_pandemic.tex
+(./PDS2020_pandemic.tex
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/size11.clo
 File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
@@ -306,8 +307,8 @@ Package: multicol 2017/04/11 v1.8q multicolumn formatting (FMi)
 \colbreak@box=\box53
 \mc@col@check@num=\count125
 )
-(./PDS2020.aux)
-\openout1 = `PDS2020.aux'.
+(./PDS2020_pandemic.aux)
+\openout1 = `PDS2020_pandemic.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
@@ -324,7 +325,8 @@ LaTeX Font Info:    ... okay on input line 13.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
 LaTeX Font Info:    Try loading font information for OT1+ppl on input line 13.
- (/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/ot1ppl.fd
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
 *geometry* driver: auto-detecting
@@ -375,9 +377,9 @@ LaTeX Info: Redefining \ref on input line 13.
 LaTeX Info: Redefining \pageref on input line 13.
 LaTeX Info: Redefining \nameref on input line 13.
 
-(./PDS2020.out) (./PDS2020.out)
+(./PDS2020_pandemic.out) (./PDS2020_pandemic.out)
 \@outlinefile=\write3
-\openout3 = `PDS2020.out'.
+\openout3 = `PDS2020_pandemic.out'.
 
 LaTeX Font Info:    Try loading font information for OML+zplm on input line 29.
 
@@ -406,19 +408,19 @@ File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ppl/b/n' tried instead on input line 37.
 LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 46.
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 48.
  [1
 
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OMS+ppl on input line 94.
+LaTeX Font Info:    Try loading font information for OMS+ppl on input line 96.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/omsppl.fd
 File: omsppl.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 94.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 96.
 LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 115.
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 118.
  [2] [3]
 [4]
 Missing character: There is no â in font pplr7t!
@@ -426,72 +428,82 @@ Missing character: There is no € in font pplr7t!
 Missing character: There is no ™ in font pplr7t!
  [5] [6]
 LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 454.
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 430.
 
-Underfull \hbox (badness 1694) in paragraph at lines 455--455
+Underfull \hbox (badness 1694) in paragraph at lines 431--431
 []\OT1/ppl/m/n/10 DVM Chpt 1-2, Ap-
  []
 
 
-Overfull \hbox (45.48904pt too wide) in paragraph at lines 450--491
+Overfull \hbox (45.48904pt too wide) in paragraph at lines 426--467
  [] 
  []
 
-[7]
-Underfull \hbox (badness 1845) in paragraph at lines 514--514
+
+Underfull \hbox (badness 1838) in paragraph at lines 482--483
+[]\OT1/ppl/m/n/10 Stare at your phone in
+ []
+
+
+Underfull \hbox (badness 1845) in paragraph at lines 494--494
 []\OT1/ppl/m/n/10 Causality 2 : Ob-ser-va-
  []
 
 
-Overfull \hbox (45.48904pt too wide) in paragraph at lines 497--534
+Underfull \hbox (badness 10000) in paragraph at lines 504--504
+[]\OT1/ppl/m/n/10 Markdown/Github
+ []
+
+
+Overfull \hbox (45.48904pt too wide) in paragraph at lines 473--511
  [] 
  []
 
-[8] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 542--543
+[7] [8]
+Underfull \hbox (badness 10000) in paragraph at lines 519--520
 
  []
 
 Missing character: There is no Ã in font pplr7t!
 Missing character: There is no • in font pplr7t!
 
-Underfull \hbox (badness 10000) in paragraph at lines 544--545
+Underfull \hbox (badness 10000) in paragraph at lines 521--522
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 546--547
+Underfull \hbox (badness 10000) in paragraph at lines 523--524
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 570--571
+Underfull \hbox (badness 10000) in paragraph at lines 547--548
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 572--573
+Underfull \hbox (badness 10000) in paragraph at lines 549--550
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 581.
-[10]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 581.
- (./PDS2020.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 581.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 581.
-Package rerunfilecheck Info: File `PDS2020.out' has not changed.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 558.
+[9]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 558.
+ (./PDS2020_pandemic.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 558.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 558.
+Package rerunfilecheck Info: File `PDS2020_pandemic.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 581.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 558.
  ) 
 Here is how much of TeX's memory you used:
- 5793 strings out of 492995
- 85150 string characters out of 6132703
+ 5791 strings out of 492995
+ 85249 string characters out of 6132703
  191982 words of memory out of 5000000
  9254 multiletter control sequences out of 15000+600000
  29993 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 28i,8n,21p,740b,423s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 28i,8n,21p,749b,423s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
 xlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
@@ -499,10 +511,10 @@ live/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texl
 ive/2017/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/201
 7/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2017/texmf
 -dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on PDS2020.pdf (10 pages, 111946 bytes).
+Output written on PDS2020_pandemic.pdf (9 pages, 111195 bytes).
 PDF statistics:
- 116 PDF objects out of 1000 (max. 8388607)
- 97 compressed objects within 1 object stream
- 36 named destinations out of 1000 (max. 500000)
+ 112 PDF objects out of 1000 (max. 8388607)
+ 94 compressed objects within 1 object stream
+ 34 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

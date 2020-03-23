@@ -9,7 +9,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### PS 4625: Political Data Science (Beta)
 
-[Syllabus](https://jmontgomery.github.io/PDS/Syllabus/PDS2020.pdf)  
+[Syllabus](https://jmontgomery.github.io/PDS/Syllabus/PDS2020_pandemic.pdf)  
 
 [Online Course Book](http://jmontgomery.github.io/PDS/PoliticalDataScience/)
 
@@ -41,6 +41,10 @@ knitr::opts_chunk$set(echo = TRUE)
 [Lecture 13](https://jmontgomery.github.io/PDS/Slides/13PipesMapWalk.html)
 
 [Lecture 14](https://jmontgomery.github.io/PDS/Slides/14FunctionalsProgramming.html)
+
+[Lecture 15](https://jmontgomery.github.io/PDS/Slides/15OrientationToMachineLearning.html)
+
+[Lecture 16](https://jmontgomery.github.io/PDS/Slides/16ProbabilityAndInference.html)
 
 #### Problem Sets
 [Problem Set 1](https://jmontgomery.github.io/PDS/Problem Sets/Problem Set 1/PS1_PDS.pdf)
