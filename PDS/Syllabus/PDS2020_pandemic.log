@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2019.12.11)  23 MAR 2020 10:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2019.12.11)  23 MAR 2020 11:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -445,56 +445,56 @@ Underfull \hbox (badness 1838) in paragraph at lines 482--483
  []
 
 
-Underfull \hbox (badness 1845) in paragraph at lines 492--492
+Underfull \hbox (badness 1845) in paragraph at lines 494--494
 []\OT1/ppl/m/n/10 Causality 2 : Ob-ser-va-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 502--502
+Underfull \hbox (badness 10000) in paragraph at lines 504--504
 []\OT1/ppl/m/n/10 Markdown/Github
  []
 
 
-Overfull \hbox (45.48904pt too wide) in paragraph at lines 473--510
+Overfull \hbox (45.48904pt too wide) in paragraph at lines 473--511
  [] 
  []
 
 [7] [8]
-Underfull \hbox (badness 10000) in paragraph at lines 518--519
+Underfull \hbox (badness 10000) in paragraph at lines 519--520
 
  []
 
 Missing character: There is no Ã in font pplr7t!
 Missing character: There is no • in font pplr7t!
 
-Underfull \hbox (badness 10000) in paragraph at lines 520--521
+Underfull \hbox (badness 10000) in paragraph at lines 521--522
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 522--523
+Underfull \hbox (badness 10000) in paragraph at lines 523--524
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 546--547
+Underfull \hbox (badness 10000) in paragraph at lines 547--548
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 548--549
+Underfull \hbox (badness 10000) in paragraph at lines 549--550
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 557.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 558.
 [9]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 557.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 558.
  (./PDS2020_pandemic.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 557.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 557.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 558.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 558.
 Package rerunfilecheck Info: File `PDS2020_pandemic.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 557.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 558.
  ) 
 Here is how much of TeX's memory you used:
  5791 strings out of 492995
@@ -511,7 +511,7 @@ live/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texl
 ive/2017/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/201
 7/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2017/texmf
 -dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on PDS2020_pandemic.pdf (9 pages, 111177 bytes).
+Output written on PDS2020_pandemic.pdf (9 pages, 111195 bytes).
 PDF statistics:
  112 PDF objects out of 1000 (max. 8388607)
  94 compressed objects within 1 object stream
