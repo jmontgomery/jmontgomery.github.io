@@ -70,7 +70,7 @@ Next time
 
 3. Statisticians often use
     + Knowledge about what that statistics will look like *if* we had followed this procedure again, and again, and again.
-    + Simulating as if we had followed this same procedure agian, and again, and again.
+    + Simulating as if we had followed this same procedure again, and again, and again.
 
 
 
