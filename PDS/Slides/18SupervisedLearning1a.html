@@ -154,6 +154,12 @@ The are probably as many purposes for supervised learning as there are projects.
 
 
 ---
+
+## End Part A
+
+
+
+---
 ## Sounds good, so what's the problem?
 
 
@@ -231,6 +237,13 @@ So what does it all mean?
 
 
 &gt; Basic approach: Humility.
+
+
+
+---
+
+
+## End Part B
 
 
 
@@ -405,6 +418,62 @@ summary(Model4)
 ## Multiple R-squared:  0.7528,	Adjusted R-squared:  0.7198 
 ## F-statistic: 22.84 on 2 and 15 DF,  p-value: 2.807e-05
 ```
+
+
+---
+
+## Theory testing?
+
+
+- Is this data by itself evidence that incumbent candidate is always at an advantage?
+- Not really that convincing.  Many other explanations.
+
+
+---
+
+
+
+## End Part C
+
+
+---
+
+## The complexity of keeping it simple
+
+
+- Simple models can be good, especially with small samples.
+
+- But more complex models *might* be better:
+    * Maybe a more flexible `\(f(\cdot)\)` than a line?
+    * Maybe more options for `\(X\)`?
+
+- We want to aim for models that are:
+    * Complex enough to capture important aspects of reality
+    * Not so complex they confuse signal with noise
+
+
+---
+
+## A new example
+
+
+```r
+senateData&lt;-read.csv("http://politicaldatascience.com/PDS/Datasets/SenateForecast/CandidateLevel.csv")
+```
+
+This is data on US Senate elections from 1992-2016.
+- VotePercentage: Percentage of the vote for that candidate
+- Republican: 1=Republican, 0=Any other
+- Democrat: 1=Democrat, 0=Any other
+- Experienced: 1=Candidate has held elected office, 0=otherwise
+- weightexperience: 1 = no experience, 4=held statewide office
+- pvi: Presidential vote index (Higher values mean more friendly to Democrats)
+- Generic Ballot: Generic ballot polling for that candidate's party in that year
+- Incumbent: -1 = Running against incument, 0=open seat, 1 = Is the incumbent 
+- PercentageRaised: Percent of money for that race raised by that candidate
+
+
+--
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
