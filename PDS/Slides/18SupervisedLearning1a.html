@@ -20,6 +20,18 @@ class: center, middle, inverse, title-slide
 ---
 
 
+&lt;style type="text/css"&gt;
+body, td {
+   font-size: 14px;
+}
+code.r{
+  font-size: 14px;
+}
+pre {
+  font-size: 4px;
+}
+&lt;/style&gt;
+
 
 ## Orientation for this component
 
@@ -458,7 +470,8 @@ summary(Model4)
 
 
 ```r
-senateData&lt;-read.csv("http://politicaldatascience.com/PDS/Datasets/SenateForecast/CandidateLevel.csv")
+library(readr)
+senateData&lt;-read_csv("http://politicaldatascience.com/PDS/Datasets/SenateForecast/CandidateLevel.csv")
 ```
 
 This is data on US Senate elections from 1992-2016.
@@ -473,7 +486,158 @@ This is data on US Senate elections from 1992-2016.
 - PercentageRaised: Percent of money for that race raised by that candidate
 
 
+
+---
+
+## Model 1: Simple
+
+
+
+```r
+SimpleModelFull&lt;-lm(VotePercentage~pvi*Republican+Incumbent, data=senateData)
+summary(SimpleModelFull)$r.squared
+```
+
+```
+## [1] 0.5895867
+```
+
+---
+
+##Model 2: Complex
+
+
+
+```r
+ComplexModelFull&lt;-lm(VotePercentage~pvi*Republican+weightexperience 
+                 + GenericBallotSept*Republican + Incumbent, data=senateData)
+summary(ComplexModelFull)$r.squared
+```
+
+```
+## [1] 0.6457033
+```
+
 --
+
+Seems a little better
+
+
+---
+
+## So what's that mean?
+
+- Looks like the complex model is doing much better
+
+- But is that real, or illusory?
+
+--
+
+- We can partially resolve that by doing a **cross validation**
+
+- Several ways to do this, but here is a very easy one.
+    - Divide your data so you can fit on your training data
+    - And test on your validation data
+
+
+---
+
+## Simple cross validation
+
+
+```r
+library(rsample)
+split_senateData&lt;-initial_split(senateData, prop=.8)
+senate_train&lt;-training(split_senateData)
+senate_test&lt;-testing(split_senateData)
+```
+
+
+---
+
+### Let's test out the simple model
+
+
+
+```r
+SimpleModelTrain&lt;-lm(VotePercentage~pvi*Republican+Incumbent, data=senate_train)
+SimpleModelPredictions&lt;-predict(SimpleModelTrain, newdata=senate_test)
+```
+
+Now we will calculate the root mean squared error (RMSE) comparing the predictions, `\(y^\ast\)`, with what we actually observed, `\(y\)`. 
+
+`$$RMSE=\sqrt{\frac{\sum_i^n(y_i^\ast-y_i)^2}{n}}$$`
+
+--
+
+
+```r
+sqrt(mean((SimpleModelPredictions-senate_train$VotePercentage)^2))
+```
+
+```
+## [1] 15.80577
+```
+
+---
+
+### Let's do the same for the more complex model
+
+- Fit the model
+- Make predictions for the training set
+
+
+```r
+ComplexModelTrain&lt;-lm(VotePercentage~pvi*Republican+weightexperience 
+                 + GenericBallotSept*Republican + Incumbent, data=senate_train)
+ComplexModelPredictions&lt;-predict(ComplexModelTrain, newdata=senate_test)
+```
+
+
+--
+
+
+```r
+sqrt(mean((ComplexModelPredictions-senate_train$VotePercentage)^2))
+```
+
+```
+## [1] 16.09756
+```
+
+It does worse!
+
+
+---
+
+### More on cross-validation
+
+- One problem here is that the result may be somewhat sensitive to the particular way you partition your data.  Maybe that 20% you pulled out were unusual?
+- k-fold validation tries to get around this by:
+    - Randomly dividing the data into k groups
+    - Each group serves as the test sample once
+    - So We have "out-of-sample" predictions for all cases
+- You can also do Monte Carlo cross-validation, where you do this 90-10 random partitioning multiple times.    
+
+--- 
+
+## Summary
+
+- There is a tension between complexity and predictive accuracy
+- More complex models may better explain the data you have, but may do worse in prediction.
+- Cross validation is a fundamental tool for addressing this dilemma.
+
+---
+
+## Group assignment
+
+1. Make your own model to predict senate races.
+2. How does your model do in an out-of sample test compared to my simple model above?
+3. Now go get the data at this link and use it to make predictions for 2018 (you will need to change some of the variable names)
+
+http://politicaldatascience.com/PDS/Datasets/SenateForecast/CandidateLevel.csv
+
+4. Use this data to make predicitons for 2018. Add into slack your predictions for: 2018MOMcCaskill, 2018OHBrown, and 2018WVManchin
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
