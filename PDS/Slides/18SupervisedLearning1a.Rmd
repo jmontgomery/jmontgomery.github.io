@@ -236,36 +236,100 @@ So what does it all mean?
 ---
 
 
-## Get set up
+## Example: Predicting presidential elections with vote share
 
-Today we are going to use the 2019 data release from the Voter Study Group
-
-- Download: https://www.voterstudygroup.org/publication/2019-voter-survey-full-data-set
-- Codebook: https://www.voterstudygroup.org/publication/2019-voter-survey-full-data-set
-
-
+Today we are going to use the results of US presidential elections since 1948
 ```{r, eval=TRUE, message=FALSE, warning=FALSE}
 library(tidyverse)
-VSG<-read_csv("~/Downloads/VOTER_Survey_Jan217_Release1-csv.csv")
+electData<-read.csv("http://politicaldatascience.com/PDS/Datasets/presElect.csv")
+```
+
+- Year: Year of the election
+- q2gdp: GDP in the second quarter
+- vote: Share of the two-party vote that went to the **incumbent party.**
+- term: 1=Incumbent party has served more than one term; 0 = First term for incumbent party
+- JuneApp: Approval as recorded in June prior to the election.
+- Inc: Indicator if the **incumbent party** candidate is the current incumbent.
+
+---
+
+##Fancy machine learning: Linear regression
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, echo=FALSE, fig.width=12}
+par(mar=c(2,2,.5,.5), mgp=c(1,0,0), tcl=0, cex.lab=1)
+plot(electData$q2gdp, electData$vote, ylab="Incumbent party share of vote", xlab="Q2 GDP Growth", ylim=c(44, 64), pch="", xlim=c(-8, 10.5), cex=.8)
+abline(h=seq(45, 65, by=5), col="gray80")
+abline(lm(electData$vote~electData$q2gdp), lwd=2)
+points(electData$q2gdp[1:17], electData$vote[1:17], ylab="Incumbent party share of vote", xlab="Q2 GDP Growth", ylim=c(44, 64), pch=19, xlim=c(-8, 10.5), cex=.8)
+text(electData$q2gdp[1:17]+.65, electData$vote[1:17], electData$year[1:17], cex=1.2)
+points(electData$q2gdp[18], electData$vote[18], ylab="Incumbent party share of vote", xlab="Q2 GDP Growth", ylim=c(44, 64), pch=19, xlim=c(-8, 10.5), cex=.8, col="red")
+text(electData$q2gdp[18]+.65, electData$vote[18], electData$year[18], cex=1.2, col="red")
 ```
 
 ---
 
-## Recode a bit
+##So how do we do it?
 
-```{r, eval=TRUE, message=FALSE, warning=FALSE}
-with(VSG, table(fav_biden_2019))
-VSG<-VSG %>% 
-  mutate(fav_biden_2019=na_if(fav_biden_2019, 8)) %>%
-  mutate(fav_biden_2019=na_if(fav_biden_2019, 98))
-with(VSG, table(fav_biden_2019))
-```
-
-Here is the mean value:
-
-```{r, eval=TRUE, message=FALSE, warning=FALSE}
-mean(VSG$fav_biden_2019, na.rm=TRUE)
+```{r, eval=TRUE, message=FALSE, warning=FALSE, echo=TRUE}
+Model1<-lm(vote~q2gdp, data=electData)
+summary(Model1)
 ```
 
 
 ---
+## Inuition for the linear model
+
+    
+$$f(X) = \underbrace{\beta_0 + \beta_1x_1 + \beta_2 x_2}_{systematic} + \underbrace{\epsilon}_{error}$$
+$$\epsilon  \sim N(0, \sigma^2)$$
+
+- The "Multiple R-squared" is a fit statistic.
+    * Ranges from 0 to 1
+    * Closer to 1 is better
+
+--
+
+- The "Estimate" is the 
+
+- The "Std. Error" is what we talked about in our previous lecture
+
+--
+
+- Smaller p-values mean there is more evidence that that specific variable matters (sort of)
+
+
+---
+
+## Example: Prediction
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, echo=TRUE}
+electData$vote[electData$year==2016]
+Model2<-lm(vote~q2gdp+JuneApp, data=electData[electData$year!=2016,])
+predict(Model2, newdata=electData[electData$year==2016,])
+```
+
+Pretty good!
+
+
+---
+
+## Example: Feature selection
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, echo=TRUE}
+Model3<-lm(vote~q2gdp+JuneApp, data=electData)
+summary(Model3)
+```
+
+---
+
+## Example: Exploration
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, echo=TRUE}
+Model4<-lm(vote~JuneApp+Inc, data=electData)
+summary(Model4)
+```
+
+
