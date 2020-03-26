@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
   <head>
     <title>Supervised Learning: Introduction and Basic Concepts</title>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <meta name="date" content="2020-01-01" />
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
@@ -12,9 +12,9 @@
 class: center, middle, inverse, title-slide
 
 # Supervised Learning: Introduction and Basic Concepts
-### <div style="white-space: pre-line;">Jacob M. Montgomery
-<em>Washington University in St. Louis</em>
-<em>Department of Politcal Science</em></div>
+### <p>Jacob M. Montgomery<br />
+<em>Washington University in St. Louis</em><br />
+<em>Department of Politcal Science</em></p>
 ### 2020
 
 ---
@@ -59,9 +59,9 @@ Next time
 --
     
 - We have some set of variables (or features), we'll call it `\(X\)`, related to `\(y\)`.
-    - elections `\(\leftarrow\)` Polls, incumbency, fundraising
+    - Elections `\(\leftarrow\)` polls, incumbency, fundraising
     - Political attitudes  `\(\leftarrow\)` demographics, news sources, party ID
-    - Economic growth `\(\leftarrow\)` business confidence
+    - Economic growth `\(\leftarrow\)` business confidence, savings rate, productivity
 
 
 ---
@@ -88,26 +88,150 @@ Next time
     - `\(y = a + bx + cx^2\)`
     - `\(y = \beta_ + \beta_1x_1 + \beta_2x_2\)`
 
+---
+##OK, but why are we doing this?
+
+The are probably as many purposes for supervised learning as there are projects. But here are some broad categories:
+
+1. Prediction
+2. Feature selection
+3. Exploration
+4. Theory testing (?)
+
+
+---
+##Prediction
+
+1. Collect outcomes `\(y\)` and predictors `\(X\)`. This is called a "training sample."
+2. Estimate `\(f_x(\cdot)\)`.  The sub-script indicates the model was estimated with the training sample.
+3. Collect predictors for "new" observations `\(X^\prime\)`.
+4. Predict "new" observations as:
+
+`$$y^\prime \sim f_x(X^\prime)$$`
+
+&lt;br&gt;
+&lt;br&gt;
+
+
+--
+
+&gt; Example: Can we predict who will be president in 2020?
+
+
+---
+##Feature selection
+
+1. Collect outcomes `\(y\)` and predictors `\(X\)`.
+2. Estimate a different `\(f(\cdot)\)` for different subsets of variables.
+3. Use some criteria/algorithm to see what "features" matter.
+4. Use this information for inference or further investigation.
+
+
+&lt;br&gt;
+&lt;br&gt;
+
+--
+
+&gt; Example: Is the condition of the economy an important predictor of whether incumbents get re-elected?
+
+
+---
+## Exploration
+
+1. Collect outcomes `\(y\)` and predictors `\(X\)`.
+2. Estimate a different `\(f(\cdot)\)` using lot's of variables.
+3. Find some patterns in the data.
+4. Use that to develop theory for later testing.
+
+
+
+&lt;br&gt;
+&lt;br&gt;
+
+--
+
+&gt; Example: Do voters punish incumbents for a bad economy?  Or do they only care about their own pocketbook?
+
 
 ---
 ## Sounds good, so what's the problem?
 
 
-Problem 1: Infinity is a big number
-- The fundamental problem is that there are an infinite number of potential functions, `\(f()\)`.
+**Problem 1**: Infinity is a big number
+- The are an infinite number of potential functions, `\(f(\cdot)\)`.
 - We can't try all possible functions.  That problem isn't clearly defined.
     
 
 --
 
-Problem 2: Not enough data
+**Problem 2**: Not enough data
 - Even if we knew a subset of `\(f(\cdot)\)` to consider, we may not have enough data
 - If `\(f(\cdot)\)` is complex, can be particularly hard to approximate unless large `\(n\)`
 
+--
+
+**Problem 3**: What are the right features?
+- Even if we have some idea of `\(f(\cdot)\)` and a lot of data, we don't always know the right features to include.
+- And in some cases there are *a lot* of features.
 
 ---
 
-Problem 3: What are the right features?
+**Problem 4**: Is it noise or is it error
+- A lot of outcomes we want to study are "noisy"
+- One way to think of this is that `\(f(\cdot)\)` can be divided into two compoenents
+    * Systematic component
+    * Error component
+   
+
+
+Example: The linear regression
+    
+`$$f(X) = \underbrace{\beta_0 + \beta_1x_1 + \beta_2 x_2}_{systematic} + \underbrace{\epsilon}_{error}$$`
+`$$\epsilon  \sim N(0, \sigma^2)$$`
+
+---
+
+**Problem 5**: Putting it all together  
+
+- We don't know if we have the right "set" of functions to consider. 
+- Even if we did, we don't have infinite data.
+- And we don't even know if we are using the right features.
+- So we can't ever be sure we are separating out the systematic and error portions.
+
+--
+
+**Problem 6**: Meta problems
+- In many settings, the DGP is not static.
+- There may be unknown unknowns.
+- It is difficult or impossible to know if the data used to train your model is useful for the task at hand.
+
+
+---
+##All I heard was womp, womp, womp
+
+So what does it all mean?
+
+**Problem 1**: To many options for `\(f(\cdot)\)`
+
+&gt; Basic approach: Assume the DGP can be represented as some subset of all possible functions (e.g., a line).
+
+--
+
+**Problem 2**: Not enough data
+
+**Problem 3**: What are the right features?
+
+**Problem 4**: Is it noise or is it error
+
+&gt; Basic approach: Use cross-validation or related methods to build models that are fitting signal rather than noise.  
+
+--
+
+**Problem 6**: Meta problems
+
+
+&gt; Basic approach: Humility.
+
 
 
 ---
@@ -169,6 +293,7 @@ mean(VSG$fav_biden_2019, na.rm=TRUE)
 
 ---
     </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
@@ -177,16 +302,57 @@ mean(VSG$fav_biden_2019, na.rm=TRUE)
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
 });
-(function() {
-  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
   if (!r) return;
   s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
   d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
 })();</script>
 
 <script>
 (function() {
-  var i, text, code, codes = document.getElementsByTagName('code');
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
   for (i = 0; i < codes.length;) {
     code = codes[i];
     if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
@@ -200,7 +366,8 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     i++;
   }
-})();
+};
+slideshow._releaseMath(document);
 </script>
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
