@@ -46,6 +46,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
 [Lecture 16](https://jmontgomery.github.io/PDS/Slides/16ProbabilityAndInference.html)
 
+Lecture 17 -- no link
+
+[Lecture 18](https://jmontgomery.github.io/PDS/Slides/18SupervisedLearning1a.html)
+
 #### Problem Sets
 [Problem Set 1](https://jmontgomery.github.io/PDS/Problem Sets/Problem Set 1/PS1_PDS.pdf)
 
