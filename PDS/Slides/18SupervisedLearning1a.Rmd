@@ -3,7 +3,7 @@ title: "Supervised Learning: Introduction and Basic Concepts"
 author: |
   | Jacob M. Montgomery
   | *Washington University in St. Louis*
-  | *Department of Politcal Science*
+  | *Department of Political Science*
 date: '2020'
 header-includes:
   - \usepackage{amsmath}
@@ -45,16 +45,16 @@ This time
 
 1. Introduction to machine learning:
     + Basic idea
-    + Signal or noise?
-    + Example: Regression trees
-    + Regularization and the LASSO
+    + Basic problems
+    + Example: Prediction presidential elections
+    + Signal or noise?: Cross validation
 
 --
 
 Next time
 
 1. Supervised learning 2
-    + Classificaiton
+    + Classification
     + Fit statistics/Diagnostics
     + Trees, neighbors, nets, and ensembles
 
@@ -77,7 +77,7 @@ Next time
 
 ---
 
-- More formally, we say that we want to model $y$ as a *function$ of $X$.
+- More formally, we say that we want to model $y$ as a **function** of $X$.
     - $y$: Outcome or *dependent* variable
     - $x$: Predictor or *independent* variable
     - $f(\cdot)$: The function
@@ -97,7 +97,7 @@ $$y \sim f(x)$$
     - $y = a + bx$
     - $y = log(x)$
     - $y = a + bx + cx^2$
-    - $y = \beta_ + \beta_1x_1 + \beta_2x_2$
+    - $y = \beta_0 + \beta_1x_1 + \beta_2x_2$
 
 ---
 ##OK, but why are we doing this?
@@ -165,6 +165,25 @@ $$y^\prime \sim f_x(X^\prime)$$
 
 
 ---
+## Summary
+
+1. We want to build some $f(X)$ that explains/predicts/correlates with observed outcome $y$.
+
+--
+
+2. A function, $f(X)$, can be something simple like a line or something more complex.
+
+--
+
+3. We are going to use this function to:
+    * Predict
+    * Identify elements of $X$ that seem important
+    * Explore interesting relationships
+    * Maybe for theory testing, but will need to be careful.
+
+
+
+---
 
 ## End Part A
 
@@ -193,8 +212,9 @@ $$y^\prime \sim f_x(X^\prime)$$
 
 ---
 
-**Problem 4**: Is it noise or is it error
+**Problem 4**: Is it signal or is it error?
 - A lot of outcomes we want to study are "noisy"
+- We are usually not interested in the noise
 - One way to think of this is that $f(\cdot)$ can be divided into two compoenents
     * Systematic component
     * Error component
@@ -228,7 +248,7 @@ $$\epsilon  \sim N(0, \sigma^2)$$
 
 So what does it all mean?
 
-**Problem 1**: To many options for $f(\cdot)$
+**Problem 1**: Too many options for $f(\cdot)$
 
 > Basic approach: Assume the DGP can be represented as some subset of all possible functions (e.g., a line).
 
@@ -238,7 +258,7 @@ So what does it all mean?
 
 **Problem 3**: What are the right features?
 
-**Problem 4**: Is it noise or is it error
+**Problem 4**: Is it signal or is it error
 
 > Basic approach: Use cross-validation or related methods to build models that are fitting signal rather than noise.  
 
@@ -269,12 +289,12 @@ library(tidyverse)
 electData<-read.csv("http://politicaldatascience.com/PDS/Datasets/presElect.csv")
 ```
 
-- Year: Year of the election
-- q2gdp: GDP in the second quarter
-- vote: Share of the two-party vote that went to the **incumbent party.**
-- term: 1=Incumbent party has served more than one term; 0 = First term for incumbent party
-- JuneApp: Approval as recorded in June prior to the election.
-- Inc: Indicator if the **incumbent party** candidate is the current incumbent.
+- **Year**: Year of the election
+- **q2gdp**: GDP in the second quarter
+- **vote**: Share of the two-party vote that went to the **incumbent party.**
+- **term**: 1=Incumbent party has served more than one term; 0 = First term for incumbent party
+- **JuneApp**: Approval as recorded in June prior to the election.
+- **Inc**: Indicator if the **incumbent party** candidate is the current incumbent (meaning they are a first-term incument).
 
 ---
 
@@ -314,9 +334,9 @@ $$\epsilon  \sim N(0, \sigma^2)$$
 
 --
 
-- The "Estimate" is the 
+- The "Estimate" is the coefficient
 
-- The "Std. Error" is what we talked about in our previous lecture
+- The "Std. Error" is what we talked about in our previous lecture and is used to construct confidence intervals.
 
 --
 
@@ -349,6 +369,20 @@ summary(Model3)
 
 ---
 
+- R-squared for the simpler model was 0.366
+- Adding June approval bumps it to 0.752 -- way bigger
+
+
+--
+
+
+What does that mean? Maybe not much.
+
+
+
+
+---
+
 ## Example: Exploration
 
 
@@ -360,11 +394,30 @@ summary(Model4)
 
 ---
 
+
+- So that's interesting.
+- When a party is running for a second term, they do better.
+    - Yes: Eisenhower, Kennedy, Nixon, Reagan, Clinton, Bush II, Obama
+    - No: Carter
+- Might be worth looking into more.
+
+
+---
+
 ## Theory testing?
 
 
 - Is this data by itself evidence that incumbent candidate is always at an advantage?
 - Not really that convincing.  Many other explanations.
+
+---
+
+## Your turn
+
+1. Subset the data as I did above and fit a linear model of your own.
+2. Make a prediction for 2016.  How did you do?
+3. Put your answer in slack. 
+
 
 
 ---
@@ -381,9 +434,13 @@ summary(Model4)
 
 - Simple models can be good, especially with small samples.
 
+--
+
 - But more complex models *might* be better:
     * Maybe a more flexible $f(\cdot)$ than a line?
     * Maybe more options for $X$?
+
+--
 
 - We want to aim for models that are:
     * Complex enough to capture important aspects of reality
@@ -400,15 +457,15 @@ senateData<-read_csv("http://politicaldatascience.com/PDS/Datasets/SenateForecas
 ```
 
 This is data on US Senate elections from 1992-2016.
-- VotePercentage: Percentage of the vote for that candidate
-- Republican: 1=Republican, 0=Any other
-- Democrat: 1=Democrat, 0=Any other
-- Experienced: 1=Candidate has held elected office, 0=otherwise
-- weightexperience: 1 = no experience, 4=held statewide office
-- pvi: Presidential vote index (Higher values mean more friendly to Democrats)
-- Generic Ballot: Generic ballot polling for that candidate's party in that year
-- Incumbent: -1 = Running against incument, 0=open seat, 1 = Is the incumbent 
-- PercentageRaised: Percent of money for that race raised by that candidate
+- **VotePercentage**: Percentage of the vote for that candidate
+- **Republican**: 1=Republican, 0=Any other
+- **Democrat**: 1=Democrat, 0=Any other
+- **Experienced**: 1=Candidate has held elected office, 0=otherwise
+- **weightexperience**: 1 = no experience, 4=held statewide office
+- **pvi**: Presidential vote index (Higher values mean more friendly to Democrats)
+- **Generic Ballot**: Generic ballot polling for that candidate's party in that year
+- **Incumbent**: -1 = Running against incument, 0=open seat, 1 = Is the incumbent 
+- **PercentageRaised**: Percent of money for that race raised by that candidate
 
 
 
@@ -452,7 +509,7 @@ Seems a little better
 
 - Several ways to do this, but here is a very easy one.
     - Divide your data so you can fit on your training data
-    - And test on your validation data
+    - And test on your validation data (the data you didn't use to fit the model)
 
 
 ---
@@ -465,6 +522,16 @@ split_senateData<-initial_split(senateData, prop=.8)
 senate_train<-training(split_senateData)
 senate_test<-testing(split_senateData)
 ```
+
+--
+
+Let's look at those:
+```{r, eval=TRUE, message=FALSE, warning=FALSE, size=2}
+dim(senate_train)
+dim(senate_test)
+```
+
+
 
 
 ---
@@ -521,7 +588,10 @@ It does worse!
     - So We have "out-of-sample" predictions for all cases
 - You can also do Monte Carlo cross-validation, where you do this 90-10 random partitioning multiple times.    
 
---- 
+
+
+---
+
 
 ## Summary
 
@@ -534,12 +604,12 @@ It does worse!
 ## Group assignment
 
 1. Make your own model to predict senate races.
-2. How does your model do in an out-of sample test compared to my simple model above?
+2. How does your model do in an out-of sample test compared to my simple model above?  Use RMSE.  And remember that *smaller* values of RMSE are better.
 3. Now go get the data at this link and use it to make predictions for 2018 (you will need to change some of the variable names)
 
 http://politicaldatascience.com/PDS/Datasets/SenateForecast/CandidateLevel.csv
 
-4. Use this data to make predicitons for 2018. Add into slack your predictions for: 2018MOMcCaskill, 2018OHBrown, and 2018WVManchin
+Use this data to make predicitons for 2018. Add into slack your predictions for: 2018MOMcCaskill, 2018OHBrown, and 2018WVManchin.  Please put your predictions for these races up BEFORE the next scheduled class session.
 
 
 
