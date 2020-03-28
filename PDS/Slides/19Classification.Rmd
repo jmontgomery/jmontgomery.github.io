@@ -1,0 +1,123 @@
+---
+title: "Classification"
+author: |
+  | Jacob M. Montgomery
+  | *Washington University in St. Louis*
+  | *Department of Political Science*
+date: '2020'
+header-includes:
+  - \usepackage{amsmath}
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
+#   beamer_presentation: default
+#   slidy_presentation: default
+
+
+---
+
+<style type="text/css">
+body, td {
+   font-size: 14px;
+}
+code.r{
+  font-size: 14px;
+}
+pre {
+  font-size: 4px;
+}
+</style>
+
+
+## Orientation for this component
+
+Last time
+
+
+1. Introduction to machine learning:
+    + Basic idea
+    + Basic problems
+    + Example: Prediction presidential elections
+    + Signal or noise?: Cross validation
+
+--
+
+This time
+
+1. Supervised learning 2
+    + Classification
+    + Fit statistics/Diagnostics
+    + Trees, neighbors, nets, and ensembles
+
+
+--
+
+Next time
+
+1. Causality 1
+    + Thinking in counterfactuals
+    + Experimental design
+
+
+
+---
+## Classification: A special type of function
+
+
+- Last time we talked about thinking about machine learning as finding a function that maps from features to outcomes
+
+$$y \sim f(X)$$
+- The *regression* model we used last time was for:
+    * A continous outcome
+    * An outcome where $y$ can take on any value between $\infty$ and $-\infty$.
+    
+--
+
+- But in many cases $y$ is constrained
+    - For vote share, we might want to constrain to be between 0 and 1? (A proportion)
+    - For categorical outcomes, we might want to constrain $y$ to be just 0 or 1. (Binary)
+  
+  
+--
+
+- People often call cases where we are trying to put $y$ into discrte bins a *classifier*.
+
+---
+## Classification basics: Binary outcomes
+
+- The difference between regression and classification is that we look at a special type of function, $f(X)$.
+
+--
+
+- We want a function that will:
+    - Take in a set of features $X$ that can take on all kinds of values (binary, continuous, etc.)
+    - But it will "squash" all of these features so that $f(X) \in [0, 1]$.  
+    - We then say that the probability that $y=1$ is equal to $f(x)$, or 
+    $$Pr(y=1) = f(x)$$
+- Intuitively, we are imagining the DGP as a weighted coin flip where the pobability of a "success" is determined by $f(x)$.
+
+---
+## Example: Linear classifier (AKA logit)
+
+- Imagine we are trying to build a model to predict turnout (0 or 1)
+- We have the following featurs:
+    * State
+    * Ethnicity (White/Black/Hispanic/Other)
+    * Age (Divided into quartiles)
+    * Income (Divided into quartiles)
+
+
+
+
+
+
+
+
+
+
+
+
+
