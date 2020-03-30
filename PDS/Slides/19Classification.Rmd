@@ -511,3 +511,21 @@ mod1_forest
 
 ![map](./Images/Turnout1.pdf)
 
+---
+## Putting that in action
+
+- Weird problem in this data is that there can be too many ties.  
+- So many observations share the same value.
+- So (just for this example) I'll add a bit of noixse
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+library(class)
+turnoutX<-turnout[,c("eth", "inc", "age")]
+turnoutX$inc<-turnoutX$inc+rnorm(length(turnoutX$inc), 0, .001)
+mod1_knn<-knn(turnoutX, test=turnoutX, cl=turnout$turnout, k=10)
+table(mod1_knn, turnout$turnout)
+table(turnout$turnout, mod1_knn)
+table(turnout$turnout)
+```
+
