@@ -651,11 +651,11 @@ Now we will calculate the root mean squared error (RMSE) comparing the predictio
 
 
 ```r
-sqrt(mean((SimpleModelPredictions-senate_train$VotePercentage)^2))
+sqrt(mean((SimpleModelPredictions-senate_test$VotePercentage)^2))
 ```
 
 ```
-## [1] 15.96927
+## [1] 8.170996
 ```
 
 ---
@@ -677,14 +677,14 @@ ComplexModelPredictions&lt;-predict(ComplexModelTrain, newdata=senate_test)
 
 
 ```r
-sqrt(mean((ComplexModelPredictions-senate_train$VotePercentage)^2))
+sqrt(mean((ComplexModelPredictions-senate_test$VotePercentage)^2))
 ```
 
 ```
-## [1] 16.39014
+## [1] 7.510363
 ```
 
-It does worse!
+
 
 
 ---

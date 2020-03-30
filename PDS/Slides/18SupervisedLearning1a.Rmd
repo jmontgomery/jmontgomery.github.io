@@ -551,7 +551,7 @@ $$RMSE=\sqrt{\frac{\sum_i^n(y_i^\ast-y_i)^2}{n}}$$
 --
 
 ```{r, eval=TRUE, message=FALSE, warning=FALSE, size=2}
-sqrt(mean((SimpleModelPredictions-senate_train$VotePercentage)^2))
+sqrt(mean((SimpleModelPredictions-senate_test$VotePercentage)^2))
 ```
 
 ---
@@ -571,10 +571,10 @@ ComplexModelPredictions<-predict(ComplexModelTrain, newdata=senate_test)
 --
 
 ```{r, eval=TRUE, message=FALSE, warning=FALSE, size=2}
-sqrt(mean((ComplexModelPredictions-senate_train$VotePercentage)^2))
+sqrt(mean((ComplexModelPredictions-senate_test$VotePercentage)^2))
 ```
 
-It does worse!
+
 
 
 ---

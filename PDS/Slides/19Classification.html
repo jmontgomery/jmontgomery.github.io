@@ -566,11 +566,11 @@ mod1_forest
 ##                      Number of trees: 201
 ## No. of variables tried at each split: 2
 ## 
-##         OOB estimate of  error rate: 30.16%
+##         OOB estimate of  error rate: 30.09%
 ## Confusion matrix:
 ##      0     1 class.error
-## 0 4001 18805  0.82456371
-## 1 3222 47005  0.06414876
+## 0 3619 19187  0.84131369
+## 1 2790 47437  0.05554781
 ```
 
 
@@ -598,6 +598,51 @@ mod1_forest
 
 
 ![map](./Images/Turnout1.pdf)
+
+---
+## Putting that in action
+
+- Weird problem in this data is that there can be too many ties.  
+- So many observations share the same value.
+- So (just for this example) I'll add a bit of noixse
+
+
+
+```r
+library(class)
+turnoutX&lt;-turnout[,c("eth", "inc", "age")]
+turnoutX$inc&lt;-turnoutX$inc+rnorm(length(turnoutX$inc), 0, .001)
+mod1_knn&lt;-knn(turnoutX, test=turnoutX, cl=turnout$turnout, k=10)
+table(mod1_knn, turnout$turnout)
+```
+
+```
+##         
+## mod1_knn     0     1
+##        0  7957  5111
+##        1 14849 45116
+```
+
+```r
+table(turnout$turnout, mod1_knn)
+```
+
+```
+##    mod1_knn
+##         0     1
+##   0  7957 14849
+##   1  5111 45116
+```
+
+```r
+table(turnout$turnout)
+```
+
+```
+## 
+##     0     1 
+## 22806 50227
+```
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
