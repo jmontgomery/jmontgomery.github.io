@@ -259,7 +259,7 @@ So what does it all mean?
 
 **Problem 3**: What are the right features?
 
-**Problem 4**: Is it noise or is it error
+**Problem 4**: Is it signal or is it error
 
 &gt; Basic approach: Use cross-validation or related methods to build models that are fitting signal rather than noise.  
 
@@ -655,7 +655,7 @@ sqrt(mean((SimpleModelPredictions-senate_train$VotePercentage)^2))
 ```
 
 ```
-## [1] 16.59164
+## [1] 15.96927
 ```
 
 ---
@@ -681,7 +681,7 @@ sqrt(mean((ComplexModelPredictions-senate_train$VotePercentage)^2))
 ```
 
 ```
-## [1] 16.79987
+## [1] 16.39014
 ```
 
 It does worse!
@@ -717,7 +717,7 @@ It does worse!
 2. How does your model do in an out-of sample test compared to my simple model above?  Use RMSE.  And remember that *smaller* values of RMSE are better.
 3. Now go get the data at this link and use it to make predictions for 2018 (you will need to change some of the variable names)
 
-http://politicaldatascience.com/PDS/Datasets/SenateForecast/CandidateLevel.csv
+http://politicaldatascience.com/PDS/Datasets/SenateForecast/CandidateLevel2018.csv
 
 Use this data to make predicitons for 2018. Add into slack your predictions for: 2018MOMcCaskill, 2018OHBrown, and 2018WVManchin.  Please put your predictions for these races up BEFORE the next scheduled class session.
     </textarea>
