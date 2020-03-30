@@ -210,15 +210,11 @@ Next time
     `(single tab) Subpoint 2`
     
       `(another tab) Subsubpoint 2`
-  
-  `-  (Space)List item 3`
-  
-    `(single tab) Subpoint 3`
-    
-      `(another tab) Subsubpoint 3`
+
 ---
 
 ## Plain list
+###Output
 
   - List item 1
   
@@ -231,12 +227,6 @@ Next time
     - Subpoint 2
       
       - Subsupoint 2
-      
-  - List item 3
-  
-    - Subpoint 3
-    
-      - Subsubpoint 3
       
           - After 3 subpoints, you can start doing **double tabs**
         
