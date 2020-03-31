@@ -50,6 +50,8 @@ Lecture 17 -- no link
 
 [Lecture 18](https://jmontgomery.github.io/PDS/Slides/18SupervisedLearning1a.html)
 
+[Lecture 19](https://jmontgomery.github.io/PDS/Slides/19Classification.html)
+
 #### Problem Sets
 [Problem Set 1](https://jmontgomery.github.io/PDS/Problem Sets/Problem Set 1/PS1_PDS.pdf)
 
