@@ -41,7 +41,7 @@ Last time
 1. Introduction to machine learning:
     + Basic idea
     + Basic problems
-    + Example: Prediction presidential elections
+    + Example: Prediction of presidential elections
     + Signal or noise?: Cross validation
 
 --
@@ -49,9 +49,9 @@ Last time
 This time
 
 1. Supervised learning 2
-    + Classification
+    + Classification and linear classifiers
     + Fit statistics/Diagnostics
-    + Trees, neighbors, nets, and ensembles
+    + Trees and neighbors
 
 
 --
@@ -84,7 +84,7 @@ Next time
   
 --
 
-- People often call cases where we are trying to put `\(y\)` into discrte bins a *classifier*.
+- We'll call the case of trying to put `\(y\)` into discrte bins a *classifier*.
 
 ---
 ## Classification basics: Binary outcomes
@@ -104,11 +104,11 @@ Next time
 ## Motivating example: Turnout in the 2008 election
 
 - Imagine we are trying to build a model to predict turnout (0 or 1)
-- We have the following featurs:
+- We have the following features:
     * State
     * Ethnicity (White/Black/Hispanic/Other)
     * Age (Divided into quartiles)
-    * Income (Divided into quartiles)
+    * Income (Divided into quitiles)
 
 
 ```r
@@ -175,7 +175,7 @@ We might for instance, set up an equation of:
 
 - A very common choice for `\(\sigma(\cdot)\)` is the logistic function:
 
-`$$\sigma(\Lambda) = \frac{1}{1+\exp(-\Lambda)} = \frac{\exp(\lambda)}{1+\exp(\lambda)}$$`
+`$$\sigma(\Lambda) = \frac{1}{1+\exp(-\Lambda)} = \frac{\exp(\Lambda)}{1+\exp(\Lambda)}$$`
 
 
 ```r
@@ -226,11 +226,11 @@ $$Pr(y=1) = \frac{\exp(\beta_0 + \beta_1 \text{Income}+ \beta_2 \text{Age})}{1+\
 ---
 ##The linear classifier in practice
 
-- For this class we'll use something maximum likelihood estimation, that is way outside the scope of this class.
+- For this class we'll use something maximum likelihood estimation.
 - Basically, the computer will find the values of `\(\beta\)` that minimize a specific form of loss
 - All you really need to know is how to do it.
     * We use the `glm` function.
-    * We specify tht the data is binary by using the `family="binomial"` argument.
+    * We specify that the data is binary by using the `family="binomial"` argument.
 
 ---
 
@@ -285,7 +285,7 @@ Model1preds&lt;-predict(Model1, type="response")
 
 ---
 
-Let's look at the predictd probabilities for each value of Age in the dataset.
+Let's look at the predicted probabilities for each value of Age in the dataset.
 
 
 ```r
@@ -321,7 +321,7 @@ boxplot(Model1preds~turnout$inc, xlab="Income", ylab="Predicted Probabilities")
 `$$\begin{array}{lcc}
 &amp; \text{Truth=0} &amp; \text{Truth=1}\\
 \text{Prediction = 0} &amp; \text{True negatives} &amp; \text{False negatives}\\
-\text{Prediction = 1} &amp; \text{False negatives} &amp; \text{True Positives}\\
+\text{Prediction = 1} &amp; \text{False positives} &amp; \text{True Positives}\\
 \end{array}$$`
 
 --
@@ -329,15 +329,15 @@ boxplot(Model1preds~turnout$inc, xlab="Income", ylab="Predicted Probabilities")
 - The diagnonal of this matrix are your correct predictions.
 - Should you weight positives or negatives more?
     - Depends on the context
-    - You will want to ballance or weight.
+    - You will want to balance or weight.
     
 ---
 
 - One appproach is to look at precision and recall
-    - **Precision** `$$\frac{\text{True positives}}{\text{True positives + Fase posiives}}$$`
-    - **Recall** `$$\frac{\text{True positives}}{\text{True positives + Fase negatives}}$$`
+    - **Precision** `$$\frac{\text{True positives}}{\text{True positives + False positives}}$$`
+    - **Recall** `$$\frac{\text{True positives}}{\text{True positives + False negatives}}$$`
 
-- You can also recombine these in a bunch of ways to get things like false discoery rate, specificity, sensitivity, F1 scores, and more.
+- You can also recombine these in a bunch of ways to get things like false discovery rate, specificity, sensitivity, F1 scores, and more.
 
 ---
 ## Brier scores
@@ -394,17 +394,12 @@ table(binaryPred, turnout$turnout)
 ---
 
 
-
-
 ![  ](./Images/Turnout2.pdf) ![  ](./Images/Trees1.jpeg) 
 
 
 --
 
-
-
 ![  ](./Images/Turnout3.pdf) ![  ](./Images/Trees2.jpeg) 
-
 
 ---
 
@@ -482,9 +477,8 @@ text(tree_mod1, use.n=TRUE, all = TRUE, cex=0.8)
 - Many ML models have *tuning parameters*, sometimes called *hyperparamaters* or *hyperpriors*.
 - These are parameters that control how the function, but which typically are not estimated from the data.
 - These are set by the analyst, often using some sort of cross-validation.
-- Most often, these parameters control how *complex* each model is going to be.
-- In the case of the `rpart` function these include:
-    
+- Most often, these parameters control model complexity.
+
 
 ---
 
@@ -508,6 +502,8 @@ treePreds1&lt;-predict(tree_mod1); treePreds2&lt;-predict(tree_mod2)
 
 - Compare the accuracy of these two models using a confusion matrix.
 - Do the same use the Brier score
+- Now make your own tree using a different value of `cp`.  
+- Post your confusion matrix and Brier score up on Slack.
 
 ---
 ## End of Part D
@@ -555,7 +551,7 @@ library(randomForest)
 turnout$turnout&lt;-as.factor(turnout$turnout) # Leave as continuous for regression
 mod1_forest&lt;-randomForest(equation, data=turnout, 
                           ntree=201, mtry=2)
-mod1_forest
+mod1_forest # This confusion matrix is "out of bag"
 ```
 
 ```
@@ -566,11 +562,11 @@ mod1_forest
 ##                      Number of trees: 201
 ## No. of variables tried at each split: 2
 ## 
-##         OOB estimate of  error rate: 30.09%
+##         OOB estimate of  error rate: 30.22%
 ## Confusion matrix:
 ##      0     1 class.error
-## 0 3619 19187  0.84131369
-## 1 2790 47437  0.05554781
+## 0 4092 18714  0.82057353
+## 1 3359 46868  0.06687638
 ```
 
 
@@ -619,30 +615,27 @@ table(mod1_knn, turnout$turnout)
 ```
 ##         
 ## mod1_knn     0     1
-##        0  7957  5111
-##        1 14849 45116
+##        0  8277  5193
+##        1 14529 45034
 ```
 
-```r
-table(turnout$turnout, mod1_knn)
-```
+---
+## Group assignment
 
-```
-##    mod1_knn
-##         0     1
-##   0  7957 14849
-##   1  5111 45116
-```
 
-```r
-table(turnout$turnout)
-```
-
-```
-## 
-##     0     1 
-## 22806 50227
-```
+1. Make your own model to predict senate races!
+2. Use the same data I gave you last time for Senate races from last class (excluding 2018).  
+3. This time, you should alter your data so that each row represents one (and only one) *election* (rather than a candidate).
+    - Make a new variable that is a `1` if the incumbent Senator won re-election, and `0` for all other cases.
+    - Now subset the data down to only incumbents.
+    - The data should now only be incumbent Senators running for re-election.  The dependent variable will be a 1 when the incumbent wins and a 0 otherwise. 
+    - Take out 2016 and treat this as your "test" data.  This means, you will *evaluate* the models based on 2016 but not include them in the training data.
+4. Fit the following classification models:
+    - Linar probability model
+    - Random forest
+    - KNN
+5. Make a confusion matrix for each model for 2016.  And report on Slack the precision and recall for 2016.
+6. Ask lot's of questions
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
