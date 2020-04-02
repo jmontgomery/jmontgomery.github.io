@@ -81,7 +81,7 @@ Next time
 
 - Thinking about causality
 - Average treatment effects
-- Don't be evil.  And it's so easy to be veil.
+- Don't be evil.  And it's so easy to be evil.
 
 
 ![  ](./Images/cell_phones.png)
@@ -385,8 +385,8 @@ Rogers, Coffman, and Bergman:
 
 We are left with essentially two options (with shades of gray in between)
 
-1. We can fill in the missing values of our table using a model.
-    - We can try to mine our data in some way to fill in the missing cells.
+1. We can fill in the missing values (or average values of missing values) of our table using a model.
+    - We can try to mine our data in some way to infer values for missing values (or averages of missing values).
     - Mabe we could put extreme bounds on them based on possible (or plausible) values.
     - Maybe even rely on other dependent variables in large/complex systems.
 2. We can use our research *design*.
@@ -413,13 +413,13 @@ We are left with essentially two options (with shades of gray in between)
     - Take the average of the cases where `\(T=0\)`. 
     - Subtract them.
     
-    `$$\frac{13+4.1-4.1}{3} - \frac{3.2 + 40.1 + 18.3}{3}$$`
+    `$$\frac{3.2 + 40.1 + 18.3}{3} - \frac{13+4.1-4.1}{3}$$`
 
 ---
 
 - Can we use this to estimate the ATE?
 - Yes, but only if:
-    - T is unrelated to potential outcomes.
+    - Assignment of T is unrelated to potential outcomes.
     - Units don't affect each other 
     - No hidden variation in treatment
 
@@ -435,7 +435,7 @@ We are left with essentially two options (with shades of gray in between)
 
 - Imagine that we had *randomly* assigned each unit to a treatment/control condition.
 - Now we know for certain that T and the potential outcomes are independent.
-- We can also take steps that the treatment does not vary in intensity across units (?).
+- We can also take steps so that the treatment does not vary in intensity across units (?).
 - And in many cases is easy to assure no between-unit contact.
 - This all makes causal inference (relatively) easy, and is why randomized controlled trials are considered the gold standard.
 
@@ -444,8 +444,11 @@ We are left with essentially two options (with shades of gray in between)
 
 
 ```r
-resume&lt;-read.csv("https://raw.githubusercontent.com/kosukeimai/qss/master/CAUSALITY/resume.csv")
+resume&lt;-read.csv("~/Github/jmontgomery.github.io/PDS/Datasets/resume.csv")
 ```
+
+Actual link:
+http://politicaldatascience.com/PDS/Datasets/resume.csv
 
 - This study sent our resumes for job applications.  
 - Everything was the same, except for the first name of the applicant.
@@ -546,8 +549,14 @@ summary(lm(call~race+sex, data=resume))
     - Fit the regression
     - Save the coefficient of interest.  So if you do 200 bootstrapped re-samplings, you'll end up with 200 coefficients.
     - Now calculate the standard deviation (use the `sd` function) of those stored coefficients.  This is your bootstrapped standard error.
-    - Re-calcualte the 95\% confidence interval. 
+    - Re-calcualte the 95% confidence interval. 
 - Put both into the Slack channel for this lecture.
+
+
+---
+## End of Part C
+
+
 
 
 ---
@@ -586,7 +595,7 @@ summary(lm(call~race+sex, data=resume))
 Chattopadhyay and Duflo were interested in studying the causal effect of having female politi- cians on policy outcomes. Do women promote different policies than men? Answering this question with observational data is pretty difficult due to potential confounding problems (e.g. the districts that choose female politicians are likely to systematically differ in other aspects too). Hence, they exploit a randomised policy experiment in India, where since the mid-1990s, 1/3 of village council heads have been randomly reserved for women. 
 
 A subset of the data from 
-West Bengal can be found at the following link: https://raw.githubusercontent. com/kosukeimai/qss/master/PREDICTION/women.csv
+West Bengal can be found at the following link: https://raw.githubusercontent.com/kosukeimai/qss/master/PREDICTION/women.csv
 
 Each observation in the data set represents a village and there are two villages associated with one GP (i.e. a level of government called GP). The next slide shows the names and descriptions of the variables in the “women.csv” dataset. They hypothesize that female politicians are more likely to support policies female voters want. Researchers found that more women complain about the quality of drinking water than men. 
 
