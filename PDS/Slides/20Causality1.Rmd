@@ -550,7 +550,7 @@ Each observation in the data set represents a village and there are two villages
 
 ## Assignment
 
-**Your job**: Estimate the effect of the reservation policy on the number of new or repaired drinking water facilities in the villages.  Be sure to include a 95\% confidence interval. Props (but no points) for using bootstrapped standard errors.
+**Your job**: Estimate the effect of the reservation policy on the number of new or repaired drinking water facilities in the villages.  Be sure to include a 95% confidence interval. Props (but no points) for using bootstrapped standard errors.
 
 
 - **GP**: A unique identifier for each Gram Panchayat (GP)
