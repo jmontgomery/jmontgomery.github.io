@@ -1,25 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Introduction to causality</title>
+    <meta charset="utf-8" />
+    <meta name="date" content="2020-01-01" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Introduction to causality
+### <p>Jacob M. Montgomery<br />
+<em>Washington University in St. Louis</em><br />
+<em>Department of Political Science</em></p>
+### 2020
+
 ---
-title: "Introduction to causality"
-author: |
-  | Jacob M. Montgomery
-  | *Washington University in St. Louis*
-  | *Department of Political Science*
-date: '2020'
-header-includes:
-  - \usepackage{amsmath}
-output:
-  xaringan::moon_reader:
-    lib_dir: libs
-    nature:
-      highlightStyle: github
-      countIncrementalSlides: false
-#   beamer_presentation: default
-#   slidy_presentation: default
 
 
----
-
-<style type="text/css">
+&lt;style type="text/css"&gt;
 body, td {
    font-size: 14px;
 }
@@ -29,7 +30,7 @@ code.r{
 pre {
   font-size: 4px;
 }
-</style>
+&lt;/style&gt;
 
 
 ## Orientation for this component
@@ -80,7 +81,7 @@ Next time
 
 - Thinking about causality
 - Average treatment effects
-- Don't be evil.  And it's so easy to be evil.
+- Don't be evil.  And it's so easy to be veil.
 
 
 ![  ](./Images/cell_phones.png)
@@ -119,7 +120,7 @@ Next time
 ---
 ### The parable of the the accident
 
-> Imagine you're driving a car down a four-lane road.  All of the sudden, out of nowhere, a car drives out of its lane, into yours, right in front of your car.  You can tell that the driver is texting, and isn't looking at the road.  You slam on the breaks, and your hood collides with his fender.  Fortunately, you're shaken, but fine, and so is the other driver. Chances are, you will be asking yourselves some questions.  
+&gt; Imagine you're driving a car down a four-lane road.  All of the sudden, out of nowhere, a car drives out of its lane, into yours, right in front of your car.  You can tell that the driver is texting, and isn't looking at the road.  You slam on the breaks, and your hood collides with his fender.  Fortunately, you're shaken, but fine, and so is the other driver. Chances are, you will be asking yourselves some questions.  
 
 - Why did that happen?  
 - What would have happened if I had been paying more attention to the cars around you? 
@@ -222,23 +223,23 @@ https://plato.stanford.edu/entries/causal-models/
 ---
 ## More formal presentation of an ATE
 
-- Imagine we have a single covariate $T$ that can take on two values $T \in \{0, 1\}$. 
+- Imagine we have a single covariate `\(T\)` that can take on two values `\(T \in \{0, 1\}\)`. 
 
-$$\begin{array}{l c c c}
-\text{Unit} & y_0 & y_1 & y_1-y_0 \\ 
+`$$\begin{array}{l c c c}
+\text{Unit} &amp; y_0 &amp; y_1 &amp; y_1-y_0 \\ 
 \hline
-1 & 2.4 & 3.2 & 0.8 \\
-2 & 42.3 & 40.1 & -2.2\\
-3 & 13 & 16.4 & 2.4\\
-\vdots &  & & \vdots\\
-n & -1.2 & -1.8 & -0.6
-\end{array}$$
+1 &amp; 2.4 &amp; 3.2 &amp; 0.8 \\
+2 &amp; 42.3 &amp; 40.1 &amp; -2.2\\
+3 &amp; 13 &amp; 16.4 &amp; 2.4\\
+\vdots &amp;  &amp; &amp; \vdots\\
+n &amp; -1.2 &amp; -1.8 &amp; -0.6
+\end{array}$$`
 
 --
 
 - The average causal effect would be (under reasonable assumptions): 
 
-$$\text{mean}(y_1-y_0) = \text{mean}(y_1) - \text{mean}(y_0)$$
+`$$\text{mean}(y_1-y_0) = \text{mean}(y_1) - \text{mean}(y_0)$$`
 
 
 ---
@@ -247,15 +248,15 @@ $$\text{mean}(y_1-y_0) = \text{mean}(y_1) - \text{mean}(y_0)$$
 - The problem is that when we get a *real* dataset it's going to look like this:
 
 
-$$\begin{array}{l c c c}
-\text{Unit} & y_0 & y_1 & y_1-y_0 \\ 
+`$$\begin{array}{l c c c}
+\text{Unit} &amp; y_0 &amp; y_1 &amp; y_1-y_0 \\ 
 \hline
-1 & ? & 3.2 & ? \\
-2 & ? & 40.1 & ?\\
-3 & 13 & ? & ?\\
-\vdots &  & & \vdots\\
-n & -1.2 & ? & ?
-\end{array}$$
+1 &amp; ? &amp; 3.2 &amp; ? \\
+2 &amp; ? &amp; 40.1 &amp; ?\\
+3 &amp; 13 &amp; ? &amp; ?\\
+\vdots &amp;  &amp; &amp; \vdots\\
+n &amp; -1.2 &amp; ? &amp; ?
+\end{array}$$`
 
 --
 
@@ -268,8 +269,8 @@ n & -1.2 & ? & ?
 
 So it turns out that doing this well is pretty hard.  Why?
 
-1. Units where $T=0$ might be fundamentally different than those where $T=1$.  
-2. There might be a "lurking variable" that is correlated with both $T$ and $Y$.
+1. Units where `\(T=0\)` might be fundamentally different than those where `\(T=1\)`.  
+2. There might be a "lurking variable" that is correlated with both `\(T\)` and `\(Y\)`.
 3. We can't really measure for all possible lurking variables.
 
 
@@ -282,8 +283,8 @@ So it turns out that doing this well is pretty hard.  Why?
 
 --
 
-1. Education $\rightarrow$ Spending more on alcohol
-2. Spending more on alcohol $\rightarrow$ Education
+1. Education `\(\rightarrow\)` Spending more on alcohol
+2. Spending more on alcohol `\(\rightarrow\)` Education
 3. Income?
 
 ---
@@ -308,9 +309,9 @@ Rogers, Coffman, and Bergman:
 
 
 
-> While the authors control for certain variables, their research only implies there is a relationship between parental involvement and student performance. This caveat is important; **the existence of a relationship does not tell us what causes what**.
+&gt; While the authors control for certain variables, their research only implies there is a relationship between parental involvement and student performance. This caveat is important; **the existence of a relationship does not tell us what causes what**.
 
-> Think of it this way: **If you had two children, and one was getting A's and the other C's, which of them would you help more? The C student.** An outsider, noticing that you've spent the school year helping only one of your children, might infer that parental help caused that child to earn lower grades. This of course would not be the case, and inferring causation here would be a mistake.
+&gt; Think of it this way: **If you had two children, and one was getting A's and the other C's, which of them would you help more? The C student.** An outsider, noticing that you've spent the school year helping only one of your children, might infer that parental help caused that child to earn lower grades. This of course would not be the case, and inferring causation here would be a mistake.
 
 
 
@@ -367,16 +368,16 @@ Rogers, Coffman, and Bergman:
 - And we've talked about the ATE.  But how would we go about estimating it?
 
 
-$$\begin{array}{l c c c}
-\text{Unit} & y_0 & y_1 & y_1-y_0 \\ 
+`$$\begin{array}{l c c c}
+\text{Unit} &amp; y_0 &amp; y_1 &amp; y_1-y_0 \\ 
 \hline
-1 & ? & 3.2 & ? \\
-2 & ? & 40.1 & ?\\
-3 & 13 & ? & ?\\
-4 & ? & 18.3 & ?\\
-5 & 4.1 & ? & ?\\
-6 & -5.1 & ? & ?\\
-\end{array}$$
+1 &amp; ? &amp; 3.2 &amp; ? \\
+2 &amp; ? &amp; 40.1 &amp; ?\\
+3 &amp; 13 &amp; ? &amp; ?\\
+4 &amp; ? &amp; 18.3 &amp; ?\\
+5 &amp; 4.1 &amp; ? &amp; ?\\
+6 &amp; -5.1 &amp; ? &amp; ?\\
+\end{array}$$`
 
 
 ---
@@ -384,8 +385,8 @@ $$\begin{array}{l c c c}
 
 We are left with essentially two options (with shades of gray in between)
 
-1. We can fill in the missing values (or average values of missing values) of our table using a model.
-    - We can try to mine our data in some way to infer values for missing values (or averages of missing values).
+1. We can fill in the missing values of our table using a model.
+    - We can try to mine our data in some way to fill in the missing cells.
     - Mabe we could put extreme bounds on them based on possible (or plausible) values.
     - Maybe even rely on other dependent variables in large/complex systems.
 2. We can use our research *design*.
@@ -396,29 +397,29 @@ We are left with essentially two options (with shades of gray in between)
 ---
 ## Getting to good causal inference
 
-$$\begin{array}{l c c c}
-\text{Unit} & y_0 & y_1 & y_1-y_0 \\ 
+`$$\begin{array}{l c c c}
+\text{Unit} &amp; y_0 &amp; y_1 &amp; y_1-y_0 \\ 
 \hline
-1 & ? & 3.2 & ? \\
-2 & ? & 40.1 & ?\\
-3 & 13 & ? & ?\\
-4 & ? & 18.3 & ?\\
-5 & 4.1 & ? & ?\\
-6 & -5.1 & ? & ?\\
-\end{array}$$
+1 &amp; ? &amp; 3.2 &amp; ? \\
+2 &amp; ? &amp; 40.1 &amp; ?\\
+3 &amp; 13 &amp; ? &amp; ?\\
+4 &amp; ? &amp; 18.3 &amp; ?\\
+5 &amp; 4.1 &amp; ? &amp; ?\\
+6 &amp; -5.1 &amp; ? &amp; ?\\
+\end{array}$$`
 
 - An attractive approach here is to try something like this.
-    - Take the average of all of the cases where $T=1$
-    - Take the average of the cases where $T=0$. 
+    - Take the average of all of the cases where `\(T=1\)`
+    - Take the average of the cases where `\(T=0\)`. 
     - Subtract them.
     
-    $$\frac{13+4.1-4.1}{3} - \frac{3.2 + 40.1 + 18.3}{3}$$
+    `$$\frac{13+4.1-4.1}{3} - \frac{3.2 + 40.1 + 18.3}{3}$$`
 
 ---
 
 - Can we use this to estimate the ATE?
 - Yes, but only if:
-    - Assignment of T is unrelated to potential outcomes.
+    - T is unrelated to potential outcomes.
     - Units don't affect each other 
     - No hidden variation in treatment
 
@@ -434,15 +435,16 @@ $$\begin{array}{l c c c}
 
 - Imagine that we had *randomly* assigned each unit to a treatment/control condition.
 - Now we know for certain that T and the potential outcomes are independent.
-- We can also take steps so that the treatment does not vary in intensity across units (?).
+- We can also take steps that the treatment does not vary in intensity across units (?).
 - And in many cases is easy to assure no between-unit contact.
 - This all makes causal inference (relatively) easy, and is why randomized controlled trials are considered the gold standard.
 
 ---
 ## Example: Audit studies for employment
 
-```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
-resume<-read.csv("http://politicaldatascience.com/PDS/Datasetsresume.csv")
+
+```r
+resume&lt;-read.csv("https://raw.githubusercontent.com/kosukeimai/qss/master/CAUSALITY/resume.csv")
 ```
 
 - This study sent our resumes for job applications.  
@@ -461,8 +463,14 @@ resume<-read.csv("http://politicaldatascience.com/PDS/Datasetsresume.csv")
 ## So what was the causal effect?
 
 
-```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+
+```r
 tapply(resume$call, INDEX=resume$race, FUN=mean)
+```
+
+```
+##      black      white 
+## 0.06447639 0.09650924
 ```
 
 - A little over 3%.  
@@ -473,15 +481,60 @@ tapply(resume$call, INDEX=resume$race, FUN=mean)
 
 Do this a little easier with:
 
-```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+
+```r
 summary(lm(call~race, data=resume))
+```
+
+```
+## 
+## Call:
+## lm(formula = call ~ race, data = resume)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.09651 -0.09651 -0.06448 -0.06448  0.93552 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 0.064476   0.005505  11.713  &lt; 2e-16 ***
+## racewhite   0.032033   0.007785   4.115 3.94e-05 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.2716 on 4868 degrees of freedom
+## Multiple R-squared:  0.003466,	Adjusted R-squared:  0.003261 
+## F-statistic: 16.93 on 1 and 4868 DF,  p-value: 3.941e-05
 ```
 
 
 ---
 
-```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+
+```r
 summary(lm(call~race+sex, data=resume))
+```
+
+```
+## 
+## Call:
+## lm(formula = call ~ race + sex, data = resume)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.09866 -0.09866 -0.06653 -0.06653  0.94259 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  0.066534   0.005886  11.304  &lt; 2e-16 ***
+## racewhite    0.032130   0.007786   4.127 3.74e-05 ***
+## sexmale     -0.009128   0.009239  -0.988    0.323    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.2716 on 4867 degrees of freedom
+## Multiple R-squared:  0.003666,	Adjusted R-squared:  0.003256 
+## F-statistic: 8.953 on 2 and 4867 DF,  p-value: 0.0001314
 ```
 
 ---
@@ -493,14 +546,8 @@ summary(lm(call~race+sex, data=resume))
     - Fit the regression
     - Save the coefficient of interest.  So if you do 200 bootstrapped re-samplings, you'll end up with 200 coefficients.
     - Now calculate the standard deviation (use the `sd` function) of those stored coefficients.  This is your bootstrapped standard error.
-    - Re-calcualte the 95% confidence interval. 
+    - Re-calcualte the 95\% confidence interval. 
 - Put both into the Slack channel for this lecture.
-
-
----
-## End of Part C
-
-
 
 
 ---
@@ -555,6 +602,93 @@ Each observation in the data set represents a village and there are two villages
 - **reserved**: A binary varible indicating whether the GP was reserved for women leaders or not.
 - **irrigation**: variable measuring the number of new or reparied irrigation facilities.
 - **water**: variable measuring the number of new or repeared drinking-water facilities in the village (this is your DV)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
 
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
 
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
 
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
