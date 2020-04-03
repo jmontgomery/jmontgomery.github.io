@@ -23,7 +23,8 @@ plot(a)
 ---
 
 ```{r cars, eval=F,}
-summary(cars)
+library(fivethirtyeight)
+trump_twitter$text[1:5]
 # You can load in packages 
 # You can choose to show the code but not evaluate it 
 ```
