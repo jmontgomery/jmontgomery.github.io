@@ -95,7 +95,10 @@ Next time
     - Images
     
     - Code chunk
-    
+---
+## Code for today
+
+You can find the code used in the slack channel for today.
 ---
 ## Headers
 
@@ -290,4 +293,11 @@ See?
 
 ![](./Images/add_code.png)
 
+- You can find this code in the slack channel for today
 ---
+
+# Activity
+
+- Open an R Markdown file in RStudio
+
+- Give the file the title 'Activity 1' and put your name as the author
