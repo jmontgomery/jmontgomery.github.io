@@ -103,9 +103,10 @@ plot(a)
 
 ---
 
-```{r, eval=F,}
-b <- runif(50) 
-plot(b) 
+```{r cars, eval=F,}
+library(fivethirtyeight)
+trump_twitter$text[1:5]
+# You can load in packages 
 # You can choose to show the code but not evaluate it 
 ```
 ---

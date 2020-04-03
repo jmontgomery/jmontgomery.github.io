@@ -99,11 +99,11 @@ Next time
     
     - Images
     
-    - Code chunk
+    - Code chunks
 ---
 ## Code for today
 
-You can find the code used in the slack channel for today.
+- You can find the code used in the Slack channel for today.
 ---
 ## Headers
 
@@ -136,6 +136,8 @@ You can find the code used in the slack channel for today.
 --
 
   - **Output**: You can make a *phrase* _italicized_ two ways: by wrapping it in a single set of *(astericks) or _ (underscores)
+
+--
 
 ### **Bold text**
   - **Code**: `Similarly there are a couple of ways to make a **phrase** __bold__: by using two sets of ** (asterics) or __ (underscores)`
@@ -298,30 +300,134 @@ See?
 
 ![](./Images/add_code.png)
 
-- You can find this code in the slack channel for today
+- You can find this code in the Slack channel for today
+- Knit!
 ---
 
-# Activity
+## Activity
 
 - Open an R Markdown file in RStudio
 
 - Give the file the title 'Activity 1' and put your name as the author
 
 - Write a paragraph about the most useful aspects of this class include the following skills:
-  
     - Headers
-    
     - Text emphasis
-    
     - Lists
-    
-    - Paragraphs
-    
     - Hyperlinks (link to our class)
-    
-    - Images (use this photo link: http://politicaldatascience.com/PDS/Slides/Images/photo2.jpg)
-    
+    - Images --(use this photo link:
+      - http://politicaldatascience.com/PDS/Slides/Images/photo1.jpg
     - Code chunk
+      - Load in the `fivethirtyeight` package into your chunk
+          - {r fivethirtyeight}
+      - Display the following code and its output:
+        - trump_twitter$text[1:5]
+    - Hit the knit button and save the html file that is produced using the file name **index**
+    - Upload the html file to the Slack channel for today's class
+    
+---
+
+# Github Pages
+
+- Now that we know the basics of Markdown and how to use them in R Markdown, we have the skills we need to create a website
+
+- Follow along with the directions of the following slides and these will serve as your second activity
+
+---
+
+## Create a repository
+
+- The first thing you will need to do is make a repository for your website
+
+    - You already have a couple repositories created because of the problem sets
+    
+--
+
+- On your Github home page click `Repositories` tab then click the green `New` button
+
+- Create a repository with the following name
+
+  - *username*.github.io
+  
+     - Where _username_ is put in your username for Github. Mine is domlockett, Jacob's is jmontgomery.
+     
+    - If the username is not identical to your actual Github username this will not work
+    
+--
+
+- *Note:* You only get one free webpage from Github. If you already have one let us know via the Slack channel for today's class
+---
+![](./Images/create_io_repo.png)
+---
+## Clone your repository
+
+- Now clone the repository so that you have it saved to your Github Desktop
+
+- Open the file folder for your *username*.github.io repository
+
+--
+
+## The index file
+
+--
+
+- Copy the .rmd file that you created in **activity 1** and paste it into your new repository
+
+  - If you did not save the name of this file as index(.rmd) in the first activity, be sure to do so now
+
+--
+
+- Open your index file and knit it once more so that the html output saves in your new *username*.github.io directory
+
+--
+
+- Now push the changes
+
+---
+
+## Publish your page
+
+- Go to your repository on github.com and go to the settings option
+
+![](./Images/settings.png)
+---
+
+## Publish the page
+
+- Scroll down to the section named `Github Pages`
+
+&lt;img src="./Images/publish_repository.png" width="350"&gt;
+
+- Change the source from none to `master branch`
+
+- You should see a green bar that confirms your site is published
+
+&lt;img src="./Images/published.png" width="400"&gt;
+
+  - [Click it!](https://dlockett91.github.io/website/)
+  
+
+---
+
+## You have now created a webpage
+
+- Sit back and admire your handiwork
+
+- There are lots of ways that you can customize Markdown code to accomidate the needs of your website, PDF, or word document
+  
+  - Insert html code directly for tables, use LaTeX code, etc
+  
+    - You will have to surf stack overflow to fulfill your basic needs
+    
+---
+
+## Activity 2
+
+- If you have followed along you should be done with activity 2
+
+  - Paste your *username*.github.io url into the Slack channel for today's class
+  
+- If you did not follow along, go back and do the steps outlined in the Github Pages portion of this lecture
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
