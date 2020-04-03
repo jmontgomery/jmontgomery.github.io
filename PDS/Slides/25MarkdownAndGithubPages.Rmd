@@ -314,6 +314,6 @@ See?
     
     - Hyperlinks (link to our class)
     
-    - Images (use this photo link: )
+    - Images (use this photo link: http://politicaldatascience.com/PDS/Slides/Images/photo2.jpg)
     
     - Code chunk
