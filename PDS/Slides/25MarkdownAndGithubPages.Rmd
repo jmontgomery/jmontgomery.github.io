@@ -286,7 +286,7 @@ See?
   - [The website for class](http://politicaldatascience.com/)
   
   
-   ![A computer with data](http://politicaldatascience.com/PDS/Datasets/photo1.jpg)
+   ![A computer with data](http://politicaldatascience.com/PDS/Slides/Images/photo1.jpg)
 ---
 
 ## Code chunk
@@ -301,3 +301,19 @@ See?
 - Open an R Markdown file in RStudio
 
 - Give the file the title 'Activity 1' and put your name as the author
+
+- Write a paragraph about the most useful aspects of this class include the following skills:
+  
+    - Headers
+    
+    - Text emphasis
+    
+    - Lists
+    
+    - Paragraphs
+    
+    - Hyperlinks (link to our class)
+    
+    - Images (use this photo link: )
+    
+    - Code chunk
