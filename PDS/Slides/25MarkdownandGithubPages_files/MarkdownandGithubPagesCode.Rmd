@@ -82,7 +82,7 @@ See?
 
 ## Code Chunks
 
-![  ](./Images/add_code.png)
+![  ](http://politicaldatascience.com//PDS/Slides/Images/add_code.png)
 ## How to add code
 
 To add code 'inline', use three ``` (back quote keys) [Don't confuse this with the apostrophe key]. After adding the three back quote keys, you will then include the language which you want to run in brackets {r}. There are various options you can use about whether you want the code to actually be displayed or evaluated. 
