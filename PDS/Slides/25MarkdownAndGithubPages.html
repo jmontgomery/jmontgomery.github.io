@@ -63,7 +63,7 @@ Next time
 
 ## Introduction for today
 
-- What is Markdown
+1. What is Markdown
   - Markdown is a powerful yet relatively simple to that allows users to create web content
   
   - The language relies on a set of rules which allows you to manage headers, font, and lists with ease
@@ -72,7 +72,7 @@ Next time
 
 --
 
-- Why should I use it?
+2. Why should I use it?
 
   - It is an easy-to-read and easy-to-write (and easy-to-learn) plain text format
 
@@ -83,42 +83,24 @@ Next time
 ---
 
 ## Syntax
-
-- There are a few features of Markdown which can cover your basic needs when presenting text in a variety of formats
-
-  - Text emphasis
+  + There are a few features of Markdown which can cover your basic needs when presenting text in a variety of formats
   
-  - Headers
+  + These include:
   
-  - Lists
-  
-  - Paragraphs
-  
-  - Hyperlinks
-  
-  - Images
+    - Headers
     
----
-
-
-## Text Emphasis
-
-### *Italics*
-  - **Code**: `You can make a *phrase* _italicized_ two ways: by wrapping it in a single set of * (astericks) or _ (underscores)`
-
---
-
-  - **Output**: You can make a *phrase* _italicized_ two ways: by wrapping it in a single set of *(astericks) or _ (underscores)
-
---
-
-### **Bold text**
-  - **Code**: `Similarly there are a couple of ways to make a **phrase** __bold__: by using two sets of ** (asterics) or __ (underscores)`
-
---
-
-  - **Output**: Similarly there are a couple of ways to make a **phrase** __bold__: by using two sets of ** (asterics) or __ (underscores)
-  
+    - Text emphasis
+    
+    - Lists
+    
+    - Paragraphs
+    
+    - Hyperlinks
+    
+    - Images
+    
+    - Code chunk
+    
 ---
 ## Headers
 
@@ -142,6 +124,25 @@ Next time
 
 
 ---
+
+## ***Text Emphasis***
+
+### *Italics*
+  - **Code**: `You can make a *phrase* _italicized_ two ways: by wrapping it in a single set of * (astericks) or _ (underscores)`
+
+--
+
+  - **Output**: You can make a *phrase* _italicized_ two ways: by wrapping it in a single set of *(astericks) or _ (underscores)
+
+### **Bold text**
+  - **Code**: `Similarly there are a couple of ways to make a **phrase** __bold__: by using two sets of ** (asterics) or __ (underscores)`
+
+--
+
+  - **Output**: Similarly there are a couple of ways to make a **phrase** __bold__: by using two sets of ** (asterics) or __ (underscores)
+  
+---
+
 
 ##  Numbered lists
 
@@ -169,17 +170,17 @@ Next time
 
 ### **Code**
 
-   `1. List item 1 (return twice for blank line)`
-   
-     `(single tab) - Subpoint 1`
-     
-   `2. List item 2 (return twice for blank line)`
-    
-     `(single tab) - Subpoint 2`
-     
-   `3. List item 3 (return twice for blank line)`
-   
-     `(single tab) - Subpoint 3`
+`1. (Space)List item 1`
+
+      `(double tab) - (Space)Subpoint 1`
+      
+`2. (Space)List item 2`
+
+      `(double tab) - (Space)Subpoint 2`
+      
+`3. (Space)List item 3`
+
+      `(double tab) - (Space)Subpoint 3`
   
 ---
 
@@ -187,17 +188,14 @@ Next time
 
 ### **Output**
 
-   1. List item 1
-   
-    -Subpoint 1
-    
-   2. List item 2
-   
-    -Subpoint 2
-    
-   3. List item 3
-   
-    -Subpoint 3
+1. List item 1
+      - Subpoint 1
+      
+2. List item 2
+      - Subpoint 2
+      
+3. List item 3
+      - Subpoint 3
 
 ---
 
@@ -205,22 +203,26 @@ Next time
 
 ### Code
 
-  `- (Space)List item 1(return twice for blank line)`
+  `- (Space)List item 1`
   
-    `(single tab)- Subpoint 1 (return twice for blank line)`
+    `(single tab) Subpoint 1 `
     
-      `(another tab)- Subsubpoint 1(return twice for blank line)`
+      `(double tab) Subsubpoint 1`
   
-  `- (Space)List item 2 (return twice for blank line)`
+  `-  (Space)List item 2`
   
-    `(single tab)- Subpoint 2 (return twice for blank line)`
+    `(single tab) Subpoint 2`
     
-      `(another tab)- Subsubpoint 2 (return twice for blank line)`
-
+      `(double tab) Subsubpoint 2`
+  
+  `-  (Space)List item 3`
+  
+    `(single tab) Subpoint 3`
+    
+      `(double tab) Subsubpoint 3`
 ---
 
 ## Plain list
-###Output
 
   - List item 1
   
@@ -234,35 +236,27 @@ Next time
       
       - Subsupoint 2
       
-          - After 3 subpoints, you can start doing **double tabs**
-        
-             - if you have a ridiculously long number of sublists
-          
-                  - See?
+  - List item 3
+  
+    - Subpoint 3
+    
+      - Subsubpoint 3
                   
                   
 ---
 
-## Lists can be picky
+## Don't forget your spaces
 
 ### **Code**
      `-This is what happens` 
-       `-without a space after the dash or a blank line`
-      
-     `- And this is what happens`
-    
-    
-        `- if you add an extra blank line`
+       `-without a space after the dash`
+
       
 ### **Output**
 
   -This is what happens
-    -without a space after the dash or a blank line
-  
-  - And this is what happens
-  
-  
-    - If you add an extra blank line
+    -If you don't include a space after the dash
+
   
 ---
 
@@ -278,8 +272,7 @@ See?
     
 ## Hyperlinks and Images
     
-  - Images and hyperlinks are both similar and easy. 
-  - The only difference is, in images, you must put an exclamation point before the brackets.
+  - Images and hyperlinks are both similar and easy. The only difference is, in images, you must put an exclamation point before the brackets.
   
 ### Code
 
@@ -296,6 +289,13 @@ See?
   
   
    ![A computer with data](http://politicaldatascience.com/PDS/Datasets/photo1.jpg)
+---
+
+## Code chunk
+
+![](./Images/add_code.png)
+
+---
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
