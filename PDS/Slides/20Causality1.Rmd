@@ -412,7 +412,7 @@ $$\begin{array}{l c c c}
     - Take the average of the cases where $T=0$. 
     - Subtract them.
     
-    $$\frac{13+4.1-4.1}{3} - \frac{3.2 + 40.1 + 18.3}{3}$$
+    $$\frac{3.2 + 40.1 + 18.3}{3} - \frac{13+4.1-4.1}{3}$$
 
 ---
 
@@ -442,8 +442,11 @@ $$\begin{array}{l c c c}
 ## Example: Audit studies for employment
 
 ```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
-resume<-read.csv("http://politicaldatascience.com/PDS/Datasetsresume.csv")
+resume<-read.csv("~/Github/jmontgomery.github.io/PDS/Datasets/resume.csv")
 ```
+
+Actual link:
+http://politicaldatascience.com/PDS/Datasets/resume.csv
 
 - This study sent our resumes for job applications.  
 - Everything was the same, except for the first name of the applicant.
@@ -539,7 +542,7 @@ summary(lm(call~race+sex, data=resume))
 Chattopadhyay and Duflo were interested in studying the causal effect of having female politi- cians on policy outcomes. Do women promote different policies than men? Answering this question with observational data is pretty difficult due to potential confounding problems (e.g. the districts that choose female politicians are likely to systematically differ in other aspects too). Hence, they exploit a randomised policy experiment in India, where since the mid-1990s, 1/3 of village council heads have been randomly reserved for women. 
 
 A subset of the data from 
-West Bengal can be found at the following link: https://raw.githubusercontent. com/kosukeimai/qss/master/PREDICTION/women.csv
+West Bengal can be found at the following link: https://raw.githubusercontent.com/kosukeimai/qss/master/PREDICTION/women.csv
 
 Each observation in the data set represents a village and there are two villages associated with one GP (i.e. a level of government called GP). The next slide shows the names and descriptions of the variables in the “women.csv” dataset. They hypothesize that female politicians are more likely to support policies female voters want. Researchers found that more women complain about the quality of drinking water than men. 
 
@@ -547,7 +550,7 @@ Each observation in the data set represents a village and there are two villages
 
 ## Assignment
 
-**Your job**: Estimate the effect of the reservation policy on the number of new or repaired drinking water facilities in the villages.  Be sure to include a 95\% confidence interval. Props (but no points) for using bootstrapped standard errors.
+**Your job**: Estimate the effect of the reservation policy on the number of new or repaired drinking water facilities in the villages.  Be sure to include a 95% confidence interval. Props (but no points) for using bootstrapped standard errors.
 
 
 - **GP**: A unique identifier for each Gram Panchayat (GP)
