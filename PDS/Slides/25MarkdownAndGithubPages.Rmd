@@ -331,7 +331,7 @@ See?
       
     - Code chunks
       - Load in the `fivethirtyeight` package into your chunk
-      
+    
       - Include the following code in your document and have it display **the code and its output**:
          - trump_twitter$text[1:5]
         
