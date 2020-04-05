@@ -93,7 +93,7 @@ knitr::opts_chunk$set(echo = TRUE, eval = TRUE)
 # Both of these options can be overriden in a particular chunk, though
 ```
 
-```{r, eval=T, warning=F, fig.height=2.5, fig.width=2.5}
+```{r, warning=F, fig.height=2.5, fig.width=2.5}
 # You can show the code and the output and shut off warnings
 a <- rnorm(100)
 plot(a) 
@@ -102,8 +102,8 @@ plot(a)
 ---
 
 ```{r cars, eval=F,}
-library(fivethirtyeight)
-trump_twitter$text[1:5]
+#library(fivethirtyeight)
+fivethirtyeight::trump_twitter$text[1:5]
 # You can load in packages 
 # You can choose to show the code but not evaluate it 
 ```
