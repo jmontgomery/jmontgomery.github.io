@@ -34,9 +34,7 @@ Similarly there are a couple of ways to make a **phrase** __bold__: by using two
 1. List item 1
     - Subpoint 1
 2. List item 2
-    - Sub  - if you have a ridiculously long number of sublists
-            - See?
-                      point 2
+    - Subpoint 2
 3. List item 3
     - Subpoint 3
     
