@@ -59,7 +59,7 @@ Next time
 ## Introduction for today
 
 1. What is Markdown
-  - Markdown is a powerful yet relatively simple to that allows users to create web content
+  - Markdown is a powerful yet relatively simple tool that allows users to create web content
   
   - The language relies on a set of rules which allows you to manage headers, font, and lists with ease
   
@@ -269,7 +269,28 @@ Once you are ready for a new paragraph all you have to do is leave a blank line 
 See?
 
 ---
-    
+## Activity 1
+
+- Open an R Markdown file in RStudio
+
+- Give the file the title 'Activity 1' and put your name as the author
+
+- Delete all of the stock information the R Markdown file gives you:
+
+    - `## R Markdown
+          This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see
+      ` etc...
+
+
+- Write a paragraph about the most useful aspects of this class include the following skills:
+    - Headers
+    - Text emphasis
+    - Lists
+    - Paragraphs
+
+- Now **save** this .rmd file and name it _index_
+
+---
 ## Hyperlinks and Images
     
   - Images and hyperlinks are both similar and easy. The only difference is, in images, you must put an exclamation point before the brackets.
@@ -299,40 +320,22 @@ See?
 - Knit!
 ---
 
-## Activity 1
-
-- Open an R Markdown file in RStudio
-
-- Give the file the title 'Activity 1' and put your name as the author
-
-- Write a paragraph about the most useful aspects of this class include the following skills:
-    - Headers
-    
-    - Text emphasis
-    
-    - Lists
-    
-    - Hyperlinks 
+## Activity 2
+- Now in the index file which you started in activity 1, include the following three aspects:
+   - Hyperlinks 
       - Link to our class: politicaldatascience.com
       
     - Images 
-      -(use this photo link)
+      - Use the following image:
           - http://politicaldatascience.com/PDS/Slides/Images/image2.jpg
-          
-    - (Continues on next slide)
-      
----
-## Activity 1
-- Write a paragraph about the most useful aspects of this class include the following skills:
-  - Code chunks
     
+    - Code chunks
+
       - Load in the `fivethirtyeight` package into your chunk
       
-          - {r, eval =T, echo =T }
-          
-     - Display the following code and its output:
+      - Include the following code in your document and have it display **the code and its output**:
       
-          - library(fivethirtyeight)
+         - library(fivethirtyeight)
          - trump_twitter$text[1:5]
         
 - Hit the knit button and save the html file that is produced using the file name **index**
@@ -411,13 +414,13 @@ See?
 
 - Scroll down to the section named `Github Pages`
 
-<center> <img src="./Images/publish_repository.png" width="350"> </center>
+<center> <img src="./Images/publish_repository.png" width="350"></center>
 
 - Change the source from none to `master branch`
 
 - You should see a green bar that confirms your site is published
 
-<center> <img src="./Images/published.png" width="400"> </center>
+<center> <img src="./Images/published.png" width="400"></center>
 
   - [Click it!](https://dlockett91.github.io)
   
