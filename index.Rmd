@@ -54,6 +54,7 @@ Lecture 17 -- no link
 
 [Lecture  20](https://jmontgomery.github.io/PDS/Slides/20Causality1.html)
 
+[Lecture  21](https://jmontgomery.github.io/PDS/Slides/21Causality2.html)
 
 #### Problem Sets
 [Problem Set 1](https://jmontgomery.github.io/PDS/Problem Sets/Problem Set 1/PS1_PDS.pdf)
