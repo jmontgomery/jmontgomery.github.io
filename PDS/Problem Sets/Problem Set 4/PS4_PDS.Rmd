@@ -44,16 +44,16 @@ Due April 2, 10:00 AM (Before Class) \\
 
  \item Convert this variable into a numeric where higher values indicate higher levels of political efficacy (1- strongly agrees with the statement; 5- strongly disagrees with the statment) and all other values (`Cant choose' etc.) become NA's.
  
-  \item What is the proportion of individuals from the entire sample who do not feel as though they have a say in the government? The proportion of those who do feel as though they have a say?
+  \item What is the proportion of individuals from the entire sample who feel as though they "have a say in the government?"" 
 
 
-  \item Using a sample of \textbf{25} what is the average level of efficacy individuals feel on the one to five scale? At 100? 500?
+  \item Using a sample of \textbf{25} from this dataset.  What is the average proportion who feel as thought hey have a say? 
   
-  \item Pull a random sample of 25 from the \texttt{poleff11} data and calculate the mean. Now repeat this process 500 times and store these values in a variable called \texttt{trials\_25}. 
+  \item Pull a random sample of 25 from the \texttt{poleff11} data and calculate the mean for this outcome. Now repeat this process 500 times and store these values in a variable called \texttt{trials\_25}. 
 
 \item Now create a variable called \texttt{trials\_100} where we do 500 trials with n=100 instead of 25. 
 
-\item Draw a histogram of the sampling distribution for the two trials you just conducted. Give the plots meaningful titles and axis labels. Save these plots in your repository. 
+\item Draw a histogram of the **sampling distribution** for the two trials (n=25 vs. n=100) you just conducted. Give the plots meaningful titles and axis labels. Save these plots in your repository. 
 
 \item What notable difference occur when we use a larger sample size in our trials?
   
@@ -61,42 +61,49 @@ Due April 2, 10:00 AM (Before Class) \\
 
 \eenum
 
-\section*{Bootstrapping}
-
-\benum
-  \setcounter{enumi}{1}
-
-\item \textbf{Run the command \texttt{set.seed(25)}.} Create a new variable \texttt{eff\_subset} which draws a sample of 300 observations from the original \texttt{poleff11} data. 
-
-\beit
-
-\item Draw a sample of 25 from \texttt{eff\_subset} and calculate the mean. Repeat this task 500 times and store the results in a variable named \texttt{trials}.
-
-\item What is the mean of the 500 trials? 1000 trials? How do these values compare to the mean of the actual \texttt{poleff11} variable?
-
-
-\item Notice that with pulling random samples of only 25 observation \textbf{from a fraction of the data} we are able to approximate the mean of the entire data quite well. That is the logic of bootstrapping, with only a small sample (here our population is the entire dataset), one can make reasonable approximations about the population!
-
-\eeit
-
-
-
-\eenum
-
 \section*{Supervised Learning}
 \benum
- \item 
+ \item Load the following data: http://politicaldatascience.com/PollingCandidateData92-16.csv.
 
+This is is data for *incumbents* running for re-election to the US Senate.  
 \beit
- \item 
- 
-
-
-\item
-
+ \item \emph{Poll Percentage.of.Vote.won.x} is the percentage of the vote the candidate won.  
+\item The other variabels are mostly self-explanatory or have been used before in class.  
+\item  However, this datset differes in that it is organized at the poll level.  That is, there is one row for each poll of each senate race.  
+\item So there are some new variables including: the polling firm, the starting date of the poll, the "days left" until Eleciton Day, sample size, and the `numberSupport` (the number of respondents in that poll who indicated they supported the incumbent candidate.)
+\item There is also a `win` variable that indicates whether the incumbent candidate won the election.
 \eeit
 
+\item Re-organize the data so it is a the election level (as opposed to the poll level). 
+\beit
+\item  This means you will have to figure out how to reduce the polling data into a summary statistic.  
+\item You might try to do this a couple of different ways based on sample size and date of the poll for use later.
+\eeit
 
+\item Randomly select 20 percent of your data to use as a "validation sample" to assess the quality of your model.  You will use this division of the data in the rest of the problems below.  
+
+\item Using the \emph{Poll Percentage.of.Vote.won.x} variable, create at least two linear regression models to predict vote share for incumbents.  
+\beit
+\item You are free to do this any way you want, but you must assess the quality of your model using cross-validation.  
+\item Train your model on your "training" data (80\% of the data) and test on on the "test" data.
+\item Provide an appropriate summary statistic for your compeing models using only the validation set. (Meaning: what is your out-of-sample performance?)
+\eeit
+
+\item Now, using the `win` variable as your outcome, create at least 3 classification models. You should again assess each model on your "validation" set using appropriate methods.  You must fit at least one of each:
+\beit
+\item linear classifier
+\item random forest model
+\item K-nearest neighbors
+\eeit
+
+\item Now you are going to assess your classifiers using the 2018 election.
+\beit
+\item Most of the data you need is here: http://politicaldatascience.com/PollingCandidateData18.csv.
+\item BUT, this dataset is missing (a) the final outcome and (b) a lot of the polling data.
+\item Scrape the election results and polls from ballotpedia.org.  
+\item This does not need to be perfect, but should demonstrate the basic skills covered on webscraping.
+\item Assess how each of your classifiers performs for 2018 using appropriate metrics.
+\eeit
 
 \eenum
 
