@@ -65,6 +65,8 @@ Lecture 17 -- no link
 
 [Problem Set 3](https://jmontgomery.github.io/PDS/Problem Sets/Problem Set 3/PS3_PDS.pdf)
 
+[Problem Set 4](https://jmontgomery.github.io/PDS/Problem Sets/Problem Set 4/PS4_PDS.pdf)
+
 #### Activities
 
 [Activity 1](https:jmontgomery.github.io/PDS/ClassActivities/Activity1/Activity1.pdf)
