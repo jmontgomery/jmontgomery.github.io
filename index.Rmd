@@ -56,6 +56,8 @@ Lecture 17 -- no link
 
 [Lecture  21](https://jmontgomery.github.io/PDS/Slides/21Causality2.html)
 
+[Lecture  22](https://jmontgomery.github.io/PDS/Slides/22WebScraping1.html)
+
 #### Problem Sets
 [Problem Set 1](https://jmontgomery.github.io/PDS/Problem Sets/Problem Set 1/PS1_PDS.pdf)
 
