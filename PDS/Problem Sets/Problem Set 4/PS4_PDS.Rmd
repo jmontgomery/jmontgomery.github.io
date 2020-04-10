@@ -63,7 +63,7 @@ Due April 2, 10:00 AM (Before Class) \\
 
 \section*{Supervised Learning}
 \benum
- \item Load the following data: http://politicaldatascience.com/PollingCandidateData92-16.csv.
+ \item Load the following data: http://politicaldatascience.com/PDS/Datasets/SenateForecast/PollingCandidateData92-16.csv.
 
 This is is data for *incumbents* running for re-election to the US Senate.  
 \beit
@@ -98,7 +98,7 @@ This is is data for *incumbents* running for re-election to the US Senate.
 
 \item Now you are going to assess your classifiers using the 2018 election.
 \beit
-\item Most of the data you need is here: http://politicaldatascience.com/PollingCandidateData18.csv.
+\item Most of the data you need is here: http://politicaldatascience.com/PDS/Datasets/SenateForecast/PollingCandidateData18.csv.
 \item BUT, this dataset is missing (a) the final outcome and (b) a lot of the polling data.
 \item Scrape the election results and polls from ballotpedia.org.  
 \item This does not need to be perfect, but should demonstrate the basic skills covered on webscraping.
