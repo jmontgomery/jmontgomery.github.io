@@ -203,33 +203,6 @@ head(google_price)
 ```
 
 
-
----
-
-## Example of POST (and mostly POST)
-
-https://www.rateinflation.com/consumer-price-index/usa-historical-cpi.php?start-year=2008&end-year=2017
-
---
-
-- Let's see what happens when set a specific range?
-- Note how the URLs are now consructed.
-
-
----
-
-
-```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
-library(rvest)
-cpiURL<-"https://www.rateinflation.com/consumer-price-index/usa-historical-cpi.php"
-cpiText<-postForm(cpiURL, fromYear = "1995", toYear = "2012", 
-                  "_submit_check"=1, style="post")
-cpiData<-read_html(cpiText) %>%
-  html_node("table") %>%
-  html_table()
-cpiData
-```
-
 ---
 ### End of Part B
 
