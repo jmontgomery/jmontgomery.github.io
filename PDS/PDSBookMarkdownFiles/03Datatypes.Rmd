@@ -1,6 +1,14 @@
 # Data Types in R
 
+
 ## Functions
+
+Functions in R are denoted by the parentheses when you use them. For example, log is a function. The first line of the following code snippet
+just tells us the signature of the function - what inputs it takes and what the default values are if an input is optional. In this case,
+x is a required input (sometimes called parameter), and base is optional. If the user of the functiond doesn't specify a base, it will use 
+base $e$. If you don't specify the names of the parameters when using the function, they must be in the same order the function signature 
+specifies. You can put them in any order, but to be safe, you should specify the names of each parameter.
+
 ```{r}
 log
 log(2) # ln(2)
@@ -14,32 +22,28 @@ The c() function is used to collect/concatenate things together into a vector
 
 ```{r}
 c(0,7,8)
-x<-c(0,7,8) # assign this to a named object
+x <- c(0,7,8) # assign this to a named object
 ```
 
-An easy way to make a sequence vector is using the `:` operator. 
+An easy way to make a sequence vector is using the `:` operator. This will start at the first value, increment by 1 each time,
+and end either before or at the second value. Here are some examples that demonstrate this behavior.
 
 ```{r}
-numbers5to20 <- 5:20 # 
+numbers5to20 <- 5:20
 numbers5to20
-```
-
-Note that it always increments by 1
-
-```{r}
 1.5:10 
 ```
 
-You can also concatenate any two vectors to make a new vector
+You can also concatenate any number of vectors to make a new vector. To do this, you need to use a comma between all inputs to the c() function.
 
 ```{r}
-c(numbers5to20, x)
+c(numbers5to20, x, numbers5to20)
 ```
 
 ## Functions and vectors
 
 
-Many functions have been "Vectorized" meaning that they work on each element in the vector
+Many functions have been "vectorized" meaning that they work on each element in the vector
 
 ```{r}
 numbers5to20*2
@@ -47,24 +51,25 @@ sqrt(numbers5to20)
 log(numbers5to20)
 abs(numbers5to20)
 numbers5to20^2
-```
 
-But when you "Interact" two vectors, they will work "elementwise"
-
-```{r}
-numbers5to20*numbers5to20
-numbers5to20+numbers5to20
-numbers5to20+rev(numbers5to20) 
 data <- c(NA, 4, 7, NA, 19)
 is.na(data) #tells us true or false whether each value is NA
 !is.na(data) #true if the value is *not* NA
 ```
 
-Other functions operate on a functions work more directly
+When you "interact" two vectors, they will work "elementwise".
+
+```{r}
+numbers5to20*numbers5to20
+numbers5to20+numbers5to20
+numbers5to20+rev(numbers5to20) #rev() reverses a vector
+```
+
+Other functions operate on an entire vector at once.
 
 ```{r}
 sum(numbers5to20)
-prod(numbers5to20) #multiples all elements together
+prod(numbers5to20) #multiplies all elements together
 mean(numbers5to20)
 var(numbers5to20)
 max(numbers5to20, na.rm=T) # maximum -- ignore missing data
@@ -74,7 +79,9 @@ summary(numbers5to20)
 
 Accessing elements of a vector or matrix is usually done with the [] operators
 
-We can access the first or fortieth element of vap.
+We can access the any element of numbers5to20.
+
+If you've coded in other languages that have zero-based indexing, R is a little different. The first element of a vector in R has index 1. This is shown below.
 
 ```{r}
 numbers5to20[1] 
@@ -94,6 +101,7 @@ We can repeat numbers as well
 ```{r}
 numbers5to20[c(3,3,2,2)] 
 ```
+
 This code prints everything but the 4th through 7th elements by using the negative sign
 
 ```{r}
@@ -103,7 +111,7 @@ numbers5to20[-(4:7)]
 ```{r, eval=FALSE}
 x
 x*3 #scalar multiplication
-y<-x-5 #simple addition and multiplicaiton are done "by element"
+y <- x-5 #simple addition and multiplicaiton are done "by element"
 y
 x^3 # ditto with exponents
 y^x # but if each are three elements long, it will execute by element
@@ -130,7 +138,7 @@ Other functions will create vectors as outputs
 rep(1, 5) #Repeat the value 1, 5 times
 seq(1, 21, by=2) #Make the sequence 1 to 21 moving by increments of 2
 rep(seq(2,20, by=2), 2) #Repeat the pattern 2, 4, ... 20, twice
-rep(c(1,4), c(3,2)) #Repeat 1, 3 times and 4, twice
+rep(c(1,4), c(3,2)) #Repeat 1 three times and 4 twice
 rep(c(1,4), each=3) #Repeat each value 3 times
 ```
 
@@ -144,7 +152,7 @@ Generally necessary to understand this for data wrangling
 ```{r}
 x<-c(0, 7, 8) 
 chooser<-c(T, F, T)
-x[chooser] # print ony those elements of x where chooser is TRUE
+x[chooser] # print all elements of x where chooser is TRUE
 ```
 
 Arithmetic operations on logicals create numerics where:
@@ -197,16 +205,17 @@ total.votes<-tv<-c(NA, 238307, 1553032, 780409,8899059,1586105,
                    1117311,341105, 1868363,NA, 582561, 263025,2398589, 
                    2085074,473014, 2183155, 196217)
 
-tv[!is.na(tv)] #get all valid datapoints from the tv dataset
+tv[!is.na(tv)] # get all valid datapoints from the tv dataset
 
-small.states<- voting.age.population[voting.age.population < median(voting.age.population)]
+small.states <- voting.age.population[voting.age.population < median(voting.age.population)]
 small.states
 
-state.size<-(voting.age.population > median(voting.age.population)) *1
-state.size #this code makes a new vector equal to 1 if it's a large state (larger than median), 0 otherwise
+state.size <-(voting.age.population > median(voting.age.population)) * 1
+state.size # this code makes a new vector equal to 1 if it's a large state (larger than median), 0 otherwise
 
 
-which(state.size == 1) #returns the vector of indices of the elements that have state.size equal to 1
+which(state.size == 1) # returns the vector of indices of the elements that have state.size equal to 1
+state.size == 1 # returns a logical vector where TRUE means it's a larger state
 
 any(x>2) #returns true if the condition is true for any element
 
@@ -234,8 +243,8 @@ nchar(colors) #how many characters in each string
 You may want to divide a string into components
 
 ```{r}
-extreme.statement<-"Coding is my life"
-this.out<-strsplit(extreme.statement, split=" ")  
+extreme.statement <- "Coding is my life"
+this.out <- strsplit(extreme.statement, split=" ")  
 unlist(this.out)
 ```
 
@@ -250,7 +259,7 @@ gsub(" is my life", "", extreme.statement)
 Tips for using strings:
 
 - If you are doing a lot with strings try the library 'strgr', which has some user-friendly functions
-- If you include '\n' in a string, in many instances it will be a carriage return (e.g., plotting)
+- If you include '\n' in a string, in many instances it will be a carriage return/new line (e.g., plotting)
 - A very common programming error is to forget a closing quotation mark. This will make the computer think you are still making a giantly long string.
 
 ## Matrices
@@ -290,7 +299,7 @@ Objects in R are simply pieces of data that contain specific attributes.
 
 Classes define what attributes an object *must* have and *can* have.
 
-Matrices always have an attribute that determines the number of rows and columns
+Matrices always have an attribute that stores the number of rows and columns
 
 
 ```{r}
@@ -323,17 +332,17 @@ rownames(m1)
 rownames(m2)
 ```
 
-And you can reset these using the same functions
+And you can assign these using the same functions
 
 ```{r}
-colnames(m1)<-c("Voting age population", "Total Votes")
+colnames(m1) <- c("Voting age population", "Total Votes")
 colnames(m1)
 ```
 
 You can also do this with the following
 
 ```{r}
-dimnames(m1)[[2]][1]<-"Pigglywiggly"
+dimnames(m1)[[2]][1] <- "Pigglywiggly"
 head(m1) 
 ```
 
@@ -352,7 +361,7 @@ If you try to create one with multiple datatypes, it will convert everything to 
 
 A couple of matrices
 ```{r}
-H3<-matrix(c(1, 1/2, 1/3, 1/2, 1/3, 1/4, 1/3, 1/4, 1/5), nrow=3)
+H3 <- matrix(c(1, 1/2, 1/3, 1/2, 1/3, 1/4, 1/3, 1/4, 1/5), nrow=3)
 H3
 
 1/cbind(seq(1,3), seq(2, 4), seq(3,5)) # most basic function continue to be "element wise"
@@ -378,10 +387,10 @@ Some work like they do in the math books
 ```{r}
 det(H3) # the determinant -- hard for you ... easy in R
 diag(H3) # get the diagonal elements of amatrix
-diag(1, nrow=3) # make a 3by3 identity matrix
+diag(1, nrow=3) # make a 3 by 3 identity matrix
 
 t(H3) # matrix transpose
-Hnew<-H3
+Hnew <- H3
 Hnew[lower.tri(H3, diag=TRUE)] # extract the lower triangular elements of H3
 
 # Get the trace
@@ -389,17 +398,17 @@ trace <- function(data) (sum(diag(data))) # our own little function .. more on t
 trace(H3)
 
 # Matrix multipication is %*%
-t(H3)%*%H3
-c(1,2,3)%*%c(1,2,3) # dot product
-matrix(c(1,2,3), ncol=1)%*%c(1,2,3) # outer product
+t(H3) %*% H3
+c(1,2,3) %*% c(1,2,3) # dot product
+matrix(c(1,2,3), ncol=1) %*% c(1,2,3) # outer product
 
 #matrix inversion
 solve(H3)
-invH3<-solve(H3)
+invH3 <- solve(H3)
 H3%*%invH3 ## close enough?
 
 # Why is it called solve?  It can also be used to solve linear systems.
-b<-c(1,2,3)
+b <- c(1,2,3)
 b
 solve(H3, b)
 ```
@@ -409,18 +418,18 @@ solve(H3, b)
 Let's make a list that contains a *matrix*, a *vector*, and an *integer*.
 
 ```{r}
-list.a<-list(m1, vap, 3) 
+list.a <- list(m1, vap, 3) 
 str(list.a)
 ```
 
 This is the advantage of lists.  They can contain basically anything, even other lists
 
 ```{r}
-vector1<-c(1,2,3)
-gospels<-c("matthew","mark","luke", "john")
-my.matrix<-matrix(c(1:20), nrow=4)
-my.data<-data.frame(cbind(vap, tv))
-my.crazy.list<-list(vector1, gospels, my.matrix, TRUE, list.a)
+vector1 <- c(1,2,3)
+gospels <- c("matthew","mark","luke", "john")
+my.matrix <- matrix(c(1:20), nrow=4)
+my.data <- data.frame(cbind(vap, tv))
+my.crazy.list <- list(vector1, gospels, my.matrix, TRUE, list.a)
 str(my.crazy.list)
 ```
 
