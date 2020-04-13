@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
   <head>
-    <title>Webscraping 2: JSON and Selinium</title>
+    <title>Webscraping 2: JSON, basic http, and Selenium</title>
     <meta charset="utf-8" />
     <meta name="date" content="2020-01-01" />
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
@@ -11,7 +11,7 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Webscraping 2: JSON and Selinium
+# Webscraping 2: JSON, basic http, and Selenium
 ### <p>Jacob M. Montgomery<br />
 <em>Washington University in St. Louis</em><br />
 <em>Department of Political Science</em></p>
@@ -93,17 +93,225 @@ https://www.cnn.com/election/2018/results
 - Let's take a look at the network button as this website is loaded.
 
 
-----
+---
+
+- We can look at various things here.
+
+- I found the following link:
+
+https://data.cnn.com/ELECTION/2018November6/IN/county/S.json
+
+--
+
+- Boy that looks a lot like the data we want!!
+
+
+---
+## JSON
+
+- A lot of the more complex data-driven websites you want these dats are running JavaScript.
+- JSON (JavaScript Object Notation) is a generic format for any data object being passed around.
+- It is very similar to unstructured lists in R.
+- We'll try downloading this manually first and 
+
+
+---
+## Let's try that with manual download
+
+- I used that url and downloaded the file.  Or you can get it from here.
+
+http://politicaldatascience.com/PDS/Datasets/cnnExample.json
+
+- We are going to use the `rjson` package.
+
+
+
+---
+
 
 
 
 ```r
+library(rjson)
 print("blH")
 ```
 
 ```
 ## [1] "blH"
 ```
+
+---
+## So what about the rest?
+
+- Pretty easy to guess where the Ohio results are:
+
+https://data.cnn.com/ELECTION/2018November6/OH/county/S.json
+
+- Can we get this easier than manual download?
+
+--
+
+
+```r
+OH_url&lt;-"https://data.cnn.com/ELECTION/2018November6/OH/county/S.json"
+Ohio2018&lt;-fromJSON(file=OH_url)
+Ohio2018[[2]]
+```
+
+```
+## [[1]]
+## [[1]]$firstCounty
+## [1] "Adams"
+## 
+## [[1]]$lastCounty
+## [1] "Wyandot"
+```
+
+
+---
+## End of Part A
+
+
+
+---
+## Basic http
+
+
+- HyperText Transfer Protocol is the basic way that data is passed and accessed across the web.
+- GET, POST, PUT, DELETE and HEAD are the main commands.
+- We will use the `curl` package (and software) to do this in R.
+
+
+
+---
+## Example GET
+
+- We can see the price history of google here
+
+https://finance.yahoo.com/q/hp?s=GOOG
+
+
+- We could scrape this, but there is a "download data" button that seems pretty promising.
+- Link for that is:
+
+https://query1.finance.yahoo.com/v7/finance/download/GOOG?period1=1555174021&amp;period2=1586796421&amp;interval=1d&amp;events=history
+
+
+- Can we just get that directly?
+
+---
+
+
+```r
+library(RCurl)
+google_price&lt;-getForm("https://query1.finance.yahoo.com/v7/finance/download/GOOG", period1="1555174021", period2="1586796421", interval="1d", events="history")
+google_price&lt;-read.csv(textConnection(google_price))
+head(google_price)
+```
+
+```
+##         Date    Open    High     Low   Close Adj.Close  Volume
+## 1 2019-04-15 1218.00 1224.20 1209.11 1221.10   1221.10 1187400
+## 2 2019-04-16 1225.00 1230.82 1220.12 1227.13   1227.13  856300
+## 3 2019-04-17 1233.00 1240.56 1227.82 1236.34   1236.34 1221900
+## 4 2019-04-18 1239.18 1242.00 1234.61 1236.37   1236.37 1331800
+## 5 2019-04-22 1235.99 1249.09 1228.31 1248.84   1248.84  807300
+## 6 2019-04-23 1250.69 1269.00 1246.38 1264.55   1264.55 1319900
+```
+
+
+
+---
+
+## Example of POST (and mostly POST)
+
+https://www.rateinflation.com/consumer-price-index/usa-historical-cpi.php?start-year=2008&amp;end-year=2017
+
+--
+
+- Let's see what happens when set a specific range?
+- Note how the URLs are now consructed.
+
+
+---
+
+
+
+```r
+library(rvest)
+cpiURL&lt;-"https://www.rateinflation.com/consumer-price-index/usa-historical-cpi.php"
+cpiText&lt;-postForm(cpiURL, fromYear = "1925", toYear = "2012", "_submit_check"=1, style="post")
+cpiData&lt;-read_html(cpiText) %&gt;%
+  html_node("table") %&gt;%
+  html_table()
+cpiData
+```
+
+```
+##    Year     jan     feb     mar     apr     may     jun     jul     aug
+## 1  2020 257.971 258.678 258.115      NA      NA      NA      NA      NA
+## 2  2019 251.712 252.776 254.202 255.548 256.092 256.143 256.571 256.558
+## 3  2018 247.867 248.991 249.554 250.546 251.588 251.989 252.006 252.146
+## 4  2017 242.839 243.603 243.801 244.524 244.733 244.955 244.786 245.519
+## 5  2016 236.916 237.111 238.132 239.261 240.236 241.038 240.647 240.849
+## 6  2015 233.707 234.722 236.119 236.599 237.805 238.638 238.654 238.316
+## 7  2014 233.916 234.781 236.293 237.072 237.900 238.343 238.250 237.852
+## 8  2013 230.280 232.166 232.773 232.531 232.945 233.504 233.596 233.877
+## 9  2012 226.665 227.663 229.392 230.085 229.815 229.478 229.104 230.379
+## 10 2011 220.223 221.309 223.467 224.906 225.964 225.722 225.922 226.545
+## 11 2010 216.687 216.741 217.631 218.009 218.178 217.965 218.011 218.312
+##        sep     oct     nov     dec     ann
+## 1       NA      NA      NA      NA      NA
+## 2  256.759 257.346 257.208 256.974 255.657
+## 3  252.439 252.885 252.038 251.233 251.107
+## 4  246.819 246.663 246.669 246.524 245.120
+## 5  241.428 241.729 241.353 241.432 240.011
+## 6  237.945 237.838 237.336 236.525 237.017
+## 7  238.031 237.433 236.151 234.812 236.736
+## 8  234.149 233.546 233.069 233.049 232.957
+## 9  231.407 231.317 230.221 229.601 229.594
+## 10 226.889 226.421 226.230 225.672 224.939
+## 11 218.439 218.711 218.803 219.179 218.055
+```
+
+---
+### End of Part B
+
+
+---
+## Selenium
+
+- The website you want may have forms 
+- May be intentionally unfreindly to previous techniques
+- May involve a giant backend database you don't/cant get all of it.
+- Selenium is software designed to allow you to operate a browser like you are a person.  
+- Anything you can access/get via normal browsing behavior is generally accessible.
+- I am NOT going to help you get configured, but here is a place to start: https://cran.r-project.org/web/packages/RSelenium/vignettes/basics.html
+
+
+
+---
+## Jump to R
+
+- This won't really work from slides
+- You need to install `RSelenium` and Selenium server itself.
+- RSelenium is a reference class package: 
+http://adv-r.had.co.nz/R5.html
+- We are going to use this website as our example: https://www.courts.mo.gov/casenet/base/welcome.do
+
+
+---
+
+## Some warnings
+
+- What do you call exploiting vulnerabilities in a websites code to gain access to data you are not legally permitted to have?
+
+- What do you all sending a sufficient number of bots at a server requesting small amounts of data until the system cannot continue and freezes/collapses/crashes?
+
+--
+
+- With great power come great responsibility.  Do not get yourself arrested!!
+
 
 ---
 
