@@ -1,0 +1,109 @@
+---
+title: "Webscraping 2: JSON and Selinium"
+author: |
+  | Jacob M. Montgomery
+  | *Washington University in St. Louis*
+  | *Department of Political Science*
+date: '2020'
+header-includes:
+  - \usepackage{amsmath}
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
+#   beamer_presentation: default
+#   slidy_presentation: default
+
+
+---
+
+<style type="text/css">
+body, td {
+   font-size: 14px;
+}
+code.r{
+  font-size: 14px;
+}
+pre {
+  font-size: 4px;
+}
+</style>
+
+
+## Orientation for this component
+
+First half
+
+
+
+1. Basic programming
+2. Data management/creation
+
+--
+
+Then
+
+1. Some machine learning
+2. Special focus on causal inference
+
+
+--
+
+Now
+
+1. Getting data from the web (basics)
+2. **Getting data from the web (more tips)**
+3. Getting data from APIs
+
+--
+
+Finally
+
+1. Making html documents
+2. R Shiny
+
+
+
+---
+## The cool side of the web -- programs interfacing with programs
+
+https://www.cnn.com/election/2018/results
+
+- Let's look at this with our inspector.  
+- Not so easy, huh?
+- But this data has to be coming from somewhere.
+
+
+---
+## Network button for Chrom 
+
+- As pages are rendered, often call to other servers and execute scripts.
+
+- The *network* button is there to help diagnose all of the different connections as websites operate.
+
+- Think of it as a "log" of activity.
+
+--
+
+- But for some websites, we can find where data itself is coming from.
+
+- Let's take a look at the network button as this website is loaded.
+
+
+----
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+print("blH")
+```
+
+---
+
+## Group project  
+
+- Your group should identify a topic for their project
+- And find where they want to get the data from
+- And write up a one paragraph summary of the idea 
+- And send that to me and make an appointment (unless I bounce it)
