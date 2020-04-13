@@ -64,7 +64,7 @@ Next time
 ## Introduction for today
 
 1. What is Markdown
-  - Markdown is a powerful yet relatively simple to that allows users to create web content
+  - Markdown is a powerful yet relatively simple tool that allows users to create web content
   
   - The language relies on a set of rules which allows you to manage headers, font, and lists with ease
   
@@ -89,11 +89,11 @@ Next time
   
     - Headers
     
+    - Paragraphs
+
     - Text emphasis
     
     - Lists
-    
-    - Paragraphs
     
     - Hyperlinks
     
@@ -104,6 +104,8 @@ Next time
 ## Code for today
 
 - You can find the code used in the Slack channel for today.
+  
+  - You can download the .rmd file and follow along
 ---
 ## Headers
 
@@ -124,6 +126,16 @@ Next time
   - ## Second level
 
   - ### Third level
+  
+---
+
+## Paragraphs
+
+Writing a paragraph is simple, you start anywhere and you just write the text which you want to read. 
+
+Once you are ready for a new paragraph all you have to do is leave a blank line between the last sentence of the previous paragraph and the first sentence of the new paragraph. Don't expect there to be the normal indents on each paragraph thought!
+
+See?
 
 
 ---
@@ -157,7 +169,7 @@ Next time
   
   - `2. List item 2`
   
-  - `3. List item 4`
+  - `3. List item 3`
   
 --
 
@@ -210,21 +222,21 @@ Next time
 
   `- (Space)List item 1`
   
-    `(single tab) Subpoint 1 `
+    `(single tab)- Subpoint 1 `
     
-      `(double tab) Subsubpoint 1`
+      `(double tab)- Subsubpoint 1`
   
   `-  (Space)List item 2`
   
-    `(single tab) Subpoint 2`
+    `(single tab)- Subpoint 2`
     
-      `(double tab) Subsubpoint 2`
+      `(double tab)- Subsubpoint 2`
   
   `-  (Space)List item 3`
   
-    `(single tab) Subpoint 3`
+    `(single tab)- Subpoint 3`
     
-      `(double tab) Subsubpoint 3`
+      `(double tab)- Subsubpoint 3`
 ---
 
 ## Plain list
@@ -264,17 +276,28 @@ Next time
 
   
 ---
+## Activity 1
 
-## Paragraphs
+- Open an R Markdown file in RStudio
 
-Writing a paragraph is simple, you start anywhere and you just write the text which you want to read. 
+- Give the file the title 'Activity 1' and put your name as the author
 
-Once you are ready for a new paragraph all you have to do is leave a blank line between the last sentence of the previous paragraph and the first sentence of the new paragraph. Don't expect there to be the normal indents on each paragraph thought!
+- Delete all of the stock information the R Markdown file gives you:
 
-See?
+    - `## R Markdown
+          This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see
+      ` etc...
+
+
+- Write a paragraph about what have been the most useful aspects of this class for you and include the following skills:
+    - Headers
+    - Text emphasis
+    - Lists
+    - Paragraphs
+
+- Now **save** this .rmd file and name it _index_
 
 ---
-    
 ## Hyperlinks and Images
     
   - Images and hyperlinks are both similar and easy. The only difference is, in images, you must put an exclamation point before the brackets.
@@ -300,49 +323,24 @@ See?
 
 ![](./Images/add_code.png)
 
-- You can find this code in the Slack channel for today
 - Knit!
 ---
 
-## Activity 1
-
-- Open an R Markdown file in RStudio
-
-- Give the file the title 'Activity 1' and put your name as the author
-
-- Write a paragraph about the most useful aspects of this class include the following skills:
-    - Headers
-    
-    - Text emphasis
-    
-    - Lists
-    
-    - Hyperlinks 
+## Activity 2
+- Now in the index file which you started in activity 1, include the following three aspects:
+   - Hyperlinks 
       - Link to our class: politicaldatascience.com
       
     - Images 
-      -(use this photo link)
-          - http://politicaldatascience.com/PDS/Slides/Images/image2.jpg
-          
-    - (Continues on next slide)
+      - Use the following image: http://politicaldatascience.com/PDS/Slides/Images/image2.jpg
       
----
-## Activity 1
-- Write a paragraph about the most useful aspects of this class include the following skills:
-  - Code chunks
-    
+    - Code chunks
       - Load in the `fivethirtyeight` package into your chunk
-      
-          - {r, eval =T, echo =T }
-          
-     - Display the following code and its output:
-      
-          - library(fivethirtyeight)
+    
+      - Include the following code in your document and have it display **the code and its output**:
          - trump_twitter$text[1:5]
         
-- Hit the knit button and save the html file that is produced using the file name **index**
-    
-- Upload the html file to the Slack channel for today's class
+- Hit the knit button and upload the html file to the Slack channel for today's class
     
 ---
 
@@ -350,7 +348,7 @@ See?
 
 - Now that we know the basics of Markdown and how to use them in R Markdown, we have the skills we need to create a website
 
-- Follow along with the directions of the following slides and these will serve as your second activity
+- Follow along with the directions of the following slides and these will serve as your final activity
 
 ---
 
@@ -391,7 +389,7 @@ See?
 
 --
 
-- Copy the .rmd file that you created in **activity 1** and paste it into your new repository
+- Copy the .rmd file that you created in **activity 1 and 2** and paste it into your new repository
 
   - If you did not save the name of this file as index(.rmd) in the first activity, be sure to do so now
 
@@ -416,13 +414,13 @@ See?
 
 - Scroll down to the section named `Github Pages`
 
-&lt;center&gt; &lt;img src="./Images/publish_repository.png" width="350"&gt; &lt;/center&gt;
+&lt;center&gt; &lt;img src="./Images/publish_repository.png" width="350"&gt;&lt;/center&gt;
 
 - Change the source from none to `master branch`
 
 - You should see a green bar that confirms your site is published
 
-&lt;center&gt; &lt;img src="./Images/published.png" width="400"&gt; &lt;/center&gt;
+&lt;center&gt; &lt;img src="./Images/published.png" width="400"&gt;&lt;/center&gt;
 
   - [Click it!](https://dlockett91.github.io)
   
@@ -441,9 +439,9 @@ See?
     
 ---
 
-## Activity 2
+## Activity 3
 
-- If you have followed along you should be done with activity 2
+- If you have followed along you should be done with activity 3
 
   - Paste your *username*.github.io url into the Slack channel for today's class
   
