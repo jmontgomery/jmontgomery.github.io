@@ -8,6 +8,11 @@ Indiana2018[[2]]
 Indiana2018[[3]] # Race and candidate characterisics
 str(Indiana2018[[4]][[1]]) # Results for first county
 
+OH_url<-"https://data.cnn.com/ELECTION/2018November6/OH/county/S.json"
+Ohio2018<-fromJSON(file=OH_url)
+Ohio2018[[2]]
+
+
 ###
 
 

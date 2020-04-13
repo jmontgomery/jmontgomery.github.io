@@ -1,5 +1,5 @@
 ---
-title: "Webscraping 2: JSON and Selinium"
+title: "Webscraping 2: JSON, basic http, and Selenium"
 author: |
   | Jacob M. Montgomery
   | *Washington University in St. Louis*
@@ -92,12 +92,171 @@ https://www.cnn.com/election/2018/results
 - Let's take a look at the network button as this website is loaded.
 
 
-----
+---
+
+- We can look at various things here.
+
+- I found the following link:
+
+https://data.cnn.com/ELECTION/2018November6/IN/county/S.json
+
+--
+
+- Boy that looks a lot like the data we want!!
+
+
+---
+## JSON
+
+- A lot of the more complex data-driven websites you want these dats are running JavaScript.
+- JSON (JavaScript Object Notation) is a generic format for any data object being passed around.
+- It is very similar to unstructured lists in R.
+- We'll try downloading this manually first and 
+
+
+---
+## Let's try that with manual download
+
+- I used that url and downloaded the file.  Or you can get it from here.
+
+http://politicaldatascience.com/PDS/Datasets/cnnExample.json
+
+- We are going to use the `rjson` package.
+
+
+
+---
+
 
 
 ```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+library(rjson)
 print("blH")
 ```
+
+---
+## So what about the rest?
+
+- Pretty easy to guess where the Ohio results are:
+
+https://data.cnn.com/ELECTION/2018November6/OH/county/S.json
+
+- Can we get this easier than manual download?
+
+--
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+OH_url<-"https://data.cnn.com/ELECTION/2018November6/OH/county/S.json"
+Ohio2018<-fromJSON(file=OH_url)
+Ohio2018[[2]]
+```
+
+
+---
+## End of Part A
+
+
+
+---
+## Basic http
+
+
+- HyperText Transfer Protocol is the basic way that data is passed and accessed across the web.
+- GET, POST, PUT, DELETE and HEAD are the main commands.
+- We will use the `curl` package (and software) to do this in R.
+
+
+
+---
+## Example GET
+
+- We can see the price history of google here
+
+https://finance.yahoo.com/q/hp?s=GOOG
+
+
+- We could scrape this, but there is a "download data" button that seems pretty promising.
+- Link for that is:
+
+https://query1.finance.yahoo.com/v7/finance/download/GOOG?period1=1555174021&period2=1586796421&interval=1d&events=history
+
+
+- Can we just get that directly?
+
+---
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+library(RCurl)
+google_price<-getForm("https://query1.finance.yahoo.com/v7/finance/download/GOOG", period1="1555174021", period2="1586796421", interval="1d", events="history")
+google_price<-read.csv(textConnection(google_price))
+head(google_price)
+```
+
+
+
+---
+
+## Example of POST (and mostly POST)
+
+https://www.rateinflation.com/consumer-price-index/usa-historical-cpi.php?start-year=2008&end-year=2017
+
+--
+
+- Let's see what happens when set a specific range?
+- Note how the URLs are now consructed.
+
+
+---
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+library(rvest)
+cpiURL<-"https://www.rateinflation.com/consumer-price-index/usa-historical-cpi.php"
+cpiText<-postForm(cpiURL, fromYear = "1925", toYear = "2012", "_submit_check"=1, style="post")
+cpiData<-read_html(cpiText) %>%
+  html_node("table") %>%
+  html_table()
+cpiData
+```
+
+---
+### End of Part B
+
+
+---
+## Selenium
+
+- The website you want may have forms 
+- May be intentionally unfreindly to previous techniques
+- May involve a giant backend database you don't/cant get all of it.
+- Selenium is software designed to allow you to operate a browser like you are a person.  
+- Anything you can access/get via normal browsing behavior is generally accessible.
+- I am NOT going to help you get configured, but here is a place to start: https://cran.r-project.org/web/packages/RSelenium/vignettes/basics.html
+
+
+
+---
+## Jump to R
+
+- This won't really work from slides
+- You need to install `RSelenium` and Selenium server itself.
+- RSelenium is a reference class package: 
+http://adv-r.had.co.nz/R5.html
+- We are going to use this website as our example: https://www.courts.mo.gov/casenet/base/welcome.do
+
+
+---
+
+## Some warnings
+
+- What do you call exploiting vulnerabilities in a websites code to gain access to data you are not legally permitted to have?
+
+- What do you all sending a sufficient number of bots at a server requesting small amounts of data until the system cannot continue and freezes/collapses/crashes?
+
+--
+
+- With great power come great responsibility.  Do not get yourself arrested!!
+
 
 ---
 
