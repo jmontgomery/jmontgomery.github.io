@@ -339,6 +339,27 @@ See?
 - Now **save** this .rmd file and name it _index_
 
 ---
+
+## Syntax
+  + There are a few features of Markdown which can cover your basic needs when presenting text in a variety of formats
+  
+  + These include:
+  
+    - Headers
+    
+    - Paragraphs
+
+    - Text emphasis
+    
+    - Lists
+    
+    - **Hyperlinks**
+    
+    - **Images**
+    
+    - **Code chunks**
+    
+---
 ## Hyperlinks and Images
     
   - Images and hyperlinks are both similar and easy. The only difference is, in images, you must put an exclamation point before the brackets.
