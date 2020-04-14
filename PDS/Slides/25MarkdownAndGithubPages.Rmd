@@ -159,9 +159,7 @@ Next time
 ---
 ## .Rmd
 
-- You can find the code used in the Slack channel for today.
-  
-  - You can download the .rmd file and follow along
+- You can find the code used in the Slack channel for today and follow along with the presentation.
 
 ![](./Images/RMD6.png)
 ---
