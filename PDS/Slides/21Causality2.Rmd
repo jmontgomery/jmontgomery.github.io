@@ -1,0 +1,476 @@
+---
+title: "Causality without experiments"
+author: |
+  | Jacob M. Montgomery
+  | *Washington University in St. Louis*
+  | *Department of Political Science*
+date: '2020'
+header-includes:
+  - \usepackage{amsmath}
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
+#   beamer_presentation: default
+#   slidy_presentation: default
+
+
+---
+
+<style type="text/css">
+body, td {
+   font-size: 14px;
+}
+code.r{
+  font-size: 14px;
+}
+pre {
+  font-size: 4px;
+}
+</style>
+
+
+## Orientation for this component
+
+Last time
+
+
+
+1. Causality 1
+    + Thinking in counterfactuals
+    + Experimental design
+
+
+--
+
+This time
+
+1. Causality 2
+  + Basic approaches when experiments are not possible.
+  + Difference-in-differences
+  + Regression discontinuity
+
+
+--
+
+Next time
+
+1. Introduction to webscraping
+  + Getting familliar with HTML
+  + Pulling down HTML tables
+
+
+
+---
+## So you can't do an experiment: Overview
+
+- We talked about the counterfactual approach to causal inference.
+
+- The simplest approach is to estimate causal effects based on random assignment.  
+
+- But what do we do if we don't/can't/shouldn't have an experiment?
+
+--
+
+1. Statistically adjust using covariates.
+
+2. Using time and fixed effects.
+
+3. Difference-in-differences
+
+4. Regression discontinuity.
+
+---
+## Problem statement
+
+
+- We want to measure the causal effect of some variable $T$ on outcome $Y$.
+    
+- But what if the cases where $T=0$ are fundamentally different from those where $T=1$?
+
+- Just comparing $\bar{Y} | T=1$ to $\bar{Y} | T=0$ will not give us the causal effect of $T$.  
+
+- More technically, for this to be a valid approach we need (at least):
+
+$$(Y_0, Y_1) \perp T$$
+- So what do we do when this isn't true?
+
+
+---
+## Conditioning on observables
+
+- The simplest approach is to statistically adjust for the differences across $T=1$ and $T=0$ groups.
+
+- WARNING: Assumptions here are strong
+
+--
+
+- More technically, we are going to assume:
+
+$$(Y_0, Y_1) \perp T | X$$
+
+---
+
+## How to do that?
+
+- Matching, some forms of marginal structural models, and more.
+- The simplest, though, is to just "control for" possible confounding.
+
+
+$$Y=\beta_0 + \beta_1 T + \beta_2 X + \epsilon$$
+$$\epsilon \sim N(0, \sigma^2) $$
+
+--
+
+- This should look familliar -- multiple linear regression.
+
+- But *if* we have all of the right covariates and *if* we have the right model, then $E(\beta_1) = ATE$.
+
+
+
+
+---
+## New Hampshire 2008 primary: Clinton vs. Obama
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+library(faraway)
+data(newhamp)
+```
+
+N=276 wards in New Hampshire
+
+- **pObama**: Proportion of vot going to Obama
+- **votesys**: Hand counted (H) vs. machine count (D)
+- **Dean**: Proportion of voters for Howard Dean in 2004
+- **pci**: Per capita annual income in USD
+- **white**: Proportion white according to 2000 census
+
+---
+## Your data science friend says IT'S ALL RIGGED!
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+summary(lm(pObama~votesys, data=newhamp))
+```
+
+---
+## Is this the effect of the voting machines?
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+library(tidyverse)
+newhamp %>% group_by(votesys) %>%
+  summarize(White = mean(white, na.rm=TRUE), 
+            Income=mean(pci, na.rm=TRUE),
+            Dean = mean(Dean, na.rm=TRUE))
+```
+
+---
+## Probably not
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+summary(lm(pObama~votesys + Dean + white + pci, data=newhamp))
+```
+
+---
+### Over to you
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+congress <- read.csv("https://jmontgomery.github.io/ProblemSets/incumbents.csv")
+```
+
+This is a dataset of incumbent members of congress running for election.  The dependent variable of interest is `voteshare`, which is the percent of the two-party vote received by the incumbent.
+
+- Run a regression with `voteshare` as the dependent variable and `incspend` as the explanatory variable.  `incspend` is the amount of money spent by the candidate in the election.  What does the regression result mean?  That is, what would be the naive causal interpretation?
+- Is there imbalance in `incspend` depending on the quality of the challenger (`challquality`).  What does that mean for your causal inference?
+- Use the variables `chalspend` (spending by the challenger), `presvote` (share of vote going to the candidates' presidential candidate), and `chalquality` to try and "adjust".  
+- Don't spend too much time on this, but put in your final estimate for `incspend` into Slack and explain what you think it means.
+
+
+---
+### End Part A
+
+
+
+
+---
+
+## Panel data and fixed effects
+
+
+- As the Congress example illustrates, there is a fundamental limit to this kind of strategy.
+
+- We can't always control for everything.  And even if we could, results can become highly model dependent.
+
+--
+
+- Another approach is to try and collect data on the same units over time.
+
+- We can then try and "control" for factors (even unobserved factors) that make each unit different from the others using **fixed effects**.
+
+    - This is just a fancy way to say we are going to have a different intercept for each unit in our data.
+
+    - Requires we focus only on treatments that change over time.
+    
+    - If treatment doesn't change (much) will give us a false negative.
+
+---
+## Are elections fought over non-economic issues more when globalization increases?
+
+
+- Panel data includes repeated observations of Canada, France, the United States and the United Kingdom.  
+- We have measures of (a) the degree to which each election is about non-economic issues and (b) level of globalization in the country.
+- We want to see if globalization **causes** more focus on non-economic issues.
+
+---
+## With no fixed effects
+
+![](./Images/no_FE_reg.png)
+
+---
+## What does that mean?
+
+- Each dot is an election.
+- Across these four countries, there is no relationship.
+- But what if allowed for country-level fixed effects?
+    * The US and France may just be different on average in how much politics focuses on economics?
+    * So we have an "intercept shift"
+
+
+---
+## With fixed effects
+
+![](./Images/FE_reg.png)
+
+---
+
+## More details
+
+- I am not going to teach this to you in great detail, but it is one idea for your projects.
+- The standard errors for standard regression will be wrong because you have more than one observation per "individual"
+- You can use a variety of clustered standard errors to correct for that.
+
+
+---
+## Naive regression
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+library(AER)
+data("Fatalities")
+Fatalities$fatal_rate <- Fatalities$fatal / Fatalities$pop * 10000
+summary(lm(fatal_rate ~ beertax, data=Fatalities))
+```
+
+---
+## Fixed effects
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+model2<-summary(lm(fatal_rate ~ beertax + state - 1, data=Fatalities))
+head(model2$coefficients)
+```
+
+---
+### Over to you
+
+- Plot the lines implied for:
+    - The basic regression for the model with no fixed effects
+    - The more complex regression with fixed effects.
+    - You will have one line per state for the latter.  
+    - Just do 3 or 4 of the states.  
+- Put into slack what you think explains the flip in sign. (You don't need to put up the lines, but drawing them may help you think about it.)
+
+
+---
+### End part B
+
+
+
+---
+### Difference-in-differences
+
+
+- Difference-in-differences (DID) is an empirical strategy used to make claims of causal inference. 
+- A researcher considers some intervening factor (the introduction of a policy, a stock market shock, a terrorist attack, etc.) and seeks to prove that factor to be the cause of some outcome (bank closures, casualties, vote share, etc.).
+
+
+---
+
+Let's consider the task of estimating the effect of closing early-voting voting precincts in 17 counties in North Caroilna had on turnout in 2016.
+
+(1) Identify the population (A) to which the intervention was applied Identify a comparable population (B) to which the intervention was NOT applied. 
+  
+In our example, we would divide all 100 counties in North Carolina into 
+
+- group A, counties where early voting precincts were reduced, and 
+- group B, counties where the number of early voting precincts was kept the same.
+
+---
+
+(2) Identify the outcome of interest of both populations before and after the intervention (A-pre, A-post, B-pre, B-post).  
+- This means we need to know the  turnout rate for all counties in group A before the reform (e.g., in 2012) and after the reform (e.g., in 2016).  
+- Likewise, we need to calculate the turnout rate in for counties in group B before the reform (2012) and after the reform (2016).
+
+--
+
+(3) Find D1: the difference between A-pre and B-pre.  
+- This would be difference in the average turnout rate between group A and group B in 2012.  
+
+(4) Find D2: the difference between A-post and B-post. 
+- This would be the difference in the average turnout rate between group A and gropu B in 2016.
+
+---
+
+(5) Calculate D2 minus D1 to find the difference-in-differences (DD). This would be a measure of how the differences between turnout rates in group A and B changed as a result of the closed precincts.
+
+
+Here's a visual illustration of how this research strategy works:
+
+![](./Images/12.png)
+
+
+---
+## DID in practice
+
+- A series of train bombings in Madrid on March 11, 2004 left 191 people dead and 1,500 injured. 
+- In the Spanish congressional elections which took place three days later, the Socialist party defeated the Conservative party. 
+- Did the terrorist attack increase the Socialist party's vote share? 
+
+
+---
+## Identifying our treatment/control group
+
+- Voters living outside of Spain voted earlier, while Spanish residents voted on election day.
+- These groups are not the same, but could we assume a parallel trend? Are they consistently different?
+
+--
+
+![](./Images/13.png)
+
+
+---
+
+### How to do it?
+
+
+Respndent ID#	|Voted Conservative (Y) |	Treatment group (X1)|	Post-treatment (X2) |	Treatment AND Post (X1 x X2) |
+-|-|-|-|-|
+1001|	0	|0	|0	|0|
+1002|0	|1	|1	|1|
+1003|	1	|1	|1	|1|
+1004|	0	|1	|0	|0|
+1005|	1 |	0	|1	|0|
+1006|	1 |	0	|0	|0|
+1007|	0	|0	|1	|0|
+1008|	1	|0	|1	|0|
+
+--
+
+$$Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + \beta_3(X_1 \times X_2) + \epsilon$$
+
+---
+## What again now?
+
+1. One variable indicates whether or not respondents are affected by the treatment.
+2. One variable indicates whether pre-post treatment.
+3. One variable is the interaction.
+    - This is our treatment effect
+    - Effect of the treatment on the treated (ATT)
+    
+    
+---
+## Your turn
+
+Longo et al. (2014) investigate whether checkpoints (which are nonviolent impediments to movement, such as roadblocks and gates) in the West Bank make Palestinians less supportive of violence against the Israeli population. Toanswer their research question, the authors exploit a policy intervention on May/June 2009 that eased the Za’atara checkpoint. 
+
+Meanwhile, the Wadi Nar checkpoint did not undergo any change. 
+
+The authors conducted a survey on people living in villages near the two checkpoints, before and after the intervention in 2009. With the data they collected, the authors do difference-in-difference estimation to find out the effect of checkpoint easement on Palestinian militancy attitudes.
+
+---
+
+1. Write out what the regression formula would be for this case.
+    - What is the treatment group?
+    - What is the control group?
+    - What is the treatment (pre/post)?
+2. What do you think the effect of the checkpoint policy change will be on palestinian militancy?  Put your answer in Slack and also explain what sign (positive or negative) you think the interaction term in the DID formula corresponds with that theory?
+
+
+
+---
+## Regression discontinuity
+
+- In many cases interventions occur at a discontinuity.
+- Maybe only students above a specific score get free college?
+- Maybe only politicians who win the most votes get into office?
+- Regression discontinuity seeks to:
+    - Compare respondents just above this cutoff to
+    - Individuals just below this cutoff 
+
+
+
+---
+## Example: Is voting a habit?
+
+- Some have argued that voting can be habitual
+- Prof. Marc Meredith tested this using data from California.
+- He looked at the turnout rates in the 2006 election for people around the voting eligibiltiy threshold for the 2004 election.  
+
+
+![](./Images/17.png)
+
+---
+### So how to do that?
+
+- Well ... that's not so easy.
+- In essence we want to compare means just to the left and just to the right.
+- But what if there is a "trend" on the left/right?
+    - A more advanced class would take you through this.
+    - But, in essence, fit a "smooth" function to the left and right.
+    
+---
+## A simpler version
+
+$$y= \beta_0 + \beta_1 X + \beta_2*I(X>D) + \epsilon$$
+
+- This is fitting single regression where $y$ is a funciton of $x$.
+- BUT, you allow an intercept shift for before/after the discontinuity.
+
+
+---
+
+
+The basic components:
+
+- $Y$: An outcome variable (violence at $t+1$)
+- $X$: A variable that determines the cutoff (violence at $t$)
+- $D$: A cutoff/threshold
+- Does the relationship between $Y$ and $X$ "shift" right at $D$? 
+
+$$y= \beta_0 + \beta_1 X + \beta_2*I(X>D) + \epsilon$$
+
+---
+
+![](./Images/RD3.pdf)
+
+
+---
+
+![](./Images/RD4.pdf)
+
+
+
+---
+### Group project 
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+palestinians<- read.csv("https://jmontgomery.github.io/ProblemSets/longo.csv")
+```
+
+- `Sample2009`: 0=survey collected before the Za'atara checkpoint eased; 1 = after new policy started
+- `ZA`:  1=Za'atara checkpoint; 0=Wadi Nar checkpoint
+- `militancy`: The degree of militancy (higher numbers mean more militant)
+
+--
+
+Using the DID strategy, estimate the causal effect of the rule change on respondents near the Za'atara checkpoint.
+
+
+
