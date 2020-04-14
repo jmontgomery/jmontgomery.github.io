@@ -115,44 +115,34 @@ Next time
 ---
 ## .Rmd
 
-- You can find the code used in the Slack channel for today.
-  
-  - You can download the .rmd file and follow along
+- You can find the code used in the Slack channel for today and follow along with the presentation.
 
 ![](./Images/RMD1.png)
 ---
 ## .Rmd
 
-- You can find the code used in the Slack channel for today.
-  
-  - You can download the .rmd file and follow along
+- You can find the code used in the Slack channel for today and follow along with the presentation.
 
 ![](./Images/RMD2.png)
 
 ---
 ## .Rmd
 
-- You can find the code used in the Slack channel for today.
-  
-  - You can download the .rmd file and follow along
+- You can find the code used in the Slack channel for today and follow along with the presentation.
 
 ![](./Images/RMD3.png)
 
 ---
 ## .Rmd
 
-- You can find the code used in the Slack channel for today.
-  
-  - You can download the .rmd file and follow along
+- You can find the code used in the Slack channel for today and follow along with the presentation.
 
 ![](./Images/RMD4.png)
 
 ---
 ## .Rmd
 
-- You can find the code used in the Slack channel for today.
-  
-  - You can download the .rmd file and follow along
+- You can find the code used in the Slack channel for today and follow along with the presentation.
 
 ![](./Images/RMD5.png)
 
