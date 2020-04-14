@@ -1,0 +1,277 @@
+---
+title: "Webscraping 2: JSON, basic http, and Selenium"
+author: |
+  | Jacob M. Montgomery
+  | *Washington University in St. Louis*
+  | *Department of Political Science*
+date: '2020'
+header-includes:
+  - \usepackage{amsmath}
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
+#   beamer_presentation: default
+#   slidy_presentation: default
+
+
+---
+
+<style type="text/css">
+body, td {
+   font-size: 14px;
+}
+code.r{
+  font-size: 14px;
+}
+pre {
+  font-size: 4px;
+}
+</style>
+
+
+## Orientation for this component
+
+First half
+
+
+
+1. Basic programming
+2. Data management/creation
+
+--
+
+Then
+
+1. Some machine learning
+2. Special focus on causal inference
+
+
+--
+
+Now
+
+1. Getting data from the web (basics)
+2. **Getting data from the web (more tips)**
+3. Getting data from APIs
+
+--
+
+Finally
+
+1. Making html documents
+2. R Shiny
+
+
+
+---
+## The cool side of the web -- programs interfacing with programs
+
+https://www.cnn.com/election/2018/results
+
+- Let's look at this with our inspector.  
+- Not so easy, huh?
+- But this data has to be coming from somewhere.
+
+
+---
+## Network button for Chrom 
+
+- As pages are rendered, often call to other servers and execute scripts.
+
+- The *network* button is there to help diagnose all of the different connections as websites operate.
+
+- Think of it as a "log" of activity.
+
+--
+
+- But for some websites, we can find where data itself is coming from.
+
+- Let's take a look at the network button as this website is loaded.
+
+
+---
+
+- We can look at various things here.
+
+- I found the following link:
+
+https://data.cnn.com/ELECTION/2018November6/IN/county/S.json
+
+--
+
+- Boy that looks a lot like the data we want!!
+
+
+---
+## JSON
+
+- A lot of the more complex data-driven websites you want these dats are running JavaScript.
+- JSON (JavaScript Object Notation) is a generic format for any data object being passed around.
+- It is very similar to unstructured lists in R.
+- We'll try downloading this manually first and 
+
+
+---
+## Let's try that with manual download
+
+- I used that url and downloaded the file.  Or you can get it from here.
+
+http://politicaldatascience.com/PDS/Datasets/cnnExample.json
+
+- We are going to use the `rjson` package.
+
+
+
+---
+
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+library(rjson)
+Indiana2018<-fromJSON(file="http://politicaldatascience.com/PDS/Datasets/cnnExample.json")
+Indiana2018[[1]]
+Indiana2018[[2]]
+Indiana2018[[3]] # Race and candidate characterisics
+str(Indiana2018[[4]][[1]]) # Results for first county
+```
+
+---
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+str(Indiana2018[[4]][[1]]) # Results for first county
+```
+
+---
+## So what about the rest?
+
+- Pretty easy to guess where the Ohio results are:
+
+https://data.cnn.com/ELECTION/2018November6/OH/county/S.json
+
+- Can we get this easier than manual download?
+
+--
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+OH_url<-"https://data.cnn.com/ELECTION/2018November6/OH/county/S.json"
+Ohio2018<-fromJSON(file=OH_url)
+Ohio2018[[2]]
+```
+
+
+---
+## End of Part A
+
+
+
+---
+## Basic http
+
+
+- HyperText Transfer Protocol is the basic way that data is passed and accessed across the web.
+- GET, POST, PUT, DELETE and HEAD are the main commands.
+- We will use the `curl` package (and software) to do this in R.
+
+
+
+---
+## Example `GET`
+
+- We can see the price history of google here
+
+https://finance.yahoo.com/q/hp?s=GOOG
+
+
+- We could scrape this, but there is a "download data" button that seems pretty promising.
+- Link for that is:
+
+https://query1.finance.yahoo.com/v7/finance/download/GOOG?period1=1555174021&period2=1586796421&interval=1d&events=history
+
+
+- Can we just get that directly?
+
+---
+
+Using `GET`:
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+library(RCurl)
+google_price<-getForm("https://query1.finance.yahoo.com/v7/finance/download/GOOG", period1="1555174021", period2="1586796421", interval="1d", events="history")
+google_price<-read.csv(textConnection(google_price))
+head(google_price)
+```
+
+Using `POST`:
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+url <- "http://wwwx.cs.unc.edu/~jbs/aw-wwwp/docs/resources/perl/perl-cgi/programs/cgi_stdin.cgi"
+json_data <- postForm(url,
+        name = "Bob", 
+        checkedbox = "spinich",
+        submitButton = "Now!",
+        textarea = "Some text to send",
+        selectitem = "The item",
+        radiobutton = "a",
+        style = "POST")
+json_data2 <- read.csv(textConnection(json_data))
+print(json_data2)
+```
+
+
+---
+### End of Part B
+
+
+---
+## Selenium
+
+- The website you want may have forms 
+- May be intentionally unfreindly to previous techniques
+- May involve a giant backend database you don't/cant get all of it.
+- Selenium is software designed to allow you to operate a browser like you are a person.  
+- Anything you can access/get via normal browsing behavior is generally accessible.
+- I am NOT going to help you get configured, but here is a place to start: https://cran.r-project.org/web/packages/RSelenium/vignettes/basics.html
+
+
+
+---
+## Jump to R
+
+- This won't really work from slides
+- http://politicaldatascience.com/PDS/Lectures/SeleniumExample.R
+- You need to install `RSelenium` and Selenium server itself.
+- RSelenium is a reference class package: 
+http://adv-r.had.co.nz/R5.html
+- We are going to use this website as our example: https://www.courts.mo.gov/casenet/base/welcome.do
+
+
+
+
+---
+
+## Some warnings
+
+- What do you call exploiting vulnerabilities in a websites code to gain access to data you are not legally permitted to have?
+
+- What do you all sending a sufficient number of bots at a server requesting small amounts of data until the system cannot continue and freezes/collapses/crashes?
+
+--
+
+- With great power come great responsibility.  Do not get yourself arrested!!
+
+
+--
+
+- Chapters 8 and 9 cover a lot more topics like certificates, cookies, password/logins, and forms.
+
+---
+
+## Group project  
+
+- Your group should identify a topic for their project
+- And find where they want to get the data from
+- And write up a one paragraph summary of the idea 
+- And send that to me and make an appointment (unless I bounce it)

@@ -44,7 +44,7 @@ ls() # only saved objects present
 
 To read/write dataframes from/to a csv (comma separated values) file, the following commands will be useful
 ```{r, eval=F}
-votes.06<-read.csv("~/Dropbox/Classes/R Programming/R Scripts/VotingData2006.csv", header=T)
+votes.06 <- read.csv("~/Dropbox/Classes/R Programming/R Scripts/VotingData2006.csv", header=T)
 write.csv(votes.06, file="VD06.csv")
 ```
 Tips: All of the functions for reading in data are actually using the scan() function. No matter how crazy your data look, you can *always* read it into R by clever use of scan().
@@ -61,9 +61,9 @@ if(condition){
 ```
 
 - The inputs in the parentheses needs can be anything that returns a logical.  
-- You can put anything you want in the braces
+- You can put any code inside the braces
 
-The simplest examples possible.
+The simplest examples possible:
 
 ```{r}
 if(TRUE) {
@@ -111,7 +111,7 @@ ifelse(condition, return when condition T, return when condition F)
 ```
 
 ```{r}
-x = c(0, 2)
+x <- c(0, 2)
 ifelse(x > 1, "yes", "no") 
 ```
 
@@ -129,11 +129,11 @@ ifelse(x < 2, yes, no)
 ```
 
 - Note that the curly braces are not technically necessary if you have only a one line command 
-- BUT you should use them anyway so someone can read your code!
+- BUT you should use them anyway so someone can easily read your code!
 
 ```{r}
-x = 3
-if (x > 2) y = 2 * x else y = 3 * x
+x <- 3
+if (x > 2) y <- 2 * x else y <- 3 * x
 y
 ```
 
@@ -143,6 +143,7 @@ y
 - If you don't include `BREAK` your computer will be in an infinite loop.
 - Save your work before using!
 - Or maybe just don't use it
+- `repeat` is equivalent to a `while(true)` loop
 
 ```{r, eval=FALSE}
 repeat{ stuff to do until it sees BREAK }
@@ -168,7 +169,7 @@ A while loop is just a repeat, where the break condition is specified at the top
 
 ```{r, eval=FALSE}
 while(condition){
-  commands that repeat until condition flips to FALSE
+  commands that repeat until condition becomes FALSE
 }
 ```
 
@@ -254,7 +255,7 @@ for (i in 1:10) print(i)
 1. Use the 'function' command and assign it to an object
 2. If you need, specify the expected inputs
 3. Do some stuff
-4. Return something (and only one thing) to the global environment.
+4. (optional) Return something (and only one thing) to the global environment.
 
 ```{r, eval=FALSE}
 my.function = function(x) {
@@ -316,7 +317,7 @@ gaga.equation = function(num.rah=2, num.ah=3, num.ga=2, num.la=2, num.oo=1) {
 }
 
 gaga.equation()
-gaga.equation(num.rah=5)
+gaga.equation(num.la=5)
 ```
 
 If an argument (sometimes called a parameter) does not have a default value, it *must* be specified when the function is called.
@@ -325,21 +326,33 @@ If an argument (sometimes called a parameter) does not have a default value, it 
 ## Scope
 
 In the example above, if we tried to print rahs outside of the function, we would get an error. The variable rahs doesn't exist in the global environment.
-
+This concept of limiting which parts of code can access a variable or function is called scope.
 ```{r, eval=FALSE}
 print(rahs)
 ```
 
 What happens in the function, stays in the function
 
-Remember that for loop variables can be accessed after the loop.
+One exception is that for loop variables can be accessed after the loop.
 
 ```{r}
 for(i in 1:4) {
   print(i+2)
 }
 print(i)
+```
 
+This for loop could be written as a while loop which would demonstrate why we can access `i` outside the loop.
+In fact, when the code is broken down from our nicely readable R code into standard machine code that any computer can run, all for loops
+are converted into while loops.
+
+```{r}
+i <- 0
+while(i < 4) {
+  i <- i+1
+  print(i+2)
+}
+print(i)
 ```
 Note that i equals 4 (its last loop value) after the loop is finished.
 
@@ -439,13 +452,13 @@ plot(unique(OOS$year), output.vector, type="l", ylab="Coefficient (President's p
 abline(h=0, lty=3)
 ```
 
-- Now we might think -- there is a more general case where I want to get a bunch of seperate regression estimates on defined subsets of the data
+Now we might think -- there is a more general case where I want to get a bunch of seperate regression estimates on defined subsets of the data
 
 ```{r, fig.height=3.5, eval=FALSE}
 by.var.lm<-function(by.var, formula, data, coef.num){
   output.vector<-NULL
   for (i in unique(by.var)){
-    output.vector[which(unique(by.var) == i)]<- 
+    output.vector[which(unique(by.var) == i)] <- 
       lm(formula, data=data[by.var == i,])$coefficients[coef.num]
   }
   return(output.vector)
@@ -496,7 +509,7 @@ table(titanic$Gender)
 table(titanic$Class)
 ```
 
-Make this work
+Modify the following code to make this work
 
 ```{r, eval=FALSE}
 by.var.lm(Class, (as.numeric(Survived)-1) ~ Gender, titanic, 2)
@@ -673,4 +686,4 @@ Allocate memory and fill, don't append to the end
 - Instead, allocate an object of the largest size you think you'll need, and fill it up as you go.
 - Fun fact: in Java (another programming language), arrays function the same way as vectors in R. Java has a data structure called an ArrayList,
 which allows users to add and remove as needed. When it gets full, it doubles the size/capacity of the underlying array and copies everything over. When an element is removed, 
-it doesn't decrease the size of the underlying array because copying things over and allocating new space is very inefficient.
+it doesn't decrease the size of the underlying array because copying things over and allocating new space is inefficient.

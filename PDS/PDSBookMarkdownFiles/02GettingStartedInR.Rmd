@@ -133,4 +133,3 @@ data(rock)
 ls() # there's rock -- in the global environment
 data(road, package="MASS") # you can load these datasets without loading the package
 ```
-
