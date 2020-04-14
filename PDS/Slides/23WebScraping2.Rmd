@@ -178,7 +178,7 @@ Ohio2018[[2]]
 
 
 ---
-## Example GET
+## Example `GET`
 
 - We can see the price history of google here
 
@@ -195,11 +195,29 @@ https://query1.finance.yahoo.com/v7/finance/download/GOOG?period1=1555174021&per
 
 ---
 
+Using `GET`:
+
 ```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
 library(RCurl)
 google_price<-getForm("https://query1.finance.yahoo.com/v7/finance/download/GOOG", period1="1555174021", period2="1586796421", interval="1d", events="history")
 google_price<-read.csv(textConnection(google_price))
 head(google_price)
+```
+
+Using `POST`:
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+url <- "http://wwwx.cs.unc.edu/~jbs/aw-wwwp/docs/resources/perl/perl-cgi/programs/cgi_stdin.cgi"
+json_data <- postForm(url,
+        name = "Bob", 
+        checkedbox = "spinich",
+        submitButton = "Now!",
+        textarea = "Some text to send",
+        selectitem = "The item",
+        radiobutton = "a",
+        style = "POST")
+json_data2 <- read.csv(textConnection(json_data))
+print(json_data2)
 ```
 
 
