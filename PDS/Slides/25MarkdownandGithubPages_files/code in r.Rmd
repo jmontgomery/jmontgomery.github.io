@@ -22,7 +22,7 @@ plot(a)
 
 ---
 
-```{r cars, eval=F,}
+```{r cars, eval=F}
 library(fivethirtyeight)
 trump_twitter$text[1:5]
 # You can load in packages 
