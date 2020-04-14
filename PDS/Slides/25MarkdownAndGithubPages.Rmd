@@ -117,41 +117,36 @@ Next time
 
 - You can find the code used in the Slack channel for today and follow along with the presentation.
 
-![](./Images/RMD1.png)
+<center> <img src="./Images/RMD1.png" width="650"></center>---
+## .Rmd
+
+- You can find the code used in the Slack channel for today and follow along with the presentation.
+
+<center> <img src="./Images/RMD2.png" width="650"></center>
 ---
 ## .Rmd
 
 - You can find the code used in the Slack channel for today and follow along with the presentation.
 
-![](./Images/RMD2.png)
-
+<center> <img src="./Images/RMD3.png" width="650"></center>
 ---
 ## .Rmd
 
 - You can find the code used in the Slack channel for today and follow along with the presentation.
 
-![](./Images/RMD3.png)
-
+<center> <img src="./Images/RMD4.png" width="650"></center>
 ---
 ## .Rmd
 
 - You can find the code used in the Slack channel for today and follow along with the presentation.
 
-![](./Images/RMD4.png)
-
+<center> <img src="./Images/RMD5.png" width="650"></center>
 ---
 ## .Rmd
 
 - You can find the code used in the Slack channel for today and follow along with the presentation.
+<center> <img src="./Images/RMD6.png" width="650"></center>
 
-![](./Images/RMD5.png)
-
----
-## .Rmd
-
-- You can find the code used in the Slack channel for today and follow along with the presentation.
-
-![](./Images/RMD6.png)
 ---
 ## Headers
 
