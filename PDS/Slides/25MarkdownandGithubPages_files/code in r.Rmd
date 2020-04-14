@@ -6,7 +6,7 @@ output: html_document
 
 To add code 'inline', use three ``` (back quote keys) [Don't confuse this with the apostrophe key]. After adding the three back quote keys, you will then include the language which you want to run in brackets {r}. There are various options you can use about whether you want the code to actually be displayed or evaluated. 
  
-```{r setup, include=FALSE}
+```{r setup, include =F}
 knitr::opts_chunk$set(echo = TRUE, eval = TRUE)
 # You can set up default seting using r setup
 # Here by default we used `echo = TRUE` to tell all chunks to print out the source code
@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE, eval = TRUE)
 # Both of these options can be overriden in a particular chunk, though
 ```
 
-```{r, eval=T, warning=F, fig.height=2.5, fig.width=2.5}
+```{r,warning=F, fig.height=2.5, fig.width=2.5}
 # You can show the code and the output and shut off warnings
 a <- rnorm(100)
 plot(a) 
@@ -35,4 +35,3 @@ You can chose to evaluate a code chunk but choose not to show the code
 a <- rnorm(100)
 plot(a) 
 ```
-
