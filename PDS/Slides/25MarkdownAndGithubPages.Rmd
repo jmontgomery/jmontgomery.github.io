@@ -394,7 +394,7 @@ See?
       - Link to our class: politicaldatascience.com
       
     - Images 
-      - Use the following image: http://politicaldatascience.com/PDS/Slides/Images/image2.jpg
+      - Use the following image: http://politicaldatascience.com/PDS/Slides/Images/image2.png
       
     - Code chunks
       - Load in the `fivethirtyeight` package into your chunk
