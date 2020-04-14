@@ -458,7 +458,7 @@ Now we might think -- there is a more general case where I want to get a bunch o
 by.var.lm<-function(by.var, formula, data, coef.num){
   output.vector<-NULL
   for (i in unique(by.var)){
-    output.vector[which(unique(by.var) == i)]<- 
+    output.vector[which(unique(by.var) == i)] <- 
       lm(formula, data=data[by.var == i,])$coefficients[coef.num]
   }
   return(output.vector)
@@ -509,7 +509,7 @@ table(titanic$Gender)
 table(titanic$Class)
 ```
 
-Make this work
+Modify the following code to make this work
 
 ```{r, eval=FALSE}
 by.var.lm(Class, (as.numeric(Survived)-1) ~ Gender, titanic, 2)
@@ -686,4 +686,4 @@ Allocate memory and fill, don't append to the end
 - Instead, allocate an object of the largest size you think you'll need, and fill it up as you go.
 - Fun fact: in Java (another programming language), arrays function the same way as vectors in R. Java has a data structure called an ArrayList,
 which allows users to add and remove as needed. When it gets full, it doubles the size/capacity of the underlying array and copies everything over. When an element is removed, 
-it doesn't decrease the size of the underlying array because copying things over and allocating new space is very inefficient.
+it doesn't decrease the size of the underlying array because copying things over and allocating new space is inefficient.
