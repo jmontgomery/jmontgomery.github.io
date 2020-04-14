@@ -32,10 +32,6 @@ pre {
 Last time
 
   1. Practiced using API's to access data from online sources
-  
-  2. X
-  
-  3. Y
 
   
 --
@@ -89,6 +85,27 @@ Next time
     - Text emphasis
     
     - Lists
+    
+    - Hyperlinks
+    
+    - Images
+    
+    - Code chunks
+    
+---
+
+## Syntax
+  + There are a few features of Markdown which can cover your basic needs when presenting text in a variety of formats
+  
+  + These include:
+  
+    - **Headers**
+    
+    - **Paragraphs**
+
+    - **Text emphasis**
+    
+    - **Lists**
     
     - Hyperlinks
     
