@@ -52,7 +52,7 @@ Next time
 
 ---
 
-## Introduction for today
+# Introduction for today
 
 1. What is Markdown
   - Markdown is a powerful yet relatively simple tool that allows users to create web content
@@ -73,7 +73,7 @@ Next time
 
 ---
 
-## Syntax
+# Markdown Syntax
   + There are a few features of Markdown which can cover your basic needs when presenting text in a variety of formats
   
   + These include:
@@ -83,6 +83,8 @@ Next time
     - Paragraphs
 
     - Text emphasis
+    
+    - Equations
     
     - Lists
     
@@ -94,7 +96,7 @@ Next time
     
 ---
 
-## Syntax
+# Markdown Syntax
   + There are a few features of Markdown which can cover your basic needs when presenting text in a variety of formats
   
   + These include:
@@ -106,6 +108,8 @@ Next time
     - **Text emphasis**
     
     - **Lists**
+    
+    - Equations
     
     - Hyperlinks
     
@@ -119,6 +123,8 @@ Next time
 
 <center> <img src="./Images/RMD1.png" width="650"></center>---
 ## .Rmd
+
+---
 
 - You can find the code used in the Slack channel for today and follow along with the presentation.
 
@@ -147,6 +153,14 @@ Next time
 - You can find the code used in the Slack channel for today and follow along with the presentation.
 <center> <img src="./Images/RMD6.png" width="650"></center>
 
+---
+## Knit
+
+- Knitting translates a document from Markdown code to the output of your choosing
+
+- When you open this document from a file manager it will show the finished product, however, if you open this document with R Markdown you will see the complex HTML code needed to compile nice easy to read document
+
+- When making a live website, knit and push using Github frequently to make sure all the changes are reflected in the HTML code
 ---
 ## Headers
 
@@ -198,7 +212,9 @@ See?
 --
 
   - **Output**: Similarly there are a couple of ways to make a **phrase** __bold__: by using two sets of ** (astericks) or __ (underscores)
-  
+
+
+
 ---
 
 
@@ -340,7 +356,7 @@ See?
 
 ---
 
-## Syntax
+# Markdown Syntax
   + There are a few features of Markdown which can cover your basic needs when presenting text in a variety of formats
   
   + These include:
@@ -353,12 +369,60 @@ See?
     
     - Lists
     
+    - **Equations**
+    
     - **Hyperlinks**
     
     - **Images**
     
     - **Code chunks**
-    
+---
+## Equations
+
+- Writing equations takes a set of knowledge by itself. Here are some common symbols:
+
+  - $\sum$   $\Rightarrow$ \sum
+  
+  - $\prod$   $\Rightarrow$ \prod
+  
+  - $n^2$   $\Rightarrow$ \n^2
+  
+  - $\frac{n!}{k!(n-k)!}$    $\Rightarrow$ \frac{n!}{K!(n-k)!}
+  
+  - $\int_{-\infty}^i$   $\Rightarrow$ \int_{-\infty}^i
+  
+  - $\leftarrow$   $\Rightarrow$ \leftarrow
+  
+  
+- There are probably hundreds of unique symbols you might need to write equations. Here is a website that compiles some of the most commonly used symbols:
+
+  - https://csrgxtu.github.io/2015/03/20/Writing-Mathematic-Fomulars-in-Markdown/
+
+---
+## Inline Equations
+
+### Code
+- To include an equation in-line such as `$E=MC^2$` you simply have to wrap the value in a single set of $ (dollar) signs.
+
+
+### Output
+
+To include an equation in-line such as $E=MC^2$ you simply have to wrap the value in a single set of $ (dollar) signs.
+---
+## Standalone Equations
+
+### Code
+
+If you have a larger equation, you want to display outside of a paragraph use two sets of $ (dollar) signs.
+
+`$$`x=-b \pm \sqrt{\frac{b^2 -4ac}{2a}}`$$`
+
+### Output
+
+If you have a larger equation, you want to display outside of a paragraph use two sets of $ (dollar) signs.
+
+$$x=-b \pm \sqrt{\frac{b^2 -4ac}{2a}}$$
+   
 ---
 ## Hyperlinks and Images
     
@@ -512,3 +576,40 @@ See?
   - Paste your *username*.github.io url into the Slack channel for today's class
   
 - If you did not follow along, go back and do the steps outlined in the Github Pages portion of this lecture
+
+---
+
+# Resources
+
+## Markdown Language
+
+- https://markdown-guide.readthedocs.io/en/latest/basics.html
+
+
+- https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+
+
+- https://www.markdownguide.org/https://www.markdownguide.org/
+
+
+- https://paperhive.org/help/markdown
+
+## Equations
+
+- https://csrgxtu.github.io/2015/03/20/Writing-Mathematic-Fomulars-in-Markdown/
+
+- https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols
+
+## R Markdown
+
+- https://bookdown.org/yihui/rmarkdown/r-code.html
+
+- https://rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf
+
+- https://rmarkdown.rstudio.com/lesson-15.html
+
+## Github Pages
+
+- https://resources.github.com/whitepapers/github-and-rstudio/
+
+- https://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html
