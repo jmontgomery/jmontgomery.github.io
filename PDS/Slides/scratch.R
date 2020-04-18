@@ -1,3 +1,86 @@
+
+ropensecretsapi::SetAPIKey("4b774257ece93adea87064e2933ffbae")
+params <- list (id="MO")
+MoLegislators <- ropensecretsapi::GetLegislatorsData(params)
+length(MoLegislators$response$legislator)
+MoLegislators$response$legislator[[1]]$`@attributes`[1]
+
+IDsForMO<-rep(NA, length(MoLegislators$response$legislator))
+
+for(i in 1:length(MoLegislators$response$legislator)){
+  IDsForMO[i]<-MoLegislators$response$legislator[[i]]$`@attributes`[1]
+}
+IDsForMO
+
+
+###
+
+
+GetCandContribData(params)
+
+
+
+params <- list (cid="N00007360", cycle="2012", ind="K02")
+candIndByIndData <- ropensecretsapi::GetCandIndByIndData (params)
+str(candIndByIndData)
+
+
+
+
+
+myKey="AIzaSyDkCLZcCeC_Uc0d2ItcBBTUqJgk7Pl4ivQ"
+
+blah<-GET("https://www.googleapis.com/civicinfo/v2/representatives",
+         query=list(address="6186 McPherson Ave. St. Louis",
+                    includeOffices="true",
+                    levels="country",
+                    roles="legislatorLowerBody", 
+                    key="AIzaSyDkCLZcCeC_Uc0d2ItcBBTUqJgk7Pl4ivQ"))
+blah
+
+
+res<-fromJSON(rawToChar(blah$content))
+res$officials
+
+http://www.opensecrets.org/api/?method=memPFDprofile&year=2016&cid=N00007360&output=xml&apikey=4b774257ece93adea87064e2933ffbae
+  
+my_OS_key=
+
+temp<-GET("http://www.opensecrets.org/api/?method=memPFDprofile", 
+  query=list(year="2016", cid="N00007360",apikey="4b774257ece93adea87064e2933ffbae"
+           )
+)
+?GET
+
+temp$url
+temp$status_code
+temp$headers
+
+url<-paste0("http://www.opensecrets.org/api/?method=memPFDprofile&year=2016&cid=N00007360&output=xml&apikey=4b774257ece93adea87064e2933ffbae")
+library(curl)
+temp<-curl(url)
+
+fromJSON(temp)
+
+temp$status_code
+
+temp<-GET("http://www.opensecrets.org/api/?method=memPFDprofile",
+    query=list(year="2016", cid="N00007360", apikey="ae544dc6ea63394e864dfa89307496d3"))
+temp$status
+
+
+
+read_html(rawToChar(temp$content)) %>% html_text()
+  
+----
+
+
+
+address=1263%20Pacific%20Ave.%20Kansas%20City%20KS&electionId=2000
+
+"https://www.googleapis.com/civicinfo/v2/voterinfo?key=<YOUR_API_KEY>&address=1263%20Pacific%20Ave.%20Kansas%20City%20KS&electionId=2000"
+
+
 library(dplyr)
 library(rvest)
 

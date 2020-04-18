@@ -60,6 +60,8 @@ Lecture 17 -- no link
 
 [Lecture  23](https://jmontgomery.github.io/PDS/Slides/23WebScraping2.html)
 
+[Lecture 24](https://jmontgomery.github.io/PDS/Slides/24APIs.html)
+
 #### Problem Sets
 [Problem Set 1](https://jmontgomery.github.io/PDS/Problem Sets/Problem Set 1/PS1_PDS.pdf)
 

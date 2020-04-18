@@ -1,4 +1,4 @@
-### R Selenium example: Make sure you load the Rselenium library
+### R Selenium example: Make sure you load the Rselenium library, tidyvers, rvest, and plyr
 
 ## This works for me for getting a server running
 rsDriver(browser="chrome", port=4445L)
