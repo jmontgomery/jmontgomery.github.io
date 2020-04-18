@@ -360,12 +360,19 @@ str(MoTopDonors2018)
 
 ---
 
-### Group work
+### Tasks
+
+
+Group work:
 
 - Talk to your group about your group project
 - By the start of next class please have booked a meeting between me and most of your group.
 
 
+Individual work
+
+- Find a useful API for the class and post it up online. 
+- Bonus if you can figure out how to use it.
 
 
 
