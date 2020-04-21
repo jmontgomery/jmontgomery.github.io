@@ -1,0 +1,381 @@
+---
+title: "Basics on APIs"
+author: |
+  | Jacob M. Montgomery
+  | *Washington University in St. Louis*
+  | *Department of Political Science*
+date: '2020'
+header-includes:
+  - \usepackage{amsmath}
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
+#   beamer_presentation: default
+#   slidy_presentation: default
+
+
+---
+
+<style type="text/css">
+body, td {
+   font-size: 14px;
+}
+code.r{
+  font-size: 14px;
+}
+pre {
+  font-size: 4px;
+}
+</style>
+
+
+## Orientation for this component
+
+Last time
+
+1. Getting data from the web (basics)
+2. Getting data from the web (more tips)
+
+--
+
+Now
+
+
+1. **Getting data from APIs**
+
+--
+
+Next
+
+1. Making html documents/website (Dom)
+2. R Shiny
+
+
+--
+
+But Really
+
+**Work on your group projects**
+
+
+---
+## Getting started
+
+- Application program interfaces (APIs) are a way for people (and programs) to access data in standard format 
+- Allows others to build products/software around your data without full access to your data.
+- Allows for sharing of data in a controlled way.
+    - Only access at a given rate
+    - Only access pre-specified fields
+- Usually much mor systematic and organized than webscraping
+    - But also more powerful (can search their entire dataset)
+    - Data comes back with expected structure
+    - Documentation!!
+- Huge enterprises like OpenSecrets, Twitter, Reddit, Wikipedia, and much more provide these.
+- Could be used for making "live" webpages that re-render some kind of data viz. when a page is refreshed to represent changing data. 
+
+
+---
+## Remembering from last time
+
+
+- We briefly discussed using `http` including commands
+
+- `GET`, `POST`, and `PUT` will give you much of what you need.
+
+- We also learned about the JSON object format, which is similar to a list in R.
+
+--
+
+- This time we are going to use the `httr` and `jsonlite` packages.
+
+- The overall enterprise is to:
+    1. Use `http` so pass the right arguments to the right API endpint.
+    2. Get a JSON object back.
+    3. Optionally use that result to structure a query to another endpoint.
+    4. Repeat (3) until you have the data you want.
+
+---
+## Some API basics/terminology
+
+- APIs have *endpoints* -- think of these as function that are available.
+    - In the documentation (which you should read) it will explain what arguments these endpoints accept.
+    - These are (sometiems) passed in via the `http` request.
+    - They will then return to you a message (did it work) and an object 
+    
+----
+    
+- Most APIs have *rate limits* that control how much data they will return to you.  Try not to wine about people who are giving you free data.
+- APIs typically *time out* if your request takes too long to execture, or else the endpint might have a workaround.
+- Many will require that you have *authentication* often using a *key*
+    - Note that some (e.g., Open Secrets and Twitter) require you to register or even apply
+
+---
+## Rough outline for today
+
+- I'll run through a very simple toy example
+- We'll do something slightly more complex with the open secrets API.  
+    - You'll need to register on your own to follow this example fully.
+- The only assignment we will have is I'd like each of you to identify *one* potentially interseting API for the class.  Bonus if you show the result of a query.
+
+---
+## Where is the space station?
+
+- Here is a silly little API that tell us at any given time where the International Space Station is located.
+- http://open-notify.org/
+- If you go to the right url, you can see the answer:
+http://api.open-notify.org/iss-now.json
+
+---
+
+- JSON object organized as key: value pairs
+
+----
+
+- "timestamp": 1587069040, 
+- "message": "success"
+-  "iss_position": 
+    * "latitude": "-49.1436"
+    * "longitude": "25.2204"
+
+----
+
+- Note that the last elment (iss_position) is itself composes of two elements.
+
+
+---- 
+
+So we are going to:
+1. Send a "GET" request
+2. Receive:
+    
+      a. A response code 
+      
+      b. Response data
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+library("httr"); library("jsonlite")
+iss=GET("http://api.open-notify.org/iss-now.json")
+length(iss)
+```
+---
+
+- Not really the same as just navigating there.
+- 200 is the "status response" and indicates success.
+- Also includes a lot of details about the call (e.g., time and GET command)
+
+--
+
+- But the actual output we wanted is still there
+- And we can pull this out as a "list of lists"
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+library("httr"); library("jsonlite")
+fromJSON(rawToChar(iss$content))
+```
+
+---
+## End part A
+
+Go play!  See if you can figure out how many people are currently in space.
+
+http://open-notify.org/Open-Notify-API/People-In-Space/
+
+---
+
+## APIs with arguments
+
+- So this one is designed to tell you when the ISS is set to pass over a specific location
+
+http://open-notify.org/Open-Notify-API/ISS-Pass-Times/
+
+- But it requires parameters, just like arguments for a function.
+- We need:
+    - Latitude 
+    - Longitude
+- We could try to hack together the url ourselves    
+    
+http://api.open-notify.org/iss-pass.json?lat=40.7&lon=-74
+
+- But `GET` will do that for us
+
+---
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+iss_pass=GET("http://api.open-notify.org/iss-pass.json", 
+             query=list(lat=38.6486009, lon=-90.3128798, n=1))
+fromJSON(rawToChar(iss_pass$content))
+```
+
+- This is when the ISS will pass over Seigle Hall
+
+
+
+---
+
+## Ok that's fun, but kind of dumb
+
+- Let's go look at the Google civic API
+
+https://developers.google.com/civic-information/docs/v2/representatives/representativeInfoByAddress
+
+
+- And look it has a handy GUI thing
+
+---
+
+### Well ... let's look some more
+
+https://console.developers.google.com/apis/credentials?pli=1
+
+
+- You are going to need to get your authentication key
+- And you you have to click a button in their system to confirm/authorize it.
+- But you can borrow mine for now.
+- Let's go back and look at this
+
+https://developers.google.com/civic-information/docs/v2/representatives/representativeInfoByAddress
+
+
+
+---
+
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+myKey="AIzaSyDkCLZcCeC_Uc0d2ItcBBTUqJgk7Pl4ivQ"
+
+SK<-GET("https://www.googleapis.com/civicinfo/v2/representatives",
+         query=list(address="6186 McPherson Ave. St. Louis",
+                    includeOffices="true",
+                    levels="country",
+                    roles="legislatorLowerBody", 
+                    key="AIzaSyDkCLZcCeC_Uc0d2ItcBBTUqJgk7Pl4ivQ"))
+SK
+```
+
+
+
+---
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+fromJSON(rawToChar(SK$content))
+```
+
+---
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+fromJSON(rawToChar(SK$content))$officials
+```
+
+
+---
+### End Part B
+
+- See if you can get this to work for a different address.
+- If you want to go crazy try and get this endpoint to work instead
+
+https://developers.google.com/civic-information/docs/v2/elections/voterInfoQuery
+
+
+- use electionID="2000"
+
+
+---
+## API packages
+
+- Smart people have made some R packages for specific APIs.
+- So real quick I'll show you how to use the `ropensecretsapi`
+
+---
+
+## A first example
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+ropensecretsapi::SetAPIKey("4b774257ece93adea87064e2933ffbae")
+params <- list (id="MO")
+MoLegislators <- ropensecretsapi::GetLegislatorsData(params)
+MoLegislators
+```
+
+
+---
+## Just get the cid
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+MoLegislators$response$legislator[[1]]$`@attributes`[1]
+```
+
+---
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+MoLegislators$response$legislator[[1]]$`@attributes`[1]
+```
+
+---
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+IDsForMO<-rep(NA, length(MoLegislators$response$legislator))
+for(i in 1:length(MoLegislators$response$legislator)){
+  IDsForMO[i]<-MoLegislators$response$legislator[[i]]$`@attributes`[1]
+}
+```
+
+---
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+IDsForMO
+```
+
+---
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+getTopDonors<-function(x){
+    params<-list(cid=x, cycle="2018")
+    ropensecretsapi::GetCandContribData(params)
+}
+getTopDonors(IDsForMO[1])
+```
+
+---
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
+MoTopDonors2018<-plyr::llply(IDsForMO, getTopDonors)
+str(MoTopDonors2018)
+```
+
+
+---
+
+### Tasks
+
+
+Group work:
+
+- Talk to your group about your group project
+- By the start of next class please have booked a meeting between me and most of your group.
+
+
+Individual work
+
+- Find a useful API for the class and post it up online. 
+- Bonus if you can figure out how to use it.
+
+
+
+
+
+

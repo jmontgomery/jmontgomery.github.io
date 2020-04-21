@@ -37,10 +37,6 @@ pre {
 Last time
 
   1. Practiced using API's to access data from online sources
-  
-  2. X
-  
-  3. Y
 
   
 --
@@ -61,7 +57,7 @@ Next time
 
 ---
 
-## Introduction for today
+# Introduction for today
 
 1. What is Markdown
   - Markdown is a powerful yet relatively simple tool that allows users to create web content
@@ -82,7 +78,7 @@ Next time
 
 ---
 
-## Syntax
+# Markdown Syntax
   + There are a few features of Markdown which can cover your basic needs when presenting text in a variety of formats
   
   + These include:
@@ -93,6 +89,8 @@ Next time
 
     - Text emphasis
     
+    - Equations
+    
     - Lists
     
     - Hyperlinks
@@ -100,12 +98,76 @@ Next time
     - Images
     
     - Code chunks
+    
 ---
-## Code for today
 
-- You can find the code used in the Slack channel for today.
+# Markdown Syntax
+  + There are a few features of Markdown which can cover your basic needs when presenting text in a variety of formats
   
-  - You can download the .rmd file and follow along
+  + These include:
+  
+    - **Headers**
+    
+    - **Paragraphs**
+
+    - **Text emphasis**
+    
+    - **Lists**
+    
+    - Equations
+    
+    - Hyperlinks
+    
+    - Images
+    
+    - Code chunks
+---
+## .Rmd
+
+- You can find the code used in the Slack channel for today and follow along with the presentation.
+
+&lt;center&gt; &lt;img src="./Images/RMD1.png" width="650"&gt;&lt;/center&gt;---
+## .Rmd
+
+---
+
+- You can find the code used in the Slack channel for today and follow along with the presentation.
+
+&lt;center&gt; &lt;img src="./Images/RMD2.png" width="650"&gt;&lt;/center&gt;
+---
+## .Rmd
+
+- You can find the code used in the Slack channel for today and follow along with the presentation.
+
+&lt;center&gt; &lt;img src="./Images/RMD3.png" width="650"&gt;&lt;/center&gt;
+---
+## .Rmd
+
+- You can find the code used in the Slack channel for today and follow along with the presentation.
+
+&lt;center&gt; &lt;img src="./Images/RMD4.png" width="650"&gt;&lt;/center&gt;
+---
+## .Rmd
+
+- You can find the code used in the Slack channel for today and follow along with the presentation.
+
+&lt;center&gt; &lt;img src="./Images/RMD5.png" width="650"&gt;&lt;/center&gt;
+---
+## .Rmd
+
+- You can find the code used in the Slack channel for today and follow along with the presentation.
+&lt;center&gt; &lt;img src="./Images/RMD6.png" width="650"&gt;&lt;/center&gt;
+
+---
+## Knit
+
+- Knitting translates a document from Markdown code to the output of your choosing
+
+- When you open this document from a file manager it will show the finished product
+
+  - However, if you open this document with R Markdown you will see the complex HTML code used to compile the nice easy to read document you see at the front end
+
+- When making a live website, knit and push using Github frequently to make sure all the changes are reflected in the HTML code
 ---
 ## Headers
 
@@ -156,8 +218,10 @@ See?
 
 --
 
-  - **Output**: Similarly there are a couple of ways to make a **phrase** __bold__: by using two sets of ** (asterics) or __ (underscores)
-  
+  - **Output**: Similarly there are a couple of ways to make a **phrase** __bold__: by using two sets of ** (astericks) or __ (underscores)
+
+
+
 ---
 
 
@@ -189,15 +253,15 @@ See?
 
 `1. (Space)List item 1`
 
-      `(double tab) - (Space)Subpoint 1`
+      (double tab) - (Space)Subpoint 1
       
 `2. (Space)List item 2`
 
-      `(double tab) - (Space)Subpoint 2`
+      (double tab) - (Space)Subpoint 2
       
 `3. (Space)List item 3`
-
-      `(double tab) - (Space)Subpoint 3`
+      
+      (double tab) - (Space)Subpoint 3
   
 ---
 
@@ -222,21 +286,21 @@ See?
 
   `- (Space)List item 1`
   
-    `(single tab)- Subpoint 1 `
+    (single tab)- Subpoint 1 
     
-      `(double tab)- Subsubpoint 1`
+      (double tab)- Subsubpoint 1
   
   `-  (Space)List item 2`
   
-    `(single tab)- Subpoint 2`
+    (single tab)- Subpoint 2
     
-      `(double tab)- Subsubpoint 2`
+      (double tab)- Subsubpoint 2
   
   `-  (Space)List item 3`
   
-    `(single tab)- Subpoint 3`
+    (single tab)- Subpoint 3
     
-      `(double tab)- Subsubpoint 3`
+      (double tab)- Subsubpoint 3
 ---
 
 ## Plain list
@@ -298,6 +362,75 @@ See?
 - Now **save** this .rmd file and name it _index_
 
 ---
+
+# Markdown Syntax
+  + There are a few features of Markdown which can cover your basic needs when presenting text in a variety of formats
+  
+  + These include:
+  
+    - Headers
+    
+    - Paragraphs
+
+    - Text emphasis
+    
+    - Lists
+    
+    - **Equations**
+    
+    - **Hyperlinks**
+    
+    - **Images**
+    
+    - **Code chunks**
+---
+## Equations
+
+- Writing equations takes a set of knowledge by itself. Here are some common symbols:
+
+  - `\(\sum\)`   `\(\Rightarrow\)` \sum
+  
+  - `\(\prod\)`   `\(\Rightarrow\)` \prod
+  
+  - `\(n^2\)`   `\(\Rightarrow\)` \n^2
+  
+  - `\(\frac{n!}{k!(n-k)!}\)`    `\(\Rightarrow\)` \frac{n!}{K!(n-k)!}
+  
+  - `\(\int_{-\infty}^i\)`   `\(\Rightarrow\)` \int_{-\infty}^i
+  
+  - `\(\leftarrow\)`   `\(\Rightarrow\)` \leftarrow
+  
+  
+- There are probably hundreds of unique symbols you might need to write equations. Here is a website that compiles some of the most commonly used symbols:
+
+  - https://csrgxtu.github.io/2015/03/20/Writing-Mathematic-Fomulars-in-Markdown/
+
+---
+## Inline Equations
+
+### Code
+- To include an equation in-line such as `$E=MC^2$` you simply have to wrap the value in a single set of $ (dollar) signs.
+
+
+### Output
+
+To include an equation in-line such as `\(E=MC^2\)` you simply have to wrap the value in a single set of $ (dollar) signs.
+---
+## Standalone Equations
+
+### Code
+
+If you have a larger equation, you want to display outside of a paragraph use two sets of $ (dollar) signs.
+
+`$$`x=-b \pm \sqrt{\frac{b^2 -4ac}{2a}}`$$`
+
+### Output
+
+If you have a larger equation, you want to display outside of a paragraph use two sets of $ (dollar) signs.
+
+`$$x=-b \pm \sqrt{\frac{b^2 -4ac}{2a}}$$`
+   
+---
 ## Hyperlinks and Images
     
   - Images and hyperlinks are both similar and easy. The only difference is, in images, you must put an exclamation point before the brackets.
@@ -332,13 +465,13 @@ See?
       - Link to our class: politicaldatascience.com
       
     - Images 
-      - Use the following image: http://politicaldatascience.com/PDS/Slides/Images/image2.jpg
+      - Use the following image: http://politicaldatascience.com/PDS/Slides/Images/image2.png
       
     - Code chunks
       - Load in the `fivethirtyeight` package into your chunk
     
       - Include the following code in your document and have it display **the code and its output**:
-         - trump_twitter$text[1:5]
+         - trump_twitter$text[7:10]
         
 - Hit the knit button and upload the html file to the Slack channel for today's class
     
@@ -395,10 +528,14 @@ See?
 
 --
 
-- Open your index file and knit it once more so that the html output saves in your new *username*.github.io directory
+- Open your index file and add a line that says ***I know how to make a website!***
 
+- Knit it once more so that the html output saves in your new *username*.github.io directory
+
+---
+## The index file
+![](./Images/Directory.png)
 --
-
 - Now push the changes
 
 ---
@@ -446,6 +583,43 @@ See?
   - Paste your *username*.github.io url into the Slack channel for today's class
   
 - If you did not follow along, go back and do the steps outlined in the Github Pages portion of this lecture
+
+---
+
+# Resources
+
+## Markdown Language
+
+- https://markdown-guide.readthedocs.io/en/latest/basics.html
+
+
+- https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+
+
+- https://www.markdownguide.org/https://www.markdownguide.org/
+
+
+- https://paperhive.org/help/markdown
+
+## Equations
+
+- https://csrgxtu.github.io/2015/03/20/Writing-Mathematic-Fomulars-in-Markdown/
+
+- https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols
+
+## R Markdown
+
+- https://bookdown.org/yihui/rmarkdown/r-code.html
+
+- https://rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf
+
+- https://rmarkdown.rstudio.com/lesson-15.html
+
+## Github Pages
+
+- https://resources.github.com/whitepapers/github-and-rstudio/
+
+- https://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
