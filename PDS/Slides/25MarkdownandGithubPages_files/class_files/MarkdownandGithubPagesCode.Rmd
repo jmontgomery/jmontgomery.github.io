@@ -114,3 +114,19 @@ You can chose to evaluate a code chunk but choose not to show the code
 a <- rnorm(100)
 plot(a) 
 ```
+
+---
+
+In addition to showing code and its output you can format results. If you have a set of data and you want to show summary statistics you can use the package \texttt{kable} to produce a nice table. 
+
+
+```{r}
+knitr::kable(iris[1:5, ], caption = 'A caption')
+```
+
+Alternatively, if you want to show an output of a regression analysis, you can use do a summary of the model for a neat output.
+
+```{r}
+fit <- lm(Sepal.Length~Species, data=iris)
+summary(fit)
+```
