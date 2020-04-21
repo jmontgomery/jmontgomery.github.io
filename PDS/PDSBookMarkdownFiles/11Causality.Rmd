@@ -2,9 +2,9 @@
 
 ## Correlation and causation
 
-![  ](./Slides/Images/correlation.png)
+![  ](../Slides/Images/correlation.png)
 
-![  ](./Slides/Images/dt140509.png)
+![  ](../Slides/Images/dt140509.png)
 
 What is causality?
 
@@ -142,7 +142,7 @@ n & -1.2 & ? & ?
 - And the goal of all of almost all approaches to causal inference is to fill in the missing values on this table.
 
 
-## Danger!
+### Danger!
 
 So it turns out that doing this well is pretty hard.  Why?
 
@@ -151,25 +151,25 @@ So it turns out that doing this well is pretty hard.  Why?
 3. We can't really measure for all possible lurking variables.
 
 
-## Does drinking make you more educated?
+### Does drinking make you more educated?
 
 
-![  ](./Slides/Images/booze.jpg)
+![  ](../Slides/Images/booze.jpg)
 
 
 1. Education $\rightarrow$ Spending more on alcohol
 2. Spending more on alcohol $\rightarrow$ Education
 3. Income?
 
-## Problem: It can be way more subtle
+### Problem: It can be way more subtle
 
-![  ](./Slides/Images/wald.png)
+![  ](../Slides/Images/wald.png)
 
 (Mount 2010)
 
 
-![  ](./Slides/Images/rh.png)
-![  ](./Slides/Images/goldstein.png)
+![  ](../Slides/Images/rh.png)
+![  ](../Slides/Images/goldstein.png)
 
 
 Rogers, Coffman, and Bergman:
@@ -180,7 +180,7 @@ While the authors control for certain variables, their research only implies the
 
 Think of it this way: **If you had two children, and one was getting A's and the other C's, which of them would you help more? The C student.** An outsider, noticing that you've spent the school year helping only one of your children, might infer that parental help caused that child to earn lower grades. This of course would not be the case, and inferring causation here would be a mistake.
 
-### Estimating ATE
+## Estimating ATE
 
 - We've talked about how we can't *know* the causal effect of an intervention on a single unit.
 - And we've talked about the ATE.  But how would we go about estimating it?
@@ -210,7 +210,7 @@ We are left with essentially two options (with shades of gray in between)
     - We can rely on randomization
     - We can rely on "natural experiments" that help us fill in the missing counterfactuals.
 
-## Good causal inference
+### Good causal inference
 
 $$\begin{array}{l c c c}
 \text{Unit} & y_0 & y_1 & y_1-y_0 \\ 
@@ -287,10 +287,7 @@ summary(lm(call~race, data=resume))
 summary(lm(call~race+sex, data=resume))
 ```
 
-## What to do when you can't experiment:
-
-### Problem statement
-
+### What to do when you can't experiment:
 
 - We want to measure the causal effect of some variable $T$ on outcome $Y$.
     
@@ -320,7 +317,7 @@ $$\epsilon \sim N(0, \sigma^2) $$
 
 - But *if* we have all of the right covariates and *if* we have the right model, then $E(\beta_1) = ATE$.
 
-## Example: New Hampshire 2008 primary: Clinton vs. Obama
+#### Example: New Hampshire 2008 primary: Clinton vs. Obama
 
 ```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
 library(faraway)
@@ -394,7 +391,7 @@ This is a dataset of incumbent members of congress running for election.  The de
 
 With no fixed effects:
 
-![](./Slides/Images/no_FE_reg.png)
+![](../Slides/Images/no_FE_reg.png)
 
 What does that mean?
 
@@ -406,7 +403,7 @@ What does that mean?
 
 With fixed effects:
 
-![](./Slides/Images/FE_reg.png)
+![](../Slides/Images/FE_reg.png)
 
 
 ### Naive regression
@@ -459,7 +456,7 @@ In our example, we would divide all 100 counties in North Carolina into
 
 Here's a visual illustration of how this research strategy works:
 
-![](./Slides/Images/12.png)
+![](../Slides/Images/12.png)
 
 
 ### DID in practice
@@ -474,7 +471,7 @@ Identifying our treatment/control group:
 - These groups are not the same, but could we assume a parallel trend? Are they consistently different?
 
 
-![](./Slides/Images/13.png)
+![](../Slides/Images/13.png)
 
 
 How to do it?
@@ -500,7 +497,7 @@ $$Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + \beta_3(X_1 \times X_2) + \epsilon$$
     - This is our treatment effect
     - Effect of the treatment on the treated (ATT)
 
-## Regression discontinuity
+### Regression discontinuity
 
 - In many cases interventions occur at a discontinuity.
 - Maybe only students above a specific score get free college?
@@ -510,14 +507,14 @@ $$Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + \beta_3(X_1 \times X_2) + \epsilon$$
     - Individuals just below this cutoff 
 
 
-### Example: Is voting a habit?
+#### Example: Is voting a habit?
 
 - Some have argued that voting can be habitual
 - Prof. Marc Meredith tested this using data from California.
 - He looked at the turnout rates in the 2006 election for people around the voting eligibiltiy threshold for the 2004 election.  
 
 
-![](./Slides/Images/17.png)
+![](../Slides/Images/17.png)
 
 So how to do that?
 
@@ -546,8 +543,8 @@ The basic components:
 $$y= \beta_0 + \beta_1 X + \beta_2*I(X>D) + \epsilon$$
 
 
-![](./Slides/Images/RD3.pdf)
+![](../Slides/Images/RD3.pdf)
 
 
-![](./Slides/Images/RD4.pdf)
+![](../Slides/Images/RD4.pdf)
 

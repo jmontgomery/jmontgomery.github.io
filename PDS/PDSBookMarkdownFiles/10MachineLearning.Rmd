@@ -496,17 +496,17 @@ table(binaryPred, turnout$turnout)
 #### Tree models
 
 
-![map](./Slides/Images/Turnout1.pdf)
+![map](../Slides/Images/Turnout1.pdf)
 
-![  ](./Slides/Images/Turnout2.pdf) ![  ](./Slides/Images/Trees1.jpeg) 
+![  ](../Slides/Images/Turnout2.pdf) ![  ](../Slides/Images/Trees1.jpeg) 
 
-![  ](./Slides/Images/Turnout3.pdf) ![  ](./Slides/Images/Trees2.jpeg) 
+![  ](../Slides/Images/Turnout3.pdf) ![  ](../Slides/Images/Trees2.jpeg) 
 
-![  ](./Slides/Images/Turnout4.pdf) ![  ](./Slides/Images/Trees3.jpeg) 
+![  ](../Slides/Images/Turnout4.pdf) ![  ](../Slides/Images/Trees3.jpeg) 
 
-![  ](./Slides/Images/Turnout5.pdf) ![  ](./Slides/Images/Trees4.jpeg) 
+![  ](../Slides/Images/Turnout5.pdf) ![  ](../Slides/Images/Trees4.jpeg) 
 
-![  ](./Slides/Images/Turnout6.pdf) ![  ](./Slides/Images/Trees5.jpeg) 
+![  ](../Slides/Images/Turnout6.pdf) ![  ](../Slides/Images/Trees5.jpeg) 
 
 
 Here's some code that will create a tree model for us.
@@ -562,11 +562,11 @@ treePreds2<-predict(tree_mod2)
 - And they can be very sensitive to seemingly small changes to the data.
 
 
-![  ](./Slides/Images/Sample1.pdf) ![  ](./Slides/Images/Sample2.pdf) 
+![  ](../Slides/Images/Sample1.pdf) ![  ](../Slides/Images/Sample2.pdf) 
 
-![  ](./Slides/Images/Sample4.pdf) ![  ](./Slides/Images/Sample3.pdf) 
+![  ](../Slides/Images/Sample4.pdf) ![  ](../Slides/Images/Sample3.pdf) 
 
-![  ](./Slides/Images/Sample5.pdf) 
+![  ](../Slides/Images/Sample5.pdf) 
 
 #### Intuition for random forests
 
@@ -594,7 +594,7 @@ mod1_forest # This confusion matrix is "out of bag"
 - "Near" here just means that they have a similar in terms of their predictor variables.
 
 
-![map](./Slides/Images/Turnout1.pdf)
+![map](../Slides/Images/Turnout1.pdf)
 
 ## Putting that in action
 
