@@ -52,6 +52,8 @@ print(primaryPolls, width=Inf)
 
 - `filter` allows you to easily subset data using conditions as we have done before using accessors
 
+
+
 ```{r, eval=TRUE, message=FALSE, warning=FALSE}
 filter(primaryPolls, candidate_name == c("Amy Klobuchar"))
 
@@ -288,7 +290,7 @@ The primary relational querying language is SQL (Structured Query Language) but 
 
 ```{r, eval=TRUE, message=FALSE, warning=FALSE}
 library(tidyverse)
-mayors<-read_csv(file="https://raw.githubusercontent.com/jmontgomery/jmontgomery.github.io/master/PDS/Datasets/Mayors.csv")
+mayors <- read_csv("../Datasets/Mayors.csv")
 tweets<-read_csv("C:/Users/maria/OneDrive/WUSTL/2019-20/PDS/Tweets.csv")
 print(object.size(mayors), units="auto")
 print(object.size(tweets), units="auto")
@@ -387,7 +389,7 @@ This is useful for deduplication tasks and also for identifying problems from sp
 Add a third set of data --- mentions
 
 ```{r, eval=TRUE, message=FALSE, warning=FALSE}
-mentions <-read_csv(file="https://raw.githubusercontent.com/jmontgomery/jmontgomery.github.io/master/PDS/Datasets/TwitterMentions.csv")
+mentions <-read_csv("../Datasets/TwitterMentions.csv")
 ```
 
 1. For each mayor, calculate the number of times they were mentioned
