@@ -147,7 +147,7 @@ library(dplyr)
 library(tidyr)
 library(readr)
 library(tidyverse)
-mayors<-read_csv(file="https://raw.githubusercontent.com/jmontgomery/jmontgomery.github.io/master/PDS/Datasets/Mayors.csv")
+mayors<-read_csv("../Datasets/Mayors.csv")
 tweets<-read_csv("C:/Users/maria/OneDrive/WUSTL/2019-20/PDS/Tweets.csv")
 ```
 

@@ -594,7 +594,7 @@ mod1_forest # This confusion matrix is "out of bag"
 - "Near" here just means that they have a similar in terms of their predictor variables.
 
 
-![map](./Images/Turnout1.pdf)
+![map](./Slides/Images/Turnout1.pdf)
 
 ## Putting that in action
 

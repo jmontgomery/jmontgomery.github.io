@@ -251,7 +251,7 @@ $$\begin{array}{l c c c}
 Example: Audit studies for employment
 
 ```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
-resume<-read.csv("./Datasets/resume.csv")
+resume<-read.csv("../Datasets/resume.csv")
 ```
 
 Actual link:
