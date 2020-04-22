@@ -1,3 +1,34 @@
+###
+
+
+setwd("~/GitHub/jmontgomery.github.io/PDS/Datasets/SenateForecast")
+
+senateData<-read.csv("PollingCandidateData92-16.csv")
+
+stateName<-"North Carolina"
+
+stateData<-senateData %>%
+  filter(state==sateName & cycle==2016) %>%
+  select(c("Poll", "daysLeft", "Candidateidentifier")) %>% 
+  group_by(Candidateidentifier)%>%
+  glimpse()
+
+library(ggplot2)
+
+thisPlot<-ggplot(stateData, 
+       mapping=aes(x=daysLeft, y=Poll, color=Candidateidentifier)) +
+  geom_point()  + 
+  geom_smooth() +
+  ggtitle(paste0("2016 Senate Election in", stateName)) + 
+  labs(y="Poll results", x="Days Till Election")
+print(thisPlot)
+
+###
+
+setwd("~/GitHub/jmontgomery.github.io/PDS/Slides/ShinyApps/MinimalExample")
+shinyAppDir(getwd())
+
+
 
 ropensecretsapi::SetAPIKey("4b774257ece93adea87064e2933ffbae")
 params <- list (id="MO")
@@ -14,11 +45,16 @@ IDsForMO
 
 
 ###
+IDsForMO
 
+getTopDonors<-function(x){
+    params<-list(cid=x, cycle="2018")
+    ropensecretsapi::GetCandContribData(params)
+}
+getTopDonors(IDsForMO[1])
 
-GetCandContribData(params)
-
-
+MoTopDonors2018<-plyr::llply(IDsForMO, getTopDonors)
+str(MoTopDonors2018)
 
 params <- list (cid="N00007360", cycle="2012", ind="K02")
 candIndByIndData <- ropensecretsapi::GetCandIndByIndData (params)
