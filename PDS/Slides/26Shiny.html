@@ -80,7 +80,7 @@ Next
     - If there are outputs, they are primarily displayed here.
     - The outputs are often "dynamic"
     - But this function controls little other than what is passed to the server and what is shown on the page.
-4. The server is where all of the calculalations are done or plots are made.
+4. The server is where all of the calculations are done or plots are made or texts are combined.
     - It will take inputs from the UI.
     - And it will pass back outputs to the UI too.
 5.  We will talk about them separately, but remember they are in constant dialogue.
@@ -124,6 +124,12 @@ runExample("10_download") # file download wizard
 
 Go find **two** super cool/fun Shiny Apps and post a link up to Slack.  At least one should not be from the RStudio gallery.
 
+----
+
+
+Files for next few examples available at: 
+
+http://politicaldatascience.com/PDS/Slides/shinyApps.zip
 
 
 ---
@@ -328,6 +334,8 @@ shinyUI(fluidPage(
 
 ---
 
+## On to the server
+
 
 
 ```r
@@ -348,20 +356,90 @@ shinyServer(function(input, output) {
       group_by(Candidateidentifier)
     return(stateData)
   })
-  
-  # Now we prepare the output
-  output$trendPlot &lt;-renderPlot(
-    ggplot(passData(),  # Note passData() is a function
+
+    # Now we prepare the output
+  output$trendPlot &lt;-renderPlot({ # Note the brace
+    thePlot&lt;-ggplot(passData(),  # Note passData() is a function
            mapping=aes(x=daysLeft, y=Poll, color=Candidateidentifier)) +
       geom_smooth() +
-      ggtitle(paste0("2016 Senate Election in ", stateName)) + 
+      ggtitle(paste0("2016 Senate Election in ", input$stateSelect)) + 
       labs(y="Poll results", x="Days Till Election") + 
       geom_point() 
-  )
+    print(thePlot)
+  })
   
   
   }) # Close function/shinyServer call
 ```
+
+
+---
+
+## Maybe let's add another option
+
+
+
+```r
+library(shiny)
+shinyUI(fluidPage(  
+  titlePanel("2016 Senate Polling"), ## Setting the title
+  sidebarLayout( 
+    sidebarPanel(
+      selectInput(inputId = "stateSelect", # Different input
+                  label = "Choose state to display",
+                  choices=c("MO"="Missouri",
+                            "FL"="Florida",
+                            "NC"="North Carolina",
+                            "IA"="Iowa"
+                  ),
+                  multiple=FALSE
+      ), # End of selectInput
+      checkboxInput(inputId = "points", label="Add points?", 
+                    value = FALSE)
+    ), ## End of sidebar
+    mainPanel(  ## putting the main output here
+      plotOutput("trendPlot")
+    ) # Close main panel
+  ) 
+))
+```
+
+---
+
+
+```r
+library(shiny)
+shinyServer(function(input, output) {
+  
+  ## This will just be executed once
+  senateData&lt;-read.csv("PollingCandidateData92-16.csv") 
+  
+  # This will be updated when options are changed.
+  passData&lt;-reactive({ 
+    stateData&lt;-senateData %&gt;%
+      filter(state==input$stateSelect &amp; cycle==2016) %&gt;%
+      select(c("Poll", "daysLeft", "Candidateidentifier")) %&gt;% 
+      group_by(Candidateidentifier)
+    return(stateData)
+  })
+  
+  # Now we prepare the output
+  output$trendPlot &lt;-renderPlot({ # note brace
+    thePlot&lt;- ggplot(passData(),  # Note passData() is a function
+           mapping=aes(x=daysLeft, y=Poll, color=Candidateidentifier)) +
+      geom_smooth() +
+      ggtitle(paste0("2016 Senate Election in ", input$stateSelect)) + 
+      labs(y="Poll results", x="Days Till Election")
+    if(input$points){
+     thePlot&lt;-thePlot+ geom_point() 
+    }
+    print(thePlot) 
+  })
+  
+  
+  }) # Close function/shinyServer call
+```
+
 
 
 

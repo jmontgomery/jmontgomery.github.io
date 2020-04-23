@@ -80,7 +80,7 @@ Next
     - If there are outputs, they are primarily displayed here.
     - The outputs are often "dynamic"
     - But this function controls little other than what is passed to the server and what is shown on the page.
-4. The server is where all of the calculalations are done or plots are made.
+4. The server is where all of the calculations are done or plots are made or texts are combined.
     - It will take inputs from the UI.
     - And it will pass back outputs to the UI too.
 5.  We will talk about them separately, but remember they are in constant dialogue.
@@ -122,6 +122,12 @@ runExample("10_download") # file download wizard
 
 Go find **two** super cool/fun Shiny Apps and post a link up to Slack.  At least one should not be from the RStudio gallery.
 
+----
+
+
+Files for next few examples available at: 
+
+http://politicaldatascience.com/PDS/Slides/shinyApps.zip
 
 
 ---
@@ -337,7 +343,7 @@ shinyServer(function(input, output) {
     thePlot<-ggplot(passData(),  # Note passData() is a function
            mapping=aes(x=daysLeft, y=Poll, color=Candidateidentifier)) +
       geom_smooth() +
-      ggtitle(paste0("2016 Senate Election in ", stateName)) + 
+      ggtitle(paste0("2016 Senate Election in ", input$stateSelect)) + 
       labs(y="Poll results", x="Days Till Election") + 
       geom_point() 
     print(thePlot)
@@ -345,7 +351,7 @@ shinyServer(function(input, output) {
   
   
   }) # Close function/shinyServer call
-
+```
 
 
 ---
@@ -402,7 +408,7 @@ shinyServer(function(input, output) {
     thePlot<- ggplot(passData(),  # Note passData() is a function
            mapping=aes(x=daysLeft, y=Poll, color=Candidateidentifier)) +
       geom_smooth() +
-      ggtitle(paste0("2016 Senate Election in ", stateName)) + 
+      ggtitle(paste0("2016 Senate Election in ", input$stateSelect)) + 
       labs(y="Poll results", x="Days Till Election")
     if(input$points){
      thePlot<-thePlot+ geom_point() 

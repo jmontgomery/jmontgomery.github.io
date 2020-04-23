@@ -21,7 +21,7 @@ shinyServer(function(input, output) {
     thePlot<-ggplot(passData(),  # Note passData() is a function
            mapping=aes(x=daysLeft, y=Poll, color=Candidateidentifier)) +
       geom_smooth() +
-      ggtitle(paste0("2016 Senate Election in ", stateName)) + 
+      ggtitle(paste0("2016 Senate Election in ", input$stateSelect)) + 
       labs(y="Poll results", x="Days Till Election") + 
       geom_point() 
     print(thePlot)
