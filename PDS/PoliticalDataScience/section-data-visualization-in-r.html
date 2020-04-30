@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Political Data Science</title>
-  <meta name="description" content="Political Data Science" />
+  <title>6 Data Visualization in R | Political Data Science</title>
+  <meta name="description" content="6 Data Visualization in R | Political Data Science" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Political Data Science" />
+  <meta property="og:title" content="6 Data Visualization in R | Political Data Science" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Political Data Science" />
+  <meta name="twitter:title" content="6 Data Visualization in R | Political Data Science" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="section-getting-started-in-r.html"/>
+<link rel="prev" href="section-version-control.html"/>
+<link rel="next" href="section-dplyr-and-tidy.html"/>
 <script src="libs/header-attrs-2.1/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -361,106 +361,162 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="section-header">
-<h1 class="title">Political Data Science</h1>
-<p class="author"><em>Jacob Montgomery and Mariah Yelenick</em></p>
+<div id="section-data-visualization-in-r" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Data Visualization in R</h1>
+<div id="section-intro-to-ggplot2" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Intro to ggplot2</h2>
+<ul>
+<li><code>ggplot2</code> is a powerful way to build both simple and complex data visualizations</li>
+<li>Takes care of a lot of the stupid aspects of plot building</li>
+<li>Provides a language for layering visual elements</li>
+<li>Has been extended in dozens of ways to handle all kinds of data</li>
+<li>Integrates easily into the rest of the tidyverse</li>
+</ul>
+<div id="section-example" class="section level3" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Example</h3>
+<p>Data comes from 538.com</p>
+<div class="sourceCode" id="section-cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb472-1"><a href="section-data-visualization-in-r.html#section-cb472-1"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="section-cb472-2"><a href="section-data-visualization-in-r.html#section-cb472-2"></a>primaryPolls&lt;-<span class="kw">read.csv</span>(<span class="st">&#39;https://jmontgomery.github.io/PDS/Datasets/president_primary_polls_feb2020.csv&#39;</span>, <span class="dt">stringsAsFactors =</span> F)</span>
+<span id="section-cb472-3"><a href="section-data-visualization-in-r.html#section-cb472-3"></a>primaryPolls<span class="op">$</span>start_date&lt;-<span class="kw">as.Date</span>(primaryPolls<span class="op">$</span>start_date, <span class="st">&quot;%m/%d/%Y&quot;</span>)</span>
+<span id="section-cb472-4"><a href="section-data-visualization-in-r.html#section-cb472-4"></a>primaryPolls&lt;-primaryPolls[primaryPolls<span class="op">$</span>state<span class="op">==</span><span class="st">&quot;New Hampshire&quot;</span>,]</span>
+<span id="section-cb472-5"><a href="section-data-visualization-in-r.html#section-cb472-5"></a>primaryPolls&lt;-primaryPolls[primaryPolls<span class="op">$</span>candidate_name<span class="op">%in%</span><span class="kw">c</span>(<span class="st">&quot;Amy Klobuchar&quot;</span>, <span class="st">&quot;Bernard Sanders&quot;</span>, <span class="st">&quot;Elizabeth Warren&quot;</span>, <span class="st">&quot;Joseph R. Biden Jr.&quot;</span>, <span class="st">&quot;Michael Bloomberg&quot;</span>, <span class="st">&quot;Pete Buttigieg&quot;</span>),]</span></code></pre></div>
+<div class="sourceCode" id="section-cb473"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb473-1"><a href="section-data-visualization-in-r.html#section-cb473-1"></a><span class="kw">ggplot</span>(<span class="dt">data=</span>primaryPolls)<span class="op">+</span></span>
+<span id="section-cb473-2"><a href="section-data-visualization-in-r.html#section-cb473-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>start_date, <span class="dt">y=</span>pct))</span></code></pre></div>
+<p><img src="images/unnamed-chunk-125-1.png" width="672" style="display: block; margin: auto;" /></p>
+<ul>
+<li>The first line is always <code>ggplot</code>, which sets up the basic object that we will layer onto</li>
+<li>Then we use the <code>+</code> to add layers. In this case <code>geom_points</code>. THe <code>+</code> must be at the end of each line - not the beginning.</li>
+<li>Any <code>geom</code> layer requires a <code>mapping</code> argument, which itself comes with an <code>aes</code> argument explaining what goes on the x and y coordinates.</li>
+<li>Conveniently, the dataset only needs to be specified once.</li>
+</ul>
 </div>
-<div id="section-dont-be-a-clown" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Don’t be a clown</h1>
-<p><a href="https://imgflip.com/i/3m0rs1"><img src="https://i.imgflip.com/3m0rs1.jpg" title="made at imgflip.com"/></a></p>
-<blockquote>
-<p>I see miracles all around me <br>
-Stop and look around, it’s all astounding <br>
-Water, fire, air and dirt <br>
-Fucking magnets, how do they work? <br>
-And I don’t wanna talk to a scientist <br>
-Y’all motherfuckers lying, and getting me pissed <br>
-<br>
-<br>
-— Insane Clown Posse, <em>Miracles</em></p>
-</blockquote>
-<p><a href="https://genius.com/Insane-clown-posse-miracles-lyrics">Link</a> if you don’t know what I’m talking about</p>
-<blockquote>
-<p>Pollsters are wizards, shamans, diviners. They toss numbers around the way astragalomancers once tossed bones to foretell events to come. (The name comes from the Greek astragalos, meaning “knucklebone.” But you knew that.) <br></p>
-</blockquote>
-<blockquote>
-<p>I have never been called by a political pollster and don’t know anybody who has, but I know some pollsters, who assure me they don’t make the numbers up, and I believe them.<br>
-<br>
-<br>
-— Roger Simon, Chief Political Columnist, <em>Politico</em></p>
-</blockquote>
-<p><a href="https://www.politico.com/story/2011/12/are-polls-really-magic-070717">Link</a></p>
-<p>Depending on who you listen to, artificial intelligence and machine learning<a href="section-causality.html#section-fn1" class="footnote-ref" id="section-fnref1"><sup>1</sup></a> are either the cause or the solution to all of the world’s problems. On the one hand you have algorithms spreading misinformtion, large scale corporate surveillance, and predicted mass unemployment in the service sector. On the other hand you have ever-improving health diagnostics, data-driven journalism, and all the world’s information at the touch of your fingers (or voice).</p>
-<p>The term “data science” means different things to different people, but for most people the term doesn’t mean much at all. In the two quotes above, we see both the Insane Clown Posse and Politico’s (for God’s sake) chief political columnist share a loving embrace with ignorance about fundamental forces in our life. We swim in data and statistics. News, politics, and policy is increasingly being driven by data and algorithms. But all too few people know much about how these algorithms work. Like magnets or random sampling, data science is just a mysterious force that we have to cope with.</p>
-<p>The central goal of this class is to make sure you don’t have to be a clown. In today’s world, your future career will surely</p>
-<p>You will find that data science, machine learning, big data, and artificial intelligence is just another tool (if a powerful tool). It is neither good nor evil by itself. It is humans and human judgement (or lack of judgement) that lead to good our bad outcomes.</p>
-<p>But whether you intend to work for the forces of good or evil (I tend towards chaotic neutral)</p>
-<div id="section-as-easy-as-cake" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> As easy as cake</h2>
-<p>One way</p>
-<div id="section-coding" class="section level3" number="1.1.1">
-<h3><span class="header-section-number">1.1.1</span> Coding</h3>
+<div id="section-aesthetics" class="section level3" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> Aesthetics</h3>
+<ul>
+<li>The <code>aes</code> stands for aesthetics.<br />
+</li>
+<li>The nice part is we can easily make this more comlex</li>
+<li>And <code>ggplot</code> has pretty good defaults to handle things like color choices, legends, etc.</li>
+</ul>
+<div class="sourceCode" id="section-cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb474-1"><a href="section-data-visualization-in-r.html#section-cb474-1"></a><span class="kw">ggplot</span>(<span class="dt">data=</span>primaryPolls)<span class="op">+</span></span>
+<span id="section-cb474-2"><a href="section-data-visualization-in-r.html#section-cb474-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>start_date, <span class="dt">y=</span>pct, <span class="dt">color=</span> candidate_name))</span></code></pre></div>
+<p><img src="images/unnamed-chunk-126-1.png" width="672" style="display: block; margin: auto;" /></p>
+<ul>
+<li>Note that <code>ggplot</code> automatically chose a unique color.<br />
+</li>
+<li>It can do the same with shapes, point size, and transparency (alpha).</li>
+<li>alpha = 1 is completely opaque, alpha = 0.2 would be almost entirely see-through</li>
+<li>You can also set aesthetic characteristics manually (as I do with alpha here)</li>
+<li>Note that shapes only works by default with 6 categories</li>
+</ul>
+<div class="sourceCode" id="section-cb475"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb475-1"><a href="section-data-visualization-in-r.html#section-cb475-1"></a><span class="kw">ggplot</span>(<span class="dt">data=</span>primaryPolls)<span class="op">+</span></span>
+<span id="section-cb475-2"><a href="section-data-visualization-in-r.html#section-cb475-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>start_date, <span class="dt">y=</span>pct, <span class="dt">shape=</span> candidate_name, <span class="dt">color=</span>candidate_name), <span class="dt">alpha=</span>.<span class="dv">8</span>)</span></code></pre></div>
+<p><img src="images/unnamed-chunk-127-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="section-data-acquision" class="section level3" number="1.1.2">
-<h3><span class="header-section-number">1.1.2</span> Data acquision</h3>
-<p>Is that polling data you are looking at a random sample of Americans, or just everyone who attended that sick Delta Sig party? Were the people in your data randomly assigned to watch Fox news, or did they choose to?</p>
-<p>No matter how fancy your machine learning algorithm, the results don’t mean anything very much if you don’t</p>
-</div>
-<div id="section-algorithms" class="section level3" number="1.1.3">
-<h3><span class="header-section-number">1.1.3</span> Algorithms</h3>
-</div>
-<div id="section-domain-knowledge" class="section level3" number="1.1.4">
-<h3><span class="header-section-number">1.1.4</span> Domain knowledge</h3>
-<p>Like baking, the final thing you need to do good data science is what most people call “domain knowledge” and what I call “knowing what the hell you are talking about.” It turns out that having a really cool statistical model, huge amounts of data, and even a super computer sproting 24 GPUs will not save you from reaching the wrong answer if you don’t think (and aren’t trained to think).</p>
-<p><img src="Fig1.png" />
-<a href="https://www.researchgate.net/figure/A-famous-spurious-correlationstylervigencom_fig3_316739091">Link</a></p>
-</div>
-<div id="section-putting-it-together" class="section level3" number="1.1.5">
-<h3><span class="header-section-number">1.1.5</span> Putting it together</h3>
-<p>A final method. You can get along fine in may cases following the instructions on the back of the chocolate chip cookie bag. But to really become a “baker” you need to be able to create your own recipes for each occasion. And to do that you actually need to “know what the hell you are talking about.”</p>
-<p>So</p>
-</div>
-</div>
-<div id="section-class-structures" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Class structures</h2>
-<div id="section-learning-objective-1-team-based-learning" class="section level3" number="1.2.1">
-<h3><span class="header-section-number">1.2.1</span> Learning objective #1: Team based learning</h3>
-<p>This course was designed to incorporate elements of Team Based Learning. This is an approach to creating permanent groups to work on problems in class and out of class throughout the semester.</p>
-<p>We are not going to follow the TBL approach strictly. But we are going to have fewer lectures and more structured group activities. Learn more about Team Based Learning by watching this video.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kxg5FTGZhZs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-</div>
-<div id="section-learning-objective-2-show-up-ready" class="section level3" number="1.2.2">
-<h3><span class="header-section-number">1.2.2</span> Learning objective #2: Show up ready</h3>
-<p>Moving an increasing amount of teaching resources online is a big trend in education at all levels. But this isn’t just trendy, it appears to be very effective. Preliminary research shows that online learning paired with in-class interactions with faculty is a much more effective than the traditional lecture format.</p>
-<p>Watch this short TED talk by Peter Norvig to learn more:</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/tYclUdcsdeo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-<p>So in advance of each lecture</p>
-</div>
-<div id="section-learning-objective-3-how-is-this-going-to-work" class="section level3" number="1.2.3">
-<h3><span class="header-section-number">1.2.3</span> Learning objective #3: How is this going to work?</h3>
-<p>The approach I am trying to adopt for this class is to help you learn in four basic steps.</p>
-<ol style="list-style-type: decimal">
-<li><p>Initial exposure to materials through self-study.</p></li>
-<li><p>Repeated exposure to materials in short lectures.</p></li>
-<li><p>Use your new knowledge in a collaborative environment where assistance is readily available.</p></li>
-<li><p>Use your new knowledge on your own.</p></li>
-</ol>
-<p>The goal is for you to see and use information in multiple ways to improve learning outcomes. Experience (and research) shows that this approach is far superior to simple lectures in helping you learn more and retain it longer. To help you along this process, each learning component will be broken down as follows.</p>
-<ol style="list-style-type: decimal">
-<li><p>You will read your book and review online materials.</p></li>
-<li><p>I will begin most classes with a short lecture where I will cover the materials again and answer questions.</p></li>
-<li><p>You will apply your knowledge during in-class team assignments. If you have any questions or run into problems, I will be right there to give you help. To keep the team motivated, these assignments will be graded.</p></li>
-<li><p>You will apply your knowledge on your own (or with friends) in your problem sets and final project.</p></li>
-</ol>
+<div id="section-facets" class="section level3" number="6.1.3">
+<h3><span class="header-section-number">6.1.3</span> Facets</h3>
+<ul>
+<li>Perhaps most helpfully we can parse the data by features using a simple line</li>
+<li><code>ggplot</code> will then arrange everything else so it looks pretty OK</li>
+</ul>
+<div class="sourceCode" id="section-cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb476-1"><a href="section-data-visualization-in-r.html#section-cb476-1"></a><span class="kw">ggplot</span>(<span class="dt">data=</span>primaryPolls)<span class="op">+</span></span>
+<span id="section-cb476-2"><a href="section-data-visualization-in-r.html#section-cb476-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>start_date, <span class="dt">y=</span>pct)) <span class="op">+</span><span class="st"> </span></span>
+<span id="section-cb476-3"><a href="section-data-visualization-in-r.html#section-cb476-3"></a><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>candidate_name, <span class="dt">nrow=</span><span class="dv">4</span>)</span></code></pre></div>
+<p><img src="images/unnamed-chunk-128-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>You can also make a grid of plots, one dimension has each population level and the other has the candidate names</p>
+<div class="sourceCode" id="section-cb477"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb477-1"><a href="section-data-visualization-in-r.html#section-cb477-1"></a><span class="kw">ggplot</span>(<span class="dt">data=</span>primaryPolls)<span class="op">+</span></span>
+<span id="section-cb477-2"><a href="section-data-visualization-in-r.html#section-cb477-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>start_date, <span class="dt">y=</span>pct)) <span class="op">+</span><span class="st"> </span></span>
+<span id="section-cb477-3"><a href="section-data-visualization-in-r.html#section-cb477-3"></a><span class="st">    </span><span class="kw">facet_wrap</span>(population <span class="op">~</span><span class="st"> </span>candidate_name, <span class="dt">nrow=</span><span class="dv">2</span>)</span></code></pre></div>
+<p><img src="images/unnamed-chunk-129-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="section-interactive-r-environment" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Interactive R Environment</h2>
-<p>You might want to bookmark this page to test code quickly without opening RStudio.</p>
-<p>The username is the first name of the professor of this course and the password is the last name of the professor of this course</p>
-<iframe data-deferred-src="appf04d407751899a100bff9a76f0d52c9d/?w=&amp;__subapp__=1" width="100%" height="400" class="shiny-frame shiny-frame-deferred"></iframe>
+<div id="section-more-geom-options" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> More <code>geom</code> options</h2>
+<div class="sourceCode" id="section-cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb478-1"><a href="section-data-visualization-in-r.html#section-cb478-1"></a><span class="kw">ggplot</span>(<span class="dt">data=</span>primaryPolls)<span class="op">+</span></span>
+<span id="section-cb478-2"><a href="section-data-visualization-in-r.html#section-cb478-2"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>start_date, <span class="dt">y=</span>pct, <span class="dt">color=</span>candidate_name)) <span class="op">+</span><span class="st"> </span></span>
+<span id="section-cb478-3"><a href="section-data-visualization-in-r.html#section-cb478-3"></a><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>candidate_name, <span class="dt">nrow=</span><span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="images/unnamed-chunk-130-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="section-cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb480-1"><a href="section-data-visualization-in-r.html#section-cb480-1"></a><span class="kw">ggplot</span>(<span class="dt">data=</span>primaryPolls)<span class="op">+</span></span>
+<span id="section-cb480-2"><a href="section-data-visualization-in-r.html#section-cb480-2"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>start_date, <span class="dt">y=</span>pct, <span class="dt">color=</span>candidate_name)) <span class="op">+</span><span class="st"> </span></span>
+<span id="section-cb480-3"><a href="section-data-visualization-in-r.html#section-cb480-3"></a><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>start_date, <span class="dt">y=</span>pct, <span class="dt">color=</span>candidate_name), <span class="dt">alpha=</span>.<span class="dv">4</span>) <span class="op">+</span></span>
+<span id="section-cb480-4"><a href="section-data-visualization-in-r.html#section-cb480-4"></a><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>candidate_name, <span class="dt">nrow=</span><span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="images/unnamed-chunk-131-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="section-cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb482-1"><a href="section-data-visualization-in-r.html#section-cb482-1"></a><span class="kw">ggplot</span>(<span class="dt">data=</span>primaryPolls)<span class="op">+</span></span>
+<span id="section-cb482-2"><a href="section-data-visualization-in-r.html#section-cb482-2"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>start_date, <span class="dt">y=</span>pct, <span class="dt">color=</span>candidate_name, <span class="dt">linetype=</span>candidate_name))</span></code></pre></div>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="images/unnamed-chunk-132-1.png" width="672" style="display: block; margin: auto;" /></p>
+<ul>
+<li>ANd maybe we don’t want a legend?</li>
+</ul>
+<div class="sourceCode" id="section-cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb484-1"><a href="section-data-visualization-in-r.html#section-cb484-1"></a><span class="kw">ggplot</span>(<span class="dt">data=</span>primaryPolls)<span class="op">+</span></span>
+<span id="section-cb484-2"><a href="section-data-visualization-in-r.html#section-cb484-2"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>start_date, <span class="dt">y=</span>pct, <span class="dt">group=</span>candidate_name))</span></code></pre></div>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="images/unnamed-chunk-133-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="section-cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb486-1"><a href="section-data-visualization-in-r.html#section-cb486-1"></a><span class="kw">ggplot</span>(<span class="dt">data=</span>primaryPolls)<span class="op">+</span></span>
+<span id="section-cb486-2"><a href="section-data-visualization-in-r.html#section-cb486-2"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>start_date, <span class="dt">y=</span>pct, <span class="dt">color=</span>candidate_name), <span class="dt">show.legend=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="images/unnamed-chunk-134-1.png" width="672" style="display: block; margin: auto;" /></p>
+<ul>
+<li>We can combine multiple <code>geom</code> objects</li>
+</ul>
+<div class="sourceCode" id="section-cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb488-1"><a href="section-data-visualization-in-r.html#section-cb488-1"></a><span class="kw">ggplot</span>(<span class="dt">data=</span>primaryPolls)<span class="op">+</span></span>
+<span id="section-cb488-2"><a href="section-data-visualization-in-r.html#section-cb488-2"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>start_date, <span class="dt">y=</span>pct, <span class="dt">color=</span>candidate_name))<span class="op">+</span></span>
+<span id="section-cb488-3"><a href="section-data-visualization-in-r.html#section-cb488-3"></a><span class="st">   </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>start_date, <span class="dt">y=</span>pct, <span class="dt">color=</span>candidate_name), <span class="dt">alpha=</span>.<span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="images/unnamed-chunk-135-1.png" width="672" style="display: block; margin: auto;" /></p>
+<ul>
+<li>But we can also do this in a way easier to change (less copying and pasting)</li>
+</ul>
+<div class="sourceCode" id="section-cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb490-1"><a href="section-data-visualization-in-r.html#section-cb490-1"></a><span class="kw">ggplot</span>(<span class="dt">data=</span>primaryPolls, <span class="dt">mapping=</span><span class="kw">aes</span>(<span class="dt">x=</span>start_date, <span class="dt">y=</span>pct, <span class="dt">color=</span>candidate_name))<span class="op">+</span></span>
+<span id="section-cb490-2"><a href="section-data-visualization-in-r.html#section-cb490-2"></a><span class="st">  </span><span class="kw">geom_smooth</span>()<span class="op">+</span></span>
+<span id="section-cb490-3"><a href="section-data-visualization-in-r.html#section-cb490-3"></a><span class="st">   </span><span class="kw">geom_point</span>(<span class="dt">alpha=</span>.<span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="images/unnamed-chunk-136-1.png" width="672" style="display: block; margin: auto;" /></p>
+<ul>
+<li>And you can add specifics elments to a sub-layer</li>
+</ul>
+<div class="sourceCode" id="section-cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb492-1"><a href="section-data-visualization-in-r.html#section-cb492-1"></a><span class="kw">ggplot</span>(<span class="dt">data=</span>primaryPolls, <span class="dt">mapping=</span><span class="kw">aes</span>(<span class="dt">x=</span>start_date, <span class="dt">y=</span>pct, <span class="dt">color=</span>candidate_name))<span class="op">+</span></span>
+<span id="section-cb492-2"><a href="section-data-visualization-in-r.html#section-cb492-2"></a><span class="st">  </span><span class="kw">geom_smooth</span>()<span class="op">+</span></span>
+<span id="section-cb492-3"><a href="section-data-visualization-in-r.html#section-cb492-3"></a><span class="st">   </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">size=</span>sample_size), <span class="dt">alpha=</span>.<span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="images/unnamed-chunk-137-1.png" width="672" style="display: block; margin: auto;" /></p>
+<ul>
+<li>A lot of other options you are interested require knowing the right <code>geom</code> function</li>
+</ul>
+<div class="sourceCode" id="section-cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb494-1"><a href="section-data-visualization-in-r.html#section-cb494-1"></a><span class="kw">ggplot</span>(<span class="dt">data=</span>primaryPolls, <span class="dt">mapping=</span><span class="kw">aes</span>(<span class="dt">x=</span>fte_grade))<span class="op">+</span></span>
+<span id="section-cb494-2"><a href="section-data-visualization-in-r.html#section-cb494-2"></a><span class="st">  </span><span class="kw">geom_bar</span>()</span></code></pre></div>
+<p><img src="images/unnamed-chunk-138-1.png" width="672" style="display: block; margin: auto;" /></p>
+<ul>
+<li>This is also the same as counting the number of obserervations in each bin</li>
+</ul>
+<div class="sourceCode" id="section-cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb495-1"><a href="section-data-visualization-in-r.html#section-cb495-1"></a><span class="kw">ggplot</span>(<span class="dt">data=</span>primaryPolls, <span class="dt">mapping=</span><span class="kw">aes</span>(<span class="dt">x=</span>fte_grade))<span class="op">+</span></span>
+<span id="section-cb495-2"><a href="section-data-visualization-in-r.html#section-cb495-2"></a><span class="st">  </span><span class="kw">stat_count</span>()</span></code></pre></div>
+<p><img src="images/unnamed-chunk-139-1.png" width="672" style="display: block; margin: auto;" /></p>
+<ul>
+<li>This is also the same as counting the number of obserervations in each bin</li>
+</ul>
+<div class="sourceCode" id="section-cb496"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb496-1"><a href="section-data-visualization-in-r.html#section-cb496-1"></a><span class="kw">ggplot</span>(<span class="dt">data=</span>primaryPolls, <span class="dt">mapping=</span><span class="kw">aes</span>(<span class="dt">x=</span>candidate_name, <span class="dt">y=</span>pct))<span class="op">+</span></span>
+<span id="section-cb496-2"><a href="section-data-visualization-in-r.html#section-cb496-2"></a><span class="st">  </span><span class="kw">stat_summary</span>(</span>
+<span id="section-cb496-3"><a href="section-data-visualization-in-r.html#section-cb496-3"></a>    <span class="dt">fun.ymin=</span>min,</span>
+<span id="section-cb496-4"><a href="section-data-visualization-in-r.html#section-cb496-4"></a>    <span class="dt">fun.ymax=</span>max,</span>
+<span id="section-cb496-5"><a href="section-data-visualization-in-r.html#section-cb496-5"></a>    <span class="dt">fun.y=</span>median</span>
+<span id="section-cb496-6"><a href="section-data-visualization-in-r.html#section-cb496-6"></a>  )</span></code></pre></div>
+<pre><code>## Warning: `fun.y` is deprecated. Use `fun` instead.</code></pre>
+<pre><code>## Warning: `fun.ymin` is deprecated. Use `fun.min` instead.</code></pre>
+<pre><code>## Warning: `fun.ymax` is deprecated. Use `fun.max` instead.</code></pre>
+<p><img src="images/unnamed-chunk-140-1.png" width="672" style="display: block; margin: auto;" /></p>
+<ul>
+<li>You can also flip the coordinate system fairly quickly</li>
+</ul>
+<div class="sourceCode" id="section-cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb500-1"><a href="section-data-visualization-in-r.html#section-cb500-1"></a><span class="kw">ggplot</span>(<span class="dt">data=</span>primaryPolls, <span class="dt">mapping=</span><span class="kw">aes</span>(<span class="dt">x=</span>candidate_name, <span class="dt">y=</span>pct))<span class="op">+</span></span>
+<span id="section-cb500-2"><a href="section-data-visualization-in-r.html#section-cb500-2"></a><span class="st">  </span><span class="kw">geom_boxplot</span>()</span></code></pre></div>
+<p><img src="images/unnamed-chunk-141-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="section-cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb501-1"><a href="section-data-visualization-in-r.html#section-cb501-1"></a><span class="kw">ggplot</span>(<span class="dt">data=</span>primaryPolls, <span class="dt">mapping=</span><span class="kw">aes</span>(<span class="dt">x=</span>candidate_name, <span class="dt">y=</span>pct))<span class="op">+</span></span>
+<span id="section-cb501-2"><a href="section-data-visualization-in-r.html#section-cb501-2"></a><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></span>
+<span id="section-cb501-3"><a href="section-data-visualization-in-r.html#section-cb501-3"></a><span class="st">  </span><span class="kw">coord_flip</span>()</span></code></pre></div>
+<p><img src="images/unnamed-chunk-142-1.png" width="672" style="display: block; margin: auto;" /></p>
 
 </div>
 </div>
@@ -469,8 +525,8 @@ Y’all motherfuckers lying, and getting me pissed <br>
           </div>
         </div>
       </div>
-
-<a href="section-getting-started-in-r.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="section-version-control.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="section-dplyr-and-tidy.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

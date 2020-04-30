@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Political Data Science</title>
-  <meta name="description" content="Political Data Science" />
+  <title>10 Using SQL syntax on an R dataframe | Political Data Science</title>
+  <meta name="description" content="10 Using SQL syntax on an R dataframe | Political Data Science" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Political Data Science" />
+  <meta property="og:title" content="10 Using SQL syntax on an R dataframe | Political Data Science" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Political Data Science" />
+  <meta name="twitter:title" content="10 Using SQL syntax on an R dataframe | Political Data Science" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="section-getting-started-in-r.html"/>
+<link rel="prev" href="section-functions-and-packages.html"/>
+<link rel="next" href="section-machine-learning.html"/>
 <script src="libs/header-attrs-2.1/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -361,106 +361,178 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="section-header">
-<h1 class="title">Political Data Science</h1>
-<p class="author"><em>Jacob Montgomery and Mariah Yelenick</em></p>
+<div id="section-using-sql-syntax-on-an-r-dataframe" class="section level1" number="10">
+<h1><span class="header-section-number">10</span> Using SQL syntax on an R dataframe</h1>
+<div id="section-sql" class="section level2" number="10.1">
+<h2><span class="header-section-number">10.1</span> SQL</h2>
+<p>SQL (Structured Query Language) is the universally most widely used querying language for databases. There are variations of SQL,
+the most popular being MySQL and PostgreSQL. The syntax is very similar for all versions of SQL.</p>
+<p><a href="https://www.sqltutorial.org/sql-syntax/">Here</a>’s a helpful tutorial for SQl commands, but a few basic examples of each keyword are shown below:</p>
+<div id="section-select-and-from" class="section level3" number="10.1.1">
+<h3><span class="header-section-number">10.1.1</span> <code>SELECT</code> and <code>FROM</code></h3>
+<pre><code>SELECT col1, col2, col3 FROM table1
+
+SELECT * FROM table1</code></pre>
+<p>The first example selects the three columns specified from a table called table1. It will select all rows from table1 and return them in a new, temporary table
+unless the result is stored or used somewhere examples</p>
+<p>The second example selects all columns (and rows) from table1.</p>
 </div>
-<div id="section-dont-be-a-clown" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Don’t be a clown</h1>
-<p><a href="https://imgflip.com/i/3m0rs1"><img src="https://i.imgflip.com/3m0rs1.jpg" title="made at imgflip.com"/></a></p>
-<blockquote>
-<p>I see miracles all around me <br>
-Stop and look around, it’s all astounding <br>
-Water, fire, air and dirt <br>
-Fucking magnets, how do they work? <br>
-And I don’t wanna talk to a scientist <br>
-Y’all motherfuckers lying, and getting me pissed <br>
-<br>
-<br>
-— Insane Clown Posse, <em>Miracles</em></p>
-</blockquote>
-<p><a href="https://genius.com/Insane-clown-posse-miracles-lyrics">Link</a> if you don’t know what I’m talking about</p>
-<blockquote>
-<p>Pollsters are wizards, shamans, diviners. They toss numbers around the way astragalomancers once tossed bones to foretell events to come. (The name comes from the Greek astragalos, meaning “knucklebone.” But you knew that.) <br></p>
-</blockquote>
-<blockquote>
-<p>I have never been called by a political pollster and don’t know anybody who has, but I know some pollsters, who assure me they don’t make the numbers up, and I believe them.<br>
-<br>
-<br>
-— Roger Simon, Chief Political Columnist, <em>Politico</em></p>
-</blockquote>
-<p><a href="https://www.politico.com/story/2011/12/are-polls-really-magic-070717">Link</a></p>
-<p>Depending on who you listen to, artificial intelligence and machine learning<a href="section-causality.html#section-fn1" class="footnote-ref" id="section-fnref1"><sup>1</sup></a> are either the cause or the solution to all of the world’s problems. On the one hand you have algorithms spreading misinformtion, large scale corporate surveillance, and predicted mass unemployment in the service sector. On the other hand you have ever-improving health diagnostics, data-driven journalism, and all the world’s information at the touch of your fingers (or voice).</p>
-<p>The term “data science” means different things to different people, but for most people the term doesn’t mean much at all. In the two quotes above, we see both the Insane Clown Posse and Politico’s (for God’s sake) chief political columnist share a loving embrace with ignorance about fundamental forces in our life. We swim in data and statistics. News, politics, and policy is increasingly being driven by data and algorithms. But all too few people know much about how these algorithms work. Like magnets or random sampling, data science is just a mysterious force that we have to cope with.</p>
-<p>The central goal of this class is to make sure you don’t have to be a clown. In today’s world, your future career will surely</p>
-<p>You will find that data science, machine learning, big data, and artificial intelligence is just another tool (if a powerful tool). It is neither good nor evil by itself. It is humans and human judgement (or lack of judgement) that lead to good our bad outcomes.</p>
-<p>But whether you intend to work for the forces of good or evil (I tend towards chaotic neutral)</p>
-<div id="section-as-easy-as-cake" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> As easy as cake</h2>
-<p>One way</p>
-<div id="section-coding" class="section level3" number="1.1.1">
-<h3><span class="header-section-number">1.1.1</span> Coding</h3>
+<div id="section-where" class="section level3" number="10.1.2">
+<h3><span class="header-section-number">10.1.2</span> <code>WHERE</code></h3>
+<pre><code>SELECT movie_title, user, rating 
+    FROM movies 
+    WHERE rating &gt; 4 AND user NOT NULL</code></pre>
+<p>This will select all of the rating data (movie_title, user, and rating) from the movies table with a rating &gt; 4 and a not-null user</p>
 </div>
-<div id="section-data-acquision" class="section level3" number="1.1.2">
-<h3><span class="header-section-number">1.1.2</span> Data acquision</h3>
-<p>Is that polling data you are looking at a random sample of Americans, or just everyone who attended that sick Delta Sig party? Were the people in your data randomly assigned to watch Fox news, or did they choose to?</p>
-<p>No matter how fancy your machine learning algorithm, the results don’t mean anything very much if you don’t</p>
+<div id="section-functions-2" class="section level3" number="10.1.3">
+<h3><span class="header-section-number">10.1.3</span> Functions</h3>
+<p>We can use aggregate functions like sum, min, max, count, or average with group by to apply that function to each group.</p>
+<p>Remember that your group by variable must be included in your select statement!</p>
+<pre><code>-- valid
+SELECT movie_title, AVG(rating) 
+    FROM movies 
+    GROUP BY movie_title 
+
+-- invalid (we wouldn&#39;t know which avg goes with which movie!!)
+SELECT AVG(rating) 
+    FROM movies 
+    GROUP BY movie_title </code></pre>
+<p>We can also specify what we want the resulting aggregate column to be called. The above example would give us nicer output with this code:</p>
+<pre><code>SELECT movie_title, AVG(rating) AS rating_avg
+    FROM movies 
+    GROUP BY movie_title </code></pre>
+<p>We can limit the number of results returned, find only unique values, and sort our results as well.</p>
+<pre><code>SELECT DISTINCT student_id, student_full_name 
+    FROM assignments 
+    ORDER BY student_full_name DESC 
+    LIMIT 100</code></pre>
+<p>This query will grab the first 100 distinct students (uniqueness determined by id and full name) sorted in reverse alphabetical order.</p>
 </div>
-<div id="section-algorithms" class="section level3" number="1.1.3">
-<h3><span class="header-section-number">1.1.3</span> Algorithms</h3>
+<div id="section-having" class="section level3" number="10.1.4">
+<h3><span class="header-section-number">10.1.4</span> <code>HAVING</code></h3>
+<p><code>HAVING</code> is the equivalent function of <code>WHERE</code> for aggregate conditions. For example,</p>
+<pre><code>SELECT movie_title, AVG(rating) AS rating_avg 
+    FROM movies 
+    GROUP BY movie_title 
+    HAVING rating_avg &lt; 2</code></pre>
+<p>This pulls all the movies and their average ratings that had an average rating less than 2.</p>
 </div>
-<div id="section-domain-knowledge" class="section level3" number="1.1.4">
-<h3><span class="header-section-number">1.1.4</span> Domain knowledge</h3>
-<p>Like baking, the final thing you need to do good data science is what most people call “domain knowledge” and what I call “knowing what the hell you are talking about.” It turns out that having a really cool statistical model, huge amounts of data, and even a super computer sproting 24 GPUs will not save you from reaching the wrong answer if you don’t think (and aren’t trained to think).</p>
-<p><img src="Fig1.png" />
-<a href="https://www.researchgate.net/figure/A-famous-spurious-correlationstylervigencom_fig3_316739091">Link</a></p>
+<div id="section-withas-and-subqueries" class="section level3" number="10.1.5">
+<h3><span class="header-section-number">10.1.5</span> <code>WITH</code>/<code>AS</code> and Subqueries</h3>
+<p>Subqueries are very powerful and come in two syntatical forms. They allow us to create temporary tables which only exist for that query
+then disappear.</p>
+<pre><code>SELECT employee_id, first_name, last_name, salary 
+    FROM employees 
+    WHERE salary = (
+        SELECT MAX(salary) 
+        FROM employees
+    ) 
+    ORDER BY first_name, last_name</code></pre>
+<p>This syntax is equivalent to the following:</p>
+<pre><code>WITH temp_table AS (SELECT MAX(salary) FROM employees)
+    SELECT employee_id, first_name, last_name, salary 
+    ORDER BY first_name, last_name
+</code></pre>
 </div>
-<div id="section-putting-it-together" class="section level3" number="1.1.5">
-<h3><span class="header-section-number">1.1.5</span> Putting it together</h3>
-<p>A final method. You can get along fine in may cases following the instructions on the back of the chocolate chip cookie bag. But to really become a “baker” you need to be able to create your own recipes for each occasion. And to do that you actually need to “know what the hell you are talking about.”</p>
-<p>So</p>
-</div>
-</div>
-<div id="section-class-structures" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Class structures</h2>
-<div id="section-learning-objective-1-team-based-learning" class="section level3" number="1.2.1">
-<h3><span class="header-section-number">1.2.1</span> Learning objective #1: Team based learning</h3>
-<p>This course was designed to incorporate elements of Team Based Learning. This is an approach to creating permanent groups to work on problems in class and out of class throughout the semester.</p>
-<p>We are not going to follow the TBL approach strictly. But we are going to have fewer lectures and more structured group activities. Learn more about Team Based Learning by watching this video.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kxg5FTGZhZs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-</div>
-<div id="section-learning-objective-2-show-up-ready" class="section level3" number="1.2.2">
-<h3><span class="header-section-number">1.2.2</span> Learning objective #2: Show up ready</h3>
-<p>Moving an increasing amount of teaching resources online is a big trend in education at all levels. But this isn’t just trendy, it appears to be very effective. Preliminary research shows that online learning paired with in-class interactions with faculty is a much more effective than the traditional lecture format.</p>
-<p>Watch this short TED talk by Peter Norvig to learn more:</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/tYclUdcsdeo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-<p>So in advance of each lecture</p>
-</div>
-<div id="section-learning-objective-3-how-is-this-going-to-work" class="section level3" number="1.2.3">
-<h3><span class="header-section-number">1.2.3</span> Learning objective #3: How is this going to work?</h3>
-<p>The approach I am trying to adopt for this class is to help you learn in four basic steps.</p>
-<ol style="list-style-type: decimal">
-<li><p>Initial exposure to materials through self-study.</p></li>
-<li><p>Repeated exposure to materials in short lectures.</p></li>
-<li><p>Use your new knowledge in a collaborative environment where assistance is readily available.</p></li>
-<li><p>Use your new knowledge on your own.</p></li>
-</ol>
-<p>The goal is for you to see and use information in multiple ways to improve learning outcomes. Experience (and research) shows that this approach is far superior to simple lectures in helping you learn more and retain it longer. To help you along this process, each learning component will be broken down as follows.</p>
-<ol style="list-style-type: decimal">
-<li><p>You will read your book and review online materials.</p></li>
-<li><p>I will begin most classes with a short lecture where I will cover the materials again and answer questions.</p></li>
-<li><p>You will apply your knowledge during in-class team assignments. If you have any questions or run into problems, I will be right there to give you help. To keep the team motivated, these assignments will be graded.</p></li>
-<li><p>You will apply your knowledge on your own (or with friends) in your problem sets and final project.</p></li>
-</ol>
+<div id="section-joins" class="section level3" number="10.1.6">
+<h3><span class="header-section-number">10.1.6</span> Joins</h3>
+<p>Joins work the same way as they did in the tidyverse. There are a few types of joins:</p>
+<ul>
+<li>“Inner joins” produce results only where the linking variable appears on both tables</li>
+<li>“Outer joins” produce results with all data, and fills in missing values as necessary
+<ul>
+<li>Left join keeps only observations from the first specified data if their is no match.</li>
+<li>Right join keeps only observations from the second data</li>
+<li>Full join keeps everything</li>
+</ul></li>
+</ul>
+<p>Here’s an example SQL query using two tables (movies, users)</p>
+<pre><code>SELECT users.*, count(movie_id) 
+    FROM users 
+    LEFT JOIN movies 
+        ON users.user_id = movies.viewer_id 
+    GROUP BY users.user_id 
+    LIMIT 10</code></pre>
+<p>This will select the first 10 users from the users table (users.*) and add a new column with the count of the number of movies they saw.</p>
+<p>If both tables had a field called user_id that we wanted to join on, we could say <code>LEFT JOIN movies ON user_id</code> instead of specifying
+what the column is called in each table. If the column name is ambiguous (because it’s present in both tables), a GROUP BY or ORDER BY or SELECT
+should specify which table to take the column from by saying <code>table.column</code></p>
 </div>
 </div>
-<div id="section-interactive-r-environment" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Interactive R Environment</h2>
-<p>You might want to bookmark this page to test code quickly without opening RStudio.</p>
-<p>The username is the first name of the professor of this course and the password is the last name of the professor of this course</p>
-<iframe data-deferred-src="appf04d407751899a100bff9a76f0d52c9d/?w=&amp;__subapp__=1" width="100%" height="400" class="shiny-frame shiny-frame-deferred"></iframe>
+<div id="section-the-sqldf-package" class="section level2" number="10.2">
+<h2><span class="header-section-number">10.2</span> The <code>sqldf</code> package</h2>
+<p>The main package we’ll be using to convert SQL commands to R manipulations is <code>sqldf</code>.</p>
+<p>Here’s an example using the same data from the Tidy chapter.</p>
+<p>Data comes from fivethirtyeight.com</p>
+<div class="sourceCode" id="section-cb780"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb780-1"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb780-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="section-cb780-2"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb780-2"></a><span class="kw">library</span>(tidyr)</span>
+<span id="section-cb780-3"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb780-3"></a><span class="kw">library</span>(readr)</span>
+<span id="section-cb780-4"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb780-4"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="section-cb780-5"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb780-5"></a>mayors&lt;-<span class="kw">read_csv</span>(<span class="st">&quot;../Datasets/Mayors.csv&quot;</span>)</span>
+<span id="section-cb780-6"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb780-6"></a>tweets&lt;-<span class="kw">read_csv</span>(<span class="st">&quot;C:/Users/maria/OneDrive/WUSTL/2019-20/PDS/Tweets.csv&quot;</span>)</span></code></pre></div>
+<p><code>mayors</code> and <code>tweets</code> are tibbles, but we want to operate our SQL queries on data frames</p>
+<div class="sourceCode" id="section-cb781"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb781-1"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb781-1"></a>mayorsDF &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(mayors)</span>
+<span id="section-cb781-2"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb781-2"></a>tweetsDF &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(tweets)</span></code></pre></div>
+<p>Now we can start using our newfound SQL powers to truly explore our data. For a warm-up, let’s count how many mayors are present in our dataset.</p>
+<div class="sourceCode" id="section-cb782"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb782-1"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb782-1"></a><span class="kw">library</span>(sqldf)</span>
+<span id="section-cb782-2"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb782-2"></a><span class="kw">sqldf</span>( <span class="st">&quot;SELECT COUNT(DISTINCT FullName) </span></span>
+<span id="section-cb782-3"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb782-3"></a><span class="st">            FROM mayorsDF&quot;</span> )</span></code></pre></div>
+<pre><code>##   COUNT(DISTINCT FullName)
+## 1                     1406</code></pre>
+<p>We can confirm this with our tidy skills:</p>
+<div class="sourceCode" id="section-cb784"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb784-1"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb784-1"></a>mayors <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="section-cb784-2"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb784-2"></a><span class="st">    </span><span class="kw">select</span>(<span class="st">&quot;FullName&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="section-cb784-3"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb784-3"></a><span class="st">    </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(FullName)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="section-cb784-4"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb784-4"></a><span class="st">    </span><span class="kw">n_distinct</span>()</span></code></pre></div>
+<pre><code>## [1] 1406</code></pre>
+<p>Note that we need to filter out NA/null values from the dataset before taking unique values in tidy. Tidy counts null as a unique value.</p>
+<p>How about adding a column to the mayors dataset that counts the number of tweets they have made?</p>
+<p>With SQL:</p>
+<div class="sourceCode" id="section-cb786"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb786-1"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb786-1"></a>mayors_newDF &lt;-<span class="st"> </span><span class="kw">sqldf</span>( <span class="st">&quot;SELECT mayorsDF.*, COUNT(TweetID) AS nTweets</span></span>
+<span id="section-cb786-2"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb786-2"></a><span class="st">                            FROM mayorsDF </span></span>
+<span id="section-cb786-3"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb786-3"></a><span class="st">                            INNER JOIN tweetsDF </span></span>
+<span id="section-cb786-4"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb786-4"></a><span class="st">                            ON mayorsDF.TwitterHandle = tweetsDF.ScreenName </span></span>
+<span id="section-cb786-5"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb786-5"></a><span class="st">                            GROUP BY MayorID</span></span>
+<span id="section-cb786-6"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb786-6"></a><span class="st">                            ORDER BY nTweets DESC, FullName ASC&quot;</span> )</span>
+<span id="section-cb786-7"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb786-7"></a><span class="kw">head</span>(mayors_newDF[<span class="kw">c</span>(<span class="st">&quot;MayorID&quot;</span>, <span class="st">&quot;FullName&quot;</span>, <span class="st">&quot;TwitterHandle&quot;</span>, <span class="st">&quot;nTweets&quot;</span>)], <span class="dt">n=</span><span class="dv">10</span>)</span></code></pre></div>
+<pre><code>##    MayorID          FullName   TwitterHandle nTweets
+## 1      902    Derek Armstead  derek_armstead    3200
+## 2     1143      Ed Pawlowski    ed_pawlowski    3200
+## 3      778      Emily Larson larsonforduluth    3200
+## 4     1071     Greg Peterson      dublinohio    3200
+## 5      812  Jason L. Shelton tupmayorsoffice    3200
+## 6     1141        Jim Kenney     phillymayor    3200
+## 7      498     Rahm Emmanuel   chicagosmayor    3200
+## 8      443 Thomas A. Masters    mayormasters    3200
+## 9       11  William Stimpson   mayorstimpson    3200
+## 10     715        Andy Schor       andyschor    3199</code></pre>
+<p>With tidy:</p>
+<div class="sourceCode" id="section-cb788"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb788-1"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb788-1"></a>tweetCounts &lt;-<span class="st"> </span>tweets <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="section-cb788-2"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb788-2"></a><span class="st">    </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(ScreenName)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="section-cb788-3"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb788-3"></a><span class="st">    </span><span class="kw">group_by</span>(ScreenName) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="section-cb788-4"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb788-4"></a><span class="st">    </span><span class="kw">tally</span>()</span>
+<span id="section-cb788-5"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb788-5"></a>mayors_new &lt;-<span class="st"> </span>mayors <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="section-cb788-6"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb788-6"></a><span class="st">    </span><span class="kw">inner_join</span>(tweetCounts, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;TwitterHandle&quot;</span>=<span class="st">&quot;ScreenName&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="section-cb788-7"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb788-7"></a><span class="st">    </span><span class="kw">group_by</span>(MayorID) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="section-cb788-8"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb788-8"></a><span class="st">    </span><span class="kw">arrange</span>(FullName) <span class="op">%&gt;%</span></span>
+<span id="section-cb788-9"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb788-9"></a><span class="st">    </span><span class="kw">arrange</span>(<span class="kw">desc</span>(n)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="section-cb788-10"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb788-10"></a><span class="st">    </span><span class="kw">select</span>(<span class="st">&quot;MayorID&quot;</span>, <span class="st">&quot;FullName&quot;</span>, <span class="st">&quot;TwitterHandle&quot;</span>, <span class="st">&quot;n&quot;</span>)</span>
+<span id="section-cb788-11"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-cb788-11"></a>mayors_new</span></code></pre></div>
+<pre><code>## # A tibble: 572 x 4
+## # Groups:   MayorID [572]
+##    MayorID FullName          TwitterHandle       n
+##      &lt;dbl&gt; &lt;chr&gt;             &lt;chr&gt;           &lt;int&gt;
+##  1     902 Derek Armstead    derek_armstead   3200
+##  2    1143 Ed Pawlowski      ed_pawlowski     3200
+##  3     778 Emily Larson      larsonforduluth  3200
+##  4    1071 Greg Peterson     dublinohio       3200
+##  5     812 Jason L. Shelton  tupmayorsoffice  3200
+##  6    1141 Jim Kenney        phillymayor      3200
+##  7     498 Rahm Emmanuel     chicagosmayor    3200
+##  8     443 Thomas A. Masters mayormasters     3200
+##  9      11 William Stimpson  mayorstimpson    3200
+## 10     715 Andy Schor        andyschor        3199
+## # ... with 562 more rows</code></pre>
 
 </div>
 </div>
@@ -469,8 +541,8 @@ Y’all motherfuckers lying, and getting me pissed <br>
           </div>
         </div>
       </div>
-
-<a href="section-getting-started-in-r.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="section-functions-and-packages.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="section-machine-learning.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
