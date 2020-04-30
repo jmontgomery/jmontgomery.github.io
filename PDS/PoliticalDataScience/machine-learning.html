@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>11 Machine Learning | Political Data Science</title>
   <meta name="description" content="11 Machine Learning | Political Data Science" />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="11 Machine Learning | Political Data Science" />
   <meta property="og:type" content="book" />
@@ -144,6 +144,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#learning-objective-2-show-up-ready"><i class="fa fa-check"></i><b>1.2.2</b> Learning objective #2: Show up ready</a></li>
 <li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#learning-objective-3-how-is-this-going-to-work"><i class="fa fa-check"></i><b>1.2.3</b> Learning objective #3: How is this going to work?</a></li>
 </ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#interactive-r-environment"><i class="fa fa-check"></i><b>1.3</b> Interactive R Environment</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html"><i class="fa fa-check"></i><b>2</b> Getting Started in R</a>
 <ul>
@@ -417,8 +418,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="example-predicting-presidential-elections-with-vote-share" class="section level3" number="11.1.3">
 <h3><span class="header-section-number">11.1.3</span> Example: Predicting presidential elections with vote share</h3>
 <p>Today we are going to use the results of US presidential elections since 1948</p>
-<div class="sourceCode" id="cb787"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb787-1"><a href="machine-learning.html#cb787-1"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb787-2"><a href="machine-learning.html#cb787-2"></a>electData&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;http://politicaldatascience.com/PDS/Datasets/presElect.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb789"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb789-1"><a href="machine-learning.html#cb789-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb789-2"><a href="machine-learning.html#cb789-2"></a>electData&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;http://politicaldatascience.com/PDS/Datasets/presElect.csv&quot;</span>)</span></code></pre></div>
 <ul>
 <li><strong>Year</strong>: Year of the election</li>
 <li><strong>q2gdp</strong>: GDP in the second quarter</li>
@@ -429,10 +430,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div id="linear-regression" class="section level4" number="11.1.3.1">
 <h4><span class="header-section-number">11.1.3.1</span> Linear regression</h4>
-<p><img src="images/unnamed-chunk-240-1.png" width="1152" /></p>
+<p><img src="images/unnamed-chunk-241-1.png" width="1152" /></p>
 <p>We’ll use the <code>lm</code> function to generate a linear model</p>
-<div class="sourceCode" id="cb788"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb788-1"><a href="machine-learning.html#cb788-1"></a>Model1&lt;-<span class="kw">lm</span>(vote<span class="op">~</span>q2gdp, <span class="dt">data=</span>electData)</span>
-<span id="cb788-2"><a href="machine-learning.html#cb788-2"></a><span class="kw">summary</span>(Model1)</span></code></pre></div>
+<div class="sourceCode" id="cb790"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb790-1"><a href="machine-learning.html#cb790-1"></a>Model1&lt;-<span class="kw">lm</span>(vote<span class="op">~</span>q2gdp, <span class="dt">data=</span>electData)</span>
+<span id="cb790-2"><a href="machine-learning.html#cb790-2"></a><span class="kw">summary</span>(Model1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = vote ~ q2gdp, data = electData)
@@ -468,18 +469,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="prediction" class="section level4" number="11.1.3.2">
 <h4><span class="header-section-number">11.1.3.2</span> Prediction</h4>
 <p>Let’s train our model using the data before 2016, then see what it predicts the vote will be for the 2016 election.</p>
-<div class="sourceCode" id="cb790"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb790-1"><a href="machine-learning.html#cb790-1"></a>electData<span class="op">$</span>vote[electData<span class="op">$</span>year<span class="op">==</span><span class="dv">2016</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb792"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb792-1"><a href="machine-learning.html#cb792-1"></a>electData<span class="op">$</span>vote[electData<span class="op">$</span>year<span class="op">==</span><span class="dv">2016</span>]</span></code></pre></div>
 <pre><code>## [1] 50.5</code></pre>
-<div class="sourceCode" id="cb792"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb792-1"><a href="machine-learning.html#cb792-1"></a>Model2&lt;-<span class="kw">lm</span>(vote<span class="op">~</span>q2gdp<span class="op">+</span>JuneApp, <span class="dt">data=</span>electData[electData<span class="op">$</span>year<span class="op">!=</span><span class="dv">2016</span>,])</span>
-<span id="cb792-2"><a href="machine-learning.html#cb792-2"></a><span class="kw">predict</span>(Model2, <span class="dt">newdata=</span>electData[electData<span class="op">$</span>year<span class="op">==</span><span class="dv">2016</span>,])</span></code></pre></div>
+<div class="sourceCode" id="cb794"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb794-1"><a href="machine-learning.html#cb794-1"></a>Model2&lt;-<span class="kw">lm</span>(vote<span class="op">~</span>q2gdp<span class="op">+</span>JuneApp, <span class="dt">data=</span>electData[electData<span class="op">$</span>year<span class="op">!=</span><span class="dv">2016</span>,])</span>
+<span id="cb794-2"><a href="machine-learning.html#cb794-2"></a><span class="kw">predict</span>(Model2, <span class="dt">newdata=</span>electData[electData<span class="op">$</span>year<span class="op">==</span><span class="dv">2016</span>,])</span></code></pre></div>
 <pre><code>##       18 
 ## 50.88913</code></pre>
 <p>Pretty good!</p>
 </div>
 <div id="feature-selection" class="section level4" number="11.1.3.3">
 <h4><span class="header-section-number">11.1.3.3</span> Feature selection</h4>
-<div class="sourceCode" id="cb794"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb794-1"><a href="machine-learning.html#cb794-1"></a>Model3&lt;-<span class="kw">lm</span>(vote<span class="op">~</span>q2gdp<span class="op">+</span>JuneApp, <span class="dt">data=</span>electData)</span>
-<span id="cb794-2"><a href="machine-learning.html#cb794-2"></a><span class="kw">summary</span>(Model3)</span></code></pre></div>
+<div class="sourceCode" id="cb796"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb796-1"><a href="machine-learning.html#cb796-1"></a>Model3&lt;-<span class="kw">lm</span>(vote<span class="op">~</span>q2gdp<span class="op">+</span>JuneApp, <span class="dt">data=</span>electData)</span>
+<span id="cb796-2"><a href="machine-learning.html#cb796-2"></a><span class="kw">summary</span>(Model3)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = vote ~ q2gdp + JuneApp, data = electData)
@@ -508,8 +509,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="exploration" class="section level4" number="11.1.3.4">
 <h4><span class="header-section-number">11.1.3.4</span> Exploration</h4>
-<div class="sourceCode" id="cb796"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb796-1"><a href="machine-learning.html#cb796-1"></a>Model4&lt;-<span class="kw">lm</span>(vote<span class="op">~</span>JuneApp<span class="op">+</span>Inc, <span class="dt">data=</span>electData)</span>
-<span id="cb796-2"><a href="machine-learning.html#cb796-2"></a><span class="kw">summary</span>(Model4)</span></code></pre></div>
+<div class="sourceCode" id="cb798"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb798-1"><a href="machine-learning.html#cb798-1"></a>Model4&lt;-<span class="kw">lm</span>(vote<span class="op">~</span>JuneApp<span class="op">+</span>Inc, <span class="dt">data=</span>electData)</span>
+<span id="cb798-2"><a href="machine-learning.html#cb798-2"></a><span class="kw">summary</span>(Model4)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = vote ~ JuneApp + Inc, data = electData)
@@ -564,8 +565,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div id="a-new-example" class="section level4" number="11.1.4.1">
 <h4><span class="header-section-number">11.1.4.1</span> A new example</h4>
-<div class="sourceCode" id="cb798"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb798-1"><a href="machine-learning.html#cb798-1"></a><span class="kw">library</span>(readr)</span>
-<span id="cb798-2"><a href="machine-learning.html#cb798-2"></a>senateData&lt;-<span class="kw">read_csv</span>(<span class="st">&quot;http://politicaldatascience.com/PDS/Datasets/SenateForecast/CandidateLevel.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb800"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb800-1"><a href="machine-learning.html#cb800-1"></a><span class="kw">library</span>(readr)</span>
+<span id="cb800-2"><a href="machine-learning.html#cb800-2"></a>senateData&lt;-<span class="kw">read_csv</span>(<span class="st">&quot;http://politicaldatascience.com/PDS/Datasets/SenateForecast/CandidateLevel.csv&quot;</span>)</span></code></pre></div>
 <p>This is data on US Senate elections from 1992-2016.
 - <strong>VotePercentage</strong>: Percentage of the vote for that candidate
 - <strong>Republican</strong>: 1=Republican, 0=Any other
@@ -577,13 +578,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 - <strong>Incumbent</strong>: -1 = Running against incument, 0=open seat, 1 = Is the incumbent
 - <strong>PercentageRaised</strong>: Percent of money for that race raised by that candidate</p>
 <p>Model 1: Simple</p>
-<div class="sourceCode" id="cb799"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb799-1"><a href="machine-learning.html#cb799-1"></a>SimpleModelFull&lt;-<span class="kw">lm</span>(VotePercentage<span class="op">~</span>pvi<span class="op">*</span>Republican<span class="op">+</span>Incumbent, <span class="dt">data=</span>senateData)</span>
-<span id="cb799-2"><a href="machine-learning.html#cb799-2"></a><span class="kw">summary</span>(SimpleModelFull)<span class="op">$</span>r.squared</span></code></pre></div>
+<div class="sourceCode" id="cb801"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb801-1"><a href="machine-learning.html#cb801-1"></a>SimpleModelFull&lt;-<span class="kw">lm</span>(VotePercentage<span class="op">~</span>pvi<span class="op">*</span>Republican<span class="op">+</span>Incumbent, <span class="dt">data=</span>senateData)</span>
+<span id="cb801-2"><a href="machine-learning.html#cb801-2"></a><span class="kw">summary</span>(SimpleModelFull)<span class="op">$</span>r.squared</span></code></pre></div>
 <pre><code>## [1] 0.5895867</code></pre>
 <p>Model 2: Complex</p>
-<div class="sourceCode" id="cb801"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb801-1"><a href="machine-learning.html#cb801-1"></a>ComplexModelFull&lt;-<span class="kw">lm</span>(VotePercentage<span class="op">~</span>pvi<span class="op">*</span>Republican<span class="op">+</span>weightexperience </span>
-<span id="cb801-2"><a href="machine-learning.html#cb801-2"></a>                 <span class="op">+</span><span class="st"> </span>GenericBallotSept<span class="op">*</span>Republican <span class="op">+</span><span class="st"> </span>Incumbent, <span class="dt">data=</span>senateData)</span>
-<span id="cb801-3"><a href="machine-learning.html#cb801-3"></a><span class="kw">summary</span>(ComplexModelFull)<span class="op">$</span>r.squared</span></code></pre></div>
+<div class="sourceCode" id="cb803"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb803-1"><a href="machine-learning.html#cb803-1"></a>ComplexModelFull&lt;-<span class="kw">lm</span>(VotePercentage<span class="op">~</span>pvi<span class="op">*</span>Republican<span class="op">+</span>weightexperience </span>
+<span id="cb803-2"><a href="machine-learning.html#cb803-2"></a>                 <span class="op">+</span><span class="st"> </span>GenericBallotSept<span class="op">*</span>Republican <span class="op">+</span><span class="st"> </span>Incumbent, <span class="dt">data=</span>senateData)</span>
+<span id="cb803-3"><a href="machine-learning.html#cb803-3"></a><span class="kw">summary</span>(ComplexModelFull)<span class="op">$</span>r.squared</span></code></pre></div>
 <pre><code>## [1] 0.6457033</code></pre>
 <p>Seems a little better</p>
 <p>So what’s that mean?</p>
@@ -601,32 +602,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="cross-validation" class="section level4" number="11.1.4.2">
 <h4><span class="header-section-number">11.1.4.2</span> Cross Validation</h4>
-<div class="sourceCode" id="cb803"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb803-1"><a href="machine-learning.html#cb803-1"></a><span class="kw">library</span>(rsample)</span>
-<span id="cb803-2"><a href="machine-learning.html#cb803-2"></a>split_senateData&lt;-<span class="kw">initial_split</span>(senateData, <span class="dt">prop=</span>.<span class="dv">8</span>)</span>
-<span id="cb803-3"><a href="machine-learning.html#cb803-3"></a>senate_train&lt;-<span class="kw">training</span>(split_senateData)</span>
-<span id="cb803-4"><a href="machine-learning.html#cb803-4"></a>senate_test&lt;-<span class="kw">testing</span>(split_senateData)</span></code></pre></div>
+<div class="sourceCode" id="cb805"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb805-1"><a href="machine-learning.html#cb805-1"></a><span class="kw">library</span>(rsample)</span>
+<span id="cb805-2"><a href="machine-learning.html#cb805-2"></a>split_senateData&lt;-<span class="kw">initial_split</span>(senateData, <span class="dt">prop=</span>.<span class="dv">8</span>)</span>
+<span id="cb805-3"><a href="machine-learning.html#cb805-3"></a>senate_train&lt;-<span class="kw">training</span>(split_senateData)</span>
+<span id="cb805-4"><a href="machine-learning.html#cb805-4"></a>senate_test&lt;-<span class="kw">testing</span>(split_senateData)</span></code></pre></div>
 <p>Let’s look at those:</p>
-<div class="sourceCode" id="cb804"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb804-1"><a href="machine-learning.html#cb804-1"></a><span class="kw">dim</span>(senate_train)</span></code></pre></div>
+<div class="sourceCode" id="cb806"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb806-1"><a href="machine-learning.html#cb806-1"></a><span class="kw">dim</span>(senate_train)</span></code></pre></div>
 <pre><code>## [1] 665  14</code></pre>
-<div class="sourceCode" id="cb806"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb806-1"><a href="machine-learning.html#cb806-1"></a><span class="kw">dim</span>(senate_test)</span></code></pre></div>
+<div class="sourceCode" id="cb808"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb808-1"><a href="machine-learning.html#cb808-1"></a><span class="kw">dim</span>(senate_test)</span></code></pre></div>
 <pre><code>## [1] 165  14</code></pre>
 <p>Let’s test out the simple model</p>
-<div class="sourceCode" id="cb808"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb808-1"><a href="machine-learning.html#cb808-1"></a>SimpleModelTrain&lt;-<span class="kw">lm</span>(VotePercentage<span class="op">~</span>pvi<span class="op">*</span>Republican<span class="op">+</span>Incumbent, <span class="dt">data=</span>senate_train)</span>
-<span id="cb808-2"><a href="machine-learning.html#cb808-2"></a>SimpleModelPredictions&lt;-<span class="kw">predict</span>(SimpleModelTrain, <span class="dt">newdata=</span>senate_test)</span></code></pre></div>
+<div class="sourceCode" id="cb810"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb810-1"><a href="machine-learning.html#cb810-1"></a>SimpleModelTrain&lt;-<span class="kw">lm</span>(VotePercentage<span class="op">~</span>pvi<span class="op">*</span>Republican<span class="op">+</span>Incumbent, <span class="dt">data=</span>senate_train)</span>
+<span id="cb810-2"><a href="machine-learning.html#cb810-2"></a>SimpleModelPredictions&lt;-<span class="kw">predict</span>(SimpleModelTrain, <span class="dt">newdata=</span>senate_test)</span></code></pre></div>
 <p>Now we will calculate the root mean squared error (RMSE) comparing the predictions, <span class="math inline">\(y^\ast\)</span>, with what we actually observed, <span class="math inline">\(y\)</span>.</p>
 <p><span class="math display">\[RMSE=\sqrt{\frac{\sum_i^n(y_i^\ast-y_i)^2}{n}}\]</span></p>
-<div class="sourceCode" id="cb809"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb809-1"><a href="machine-learning.html#cb809-1"></a><span class="kw">sqrt</span>(<span class="kw">mean</span>((SimpleModelPredictions<span class="op">-</span>senate_test<span class="op">$</span>VotePercentage)<span class="op">^</span><span class="dv">2</span>))</span></code></pre></div>
-<pre><code>## [1] 7.947976</code></pre>
+<div class="sourceCode" id="cb811"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb811-1"><a href="machine-learning.html#cb811-1"></a><span class="kw">sqrt</span>(<span class="kw">mean</span>((SimpleModelPredictions<span class="op">-</span>senate_test<span class="op">$</span>VotePercentage)<span class="op">^</span><span class="dv">2</span>))</span></code></pre></div>
+<pre><code>## [1] 8.411281</code></pre>
 <p>Let’s do the same for the more complex model</p>
 <ul>
 <li>Fit the model</li>
 <li>Make predictions for the training set</li>
 </ul>
-<div class="sourceCode" id="cb811"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb811-1"><a href="machine-learning.html#cb811-1"></a>ComplexModelTrain&lt;-<span class="kw">lm</span>(VotePercentage<span class="op">~</span>pvi<span class="op">*</span>Republican<span class="op">+</span>weightexperience </span>
-<span id="cb811-2"><a href="machine-learning.html#cb811-2"></a>                 <span class="op">+</span><span class="st"> </span>GenericBallotSept<span class="op">*</span>Republican <span class="op">+</span><span class="st"> </span>Incumbent, <span class="dt">data=</span>senate_train)</span>
-<span id="cb811-3"><a href="machine-learning.html#cb811-3"></a>ComplexModelPredictions&lt;-<span class="kw">predict</span>(ComplexModelTrain, <span class="dt">newdata=</span>senate_test)</span></code></pre></div>
-<div class="sourceCode" id="cb812"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb812-1"><a href="machine-learning.html#cb812-1"></a><span class="kw">sqrt</span>(<span class="kw">mean</span>((ComplexModelPredictions<span class="op">-</span>senate_test<span class="op">$</span>VotePercentage)<span class="op">^</span><span class="dv">2</span>))</span></code></pre></div>
-<pre><code>## [1] 7.394757</code></pre>
+<div class="sourceCode" id="cb813"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb813-1"><a href="machine-learning.html#cb813-1"></a>ComplexModelTrain&lt;-<span class="kw">lm</span>(VotePercentage<span class="op">~</span>pvi<span class="op">*</span>Republican<span class="op">+</span>weightexperience </span>
+<span id="cb813-2"><a href="machine-learning.html#cb813-2"></a>                 <span class="op">+</span><span class="st"> </span>GenericBallotSept<span class="op">*</span>Republican <span class="op">+</span><span class="st"> </span>Incumbent, <span class="dt">data=</span>senate_train)</span>
+<span id="cb813-3"><a href="machine-learning.html#cb813-3"></a>ComplexModelPredictions&lt;-<span class="kw">predict</span>(ComplexModelTrain, <span class="dt">newdata=</span>senate_test)</span></code></pre></div>
+<div class="sourceCode" id="cb814"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb814-1"><a href="machine-learning.html#cb814-1"></a><span class="kw">sqrt</span>(<span class="kw">mean</span>((ComplexModelPredictions<span class="op">-</span>senate_test<span class="op">$</span>VotePercentage)<span class="op">^</span><span class="dv">2</span>))</span></code></pre></div>
+<pre><code>## [1] 7.725798</code></pre>
 <p>More on cross-validation</p>
 <ul>
 <li>One problem here is that the result may be somewhat sensitive to the particular way you partition your data. Maybe that 20% you pulled out were unusual?</li>
@@ -674,8 +675,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Income (Divided into quitiles)</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb814"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb814-1"><a href="machine-learning.html#cb814-1"></a>turnout&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;http://politicaldatascience.com/PDS/Datasets/SimpleTurnout2008.csv&quot;</span>)</span>
-<span id="cb814-2"><a href="machine-learning.html#cb814-2"></a><span class="kw">dim</span>(turnout)</span></code></pre></div>
+<div class="sourceCode" id="cb816"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb816-1"><a href="machine-learning.html#cb816-1"></a>turnout&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;http://politicaldatascience.com/PDS/Datasets/SimpleTurnout2008.csv&quot;</span>)</span>
+<span id="cb816-2"><a href="machine-learning.html#cb816-2"></a><span class="kw">dim</span>(turnout)</span></code></pre></div>
 <pre><code>## [1] 73033     6</code></pre>
 </div>
 <div id="the-linear-classifier-aka-logit" class="section level3" number="11.2.2">
@@ -715,12 +716,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>A very common choice for <span class="math inline">\(\sigma(\cdot)\)</span> is the logistic function:</li>
 </ul>
 <p><span class="math display">\[\sigma(\Lambda) = \frac{1}{1+\exp(-\Lambda)} = \frac{\exp(\Lambda)}{1+\exp(\Lambda)}\]</span></p>
-<div class="sourceCode" id="cb816"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb816-1"><a href="machine-learning.html#cb816-1"></a>myLogistic&lt;-<span class="cf">function</span>(Lambda){</span>
-<span id="cb816-2"><a href="machine-learning.html#cb816-2"></a>  <span class="kw">return</span>(<span class="dv">1</span><span class="op">/</span>(<span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(<span class="op">-</span><span class="dv">1</span><span class="op">*</span>Lambda)))</span>
-<span id="cb816-3"><a href="machine-learning.html#cb816-3"></a>}</span>
-<span id="cb816-4"><a href="machine-learning.html#cb816-4"></a>testValues&lt;-<span class="kw">seq</span>(<span class="op">-</span><span class="dv">8</span>, <span class="dv">8</span>, <span class="dt">by=</span>.<span class="dv">1</span>)</span>
-<span id="cb816-5"><a href="machine-learning.html#cb816-5"></a><span class="kw">plot</span>(testValues, <span class="kw">myLogistic</span>(testValues), <span class="dt">type=</span><span class="st">&quot;l&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Pred. Prob.&quot;</span>)</span></code></pre></div>
-<p><img src="images/unnamed-chunk-255-1.png" width="768" /></p>
+<div class="sourceCode" id="cb818"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb818-1"><a href="machine-learning.html#cb818-1"></a>myLogistic&lt;-<span class="cf">function</span>(Lambda){</span>
+<span id="cb818-2"><a href="machine-learning.html#cb818-2"></a>  <span class="kw">return</span>(<span class="dv">1</span><span class="op">/</span>(<span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(<span class="op">-</span><span class="dv">1</span><span class="op">*</span>Lambda)))</span>
+<span id="cb818-3"><a href="machine-learning.html#cb818-3"></a>}</span>
+<span id="cb818-4"><a href="machine-learning.html#cb818-4"></a>testValues&lt;-<span class="kw">seq</span>(<span class="op">-</span><span class="dv">8</span>, <span class="dv">8</span>, <span class="dt">by=</span>.<span class="dv">1</span>)</span>
+<span id="cb818-5"><a href="machine-learning.html#cb818-5"></a><span class="kw">plot</span>(testValues, <span class="kw">myLogistic</span>(testValues), <span class="dt">type=</span><span class="st">&quot;l&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Pred. Prob.&quot;</span>)</span></code></pre></div>
+<p><img src="images/unnamed-chunk-256-1.png" width="768" /></p>
 <p>So let’s take a minute:</p>
 <ul>
 <li>Use the function from before and assume that:</li>
@@ -760,8 +761,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>We specify that the data is binary by using the <code>family="binomial"</code> argument.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb817"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb817-1"><a href="machine-learning.html#cb817-1"></a>Model1&lt;-<span class="kw">glm</span>(turnout <span class="op">~</span><span class="st"> </span>inc <span class="op">+</span><span class="st"> </span>age, <span class="dt">family=</span><span class="st">&quot;binomial&quot;</span>, <span class="dt">data=</span>turnout)</span>
-<span id="cb817-2"><a href="machine-learning.html#cb817-2"></a><span class="kw">summary</span>(Model1)</span></code></pre></div>
+<div class="sourceCode" id="cb819"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb819-1"><a href="machine-learning.html#cb819-1"></a>Model1&lt;-<span class="kw">glm</span>(turnout <span class="op">~</span><span class="st"> </span>inc <span class="op">+</span><span class="st"> </span>age, <span class="dt">family=</span><span class="st">&quot;binomial&quot;</span>, <span class="dt">data=</span>turnout)</span>
+<span id="cb819-2"><a href="machine-learning.html#cb819-2"></a><span class="kw">summary</span>(Model1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = turnout ~ inc + age, family = &quot;binomial&quot;, data = turnout)
@@ -799,10 +800,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>You want to use the option <code>type</code> to make sure you get the predicted probability part back and not the linear part.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb819"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb819-1"><a href="machine-learning.html#cb819-1"></a>Model1preds&lt;-<span class="kw">predict</span>(Model1, <span class="dt">type=</span><span class="st">&quot;response&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb821"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb821-1"><a href="machine-learning.html#cb821-1"></a>Model1preds&lt;-<span class="kw">predict</span>(Model1, <span class="dt">type=</span><span class="st">&quot;response&quot;</span>)</span></code></pre></div>
 <p>Let’s look at the predicted probabilities for each value of Age in the dataset.</p>
-<div class="sourceCode" id="cb820"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb820-1"><a href="machine-learning.html#cb820-1"></a><span class="kw">boxplot</span>(Model1preds<span class="op">~</span>turnout<span class="op">$</span>inc, <span class="dt">xlab=</span><span class="st">&quot;Income&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Predicted Probabilities&quot;</span>)</span></code></pre></div>
-<p><img src="images/unnamed-chunk-258-1.png" width="768" /></p>
+<div class="sourceCode" id="cb822"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb822-1"><a href="machine-learning.html#cb822-1"></a><span class="kw">boxplot</span>(Model1preds<span class="op">~</span>turnout<span class="op">$</span>inc, <span class="dt">xlab=</span><span class="st">&quot;Income&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Predicted Probabilities&quot;</span>)</span></code></pre></div>
+<p><img src="images/unnamed-chunk-259-1.png" width="768" /></p>
 <p>Now it’s your turn:</p>
 <ul>
 <li>Fit your own linear classifier to this data using the data I’ve provided.</li>
@@ -844,8 +845,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p><span class="math display">\[\sqrt{\frac{\sum_i^n{(y_i-p_i)^2}}{n}}\]</span></p>
 <p>Going back to turnout:</p>
-<div class="sourceCode" id="cb821"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb821-1"><a href="machine-learning.html#cb821-1"></a>binaryPred&lt;-(Model1preds<span class="op">&gt;</span><span class="fl">0.5</span>)<span class="op">*</span><span class="dv">1</span></span>
-<span id="cb821-2"><a href="machine-learning.html#cb821-2"></a><span class="kw">table</span>(binaryPred, turnout<span class="op">$</span>turnout)</span></code></pre></div>
+<div class="sourceCode" id="cb823"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb823-1"><a href="machine-learning.html#cb823-1"></a>binaryPred&lt;-(Model1preds<span class="op">&gt;</span><span class="fl">0.5</span>)<span class="op">*</span><span class="dv">1</span></span>
+<span id="cb823-2"><a href="machine-learning.html#cb823-2"></a><span class="kw">table</span>(binaryPred, turnout<span class="op">$</span>turnout)</span></code></pre></div>
 <pre><code>##           
 ## binaryPred     0     1
 ##          0  4283  3809
@@ -880,10 +881,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><embed src="../Slides/Images/Turnout5.pdf" /> <img src="../Slides/Images/Trees4.jpeg" /></p>
 <p><embed src="../Slides/Images/Turnout6.pdf" /> <img src="../Slides/Images/Trees5.jpeg" /></p>
 <p>Here’s some code that will create a tree model for us.</p>
-<div class="sourceCode" id="cb823"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb823-1"><a href="machine-learning.html#cb823-1"></a><span class="kw">library</span>(rpart)</span>
-<span id="cb823-2"><a href="machine-learning.html#cb823-2"></a>equation&lt;-<span class="kw">as.formula</span>(<span class="st">&quot;turnout~eth+inc+age&quot;</span>)</span>
-<span id="cb823-3"><a href="machine-learning.html#cb823-3"></a>tree_mod1&lt;-<span class="kw">rpart</span>(equation, <span class="dt">data=</span>turnout)</span></code></pre></div>
-<div class="sourceCode" id="cb824"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb824-1"><a href="machine-learning.html#cb824-1"></a>tree_mod1</span></code></pre></div>
+<div class="sourceCode" id="cb825"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb825-1"><a href="machine-learning.html#cb825-1"></a><span class="kw">library</span>(rpart)</span>
+<span id="cb825-2"><a href="machine-learning.html#cb825-2"></a>equation&lt;-<span class="kw">as.formula</span>(<span class="st">&quot;turnout~eth+inc+age&quot;</span>)</span>
+<span id="cb825-3"><a href="machine-learning.html#cb825-3"></a>tree_mod1&lt;-<span class="kw">rpart</span>(equation, <span class="dt">data=</span>turnout)</span></code></pre></div>
+<div class="sourceCode" id="cb826"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb826-1"><a href="machine-learning.html#cb826-1"></a>tree_mod1</span></code></pre></div>
 <pre><code>## n= 73033 
 ## 
 ## node), split, n, deviance, yval
@@ -900,9 +901,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>This tells us how the tree is constructed</li>
 <li>Better to look at it visually</li>
 </ul>
-<div class="sourceCode" id="cb826"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb826-1"><a href="machine-learning.html#cb826-1"></a><span class="kw">plot</span>(tree_mod1)</span>
-<span id="cb826-2"><a href="machine-learning.html#cb826-2"></a><span class="kw">text</span>(tree_mod1, <span class="dt">use.n=</span><span class="ot">TRUE</span>, <span class="dt">all =</span> <span class="ot">TRUE</span>, <span class="dt">cex=</span><span class="fl">0.8</span>)</span></code></pre></div>
-<p><img src="images/unnamed-chunk-262-1.png" width="960" /></p>
+<div class="sourceCode" id="cb828"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb828-1"><a href="machine-learning.html#cb828-1"></a><span class="kw">plot</span>(tree_mod1)</span>
+<span id="cb828-2"><a href="machine-learning.html#cb828-2"></a><span class="kw">text</span>(tree_mod1, <span class="dt">use.n=</span><span class="ot">TRUE</span>, <span class="dt">all =</span> <span class="ot">TRUE</span>, <span class="dt">cex=</span><span class="fl">0.8</span>)</span></code></pre></div>
+<p><img src="images/unnamed-chunk-263-1.png" width="960" /></p>
 <p>Tuning parameters:</p>
 <ul>
 <li>Many ML models have <em>tuning parameters</em>, sometimes called <em>hyperparamaters</em> or <em>hyperpriors</em>.</li>
@@ -910,13 +911,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>These are set by the analyst, often using some sort of cross-validation.</li>
 <li>Most often, these parameters control model complexity.</li>
 </ul>
-<div class="sourceCode" id="cb827"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb827-1"><a href="machine-learning.html#cb827-1"></a>tree_mod2&lt;-<span class="kw">rpart</span>(equation, <span class="dt">data=</span>turnout, <span class="dt">control=</span><span class="kw">rpart.control</span>(<span class="dt">cp=</span>.<span class="dv">0002</span>))</span>
-<span id="cb827-2"><a href="machine-learning.html#cb827-2"></a><span class="kw">plot</span>(tree_mod2)</span>
-<span id="cb827-3"><a href="machine-learning.html#cb827-3"></a><span class="kw">text</span>(tree_mod1, <span class="dt">use.n=</span><span class="ot">TRUE</span>, <span class="dt">all =</span> <span class="ot">TRUE</span>, <span class="dt">cex=</span><span class="fl">0.7</span>)</span></code></pre></div>
-<p><img src="images/unnamed-chunk-263-1.png" width="768" /></p>
+<div class="sourceCode" id="cb829"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb829-1"><a href="machine-learning.html#cb829-1"></a>tree_mod2&lt;-<span class="kw">rpart</span>(equation, <span class="dt">data=</span>turnout, <span class="dt">control=</span><span class="kw">rpart.control</span>(<span class="dt">cp=</span>.<span class="dv">0002</span>))</span>
+<span id="cb829-2"><a href="machine-learning.html#cb829-2"></a><span class="kw">plot</span>(tree_mod2)</span>
+<span id="cb829-3"><a href="machine-learning.html#cb829-3"></a><span class="kw">text</span>(tree_mod1, <span class="dt">use.n=</span><span class="ot">TRUE</span>, <span class="dt">all =</span> <span class="ot">TRUE</span>, <span class="dt">cex=</span><span class="fl">0.7</span>)</span></code></pre></div>
+<p><img src="images/unnamed-chunk-264-1.png" width="768" /></p>
 <p>Complex or simple:</p>
-<div class="sourceCode" id="cb828"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb828-1"><a href="machine-learning.html#cb828-1"></a>treePreds1&lt;-<span class="kw">predict</span>(tree_mod1)</span>
-<span id="cb828-2"><a href="machine-learning.html#cb828-2"></a>treePreds2&lt;-<span class="kw">predict</span>(tree_mod2)</span></code></pre></div>
+<div class="sourceCode" id="cb830"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb830-1"><a href="machine-learning.html#cb830-1"></a>treePreds1&lt;-<span class="kw">predict</span>(tree_mod1)</span>
+<span id="cb830-2"><a href="machine-learning.html#cb830-2"></a>treePreds2&lt;-<span class="kw">predict</span>(tree_mod2)</span></code></pre></div>
 <ul>
 <li>Compare the accuracy of these two models using a confusion matrix.</li>
 <li>Do the same use the Brier score</li>
@@ -950,11 +951,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="implementation-for-random-forests" class="section level4" number="11.2.4.2">
 <h4><span class="header-section-number">11.2.4.2</span> Implementation for random forests</h4>
-<div class="sourceCode" id="cb829"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb829-1"><a href="machine-learning.html#cb829-1"></a><span class="kw">library</span>(randomForest)</span>
-<span id="cb829-2"><a href="machine-learning.html#cb829-2"></a>turnout<span class="op">$</span>turnout&lt;-<span class="kw">as.factor</span>(turnout<span class="op">$</span>turnout) <span class="co"># Leave as continuous for regression</span></span>
-<span id="cb829-3"><a href="machine-learning.html#cb829-3"></a>mod1_forest&lt;-<span class="kw">randomForest</span>(equation, <span class="dt">data=</span>turnout, </span>
-<span id="cb829-4"><a href="machine-learning.html#cb829-4"></a>                          <span class="dt">ntree=</span><span class="dv">201</span>, <span class="dt">mtry=</span><span class="dv">2</span>)</span>
-<span id="cb829-5"><a href="machine-learning.html#cb829-5"></a>mod1_forest <span class="co"># This confusion matrix is &quot;out of bag&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb831"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb831-1"><a href="machine-learning.html#cb831-1"></a><span class="kw">library</span>(randomForest)</span>
+<span id="cb831-2"><a href="machine-learning.html#cb831-2"></a>turnout<span class="op">$</span>turnout&lt;-<span class="kw">as.factor</span>(turnout<span class="op">$</span>turnout) <span class="co"># Leave as continuous for regression</span></span>
+<span id="cb831-3"><a href="machine-learning.html#cb831-3"></a>mod1_forest&lt;-<span class="kw">randomForest</span>(equation, <span class="dt">data=</span>turnout, </span>
+<span id="cb831-4"><a href="machine-learning.html#cb831-4"></a>                          <span class="dt">ntree=</span><span class="dv">201</span>, <span class="dt">mtry=</span><span class="dv">2</span>)</span>
+<span id="cb831-5"><a href="machine-learning.html#cb831-5"></a>mod1_forest <span class="co"># This confusion matrix is &quot;out of bag&quot;</span></span></code></pre></div>
 <pre><code>## 
 ## Call:
 ##  randomForest(formula = equation, data = turnout, ntree = 201,      mtry = 2) 
@@ -962,11 +963,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##                      Number of trees: 201
 ## No. of variables tried at each split: 2
 ## 
-##         OOB estimate of  error rate: 30.12%
+##         OOB estimate of  error rate: 30.19%
 ## Confusion matrix:
 ##      0     1 class.error
-## 0 3701 19105  0.83771814
-## 1 2892 47335  0.05757859</code></pre>
+## 0 3617 19189  0.84140139
+## 1 2858 47369  0.05690167</code></pre>
 </div>
 </div>
 <div id="k-nearest-neighbors" class="section level3" number="11.2.5">
@@ -989,15 +990,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>So many observations share the same value.</li>
 <li>So (just for this example) I’ll add a bit of noise</li>
 </ul>
-<div class="sourceCode" id="cb831"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb831-1"><a href="machine-learning.html#cb831-1"></a><span class="kw">library</span>(class)</span>
-<span id="cb831-2"><a href="machine-learning.html#cb831-2"></a>turnoutX&lt;-turnout[,<span class="kw">c</span>(<span class="st">&quot;eth&quot;</span>, <span class="st">&quot;inc&quot;</span>, <span class="st">&quot;age&quot;</span>)]</span>
-<span id="cb831-3"><a href="machine-learning.html#cb831-3"></a>turnoutX<span class="op">$</span>inc&lt;-turnoutX<span class="op">$</span>inc<span class="op">+</span><span class="kw">rnorm</span>(<span class="kw">length</span>(turnoutX<span class="op">$</span>inc), <span class="dv">0</span>, <span class="fl">.001</span>)</span>
-<span id="cb831-4"><a href="machine-learning.html#cb831-4"></a>mod1_knn&lt;-<span class="kw">knn</span>(turnoutX, <span class="dt">test=</span>turnoutX, <span class="dt">cl=</span>turnout<span class="op">$</span>turnout, <span class="dt">k=</span><span class="dv">10</span>)</span>
-<span id="cb831-5"><a href="machine-learning.html#cb831-5"></a><span class="kw">table</span>(mod1_knn, turnout<span class="op">$</span>turnout)</span></code></pre></div>
+<div class="sourceCode" id="cb833"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb833-1"><a href="machine-learning.html#cb833-1"></a><span class="kw">library</span>(class)</span>
+<span id="cb833-2"><a href="machine-learning.html#cb833-2"></a>turnoutX&lt;-turnout[,<span class="kw">c</span>(<span class="st">&quot;eth&quot;</span>, <span class="st">&quot;inc&quot;</span>, <span class="st">&quot;age&quot;</span>)]</span>
+<span id="cb833-3"><a href="machine-learning.html#cb833-3"></a>turnoutX<span class="op">$</span>inc&lt;-turnoutX<span class="op">$</span>inc<span class="op">+</span><span class="kw">rnorm</span>(<span class="kw">length</span>(turnoutX<span class="op">$</span>inc), <span class="dv">0</span>, <span class="fl">.001</span>)</span>
+<span id="cb833-4"><a href="machine-learning.html#cb833-4"></a>mod1_knn&lt;-<span class="kw">knn</span>(turnoutX, <span class="dt">test=</span>turnoutX, <span class="dt">cl=</span>turnout<span class="op">$</span>turnout, <span class="dt">k=</span><span class="dv">10</span>)</span>
+<span id="cb833-5"><a href="machine-learning.html#cb833-5"></a><span class="kw">table</span>(mod1_knn, turnout<span class="op">$</span>turnout)</span></code></pre></div>
 <pre><code>##         
 ## mod1_knn     0     1
-##        0  8150  5130
-##        1 14656 45097</code></pre>
+##        0  8123  4989
+##        1 14683 45238</code></pre>
 
 </div>
 </div>
