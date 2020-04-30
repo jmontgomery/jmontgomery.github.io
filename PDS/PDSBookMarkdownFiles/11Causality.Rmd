@@ -326,7 +326,7 @@ data(newhamp)
 
 N=276 wards in New Hampshire
 
-- **pObama**: Proportion of vot going to Obama
+- **pObama**: Proportion of vote going to Obama
 - **votesys**: Hand counted (H) vs. machine count (D)
 - **Dean**: Proportion of voters for Howard Dean in 2004
 - **pci**: Per capita annual income in USD

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 Getting Started in R | Political Data Science</title>
   <meta name="description" content="2 Getting Started in R | Political Data Science" />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 Getting Started in R | Political Data Science" />
   <meta property="og:type" content="book" />
@@ -144,6 +144,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#learning-objective-2-show-up-ready"><i class="fa fa-check"></i><b>1.2.2</b> Learning objective #2: Show up ready</a></li>
 <li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#learning-objective-3-how-is-this-going-to-work"><i class="fa fa-check"></i><b>1.2.3</b> Learning objective #3: How is this going to work?</a></li>
 </ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#interactive-r-environment"><i class="fa fa-check"></i><b>1.3</b> Interactive R Environment</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html"><i class="fa fa-check"></i><b>2</b> Getting Started in R</a>
 <ul>
@@ -433,98 +434,74 @@ The commands ls() and rm() are used to show or remove variables from the global 
 ##  [5] &quot;answer1&quot;                  &quot;answer2&quot;                 
 ##  [7] &quot;aTweet&quot;                   &quot;b&quot;                       
 ##  [9] &quot;basicPolls&quot;               &quot;basicPolls_grouped&quot;      
-## [11] &quot;binaryPred&quot;               &quot;byOut&quot;                   
-## [13] &quot;cat1&quot;                     &quot;cat2&quot;                    
-## [15] &quot;collapse&quot;                 &quot;colors&quot;                  
-## [17] &quot;ComplexModelFull&quot;         &quot;ComplexModelPredictions&quot; 
-## [19] &quot;ComplexModelTrain&quot;        &quot;congress&quot;                
-## [21] &quot;dd&quot;                       &quot;electData&quot;               
-## [23] &quot;equation&quot;                 &quot;Fatalities&quot;              
-## [25] &quot;grouped_by&quot;               &quot;hertweets&quot;               
-## [27] &quot;i&quot;                        &quot;j&quot;                       
-## [29] &quot;l&quot;                        &quot;l.fivenum&quot;               
-## [31] &quot;m&quot;                        &quot;mat1&quot;                    
-## [33] &quot;mat1.df&quot;                  &quot;mat2&quot;                    
-## [35] &quot;mat2.df&quot;                  &quot;mat3&quot;                    
-## [37] &quot;matdf&quot;                    &quot;matdf1&quot;                  
-## [39] &quot;matdf2&quot;                   &quot;matrix1&quot;                 
-## [41] &quot;mayors&quot;                   &quot;mayors_new&quot;              
-## [43] &quot;mayors_newDF&quot;             &quot;mayorsDF&quot;                
-## [45] &quot;mentions&quot;                 &quot;mentionsCount&quot;           
-## [47] &quot;mod1_forest&quot;              &quot;mod1_knn&quot;                
-## [49] &quot;Model1&quot;                   &quot;Model1preds&quot;             
-## [51] &quot;model2&quot;                   &quot;Model2&quot;                  
-## [53] &quot;Model3&quot;                   &quot;Model4&quot;                  
-## [55] &quot;myLogistic&quot;               &quot;n&quot;                       
-## [57] &quot;nevadaPrimaries&quot;          &quot;newhamp&quot;                 
-## [59] &quot;numWords&quot;                 &quot;output&quot;                  
-## [61] &quot;primaryPolls&quot;             &quot;random_states&quot;           
-## [63] &quot;resume&quot;                   &quot;senate_test&quot;             
-## [65] &quot;senate_train&quot;             &quot;senateData&quot;              
-## [67] &quot;SimpleModelFull&quot;          &quot;SimpleModelPredictions&quot;  
-## [69] &quot;SimpleModelTrain&quot;         &quot;split_senateData&quot;        
-## [71] &quot;states10&quot;                 &quot;states100&quot;               
-## [73] &quot;sum.plus.2&quot;               &quot;testValues&quot;              
-## [75] &quot;timeNevada&quot;               &quot;total.votes.ak&quot;          
-## [77] &quot;tree_mod1&quot;                &quot;tree_mod2&quot;               
-## [79] &quot;treePreds1&quot;               &quot;treePreds2&quot;              
-## [81] &quot;turnout&quot;                  &quot;turnout.ak&quot;              
-## [83] &quot;turnoutX&quot;                 &quot;tweetCounts&quot;             
-## [85] &quot;tweets&quot;                   &quot;tweetsDF&quot;                
-## [87] &quot;voting.age.population.ak&quot; &quot;VSG&quot;                     
-## [89] &quot;VSG.fav&quot;                  &quot;wideNevada&quot;              
-## [91] &quot;words&quot;                    &quot;x&quot;                       
-## [93] &quot;x1&quot;                       &quot;y&quot;                       
-## [95] &quot;ys&quot;</code></pre>
+## [11] &quot;byOut&quot;                    &quot;cat1&quot;                    
+## [13] &quot;cat2&quot;                     &quot;collapse&quot;                
+## [15] &quot;colors&quot;                   &quot;ComplexModelFull&quot;        
+## [17] &quot;credentials&quot;              &quot;dd&quot;                      
+## [19] &quot;electData&quot;                &quot;grouped_by&quot;              
+## [21] &quot;hertweets&quot;                &quot;i&quot;                       
+## [23] &quot;j&quot;                        &quot;l&quot;                       
+## [25] &quot;l.fivenum&quot;                &quot;m&quot;                       
+## [27] &quot;mat1&quot;                     &quot;mat1.df&quot;                 
+## [29] &quot;mat2&quot;                     &quot;mat2.df&quot;                 
+## [31] &quot;mat3&quot;                     &quot;matdf&quot;                   
+## [33] &quot;matdf1&quot;                   &quot;matdf2&quot;                  
+## [35] &quot;matrix1&quot;                  &quot;mayors&quot;                  
+## [37] &quot;mayors_new&quot;               &quot;mayors_newDF&quot;            
+## [39] &quot;mayorsDF&quot;                 &quot;mentions&quot;                
+## [41] &quot;mentionsCount&quot;            &quot;Model1&quot;                  
+## [43] &quot;Model2&quot;                   &quot;Model3&quot;                  
+## [45] &quot;Model4&quot;                   &quot;n&quot;                       
+## [47] &quot;nevadaPrimaries&quot;          &quot;numWords&quot;                
+## [49] &quot;output&quot;                   &quot;primaryPolls&quot;            
+## [51] &quot;random_states&quot;            &quot;senateData&quot;              
+## [53] &quot;SimpleModelFull&quot;          &quot;states10&quot;                
+## [55] &quot;states100&quot;                &quot;sum.plus.2&quot;              
+## [57] &quot;timeNevada&quot;               &quot;total.votes.ak&quot;          
+## [59] &quot;turnout.ak&quot;               &quot;tweetCounts&quot;             
+## [61] &quot;tweets&quot;                   &quot;tweetsDF&quot;                
+## [63] &quot;voting.age.population.ak&quot; &quot;VSG&quot;                     
+## [65] &quot;VSG.fav&quot;                  &quot;wideNevada&quot;              
+## [67] &quot;words&quot;                    &quot;x&quot;                       
+## [69] &quot;x1&quot;                       &quot;y&quot;                       
+## [71] &quot;ys&quot;</code></pre>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="getting-started-in-r.html#cb31-1"></a><span class="kw">rm</span>(a) <span class="co">#this removes a from the global environment</span></span>
 <span id="cb31-2"><a href="getting-started-in-r.html#cb31-2"></a><span class="kw">ls</span>()</span></code></pre></div>
 <pre><code>##  [1] &quot;a.df&quot;                     &quot;a1&quot;                      
 ##  [3] &quot;allData&quot;                  &quot;answer1&quot;                 
 ##  [5] &quot;answer2&quot;                  &quot;aTweet&quot;                  
 ##  [7] &quot;b&quot;                        &quot;basicPolls&quot;              
-##  [9] &quot;basicPolls_grouped&quot;       &quot;binaryPred&quot;              
-## [11] &quot;byOut&quot;                    &quot;cat1&quot;                    
-## [13] &quot;cat2&quot;                     &quot;collapse&quot;                
-## [15] &quot;colors&quot;                   &quot;ComplexModelFull&quot;        
-## [17] &quot;ComplexModelPredictions&quot;  &quot;ComplexModelTrain&quot;       
-## [19] &quot;congress&quot;                 &quot;dd&quot;                      
-## [21] &quot;electData&quot;                &quot;equation&quot;                
-## [23] &quot;Fatalities&quot;               &quot;grouped_by&quot;              
-## [25] &quot;hertweets&quot;                &quot;i&quot;                       
-## [27] &quot;j&quot;                        &quot;l&quot;                       
-## [29] &quot;l.fivenum&quot;                &quot;m&quot;                       
-## [31] &quot;mat1&quot;                     &quot;mat1.df&quot;                 
-## [33] &quot;mat2&quot;                     &quot;mat2.df&quot;                 
-## [35] &quot;mat3&quot;                     &quot;matdf&quot;                   
-## [37] &quot;matdf1&quot;                   &quot;matdf2&quot;                  
-## [39] &quot;matrix1&quot;                  &quot;mayors&quot;                  
-## [41] &quot;mayors_new&quot;               &quot;mayors_newDF&quot;            
-## [43] &quot;mayorsDF&quot;                 &quot;mentions&quot;                
-## [45] &quot;mentionsCount&quot;            &quot;mod1_forest&quot;             
-## [47] &quot;mod1_knn&quot;                 &quot;Model1&quot;                  
-## [49] &quot;Model1preds&quot;              &quot;model2&quot;                  
-## [51] &quot;Model2&quot;                   &quot;Model3&quot;                  
-## [53] &quot;Model4&quot;                   &quot;myLogistic&quot;              
-## [55] &quot;n&quot;                        &quot;nevadaPrimaries&quot;         
-## [57] &quot;newhamp&quot;                  &quot;numWords&quot;                
-## [59] &quot;output&quot;                   &quot;primaryPolls&quot;            
-## [61] &quot;random_states&quot;            &quot;resume&quot;                  
-## [63] &quot;senate_test&quot;              &quot;senate_train&quot;            
-## [65] &quot;senateData&quot;               &quot;SimpleModelFull&quot;         
-## [67] &quot;SimpleModelPredictions&quot;   &quot;SimpleModelTrain&quot;        
-## [69] &quot;split_senateData&quot;         &quot;states10&quot;                
-## [71] &quot;states100&quot;                &quot;sum.plus.2&quot;              
-## [73] &quot;testValues&quot;               &quot;timeNevada&quot;              
-## [75] &quot;total.votes.ak&quot;           &quot;tree_mod1&quot;               
-## [77] &quot;tree_mod2&quot;                &quot;treePreds1&quot;              
-## [79] &quot;treePreds2&quot;               &quot;turnout&quot;                 
-## [81] &quot;turnout.ak&quot;               &quot;turnoutX&quot;                
-## [83] &quot;tweetCounts&quot;              &quot;tweets&quot;                  
-## [85] &quot;tweetsDF&quot;                 &quot;voting.age.population.ak&quot;
-## [87] &quot;VSG&quot;                      &quot;VSG.fav&quot;                 
-## [89] &quot;wideNevada&quot;               &quot;words&quot;                   
-## [91] &quot;x&quot;                        &quot;x1&quot;                      
-## [93] &quot;y&quot;                        &quot;ys&quot;</code></pre>
+##  [9] &quot;basicPolls_grouped&quot;       &quot;byOut&quot;                   
+## [11] &quot;cat1&quot;                     &quot;cat2&quot;                    
+## [13] &quot;collapse&quot;                 &quot;colors&quot;                  
+## [15] &quot;ComplexModelFull&quot;         &quot;credentials&quot;             
+## [17] &quot;dd&quot;                       &quot;electData&quot;               
+## [19] &quot;grouped_by&quot;               &quot;hertweets&quot;               
+## [21] &quot;i&quot;                        &quot;j&quot;                       
+## [23] &quot;l&quot;                        &quot;l.fivenum&quot;               
+## [25] &quot;m&quot;                        &quot;mat1&quot;                    
+## [27] &quot;mat1.df&quot;                  &quot;mat2&quot;                    
+## [29] &quot;mat2.df&quot;                  &quot;mat3&quot;                    
+## [31] &quot;matdf&quot;                    &quot;matdf1&quot;                  
+## [33] &quot;matdf2&quot;                   &quot;matrix1&quot;                 
+## [35] &quot;mayors&quot;                   &quot;mayors_new&quot;              
+## [37] &quot;mayors_newDF&quot;             &quot;mayorsDF&quot;                
+## [39] &quot;mentions&quot;                 &quot;mentionsCount&quot;           
+## [41] &quot;Model1&quot;                   &quot;Model2&quot;                  
+## [43] &quot;Model3&quot;                   &quot;Model4&quot;                  
+## [45] &quot;n&quot;                        &quot;nevadaPrimaries&quot;         
+## [47] &quot;numWords&quot;                 &quot;output&quot;                  
+## [49] &quot;primaryPolls&quot;             &quot;random_states&quot;           
+## [51] &quot;senateData&quot;               &quot;SimpleModelFull&quot;         
+## [53] &quot;states10&quot;                 &quot;states100&quot;               
+## [55] &quot;sum.plus.2&quot;               &quot;timeNevada&quot;              
+## [57] &quot;total.votes.ak&quot;           &quot;turnout.ak&quot;              
+## [59] &quot;tweetCounts&quot;              &quot;tweets&quot;                  
+## [61] &quot;tweetsDF&quot;                 &quot;voting.age.population.ak&quot;
+## [63] &quot;VSG&quot;                      &quot;VSG.fav&quot;                 
+## [65] &quot;wideNevada&quot;               &quot;words&quot;                   
+## [67] &quot;x&quot;                        &quot;x1&quot;                      
+## [69] &quot;y&quot;                        &quot;ys&quot;</code></pre>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="getting-started-in-r.html#cb33-1"></a>c &lt;-<span class="st"> </span><span class="dv">3</span></span>
 <span id="cb33-2"><a href="getting-started-in-r.html#cb33-2"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>()) <span class="co">#this removes all global variables</span></span></code></pre></div>
 <p>Some things are present in the working environment, but not shown in the global environment</p>

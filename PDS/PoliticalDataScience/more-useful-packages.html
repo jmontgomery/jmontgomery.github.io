@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8 More useful packages | Political Data Science</title>
   <meta name="description" content="8 More useful packages | Political Data Science" />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8 More useful packages | Political Data Science" />
   <meta property="og:type" content="book" />
@@ -144,6 +144,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#learning-objective-2-show-up-ready"><i class="fa fa-check"></i><b>1.2.2</b> Learning objective #2: Show up ready</a></li>
 <li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#learning-objective-3-how-is-this-going-to-work"><i class="fa fa-check"></i><b>1.2.3</b> Learning objective #3: How is this going to work?</a></li>
 </ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#interactive-r-environment"><i class="fa fa-check"></i><b>1.3</b> Interactive R Environment</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html"><i class="fa fa-check"></i><b>2</b> Getting Started in R</a>
 <ul>
@@ -365,16 +366,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="stringr-1" class="section level2" number="8.1">
 <h2><span class="header-section-number">8.1</span> <code>stringr</code></h2>
 <p><code>stringr</code> is a tidy package that is used for processing strings and text data</p>
-<div class="sourceCode" id="cb644"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb644-1"><a href="more-useful-packages.html#cb644-1"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb644-2"><a href="more-useful-packages.html#cb644-2"></a>tweets&lt;-<span class="kw">read_csv</span>(<span class="st">&quot;C:/Users/maria/OneDrive/WUSTL/2019-20/PDS/Tweets.csv&quot;</span>)</span>
-<span id="cb644-3"><a href="more-useful-packages.html#cb644-3"></a></span>
-<span id="cb644-4"><a href="more-useful-packages.html#cb644-4"></a>aTweet&lt;-tweets[<span class="dv">1</span>,]<span class="op">$</span>Text</span>
-<span id="cb644-5"><a href="more-useful-packages.html#cb644-5"></a>aTweet</span></code></pre></div>
+<div class="sourceCode" id="cb647"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb647-1"><a href="more-useful-packages.html#cb647-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb647-2"><a href="more-useful-packages.html#cb647-2"></a>tweets&lt;-<span class="kw">read_csv</span>(<span class="st">&quot;C:/Users/maria/OneDrive/WUSTL/2019-20/PDS/Tweets.csv&quot;</span>)</span>
+<span id="cb647-3"><a href="more-useful-packages.html#cb647-3"></a></span>
+<span id="cb647-4"><a href="more-useful-packages.html#cb647-4"></a>aTweet&lt;-tweets[<span class="dv">1</span>,]<span class="op">$</span>Text</span>
+<span id="cb647-5"><a href="more-useful-packages.html#cb647-5"></a>aTweet</span></code></pre></div>
 <pre><code>## [1] &quot;Many thanks to everyone involved in Alexandria&#39;s #EarthDay celebration. Together, we are reducing pollution and was… https://t.co/wwMOIg4t1w&quot;</code></pre>
-<div class="sourceCode" id="cb646"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb646-1"><a href="more-useful-packages.html#cb646-1"></a><span class="kw">str_length</span>(aTweet)</span></code></pre></div>
+<div class="sourceCode" id="cb649"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb649-1"><a href="more-useful-packages.html#cb649-1"></a><span class="kw">str_length</span>(aTweet)</span></code></pre></div>
 <pre><code>## [1] 140</code></pre>
-<div class="sourceCode" id="cb648"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb648-1"><a href="more-useful-packages.html#cb648-1"></a>words&lt;-<span class="kw">str_split</span>(aTweet, <span class="dt">pattern =</span> <span class="st">&quot; &quot;</span>)</span>
-<span id="cb648-2"><a href="more-useful-packages.html#cb648-2"></a>words</span></code></pre></div>
+<div class="sourceCode" id="cb651"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb651-1"><a href="more-useful-packages.html#cb651-1"></a>words&lt;-<span class="kw">str_split</span>(aTweet, <span class="dt">pattern =</span> <span class="st">&quot; &quot;</span>)</span>
+<span id="cb651-2"><a href="more-useful-packages.html#cb651-2"></a>words</span></code></pre></div>
 <pre><code>## [[1]]
 ##  [1] &quot;Many&quot;                    &quot;thanks&quot;                 
 ##  [3] &quot;to&quot;                      &quot;everyone&quot;               
@@ -385,9 +386,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [13] &quot;reducing&quot;                &quot;pollution&quot;              
 ## [15] &quot;and&quot;                     &quot;was…&quot;                   
 ## [17] &quot;https://t.co/wwMOIg4t1w&quot;</code></pre>
-<div class="sourceCode" id="cb650"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb650-1"><a href="more-useful-packages.html#cb650-1"></a><span class="kw">str_c</span>(words)</span></code></pre></div>
+<div class="sourceCode" id="cb653"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb653-1"><a href="more-useful-packages.html#cb653-1"></a><span class="kw">str_c</span>(words)</span></code></pre></div>
 <pre><code>## [1] &quot;c(\&quot;Many\&quot;, \&quot;thanks\&quot;, \&quot;to\&quot;, \&quot;everyone\&quot;, \&quot;involved\&quot;, \&quot;in\&quot;, \&quot;Alexandria&#39;s\&quot;, \&quot;#EarthDay\&quot;, \&quot;celebration.\&quot;, \&quot;Together,\&quot;, \&quot;we\&quot;, \&quot;are\&quot;, \&quot;reducing\&quot;, \&quot;pollution\&quot;, \&quot;and\&quot;, \&quot;was…\&quot;, \&quot;https://t.co/wwMOIg4t1w\&quot;)&quot;</code></pre>
-<div class="sourceCode" id="cb652"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb652-1"><a href="more-useful-packages.html#cb652-1"></a><span class="kw">str_c</span>(<span class="kw">unlist</span>(words))</span></code></pre></div>
+<div class="sourceCode" id="cb655"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb655-1"><a href="more-useful-packages.html#cb655-1"></a><span class="kw">str_c</span>(<span class="kw">unlist</span>(words))</span></code></pre></div>
 <pre><code>##  [1] &quot;Many&quot;                    &quot;thanks&quot;                 
 ##  [3] &quot;to&quot;                      &quot;everyone&quot;               
 ##  [5] &quot;involved&quot;                &quot;in&quot;                     
@@ -397,7 +398,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [13] &quot;reducing&quot;                &quot;pollution&quot;              
 ## [15] &quot;and&quot;                     &quot;was…&quot;                   
 ## [17] &quot;https://t.co/wwMOIg4t1w&quot;</code></pre>
-<div class="sourceCode" id="cb654"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb654-1"><a href="more-useful-packages.html#cb654-1"></a><span class="kw">str_c</span>(<span class="kw">unlist</span>(words), <span class="st">&quot;Added&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb657"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb657-1"><a href="more-useful-packages.html#cb657-1"></a><span class="kw">str_c</span>(<span class="kw">unlist</span>(words), <span class="st">&quot;Added&quot;</span>)</span></code></pre></div>
 <pre><code>##  [1] &quot;ManyAdded&quot;                    &quot;thanksAdded&quot;                 
 ##  [3] &quot;toAdded&quot;                      &quot;everyoneAdded&quot;               
 ##  [5] &quot;involvedAdded&quot;                &quot;inAdded&quot;                     
@@ -407,7 +408,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [13] &quot;reducingAdded&quot;                &quot;pollutionAdded&quot;              
 ## [15] &quot;andAdded&quot;                     &quot;was…Added&quot;                   
 ## [17] &quot;https://t.co/wwMOIg4t1wAdded&quot;</code></pre>
-<div class="sourceCode" id="cb656"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb656-1"><a href="more-useful-packages.html#cb656-1"></a><span class="kw">str_c</span>(<span class="kw">unlist</span>(words), <span class="st">&quot;Added&quot;</span>, <span class="dt">sep=</span><span class="st">&quot; &quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb659"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb659-1"><a href="more-useful-packages.html#cb659-1"></a><span class="kw">str_c</span>(<span class="kw">unlist</span>(words), <span class="st">&quot;Added&quot;</span>, <span class="dt">sep=</span><span class="st">&quot; &quot;</span>)</span></code></pre></div>
 <pre><code>##  [1] &quot;Many Added&quot;                    &quot;thanks Added&quot;                 
 ##  [3] &quot;to Added&quot;                      &quot;everyone Added&quot;               
 ##  [5] &quot;involved Added&quot;                &quot;in Added&quot;                     
@@ -417,7 +418,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [13] &quot;reducing Added&quot;                &quot;pollution Added&quot;              
 ## [15] &quot;and Added&quot;                     &quot;was… Added&quot;                   
 ## [17] &quot;https://t.co/wwMOIg4t1w Added&quot;</code></pre>
-<div class="sourceCode" id="cb658"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb658-1"><a href="more-useful-packages.html#cb658-1"></a><span class="kw">str_c</span>(<span class="st">&quot;Before&quot;</span>, <span class="kw">unlist</span>(words), <span class="st">&quot;Added&quot;</span>, <span class="dt">sep=</span><span class="st">&quot; &quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb661"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb661-1"><a href="more-useful-packages.html#cb661-1"></a><span class="kw">str_c</span>(<span class="st">&quot;Before&quot;</span>, <span class="kw">unlist</span>(words), <span class="st">&quot;Added&quot;</span>, <span class="dt">sep=</span><span class="st">&quot; &quot;</span>)</span></code></pre></div>
 <pre><code>##  [1] &quot;Before Many Added&quot;                   
 ##  [2] &quot;Before thanks Added&quot;                 
 ##  [3] &quot;Before to Added&quot;                     
@@ -436,7 +437,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [16] &quot;Before was… Added&quot;                   
 ## [17] &quot;Before https://t.co/wwMOIg4t1w Added&quot;</code></pre>
 <p>Or you may want to assemble it all into all back into a coherent whole</p>
-<div class="sourceCode" id="cb660"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb660-1"><a href="more-useful-packages.html#cb660-1"></a><span class="kw">str_c</span>(<span class="kw">unlist</span>(words), <span class="dt">collapse=</span><span class="st">&quot; &quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb663"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb663-1"><a href="more-useful-packages.html#cb663-1"></a><span class="kw">str_c</span>(<span class="kw">unlist</span>(words), <span class="dt">collapse=</span><span class="st">&quot; &quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Many thanks to everyone involved in Alexandria&#39;s #EarthDay celebration. Together, we are reducing pollution and was… https://t.co/wwMOIg4t1w&quot;</code></pre>
 <div id="things-you-havent-thought-about-strings-1" class="section level3" number="8.1.1">
 <h3><span class="header-section-number">8.1.1</span> Things you haven’t thought about strings</h3>
@@ -445,10 +446,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>You can use the function <code>writeLines</code> to see how a function would atually render to a reader (as opposed to how it is stored in the computer.)</li>
 <li>The big confusion is that special characters have to be “escaped” or else they get in the way (From R4DS)</li>
 </ul>
-<div class="sourceCode" id="cb662"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb662-1"><a href="more-useful-packages.html#cb662-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;</span><span class="ch">\&quot;</span><span class="st">&quot;</span>, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">&quot;</span>)</span>
-<span id="cb662-2"><a href="more-useful-packages.html#cb662-2"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb665"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb665-1"><a href="more-useful-packages.html#cb665-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;</span><span class="ch">\&quot;</span><span class="st">&quot;</span>, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">&quot;</span>)</span>
+<span id="cb665-2"><a href="more-useful-packages.html#cb665-2"></a>x</span></code></pre></div>
 <pre><code>## [1] &quot;\&quot;&quot; &quot;\\&quot;</code></pre>
-<div class="sourceCode" id="cb664"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb664-1"><a href="more-useful-packages.html#cb664-1"></a><span class="kw">writeLines</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb667"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb667-1"><a href="more-useful-packages.html#cb667-1"></a><span class="kw">writeLines</span>(x)</span></code></pre></div>
 <pre><code>## &quot;
 ## \</code></pre>
 <ul>
@@ -456,18 +457,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><code>na</code> is a problem, so you might use <code>str_replace_na</code></p></li>
 <li><p><code>stringr</code> replicates a lot of the functions we have already used for characters with (sometimes) slightly different syntax</p></li>
 </ul>
-<div class="sourceCode" id="cb666"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb666-1"><a href="more-useful-packages.html#cb666-1"></a>colors &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;magenta&quot;</span>, <span class="st">&quot;cyan&quot;</span>)</span>
-<span id="cb666-2"><a href="more-useful-packages.html#cb666-2"></a><span class="kw">str_sub</span>(colors, <span class="dv">1</span>, <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb669"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb669-1"><a href="more-useful-packages.html#cb669-1"></a>colors &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;magenta&quot;</span>, <span class="st">&quot;cyan&quot;</span>)</span>
+<span id="cb669-2"><a href="more-useful-packages.html#cb669-2"></a><span class="kw">str_sub</span>(colors, <span class="dv">1</span>, <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;red&quot; &quot;yel&quot; &quot;blu&quot; &quot;gre&quot; &quot;mag&quot; &quot;cya&quot;</code></pre>
-<div class="sourceCode" id="cb668"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb668-1"><a href="more-useful-packages.html#cb668-1"></a><span class="kw">str_sub</span>(colors, <span class="dv">-3</span>, <span class="dv">-1</span>) <span class="co">#count back from the end</span></span></code></pre></div>
+<div class="sourceCode" id="cb671"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb671-1"><a href="more-useful-packages.html#cb671-1"></a><span class="kw">str_sub</span>(colors, <span class="dv">-3</span>, <span class="dv">-1</span>) <span class="co">#count back from the end</span></span></code></pre></div>
 <pre><code>## [1] &quot;red&quot; &quot;low&quot; &quot;lue&quot; &quot;een&quot; &quot;nta&quot; &quot;yan&quot;</code></pre>
-<div class="sourceCode" id="cb670"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb670-1"><a href="more-useful-packages.html#cb670-1"></a><span class="kw">str_sub</span>(colors, <span class="dv">1</span>, <span class="dv">10</span>) <span class="co"># Robust to going out of index</span></span></code></pre></div>
+<div class="sourceCode" id="cb673"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb673-1"><a href="more-useful-packages.html#cb673-1"></a><span class="kw">str_sub</span>(colors, <span class="dv">1</span>, <span class="dv">10</span>) <span class="co"># Robust to going out of index</span></span></code></pre></div>
 <pre><code>## [1] &quot;red&quot;     &quot;yellow&quot;  &quot;blue&quot;    &quot;green&quot;   &quot;magenta&quot; &quot;cyan&quot;</code></pre>
-<div class="sourceCode" id="cb672"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb672-1"><a href="more-useful-packages.html#cb672-1"></a><span class="kw">str_sub</span>(colors, <span class="dv">1</span>, <span class="dv">3</span>)&lt;-<span class="kw">str_to_upper</span>(<span class="kw">str_sub</span>(colors, <span class="dv">1</span>, <span class="dv">3</span>))</span>
-<span id="cb672-2"><a href="more-useful-packages.html#cb672-2"></a>colors</span></code></pre></div>
+<div class="sourceCode" id="cb675"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb675-1"><a href="more-useful-packages.html#cb675-1"></a><span class="kw">str_sub</span>(colors, <span class="dv">1</span>, <span class="dv">3</span>)&lt;-<span class="kw">str_to_upper</span>(<span class="kw">str_sub</span>(colors, <span class="dv">1</span>, <span class="dv">3</span>))</span>
+<span id="cb675-2"><a href="more-useful-packages.html#cb675-2"></a>colors</span></code></pre></div>
 <pre><code>## [1] &quot;RED&quot;     &quot;YELlow&quot;  &quot;BLUe&quot;    &quot;GREen&quot;   &quot;MAGenta&quot; &quot;CYAn&quot;</code></pre>
-<div class="sourceCode" id="cb674"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb674-1"><a href="more-useful-packages.html#cb674-1"></a>colors&lt;-<span class="kw">str_to_lower</span>(colors)</span>
-<span id="cb674-2"><a href="more-useful-packages.html#cb674-2"></a>colors</span></code></pre></div>
+<div class="sourceCode" id="cb677"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb677-1"><a href="more-useful-packages.html#cb677-1"></a>colors&lt;-<span class="kw">str_to_lower</span>(colors)</span>
+<span id="cb677-2"><a href="more-useful-packages.html#cb677-2"></a>colors</span></code></pre></div>
 <pre><code>## [1] &quot;red&quot;     &quot;yellow&quot;  &quot;blue&quot;    &quot;green&quot;   &quot;magenta&quot; &quot;cyan&quot;</code></pre>
 <p>Example:</p>
 <ol style="list-style-type: decimal">
@@ -476,11 +477,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Take all of the words she has used and reduce them down to only their first five letters. Repeat (2) and compare.</li>
 </ol>
 <p>Question 2</p>
-<div class="sourceCode" id="cb676"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb676-1"><a href="more-useful-packages.html#cb676-1"></a>hertweets &lt;-<span class="st"> </span><span class="kw">filter</span>(tweets, ScreenName <span class="op">==</span><span class="st"> &quot;lydakrewson&quot;</span>)[<span class="st">&quot;Text&quot;</span>]</span>
-<span id="cb676-2"><a href="more-useful-packages.html#cb676-2"></a>numWords &lt;-<span class="st"> </span>hertweets <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb676-3"><a href="more-useful-packages.html#cb676-3"></a><span class="st">    </span><span class="kw">rowwise</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb676-4"><a href="more-useful-packages.html#cb676-4"></a><span class="st">    </span><span class="kw">transmute</span>(<span class="dt">numWords=</span> <span class="kw">length</span>(<span class="kw">unlist</span>(<span class="kw">str_split</span>(Text, <span class="st">&quot; &quot;</span>))))</span>
-<span id="cb676-5"><a href="more-useful-packages.html#cb676-5"></a>numWords</span></code></pre></div>
+<div class="sourceCode" id="cb679"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb679-1"><a href="more-useful-packages.html#cb679-1"></a>hertweets &lt;-<span class="st"> </span><span class="kw">filter</span>(tweets, ScreenName <span class="op">==</span><span class="st"> &quot;lydakrewson&quot;</span>)[<span class="st">&quot;Text&quot;</span>]</span>
+<span id="cb679-2"><a href="more-useful-packages.html#cb679-2"></a>numWords &lt;-<span class="st"> </span>hertweets <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb679-3"><a href="more-useful-packages.html#cb679-3"></a><span class="st">    </span><span class="kw">rowwise</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb679-4"><a href="more-useful-packages.html#cb679-4"></a><span class="st">    </span><span class="kw">transmute</span>(<span class="dt">numWords=</span> <span class="kw">length</span>(<span class="kw">unlist</span>(<span class="kw">str_split</span>(Text, <span class="st">&quot; &quot;</span>))))</span>
+<span id="cb679-5"><a href="more-useful-packages.html#cb679-5"></a>numWords</span></code></pre></div>
 <pre><code>## Source: local data frame [3,191 x 1]
 ## Groups: &lt;by row&gt;
 ## 
@@ -498,12 +499,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9       19
 ## 10       13
 ## # ... with 3,181 more rows</code></pre>
-<div class="sourceCode" id="cb678"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb678-1"><a href="more-useful-packages.html#cb678-1"></a><span class="kw">mean</span>(numWords<span class="op">$</span>numWords)</span></code></pre></div>
+<div class="sourceCode" id="cb681"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb681-1"><a href="more-useful-packages.html#cb681-1"></a><span class="kw">mean</span>(numWords<span class="op">$</span>numWords)</span></code></pre></div>
 <pre><code>## [1] 16.58602</code></pre>
-<div class="sourceCode" id="cb680"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb680-1"><a href="more-useful-packages.html#cb680-1"></a><span class="kw">length</span>(<span class="kw">unique</span>(<span class="kw">unlist</span>(<span class="kw">str_split</span>(hertweets<span class="op">$</span>Text, <span class="st">&quot; &quot;</span>))))</span></code></pre></div>
+<div class="sourceCode" id="cb683"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb683-1"><a href="more-useful-packages.html#cb683-1"></a><span class="kw">length</span>(<span class="kw">unique</span>(<span class="kw">unlist</span>(<span class="kw">str_split</span>(hertweets<span class="op">$</span>Text, <span class="st">&quot; &quot;</span>))))</span></code></pre></div>
 <pre><code>## [1] 15960</code></pre>
 <p>Question 3</p>
-<div class="sourceCode" id="cb682"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb682-1"><a href="more-useful-packages.html#cb682-1"></a><span class="kw">length</span>(<span class="kw">unique</span>(<span class="kw">str_sub</span>(<span class="kw">unlist</span>(<span class="kw">str_split</span>(hertweets<span class="op">$</span>Text, <span class="st">&quot; &quot;</span>)), <span class="dv">1</span>, <span class="dv">5</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb685"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb685-1"><a href="more-useful-packages.html#cb685-1"></a><span class="kw">length</span>(<span class="kw">unique</span>(<span class="kw">str_sub</span>(<span class="kw">unlist</span>(<span class="kw">str_split</span>(hertweets<span class="op">$</span>Text, <span class="st">&quot; &quot;</span>)), <span class="dv">1</span>, <span class="dv">5</span>)))</span></code></pre></div>
 <pre><code>## [1] 9831</code></pre>
 
 </div>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>10 Using SQL syntax on an R dataframe | Political Data Science</title>
   <meta name="description" content="10 Using SQL syntax on an R dataframe | Political Data Science" />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="10 Using SQL syntax on an R dataframe | Political Data Science" />
   <meta property="og:type" content="book" />
@@ -144,6 +144,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#learning-objective-2-show-up-ready"><i class="fa fa-check"></i><b>1.2.2</b> Learning objective #2: Show up ready</a></li>
 <li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#learning-objective-3-how-is-this-going-to-work"><i class="fa fa-check"></i><b>1.2.3</b> Learning objective #3: How is this going to work?</a></li>
 </ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#interactive-r-environment"><i class="fa fa-check"></i><b>1.3</b> Interactive R Environment</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html"><i class="fa fa-check"></i><b>2</b> Getting Started in R</a>
 <ul>
@@ -463,37 +464,37 @@ should specify which table to take the column from by saying <code>table.column<
 <p>The main package we’ll be using to convert SQL commands to R manipulations is <code>sqldf</code>.</p>
 <p>Here’s an example using the same data from the Tidy chapter.</p>
 <p>Data comes from fivethirtyeight.com</p>
-<div class="sourceCode" id="cb777"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb777-1"><a href="using-sql-syntax-on-an-r-dataframe.html#cb777-1"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb777-2"><a href="using-sql-syntax-on-an-r-dataframe.html#cb777-2"></a><span class="kw">library</span>(tidyr)</span>
-<span id="cb777-3"><a href="using-sql-syntax-on-an-r-dataframe.html#cb777-3"></a><span class="kw">library</span>(readr)</span>
-<span id="cb777-4"><a href="using-sql-syntax-on-an-r-dataframe.html#cb777-4"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb777-5"><a href="using-sql-syntax-on-an-r-dataframe.html#cb777-5"></a>mayors&lt;-<span class="kw">read_csv</span>(<span class="st">&quot;../Datasets/Mayors.csv&quot;</span>)</span>
-<span id="cb777-6"><a href="using-sql-syntax-on-an-r-dataframe.html#cb777-6"></a>tweets&lt;-<span class="kw">read_csv</span>(<span class="st">&quot;C:/Users/maria/OneDrive/WUSTL/2019-20/PDS/Tweets.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb779"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb779-1"><a href="using-sql-syntax-on-an-r-dataframe.html#cb779-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb779-2"><a href="using-sql-syntax-on-an-r-dataframe.html#cb779-2"></a><span class="kw">library</span>(tidyr)</span>
+<span id="cb779-3"><a href="using-sql-syntax-on-an-r-dataframe.html#cb779-3"></a><span class="kw">library</span>(readr)</span>
+<span id="cb779-4"><a href="using-sql-syntax-on-an-r-dataframe.html#cb779-4"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb779-5"><a href="using-sql-syntax-on-an-r-dataframe.html#cb779-5"></a>mayors&lt;-<span class="kw">read_csv</span>(<span class="st">&quot;../Datasets/Mayors.csv&quot;</span>)</span>
+<span id="cb779-6"><a href="using-sql-syntax-on-an-r-dataframe.html#cb779-6"></a>tweets&lt;-<span class="kw">read_csv</span>(<span class="st">&quot;C:/Users/maria/OneDrive/WUSTL/2019-20/PDS/Tweets.csv&quot;</span>)</span></code></pre></div>
 <p><code>mayors</code> and <code>tweets</code> are tibbles, but we want to operate our SQL queries on data frames</p>
-<div class="sourceCode" id="cb778"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb778-1"><a href="using-sql-syntax-on-an-r-dataframe.html#cb778-1"></a>mayorsDF &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(mayors)</span>
-<span id="cb778-2"><a href="using-sql-syntax-on-an-r-dataframe.html#cb778-2"></a>tweetsDF &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(tweets)</span></code></pre></div>
+<div class="sourceCode" id="cb780"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb780-1"><a href="using-sql-syntax-on-an-r-dataframe.html#cb780-1"></a>mayorsDF &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(mayors)</span>
+<span id="cb780-2"><a href="using-sql-syntax-on-an-r-dataframe.html#cb780-2"></a>tweetsDF &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(tweets)</span></code></pre></div>
 <p>Now we can start using our newfound SQL powers to truly explore our data. For a warm-up, let’s count how many mayors are present in our dataset.</p>
-<div class="sourceCode" id="cb779"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb779-1"><a href="using-sql-syntax-on-an-r-dataframe.html#cb779-1"></a><span class="kw">library</span>(sqldf)</span>
-<span id="cb779-2"><a href="using-sql-syntax-on-an-r-dataframe.html#cb779-2"></a><span class="kw">sqldf</span>( <span class="st">&quot;SELECT COUNT(DISTINCT FullName) </span></span>
-<span id="cb779-3"><a href="using-sql-syntax-on-an-r-dataframe.html#cb779-3"></a><span class="st">            FROM mayorsDF&quot;</span> )</span></code></pre></div>
+<div class="sourceCode" id="cb781"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb781-1"><a href="using-sql-syntax-on-an-r-dataframe.html#cb781-1"></a><span class="kw">library</span>(sqldf)</span>
+<span id="cb781-2"><a href="using-sql-syntax-on-an-r-dataframe.html#cb781-2"></a><span class="kw">sqldf</span>( <span class="st">&quot;SELECT COUNT(DISTINCT FullName) </span></span>
+<span id="cb781-3"><a href="using-sql-syntax-on-an-r-dataframe.html#cb781-3"></a><span class="st">            FROM mayorsDF&quot;</span> )</span></code></pre></div>
 <pre><code>##   COUNT(DISTINCT FullName)
 ## 1                     1406</code></pre>
 <p>We can confirm this with our tidy skills:</p>
-<div class="sourceCode" id="cb781"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb781-1"><a href="using-sql-syntax-on-an-r-dataframe.html#cb781-1"></a>mayors <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb781-2"><a href="using-sql-syntax-on-an-r-dataframe.html#cb781-2"></a><span class="st">    </span><span class="kw">select</span>(<span class="st">&quot;FullName&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb781-3"><a href="using-sql-syntax-on-an-r-dataframe.html#cb781-3"></a><span class="st">    </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(FullName)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb781-4"><a href="using-sql-syntax-on-an-r-dataframe.html#cb781-4"></a><span class="st">    </span><span class="kw">n_distinct</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb783"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb783-1"><a href="using-sql-syntax-on-an-r-dataframe.html#cb783-1"></a>mayors <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb783-2"><a href="using-sql-syntax-on-an-r-dataframe.html#cb783-2"></a><span class="st">    </span><span class="kw">select</span>(<span class="st">&quot;FullName&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb783-3"><a href="using-sql-syntax-on-an-r-dataframe.html#cb783-3"></a><span class="st">    </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(FullName)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb783-4"><a href="using-sql-syntax-on-an-r-dataframe.html#cb783-4"></a><span class="st">    </span><span class="kw">n_distinct</span>()</span></code></pre></div>
 <pre><code>## [1] 1406</code></pre>
 <p>Note that we need to filter out NA/null values from the dataset before taking unique values in tidy. Tidy counts null as a unique value.</p>
 <p>How about adding a column to the mayors dataset that counts the number of tweets they have made?</p>
 <p>With SQL:</p>
-<div class="sourceCode" id="cb783"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb783-1"><a href="using-sql-syntax-on-an-r-dataframe.html#cb783-1"></a>mayors_newDF &lt;-<span class="st"> </span><span class="kw">sqldf</span>( <span class="st">&quot;SELECT mayorsDF.*, COUNT(TweetID) AS nTweets</span></span>
-<span id="cb783-2"><a href="using-sql-syntax-on-an-r-dataframe.html#cb783-2"></a><span class="st">                            FROM mayorsDF </span></span>
-<span id="cb783-3"><a href="using-sql-syntax-on-an-r-dataframe.html#cb783-3"></a><span class="st">                            INNER JOIN tweetsDF </span></span>
-<span id="cb783-4"><a href="using-sql-syntax-on-an-r-dataframe.html#cb783-4"></a><span class="st">                            ON mayorsDF.TwitterHandle = tweetsDF.ScreenName </span></span>
-<span id="cb783-5"><a href="using-sql-syntax-on-an-r-dataframe.html#cb783-5"></a><span class="st">                            GROUP BY MayorID</span></span>
-<span id="cb783-6"><a href="using-sql-syntax-on-an-r-dataframe.html#cb783-6"></a><span class="st">                            ORDER BY nTweets DESC, FullName ASC&quot;</span> )</span>
-<span id="cb783-7"><a href="using-sql-syntax-on-an-r-dataframe.html#cb783-7"></a><span class="kw">head</span>(mayors_newDF[<span class="kw">c</span>(<span class="st">&quot;MayorID&quot;</span>, <span class="st">&quot;FullName&quot;</span>, <span class="st">&quot;TwitterHandle&quot;</span>, <span class="st">&quot;nTweets&quot;</span>)], <span class="dt">n=</span><span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb785"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb785-1"><a href="using-sql-syntax-on-an-r-dataframe.html#cb785-1"></a>mayors_newDF &lt;-<span class="st"> </span><span class="kw">sqldf</span>( <span class="st">&quot;SELECT mayorsDF.*, COUNT(TweetID) AS nTweets</span></span>
+<span id="cb785-2"><a href="using-sql-syntax-on-an-r-dataframe.html#cb785-2"></a><span class="st">                            FROM mayorsDF </span></span>
+<span id="cb785-3"><a href="using-sql-syntax-on-an-r-dataframe.html#cb785-3"></a><span class="st">                            INNER JOIN tweetsDF </span></span>
+<span id="cb785-4"><a href="using-sql-syntax-on-an-r-dataframe.html#cb785-4"></a><span class="st">                            ON mayorsDF.TwitterHandle = tweetsDF.ScreenName </span></span>
+<span id="cb785-5"><a href="using-sql-syntax-on-an-r-dataframe.html#cb785-5"></a><span class="st">                            GROUP BY MayorID</span></span>
+<span id="cb785-6"><a href="using-sql-syntax-on-an-r-dataframe.html#cb785-6"></a><span class="st">                            ORDER BY nTweets DESC, FullName ASC&quot;</span> )</span>
+<span id="cb785-7"><a href="using-sql-syntax-on-an-r-dataframe.html#cb785-7"></a><span class="kw">head</span>(mayors_newDF[<span class="kw">c</span>(<span class="st">&quot;MayorID&quot;</span>, <span class="st">&quot;FullName&quot;</span>, <span class="st">&quot;TwitterHandle&quot;</span>, <span class="st">&quot;nTweets&quot;</span>)], <span class="dt">n=</span><span class="dv">10</span>)</span></code></pre></div>
 <pre><code>##    MayorID          FullName   TwitterHandle nTweets
 ## 1      902    Derek Armstead  derek_armstead    3200
 ## 2     1143      Ed Pawlowski    ed_pawlowski    3200
@@ -506,17 +507,17 @@ should specify which table to take the column from by saying <code>table.column<
 ## 9       11  William Stimpson   mayorstimpson    3200
 ## 10     715        Andy Schor       andyschor    3199</code></pre>
 <p>With tidy:</p>
-<div class="sourceCode" id="cb785"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb785-1"><a href="using-sql-syntax-on-an-r-dataframe.html#cb785-1"></a>tweetCounts &lt;-<span class="st"> </span>tweets <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb785-2"><a href="using-sql-syntax-on-an-r-dataframe.html#cb785-2"></a><span class="st">    </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(ScreenName)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb785-3"><a href="using-sql-syntax-on-an-r-dataframe.html#cb785-3"></a><span class="st">    </span><span class="kw">group_by</span>(ScreenName) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb785-4"><a href="using-sql-syntax-on-an-r-dataframe.html#cb785-4"></a><span class="st">    </span><span class="kw">tally</span>()</span>
-<span id="cb785-5"><a href="using-sql-syntax-on-an-r-dataframe.html#cb785-5"></a>mayors_new &lt;-<span class="st"> </span>mayors <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb785-6"><a href="using-sql-syntax-on-an-r-dataframe.html#cb785-6"></a><span class="st">    </span><span class="kw">inner_join</span>(tweetCounts, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;TwitterHandle&quot;</span>=<span class="st">&quot;ScreenName&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb785-7"><a href="using-sql-syntax-on-an-r-dataframe.html#cb785-7"></a><span class="st">    </span><span class="kw">group_by</span>(MayorID) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb785-8"><a href="using-sql-syntax-on-an-r-dataframe.html#cb785-8"></a><span class="st">    </span><span class="kw">arrange</span>(FullName) <span class="op">%&gt;%</span></span>
-<span id="cb785-9"><a href="using-sql-syntax-on-an-r-dataframe.html#cb785-9"></a><span class="st">    </span><span class="kw">arrange</span>(<span class="kw">desc</span>(n)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb785-10"><a href="using-sql-syntax-on-an-r-dataframe.html#cb785-10"></a><span class="st">    </span><span class="kw">select</span>(<span class="st">&quot;MayorID&quot;</span>, <span class="st">&quot;FullName&quot;</span>, <span class="st">&quot;TwitterHandle&quot;</span>, <span class="st">&quot;n&quot;</span>)</span>
-<span id="cb785-11"><a href="using-sql-syntax-on-an-r-dataframe.html#cb785-11"></a>mayors_new</span></code></pre></div>
+<div class="sourceCode" id="cb787"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb787-1"><a href="using-sql-syntax-on-an-r-dataframe.html#cb787-1"></a>tweetCounts &lt;-<span class="st"> </span>tweets <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb787-2"><a href="using-sql-syntax-on-an-r-dataframe.html#cb787-2"></a><span class="st">    </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(ScreenName)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb787-3"><a href="using-sql-syntax-on-an-r-dataframe.html#cb787-3"></a><span class="st">    </span><span class="kw">group_by</span>(ScreenName) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb787-4"><a href="using-sql-syntax-on-an-r-dataframe.html#cb787-4"></a><span class="st">    </span><span class="kw">tally</span>()</span>
+<span id="cb787-5"><a href="using-sql-syntax-on-an-r-dataframe.html#cb787-5"></a>mayors_new &lt;-<span class="st"> </span>mayors <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb787-6"><a href="using-sql-syntax-on-an-r-dataframe.html#cb787-6"></a><span class="st">    </span><span class="kw">inner_join</span>(tweetCounts, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;TwitterHandle&quot;</span>=<span class="st">&quot;ScreenName&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb787-7"><a href="using-sql-syntax-on-an-r-dataframe.html#cb787-7"></a><span class="st">    </span><span class="kw">group_by</span>(MayorID) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb787-8"><a href="using-sql-syntax-on-an-r-dataframe.html#cb787-8"></a><span class="st">    </span><span class="kw">arrange</span>(FullName) <span class="op">%&gt;%</span></span>
+<span id="cb787-9"><a href="using-sql-syntax-on-an-r-dataframe.html#cb787-9"></a><span class="st">    </span><span class="kw">arrange</span>(<span class="kw">desc</span>(n)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb787-10"><a href="using-sql-syntax-on-an-r-dataframe.html#cb787-10"></a><span class="st">    </span><span class="kw">select</span>(<span class="st">&quot;MayorID&quot;</span>, <span class="st">&quot;FullName&quot;</span>, <span class="st">&quot;TwitterHandle&quot;</span>, <span class="st">&quot;n&quot;</span>)</span>
+<span id="cb787-11"><a href="using-sql-syntax-on-an-r-dataframe.html#cb787-11"></a>mayors_new</span></code></pre></div>
 <pre><code>## # A tibble: 572 x 4
 ## # Groups:   MayorID [572]
 ##    MayorID FullName          TwitterHandle       n
