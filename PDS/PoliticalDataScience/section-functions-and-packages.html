@@ -144,7 +144,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#section-learning-objective-2-show-up-ready"><i class="fa fa-check"></i><b>1.2.2</b> Learning objective #2: Show up ready</a></li>
 <li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#section-learning-objective-3-how-is-this-going-to-work"><i class="fa fa-check"></i><b>1.2.3</b> Learning objective #3: How is this going to work?</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#section-interactive-r-environment"><i class="fa fa-check"></i><b>1.3</b> Interactive R Environment</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#section-interactive-r-environment-not-currently-working"><i class="fa fa-check"></i><b>1.3</b> Interactive R Environment (not currently working)</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="section-getting-started-in-r.html"><a href="section-getting-started-in-r.html"><i class="fa fa-check"></i><b>2</b> Getting Started in R</a>
 <ul>
@@ -478,9 +478,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="section-cb713"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb713-1"><a href="section-functions-and-packages.html#section-cb713-1"></a><span class="kw">tapply</span>(array, indicies, <span class="cf">function</span>, ..., simplify)</span></code></pre></div>
 <div class="sourceCode" id="section-cb714"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb714-1"><a href="section-functions-and-packages.html#section-cb714-1"></a>x1 &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">16</span>)</span>
 <span id="section-cb714-2"><a href="section-functions-and-packages.html#section-cb714-2"></a>x1</span></code></pre></div>
-<pre><code>##  [1] 0.96349826 0.17465718 0.09911886 0.65758879 0.19641801 0.16578948
-##  [7] 0.44339753 0.71362596 0.67292809 0.97917698 0.38627769 0.60878224
-## [13] 0.03006701 0.65288969 0.22424064 0.10844303</code></pre>
+<pre><code>##  [1] 0.86272839 0.33303542 0.43787677 0.73891511 0.64758089 0.01598454
+##  [7] 0.21143839 0.51353548 0.94328719 0.14927398 0.43405366 0.02427562
+## [13] 0.01928115 0.11707327 0.62745750 0.34742038</code></pre>
 <div class="sourceCode" id="section-cb716"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb716-1"><a href="section-functions-and-packages.html#section-cb716-1"></a>cat1 &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dv">4</span>)</span>
 <span id="section-cb716-2"><a href="section-functions-and-packages.html#section-cb716-2"></a>cat1</span></code></pre></div>
 <pre><code>##  [1] 1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4</code></pre>
@@ -493,35 +493,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="section-cb720-4"><a href="section-functions-and-packages.html#section-cb720-4"></a>mat2.df<span class="op">$</span>cat2 &lt;-<span class="st"> </span>cat2</span>
 <span id="section-cb720-5"><a href="section-functions-and-packages.html#section-cb720-5"></a>mat2.df</span></code></pre></div>
 <pre><code>##            x1 cat1 cat2
-## 1  0.96349826    1    1
-## 2  0.17465718    2    1
-## 3  0.09911886    3    1
-## 4  0.65758879    4    1
-## 5  0.19641801    1    1
-## 6  0.16578948    2    1
-## 7  0.44339753    3    1
-## 8  0.71362596    4    1
-## 9  0.67292809    1    2
-## 10 0.97917698    2    2
-## 11 0.38627769    3    2
-## 12 0.60878224    4    2
-## 13 0.03006701    1    2
-## 14 0.65288969    2    2
-## 15 0.22424064    3    2
-## 16 0.10844303    4    2</code></pre>
+## 1  0.86272839    1    1
+## 2  0.33303542    2    1
+## 3  0.43787677    3    1
+## 4  0.73891511    4    1
+## 5  0.64758089    1    1
+## 6  0.01598454    2    1
+## 7  0.21143839    3    1
+## 8  0.51353548    4    1
+## 9  0.94328719    1    2
+## 10 0.14927398    2    2
+## 11 0.43405366    3    2
+## 12 0.02427562    4    2
+## 13 0.01928115    1    2
+## 14 0.11707327    2    2
+## 15 0.62745750    3    2
+## 16 0.34742038    4    2</code></pre>
 <div class="sourceCode" id="section-cb722"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb722-1"><a href="section-functions-and-packages.html#section-cb722-1"></a><span class="kw">tapply</span>(mat2.df<span class="op">$</span>x1, <span class="dt">INDEX =</span> mat2.df<span class="op">$</span>cat1, <span class="dt">FUN=</span>mean)</span></code></pre></div>
 <pre><code>##         1         2         3         4 
-## 0.4657278 0.4931283 0.2882587 0.5221100</code></pre>
+## 0.6182194 0.1538418 0.4277066 0.4060366</code></pre>
 <p>And you can do this for combinations of values of variables</p>
 <div class="sourceCode" id="section-cb724"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb724-1"><a href="section-functions-and-packages.html#section-cb724-1"></a><span class="kw">tapply</span>(mat2.df<span class="op">$</span>x1, <span class="kw">list</span>(mat2.df<span class="op">$</span>cat1, mat2.df<span class="op">$</span>cat2), mean)</span></code></pre></div>
 <pre><code>##           1         2
-## 1 0.5799581 0.3514975
-## 2 0.1702233 0.8160333
-## 3 0.2712582 0.3052592
-## 4 0.6856074 0.3586126</code></pre>
+## 1 0.7551546 0.4812842
+## 2 0.1745100 0.1331736
+## 3 0.3246576 0.5307556
+## 4 0.6262253 0.1858480</code></pre>
 <p>The first cell here is equivalent to:</p>
 <div class="sourceCode" id="section-cb726"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb726-1"><a href="section-functions-and-packages.html#section-cb726-1"></a><span class="kw">mean</span>(mat2.df<span class="op">$</span>x1[mat2.df<span class="op">$</span>cat1<span class="op">==</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>mat2.df<span class="op">$</span>cat2<span class="op">==</span><span class="dv">1</span>])</span></code></pre></div>
-<pre><code>## [1] 0.5799581</code></pre>
+<pre><code>## [1] 0.7551546</code></pre>
 </div>
 <div id="section-sweep" class="section level3" number="9.1.5">
 <h3><span class="header-section-number">9.1.5</span> <code>sweep</code></h3>
@@ -534,39 +534,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="section-cb729-2"><a href="section-functions-and-packages.html#section-cb729-2"></a>a.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(a)</span>
 <span id="section-cb729-3"><a href="section-functions-and-packages.html#section-cb729-3"></a>a</span></code></pre></div>
 <pre><code>##           [,1]     [,2]     [,3]     [,4]     [,5]
-##  [1,] 1.751392 1.690644 1.335657 1.627862 1.446464
-##  [2,] 1.286528 1.143712 1.258122 1.973415 1.721644
-##  [3,] 1.247267 1.129276 1.227039 1.802948 1.255592
-##  [4,] 1.010514 1.752689 1.519639 1.765302 1.792311
-##  [5,] 1.710560 1.702131 1.504178 1.123584 1.671954
-##  [6,] 1.639514 1.425909 1.761748 1.748000 1.857741
-##  [7,] 1.925422 1.802674 1.711674 1.476140 1.084852
-##  [8,] 1.053587 1.715309 1.056606 1.325410 1.209472
-##  [9,] 1.395643 1.913772 1.350372 1.770070 1.145487
-## [10,] 1.082113 1.842528 1.387474 1.263504 1.382836
-## [11,] 1.175911 1.963784 1.106851 1.457744 1.839720
-## [12,] 1.674135 1.358707 1.812281 1.562807 1.528901
-## [13,] 1.742677 1.088648 1.346721 1.907694 1.071437
-## [14,] 1.189015 1.922010 1.446428 1.183370 1.110184
-## [15,] 1.506344 1.310325 1.125569 1.160270 1.700999
-## [16,] 1.265030 1.231166 1.134517 1.630403 1.381235
-## [17,] 1.546418 1.127295 1.935797 1.265257 1.299634
-## [18,] 1.811800 1.911964 1.913827 1.531891 1.678245
-## [19,] 1.390072 1.826047 1.651888 1.358614 1.364824
-## [20,] 1.259999 1.698829 1.549513 1.279404 1.298231</code></pre>
+##  [1,] 1.791789 1.525150 1.267328 1.031245 1.807508
+##  [2,] 1.722064 1.489433 1.448136 1.309382 1.420755
+##  [3,] 1.997913 1.534616 1.773443 1.252746 1.560498
+##  [4,] 1.426613 1.122802 1.132289 1.265866 1.387100
+##  [5,] 1.924214 1.623027 1.077649 1.308449 1.126530
+##  [6,] 1.730206 1.467400 1.435545 1.548422 1.960376
+##  [7,] 1.294378 1.715798 1.863764 1.540219 1.649977
+##  [8,] 1.153316 1.325771 1.167934 1.822147 1.084916
+##  [9,] 1.520004 1.885161 1.748147 1.820758 1.014040
+## [10,] 1.523182 1.702126 1.380347 1.741188 1.461889
+## [11,] 1.072426 1.829897 1.857807 1.702611 1.240305
+## [12,] 1.471030 1.675648 1.428410 1.600730 1.326087
+## [13,] 1.313345 1.884099 1.244843 1.186602 1.511841
+## [14,] 1.693878 1.036697 1.849837 1.276845 1.864935
+## [15,] 1.823625 1.637818 1.901927 1.363731 1.390139
+## [16,] 1.126228 1.683903 1.088091 1.268413 1.289698
+## [17,] 1.143241 1.513913 1.258479 1.850939 1.078180
+## [18,] 1.710062 1.545605 1.624961 1.335398 1.940909
+## [19,] 1.478986 1.392595 1.989571 1.982486 1.925519
+## [20,] 1.773401 1.478046 1.197451 1.871149 1.934529</code></pre>
 <ul>
 <li>Now let’s subtract the mean from each column</li>
 </ul>
 <div class="sourceCode" id="section-cb731"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb731-1"><a href="section-functions-and-packages.html#section-cb731-1"></a>a1 &lt;-<span class="st"> </span><span class="kw">sweep</span>(a, <span class="dv">2</span>, <span class="kw">colMeans</span>(a), <span class="st">&quot;-&quot;</span>)</span>
 <span id="section-cb731-2"><a href="section-functions-and-packages.html#section-cb731-2"></a>a1[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,]</span></code></pre></div>
-<pre><code>##            [,1]       [,2]        [,3]       [,4]         [,5]
-## [1,]  0.3181950  0.1127733 -0.12113782  0.1171779  0.004375418
-## [2,] -0.1466686 -0.4341590 -0.19867340  0.4627304  0.279556214
-## [3,] -0.1859303 -0.4485949 -0.22975591  0.2922637 -0.186496418
-## [4,] -0.4226835  0.1748185  0.06284435  0.2546175  0.350223122
-## [5,]  0.2773628  0.1242596  0.04738341 -0.3871003  0.229865527</code></pre>
+<pre><code>##            [,1]        [,2]        [,3]       [,4]        [,5]
+## [1,]  0.2572939 -0.02832551 -0.21947007 -0.4727211  0.30872160
+## [2,]  0.1875687 -0.06404213 -0.03866164 -0.1945843 -0.07803156
+## [3,]  0.4634175 -0.01885935  0.28664461 -0.2512201  0.06171170
+## [4,] -0.1078825 -0.43067354 -0.35450891 -0.2381007 -0.11168617
+## [5,]  0.3897186  0.06955155 -0.40914863 -0.1955171 -0.37225700</code></pre>
 <div class="sourceCode" id="section-cb733"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb733-1"><a href="section-functions-and-packages.html#section-cb733-1"></a><span class="kw">colMeans</span>(a1) <span class="co">## column means are all now about zero</span></span></code></pre></div>
-<pre><code>## [1] -4.440892e-17  8.881784e-17 -4.440892e-17  0.000000e+00  4.440892e-17</code></pre>
+<pre><code>## [1]  8.881784e-17 -8.881784e-17 -4.440892e-17  4.440892e-17  8.881784e-17</code></pre>
 </div>
 <div id="section-by" class="section level3" number="9.1.6">
 <h3><span class="header-section-number">9.1.6</span> <code>by</code></h3>
@@ -574,20 +574,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>by</code> is a wrapper for <code>tapply</code> that is supposed to make it easier to use</p>
 <div class="sourceCode" id="section-cb736"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb736-1"><a href="section-functions-and-packages.html#section-cb736-1"></a><span class="kw">tapply</span>(mat2.df<span class="op">$</span>x1, <span class="dt">INDEX =</span> mat2.df<span class="op">$</span>cat1, <span class="dt">FUN=</span>mean)</span></code></pre></div>
 <pre><code>##         1         2         3         4 
-## 0.4657278 0.4931283 0.2882587 0.5221100</code></pre>
+## 0.6182194 0.1538418 0.4277066 0.4060366</code></pre>
 <div class="sourceCode" id="section-cb738"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb738-1"><a href="section-functions-and-packages.html#section-cb738-1"></a>byOut &lt;-<span class="st"> </span><span class="kw">by</span>(<span class="dt">data=</span>mat2.df<span class="op">$</span>x1, <span class="dt">INDICES=</span>mat2.df<span class="op">$</span>cat1, mean)</span>
 <span id="section-cb738-2"><a href="section-functions-and-packages.html#section-cb738-2"></a>byOut</span></code></pre></div>
 <pre><code>## mat2.df$cat1: 1
-## [1] 0.4657278
+## [1] 0.6182194
 ## ------------------------------------------------------------ 
 ## mat2.df$cat1: 2
-## [1] 0.4931283
+## [1] 0.1538418
 ## ------------------------------------------------------------ 
 ## mat2.df$cat1: 3
-## [1] 0.2882587
+## [1] 0.4277066
 ## ------------------------------------------------------------ 
 ## mat2.df$cat1: 4
-## [1] 0.52211</code></pre>
+## [1] 0.4060366</code></pre>
 <div class="sourceCode" id="section-cb740"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb740-1"><a href="section-functions-and-packages.html#section-cb740-1"></a><span class="kw">class</span>(byOut)</span></code></pre></div>
 <pre><code>## [1] &quot;by&quot;</code></pre>
 </div>
@@ -661,87 +661,87 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="section-cb757"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb757-1"><a href="section-functions-and-packages.html#section-cb757-1"></a>dd&lt;-<span class="kw">data.frame</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">216</span>),<span class="dv">72</span>,<span class="dv">3</span>),<span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;A&quot;</span>,<span class="dv">24</span>),<span class="kw">rep</span>(<span class="st">&quot;B&quot;</span>,<span class="dv">24</span>),<span class="kw">rep</span>(<span class="st">&quot;C&quot;</span>,<span class="dv">24</span>)),<span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;J&quot;</span>,<span class="dv">36</span>),<span class="kw">rep</span>(<span class="st">&quot;K&quot;</span>,<span class="dv">36</span>)))</span>
 <span id="section-cb757-2"><a href="section-functions-and-packages.html#section-cb757-2"></a><span class="kw">colnames</span>(dd) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;v1&quot;</span>, <span class="st">&quot;v2&quot;</span>, <span class="st">&quot;v3&quot;</span>, <span class="st">&quot;dim1&quot;</span>, <span class="st">&quot;dim2&quot;</span>)</span>
 <span id="section-cb757-3"><a href="section-functions-and-packages.html#section-cb757-3"></a><span class="kw">head</span>(dd)</span></code></pre></div>
-<pre><code>##            v1         v2         v3 dim1 dim2
-## 1 -1.43280699 -1.3231929 -0.7446971    A    J
-## 2 -0.48210463 -0.8247680  2.6902134    A    J
-## 3  0.08106529 -0.1036775 -0.3869660    A    J
-## 4 -1.21088858 -0.2908793  1.0258198    A    J
-## 5 -1.07457017 -0.3247893 -0.6972383    A    J
-## 6 -0.78485206 -0.5266026 -0.4020650    A    J</code></pre>
+<pre><code>##           v1         v2          v3 dim1 dim2
+## 1  0.8551940  0.3695775  0.05056537    A    J
+## 2  1.4588252  1.8064429  0.48527538    A    J
+## 3  0.1919591  0.4057030  1.17563859    A    J
+## 4 -0.4741837 -0.2961076  1.07583570    A    J
+## 5 -1.0205107  0.9330929 -0.15182294    A    J
+## 6  0.4337721 -0.1848640 -0.53081654    A    J</code></pre>
 <div class="sourceCode" id="section-cb759"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb759-1"><a href="section-functions-and-packages.html#section-cb759-1"></a>dd</span></code></pre></div>
 <pre><code>##             v1           v2          v3 dim1 dim2
-## 1  -1.43280699 -1.323192925 -0.74469713    A    J
-## 2  -0.48210463 -0.824768043  2.69021337    A    J
-## 3   0.08106529 -0.103677505 -0.38696600    A    J
-## 4  -1.21088858 -0.290879314  1.02581983    A    J
-## 5  -1.07457017 -0.324789326 -0.69723827    A    J
-## 6  -0.78485206 -0.526602592 -0.40206502    A    J
-## 7  -1.96225819  1.944918860  0.62768537    A    J
-## 8  -1.13057487  1.326519079 -0.48658670    A    J
-## 9  -2.01101244 -0.953234964  0.22091318    A    J
-## 10 -0.74775536 -0.957531493  0.67103645    A    J
-## 11  1.97526653  0.047600482 -1.69222088    A    J
-## 12  0.26680027  1.602867168 -0.56592474    A    J
-## 13  1.54929566  1.020452323 -1.11526285    A    J
-## 14  1.34375734 -0.557451961 -0.01488501    A    J
-## 15  1.80742834 -0.027736578  0.52633802    A    J
-## 16  0.37741504 -0.943896067 -0.83507238    A    J
-## 17 -0.12663870 -0.643912514 -0.09411593    A    J
-## 18 -0.38351759 -0.182734718  0.16428850    A    J
-## 19  0.50086924 -0.912202453 -0.31176532    A    J
-## 20  1.22940994  1.045614037 -0.42466468    A    J
-## 21  0.46141401 -0.289288728 -1.60303398    A    J
-## 22  1.06498623 -1.540024028 -0.30701241    A    J
-## 23 -1.20163924  0.392285734  0.23950259    A    J
-## 24 -0.94354767  1.007373176  0.73685845    A    J
-## 25 -1.48622918  1.264094608  0.23870653    B    J
-## 26  0.32970184 -1.155354306  0.79053315    B    J
-## 27 -0.31174526  0.446382002  0.14842780    B    J
-## 28  0.57147259  0.424630802  0.59377522    B    J
-## 29  0.31793922 -0.009958619  2.10021812    B    J
-## 30  0.50206731 -0.197216885 -1.77898368    B    J
-## 31  0.74713712 -1.304752929 -0.55393868    B    J
-## 32 -0.66987094  1.861214164  0.31845229    B    J
-## 33 -0.70054120 -1.209920345 -0.99384260    B    J
-## 34  0.01744155  0.101165836  0.06749404    B    J
-## 35 -0.08923576 -0.393977039 -1.96925273    B    J
-## 36  1.17005146  0.349800950 -0.24240258    B    J
-## 37  0.48173246 -0.332919486 -1.14363040    B    K
-## 38  0.06799334  0.615116314  0.48291878    B    K
-## 39 -1.04584402  0.138474689  1.36764348    B    K
-## 40 -0.06412376 -0.070945354 -1.34620568    B    K
-## 41  0.46210924 -0.498995829  0.21603817    B    K
-## 42  0.14077212  0.262927928  0.20898258    B    K
-## 43  1.27980287  0.648886179 -2.53383145    B    K
-## 44 -0.94782712 -1.174065395  1.27274204    B    K
-## 45 -0.12085417 -0.306793210 -0.58147819    B    K
-## 46  0.04463626  0.638150099  1.08117611    B    K
-## 47 -0.60050844  2.709297287 -0.94128503    B    K
-## 48 -0.29657262  0.528835749 -0.77353495    B    K
-## 49 -0.64643849  0.682066398 -0.64624096    C    K
-## 50  0.87609041  0.459389386 -0.33182926    C    K
-## 51  1.13211867  1.143481695  1.40612265    C    K
-## 52  0.21432372  0.884648433 -0.05079636    C    K
-## 53  1.71153027  0.774796936  1.83375411    C    K
-## 54 -0.76335825  1.949114961  0.06973868    C    K
-## 55  2.33445204  0.873442974 -0.05583450    C    K
-## 56  1.45267548  0.299970652 -1.05041085    C    K
-## 57 -0.24449023  0.104243590  1.21875883    C    K
-## 58  0.53442451 -0.754928048  0.41668603    C    K
-## 59  0.79486192  0.642366002 -1.86119368    C    K
-## 60 -1.41721296 -0.646217771 -1.45794076    C    K
-## 61 -0.32427787  1.278464748 -0.11571873    C    K
-## 62 -0.82585126  0.420989851 -1.61976251    C    K
-## 63  0.31184236 -0.418046617 -0.21844629    C    K
-## 64 -0.52558959 -1.224264575 -1.15024470    C    K
-## 65 -0.31858001 -0.130496875  0.34235386    C    K
-## 66  0.46781489 -0.198081522 -0.47227858    C    K
-## 67  0.14470292  0.397253662  0.68907951    C    K
-## 68 -0.34839898 -0.966559731  1.39993570    C    K
-## 69 -0.24643581 -0.276222216  0.45047136    C    K
-## 70  1.53936207  1.134287809  1.24871093    C    K
-## 71  0.11070526  0.902859876  0.85681366    C    K
-## 72  0.36297321 -0.381444385  0.39533008    C    K</code></pre>
+## 1   0.85519402  0.369577530  0.05056537    A    J
+## 2   1.45882515  1.806442926  0.48527538    A    J
+## 3   0.19195913  0.405702982  1.17563859    A    J
+## 4  -0.47418369 -0.296107567  1.07583570    A    J
+## 5  -1.02051067  0.933092930 -0.15182294    A    J
+## 6   0.43377212 -0.184864044 -0.53081654    A    J
+## 7   0.23159718  0.394476121  1.43322580    A    J
+## 8  -0.26324262  0.520440013 -0.59459369    A    J
+## 9   0.65168052  0.507995243 -0.65237095    A    J
+## 10  0.01158674 -0.972585282 -0.35773989    A    J
+## 11  0.22979067  0.893129826 -0.95733438    A    J
+## 12 -1.33530237 -0.615824369 -1.35199195    A    J
+## 13 -0.60099411 -0.382353835 -0.87411642    A    J
+## 14 -0.98330221  0.267899031 -0.17447483    A    J
+## 15  0.88356660  0.007036114  0.07901021    A    J
+## 16 -1.69499305 -0.065129940 -0.49541043    A    J
+## 17 -0.77913575 -1.377300052 -0.53318122    A    J
+## 18 -1.64228902 -0.963799735  0.18830207    A    J
+## 19  1.71105639 -1.933174725  1.32831880    A    J
+## 20  0.29732451 -1.453190231 -0.14990998    A    J
+## 21  1.03974471 -2.404054161 -1.62341270    A    J
+## 22 -0.19648730 -1.568305935  0.63239991    A    J
+## 23 -0.58138537  1.460733255 -0.17307378    A    J
+## 24 -0.52678596 -0.461033593 -0.11266158    A    J
+## 25 -1.12251290  0.143158133  0.11916201    B    J
+## 26  1.86475127 -1.338656092  0.53447925    B    J
+## 27  0.11635489  0.976720967 -0.12009826    B    J
+## 28 -1.06696466 -0.535537879  0.93410476    B    J
+## 29 -1.32621060 -1.669410100  1.16966031    B    J
+## 30  0.77484365  1.066130764  1.60058895    B    J
+## 31  3.73460137 -0.558471186 -1.19942065    B    J
+## 32  1.48132217 -1.001459826  1.14816285    B    J
+## 33  0.21613434  0.502681521 -0.62496678    B    J
+## 34  1.46135600  0.254098377  0.51648806    B    J
+## 35 -1.61791023 -1.023298584  0.63098358    B    J
+## 36 -0.78905699 -0.448320771  0.71385889    B    J
+## 37 -0.56351760  0.788019125 -0.33446140    B    K
+## 38  0.12331564 -1.265657614 -0.60389219    B    K
+## 39  0.45271832 -1.112659723  1.22022888    B    K
+## 40 -1.25525956 -0.046051603 -0.86896663    B    K
+## 41  1.05069185 -0.492566107  0.46031006    B    K
+## 42 -0.81745238 -1.197839054 -0.83174925    B    K
+## 43 -0.81346209  0.068413328  0.35531180    B    K
+## 44 -0.59279583 -1.158998300 -0.64495423    B    K
+## 45 -0.67273749 -0.128248266  0.66503425    B    K
+## 46 -0.55598129 -0.395669265  1.20721801    B    K
+## 47  0.85530651  0.634460688 -3.60633570    B    K
+## 48 -0.27297623  0.632905650 -0.57061948    B    K
+## 49  1.27315985  0.254025035 -0.90188016    C    K
+## 50  0.31188629 -0.015156662 -1.69973484    C    K
+## 51  0.14027612 -0.660252853  0.51326000    C    K
+## 52  0.24934190  0.258645715  0.30379182    C    K
+## 53  0.43379777  0.386684665 -0.21873901    C    K
+## 54  0.41394704 -0.429830970 -0.22652099    C    K
+## 55 -0.27778727  2.306581562  0.70927160    C    K
+## 56  2.02145979  1.255819064  0.93764571    C    K
+## 57  1.22263553 -0.492327739 -0.30218147    C    K
+## 58  0.36030492 -1.550914637 -0.85492192    C    K
+## 59 -0.42617645 -1.488111032 -0.66216164    C    K
+## 60 -1.34348788 -0.040394616 -1.27487745    C    K
+## 61  0.85107320 -0.854518534  0.04662172    C    K
+## 62  1.34090136  1.617514774  1.07328068    C    K
+## 63 -0.27188139 -1.769276040  1.45100843    C    K
+## 64  0.50574607  1.046174513  0.39715848    C    K
+## 65 -0.48429148  0.698995796 -0.48980961    C    K
+## 66 -0.06553340 -2.292778744  0.46208850    C    K
+## 67 -0.92143855 -0.561272034 -2.50548177    C    K
+## 68  1.79738428  0.152093596 -0.12909190    C    K
+## 69  0.83446135 -1.301686200  0.78992968    C    K
+## 70 -0.50058522  0.147775294 -0.52377153    C    K
+## 71  0.83023011  0.223246654  1.07183317    C    K
+## 72 -1.28033291  0.002926967  0.30381001    C    K</code></pre>
 <p>The main functions we want to use are a_ply, aaply, adply, alply, d_ply, daply, ddply, dlply, l_ply, laply, llply, m_ply, maply, mdply, mlply</p>
 <ul>
 <li>The first letter for each tells us what kind of input we have
@@ -763,16 +763,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Example:</p>
 <div class="sourceCode" id="section-cb761"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb761-1"><a href="section-functions-and-packages.html#section-cb761-1"></a><span class="kw">ddply</span>(<span class="dt">.data=</span>dd, <span class="dt">.variables=</span><span class="kw">c</span>(<span class="st">&quot;dim1&quot;</span>,<span class="st">&quot;dim2&quot;</span>), <span class="dt">.fun=</span><span class="cf">function</span>(df) <span class="kw">mean</span>(df<span class="op">$</span>v1))</span></code></pre></div>
 <pre><code>##   dim1 dim2          V1
-## 1    A    J -0.11810244
-## 2    B    J  0.03318239
-## 3    B    K -0.04989032
-## 4    C    K  0.26363518</code></pre>
+## 1    A    J -0.08760477
+## 2    B    J  0.31055903
+## 3    B    K -0.25517918
+## 4    C    K  0.29229546</code></pre>
 <div class="sourceCode" id="section-cb763"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb763-1"><a href="section-functions-and-packages.html#section-cb763-1"></a><span class="kw">daply</span>(<span class="dt">.data=</span>dd, <span class="dt">.variables=</span><span class="kw">c</span>(<span class="st">&quot;dim1&quot;</span>,<span class="st">&quot;dim2&quot;</span>), <span class="dt">.fun=</span><span class="cf">function</span>(df)<span class="kw">mean</span>(df<span class="op">$</span>v1))</span></code></pre></div>
 <pre><code>##     dim2
-## dim1           J           K
-##    A -0.11810244          NA
-##    B  0.03318239 -0.04989032
-##    C          NA  0.26363518</code></pre>
+## dim1           J          K
+##    A -0.08760477         NA
+##    B  0.31055903 -0.2551792
+##    C          NA  0.2922955</code></pre>
 <p>Most combinations we want are here</p>
 <div class="sourceCode" id="section-cb765"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb765-1"><a href="section-functions-and-packages.html#section-cb765-1"></a><span class="kw">l_ply</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, identity)</span>
 <span id="section-cb765-2"><a href="section-functions-and-packages.html#section-cb765-2"></a><span class="kw">llply</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, identity)</span></code></pre></div>
