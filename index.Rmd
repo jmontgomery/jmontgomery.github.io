@@ -62,6 +62,11 @@ Lecture 17 -- no link
 
 [Lecture 24](https://jmontgomery.github.io/PDS/Slides/24APIs.html)
 
+[Lecture 25](https://jmontgomery.github.io/PDS/Slides/25MarkdownAndGithubPages.html)
+
+[Lecture 26](https://jmontgomery.github.io/PDS/Slides/26Shiny.html)
+
+
 #### Problem Sets
 [Problem Set 1](https://jmontgomery.github.io/PDS/Problem Sets/Problem Set 1/PS1_PDS.pdf)
 

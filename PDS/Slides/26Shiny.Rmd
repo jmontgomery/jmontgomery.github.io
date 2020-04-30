@@ -1,5 +1,5 @@
 ---
-title: "Basics on APIs"
+title: "Introduction to Shiny"
 author: |
   | Jacob M. Montgomery
   | *Washington University in St. Louis*
@@ -7,6 +7,7 @@ author: |
 date: '2020'
 header-includes:
   - \usepackage{amsmath}
+#runtime: shiny
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -36,339 +37,399 @@ pre {
 
 Last time
 
-1. Getting data from the web (basics)
-2. Getting data from the web (more tips)
+1. Making html documents/website (Dom)
+
 
 --
 
 Now
 
 
-1. **Getting data from APIs**
+1. Creating interactive apps using Shiny
 
 --
 
 Next
 
-1. Making html documents/website (Dom)
-2. R Shiny
-
-
---
-
-But Really
 
 **Work on your group projects**
 
 
----
-## Getting started
 
-- Application program interfaces (APIs) are a way for people (and programs) to access data in standard format 
-- Allows others to build products/software around your data without full access to your data.
-- Allows for sharing of data in a controlled way.
-    - Only access at a given rate
-    - Only access pre-specified fields
-- Usually much more systematic and organized than webscraping
-    - But also more powerful (can search their entire dataset)
-    - Data comes back with expected structure
-    - Documentation!!
-- Huge enterprises like OpenSecrets, Twitter, Reddit, Wikipedia, and much more provide these.
-- Could be used for making "live" webpages that re-render some kind of data viz. when a page is refreshed to represent changing data. 
+
 
 
 ---
-## Remembering from last time
+## Orientation
 
 
-- We briefly discussed using `http` including commands
+- What is shiny and a bit of how it relates to "apps" in general
+- How a Shiny App is constructed
+- A few (of many, many) bells and whistles
+- How to integrate an App into a document
 
-- `GET`, `POST`, and `PUT` will give you much of what you need.
 
-- We also learned about the JSON object format, which is similar to a list in R.
+
+---
+
+
+1. We are going to have a directory on your computer that holds your files.
+2. You are going to make two files: user interface (UI) and server
+3. The UI is the part that the user tinkers around with and what they see.
+    - If there are user-defined inputs, then they are set here.
+    - If there are outputs, they are primarily displayed here.
+    - The outputs are often "dynamic"
+    - But this function controls little other than what is passed to the server and what is shown on the page.
+4. The server is where all of the calculations are done or plots are made or texts are combined.
+    - It will take inputs from the UI.
+    - And it will pass back outputs to the UI too.
+5.  We will talk about them separately, but remember they are in constant dialogue.
+
+
+---
+
+## Example 1
+
+```{r, eval=FALSE, message=FALSE, warning=FALSE, echo=TRUE}
+library(shiny)
+runExample("01_hello") # a histogram
+```
+
+- Let's run this and look through the code
+- Then we'll make a slightly different version
+
+
+---
+
+## More examples just to get a taste
+
+```{r, eval=FALSE, message=FALSE, warning=FALSE, echo=TRUE}
+runExample("02_text") # tables and data frames
+runExample("03_reactivity") # a reactive expression
+runExample("04_mpg") # global variables
+runExample("05_sliders") # slider bars
+runExample("06_tabsets") # tabbed panels
+runExample("07_widgets") # help text and submit buttons
+runExample("08_html") # Shiny app built from HTML
+runExample("09_upload") # file upload wizard
+runExample("10_download") # file download wizard
+```
+
+
+---
+
+## End Part A
+
+Go find **two** super cool/fun Shiny Apps and post a link up to Slack.  At least one should not be from the RStudio gallery.
+
+----
+
+
+Files for next few examples available at: 
+
+http://politicaldatascience.com/PDS/Slides/ShinyApps.zip
+
+
+---
+
+## A minimal example
+
+
+- Go to R studio and select `File` --> `New File` --> `Shiny Webb App`
+
+- Select the "Multiple File" option and select where you want it to be stored.
+
+
+![](./Images/ShinyDialogue1.png)
+
+
+- You should now have a folder called "MinimalExample" with two files: `server.R` and `ui.R`
+
+
+
+---
+## Some notes
+
+
+- This is the geyser example from above.
+
+- When you open either file, you can select the "Run App" button above to see what it looks like.
 
 --
 
-- This time we are going to use the `httr` and `jsonlite` packages.
+- You always need to have a  `library(shiny)` call at the top of these files.
 
-- The overall enterprise is to:
-    1. Use `http` so pass the right arguments to the right API endpint.
-    2. Get a JSON object back.
-    3. Optionally use that result to structure a query to another endpoint.
-    4. Repeat (3) until you have the data you want.
+- The ui file needs a call to `shinyUI`
 
----
-## Some API basics/terminology
+- The server file needs a call to `shinyServer`
 
-- APIs have *endpoints* -- think of these as function that are available.
-    - In the documentation (which you should read) it will explain what arguments these endpoints accept.
-    - These are (sometiems) passed in via the `http` request.
-    - They will then return to you a message (did it work) and an object 
-    
-----
-    
-- Most APIs have *rate limits* that control how much data they will return to you.  Try not to wine about people who are giving you free data.
-- APIs typically *time out* if your request takes too long to execture, or else the endpint might have a workaround.
-- Many will require that you have *authentication* often using a *key*
-    - Note that some (e.g., Open Secrets and Twitter) require you to register or even apply
-
----
-## Rough outline for today
-
-- I'll run through a very simple toy example
-- We'll do something slightly more complex with the google civic API.  
-    - You'll need to register on your own to follow this example fully.
-- I'll also show you an R package for making a specific API easier.    
-- The only assignment we will have is I'd like each of you to identify *one* potentially interseting API for the class.  Bonus if you show the result of a query.
-
----
-## Where is the space station?
-
-- Here is a silly little API that tell us at any given time where the International Space Station is located.
-- http://open-notify.org/
-- If you go to the right url, you can see the answer:
-http://api.open-notify.org/iss-now.json
+- There is a little bit of R here, but a little bit of html (e.g., `h3()`)
 
 ---
 
-- JSON object organized as key: value pairs
+## Minimial exampl UI
 
-----
-
-- "timestamp": 1587069040, 
-- "message": "success"
--  "iss_position": 
-    * "latitude": "-49.1436"
-    * "longitude": "25.2204"
-
-----
-
-- Note that the last elment (iss_position) is itself composes of two elements.
-
-
----- 
-
-So we are going to:
-1. Send a "GET" request
-2. Receive:
-    
-      a. A response code 
-      
-      b. Response data
-
-
-```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
-library("httr"); library("jsonlite")
-iss=GET("http://api.open-notify.org/iss-now.json")
-length(iss)
-```
----
-
-- Not really the same as just navigating there.
-- 200 is the "status response" and indicates success.
-- Also includes a lot of details about the call (e.g., time and GET command)
-
---
-
-- But the actual output we wanted is still there
-- And we can pull this out as a "list of lists"
-
-```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
-library("httr"); library("jsonlite")
-fromJSON(rawToChar(iss$content))
-```
-
----
-## End part A
-
-Go play!  See if you can figure out how many people are currently in space.
-
-http://open-notify.org/Open-Notify-API/People-In-Space/
-
----
-
-## APIs with arguments
-
-- So this one is designed to tell you when the ISS is set to pass over a specific location
-
-http://open-notify.org/Open-Notify-API/ISS-Pass-Times/
-
-- But it requires parameters, just like arguments for a function.
-- We need:
-    - Latitude 
-    - Longitude
-- We could try to hack together the url ourselves    
-    
-http://api.open-notify.org/iss-pass.json?lat=40.7&lon=-74
-
-- But `GET` will do that for us
-
----
-
-
-```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
-iss_pass=GET("http://api.open-notify.org/iss-pass.json", 
-             query=list(lat=38.6486009, lon=-90.3128798, n=1))
-fromJSON(rawToChar(iss_pass$content))
-```
-
-- This is when the ISS will pass over Seigle Hall
-
-
-
----
-
-## Ok that's fun, but kind of dumb
-
-- Let's go look at the Google civic API
-
-https://developers.google.com/civic-information/docs/v2/representatives/representativeInfoByAddress
-
-
-- And look it has a handy GUI thing
-
----
-
-### Well ... let's look some more
-
-https://console.developers.google.com/apis/credentials?pli=1
-
-
-- You are going to need to get your authentication key
-- And you you have to click a button in their system to confirm/authorize it.
-- But you can borrow mine for now.
-- Let's go back and look at this
-
-https://developers.google.com/civic-information/docs/v2/representatives/representativeInfoByAddress
-
-
-
----
-
-
-
-```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
-myKey="AIzaSyDkCLZcCeC_Uc0d2ItcBBTUqJgk7Pl4ivQ"
-
-SK<-GET("https://www.googleapis.com/civicinfo/v2/representatives",
-         query=list(address="6186 McPherson Ave. St. Louis",
-                    includeOffices="true",
-                    levels="country",
-                    roles="legislatorLowerBody", 
-                    key="AIzaSyDkCLZcCeC_Uc0d2ItcBBTUqJgk7Pl4ivQ"))
-SK
-```
-
-
-
----
-
-
-```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
-fromJSON(rawToChar(SK$content))
-```
-
----
-
-
-```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
-fromJSON(rawToChar(SK$content))$officials
+```{r, eval=FALSE, message=FALSE, warning=FALSE, echo=TRUE}
+library(shiny)  ## Load shiny
+shinyUI(fluidPage( ## Flexible layout function 
+  titlePanel("Minimial App"), ## Setting the title
+  sidebarLayout( ## Choosing layout with inputs on side and 
+                 ## outputs displayed in the main body
+    sidebarPanel( #Things in this function specify the sidebar
+       textInput(inputId = "comment", 
+                   label = "What you want?",
+                   value=""
+    )), ## End of sidebar
+    mainPanel( ## Arguments for main section (output)
+      h3("This is what you said"), # A subtitle
+                                 # Notice the comma
+      textOutput("textDisplay")
+    ) # Close main panel
+  ) #
+))
 ```
 
 
 ---
-### End Part B
-
-- See if you can get this to work for a different address.
-- If you want to go crazy try and get this endpoint to work instead
-
-https://developers.google.com/civic-information/docs/v2/elections/voterInfoQuery
+## An example server
 
 
-- use electionID="2000"
-
-
----
-## API packages
-
-- Smart people have made some R packages for specific APIs.
-- So real quick I'll show you how to use the `ropensecretsapi`
-
----
-
-## A first example
-
-
-```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
-ropensecretsapi::SetAPIKey("4b774257ece93adea87064e2933ffbae")
-params <- list (id="MO")
-MoLegislators <- ropensecretsapi::GetLegislatorsData(params)
-MoLegislators
-```
-
-
----
-## Just get the cid
-
-
-```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
-MoLegislators$response$legislator[[1]]$`@attributes`[1]
+```{r, eval=FALSE, message=FALSE, warning=FALSE, echo=TRUE}
+library(shiny) # call to shiny
+shinyServer(function(input, output) { ## Funciton defenition
+## server behavior is defined in here
+## In this case, we are going to add a component to 
+## the output.
+  output$textDisplay <- renderText({ # We need to creat the text here
+    # Note that `textDisplay` is the same as in the UI
+    # where it is included in the textoutput() call
+    paste0("You said '", input$comment, # the ID specified in the UI
+           ".' There are ", nchar(input$comment), 
+           " characters in this."
+           ) #close paste0
+  }) #Close renderText 
+}) # Close function/shinyServer call
 ```
 
 ---
 
+## Note: Other kinds of inputs
 
-```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
-MoLegislators$response$legislator[[1]]$`@attributes`[1]
+```{r, eval=FALSE, message=FALSE, warning=FALSE, echo=TRUE}
+runGist(6571951)
 ```
 
 ---
 
+### End of Part B
 
-```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
-IDsForMO<-rep(NA, length(MoLegislators$response$legislator))
-for(i in 1:length(MoLegislators$response$legislator)){
-  IDsForMO[i]<-MoLegislators$response$legislator[[i]]$`@attributes`[1]
-}
+- Set up this minimal App on your own machine
+- Try and change at least two things.  Maybe break it and then fix it again?
+
+
+
+---
+## Let's make our own App
+
+I want to make an app that:
+
+1. For any Senate race, plots the polling over time
+
+2. I can add or take out a smoothed trend.
+
+3. I can switch between a few specific states.
+
+---
+
+- We'll start slow and simple and just do one state.
+
+- But even here we'll have to introduce a few additional concepts including:
+    * Reactive data
+    * renderPlot()
+
+---
+
+## Let's look at a plot that we might want to make
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE, echo=TRUE}
+library(dplyr); library(ggplot2)
+setwd("~/GitHub/jmontgomery.github.io/PDS/Datasets/SenateForecast")
+senateData<-read.csv("PollingCandidateData92-16.csv")
+
+stateName<-"North Carolina"
+
+stateData<-senateData %>%
+  filter(state==stateName & cycle==2016) %>%
+  select(c("Poll", "daysLeft", "Candidateidentifier")) %>% 
+  group_by(Candidateidentifier)%>%
+  glimpse()
 ```
 
 ---
 
-
-```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
-IDsForMO
+```{r, eval=TRUE, message=FALSE, warning=FALSE, echo=TRUE,  fig.width=9, fig.height=5.5}
+thisPlot<-ggplot(stateData, 
+       mapping=aes(x=daysLeft, y=Poll, color=Candidateidentifier)) +
+  geom_point()  + 
+  geom_smooth() +
+  ggtitle(paste0("2016 Senate Election in ", stateName)) + 
+  labs(y="Poll results", x="Days Till Election")
+print(thisPlot)
 ```
 
 ---
 
+### Overall plan
 
-```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
-getTopDonors<-function(x){
-    params<-list(cid=x, cycle="2018")
-    ropensecretsapi::GetCandContribData(params)
-}
-getTopDonors(IDsForMO[1])
-```
+- So we want to make an app that let's people choose the state to plot.
+- And will allow them to include or not include the points.
+- We are going to have to edit the `ui` and `server` file together to get this to work out.
+
 
 ---
 
+### Start with the UI
 
-```{r, eval=TRUE, message=FALSE, warning=FALSE, fig.width=8, fig.height=7}
-MoTopDonors2018<-plyr::llply(IDsForMO, getTopDonors)
-str(MoTopDonors2018)
+```{r, eval=FALSE, message=FALSE, warning=FALSE, echo=TRUE, fig.width=9, fig.height=5.5}
+library(shiny)
+shinyUI(fluidPage(  
+  titlePanel("2016 Senate Polling"), ## Setting the title
+  sidebarLayout( 
+    sidebarPanel(
+       selectInput(inputId = "stateSelect", # Different input
+                   label = "Choose state to display",
+                   choices=c("MO"="Missouri",
+                             "FL"="Florida",
+                             "NC"="North Carolina",
+                             "IA"="Iowa"
+                   ),
+                   multiple=FALSE
+    )), ## End of sidebar
+    mainPanel(  ## putting the main output here
+      plotOutput("trendPlot")
+    ) # Close main panel
+  ) 
+))
 ```
 
 
 ---
 
-### Assignment
+## On to the server
 
 
-1. Find one API that might be of interest and post it on slack. 
-2. Talk to your group about your group project
-3. By the start of next class please have booked a meeting between me and most of your group.
+```{r, eval=FALSE, message=FALSE, warning=FALSE, echo=TRUE, fig.width=9, fig.height=5.5}
+
+############################################################
+################## Server for Senate Polls #################
+############################################################
+library(shiny)
+shinyServer(function(input, output) {
+  
+  ## This will just be executed once
+  senateData<-read.csv("PollingCandidateData92-16.csv") 
+  
+  # This will be updated when options are changed.
+  passData<-reactive({ 
+    stateData<-senateData %>%
+      filter(state==input$stateSelect & cycle==2016) %>%
+      select(c("Poll", "daysLeft", "Candidateidentifier")) %>% 
+      group_by(Candidateidentifier)
+    return(stateData)
+  })
+
+    # Now we prepare the output
+  output$trendPlot <-renderPlot({ # Note the brace
+    thePlot<-ggplot(passData(),  # Note passData() is a function
+           mapping=aes(x=daysLeft, y=Poll, color=Candidateidentifier)) +
+      geom_smooth() +
+      ggtitle(paste0("2016 Senate Election in ", input$stateSelect)) + 
+      labs(y="Poll results", x="Days Till Election") + 
+      geom_point() 
+    print(thePlot)
+  })
+  
+  
+  }) # Close function/shinyServer call
+```
 
 
+---
+
+## Maybe let's add another option
+
+
+```{r, eval=FALSE, message=FALSE, warning=FALSE, echo=TRUE, fig.width=9, fig.height=5.5}
+library(shiny)
+shinyUI(fluidPage(  
+  titlePanel("2016 Senate Polling"), ## Setting the title
+  sidebarLayout( 
+    sidebarPanel(
+      selectInput(inputId = "stateSelect", # Different input
+                  label = "Choose state to display",
+                  choices=c("MO"="Missouri",
+                            "FL"="Florida",
+                            "NC"="North Carolina",
+                            "IA"="Iowa"
+                  ),
+                  multiple=FALSE
+      ), # End of selectInput
+      checkboxInput(inputId = "points", label="Add points?", 
+                    value = FALSE)
+    ), ## End of sidebar
+    mainPanel(  ## putting the main output here
+      plotOutput("trendPlot")
+    ) # Close main panel
+  ) 
+))
+
+```
+
+---
+
+```{r, eval=FALSE, message=FALSE, warning=FALSE, echo=TRUE, fig.width=9, fig.height=5.5}
+library(shiny)
+shinyServer(function(input, output) {
+  
+  ## This will just be executed once
+  senateData<-read.csv("PollingCandidateData92-16.csv") 
+  
+  # This will be updated when options are changed.
+  passData<-reactive({ 
+    stateData<-senateData %>%
+      filter(state==input$stateSelect & cycle==2016) %>%
+      select(c("Poll", "daysLeft", "Candidateidentifier")) %>% 
+      group_by(Candidateidentifier)
+    return(stateData)
+  })
+  
+  # Now we prepare the output
+  output$trendPlot <-renderPlot({ # note brace
+    thePlot<- ggplot(passData(),  # Note passData() is a function
+           mapping=aes(x=daysLeft, y=Poll, color=Candidateidentifier)) +
+      geom_smooth() +
+      ggtitle(paste0("2016 Senate Election in ", input$stateSelect)) + 
+      labs(y="Poll results", x="Days Till Election")
+    if(input$points){
+     thePlot<-thePlot+ geom_point() 
+    }
+    print(thePlot) 
+  })
+  
+  
+  }) # Close function/shinyServer call
+```
+
+
+
+
+---
+
+### Final notes
+
+1. Can be extended in a variety of ways to make more complex.
+2. Can be a nice way to provide a "dashboard" to data with more control over any internal data analytics (and borrowing the full flexibility of R).
+3. Easy to publish or host on github.
 
 
 
