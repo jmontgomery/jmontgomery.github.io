@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Political Data Science</title>
-  <meta name="description" content="Political Data Science" />
+  <title>2 Getting Started in R | Political Data Science</title>
+  <meta name="description" content="2 Getting Started in R | Political Data Science" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Political Data Science" />
+  <meta property="og:title" content="2 Getting Started in R | Political Data Science" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Political Data Science" />
+  <meta name="twitter:title" content="2 Getting Started in R | Political Data Science" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="section-getting-started-in-r.html"/>
+<link rel="prev" href="index.html"/>
+<link rel="next" href="section-data-types-in-r.html"/>
 <script src="libs/header-attrs-2.1/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -361,106 +361,211 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="section-header">
-<h1 class="title">Political Data Science</h1>
-<p class="author"><em>Jacob Montgomery and Mariah Yelenick</em></p>
-</div>
-<div id="section-dont-be-a-clown" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Don’t be a clown</h1>
-<p><a href="https://imgflip.com/i/3m0rs1"><img src="https://i.imgflip.com/3m0rs1.jpg" title="made at imgflip.com"/></a></p>
-<blockquote>
-<p>I see miracles all around me <br>
-Stop and look around, it’s all astounding <br>
-Water, fire, air and dirt <br>
-Fucking magnets, how do they work? <br>
-And I don’t wanna talk to a scientist <br>
-Y’all motherfuckers lying, and getting me pissed <br>
-<br>
-<br>
-— Insane Clown Posse, <em>Miracles</em></p>
-</blockquote>
-<p><a href="https://genius.com/Insane-clown-posse-miracles-lyrics">Link</a> if you don’t know what I’m talking about</p>
-<blockquote>
-<p>Pollsters are wizards, shamans, diviners. They toss numbers around the way astragalomancers once tossed bones to foretell events to come. (The name comes from the Greek astragalos, meaning “knucklebone.” But you knew that.) <br></p>
-</blockquote>
-<blockquote>
-<p>I have never been called by a political pollster and don’t know anybody who has, but I know some pollsters, who assure me they don’t make the numbers up, and I believe them.<br>
-<br>
-<br>
-— Roger Simon, Chief Political Columnist, <em>Politico</em></p>
-</blockquote>
-<p><a href="https://www.politico.com/story/2011/12/are-polls-really-magic-070717">Link</a></p>
-<p>Depending on who you listen to, artificial intelligence and machine learning<a href="section-causality.html#section-fn1" class="footnote-ref" id="section-fnref1"><sup>1</sup></a> are either the cause or the solution to all of the world’s problems. On the one hand you have algorithms spreading misinformtion, large scale corporate surveillance, and predicted mass unemployment in the service sector. On the other hand you have ever-improving health diagnostics, data-driven journalism, and all the world’s information at the touch of your fingers (or voice).</p>
-<p>The term “data science” means different things to different people, but for most people the term doesn’t mean much at all. In the two quotes above, we see both the Insane Clown Posse and Politico’s (for God’s sake) chief political columnist share a loving embrace with ignorance about fundamental forces in our life. We swim in data and statistics. News, politics, and policy is increasingly being driven by data and algorithms. But all too few people know much about how these algorithms work. Like magnets or random sampling, data science is just a mysterious force that we have to cope with.</p>
-<p>The central goal of this class is to make sure you don’t have to be a clown. In today’s world, your future career will surely</p>
-<p>You will find that data science, machine learning, big data, and artificial intelligence is just another tool (if a powerful tool). It is neither good nor evil by itself. It is humans and human judgement (or lack of judgement) that lead to good our bad outcomes.</p>
-<p>But whether you intend to work for the forces of good or evil (I tend towards chaotic neutral)</p>
-<div id="section-as-easy-as-cake" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> As easy as cake</h2>
-<p>One way</p>
-<div id="section-coding" class="section level3" number="1.1.1">
-<h3><span class="header-section-number">1.1.1</span> Coding</h3>
-</div>
-<div id="section-data-acquision" class="section level3" number="1.1.2">
-<h3><span class="header-section-number">1.1.2</span> Data acquision</h3>
-<p>Is that polling data you are looking at a random sample of Americans, or just everyone who attended that sick Delta Sig party? Were the people in your data randomly assigned to watch Fox news, or did they choose to?</p>
-<p>No matter how fancy your machine learning algorithm, the results don’t mean anything very much if you don’t</p>
-</div>
-<div id="section-algorithms" class="section level3" number="1.1.3">
-<h3><span class="header-section-number">1.1.3</span> Algorithms</h3>
-</div>
-<div id="section-domain-knowledge" class="section level3" number="1.1.4">
-<h3><span class="header-section-number">1.1.4</span> Domain knowledge</h3>
-<p>Like baking, the final thing you need to do good data science is what most people call “domain knowledge” and what I call “knowing what the hell you are talking about.” It turns out that having a really cool statistical model, huge amounts of data, and even a super computer sproting 24 GPUs will not save you from reaching the wrong answer if you don’t think (and aren’t trained to think).</p>
-<p><img src="Fig1.png" />
-<a href="https://www.researchgate.net/figure/A-famous-spurious-correlationstylervigencom_fig3_316739091">Link</a></p>
-</div>
-<div id="section-putting-it-together" class="section level3" number="1.1.5">
-<h3><span class="header-section-number">1.1.5</span> Putting it together</h3>
-<p>A final method. You can get along fine in may cases following the instructions on the back of the chocolate chip cookie bag. But to really become a “baker” you need to be able to create your own recipes for each occasion. And to do that you actually need to “know what the hell you are talking about.”</p>
-<p>So</p>
-</div>
-</div>
-<div id="section-class-structures" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Class structures</h2>
-<div id="section-learning-objective-1-team-based-learning" class="section level3" number="1.2.1">
-<h3><span class="header-section-number">1.2.1</span> Learning objective #1: Team based learning</h3>
-<p>This course was designed to incorporate elements of Team Based Learning. This is an approach to creating permanent groups to work on problems in class and out of class throughout the semester.</p>
-<p>We are not going to follow the TBL approach strictly. But we are going to have fewer lectures and more structured group activities. Learn more about Team Based Learning by watching this video.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kxg5FTGZhZs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-</div>
-<div id="section-learning-objective-2-show-up-ready" class="section level3" number="1.2.2">
-<h3><span class="header-section-number">1.2.2</span> Learning objective #2: Show up ready</h3>
-<p>Moving an increasing amount of teaching resources online is a big trend in education at all levels. But this isn’t just trendy, it appears to be very effective. Preliminary research shows that online learning paired with in-class interactions with faculty is a much more effective than the traditional lecture format.</p>
-<p>Watch this short TED talk by Peter Norvig to learn more:</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/tYclUdcsdeo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-<p>So in advance of each lecture</p>
-</div>
-<div id="section-learning-objective-3-how-is-this-going-to-work" class="section level3" number="1.2.3">
-<h3><span class="header-section-number">1.2.3</span> Learning objective #3: How is this going to work?</h3>
-<p>The approach I am trying to adopt for this class is to help you learn in four basic steps.</p>
+<div id="section-getting-started-in-r" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Getting Started in R</h1>
+<div id="section-learning-objectives" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Learning Objectives</h2>
 <ol style="list-style-type: decimal">
-<li><p>Initial exposure to materials through self-study.</p></li>
-<li><p>Repeated exposure to materials in short lectures.</p></li>
-<li><p>Use your new knowledge in a collaborative environment where assistance is readily available.</p></li>
-<li><p>Use your new knowledge on your own.</p></li>
-</ol>
-<p>The goal is for you to see and use information in multiple ways to improve learning outcomes. Experience (and research) shows that this approach is far superior to simple lectures in helping you learn more and retain it longer. To help you along this process, each learning component will be broken down as follows.</p>
-<ol style="list-style-type: decimal">
-<li><p>You will read your book and review online materials.</p></li>
-<li><p>I will begin most classes with a short lecture where I will cover the materials again and answer questions.</p></li>
-<li><p>You will apply your knowledge during in-class team assignments. If you have any questions or run into problems, I will be right there to give you help. To keep the team motivated, these assignments will be graded.</p></li>
-<li><p>You will apply your knowledge on your own (or with friends) in your problem sets and final project.</p></li>
+<li><p>Learn how to assign a value to an object in R.</p></li>
+<li><p>Learn your way around R (using R Studio).</p></li>
+<li><p>Learn how to do simple arithmetic in R.</p></li>
 </ol>
 </div>
+<div id="section-assigning-values-to-objects" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Assigning values to objects</h2>
+<p>You can assign values to objects in two ways as shown below. The assignment arrow is functionally equivalent to the equal sign. When assigning values to objects, R will always take the value on the right side of the assignment operator (&lt;- or =) and store it in the object on the left side of the assignment operator. This means that the two lines of commented code in the following snippet do different things.</p>
+<p>Side note: to comment a single line of code in R, use the hashtag or pound sign at the beginning of the line. If you’re working in an R script, the commented portion will turn green.</p>
+<div class="sourceCode" id="section-cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb1-1"><a href="section-getting-started-in-r.html#section-cb1-1"></a>x &lt;-<span class="st"> </span><span class="dv">4</span></span>
+<span id="section-cb1-2"><a href="section-getting-started-in-r.html#section-cb1-2"></a>x</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<div class="sourceCode" id="section-cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb3-1"><a href="section-getting-started-in-r.html#section-cb3-1"></a>y =<span class="st"> </span><span class="dv">6</span></span>
+<span id="section-cb3-2"><a href="section-getting-started-in-r.html#section-cb3-2"></a>y</span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<div class="sourceCode" id="section-cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb5-1"><a href="section-getting-started-in-r.html#section-cb5-1"></a><span class="co">#y = x</span></span>
+<span id="section-cb5-2"><a href="section-getting-started-in-r.html#section-cb5-2"></a><span class="co">#x = y</span></span></code></pre></div>
+<p>It is best practice when coding to avoid “magic numbers” - i.e. all numbers should be stored in named variables so that if we want to change the value, we only have to do so once. This also removes any ambiguity for someone else reading your code who might wonder what the number represents.</p>
+<div class="sourceCode" id="section-cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb6-1"><a href="section-getting-started-in-r.html#section-cb6-1"></a>total.votes.ak &lt;-<span class="st">  </span><span class="dv">238307</span></span>
+<span id="section-cb6-2"><a href="section-getting-started-in-r.html#section-cb6-2"></a>voting.age.population.ak &lt;-<span class="st"> </span><span class="dv">496387</span></span>
+<span id="section-cb6-3"><a href="section-getting-started-in-r.html#section-cb6-3"></a>turnout.ak &lt;-total.votes.ak<span class="op">/</span>voting.age.population.ak</span>
+<span id="section-cb6-4"><a href="section-getting-started-in-r.html#section-cb6-4"></a>turnout.ak</span></code></pre></div>
+<pre><code>## [1] 0.4800831</code></pre>
 </div>
-<div id="section-interactive-r-environment" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Interactive R Environment</h2>
-<p>You might want to bookmark this page to test code quickly without opening RStudio.</p>
-<p>The username is the first name of the professor of this course and the password is the last name of the professor of this course</p>
-<iframe data-deferred-src="appf04d407751899a100bff9a76f0d52c9d/?w=&amp;__subapp__=1" width="100%" height="400" class="shiny-frame shiny-frame-deferred"></iframe>
+<div id="section-r-as-a-calculator" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> R as a calculator</h2>
+<div class="sourceCode" id="section-cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb8-1"><a href="section-getting-started-in-r.html#section-cb8-1"></a><span class="dv">5</span><span class="op">+</span><span class="dv">4</span> <span class="co"># Addition</span></span></code></pre></div>
+<pre><code>## [1] 9</code></pre>
+<div class="sourceCode" id="section-cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb10-1"><a href="section-getting-started-in-r.html#section-cb10-1"></a><span class="dv">6-3</span> <span class="co"># Subtraction</span></span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="section-cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb12-1"><a href="section-getting-started-in-r.html#section-cb12-1"></a><span class="dv">34</span> <span class="op">/</span><span class="st"> </span><span class="dv">6</span> <span class="co"># Division</span></span></code></pre></div>
+<pre><code>## [1] 5.666667</code></pre>
+<div class="sourceCode" id="section-cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb14-1"><a href="section-getting-started-in-r.html#section-cb14-1"></a><span class="dv">5</span> <span class="op">*</span><span class="st"> </span><span class="dv">3</span> <span class="co"># Multiplication</span></span></code></pre></div>
+<pre><code>## [1] 15</code></pre>
+<div class="sourceCode" id="section-cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb16-1"><a href="section-getting-started-in-r.html#section-cb16-1"></a><span class="dv">5</span><span class="op">^</span><span class="dv">4</span> <span class="co"># Exponents</span></span></code></pre></div>
+<pre><code>## [1] 625</code></pre>
+<div class="sourceCode" id="section-cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb18-1"><a href="section-getting-started-in-r.html#section-cb18-1"></a><span class="dv">625</span><span class="op">^</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">4</span>) <span class="co"># More exponents</span></span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode" id="section-cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb20-1"><a href="section-getting-started-in-r.html#section-cb20-1"></a><span class="dv">11</span><span class="op">%%</span><span class="dv">2</span> <span class="co"># modular arithmetic (11 mod 2) is the remainder operator</span></span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode" id="section-cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb22-1"><a href="section-getting-started-in-r.html#section-cb22-1"></a><span class="dv">31</span> <span class="op">%/%</span><span class="st"> </span><span class="dv">7</span> <span class="co"># The integer part of a fraction</span></span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p>R comes with a number of constants prestored that you can use</p>
+<div class="sourceCode" id="section-cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb24-1"><a href="section-getting-started-in-r.html#section-cb24-1"></a><span class="fl">6.25</span> <span class="co"># numbers</span></span>
+<span id="section-cb24-2"><a href="section-getting-started-in-r.html#section-cb24-2"></a>pi <span class="co"># And a few others</span></span>
+<span id="section-cb24-3"><a href="section-getting-started-in-r.html#section-cb24-3"></a><span class="ot">NA</span> <span class="co"># Missing value</span></span>
+<span id="section-cb24-4"><a href="section-getting-started-in-r.html#section-cb24-4"></a><span class="ot">NULL</span> <span class="co"># Nothing.</span></span>
+<span id="section-cb24-5"><a href="section-getting-started-in-r.html#section-cb24-5"></a><span class="dv">0</span><span class="op">/</span><span class="dv">0</span> <span class="co"># NaN means &quot;Not a number&quot;</span></span>
+<span id="section-cb24-6"><a href="section-getting-started-in-r.html#section-cb24-6"></a><span class="dv">1</span><span class="op">/</span><span class="dv">0</span> <span class="co"># Inf means infinity</span></span></code></pre></div>
+<p>R follows the order of operations (Please Excuse My Dear Aunt Sally).
+Side note - if you have multiple exponentiation, they execute right to left.</p>
+<div class="sourceCode" id="section-cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb25-1"><a href="section-getting-started-in-r.html#section-cb25-1"></a><span class="dv">2</span><span class="op">*</span>(<span class="dv">3-4</span>)<span class="op">+</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<div class="sourceCode" id="section-cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb27-1"><a href="section-getting-started-in-r.html#section-cb27-1"></a><span class="dv">2</span><span class="op">*</span>(<span class="dv">3-4</span>)<span class="op">+</span><span class="dv">2</span><span class="op">*</span>(<span class="dv">4</span> <span class="op">+</span><span class="st"> </span><span class="dv">3</span>)<span class="op">^</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## [1] 1.825862</code></pre>
+</div>
+<div id="section-the-global-environment-and-how-to-clean-it" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> The global environment and how to clean it</h2>
+<p>Named objects are stored in the “global environment”, which means that they can be accessed at any time by any function you might run. They are “global” variables which makes them different from “local” variables (variables that can only be accessed from within a certain scope like within a function).
+The commands ls() and rm() are used to show or remove variables from the global environment respectively.</p>
+<div class="sourceCode" id="section-cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb29-1"><a href="section-getting-started-in-r.html#section-cb29-1"></a>a &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="section-cb29-2"><a href="section-getting-started-in-r.html#section-cb29-2"></a>b &lt;-<span class="st"> </span><span class="dv">2</span></span>
+<span id="section-cb29-3"><a href="section-getting-started-in-r.html#section-cb29-3"></a><span class="kw">ls</span>()</span></code></pre></div>
+<pre><code>##  [1] &quot;a&quot;                        &quot;a.df&quot;                    
+##  [3] &quot;a1&quot;                       &quot;allData&quot;                 
+##  [5] &quot;answer1&quot;                  &quot;answer2&quot;                 
+##  [7] &quot;aTweet&quot;                   &quot;b&quot;                       
+##  [9] &quot;basicPolls&quot;               &quot;basicPolls_grouped&quot;      
+## [11] &quot;binaryPred&quot;               &quot;byOut&quot;                   
+## [13] &quot;cat1&quot;                     &quot;cat2&quot;                    
+## [15] &quot;collapse&quot;                 &quot;colors&quot;                  
+## [17] &quot;ComplexModelFull&quot;         &quot;ComplexModelPredictions&quot; 
+## [19] &quot;ComplexModelTrain&quot;        &quot;congress&quot;                
+## [21] &quot;credentials&quot;              &quot;dd&quot;                      
+## [23] &quot;electData&quot;                &quot;equation&quot;                
+## [25] &quot;Fatalities&quot;               &quot;grouped_by&quot;              
+## [27] &quot;hertweets&quot;                &quot;i&quot;                       
+## [29] &quot;j&quot;                        &quot;l&quot;                       
+## [31] &quot;l.fivenum&quot;                &quot;m&quot;                       
+## [33] &quot;mat1&quot;                     &quot;mat1.df&quot;                 
+## [35] &quot;mat2&quot;                     &quot;mat2.df&quot;                 
+## [37] &quot;mat3&quot;                     &quot;matdf&quot;                   
+## [39] &quot;matdf1&quot;                   &quot;matdf2&quot;                  
+## [41] &quot;matrix1&quot;                  &quot;mayors&quot;                  
+## [43] &quot;mayors_new&quot;               &quot;mayors_newDF&quot;            
+## [45] &quot;mayorsDF&quot;                 &quot;mentions&quot;                
+## [47] &quot;mentionsCount&quot;            &quot;mod1_forest&quot;             
+## [49] &quot;mod1_knn&quot;                 &quot;Model1&quot;                  
+## [51] &quot;Model1preds&quot;              &quot;model2&quot;                  
+## [53] &quot;Model2&quot;                   &quot;Model3&quot;                  
+## [55] &quot;Model4&quot;                   &quot;myLogistic&quot;              
+## [57] &quot;n&quot;                        &quot;nevadaPrimaries&quot;         
+## [59] &quot;newhamp&quot;                  &quot;numWords&quot;                
+## [61] &quot;output&quot;                   &quot;primaryPolls&quot;            
+## [63] &quot;random_states&quot;            &quot;resume&quot;                  
+## [65] &quot;senate_test&quot;              &quot;senate_train&quot;            
+## [67] &quot;senateData&quot;               &quot;SimpleModelFull&quot;         
+## [69] &quot;SimpleModelPredictions&quot;   &quot;SimpleModelTrain&quot;        
+## [71] &quot;split_senateData&quot;         &quot;states10&quot;                
+## [73] &quot;states100&quot;                &quot;sum.plus.2&quot;              
+## [75] &quot;testValues&quot;               &quot;timeNevada&quot;              
+## [77] &quot;total.votes.ak&quot;           &quot;tree_mod1&quot;               
+## [79] &quot;tree_mod2&quot;                &quot;treePreds1&quot;              
+## [81] &quot;treePreds2&quot;               &quot;turnout&quot;                 
+## [83] &quot;turnout.ak&quot;               &quot;turnoutX&quot;                
+## [85] &quot;tweetCounts&quot;              &quot;tweets&quot;                  
+## [87] &quot;tweetsDF&quot;                 &quot;voting.age.population.ak&quot;
+## [89] &quot;VSG&quot;                      &quot;VSG.fav&quot;                 
+## [91] &quot;wideNevada&quot;               &quot;words&quot;                   
+## [93] &quot;x&quot;                        &quot;x1&quot;                      
+## [95] &quot;y&quot;                        &quot;ys&quot;</code></pre>
+<div class="sourceCode" id="section-cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb31-1"><a href="section-getting-started-in-r.html#section-cb31-1"></a><span class="kw">rm</span>(a) <span class="co">#this removes a from the global environment</span></span>
+<span id="section-cb31-2"><a href="section-getting-started-in-r.html#section-cb31-2"></a><span class="kw">ls</span>()</span></code></pre></div>
+<pre><code>##  [1] &quot;a.df&quot;                     &quot;a1&quot;                      
+##  [3] &quot;allData&quot;                  &quot;answer1&quot;                 
+##  [5] &quot;answer2&quot;                  &quot;aTweet&quot;                  
+##  [7] &quot;b&quot;                        &quot;basicPolls&quot;              
+##  [9] &quot;basicPolls_grouped&quot;       &quot;binaryPred&quot;              
+## [11] &quot;byOut&quot;                    &quot;cat1&quot;                    
+## [13] &quot;cat2&quot;                     &quot;collapse&quot;                
+## [15] &quot;colors&quot;                   &quot;ComplexModelFull&quot;        
+## [17] &quot;ComplexModelPredictions&quot;  &quot;ComplexModelTrain&quot;       
+## [19] &quot;congress&quot;                 &quot;credentials&quot;             
+## [21] &quot;dd&quot;                       &quot;electData&quot;               
+## [23] &quot;equation&quot;                 &quot;Fatalities&quot;              
+## [25] &quot;grouped_by&quot;               &quot;hertweets&quot;               
+## [27] &quot;i&quot;                        &quot;j&quot;                       
+## [29] &quot;l&quot;                        &quot;l.fivenum&quot;               
+## [31] &quot;m&quot;                        &quot;mat1&quot;                    
+## [33] &quot;mat1.df&quot;                  &quot;mat2&quot;                    
+## [35] &quot;mat2.df&quot;                  &quot;mat3&quot;                    
+## [37] &quot;matdf&quot;                    &quot;matdf1&quot;                  
+## [39] &quot;matdf2&quot;                   &quot;matrix1&quot;                 
+## [41] &quot;mayors&quot;                   &quot;mayors_new&quot;              
+## [43] &quot;mayors_newDF&quot;             &quot;mayorsDF&quot;                
+## [45] &quot;mentions&quot;                 &quot;mentionsCount&quot;           
+## [47] &quot;mod1_forest&quot;              &quot;mod1_knn&quot;                
+## [49] &quot;Model1&quot;                   &quot;Model1preds&quot;             
+## [51] &quot;model2&quot;                   &quot;Model2&quot;                  
+## [53] &quot;Model3&quot;                   &quot;Model4&quot;                  
+## [55] &quot;myLogistic&quot;               &quot;n&quot;                       
+## [57] &quot;nevadaPrimaries&quot;          &quot;newhamp&quot;                 
+## [59] &quot;numWords&quot;                 &quot;output&quot;                  
+## [61] &quot;primaryPolls&quot;             &quot;random_states&quot;           
+## [63] &quot;resume&quot;                   &quot;senate_test&quot;             
+## [65] &quot;senate_train&quot;             &quot;senateData&quot;              
+## [67] &quot;SimpleModelFull&quot;          &quot;SimpleModelPredictions&quot;  
+## [69] &quot;SimpleModelTrain&quot;         &quot;split_senateData&quot;        
+## [71] &quot;states10&quot;                 &quot;states100&quot;               
+## [73] &quot;sum.plus.2&quot;               &quot;testValues&quot;              
+## [75] &quot;timeNevada&quot;               &quot;total.votes.ak&quot;          
+## [77] &quot;tree_mod1&quot;                &quot;tree_mod2&quot;               
+## [79] &quot;treePreds1&quot;               &quot;treePreds2&quot;              
+## [81] &quot;turnout&quot;                  &quot;turnout.ak&quot;              
+## [83] &quot;turnoutX&quot;                 &quot;tweetCounts&quot;             
+## [85] &quot;tweets&quot;                   &quot;tweetsDF&quot;                
+## [87] &quot;voting.age.population.ak&quot; &quot;VSG&quot;                     
+## [89] &quot;VSG.fav&quot;                  &quot;wideNevada&quot;              
+## [91] &quot;words&quot;                    &quot;x&quot;                       
+## [93] &quot;x1&quot;                       &quot;y&quot;                       
+## [95] &quot;ys&quot;</code></pre>
+<div class="sourceCode" id="section-cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb33-1"><a href="section-getting-started-in-r.html#section-cb33-1"></a>c &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="section-cb33-2"><a href="section-getting-started-in-r.html#section-cb33-2"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>()) <span class="co">#this removes all global variables</span></span></code></pre></div>
+<p>Some things are present in the working environment, but not shown in the global environment</p>
+<div class="sourceCode" id="section-cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb34-1"><a href="section-getting-started-in-r.html#section-cb34-1"></a>.x&lt;-<span class="st">&quot;Hide me&quot;</span></span>
+<span id="section-cb34-2"><a href="section-getting-started-in-r.html#section-cb34-2"></a><span class="kw">print</span>(.x)</span></code></pre></div>
+<pre><code>## [1] &quot;Hide me&quot;</code></pre>
+<div class="sourceCode" id="section-cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb36-1"><a href="section-getting-started-in-r.html#section-cb36-1"></a><span class="kw">ls</span>()</span></code></pre></div>
+<pre><code>## character(0)</code></pre>
+<p>Anything that starts with a “.” will be accessible in your code, but hidden</p>
+</div>
+<div id="section-getting-help" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Getting help</h2>
+<p>Learning about functions and how to specify them correctly is half the battle</p>
+<div class="sourceCode" id="section-cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb38-1"><a href="section-getting-started-in-r.html#section-cb38-1"></a><span class="kw">help</span>(sqrt) <span class="co"># help w/ functions</span></span>
+<span id="section-cb38-2"><a href="section-getting-started-in-r.html#section-cb38-2"></a>?sqrt <span class="co"># same thing</span></span>
+<span id="section-cb38-3"><a href="section-getting-started-in-r.html#section-cb38-3"></a><span class="kw">help.start</span>() <span class="co"># lots of help</span></span>
+<span id="section-cb38-4"><a href="section-getting-started-in-r.html#section-cb38-4"></a><span class="kw">help.search</span>(<span class="st">&quot;sqrt&quot;</span>) <span class="co"># what am I looking for? Fuzzy matching</span></span>
+<span id="section-cb38-5"><a href="section-getting-started-in-r.html#section-cb38-5"></a><span class="kw">example</span>(sqrt)</span>
+<span id="section-cb38-6"><a href="section-getting-started-in-r.html#section-cb38-6"></a><span class="kw">RSiteSearch</span>(<span class="st">&quot;missing&quot;</span>)</span></code></pre></div>
+<p>TIPS:
+1) Remember that these help menus are usually written by the same people who wrote the functions you are using.
+They are uniformly not helpful unless you already know a good bit about computer programming and (in some cases) a lot about the function itself.
+2) There is a basic structure that all help files must meet, and it is <em>very</em> important that you try and get the hang of this.</p>
+</div>
+<div id="section-installing-packages" class="section level2" number="2.6">
+<h2><span class="header-section-number">2.6</span> Installing packages</h2>
+<p>The beauty of R is that there are packages, although things can be a bit unorganized.</p>
+<div class="sourceCode" id="section-cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb39-1"><a href="section-getting-started-in-r.html#section-cb39-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;BAS&quot;</span>) <span class="co"># This will prompt a user interface to choose the &quot;mirror&quot; or repository</span></span>
+<span id="section-cb39-2"><a href="section-getting-started-in-r.html#section-cb39-2"></a><span class="kw">library</span>(BAS) <span class="co"># this will actually load the library for use.  You must call this every time.</span></span>
+<span id="section-cb39-3"><a href="section-getting-started-in-r.html#section-cb39-3"></a><span class="kw">search</span>() <span class="co"># you can see what packages are attached to the workspace (and also what other objects)</span></span>
+<span id="section-cb39-4"><a href="section-getting-started-in-r.html#section-cb39-4"></a><span class="kw">help</span>(<span class="dt">package=</span><span class="st">&quot;BAS&quot;</span>) <span class="co"># Will (usually) give you a list of functions for the package</span></span>
+<span id="section-cb39-5"><a href="section-getting-started-in-r.html#section-cb39-5"></a><span class="kw">example</span>(BAS) <span class="co"># some package writers give you little examples to get you started</span></span></code></pre></div>
+<p>All packages documentation are on CRAN</p>
+<p>Many packages come with example datasets built in</p>
+<div class="sourceCode" id="section-cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb40-1"><a href="section-getting-started-in-r.html#section-cb40-1"></a><span class="kw">data</span>()</span>
+<span id="section-cb40-2"><a href="section-getting-started-in-r.html#section-cb40-2"></a><span class="kw">data</span>(rock)</span>
+<span id="section-cb40-3"><a href="section-getting-started-in-r.html#section-cb40-3"></a>?rock <span class="co"># there are help files for these</span></span>
+<span id="section-cb40-4"><a href="section-getting-started-in-r.html#section-cb40-4"></a><span class="kw">ls</span>() <span class="co"># there&#39;s rock -- in the global environment</span></span>
+<span id="section-cb40-5"><a href="section-getting-started-in-r.html#section-cb40-5"></a><span class="kw">data</span>(road, <span class="dt">package=</span><span class="st">&quot;MASS&quot;</span>) <span class="co"># you can load these datasets without loading the package</span></span></code></pre></div>
 
 </div>
 </div>
@@ -469,8 +574,8 @@ Y’all motherfuckers lying, and getting me pissed <br>
           </div>
         </div>
       </div>
-
-<a href="section-getting-started-in-r.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="section-data-types-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
