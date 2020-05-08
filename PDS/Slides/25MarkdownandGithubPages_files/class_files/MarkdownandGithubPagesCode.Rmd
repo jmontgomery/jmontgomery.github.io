@@ -57,11 +57,6 @@ Similarly there are a couple of ways to make a **phrase** __bold__: by using two
 -This is what happens
     -If you don't include a space after the dash
   
-## Paragraphs
-
-Writing a paragraph is simple, you start anywhere and you just write the text which you want to read. 
-
-Once you are ready for a new paragraph all you have to do is leave a blank line between the last sentence of the previous paragraph and the first sentence of the new paragraph. Don't expect there to be the normal indents on each paragraph thought!
 
 ## Paragraphs
 
@@ -80,7 +75,6 @@ See?
 
 ## Code Chunks
 
-![  ](http://politicaldatascience.com//PDS/Slides/Images/add_code.png)
 ## How to add code
 
 To add code 'inline', use three ``` (back quote keys) [Don't confuse this with the apostrophe key]. After adding the three back quote keys, you will then include the language which you want to run in brackets {r}. There are various options you can use about whether you want the code to actually be displayed or evaluated. 
@@ -93,7 +87,7 @@ knitr::opts_chunk$set(echo = TRUE, eval = TRUE)
 # Both of these options can be overriden in a particular chunk, though
 ```
 
-```{r, warning=F, fig.height=2.5, fig.width=2.5}
+```{r chuck 1, warning=F, fig.height=2.5, fig.width=2.5,}
 # You can show the code and the output and shut off warnings
 a <- rnorm(100)
 plot(a) 
@@ -101,26 +95,27 @@ plot(a)
 
 ---
 
-```{r cars, eval=F,}
+```{r chunk 2, eval=F}
 #library(fivethirtyeight)
-fivethirtyeight::trump_twitter$text[1:5]
+fivethirtyeight::trump_twitter$text[1:5,]
 # You can load in packages 
 # You can choose to show the code but not evaluate it 
 ```
 ---
+
 You can chose to evaluate a code chunk but choose not to show the code
 
-```{r, echo=F, fig.height=2.5, fig.width=2.5}
-a <- rnorm(100)
-plot(a) 
+```{r chunk 3, echo=F, fig.height=2.5, fig.width=2.5,}
+b <- rnorm(100)
+plot(b) 
 ```
 
 ---
 
-In addition to showing code and its output you can format results. If you have a set of data and you want to show summary statistics you can use the package \texttt{kable} to produce a nice table. 
+In addition to showing code and its output you can format results. If you have a set of data and you want to show summary statistics you can use the package kable to produce a nice table. 
 
 
-```{r}
+```{r chunk 4}
 knitr::kable(iris[1:5, ], caption = 'A caption')
 ```
 

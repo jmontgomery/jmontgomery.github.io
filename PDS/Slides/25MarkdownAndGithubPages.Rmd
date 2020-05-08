@@ -595,7 +595,8 @@ $$x=-b \pm \sqrt{\frac{b^2 -4ac}{2a}}$$
 
 
 - https://paperhive.org/help/markdown
-
+---
+#Resources
 ## Equations
 
 - https://csrgxtu.github.io/2015/03/20/Writing-Mathematic-Fomulars-in-Markdown/
@@ -609,7 +610,8 @@ $$x=-b \pm \sqrt{\frac{b^2 -4ac}{2a}}$$
 - https://rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf
 
 - https://rmarkdown.rstudio.com/lesson-15.html
-
+---
+# Resources
 ## Github Pages
 
 - https://resources.github.com/whitepapers/github-and-rstudio/
