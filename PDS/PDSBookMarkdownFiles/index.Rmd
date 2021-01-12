@@ -18,22 +18,6 @@ knitr::opts_chunk$set(
 
 # Don't be a clown
 
-<a href="https://imgflip.com/i/3m0rs1"><img src="https://i.imgflip.com/3m0rs1.jpg" title="made at imgflip.com"/></a>
-
-
-> I see miracles all around me <br> 
-Stop and look around, it's all astounding <br> 
-Water, fire, air and dirt <br> 
-Fucking magnets, how do they work? <br> 
-And I don't wanna talk to a scientist <br> 
-Y'all motherfuckers lying, and getting me pissed <br> 
-<br>
-<br>
---- Insane Clown Posse, *Miracles*
-
-[Link](https://genius.com/Insane-clown-posse-miracles-lyrics) if you don't know what I'm talking about
-
-
 > Pollsters are wizards, shamans, diviners. They toss numbers around the way astragalomancers once tossed bones to foretell events to come. (The name comes from the Greek astragalos, meaning “knucklebone.” But you knew that.) <br>
 
 > I have never been called by a political pollster and don’t know anybody who has, but I know some pollsters, who assure me they don’t make the numbers up, and I believe them.<br>
