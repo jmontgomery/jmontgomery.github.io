@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Files, For Loops, and Functions | Political Data Science</title>
+  <meta name="description" content="4 Files, For Loops, and Functions | Political Data Science" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Files, For Loops, and Functions | Political Data Science" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Files, For Loops, and Functions | Political Data Science" />
+  
+  
+  
+
+<meta name="author" content="Jacob Montgomery and Mariah Yelenick" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="section-data-types-in-r.html"/>
+<link rel="next" href="section-version-control.html"/>
+<script src="libs/header-attrs-2.1/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Don’t be a clown</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#section-as-easy-as-cake"><i class="fa fa-check"></i><b>1.1</b> As easy as cake</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#section-coding"><i class="fa fa-check"></i><b>1.1.1</b> Coding</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#section-data-acquision"><i class="fa fa-check"></i><b>1.1.2</b> Data acquision</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#section-algorithms"><i class="fa fa-check"></i><b>1.1.3</b> Algorithms</a></li>
+<li class="chapter" data-level="1.1.4" data-path="index.html"><a href="index.html#section-domain-knowledge"><i class="fa fa-check"></i><b>1.1.4</b> Domain knowledge</a></li>
+<li class="chapter" data-level="1.1.5" data-path="index.html"><a href="index.html#section-putting-it-together"><i class="fa fa-check"></i><b>1.1.5</b> Putting it together</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#section-class-structures"><i class="fa fa-check"></i><b>1.2</b> Class structures</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#section-learning-objective-1-team-based-learning"><i class="fa fa-check"></i><b>1.2.1</b> Learning objective #1: Team based learning</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#section-learning-objective-2-show-up-ready"><i class="fa fa-check"></i><b>1.2.2</b> Learning objective #2: Show up ready</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#section-learning-objective-3-how-is-this-going-to-work"><i class="fa fa-check"></i><b>1.2.3</b> Learning objective #3: How is this going to work?</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#section-interactive-r-environment-not-currently-working"><i class="fa fa-check"></i><b>1.3</b> Interactive R Environment (not currently working)</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="section-getting-started-in-r.html"><a href="section-getting-started-in-r.html"><i class="fa fa-check"></i><b>2</b> Getting Started in R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="section-getting-started-in-r.html"><a href="section-getting-started-in-r.html#section-learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="section-getting-started-in-r.html"><a href="section-getting-started-in-r.html#section-assigning-values-to-objects"><i class="fa fa-check"></i><b>2.2</b> Assigning values to objects</a></li>
+<li class="chapter" data-level="2.3" data-path="section-getting-started-in-r.html"><a href="section-getting-started-in-r.html#section-r-as-a-calculator"><i class="fa fa-check"></i><b>2.3</b> R as a calculator</a></li>
+<li class="chapter" data-level="2.4" data-path="section-getting-started-in-r.html"><a href="section-getting-started-in-r.html#section-the-global-environment-and-how-to-clean-it"><i class="fa fa-check"></i><b>2.4</b> The global environment and how to clean it</a></li>
+<li class="chapter" data-level="2.5" data-path="section-getting-started-in-r.html"><a href="section-getting-started-in-r.html#section-getting-help"><i class="fa fa-check"></i><b>2.5</b> Getting help</a></li>
+<li class="chapter" data-level="2.6" data-path="section-getting-started-in-r.html"><a href="section-getting-started-in-r.html#section-installing-packages"><i class="fa fa-check"></i><b>2.6</b> Installing packages</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="section-data-types-in-r.html"><a href="section-data-types-in-r.html"><i class="fa fa-check"></i><b>3</b> Data Types in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="section-data-types-in-r.html"><a href="section-data-types-in-r.html#section-functions"><i class="fa fa-check"></i><b>3.1</b> Functions</a></li>
+<li class="chapter" data-level="3.2" data-path="section-data-types-in-r.html"><a href="section-data-types-in-r.html#section-vectors"><i class="fa fa-check"></i><b>3.2</b> Vectors</a></li>
+<li class="chapter" data-level="3.3" data-path="section-data-types-in-r.html"><a href="section-data-types-in-r.html#section-functions-and-vectors"><i class="fa fa-check"></i><b>3.3</b> Functions and vectors</a></li>
+<li class="chapter" data-level="3.4" data-path="section-data-types-in-r.html"><a href="section-data-types-in-r.html#section-logicalsbooleans"><i class="fa fa-check"></i><b>3.4</b> Logicals/Booleans</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="section-data-types-in-r.html"><a href="section-data-types-in-r.html#section-boolean-logic"><i class="fa fa-check"></i><b>3.4.1</b> Boolean logic</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="section-data-types-in-r.html"><a href="section-data-types-in-r.html#section-charactersstrings"><i class="fa fa-check"></i><b>3.5</b> Characters/Strings</a></li>
+<li class="chapter" data-level="3.6" data-path="section-data-types-in-r.html"><a href="section-data-types-in-r.html#section-matrices"><i class="fa fa-check"></i><b>3.6</b> Matrices</a></li>
+<li class="chapter" data-level="3.7" data-path="section-data-types-in-r.html"><a href="section-data-types-in-r.html#section-matrix-algebra-optional"><i class="fa fa-check"></i><b>3.7</b> Matrix algebra (optional)</a></li>
+<li class="chapter" data-level="3.8" data-path="section-data-types-in-r.html"><a href="section-data-types-in-r.html#section-lists"><i class="fa fa-check"></i><b>3.8</b> Lists</a></li>
+<li class="chapter" data-level="3.9" data-path="section-data-types-in-r.html"><a href="section-data-types-in-r.html#section-arrays"><i class="fa fa-check"></i><b>3.9</b> Arrays</a></li>
+<li class="chapter" data-level="3.10" data-path="section-data-types-in-r.html"><a href="section-data-types-in-r.html#section-dataframes"><i class="fa fa-check"></i><b>3.10</b> Dataframes</a></li>
+<li class="chapter" data-level="3.11" data-path="section-data-types-in-r.html"><a href="section-data-types-in-r.html#section-general-info"><i class="fa fa-check"></i><b>3.11</b> General info</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="section-files-for-loops-and-functions.html"><a href="section-files-for-loops-and-functions.html"><i class="fa fa-check"></i><b>4</b> Files, For Loops, and Functions</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="section-files-for-loops-and-functions.html"><a href="section-files-for-loops-and-functions.html#section-the-working-directory"><i class="fa fa-check"></i><b>4.1</b> The working directory</a></li>
+<li class="chapter" data-level="4.2" data-path="section-files-for-loops-and-functions.html"><a href="section-files-for-loops-and-functions.html#section-input-and-output"><i class="fa fa-check"></i><b>4.2</b> Input and output</a></li>
+<li class="chapter" data-level="4.3" data-path="section-files-for-loops-and-functions.html"><a href="section-files-for-loops-and-functions.html#section-if-else-ifelse"><i class="fa fa-check"></i><b>4.3</b> if, else, ifelse</a></li>
+<li class="chapter" data-level="4.4" data-path="section-files-for-loops-and-functions.html"><a href="section-files-for-loops-and-functions.html#section-repeat-and-while"><i class="fa fa-check"></i><b>4.4</b> repeat and while</a></li>
+<li class="chapter" data-level="4.5" data-path="section-files-for-loops-and-functions.html"><a href="section-files-for-loops-and-functions.html#section-for-loops"><i class="fa fa-check"></i><b>4.5</b> for loops</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="section-files-for-loops-and-functions.html"><a href="section-files-for-loops-and-functions.html#section-next-and-break"><i class="fa fa-check"></i><b>4.5.1</b> next and break</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="section-files-for-loops-and-functions.html"><a href="section-files-for-loops-and-functions.html#section-functions-1"><i class="fa fa-check"></i><b>4.6</b> Functions</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="section-files-for-loops-and-functions.html"><a href="section-files-for-loops-and-functions.html#section-the-basics"><i class="fa fa-check"></i><b>4.6.1</b> The basics</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="section-files-for-loops-and-functions.html"><a href="section-files-for-loops-and-functions.html#section-setting-defaults"><i class="fa fa-check"></i><b>4.7</b> Setting defaults</a></li>
+<li class="chapter" data-level="4.8" data-path="section-files-for-loops-and-functions.html"><a href="section-files-for-loops-and-functions.html#section-scope"><i class="fa fa-check"></i><b>4.8</b> Scope</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="section-files-for-loops-and-functions.html"><a href="section-files-for-loops-and-functions.html#section-advanced-scope-topics"><i class="fa fa-check"></i><b>4.8.1</b> Advanced scope topics</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="section-files-for-loops-and-functions.html"><a href="section-files-for-loops-and-functions.html#section-debugging"><i class="fa fa-check"></i><b>4.9</b> Debugging</a></li>
+<li class="chapter" data-level="4.10" data-path="section-files-for-loops-and-functions.html"><a href="section-files-for-loops-and-functions.html#section-benchmarking-and-code-improvements"><i class="fa fa-check"></i><b>4.10</b> Benchmarking and code improvements</a>
+<ul>
+<li class="chapter" data-level="4.10.1" data-path="section-files-for-loops-and-functions.html"><a href="section-files-for-loops-and-functions.html#section-vectorizing"><i class="fa fa-check"></i><b>4.10.1</b> Vectorizing</a></li>
+<li class="chapter" data-level="4.10.2" data-path="section-files-for-loops-and-functions.html"><a href="section-files-for-loops-and-functions.html#section-pastecollapse-and-copies"><i class="fa fa-check"></i><b>4.10.2</b> Paste/collapse and copies</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="section-version-control.html"><a href="section-version-control.html"><i class="fa fa-check"></i><b>5</b> Version Control</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="section-version-control.html"><a href="section-version-control.html#section-why-version-control"><i class="fa fa-check"></i><b>5.1</b> Why version control?</a></li>
+<li class="chapter" data-level="5.2" data-path="section-version-control.html"><a href="section-version-control.html#section-setup"><i class="fa fa-check"></i><b>5.2</b> Setup</a></li>
+<li class="chapter" data-level="5.3" data-path="section-version-control.html"><a href="section-version-control.html#section-workflow"><i class="fa fa-check"></i><b>5.3</b> Workflow</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="section-version-control.html"><a href="section-version-control.html#section-pull"><i class="fa fa-check"></i><b>5.3.1</b> Pull</a></li>
+<li class="chapter" data-level="5.3.2" data-path="section-version-control.html"><a href="section-version-control.html#section-commit"><i class="fa fa-check"></i><b>5.3.2</b> Commit</a></li>
+<li class="chapter" data-level="5.3.3" data-path="section-version-control.html"><a href="section-version-control.html#section-push"><i class="fa fa-check"></i><b>5.3.3</b> Push</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="section-version-control.html"><a href="section-version-control.html#section-branches"><i class="fa fa-check"></i><b>5.4</b> Branches</a></li>
+<li class="chapter" data-level="5.5" data-path="section-version-control.html"><a href="section-version-control.html#section-forking"><i class="fa fa-check"></i><b>5.5</b> Forking</a></li>
+<li class="chapter" data-level="5.6" data-path="section-version-control.html"><a href="section-version-control.html#section-reverting"><i class="fa fa-check"></i><b>5.6</b> Reverting</a></li>
+<li class="chapter" data-level="5.7" data-path="section-version-control.html"><a href="section-version-control.html#section-conflict-management"><i class="fa fa-check"></i><b>5.7</b> Conflict management</a></li>
+<li class="chapter" data-level="5.8" data-path="section-version-control.html"><a href="section-version-control.html#section-version-control-in-rstudio"><i class="fa fa-check"></i><b>5.8</b> Version Control in RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="section-data-visualization-in-r.html"><a href="section-data-visualization-in-r.html"><i class="fa fa-check"></i><b>6</b> Data Visualization in R</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="section-data-visualization-in-r.html"><a href="section-data-visualization-in-r.html#section-intro-to-ggplot2"><i class="fa fa-check"></i><b>6.1</b> Intro to ggplot2</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="section-data-visualization-in-r.html"><a href="section-data-visualization-in-r.html#section-example"><i class="fa fa-check"></i><b>6.1.1</b> Example</a></li>
+<li class="chapter" data-level="6.1.2" data-path="section-data-visualization-in-r.html"><a href="section-data-visualization-in-r.html#section-aesthetics"><i class="fa fa-check"></i><b>6.1.2</b> Aesthetics</a></li>
+<li class="chapter" data-level="6.1.3" data-path="section-data-visualization-in-r.html"><a href="section-data-visualization-in-r.html#section-facets"><i class="fa fa-check"></i><b>6.1.3</b> Facets</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="section-data-visualization-in-r.html"><a href="section-data-visualization-in-r.html#section-more-geom-options"><i class="fa fa-check"></i><b>6.2</b> More <code>geom</code> options</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html"><i class="fa fa-check"></i><b>7</b> dplyr and tidy</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-into-the-tidyverse"><i class="fa fa-check"></i><b>7.1</b> Into the tidyverse</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-our-example"><i class="fa fa-check"></i><b>7.1.1</b> Our example</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-back-to-dplyr"><i class="fa fa-check"></i><b>7.2</b> Back to <code>dplyr</code></a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-filter"><i class="fa fa-check"></i><b>7.2.1</b> <code>filter</code></a></li>
+<li class="chapter" data-level="7.2.2" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-arrange"><i class="fa fa-check"></i><b>7.2.2</b> <code>arrange</code></a></li>
+<li class="chapter" data-level="7.2.3" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-select"><i class="fa fa-check"></i><b>7.2.3</b> <code>select</code></a></li>
+<li class="chapter" data-level="7.2.4" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-mutate"><i class="fa fa-check"></i><b>7.2.4</b> <code>mutate</code></a></li>
+<li class="chapter" data-level="7.2.5" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-summarise"><i class="fa fa-check"></i><b>7.2.5</b> <code>summarise</code></a></li>
+<li class="chapter" data-level="7.2.6" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-piping"><i class="fa fa-check"></i><b>7.2.6</b> Piping</a></li>
+<li class="chapter" data-level="7.2.7" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-pivots"><i class="fa fa-check"></i><b>7.2.7</b> Pivots</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-relational-data"><i class="fa fa-check"></i><b>7.3</b> Relational data</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-mutating-join"><i class="fa fa-check"></i><b>7.3.1</b> Mutating join</a></li>
+<li class="chapter" data-level="7.3.2" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-joins-topography"><i class="fa fa-check"></i><b>7.3.2</b> Joins topography</a></li>
+<li class="chapter" data-level="7.3.3" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-many-and-one-to-many"><i class="fa fa-check"></i><b>7.3.3</b> Many and one-to-many</a></li>
+<li class="chapter" data-level="7.3.4" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-filtering-joins"><i class="fa fa-check"></i><b>7.3.4</b> Filtering joins</a></li>
+<li class="chapter" data-level="7.3.5" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-set-operations"><i class="fa fa-check"></i><b>7.3.5</b> Set operations</a></li>
+<li class="chapter" data-level="7.3.6" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-exercise"><i class="fa fa-check"></i><b>7.3.6</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-stringr"><i class="fa fa-check"></i><b>7.4</b> <code>stringr</code></a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-things-you-havent-thought-about-strings"><i class="fa fa-check"></i><b>7.4.1</b> Things you haven’t thought about strings</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-pipes-and-maps"><i class="fa fa-check"></i><b>7.5</b> Pipes and maps</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-limitations-of-pipes"><i class="fa fa-check"></i><b>7.5.1</b> Limitations of Pipes</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-map"><i class="fa fa-check"></i><b>7.6</b> <code>map</code></a></li>
+<li class="chapter" data-level="7.7" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-walk-purrr-and-more"><i class="fa fa-check"></i><b>7.7</b> walk, purrr, and more</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="section-more-useful-packages.html"><a href="section-more-useful-packages.html"><i class="fa fa-check"></i><b>8</b> More useful packages</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="section-more-useful-packages.html"><a href="section-more-useful-packages.html#section-stringr-1"><i class="fa fa-check"></i><b>8.1</b> <code>stringr</code></a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="section-more-useful-packages.html"><a href="section-more-useful-packages.html#section-things-you-havent-thought-about-strings-1"><i class="fa fa-check"></i><b>8.1.1</b> Things you haven’t thought about strings</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="section-functions-and-packages.html"><a href="section-functions-and-packages.html"><i class="fa fa-check"></i><b>9</b> Functions and Packages</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="section-functions-and-packages.html"><a href="section-functions-and-packages.html#section-apply-and-its-friends"><i class="fa fa-check"></i><b>9.1</b> <code>apply</code> and its friends</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="section-functions-and-packages.html"><a href="section-functions-and-packages.html#section-apply"><i class="fa fa-check"></i><b>9.1.1</b> <code>apply</code></a></li>
+<li class="chapter" data-level="9.1.2" data-path="section-functions-and-packages.html"><a href="section-functions-and-packages.html#section-lapply"><i class="fa fa-check"></i><b>9.1.2</b> <code>lapply</code></a></li>
+<li class="chapter" data-level="9.1.3" data-path="section-functions-and-packages.html"><a href="section-functions-and-packages.html#section-sapply"><i class="fa fa-check"></i><b>9.1.3</b> <code>sapply</code></a></li>
+<li class="chapter" data-level="9.1.4" data-path="section-functions-and-packages.html"><a href="section-functions-and-packages.html#section-tapply"><i class="fa fa-check"></i><b>9.1.4</b> <code>tapply</code></a></li>
+<li class="chapter" data-level="9.1.5" data-path="section-functions-and-packages.html"><a href="section-functions-and-packages.html#section-sweep"><i class="fa fa-check"></i><b>9.1.5</b> <code>sweep</code></a></li>
+<li class="chapter" data-level="9.1.6" data-path="section-functions-and-packages.html"><a href="section-functions-and-packages.html#section-by"><i class="fa fa-check"></i><b>9.1.6</b> <code>by</code></a></li>
+<li class="chapter" data-level="9.1.7" data-path="section-functions-and-packages.html"><a href="section-functions-and-packages.html#section-vapply-and-more"><i class="fa fa-check"></i><b>9.1.7</b> <code>vapply</code> And more</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="section-functions-and-packages.html"><a href="section-functions-and-packages.html#section-plyr"><i class="fa fa-check"></i><b>9.2</b> <code>plyr</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="section-using-sql-syntax-on-an-r-dataframe.html"><a href="section-using-sql-syntax-on-an-r-dataframe.html"><i class="fa fa-check"></i><b>10</b> Using SQL syntax on an R dataframe</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="section-using-sql-syntax-on-an-r-dataframe.html"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-sql"><i class="fa fa-check"></i><b>10.1</b> SQL</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="section-using-sql-syntax-on-an-r-dataframe.html"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-select-and-from"><i class="fa fa-check"></i><b>10.1.1</b> <code>SELECT</code> and <code>FROM</code></a></li>
+<li class="chapter" data-level="10.1.2" data-path="section-using-sql-syntax-on-an-r-dataframe.html"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-where"><i class="fa fa-check"></i><b>10.1.2</b> <code>WHERE</code></a></li>
+<li class="chapter" data-level="10.1.3" data-path="section-using-sql-syntax-on-an-r-dataframe.html"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-functions-2"><i class="fa fa-check"></i><b>10.1.3</b> Functions</a></li>
+<li class="chapter" data-level="10.1.4" data-path="section-using-sql-syntax-on-an-r-dataframe.html"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-having"><i class="fa fa-check"></i><b>10.1.4</b> <code>HAVING</code></a></li>
+<li class="chapter" data-level="10.1.5" data-path="section-using-sql-syntax-on-an-r-dataframe.html"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-withas-and-subqueries"><i class="fa fa-check"></i><b>10.1.5</b> <code>WITH</code>/<code>AS</code> and Subqueries</a></li>
+<li class="chapter" data-level="10.1.6" data-path="section-using-sql-syntax-on-an-r-dataframe.html"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-joins"><i class="fa fa-check"></i><b>10.1.6</b> Joins</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="section-using-sql-syntax-on-an-r-dataframe.html"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-the-sqldf-package"><i class="fa fa-check"></i><b>10.2</b> The <code>sqldf</code> package</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="section-machine-learning.html"><a href="section-machine-learning.html"><i class="fa fa-check"></i><b>11</b> Machine Learning</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="section-machine-learning.html"><a href="section-machine-learning.html#section-supervised-learning"><i class="fa fa-check"></i><b>11.1</b> Supervised Learning</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="section-machine-learning.html"><a href="section-machine-learning.html#section-the-gist"><i class="fa fa-check"></i><b>11.1.1</b> The Gist</a></li>
+<li class="chapter" data-level="11.1.2" data-path="section-machine-learning.html"><a href="section-machine-learning.html#section-what-could-go-wrong"><i class="fa fa-check"></i><b>11.1.2</b> What could go wrong?</a></li>
+<li class="chapter" data-level="11.1.3" data-path="section-machine-learning.html"><a href="section-machine-learning.html#section-example-predicting-presidential-elections-with-vote-share"><i class="fa fa-check"></i><b>11.1.3</b> Example: Predicting presidential elections with vote share</a></li>
+<li class="chapter" data-level="11.1.4" data-path="section-machine-learning.html"><a href="section-machine-learning.html#section-the-complexity-of-keeping-it-simple"><i class="fa fa-check"></i><b>11.1.4</b> The complexity of keeping it simple</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="section-machine-learning.html"><a href="section-machine-learning.html#section-classification"><i class="fa fa-check"></i><b>11.2</b> Classification</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="section-machine-learning.html"><a href="section-machine-learning.html#section-classification-basics-binary-outcomes"><i class="fa fa-check"></i><b>11.2.1</b> Classification basics: Binary outcomes</a></li>
+<li class="chapter" data-level="11.2.2" data-path="section-machine-learning.html"><a href="section-machine-learning.html#section-the-linear-classifier-aka-logit"><i class="fa fa-check"></i><b>11.2.2</b> The linear classifier (AKA Logit)</a></li>
+<li class="chapter" data-level="11.2.3" data-path="section-machine-learning.html"><a href="section-machine-learning.html#section-more-models"><i class="fa fa-check"></i><b>11.2.3</b> More models</a></li>
+<li class="chapter" data-level="11.2.4" data-path="section-machine-learning.html"><a href="section-machine-learning.html#section-random-forests"><i class="fa fa-check"></i><b>11.2.4</b> Random forests</a></li>
+<li class="chapter" data-level="11.2.5" data-path="section-machine-learning.html"><a href="section-machine-learning.html#section-k-nearest-neighbors"><i class="fa fa-check"></i><b>11.2.5</b> K Nearest Neighbors</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="section-machine-learning.html"><a href="section-machine-learning.html#section-putting-that-in-action"><i class="fa fa-check"></i><b>11.3</b> Putting that in action</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="section-causality.html"><a href="section-causality.html"><i class="fa fa-check"></i><b>12</b> Causality</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="section-causality.html"><a href="section-causality.html#section-correlation-and-causation"><i class="fa fa-check"></i><b>12.1</b> Correlation and causation</a></li>
+<li class="chapter" data-level="12.2" data-path="section-causality.html"><a href="section-causality.html#section-a-formal-definition"><i class="fa fa-check"></i><b>12.2</b> A formal definition</a></li>
+<li class="chapter" data-level="12.3" data-path="section-causality.html"><a href="section-causality.html#section-formal-presentation-of-an-ate"><i class="fa fa-check"></i><b>12.3</b> Formal presentation of an ATE</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="section-causality.html"><a href="section-causality.html#section-danger"><i class="fa fa-check"></i><b>12.3.1</b> Danger!</a></li>
+<li class="chapter" data-level="12.3.2" data-path="section-causality.html"><a href="section-causality.html#section-does-drinking-make-you-more-educated"><i class="fa fa-check"></i><b>12.3.2</b> Does drinking make you more educated?</a></li>
+<li class="chapter" data-level="12.3.3" data-path="section-causality.html"><a href="section-causality.html#section-problem-it-can-be-way-more-subtle"><i class="fa fa-check"></i><b>12.3.3</b> Problem: It can be way more subtle</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="section-causality.html"><a href="section-causality.html#section-estimating-ate"><i class="fa fa-check"></i><b>12.4</b> Estimating ATE</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="section-causality.html"><a href="section-causality.html#section-filling-in-the-potential-values"><i class="fa fa-check"></i><b>12.4.1</b> Filling in the potential values</a></li>
+<li class="chapter" data-level="12.4.2" data-path="section-causality.html"><a href="section-causality.html#section-good-causal-inference"><i class="fa fa-check"></i><b>12.4.2</b> Good causal inference</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="section-causality.html"><a href="section-causality.html#section-experiments-ab-testing"><i class="fa fa-check"></i><b>12.5</b> Experiments: A/B Testing</a>
+<ul>
+<li class="chapter" data-level="12.5.1" data-path="section-causality.html"><a href="section-causality.html#section-what-to-do-when-you-cant-experiment"><i class="fa fa-check"></i><b>12.5.1</b> What to do when you can’t experiment:</a></li>
+</ul></li>
+<li class="chapter" data-level="12.6" data-path="section-causality.html"><a href="section-causality.html#section-panel-data-and-fixed-effects"><i class="fa fa-check"></i><b>12.6</b> Panel data and fixed effects</a>
+<ul>
+<li class="chapter" data-level="12.6.1" data-path="section-causality.html"><a href="section-causality.html#section-example-are-elections-fought-over-non-economic-issues-more-when-globalization-increases"><i class="fa fa-check"></i><b>12.6.1</b> Example: Are elections fought over non-economic issues more when globalization increases?</a></li>
+<li class="chapter" data-level="12.6.2" data-path="section-causality.html"><a href="section-causality.html#section-naive-regression"><i class="fa fa-check"></i><b>12.6.2</b> Naive regression</a></li>
+<li class="chapter" data-level="12.6.3" data-path="section-causality.html"><a href="section-causality.html#section-fixed-effects"><i class="fa fa-check"></i><b>12.6.3</b> Fixed effects</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="section-causality.html"><a href="section-causality.html#section-difference-in-differences"><i class="fa fa-check"></i><b>12.7</b> Difference-in-differences</a>
+<ul>
+<li class="chapter" data-level="12.7.1" data-path="section-causality.html"><a href="section-causality.html#section-did-in-practice"><i class="fa fa-check"></i><b>12.7.1</b> DID in practice</a></li>
+<li class="chapter" data-level="12.7.2" data-path="section-causality.html"><a href="section-causality.html#section-regression-discontinuity"><i class="fa fa-check"></i><b>12.7.2</b> Regression discontinuity</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Political Data Science</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="section-files-for-loops-and-functions" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Files, For Loops, and Functions</h1>
+<div id="section-the-working-directory" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> The working directory</h2>
+<p>First we want to change the working directory. This is the folder where R will save and look for data by default (although you can always override this)</p>
+<p>Note that the file path (in Windows at least) requires slashes. You can either use two back slashes to separate folders or one forward slash.</p>
+<div class="sourceCode" id="section-cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb347-1"><a href="section-files-for-loops-and-functions.html#section-cb347-1"></a><span class="kw">setwd</span>(<span class="st">&quot;~/Dropbox/Classes/R Programming&quot;</span>)</span>
+<span id="section-cb347-2"><a href="section-files-for-loops-and-functions.html#section-cb347-2"></a><span class="co">## For Windows, will need to be something like</span></span>
+<span id="section-cb347-3"><a href="section-files-for-loops-and-functions.html#section-cb347-3"></a><span class="kw">setwd</span>(<span class="st">&quot;C:</span><span class="ch">\\</span><span class="st">Documents and Settings</span><span class="ch">\\</span><span class="st">Jacob Montgomery</span><span class="ch">\\</span><span class="st">My Documents</span><span class="ch">\\</span><span class="st">RWork&quot;</span>)</span>
+<span id="section-cb347-4"><a href="section-files-for-loops-and-functions.html#section-cb347-4"></a><span class="co">## or</span></span>
+<span id="section-cb347-5"><a href="section-files-for-loops-and-functions.html#section-cb347-5"></a><span class="kw">setwd</span>(<span class="st">&quot;C:/Documents and Settings/Jacob Montgomery/My Documents/RWork&quot;</span>)</span>
+<span id="section-cb347-6"><a href="section-files-for-loops-and-functions.html#section-cb347-6"></a><span class="co">## or</span></span>
+<span id="section-cb347-7"><a href="section-files-for-loops-and-functions.html#section-cb347-7"></a><span class="kw">setwd</span>(<span class="kw">file.path</span>(<span class="st">&quot;C:&quot;</span>, <span class="st">&quot;Documents and Settings&quot;</span>, <span class="st">&quot;Jacob Montgomery&quot;</span>, <span class="st">&quot;My Documents&quot;</span>, <span class="st">&quot;RWork&quot;</span>))</span></code></pre></div>
+</div>
+<div id="section-input-and-output" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Input and output</h2>
+<div class="sourceCode" id="section-cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb348-1"><a href="section-files-for-loops-and-functions.html#section-cb348-1"></a>voting.data&lt;-<span class="kw">data.frame</span>(vap, tv)</span></code></pre></div>
+<p>Now let’s save our newly created dataset</p>
+<div class="sourceCode" id="section-cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb349-1"><a href="section-files-for-loops-and-functions.html#section-cb349-1"></a><span class="kw">dump</span>(<span class="st">&quot;voting.data&quot;</span>, <span class="st">&quot;voting.data.R&quot;</span>) <span class="co"># inputs are string.  Note that you must put the *.R in yourself</span></span></code></pre></div>
+<p>You might also want to save multiple objects</p>
+<div class="sourceCode" id="section-cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb350-1"><a href="section-files-for-loops-and-functions.html#section-cb350-1"></a><span class="kw">dump</span>(<span class="kw">c</span>(<span class="st">&quot;vap&quot;</span>, <span class="st">&quot;tv&quot;</span>), <span class="st">&quot;voting.data.vectors.R&quot;</span>)</span>
+<span id="section-cb350-2"><a href="section-files-for-loops-and-functions.html#section-cb350-2"></a><span class="kw">dump</span>(<span class="dt">list=</span><span class="kw">objects</span>(), <span class="st">&quot;everything.R&quot;</span>)</span>
+<span id="section-cb350-3"><a href="section-files-for-loops-and-functions.html#section-cb350-3"></a><span class="co">## an alternative we can just use the command</span></span>
+<span id="section-cb350-4"><a href="section-files-for-loops-and-functions.html#section-cb350-4"></a><span class="kw">save.image</span>(<span class="st">&quot;everything.RData&quot;</span>) <span class="co"># saves an image of your current workspace</span></span></code></pre></div>
+<p>Now we can clear our wokspace, and load these objects</p>
+<div class="sourceCode" id="section-cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb351-1"><a href="section-files-for-loops-and-functions.html#section-cb351-1"></a><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</span>
+<span id="section-cb351-2"><a href="section-files-for-loops-and-functions.html#section-cb351-2"></a><span class="kw">source</span>(<span class="st">&quot;voting.data.vectors.R&quot;</span>)</span>
+<span id="section-cb351-3"><a href="section-files-for-loops-and-functions.html#section-cb351-3"></a><span class="kw">ls</span>() <span class="co"># only saved objects present</span></span></code></pre></div>
+<p>To read/write dataframes from/to a csv (comma separated values) file, the following commands will be useful</p>
+<div class="sourceCode" id="section-cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb352-1"><a href="section-files-for-loops-and-functions.html#section-cb352-1"></a>votes<span class="fl">.06</span> &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;~/Dropbox/Classes/R Programming/R Scripts/VotingData2006.csv&quot;</span>, <span class="dt">header=</span>T)</span>
+<span id="section-cb352-2"><a href="section-files-for-loops-and-functions.html#section-cb352-2"></a><span class="kw">write.csv</span>(votes<span class="fl">.06</span>, <span class="dt">file=</span><span class="st">&quot;VD06.csv&quot;</span>)</span></code></pre></div>
+<p>Tips: All of the functions for reading in data are actually using the scan() function. No matter how crazy your data look, you can <em>always</em> read it into R by clever use of scan().</p>
+</div>
+<div id="section-if-else-ifelse" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> if, else, ifelse</h2>
+<p>The basic syntax for an <code>if</code> call is</p>
+<div class="sourceCode" id="section-cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb353-1"><a href="section-files-for-loops-and-functions.html#section-cb353-1"></a><span class="cf">if</span>(condition){</span>
+<span id="section-cb353-2"><a href="section-files-for-loops-and-functions.html#section-cb353-2"></a>  commands to run</span>
+<span id="section-cb353-3"><a href="section-files-for-loops-and-functions.html#section-cb353-3"></a>}</span></code></pre></div>
+<ul>
+<li>The inputs in the parentheses needs can be anything that returns a logical.<br />
+</li>
+<li>You can put any code inside the braces</li>
+</ul>
+<p>The simplest examples possible:</p>
+<div class="sourceCode" id="section-cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb354-1"><a href="section-files-for-loops-and-functions.html#section-cb354-1"></a><span class="cf">if</span>(<span class="ot">TRUE</span>) {</span>
+<span id="section-cb354-2"><a href="section-files-for-loops-and-functions.html#section-cb354-2"></a>  <span class="kw">print</span>(<span class="st">&quot;I got here&quot;</span>)</span>
+<span id="section-cb354-3"><a href="section-files-for-loops-and-functions.html#section-cb354-3"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;I got here&quot;</code></pre>
+<div class="sourceCode" id="section-cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb356-1"><a href="section-files-for-loops-and-functions.html#section-cb356-1"></a><span class="cf">if</span>(<span class="ot">FALSE</span>){ </span>
+<span id="section-cb356-2"><a href="section-files-for-loops-and-functions.html#section-cb356-2"></a>  <span class="kw">print</span>(<span class="st">&quot;I can&#39;t get here&quot;</span>)</span>
+<span id="section-cb356-3"><a href="section-files-for-loops-and-functions.html#section-cb356-3"></a>}</span></code></pre></div>
+<p>You can combine this with <code>else</code></p>
+<div class="sourceCode" id="section-cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb357-1"><a href="section-files-for-loops-and-functions.html#section-cb357-1"></a><span class="cf">if</span>(condition) {</span>
+<span id="section-cb357-2"><a href="section-files-for-loops-and-functions.html#section-cb357-2"></a>  commands to run when condition is <span class="ot">TRUE</span></span>
+<span id="section-cb357-3"><a href="section-files-for-loops-and-functions.html#section-cb357-3"></a>} <span class="cf">else</span> { <span class="co"># notice that these are on the same line</span></span>
+<span id="section-cb357-4"><a href="section-files-for-loops-and-functions.html#section-cb357-4"></a>  commands to run when the condition is <span class="ot">FALSE</span></span>
+<span id="section-cb357-5"><a href="section-files-for-loops-and-functions.html#section-cb357-5"></a>}</span></code></pre></div>
+<div class="sourceCode" id="section-cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb358-1"><a href="section-files-for-loops-and-functions.html#section-cb358-1"></a>x =<span class="st"> </span><span class="dv">10</span></span>
+<span id="section-cb358-2"><a href="section-files-for-loops-and-functions.html#section-cb358-2"></a><span class="cf">if</span>(x <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span>) {</span>
+<span id="section-cb358-3"><a href="section-files-for-loops-and-functions.html#section-cb358-3"></a>  <span class="kw">print</span>(<span class="st">&quot;X is larger than 2&quot;</span>)</span>
+<span id="section-cb358-4"><a href="section-files-for-loops-and-functions.html#section-cb358-4"></a>} <span class="cf">else</span> { </span>
+<span id="section-cb358-5"><a href="section-files-for-loops-and-functions.html#section-cb358-5"></a>  <span class="kw">print</span>(<span class="st">&quot;X is 2 or smaller&quot;</span>)</span>
+<span id="section-cb358-6"><a href="section-files-for-loops-and-functions.html#section-cb358-6"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;X is larger than 2&quot;</code></pre>
+<p>But this set up will not play well with vectors. It runs, but is confusing</p>
+<div class="sourceCode" id="section-cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb360-1"><a href="section-files-for-loops-and-functions.html#section-cb360-1"></a><span class="cf">if</span> (<span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">1</span>) <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span>){</span>
+<span id="section-cb360-2"><a href="section-files-for-loops-and-functions.html#section-cb360-2"></a>  <span class="kw">print</span>(<span class="st">&quot;This won&#39;t work&quot;</span>)</span>
+<span id="section-cb360-3"><a href="section-files-for-loops-and-functions.html#section-cb360-3"></a>}</span></code></pre></div>
+<pre><code>## Warning in if (c(3, 1) &gt; 2) {: the condition has length &gt; 1 and only the first
+## element will be used</code></pre>
+<pre><code>## [1] &quot;This won&#39;t work&quot;</code></pre>
+<p>The <code>ifelse</code> command works nicely with vectors, but syntax is different. This command is equivalent to a ternary in other languages if you’re familiar with that term.</p>
+<div class="sourceCode" id="section-cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb363-1"><a href="section-files-for-loops-and-functions.html#section-cb363-1"></a><span class="kw">ifelse</span>(condition, return when condition T, return when condition F) </span></code></pre></div>
+<div class="sourceCode" id="section-cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb364-1"><a href="section-files-for-loops-and-functions.html#section-cb364-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">2</span>)</span>
+<span id="section-cb364-2"><a href="section-files-for-loops-and-functions.html#section-cb364-2"></a><span class="kw">ifelse</span>(x <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>, <span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>) </span></code></pre></div>
+<pre><code>## [1] &quot;no&quot;  &quot;yes&quot;</code></pre>
+<p>WARNING</p>
+<p>If your outputs are vectors <code>ifelse</code> will work element-wise</p>
+<div class="sourceCode" id="section-cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb366-1"><a href="section-files-for-loops-and-functions.html#section-cb366-1"></a>yes =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;yes1&quot;</span>, <span class="st">&quot;yes2&quot;</span>)</span>
+<span id="section-cb366-2"><a href="section-files-for-loops-and-functions.html#section-cb366-2"></a>no =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;no1&quot;</span>, <span class="st">&quot;no2&quot;</span>)</span>
+<span id="section-cb366-3"><a href="section-files-for-loops-and-functions.html#section-cb366-3"></a><span class="kw">ifelse</span>(x <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>, yes, no)</span></code></pre></div>
+<pre><code>## [1] &quot;no1&quot;  &quot;yes2&quot;</code></pre>
+<div class="sourceCode" id="section-cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb368-1"><a href="section-files-for-loops-and-functions.html#section-cb368-1"></a><span class="kw">ifelse</span>(x <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span>, yes, no)</span></code></pre></div>
+<pre><code>## [1] &quot;yes1&quot; &quot;no2&quot;</code></pre>
+<ul>
+<li>Note that the curly braces are not technically necessary if you have only a one line command</li>
+<li>BUT you should use them anyway so someone can easily read your code!</li>
+</ul>
+<div class="sourceCode" id="section-cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb370-1"><a href="section-files-for-loops-and-functions.html#section-cb370-1"></a>x &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="section-cb370-2"><a href="section-files-for-loops-and-functions.html#section-cb370-2"></a><span class="cf">if</span> (x <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span>) y &lt;-<span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>x <span class="cf">else</span> y &lt;-<span class="st"> </span><span class="dv">3</span> <span class="op">*</span><span class="st"> </span>x</span>
+<span id="section-cb370-3"><a href="section-files-for-loops-and-functions.html#section-cb370-3"></a>y</span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+</div>
+<div id="section-repeat-and-while" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> repeat and while</h2>
+<ul>
+<li>Repeat just repeats commands in the braces until it sees a <code>BREAK</code> command</li>
+<li>If you don’t include <code>BREAK</code> your computer will be in an infinite loop.</li>
+<li>Save your work before using!</li>
+<li>Or maybe just don’t use it</li>
+<li><code>repeat</code> is equivalent to a <code>while(true)</code> loop</li>
+</ul>
+<div class="sourceCode" id="section-cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb372-1"><a href="section-files-for-loops-and-functions.html#section-cb372-1"></a><span class="cf">repeat</span>{ stuff to do until it sees BREAK }</span></code></pre></div>
+<div class="sourceCode" id="section-cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb373-1"><a href="section-files-for-loops-and-functions.html#section-cb373-1"></a><span class="co"># make a blank plot with the limits set by those vectors</span></span>
+<span id="section-cb373-2"><a href="section-files-for-loops-and-functions.html#section-cb373-2"></a><span class="kw">plot</span>(<span class="ot">NULL</span>, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">100</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">xlab=</span><span class="st">&quot;x&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;1/x&quot;</span>) </span>
+<span id="section-cb373-3"><a href="section-files-for-loops-and-functions.html#section-cb373-3"></a>x =<span class="st"> </span><span class="dv">1</span></span>
+<span id="section-cb373-4"><a href="section-files-for-loops-and-functions.html#section-cb373-4"></a><span class="cf">repeat</span> {</span>
+<span id="section-cb373-5"><a href="section-files-for-loops-and-functions.html#section-cb373-5"></a>  y =<span class="st"> </span><span class="dv">1</span> <span class="op">/</span><span class="st"> </span>x</span>
+<span id="section-cb373-6"><a href="section-files-for-loops-and-functions.html#section-cb373-6"></a>  x =<span class="st"> </span>x <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="section-cb373-7"><a href="section-files-for-loops-and-functions.html#section-cb373-7"></a>  <span class="kw">points</span>(x, y)</span>
+<span id="section-cb373-8"><a href="section-files-for-loops-and-functions.html#section-cb373-8"></a>  <span class="cf">if</span> (x <span class="op">==</span><span class="st"> </span><span class="dv">100</span>) { </span>
+<span id="section-cb373-9"><a href="section-files-for-loops-and-functions.html#section-cb373-9"></a>    <span class="cf">break</span> </span>
+<span id="section-cb373-10"><a href="section-files-for-loops-and-functions.html#section-cb373-10"></a>  }</span>
+<span id="section-cb373-11"><a href="section-files-for-loops-and-functions.html#section-cb373-11"></a>}</span></code></pre></div>
+<p><img src="images/unnamed-chunk-85-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>A while loop is just a repeat, where the break condition is specified at the top</p>
+<div class="sourceCode" id="section-cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb374-1"><a href="section-files-for-loops-and-functions.html#section-cb374-1"></a><span class="cf">while</span>(condition){</span>
+<span id="section-cb374-2"><a href="section-files-for-loops-and-functions.html#section-cb374-2"></a>  commands that <span class="cf">repeat</span> until condition becomes <span class="ot">FALSE</span></span>
+<span id="section-cb374-3"><a href="section-files-for-loops-and-functions.html#section-cb374-3"></a>}</span></code></pre></div>
+<div class="sourceCode" id="section-cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb375-1"><a href="section-files-for-loops-and-functions.html#section-cb375-1"></a><span class="kw">plot</span>(<span class="ot">NULL</span>, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">100</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">xlab=</span><span class="st">&quot;x&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;1/x&quot;</span>) </span>
+<span id="section-cb375-2"><a href="section-files-for-loops-and-functions.html#section-cb375-2"></a>x =<span class="st"> </span><span class="dv">1</span></span>
+<span id="section-cb375-3"><a href="section-files-for-loops-and-functions.html#section-cb375-3"></a><span class="cf">while</span>(x <span class="op">&lt;</span><span class="st"> </span><span class="dv">100</span>) {</span>
+<span id="section-cb375-4"><a href="section-files-for-loops-and-functions.html#section-cb375-4"></a>  y =<span class="st"> </span><span class="dv">1</span> <span class="op">/</span><span class="st"> </span>x</span>
+<span id="section-cb375-5"><a href="section-files-for-loops-and-functions.html#section-cb375-5"></a>  x =<span class="st"> </span>x <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="section-cb375-6"><a href="section-files-for-loops-and-functions.html#section-cb375-6"></a>  <span class="kw">points</span>(x, y)</span>
+<span id="section-cb375-7"><a href="section-files-for-loops-and-functions.html#section-cb375-7"></a>}</span></code></pre></div>
+<p><img src="images/unnamed-chunk-87-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-for-loops" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> for loops</h2>
+<ul>
+<li>The <code>for</code> command is probably the most common flow control option.</li>
+<li>It has three basic parts:
+<ul>
+<li>An object name that will be used in the following commands</li>
+<li>A vector that we will “loop over”</li>
+<li>Commands that will be executed for each value of the vector</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="section-cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb376-1"><a href="section-files-for-loops-and-functions.html#section-cb376-1"></a><span class="cf">for</span> (name <span class="cf">in</span> vector){</span>
+<span id="section-cb376-2"><a href="section-files-for-loops-and-functions.html#section-cb376-2"></a>  execute these commands using each value of the vecotr</span>
+<span id="section-cb376-3"><a href="section-files-for-loops-and-functions.html#section-cb376-3"></a>}</span></code></pre></div>
+<div class="sourceCode" id="section-cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb377-1"><a href="section-files-for-loops-and-functions.html#section-cb377-1"></a><span class="cf">for</span> (monkey <span class="cf">in</span> <span class="kw">c</span>(<span class="st">&quot;Spider&quot;</span>, <span class="st">&quot;Howler&quot;</span>, <span class="st">&quot;Rhesus&quot;</span>)) {</span>
+<span id="section-cb377-2"><a href="section-files-for-loops-and-functions.html#section-cb377-2"></a>  <span class="co">## Each loop does the equivalent of: monkey = &quot;Spider&quot; or monkey = &quot;Howler&quot; or ...</span></span>
+<span id="section-cb377-3"><a href="section-files-for-loops-and-functions.html#section-cb377-3"></a>  <span class="kw">print</span>(monkey)</span>
+<span id="section-cb377-4"><a href="section-files-for-loops-and-functions.html#section-cb377-4"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;Spider&quot;
+## [1] &quot;Howler&quot;
+## [1] &quot;Rhesus&quot;</code></pre>
+<p>Or more commonly</p>
+<div class="sourceCode" id="section-cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb379-1"><a href="section-files-for-loops-and-functions.html#section-cb379-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>){</span>
+<span id="section-cb379-2"><a href="section-files-for-loops-and-functions.html#section-cb379-2"></a>  <span class="kw">print</span>(i)</span>
+<span id="section-cb379-3"><a href="section-files-for-loops-and-functions.html#section-cb379-3"></a>}</span></code></pre></div>
+<pre><code>## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6
+## [1] 7
+## [1] 8
+## [1] 9
+## [1] 10</code></pre>
+<div class="sourceCode" id="section-cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb381-1"><a href="section-files-for-loops-and-functions.html#section-cb381-1"></a><span class="co">## for loops are very useful in many situations</span></span>
+<span id="section-cb381-2"><a href="section-files-for-loops-and-functions.html#section-cb381-2"></a><span class="kw">plot</span>(<span class="ot">NULL</span>, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">100</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="section-cb381-3"><a href="section-files-for-loops-and-functions.html#section-cb381-3"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">100</span>) {</span>
+<span id="section-cb381-4"><a href="section-files-for-loops-and-functions.html#section-cb381-4"></a>  <span class="kw">points</span>(i, <span class="dv">1</span> <span class="op">/</span><span class="st"> </span>i)</span>
+<span id="section-cb381-5"><a href="section-files-for-loops-and-functions.html#section-cb381-5"></a>}</span></code></pre></div>
+<p><img src="images/unnamed-chunk-91-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div id="section-next-and-break" class="section level3" number="4.5.1">
+<h3><span class="header-section-number">4.5.1</span> next and break</h3>
+<p>Sometimes you might not want to execute the commands for every element in the vector
+use the <code>next</code> command to skip (you can also use the <code>break</code>)</p>
+<div class="sourceCode" id="section-cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb382-1"><a href="section-files-for-loops-and-functions.html#section-cb382-1"></a>some.odds =<span class="st"> </span><span class="ot">NULL</span></span>
+<span id="section-cb382-2"><a href="section-files-for-loops-and-functions.html#section-cb382-2"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">200</span>) {</span>
+<span id="section-cb382-3"><a href="section-files-for-loops-and-functions.html#section-cb382-3"></a>  <span class="cf">if</span> (i <span class="op">%%</span><span class="st"> </span><span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) {</span>
+<span id="section-cb382-4"><a href="section-files-for-loops-and-functions.html#section-cb382-4"></a>    <span class="cf">next</span></span>
+<span id="section-cb382-5"><a href="section-files-for-loops-and-functions.html#section-cb382-5"></a>  }</span>
+<span id="section-cb382-6"><a href="section-files-for-loops-and-functions.html#section-cb382-6"></a>  some.odds =<span class="st"> </span><span class="kw">c</span>(some.odds, i)</span>
+<span id="section-cb382-7"><a href="section-files-for-loops-and-functions.html#section-cb382-7"></a>}</span>
+<span id="section-cb382-8"><a href="section-files-for-loops-and-functions.html#section-cb382-8"></a>some.odds</span></code></pre></div>
+<pre><code>##   [1]   1   3   5   7   9  11  13  15  17  19  21  23  25  27  29  31  33  35
+##  [19]  37  39  41  43  45  47  49  51  53  55  57  59  61  63  65  67  69  71
+##  [37]  73  75  77  79  81  83  85  87  89  91  93  95  97  99 101 103 105 107
+##  [55] 109 111 113 115 117 119 121 123 125 127 129 131 133 135 137 139 141 143
+##  [73] 145 147 149 151 153 155 157 159 161 163 165 167 169 171 173 175 177 179
+##  [91] 181 183 185 187 189 191 193 195 197 199</code></pre>
+<p>Technically, you don’t have to be so formal. But the indenting and braces are there for the protection of your future self.</p>
+<div class="sourceCode" id="section-cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb384-1"><a href="section-files-for-loops-and-functions.html#section-cb384-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>) <span class="kw">print</span>(i)</span></code></pre></div>
+<pre><code>## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6
+## [1] 7
+## [1] 8
+## [1] 9
+## [1] 10</code></pre>
+</div>
+</div>
+<div id="section-functions-1" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> Functions</h2>
+<div id="section-the-basics" class="section level3" number="4.6.1">
+<h3><span class="header-section-number">4.6.1</span> The basics</h3>
+<ol style="list-style-type: decimal">
+<li>Use the ‘function’ command and assign it to an object</li>
+<li>If you need, specify the expected inputs</li>
+<li>Do some stuff</li>
+<li>(optional) Return something (and only one thing) to the global environment.</li>
+</ol>
+<div class="sourceCode" id="section-cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb386-1"><a href="section-files-for-loops-and-functions.html#section-cb386-1"></a>my.function =<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="section-cb386-2"><a href="section-files-for-loops-and-functions.html#section-cb386-2"></a>  do stuff here</span>
+<span id="section-cb386-3"><a href="section-files-for-loops-and-functions.html#section-cb386-3"></a>  <span class="kw">return</span>(output)</span>
+<span id="section-cb386-4"><a href="section-files-for-loops-and-functions.html#section-cb386-4"></a>}</span></code></pre></div>
+<p>Here’s an example:</p>
+<div class="sourceCode" id="section-cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb387-1"><a href="section-files-for-loops-and-functions.html#section-cb387-1"></a>countThrees =<span class="st"> </span><span class="cf">function</span>(vector) {</span>
+<span id="section-cb387-2"><a href="section-files-for-loops-and-functions.html#section-cb387-2"></a>  threes &lt;-<span class="st"> </span><span class="dv">0</span></span>
+<span id="section-cb387-3"><a href="section-files-for-loops-and-functions.html#section-cb387-3"></a>  <span class="cf">for</span>(i <span class="cf">in</span> vector) {</span>
+<span id="section-cb387-4"><a href="section-files-for-loops-and-functions.html#section-cb387-4"></a>    <span class="cf">if</span>(i <span class="op">==</span><span class="st"> </span><span class="dv">3</span>) {</span>
+<span id="section-cb387-5"><a href="section-files-for-loops-and-functions.html#section-cb387-5"></a>      threes &lt;-<span class="st"> </span>threes <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="section-cb387-6"><a href="section-files-for-loops-and-functions.html#section-cb387-6"></a>    }</span>
+<span id="section-cb387-7"><a href="section-files-for-loops-and-functions.html#section-cb387-7"></a>  }</span>
+<span id="section-cb387-8"><a href="section-files-for-loops-and-functions.html#section-cb387-8"></a>  <span class="kw">return</span>(threes)</span>
+<span id="section-cb387-9"><a href="section-files-for-loops-and-functions.html#section-cb387-9"></a>}</span>
+<span id="section-cb387-10"><a href="section-files-for-loops-and-functions.html#section-cb387-10"></a></span>
+<span id="section-cb387-11"><a href="section-files-for-loops-and-functions.html#section-cb387-11"></a>v &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="section-cb387-12"><a href="section-files-for-loops-and-functions.html#section-cb387-12"></a><span class="kw">countThrees</span>(v)</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>What would happen if we passed in one number instead of a vector?</p>
+<div class="sourceCode" id="section-cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb389-1"><a href="section-files-for-loops-and-functions.html#section-cb389-1"></a><span class="kw">countThrees</span>(<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<div class="sourceCode" id="section-cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb391-1"><a href="section-files-for-loops-and-functions.html#section-cb391-1"></a><span class="kw">countThrees</span>(<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>Or a matrix?</p>
+<div class="sourceCode" id="section-cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb393-1"><a href="section-files-for-loops-and-functions.html#section-cb393-1"></a>m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">24</span>, <span class="dv">4</span>, <span class="dv">6</span>)</span>
+<span id="section-cb393-2"><a href="section-files-for-loops-and-functions.html#section-cb393-2"></a><span class="kw">countThrees</span>(m)</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>If you want to return multiple values in R, you must put them in a vector or list and return the data structure instead.</p>
+<p>Remember that a list is essentially a vector that can contain different data types.</p>
+<p>Sometimes a function will return a value, but other times it will just execute a command like print or plot.</p>
+</div>
+</div>
+<div id="section-setting-defaults" class="section level2" number="4.7">
+<h2><span class="header-section-number">4.7</span> Setting defaults</h2>
+<p>You can set default values for some of your arguments or all of them</p>
+<div class="sourceCode" id="section-cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb395-1"><a href="section-files-for-loops-and-functions.html#section-cb395-1"></a>gaga.equation =<span class="st"> </span><span class="cf">function</span>(<span class="dt">num.rah=</span><span class="dv">2</span>, <span class="dt">num.ah=</span><span class="dv">3</span>, <span class="dt">num.ga=</span><span class="dv">2</span>, <span class="dt">num.la=</span><span class="dv">2</span>, <span class="dt">num.oo=</span><span class="dv">1</span>) {</span>
+<span id="section-cb395-2"><a href="section-files-for-loops-and-functions.html#section-cb395-2"></a>  rahs =<span class="st"> </span><span class="kw">paste</span>(<span class="kw">rep</span>(<span class="st">&quot;RAH&quot;</span>, num.rah), <span class="dt">collapse=</span><span class="st">&quot;, &quot;</span>)</span>
+<span id="section-cb395-3"><a href="section-files-for-loops-and-functions.html#section-cb395-3"></a>  ahs  =<span class="st"> </span><span class="kw">paste</span>(<span class="kw">rep</span>(<span class="st">&quot;AH&quot;</span>, num.ah), <span class="dt">collapse=</span><span class="st">&quot;, &quot;</span>)</span>
+<span id="section-cb395-4"><a href="section-files-for-loops-and-functions.html#section-cb395-4"></a>  gas  =<span class="st"> </span><span class="kw">paste</span>(<span class="kw">rep</span>(<span class="st">&quot;GA&quot;</span>, num.ga), <span class="dt">collapse=</span><span class="st">&quot;, &quot;</span>)</span>
+<span id="section-cb395-5"><a href="section-files-for-loops-and-functions.html#section-cb395-5"></a>  oo   =<span class="st"> </span><span class="kw">paste</span>(<span class="kw">rep</span>(<span class="st">&quot;OO&quot;</span>, num.oo), <span class="dt">collapse=</span><span class="st">&quot;, &quot;</span>)</span>
+<span id="section-cb395-6"><a href="section-files-for-loops-and-functions.html#section-cb395-6"></a>  las  =<span class="st"> </span><span class="kw">paste</span>(<span class="kw">rep</span>(<span class="st">&quot;LA&quot;</span>, num.la), <span class="dt">collapse=</span><span class="st">&quot;, &quot;</span>)</span>
+<span id="section-cb395-7"><a href="section-files-for-loops-and-functions.html#section-cb395-7"></a>  <span class="kw">paste</span>(rahs, <span class="st">&quot;,&quot;</span>, ahs,  <span class="st">&quot;!  ROMA, ROMAMA!&quot;</span>, gas, <span class="st">&quot;,&quot;</span>, oo, las)</span>
+<span id="section-cb395-8"><a href="section-files-for-loops-and-functions.html#section-cb395-8"></a>}</span>
+<span id="section-cb395-9"><a href="section-files-for-loops-and-functions.html#section-cb395-9"></a></span>
+<span id="section-cb395-10"><a href="section-files-for-loops-and-functions.html#section-cb395-10"></a><span class="kw">gaga.equation</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;RAH, RAH , AH, AH, AH !  ROMA, ROMAMA! GA, GA , OO LA, LA&quot;</code></pre>
+<div class="sourceCode" id="section-cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb397-1"><a href="section-files-for-loops-and-functions.html#section-cb397-1"></a><span class="kw">gaga.equation</span>(<span class="dt">num.la=</span><span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;RAH, RAH , AH, AH, AH !  ROMA, ROMAMA! GA, GA , OO LA, LA, LA, LA, LA&quot;</code></pre>
+<p>If an argument (sometimes called a parameter) does not have a default value, it <em>must</em> be specified when the function is called.</p>
+</div>
+<div id="section-scope" class="section level2" number="4.8">
+<h2><span class="header-section-number">4.8</span> Scope</h2>
+<p>In the example above, if we tried to print rahs outside of the function, we would get an error. The variable rahs doesn’t exist in the global environment.
+This concept of limiting which parts of code can access a variable or function is called scope.</p>
+<div class="sourceCode" id="section-cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb399-1"><a href="section-files-for-loops-and-functions.html#section-cb399-1"></a><span class="kw">print</span>(rahs)</span></code></pre></div>
+<p>What happens in the function, stays in the function</p>
+<p>One exception is that for loop variables can be accessed after the loop.</p>
+<div class="sourceCode" id="section-cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb400-1"><a href="section-files-for-loops-and-functions.html#section-cb400-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>) {</span>
+<span id="section-cb400-2"><a href="section-files-for-loops-and-functions.html#section-cb400-2"></a>  <span class="kw">print</span>(i<span class="op">+</span><span class="dv">2</span>)</span>
+<span id="section-cb400-3"><a href="section-files-for-loops-and-functions.html#section-cb400-3"></a>}</span></code></pre></div>
+<pre><code>## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6</code></pre>
+<div class="sourceCode" id="section-cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb402-1"><a href="section-files-for-loops-and-functions.html#section-cb402-1"></a><span class="kw">print</span>(i)</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p>This for loop could be written as a while loop which would demonstrate why we can access <code>i</code> outside the loop.
+In fact, when the code is broken down from our nicely readable R code into standard machine code that any computer can run, all for loops
+are converted into while loops.</p>
+<div class="sourceCode" id="section-cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb404-1"><a href="section-files-for-loops-and-functions.html#section-cb404-1"></a>i &lt;-<span class="st"> </span><span class="dv">0</span></span>
+<span id="section-cb404-2"><a href="section-files-for-loops-and-functions.html#section-cb404-2"></a><span class="cf">while</span>(i <span class="op">&lt;</span><span class="st"> </span><span class="dv">4</span>) {</span>
+<span id="section-cb404-3"><a href="section-files-for-loops-and-functions.html#section-cb404-3"></a>  i &lt;-<span class="st"> </span>i<span class="op">+</span><span class="dv">1</span></span>
+<span id="section-cb404-4"><a href="section-files-for-loops-and-functions.html#section-cb404-4"></a>  <span class="kw">print</span>(i<span class="op">+</span><span class="dv">2</span>)</span>
+<span id="section-cb404-5"><a href="section-files-for-loops-and-functions.html#section-cb404-5"></a>}</span></code></pre></div>
+<pre><code>## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6</code></pre>
+<div class="sourceCode" id="section-cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb406-1"><a href="section-files-for-loops-and-functions.html#section-cb406-1"></a><span class="kw">print</span>(i)</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p>Note that i equals 4 (its last loop value) after the loop is finished.</p>
+<p>This is different from functions because the only way to retain access to a local variable that was created in the function is to return it.</p>
+<div class="sourceCode" id="section-cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb408-1"><a href="section-files-for-loops-and-functions.html#section-cb408-1"></a>a &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="section-cb408-2"><a href="section-files-for-loops-and-functions.html#section-cb408-2"></a>outer_func &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
+<span id="section-cb408-3"><a href="section-files-for-loops-and-functions.html#section-cb408-3"></a>  a &lt;-<span class="st"> </span><span class="dv">20</span></span>
+<span id="section-cb408-4"><a href="section-files-for-loops-and-functions.html#section-cb408-4"></a>  inner_func &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
+<span id="section-cb408-5"><a href="section-files-for-loops-and-functions.html#section-cb408-5"></a>    a &lt;-<span class="st"> </span><span class="dv">30</span></span>
+<span id="section-cb408-6"><a href="section-files-for-loops-and-functions.html#section-cb408-6"></a>    <span class="kw">print</span>(a)</span>
+<span id="section-cb408-7"><a href="section-files-for-loops-and-functions.html#section-cb408-7"></a>  }</span>
+<span id="section-cb408-8"><a href="section-files-for-loops-and-functions.html#section-cb408-8"></a>  <span class="kw">inner_func</span>()</span>
+<span id="section-cb408-9"><a href="section-files-for-loops-and-functions.html#section-cb408-9"></a>  <span class="kw">print</span>(a)</span>
+<span id="section-cb408-10"><a href="section-files-for-loops-and-functions.html#section-cb408-10"></a>}</span>
+<span id="section-cb408-11"><a href="section-files-for-loops-and-functions.html#section-cb408-11"></a><span class="kw">outer_func</span>()</span></code></pre></div>
+<pre><code>## [1] 30
+## [1] 20</code></pre>
+<div class="sourceCode" id="section-cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb410-1"><a href="section-files-for-loops-and-functions.html#section-cb410-1"></a>a</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<p>If you try to run inner_func(), it will say “Error in inner_func() : could not find function”inner_func"" because that function is <em>actually</em>
+a local object inside the function outer_func. That means that outer_func is the only place that can use inner_func.</p>
+<p>Scope kind of works like a bunch of one way mirrors. If I write a function, it can access all global variables and local (to the function) variables,
+but the global environment can only access global variables. In the above code example, inner_func can access all of its variables, all of outer_func’s variables,
+and the global environment variables as well.</p>
+<div id="section-advanced-scope-topics" class="section level3" number="4.8.1">
+<h3><span class="header-section-number">4.8.1</span> Advanced scope topics</h3>
+<p>In R, there’s a superassignment operator which is &lt;&lt;-</p>
+<p>This assigns the variable to one environment up from its current location. Check out these examples and try to follow along with the environments.</p>
+<p>This example will replace the global variable a (which used to store 10) with 20 from the outer_func code. Printing a at the end of the script will print 20 this time.</p>
+<div class="sourceCode" id="section-cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb412-1"><a href="section-files-for-loops-and-functions.html#section-cb412-1"></a>a &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="section-cb412-2"><a href="section-files-for-loops-and-functions.html#section-cb412-2"></a>outer_func &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
+<span id="section-cb412-3"><a href="section-files-for-loops-and-functions.html#section-cb412-3"></a>  a &lt;&lt;-<span class="st"> </span><span class="dv">20</span></span>
+<span id="section-cb412-4"><a href="section-files-for-loops-and-functions.html#section-cb412-4"></a>  inner_func &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
+<span id="section-cb412-5"><a href="section-files-for-loops-and-functions.html#section-cb412-5"></a>    a &lt;-<span class="st"> </span><span class="dv">30</span></span>
+<span id="section-cb412-6"><a href="section-files-for-loops-and-functions.html#section-cb412-6"></a>    <span class="kw">print</span>(a)</span>
+<span id="section-cb412-7"><a href="section-files-for-loops-and-functions.html#section-cb412-7"></a>  }</span>
+<span id="section-cb412-8"><a href="section-files-for-loops-and-functions.html#section-cb412-8"></a>  <span class="kw">inner_func</span>()</span>
+<span id="section-cb412-9"><a href="section-files-for-loops-and-functions.html#section-cb412-9"></a>  <span class="kw">print</span>(a)</span>
+<span id="section-cb412-10"><a href="section-files-for-loops-and-functions.html#section-cb412-10"></a>}</span>
+<span id="section-cb412-11"><a href="section-files-for-loops-and-functions.html#section-cb412-11"></a><span class="kw">outer_func</span>()</span></code></pre></div>
+<pre><code>## [1] 30
+## [1] 20</code></pre>
+<div class="sourceCode" id="section-cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb414-1"><a href="section-files-for-loops-and-functions.html#section-cb414-1"></a>a</span></code></pre></div>
+<pre><code>## [1] 20</code></pre>
+<p>This example will replace a from the outer_func environment with the value 30 so when outer_func prints a, it will now contain 30.</p>
+<div class="sourceCode" id="section-cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb416-1"><a href="section-files-for-loops-and-functions.html#section-cb416-1"></a>a &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="section-cb416-2"><a href="section-files-for-loops-and-functions.html#section-cb416-2"></a>outer_func &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
+<span id="section-cb416-3"><a href="section-files-for-loops-and-functions.html#section-cb416-3"></a>  a &lt;-<span class="st"> </span><span class="dv">20</span></span>
+<span id="section-cb416-4"><a href="section-files-for-loops-and-functions.html#section-cb416-4"></a>  inner_func &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
+<span id="section-cb416-5"><a href="section-files-for-loops-and-functions.html#section-cb416-5"></a>    a &lt;&lt;-<span class="st"> </span><span class="dv">30</span></span>
+<span id="section-cb416-6"><a href="section-files-for-loops-and-functions.html#section-cb416-6"></a>    <span class="kw">print</span>(a)</span>
+<span id="section-cb416-7"><a href="section-files-for-loops-and-functions.html#section-cb416-7"></a>  }</span>
+<span id="section-cb416-8"><a href="section-files-for-loops-and-functions.html#section-cb416-8"></a>  <span class="kw">inner_func</span>()</span>
+<span id="section-cb416-9"><a href="section-files-for-loops-and-functions.html#section-cb416-9"></a>  <span class="kw">print</span>(a)</span>
+<span id="section-cb416-10"><a href="section-files-for-loops-and-functions.html#section-cb416-10"></a>}</span>
+<span id="section-cb416-11"><a href="section-files-for-loops-and-functions.html#section-cb416-11"></a><span class="kw">outer_func</span>()</span></code></pre></div>
+<pre><code>## [1] 30
+## [1] 30</code></pre>
+<div class="sourceCode" id="section-cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb418-1"><a href="section-files-for-loops-and-functions.html#section-cb418-1"></a>a</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+</div>
+</div>
+<div id="section-debugging" class="section level2" number="4.9">
+<h2><span class="header-section-number">4.9</span> Debugging</h2>
+<ul>
+<li><code>traceback</code> will help you identify the function that is failing</li>
+<li><code>debug</code>, <code>debugonce</code> will go through a function one line at a time</li>
+<li><code>browser</code> This let’s you work within the function environment starting at a specified point</li>
+</ul>
+<p>Here’s an example to help us practice our debugging skills:</p>
+<div class="sourceCode" id="section-cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb420-1"><a href="section-files-for-loops-and-functions.html#section-cb420-1"></a>webData&lt;-<span class="kw">url</span>(<span class="st">&quot;http://pages.wustl.edu/montgomery/incumbents2.txt&quot;</span>)</span>
+<span id="section-cb420-2"><a href="section-files-for-loops-and-functions.html#section-cb420-2"></a>OOS &lt;-<span class="st"> </span><span class="kw">read.table</span>(webData)</span>
+<span id="section-cb420-3"><a href="section-files-for-loops-and-functions.html#section-cb420-3"></a><span class="kw">summary</span>(OOS)</span></code></pre></div>
+<pre><code>##        x             year         congress        chalspend     
+##  Min.   :   1   Min.   :1956   Min.   : 84.00   Min.   : 8.517  
+##  1st Qu.:1672   1st Qu.:1968   1st Qu.: 90.00   1st Qu.: 9.315  
+##  Median :3347   Median :1978   Median : 95.00   Median :10.998  
+##  Mean   :3348   Mean   :1977   Mean   : 94.42   Mean   :10.880  
+##  3rd Qu.:5024   3rd Qu.:1988   3rd Qu.:100.00   3rd Qu.:12.366  
+##  Max.   :6695   Max.   :1996   Max.   :104.00   Max.   :15.039  
+##                                                 NA&#39;s   :3380    
+##     incspend         difflog          presvote         voteshare     
+##  Min.   : 8.586   Min.   :-3.060   Min.   :0.06565   Min.   :0.3476  
+##  1st Qu.:12.304   1st Qu.: 0.686   1st Qu.:0.46894   1st Qu.:0.5740  
+##  Median :12.839   Median : 1.651   Median :0.55519   Median :0.6450  
+##  Mean   :12.759   Mean   : 1.858   Mean   :0.55335   Mean   :0.6470  
+##  3rd Qu.:13.266   3rd Qu.: 3.025   3rd Qu.:0.63425   3rd Qu.:0.7141  
+##  Max.   :15.422   Max.   : 5.856   Max.   :0.96061   Max.   :0.9997  
+##  NA&#39;s   :3374     NA&#39;s   :3436                       NA&#39;s   :125     
+##     inparty          incparty       seniority         midterm      
+##  Min.   :0.0000   Min.   :0.000   Min.   : 1.000   Min.   :0.0000  
+##  1st Qu.:0.0000   1st Qu.:0.000   1st Qu.: 2.000   1st Qu.:0.0000  
+##  Median :0.0000   Median :1.000   Median : 4.000   Median :0.0000  
+##  Mean   :0.4942   Mean   :0.563   Mean   : 4.949   Mean   :0.2327  
+##  3rd Qu.:1.0000   3rd Qu.:1.000   3rd Qu.: 7.000   3rd Qu.:0.0000  
+##  Max.   :1.0000   Max.   :1.000   Max.   :26.000   Max.   :1.0000  
+##                                                                    
+##   chalquality         south          population        urban       
+##  Min.   :0.0000   Min.   :0.0000   Min.   :11.98   Min.   : 5.956  
+##  1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:12.92   1st Qu.:12.325  
+##  Median :0.0000   Median :0.0000   Median :13.06   Median :12.728  
+##  Mean   :0.2348   Mean   :0.2378   Mean   :13.04   Mean   :12.612  
+##  3rd Qu.:0.0000   3rd Qu.:0.0000   3rd Qu.:13.16   3rd Qu.:13.006  
+##  Max.   :1.0000   Max.   :1.0000   Max.   :17.08   Max.   :16.481  
+##  NA&#39;s   :5                         NA&#39;s   :2       NA&#39;s   :2       
+##      age65            milpop         unemployed       incspend2      
+##  Min.   : 8.164   Min.   : 3.045   Min.   : 7.425   Min.   :   5355  
+##  1st Qu.:10.452   1st Qu.: 5.517   1st Qu.: 8.816   1st Qu.: 220620  
+##  Median :10.760   Median : 6.246   Median : 9.142   Median : 376741  
+##  Mean   :10.819   Mean   : 6.777   Mean   : 9.170   Mean   : 450124  
+##  3rd Qu.:11.215   3rd Qu.: 8.077   3rd Qu.: 9.544   3rd Qu.: 577283  
+##  Max.   :14.552   Max.   :12.691   Max.   :13.147   Max.   :4987593  
+##  NA&#39;s   :2        NA&#39;s   :2        NA&#39;s   :2        NA&#39;s   :3374</code></pre>
+<div class="sourceCode" id="section-cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb422-1"><a href="section-files-for-loops-and-functions.html#section-cb422-1"></a><span class="kw">boxplot</span>(voteshare<span class="op">~</span>inparty, <span class="dt">data=</span>OOS[OOS<span class="op">$</span>year<span class="op">==</span><span class="dv">1956</span>,])</span></code></pre></div>
+<p><img src="images/unnamed-chunk-105-1.png" width="672" /></p>
+<div class="sourceCode" id="section-cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb423-1"><a href="section-files-for-loops-and-functions.html#section-cb423-1"></a><span class="kw">plot</span>(voteshare<span class="op">~</span>inparty, <span class="dt">data=</span>OOS[OOS<span class="op">$</span>year<span class="op">==</span><span class="dv">1956</span>,])</span></code></pre></div>
+<p><img src="images/unnamed-chunk-105-2.png" width="672" /></p>
+<p>Running a regression by year: Do you see a pattern?</p>
+<div class="sourceCode" id="section-cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb424-1"><a href="section-files-for-loops-and-functions.html#section-cb424-1"></a>output.vector&lt;-<span class="ot">NULL</span></span>
+<span id="section-cb424-2"><a href="section-files-for-loops-and-functions.html#section-cb424-2"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">unique</span>(OOS<span class="op">$</span>year)){</span>
+<span id="section-cb424-3"><a href="section-files-for-loops-and-functions.html#section-cb424-3"></a>    output.vector[<span class="kw">which</span>(<span class="kw">unique</span>(OOS<span class="op">$</span>year) <span class="op">==</span><span class="st"> </span>i)]&lt;-<span class="st"> </span></span>
+<span id="section-cb424-4"><a href="section-files-for-loops-and-functions.html#section-cb424-4"></a><span class="st">      </span><span class="kw">lm</span>(voteshare <span class="op">~</span><span class="st"> </span>inparty, <span class="dt">data=</span>OOS[OOS<span class="op">$</span>year <span class="op">==</span><span class="st"> </span>i,])<span class="op">$</span>coefficients[<span class="dv">2</span>]</span>
+<span id="section-cb424-5"><a href="section-files-for-loops-and-functions.html#section-cb424-5"></a>}</span>
+<span id="section-cb424-6"><a href="section-files-for-loops-and-functions.html#section-cb424-6"></a><span class="kw">plot</span>(<span class="kw">unique</span>(OOS<span class="op">$</span>year), output.vector, <span class="dt">type=</span><span class="st">&quot;l&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Coefficient (President&#39;s party)&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Year&quot;</span>) </span>
+<span id="section-cb424-7"><a href="section-files-for-loops-and-functions.html#section-cb424-7"></a><span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>, <span class="dt">lty=</span><span class="dv">3</span>)</span></code></pre></div>
+<p><img src="images/unnamed-chunk-106-1.png" width="672" /></p>
+<p>Now we might think – there is a more general case where I want to get a bunch of seperate regression estimates on defined subsets of the data</p>
+<div class="sourceCode" id="section-cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb425-1"><a href="section-files-for-loops-and-functions.html#section-cb425-1"></a>by.var.lm&lt;-<span class="cf">function</span>(by.var, formula, data, coef.num){</span>
+<span id="section-cb425-2"><a href="section-files-for-loops-and-functions.html#section-cb425-2"></a>  output.vector&lt;-<span class="ot">NULL</span></span>
+<span id="section-cb425-3"><a href="section-files-for-loops-and-functions.html#section-cb425-3"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">unique</span>(by.var)){</span>
+<span id="section-cb425-4"><a href="section-files-for-loops-and-functions.html#section-cb425-4"></a>    output.vector[<span class="kw">which</span>(<span class="kw">unique</span>(by.var) <span class="op">==</span><span class="st"> </span>i)] &lt;-<span class="st"> </span></span>
+<span id="section-cb425-5"><a href="section-files-for-loops-and-functions.html#section-cb425-5"></a><span class="st">      </span><span class="kw">lm</span>(formula, <span class="dt">data=</span>data[by.var <span class="op">==</span><span class="st"> </span>i,])<span class="op">$</span>coefficients[coef.num]</span>
+<span id="section-cb425-6"><a href="section-files-for-loops-and-functions.html#section-cb425-6"></a>  }</span>
+<span id="section-cb425-7"><a href="section-files-for-loops-and-functions.html#section-cb425-7"></a>  <span class="kw">return</span>(output.vector)</span>
+<span id="section-cb425-8"><a href="section-files-for-loops-and-functions.html#section-cb425-8"></a>}</span>
+<span id="section-cb425-9"><a href="section-files-for-loops-and-functions.html#section-cb425-9"></a><span class="kw">plot</span>(<span class="kw">by.var.lm</span>(year, voteshare<span class="op">~</span>inparty, OOS, <span class="dv">2</span>), <span class="dt">type=</span><span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<p>This is not working, what to do?</p>
+<ul>
+<li>As a first step, figure out where it’s broken using <code>traceback</code></li>
+</ul>
+<div class="sourceCode" id="section-cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb426-1"><a href="section-files-for-loops-and-functions.html#section-cb426-1"></a><span class="kw">traceback</span>(<span class="kw">by.var.lm</span>(year, voteshare<span class="op">~</span>inparty, OOS, <span class="dv">2</span>))</span></code></pre></div>
+<ul>
+<li>A second thing to try is to use <code>debug</code></li>
+</ul>
+<div class="sourceCode" id="section-cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb427-1"><a href="section-files-for-loops-and-functions.html#section-cb427-1"></a><span class="kw">debug</span>(by.var.lm)</span></code></pre></div>
+<ul>
+<li>A second thing to try is to put a <code>broswer</code> function into the function itself</li>
+</ul>
+<div class="sourceCode" id="section-cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb428-1"><a href="section-files-for-loops-and-functions.html#section-cb428-1"></a><span class="kw">browser</span>()</span></code></pre></div>
+<ul>
+<li>Another thing to try is just put in some various print commands</li>
+</ul>
+<div class="sourceCode" id="section-cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb429-1"><a href="section-files-for-loops-and-functions.html#section-cb429-1"></a>by.var.lm&lt;-<span class="cf">function</span>(by.var, formula, data, coef.num){</span>
+<span id="section-cb429-2"><a href="section-files-for-loops-and-functions.html#section-cb429-2"></a>  output.vector&lt;-<span class="ot">NULL</span>; <span class="kw">print</span>(<span class="st">&quot;one&quot;</span>)</span>
+<span id="section-cb429-3"><a href="section-files-for-loops-and-functions.html#section-cb429-3"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">unique</span>(by.var)){ </span>
+<span id="section-cb429-4"><a href="section-files-for-loops-and-functions.html#section-cb429-4"></a>    <span class="kw">print</span>(i) <span class="co"># I can see where I get to in the loop</span></span>
+<span id="section-cb429-5"><a href="section-files-for-loops-and-functions.html#section-cb429-5"></a>    output.vector[<span class="kw">which</span>(<span class="kw">unique</span>(by.var) <span class="op">==</span><span class="st"> </span>i)]&lt;-<span class="st"> </span></span>
+<span id="section-cb429-6"><a href="section-files-for-loops-and-functions.html#section-cb429-6"></a><span class="st">      </span><span class="kw">lm</span>(formula, <span class="dt">data=</span>data[by.var <span class="op">==</span><span class="st"> </span>i,])<span class="op">$</span>coefficients[coef.num]</span>
+<span id="section-cb429-7"><a href="section-files-for-loops-and-functions.html#section-cb429-7"></a>  }</span>
+<span id="section-cb429-8"><a href="section-files-for-loops-and-functions.html#section-cb429-8"></a>  <span class="kw">print</span>(<span class="st">&#39;got out of loop&#39;</span>)</span>
+<span id="section-cb429-9"><a href="section-files-for-loops-and-functions.html#section-cb429-9"></a>  <span class="kw">return</span>(output.vector)</span>
+<span id="section-cb429-10"><a href="section-files-for-loops-and-functions.html#section-cb429-10"></a>}</span>
+<span id="section-cb429-11"><a href="section-files-for-loops-and-functions.html#section-cb429-11"></a><span class="kw">plot</span>(<span class="kw">by.var.lm</span>(year, voteshare<span class="op">~</span>inparty, OOS, <span class="dv">2</span>), <span class="dt">type=</span><span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<p>So now I have a function that works, can I use it again?</p>
+<div class="sourceCode" id="section-cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb430-1"><a href="section-files-for-loops-and-functions.html#section-cb430-1"></a>website&lt;-<span class="kw">url</span>(<span class="st">&quot;http://pages.wustl.edu/montgomery/titanic&quot;</span>)</span>
+<span id="section-cb430-2"><a href="section-files-for-loops-and-functions.html#section-cb430-2"></a>titanic&lt;-<span class="kw">read.delim</span>(website)</span>
+<span id="section-cb430-3"><a href="section-files-for-loops-and-functions.html#section-cb430-3"></a><span class="kw">table</span>(titanic<span class="op">$</span>Gender)</span>
+<span id="section-cb430-4"><a href="section-files-for-loops-and-functions.html#section-cb430-4"></a><span class="kw">table</span>(titanic<span class="op">$</span>Class)</span></code></pre></div>
+<p>Modify the following code to make this work</p>
+<div class="sourceCode" id="section-cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb431-1"><a href="section-files-for-loops-and-functions.html#section-cb431-1"></a><span class="kw">by.var.lm</span>(Class, (<span class="kw">as.numeric</span>(Survived)<span class="op">-</span><span class="dv">1</span>) <span class="op">~</span><span class="st"> </span>Gender, titanic, <span class="dv">2</span>)</span></code></pre></div>
+</div>
+<div id="section-benchmarking-and-code-improvements" class="section level2" number="4.10">
+<h2><span class="header-section-number">4.10</span> Benchmarking and code improvements</h2>
+<div class="sourceCode" id="section-cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb432-1"><a href="section-files-for-loops-and-functions.html#section-cb432-1"></a>x &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">500</span>)</span>
+<span id="section-cb432-2"><a href="section-files-for-loops-and-functions.html#section-cb432-2"></a><span class="kw">system.time</span>(<span class="kw">sqrt</span>(x))</span></code></pre></div>
+<pre><code>##    user  system elapsed 
+##       0       0       0</code></pre>
+<p>The goal is to see how long a function takes to evaluate</p>
+<p>Much better: microbenchmark</p>
+<div class="sourceCode" id="section-cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb434-1"><a href="section-files-for-loops-and-functions.html#section-cb434-1"></a><span class="kw">library</span>(microbenchmark)</span>
+<span id="section-cb434-2"><a href="section-files-for-loops-and-functions.html#section-cb434-2"></a><span class="kw">microbenchmark</span>(<span class="kw">sqrt</span>(x)) <span class="co"># evaluates 100 times per default</span></span></code></pre></div>
+<pre><code>## Unit: microseconds
+##     expr min  lq  mean median  uq  max neval
+##  sqrt(x) 4.4 4.5 4.882    4.6 4.8 14.8   100</code></pre>
+<div class="sourceCode" id="section-cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb436-1"><a href="section-files-for-loops-and-functions.html#section-cb436-1"></a><span class="kw">microbenchmark</span>(<span class="kw">sqrt</span>(x), <span class="dt">times=</span><span class="dv">1000</span>)</span></code></pre></div>
+<pre><code>## Unit: microseconds
+##     expr min  lq  mean median  uq   max neval
+##  sqrt(x) 3.4 3.6 4.445    3.8 4.1 230.6  1000</code></pre>
+<p>Now we can compare different functions</p>
+<div class="sourceCode" id="section-cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb438-1"><a href="section-files-for-loops-and-functions.html#section-cb438-1"></a><span class="kw">microbenchmark</span>(<span class="kw">sqrt</span>(x), </span>
+<span id="section-cb438-2"><a href="section-files-for-loops-and-functions.html#section-cb438-2"></a>               x<span class="op">^</span><span class="fl">0.5</span>,</span>
+<span id="section-cb438-3"><a href="section-files-for-loops-and-functions.html#section-cb438-3"></a>               <span class="dt">times=</span><span class="dv">1000</span>)</span></code></pre></div>
+<pre><code>## Unit: microseconds
+##     expr  min    lq    mean median   uq  max neval
+##  sqrt(x)  3.5  4.30  5.6671    5.2  6.2 32.9  1000
+##    x^0.5 23.0 26.05 32.3059   31.5 37.4 86.8  1000</code></pre>
+<div class="sourceCode" id="section-cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb440-1"><a href="section-files-for-loops-and-functions.html#section-cb440-1"></a><span class="kw">microbenchmark</span>(<span class="kw">sqrt</span>(x), x<span class="op">^</span><span class="fl">0.5</span>, x<span class="op">^</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>), <span class="kw">exp</span>(<span class="kw">log</span>(x)<span class="op">/</span><span class="dv">2</span>),</span>
+<span id="section-cb440-2"><a href="section-files-for-loops-and-functions.html#section-cb440-2"></a>               <span class="dt">times=</span><span class="dv">1000</span>)</span></code></pre></div>
+<pre><code>## Unit: microseconds
+##           expr  min   lq    mean median    uq   max neval
+##        sqrt(x)  3.6  3.9  6.9096    6.1   6.4 595.7  1000
+##          x^0.5 23.2 24.5 34.6756   39.7  40.2 325.5  1000
+##        x^(1/2) 23.4 24.8 35.1421   40.3  40.8 249.2  1000
+##  exp(log(x)/2) 63.1 67.0 92.3819  107.9 108.9 169.7  1000</code></pre>
+<p>And also completely different functions</p>
+<div class="sourceCode" id="section-cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb442-1"><a href="section-files-for-loops-and-functions.html#section-cb442-1"></a><span class="kw">microbenchmark</span>(<span class="kw">sqrt</span>(x), x<span class="op">^</span><span class="dv">4-3</span><span class="op">*</span>x)</span></code></pre></div>
+<pre><code>## Unit: microseconds
+##         expr  min   lq   mean median   uq  max neval
+##      sqrt(x)  3.7  3.8  4.050    3.8  4.1  7.7   100
+##  x^4 - 3 * x 34.4 34.7 35.218   34.9 35.3 46.4   100</code></pre>
+<p>For ease of interpretation, if a microbenchmark takes
+- 1 millisecond, then 1,000 calls take a second
+- 1 microsecond, then 1,000,000 calls take a second
+- 1 nanosecond, then 1,000,000,000 calls take a second</p>
+<p>Or use unit=eps for evaluations per second</p>
+<div class="sourceCode" id="section-cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb444-1"><a href="section-files-for-loops-and-functions.html#section-cb444-1"></a><span class="kw">microbenchmark</span>(<span class="kw">sqrt</span>(x), x<span class="op">^</span><span class="fl">0.5</span>, x<span class="op">^</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>), <span class="kw">exp</span>(<span class="kw">log</span>(x)<span class="op">/</span><span class="dv">2</span>),</span>
+<span id="section-cb444-2"><a href="section-files-for-loops-and-functions.html#section-cb444-2"></a>               <span class="dt">unit=</span><span class="st">&quot;eps&quot;</span>)</span></code></pre></div>
+<pre><code>## Unit: evaluations per second
+##           expr       min        lq      mean    median        uq       max
+##        sqrt(x) 163934.43 240998.84 255123.21 263157.89 270270.27 285714.29
+##          x^0.5  36630.04  40983.61  41782.66  42372.88  42918.45  43290.04
+##        x^(1/2)  26737.97  40650.41  41107.66  41666.67  42372.88  42735.04
+##  exp(log(x)/2)  11402.51  15197.57  15483.84  15772.87  15847.86  15923.57
+##  neval
+##    100
+##    100
+##    100
+##    100</code></pre>
+<ul>
+<li>Evaluating every function takes time</li>
+<li>Evaluating () or {} takes time</li>
+<li>Even specifying useless arguments in functions takes time!</li>
+</ul>
+<div class="sourceCode" id="section-cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb446-1"><a href="section-files-for-loops-and-functions.html#section-cb446-1"></a>f0 &lt;-<span class="st"> </span><span class="cf">function</span>() <span class="ot">NULL</span></span>
+<span id="section-cb446-2"><a href="section-files-for-loops-and-functions.html#section-cb446-2"></a>f1 &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">a=</span><span class="dv">1</span>) <span class="ot">NULL</span></span>
+<span id="section-cb446-3"><a href="section-files-for-loops-and-functions.html#section-cb446-3"></a>f2 &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">a=</span><span class="dv">1</span>, <span class="dt">b=</span><span class="dv">2</span>) <span class="ot">NULL</span></span>
+<span id="section-cb446-4"><a href="section-files-for-loops-and-functions.html#section-cb446-4"></a>f3 &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">a=</span><span class="dv">1</span>, <span class="dt">b=</span><span class="dv">2</span>, <span class="dt">c=</span><span class="dv">3</span>) <span class="ot">NULL</span></span>
+<span id="section-cb446-5"><a href="section-files-for-loops-and-functions.html#section-cb446-5"></a>f4 &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">a=</span><span class="dv">1</span>, <span class="dt">b=</span><span class="dv">2</span>, <span class="dt">c=</span><span class="dv">3</span>, <span class="dt">d=</span><span class="dv">4</span>) <span class="ot">NULL</span></span>
+<span id="section-cb446-6"><a href="section-files-for-loops-and-functions.html#section-cb446-6"></a>f5 &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">a=</span><span class="dv">1</span>, <span class="dt">b=</span><span class="dv">2</span>, <span class="dt">c=</span><span class="dv">3</span>, <span class="dt">d=</span><span class="dv">4</span>, <span class="dt">e=</span><span class="dv">5</span>) <span class="ot">NULL</span></span>
+<span id="section-cb446-7"><a href="section-files-for-loops-and-functions.html#section-cb446-7"></a></span>
+<span id="section-cb446-8"><a href="section-files-for-loops-and-functions.html#section-cb446-8"></a><span class="kw">microbenchmark</span>(<span class="kw">f0</span>(), <span class="kw">f1</span>(), <span class="kw">f2</span>(), <span class="kw">f3</span>(), <span class="kw">f4</span>(), <span class="kw">f5</span>(), <span class="dt">times=</span><span class="dv">10000</span>)</span></code></pre></div>
+<pre><code>## Unit: nanoseconds
+##  expr min   lq    mean median   uq     max neval
+##  f0() 300  500  788.54    500  600 1705600 10000
+##  f1() 400  600  892.91    700  700 1351800 10000
+##  f2() 500  700 1036.47    800  900 1656400 10000
+##  f3() 500  800 1111.03    900  900 1389800 10000
+##  f4() 600  900 1209.50    900 1100 1462400 10000
+##  f5() 700 1000 1336.36   1000 1200 1561300 10000</code></pre>
+<p>Extracting one element of a data frame</p>
+<div class="sourceCode" id="section-cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb448-1"><a href="section-files-for-loops-and-functions.html#section-cb448-1"></a><span class="kw">microbenchmark</span>(</span>
+<span id="section-cb448-2"><a href="section-files-for-loops-and-functions.html#section-cb448-2"></a>  <span class="st">&quot;[32, 11]&quot;</span> =<span class="st"> </span>mtcars[<span class="dv">32</span>,<span class="dv">11</span>],</span>
+<span id="section-cb448-3"><a href="section-files-for-loops-and-functions.html#section-cb448-3"></a>  <span class="st">&quot;$carb[32]&quot;</span>   =<span class="st"> </span>mtcars<span class="op">$</span>carb[<span class="dv">32</span>],</span>
+<span id="section-cb448-4"><a href="section-files-for-loops-and-functions.html#section-cb448-4"></a>  <span class="st">&quot;[[c(11, 32)]]&quot;</span> =<span class="st"> </span>mtcars[[<span class="kw">c</span>(<span class="dv">11</span>,<span class="dv">32</span>)]],</span>
+<span id="section-cb448-5"><a href="section-files-for-loops-and-functions.html#section-cb448-5"></a>  <span class="st">&quot;[[11]][32]&quot;</span> =<span class="st"> </span>mtcars[[<span class="dv">11</span>]][<span class="dv">32</span>],</span>
+<span id="section-cb448-6"><a href="section-files-for-loops-and-functions.html#section-cb448-6"></a>  <span class="st">&quot;.subset2&quot;</span> =<span class="st"> </span><span class="kw">.subset2</span>(mtcars,<span class="dv">11</span>)[<span class="dv">32</span>])</span></code></pre></div>
+<pre><code>## Unit: nanoseconds
+##           expr   min    lq  mean median    uq    max neval
+##       [32, 11] 16500 17000 20365  17400 21850  65700   100
+##      $carb[32]  1600  2100  2623   2300  2500  10000   100
+##  [[c(11, 32)]]  8300  9050 14257   9600 10450 384400   100
+##     [[11]][32]  8100  8500 10953   9100 10300  65800   100
+##       .subset2   500   600   769    600   700   4900   100</code></pre>
+<div id="section-vectorizing" class="section level3" number="4.10.1">
+<h3><span class="header-section-number">4.10.1</span> Vectorizing</h3>
+<ul>
+<li>The key idea behind vectorizing your code is to think about entire</li>
+<li>vectors instead of thinking about their components. Using apply and co</li>
+<li>instead of for loops is a start, but does not really solve this issue.</li>
+<li>Truly vectorized functions will make use of code written in C instead
+of R. Loops in C are much faster because they have much less overhead.</li>
+</ul>
+<p>Addition on each element of a data frame</p>
+<div class="sourceCode" id="section-cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb450-1"><a href="section-files-for-loops-and-functions.html#section-cb450-1"></a><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</span>
+<span id="section-cb450-2"><a href="section-files-for-loops-and-functions.html#section-cb450-2"></a>m=<span class="dv">5</span></span>
+<span id="section-cb450-3"><a href="section-files-for-loops-and-functions.html#section-cb450-3"></a>n=<span class="dv">5</span></span>
+<span id="section-cb450-4"><a href="section-files-for-loops-and-functions.html#section-cb450-4"></a>matrix1 &lt;-<span class="st"> </span><span class="kw">replicate</span>(m, <span class="kw">rnorm</span>(n)) <span class="co"># create matrix</span></span>
+<span id="section-cb450-5"><a href="section-files-for-loops-and-functions.html#section-cb450-5"></a>matdf &lt;-<span class="st"> </span>matdf1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(matrix1) </span>
+<span id="section-cb450-6"><a href="section-files-for-loops-and-functions.html#section-cb450-6"></a>matdf</span></code></pre></div>
+<pre><code>##           X1          X2          X3         X4         X5
+## 1 -0.7824547  0.25598597  0.01284530 -1.0915781 -0.1631552
+## 2 -0.4751539 -1.04169912 -0.18581853 -0.6593323 -0.1046822
+## 3 -0.2744757 -1.67842419  0.45769294 -1.0718766  1.5019671
+## 4  0.9377746  0.08036026 -0.31900260  0.5670033  1.6098025
+## 5 -0.4290179 -0.05465640 -0.06238108 -0.0359416 -0.6344422</code></pre>
+<div class="sourceCode" id="section-cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb452-1"><a href="section-files-for-loops-and-functions.html#section-cb452-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>m) {</span>
+<span id="section-cb452-2"><a href="section-files-for-loops-and-functions.html#section-cb452-2"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n) {</span>
+<span id="section-cb452-3"><a href="section-files-for-loops-and-functions.html#section-cb452-3"></a>    matdf1[i,j] &lt;-<span class="st"> </span>matdf1[i,j] <span class="op">+</span><span class="st"> </span><span class="fl">1.87</span><span class="op">*</span><span class="kw">cos</span>(.<span class="dv">25</span>)<span class="op">*</span>pi <span class="co"># addition</span></span>
+<span id="section-cb452-4"><a href="section-files-for-loops-and-functions.html#section-cb452-4"></a>  }</span>
+<span id="section-cb452-5"><a href="section-files-for-loops-and-functions.html#section-cb452-5"></a>}</span>
+<span id="section-cb452-6"><a href="section-files-for-loops-and-functions.html#section-cb452-6"></a>matdf1</span></code></pre></div>
+<pre><code>##         X1       X2       X3       X4       X5
+## 1 4.909691 5.948132 5.704991 4.600568 5.528990
+## 2 5.216992 4.650447 5.506327 5.032813 5.587463
+## 3 5.417670 4.013721 6.149839 4.620269 7.194113
+## 4 6.629920 5.772506 5.373143 6.259149 7.301948
+## 5 5.263128 5.637489 5.629765 5.656204 5.057703</code></pre>
+<div class="sourceCode" id="section-cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb454-1"><a href="section-files-for-loops-and-functions.html#section-cb454-1"></a>matdf2&lt;-<span class="kw">data.frame</span>(matrix1) </span>
+<span id="section-cb454-2"><a href="section-files-for-loops-and-functions.html#section-cb454-2"></a>matdf2 &lt;-<span class="st"> </span>matdf2 <span class="op">+</span><span class="st"> </span><span class="fl">1.87</span><span class="op">*</span><span class="kw">cos</span>(.<span class="dv">25</span>)<span class="op">*</span>pi</span>
+<span id="section-cb454-3"><a href="section-files-for-loops-and-functions.html#section-cb454-3"></a>matdf2</span></code></pre></div>
+<pre><code>##         X1       X2       X3       X4       X5
+## 1 4.909691 5.948132 5.704991 4.600568 5.528990
+## 2 5.216992 4.650447 5.506327 5.032813 5.587463
+## 3 5.417670 4.013721 6.149839 4.620269 7.194113
+## 4 6.629920 5.772506 5.373143 6.259149 7.301948
+## 5 5.263128 5.637489 5.629765 5.656204 5.057703</code></pre>
+<div class="sourceCode" id="section-cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb456-1"><a href="section-files-for-loops-and-functions.html#section-cb456-1"></a><span class="kw">microbenchmark</span>(</span>
+<span id="section-cb456-2"><a href="section-files-for-loops-and-functions.html#section-cb456-2"></a>  <span class="st">&quot;loop&quot;</span> =<span class="st"> </span><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>m) {</span>
+<span id="section-cb456-3"><a href="section-files-for-loops-and-functions.html#section-cb456-3"></a>    <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n) {</span>
+<span id="section-cb456-4"><a href="section-files-for-loops-and-functions.html#section-cb456-4"></a>      matdf[i,j] &lt;-<span class="st"> </span>matdf[i,j] <span class="op">+</span><span class="st"> </span><span class="fl">1.87</span><span class="op">*</span><span class="kw">cos</span>(.<span class="dv">25</span>)<span class="op">*</span>pi</span>
+<span id="section-cb456-5"><a href="section-files-for-loops-and-functions.html#section-cb456-5"></a>    }</span>
+<span id="section-cb456-6"><a href="section-files-for-loops-and-functions.html#section-cb456-6"></a>  }, </span>
+<span id="section-cb456-7"><a href="section-files-for-loops-and-functions.html#section-cb456-7"></a>  <span class="st">&quot;vectorized&quot;</span> =<span class="st"> </span>matdf &lt;-<span class="st"> </span>matdf <span class="op">+</span><span class="st"> </span><span class="fl">1.87</span><span class="op">*</span><span class="kw">cos</span>(.<span class="dv">25</span>)<span class="op">*</span>pi</span>
+<span id="section-cb456-8"><a href="section-files-for-loops-and-functions.html#section-cb456-8"></a>)</span></code></pre></div>
+<pre><code>## Unit: microseconds
+##        expr     min       lq     mean  median       uq     max neval
+##        loop 10208.4 18421.25 20590.01 19269.9 20197.65 85180.5   100
+##  vectorized   525.4   963.40  1116.23  1078.2  1134.80  2987.8   100</code></pre>
+<div class="sourceCode" id="section-cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb458-1"><a href="section-files-for-loops-and-functions.html#section-cb458-1"></a>mat1 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">abs</span>(<span class="kw">rnorm</span>(<span class="dv">2500</span>))<span class="op">+</span>pi, <span class="dt">ncol=</span><span class="dv">50</span>)</span>
+<span id="section-cb458-2"><a href="section-files-for-loops-and-functions.html#section-cb458-2"></a><span class="kw">apply</span>(mat1, <span class="dv">1</span>, <span class="cf">function</span>(x) <span class="kw">sum</span>(x))</span></code></pre></div>
+<pre><code>##  [1] 201.4760 198.4106 196.4269 192.8845 195.5522 199.8087 194.0044 198.9135
+##  [9] 188.2862 197.7271 200.4519 191.8800 200.5671 196.8226 191.8065 200.8013
+## [17] 197.6897 200.0398 196.1424 198.2996 194.4522 190.3822 198.6736 195.2876
+## [25] 192.0073 198.3157 185.7921 201.9774 202.1451 198.8651 203.4932 194.6939
+## [33] 198.9695 198.2261 201.7890 194.4241 202.1621 193.2276 196.6065 192.8621
+## [41] 196.0571 188.1541 211.0039 195.9336 198.2533 198.9841 196.4598 195.9275
+## [49] 197.8557 192.3531</code></pre>
+<div class="sourceCode" id="section-cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb460-1"><a href="section-files-for-loops-and-functions.html#section-cb460-1"></a><span class="kw">rowSums</span>(mat1)</span></code></pre></div>
+<pre><code>##  [1] 201.4760 198.4106 196.4269 192.8845 195.5522 199.8087 194.0044 198.9135
+##  [9] 188.2862 197.7271 200.4519 191.8800 200.5671 196.8226 191.8065 200.8013
+## [17] 197.6897 200.0398 196.1424 198.2996 194.4522 190.3822 198.6736 195.2876
+## [25] 192.0073 198.3157 185.7921 201.9774 202.1451 198.8651 203.4932 194.6939
+## [33] 198.9695 198.2261 201.7890 194.4241 202.1621 193.2276 196.6065 192.8621
+## [41] 196.0571 188.1541 211.0039 195.9336 198.2533 198.9841 196.4598 195.9275
+## [49] 197.8557 192.3531</code></pre>
+<div class="sourceCode" id="section-cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb462-1"><a href="section-files-for-loops-and-functions.html#section-cb462-1"></a><span class="kw">microbenchmark</span>(<span class="kw">apply</span>(mat1, <span class="dv">1</span>, <span class="cf">function</span>(x) <span class="kw">sum</span>(x)),</span>
+<span id="section-cb462-2"><a href="section-files-for-loops-and-functions.html#section-cb462-2"></a>               <span class="kw">rowSums</span>(mat1))</span></code></pre></div>
+<pre><code>## Unit: microseconds
+##                                expr   min    lq    mean median    uq    max
+##  apply(mat1, 1, function(x) sum(x)) 179.5 234.3 330.671 248.05 314.4 2850.5
+##                       rowSums(mat1)  11.3  14.9  22.671  18.60  28.5   60.6
+##  neval
+##    100
+##    100</code></pre>
+<ul>
+<li>Even for basic tasks, think about the actual calculations you perform</li>
+</ul>
+<div class="sourceCode" id="section-cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb464-1"><a href="section-files-for-loops-and-functions.html#section-cb464-1"></a>mat2 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">7</span>, <span class="dv">90000</span>, <span class="dt">replace=</span>T), <span class="dt">ncol=</span><span class="dv">300</span>)</span>
+<span id="section-cb464-2"><a href="section-files-for-loops-and-functions.html#section-cb464-2"></a>mat3 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">sample</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">6</span>, <span class="dv">90000</span>, <span class="dt">replace=</span>T), <span class="dt">ncol=</span><span class="dv">300</span>)</span>
+<span id="section-cb464-3"><a href="section-files-for-loops-and-functions.html#section-cb464-3"></a>ys &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">3</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">300</span>, <span class="dt">replace=</span>T)</span>
+<span id="section-cb464-4"><a href="section-files-for-loops-and-functions.html#section-cb464-4"></a></span>
+<span id="section-cb464-5"><a href="section-files-for-loops-and-functions.html#section-cb464-5"></a><span class="kw">all.equal</span>(mat2 <span class="op">%*%</span><span class="st"> </span>mat3 <span class="op">%*%</span><span class="st"> </span>ys , mat2 <span class="op">%*%</span><span class="st"> </span>(mat3 <span class="op">%*%</span><span class="st"> </span>ys))</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="section-cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb466-1"><a href="section-files-for-loops-and-functions.html#section-cb466-1"></a><span class="kw">microbenchmark</span>(mat2 <span class="op">%*%</span><span class="st"> </span>mat3 <span class="op">%*%</span><span class="st"> </span>ys,</span>
+<span id="section-cb466-2"><a href="section-files-for-loops-and-functions.html#section-cb466-2"></a>               mat2 <span class="op">%*%</span><span class="st"> </span>(mat3 <span class="op">%*%</span><span class="st"> </span>ys))</span></code></pre></div>
+<pre><code>## Unit: microseconds
+##                    expr     min       lq     mean   median      uq      max
+##    mat2 %*% mat3 %*% ys 22868.0 62402.85 92741.38 88060.55 98732.8 295829.6
+##  mat2 %*% (mat3 %*% ys)   822.5 10626.75 37091.54 18351.95 27888.7 229087.2
+##  neval
+##    100
+##    100</code></pre>
+<ul>
+<li>Why? Think through the dimensionality</li>
+</ul>
+</div>
+<div id="section-pastecollapse-and-copies" class="section level3" number="4.10.2">
+<h3><span class="header-section-number">4.10.2</span> Paste/collapse and copies</h3>
+<div class="sourceCode" id="section-cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb468-1"><a href="section-files-for-loops-and-functions.html#section-cb468-1"></a>random_states &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
+<span id="section-cb468-2"><a href="section-files-for-loops-and-functions.html#section-cb468-2"></a>  <span class="kw">paste</span>(<span class="kw">sample</span>(state.name,<span class="dv">10</span>,<span class="dt">replace =</span><span class="ot">TRUE</span>),<span class="dt">collapse =</span><span class="st">&quot;&quot;</span>)</span>
+<span id="section-cb468-3"><a href="section-files-for-loops-and-functions.html#section-cb468-3"></a>}</span>
+<span id="section-cb468-4"><a href="section-files-for-loops-and-functions.html#section-cb468-4"></a>states10 &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">10</span>, <span class="kw">random_states</span>())</span>
+<span id="section-cb468-5"><a href="section-files-for-loops-and-functions.html#section-cb468-5"></a>states10</span></code></pre></div>
+<pre><code>##  [1] &quot;North CarolinaLouisianaWyomingNew JerseyUtahFloridaNevadaIdahoWyomingWisconsin&quot;                
+##  [2] &quot;Rhode IslandWest VirginiaPennsylvaniaIowaKentuckyOklahomaOklahomaVermontOklahomaSouth Carolina&quot;
+##  [3] &quot;West VirginiaMarylandMassachusettsAlaskaMississippiMichiganNew JerseyAlaskaVirginiaConnecticut&quot;
+##  [4] &quot;DelawareRhode IslandVermontSouth DakotaPennsylvaniaNebraskaVirginiaFloridaNevadaMassachusetts&quot; 
+##  [5] &quot;MissouriNevadaCaliforniaCaliforniaNew MexicoFloridaMichiganMichiganWashingtonKansas&quot;           
+##  [6] &quot;New HampshireLouisianaWest VirginiaWisconsinMarylandMassachusettsUtahTennesseeOhioArkansas&quot;    
+##  [7] &quot;New MexicoWyomingWyomingNew HampshireArkansasMissouriTexasIdahoPennsylvaniaNebraska&quot;           
+##  [8] &quot;MontanaWyomingColoradoIowaWest VirginiaOhioIllinoisSouth CarolinaIllinoisVermont&quot;              
+##  [9] &quot;New HampshireOhioMissouriLouisianaDelawareTennesseeIllinoisCaliforniaArkansasMississippi&quot;      
+## [10] &quot;OregonIdahoAlaskaOhioAlabamaKentuckyCaliforniaIllinoisMichiganHawaii&quot;</code></pre>
+<div class="sourceCode" id="section-cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb470-1"><a href="section-files-for-loops-and-functions.html#section-cb470-1"></a>states100 &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">100</span>, <span class="kw">random_states</span>())</span>
+<span id="section-cb470-2"><a href="section-files-for-loops-and-functions.html#section-cb470-2"></a></span>
+<span id="section-cb470-3"><a href="section-files-for-loops-and-functions.html#section-cb470-3"></a>collapse &lt;-<span class="st"> </span><span class="cf">function</span>(states) {</span>
+<span id="section-cb470-4"><a href="section-files-for-loops-and-functions.html#section-cb470-4"></a>  out &lt;-<span class="st"> &quot;&quot;</span></span>
+<span id="section-cb470-5"><a href="section-files-for-loops-and-functions.html#section-cb470-5"></a>  <span class="cf">for</span> (x <span class="cf">in</span> states) {</span>
+<span id="section-cb470-6"><a href="section-files-for-loops-and-functions.html#section-cb470-6"></a>    out &lt;-<span class="st"> </span><span class="kw">paste0</span>(out, x) <span class="co"># same as paste(..., sep=&quot;&quot;, collapse)</span></span>
+<span id="section-cb470-7"><a href="section-files-for-loops-and-functions.html#section-cb470-7"></a>  }</span>
+<span id="section-cb470-8"><a href="section-files-for-loops-and-functions.html#section-cb470-8"></a>  out</span>
+<span id="section-cb470-9"><a href="section-files-for-loops-and-functions.html#section-cb470-9"></a>}</span>
+<span id="section-cb470-10"><a href="section-files-for-loops-and-functions.html#section-cb470-10"></a></span>
+<span id="section-cb470-11"><a href="section-files-for-loops-and-functions.html#section-cb470-11"></a><span class="kw">microbenchmark</span>(</span>
+<span id="section-cb470-12"><a href="section-files-for-loops-and-functions.html#section-cb470-12"></a>  <span class="st">&quot;loop10&quot;</span> =<span class="st"> </span><span class="kw">collapse</span>(states10),</span>
+<span id="section-cb470-13"><a href="section-files-for-loops-and-functions.html#section-cb470-13"></a>  <span class="st">&quot;vec10&quot;</span> =<span class="st"> </span><span class="kw">paste</span>(states10, <span class="dt">collapse =</span><span class="st">&quot;&quot;</span>),</span>
+<span id="section-cb470-14"><a href="section-files-for-loops-and-functions.html#section-cb470-14"></a>  <span class="st">&quot;loop100&quot;</span> =<span class="st"> </span><span class="kw">collapse</span>(states100),</span>
+<span id="section-cb470-15"><a href="section-files-for-loops-and-functions.html#section-cb470-15"></a>  <span class="st">&quot;vec100&quot;</span> =<span class="st"> </span><span class="kw">paste</span>(states100, <span class="dt">collapse =</span><span class="st">&quot;&quot;</span>)</span>
+<span id="section-cb470-16"><a href="section-files-for-loops-and-functions.html#section-cb470-16"></a>)</span></code></pre></div>
+<pre><code>## Unit: microseconds
+##     expr    min      lq     mean  median     uq     max neval
+##   loop10   42.1   43.85   52.637   46.80   51.2   136.3   100
+##    vec10    9.7   11.00   14.265   12.80   16.5    29.0   100
+##  loop100 1573.9 1648.10 1933.224 1703.05 1798.1 13385.8   100
+##   vec100   84.4   87.60  101.157   92.65  104.8   193.7   100</code></pre>
+<p>PRO TIP:</p>
+<p>Allocate memory and fill, don’t append to the end</p>
+<ul>
+<li>Here, we are not only getting around using the loop, but also avoiding copies.</li>
+<li>Whenever you append(), cbind(), rbind(), or paste() to create a bigger object, R must first allocate space for the new object and then copy the old object to its new home.</li>
+<li>If you’re repeating this many times, like in a for loop, this can be quite computationally expensive.</li>
+<li>Instead, allocate an object of the largest size you think you’ll need, and fill it up as you go.</li>
+<li>Fun fact: in Java (another programming language), arrays function the same way as vectors in R. Java has a data structure called an ArrayList,
+which allows users to add and remove as needed. When it gets full, it doubles the size/capacity of the underlying array and copies everything over. When an element is removed,
+it doesn’t decrease the size of the underlying array because copying things over and allocating new space is inefficient.</li>
+</ul>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="section-data-types-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="section-version-control.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

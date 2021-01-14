@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>11 Machine Learning | Political Data Science</title>
+  <meta name="description" content="11 Machine Learning | Political Data Science" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="11 Machine Learning | Political Data Science" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="11 Machine Learning | Political Data Science" />
+  
+  
+  
+
+<meta name="author" content="Jacob Montgomery and Mariah Yelenick" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="using-sql-syntax-on-an-r-dataframe.html"/>
+<link rel="next" href="causality.html"/>
+<script src="libs/header-attrs-2.1/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Don’t be a clown</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#as-easy-as-cake"><i class="fa fa-check"></i><b>1.1</b> As easy as cake</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#coding"><i class="fa fa-check"></i><b>1.1.1</b> Coding</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#data-acquision"><i class="fa fa-check"></i><b>1.1.2</b> Data acquision</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#algorithms"><i class="fa fa-check"></i><b>1.1.3</b> Algorithms</a></li>
+<li class="chapter" data-level="1.1.4" data-path="index.html"><a href="index.html#domain-knowledge"><i class="fa fa-check"></i><b>1.1.4</b> Domain knowledge</a></li>
+<li class="chapter" data-level="1.1.5" data-path="index.html"><a href="index.html#putting-it-together"><i class="fa fa-check"></i><b>1.1.5</b> Putting it together</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#class-structures"><i class="fa fa-check"></i><b>1.2</b> Class structures</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#learning-objective-1-team-based-learning"><i class="fa fa-check"></i><b>1.2.1</b> Learning objective #1: Team based learning</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#learning-objective-2-show-up-ready"><i class="fa fa-check"></i><b>1.2.2</b> Learning objective #2: Show up ready</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#learning-objective-3-how-is-this-going-to-work"><i class="fa fa-check"></i><b>1.2.3</b> Learning objective #3: How is this going to work?</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#interactive-r-environment"><i class="fa fa-check"></i><b>1.3</b> Interactive R Environment</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html"><i class="fa fa-check"></i><b>2</b> Getting Started in R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#assigning-values-to-objects"><i class="fa fa-check"></i><b>2.2</b> Assigning values to objects</a></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#r-as-a-calculator"><i class="fa fa-check"></i><b>2.3</b> R as a calculator</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#the-global-environment-and-how-to-clean-it"><i class="fa fa-check"></i><b>2.4</b> The global environment and how to clean it</a></li>
+<li class="chapter" data-level="2.5" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#getting-help"><i class="fa fa-check"></i><b>2.5</b> Getting help</a></li>
+<li class="chapter" data-level="2.6" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#installing-packages"><i class="fa fa-check"></i><b>2.6</b> Installing packages</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-types-in-r.html"><a href="data-types-in-r.html"><i class="fa fa-check"></i><b>3</b> Data Types in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-types-in-r.html"><a href="data-types-in-r.html#functions"><i class="fa fa-check"></i><b>3.1</b> Functions</a></li>
+<li class="chapter" data-level="3.2" data-path="data-types-in-r.html"><a href="data-types-in-r.html#vectors"><i class="fa fa-check"></i><b>3.2</b> Vectors</a></li>
+<li class="chapter" data-level="3.3" data-path="data-types-in-r.html"><a href="data-types-in-r.html#functions-and-vectors"><i class="fa fa-check"></i><b>3.3</b> Functions and vectors</a></li>
+<li class="chapter" data-level="3.4" data-path="data-types-in-r.html"><a href="data-types-in-r.html#logicalsbooleans"><i class="fa fa-check"></i><b>3.4</b> Logicals/Booleans</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="data-types-in-r.html"><a href="data-types-in-r.html#boolean-logic"><i class="fa fa-check"></i><b>3.4.1</b> Boolean logic</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="data-types-in-r.html"><a href="data-types-in-r.html#charactersstrings"><i class="fa fa-check"></i><b>3.5</b> Characters/Strings</a></li>
+<li class="chapter" data-level="3.6" data-path="data-types-in-r.html"><a href="data-types-in-r.html#matrices"><i class="fa fa-check"></i><b>3.6</b> Matrices</a></li>
+<li class="chapter" data-level="3.7" data-path="data-types-in-r.html"><a href="data-types-in-r.html#matrix-algebra-optional"><i class="fa fa-check"></i><b>3.7</b> Matrix algebra (optional)</a></li>
+<li class="chapter" data-level="3.8" data-path="data-types-in-r.html"><a href="data-types-in-r.html#lists"><i class="fa fa-check"></i><b>3.8</b> Lists</a></li>
+<li class="chapter" data-level="3.9" data-path="data-types-in-r.html"><a href="data-types-in-r.html#arrays"><i class="fa fa-check"></i><b>3.9</b> Arrays</a></li>
+<li class="chapter" data-level="3.10" data-path="data-types-in-r.html"><a href="data-types-in-r.html#dataframes"><i class="fa fa-check"></i><b>3.10</b> Dataframes</a></li>
+<li class="chapter" data-level="3.11" data-path="data-types-in-r.html"><a href="data-types-in-r.html#general-info"><i class="fa fa-check"></i><b>3.11</b> General info</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html"><i class="fa fa-check"></i><b>4</b> Files, For Loops, and Functions</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#the-working-directory"><i class="fa fa-check"></i><b>4.1</b> The working directory</a></li>
+<li class="chapter" data-level="4.2" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#input-and-output"><i class="fa fa-check"></i><b>4.2</b> Input and output</a></li>
+<li class="chapter" data-level="4.3" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#if-else-ifelse"><i class="fa fa-check"></i><b>4.3</b> if, else, ifelse</a></li>
+<li class="chapter" data-level="4.4" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#repeat-and-while"><i class="fa fa-check"></i><b>4.4</b> repeat and while</a></li>
+<li class="chapter" data-level="4.5" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#for-loops"><i class="fa fa-check"></i><b>4.5</b> for loops</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#next-and-break"><i class="fa fa-check"></i><b>4.5.1</b> next and break</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#functions-1"><i class="fa fa-check"></i><b>4.6</b> Functions</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#the-basics"><i class="fa fa-check"></i><b>4.6.1</b> The basics</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#setting-defaults"><i class="fa fa-check"></i><b>4.7</b> Setting defaults</a></li>
+<li class="chapter" data-level="4.8" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#scope"><i class="fa fa-check"></i><b>4.8</b> Scope</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#advanced-scope-topics"><i class="fa fa-check"></i><b>4.8.1</b> Advanced scope topics</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#debugging"><i class="fa fa-check"></i><b>4.9</b> Debugging</a></li>
+<li class="chapter" data-level="4.10" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#benchmarking-and-code-improvements"><i class="fa fa-check"></i><b>4.10</b> Benchmarking and code improvements</a>
+<ul>
+<li class="chapter" data-level="4.10.1" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#vectorizing"><i class="fa fa-check"></i><b>4.10.1</b> Vectorizing</a></li>
+<li class="chapter" data-level="4.10.2" data-path="files-for-loops-and-functions.html"><a href="files-for-loops-and-functions.html#pastecollapse-and-copies"><i class="fa fa-check"></i><b>4.10.2</b> Paste/collapse and copies</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="version-control.html"><a href="version-control.html"><i class="fa fa-check"></i><b>5</b> Version Control</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="version-control.html"><a href="version-control.html#why-version-control"><i class="fa fa-check"></i><b>5.1</b> Why version control?</a></li>
+<li class="chapter" data-level="5.2" data-path="version-control.html"><a href="version-control.html#setup"><i class="fa fa-check"></i><b>5.2</b> Setup</a></li>
+<li class="chapter" data-level="5.3" data-path="version-control.html"><a href="version-control.html#workflow"><i class="fa fa-check"></i><b>5.3</b> Workflow</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="version-control.html"><a href="version-control.html#pull"><i class="fa fa-check"></i><b>5.3.1</b> Pull</a></li>
+<li class="chapter" data-level="5.3.2" data-path="version-control.html"><a href="version-control.html#commit"><i class="fa fa-check"></i><b>5.3.2</b> Commit</a></li>
+<li class="chapter" data-level="5.3.3" data-path="version-control.html"><a href="version-control.html#push"><i class="fa fa-check"></i><b>5.3.3</b> Push</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="version-control.html"><a href="version-control.html#branches"><i class="fa fa-check"></i><b>5.4</b> Branches</a></li>
+<li class="chapter" data-level="5.5" data-path="version-control.html"><a href="version-control.html#forking"><i class="fa fa-check"></i><b>5.5</b> Forking</a></li>
+<li class="chapter" data-level="5.6" data-path="version-control.html"><a href="version-control.html#reverting"><i class="fa fa-check"></i><b>5.6</b> Reverting</a></li>
+<li class="chapter" data-level="5.7" data-path="version-control.html"><a href="version-control.html#conflict-management"><i class="fa fa-check"></i><b>5.7</b> Conflict management</a></li>
+<li class="chapter" data-level="5.8" data-path="version-control.html"><a href="version-control.html#version-control-in-rstudio"><i class="fa fa-check"></i><b>5.8</b> Version Control in RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-visualization-in-r.html"><a href="data-visualization-in-r.html"><i class="fa fa-check"></i><b>6</b> Data Visualization in R</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="data-visualization-in-r.html"><a href="data-visualization-in-r.html#intro-to-ggplot2"><i class="fa fa-check"></i><b>6.1</b> Intro to ggplot2</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="data-visualization-in-r.html"><a href="data-visualization-in-r.html#example"><i class="fa fa-check"></i><b>6.1.1</b> Example</a></li>
+<li class="chapter" data-level="6.1.2" data-path="data-visualization-in-r.html"><a href="data-visualization-in-r.html#aesthetics"><i class="fa fa-check"></i><b>6.1.2</b> Aesthetics</a></li>
+<li class="chapter" data-level="6.1.3" data-path="data-visualization-in-r.html"><a href="data-visualization-in-r.html#facets"><i class="fa fa-check"></i><b>6.1.3</b> Facets</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="data-visualization-in-r.html"><a href="data-visualization-in-r.html#more-geom-options"><i class="fa fa-check"></i><b>6.2</b> More <code>geom</code> options</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html"><i class="fa fa-check"></i><b>7</b> dplyr and tidy</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#into-the-tidyverse"><i class="fa fa-check"></i><b>7.1</b> Into the tidyverse</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#our-example"><i class="fa fa-check"></i><b>7.1.1</b> Our example</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#back-to-dplyr"><i class="fa fa-check"></i><b>7.2</b> Back to <code>dplyr</code></a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#filter"><i class="fa fa-check"></i><b>7.2.1</b> <code>filter</code></a></li>
+<li class="chapter" data-level="7.2.2" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#arrange"><i class="fa fa-check"></i><b>7.2.2</b> <code>arrange</code></a></li>
+<li class="chapter" data-level="7.2.3" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#select"><i class="fa fa-check"></i><b>7.2.3</b> <code>select</code></a></li>
+<li class="chapter" data-level="7.2.4" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#mutate"><i class="fa fa-check"></i><b>7.2.4</b> <code>mutate</code></a></li>
+<li class="chapter" data-level="7.2.5" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#summarise"><i class="fa fa-check"></i><b>7.2.5</b> <code>summarise</code></a></li>
+<li class="chapter" data-level="7.2.6" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#piping"><i class="fa fa-check"></i><b>7.2.6</b> Piping</a></li>
+<li class="chapter" data-level="7.2.7" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#pivots"><i class="fa fa-check"></i><b>7.2.7</b> Pivots</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#relational-data"><i class="fa fa-check"></i><b>7.3</b> Relational data</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#mutating-join"><i class="fa fa-check"></i><b>7.3.1</b> Mutating join</a></li>
+<li class="chapter" data-level="7.3.2" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#joins-topography"><i class="fa fa-check"></i><b>7.3.2</b> Joins topography</a></li>
+<li class="chapter" data-level="7.3.3" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#many-and-one-to-many"><i class="fa fa-check"></i><b>7.3.3</b> Many and one-to-many</a></li>
+<li class="chapter" data-level="7.3.4" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#filtering-joins"><i class="fa fa-check"></i><b>7.3.4</b> Filtering joins</a></li>
+<li class="chapter" data-level="7.3.5" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#set-operations"><i class="fa fa-check"></i><b>7.3.5</b> Set operations</a></li>
+<li class="chapter" data-level="7.3.6" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#exercise"><i class="fa fa-check"></i><b>7.3.6</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#stringr"><i class="fa fa-check"></i><b>7.4</b> <code>stringr</code></a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#things-you-havent-thought-about-strings"><i class="fa fa-check"></i><b>7.4.1</b> Things you haven’t thought about strings</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#pipes-and-maps"><i class="fa fa-check"></i><b>7.5</b> Pipes and maps</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#limitations-of-pipes"><i class="fa fa-check"></i><b>7.5.1</b> Limitations of Pipes</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#map"><i class="fa fa-check"></i><b>7.6</b> <code>map</code></a></li>
+<li class="chapter" data-level="7.7" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#walk-purrr-and-more"><i class="fa fa-check"></i><b>7.7</b> walk, purrr, and more</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="more-useful-packages.html"><a href="more-useful-packages.html"><i class="fa fa-check"></i><b>8</b> More useful packages</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="more-useful-packages.html"><a href="more-useful-packages.html#stringr-1"><i class="fa fa-check"></i><b>8.1</b> <code>stringr</code></a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="more-useful-packages.html"><a href="more-useful-packages.html#things-you-havent-thought-about-strings-1"><i class="fa fa-check"></i><b>8.1.1</b> Things you haven’t thought about strings</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="functions-and-packages.html"><a href="functions-and-packages.html"><i class="fa fa-check"></i><b>9</b> Functions and Packages</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="functions-and-packages.html"><a href="functions-and-packages.html#apply-and-its-friends"><i class="fa fa-check"></i><b>9.1</b> <code>apply</code> and its friends</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="functions-and-packages.html"><a href="functions-and-packages.html#apply"><i class="fa fa-check"></i><b>9.1.1</b> <code>apply</code></a></li>
+<li class="chapter" data-level="9.1.2" data-path="functions-and-packages.html"><a href="functions-and-packages.html#lapply"><i class="fa fa-check"></i><b>9.1.2</b> <code>lapply</code></a></li>
+<li class="chapter" data-level="9.1.3" data-path="functions-and-packages.html"><a href="functions-and-packages.html#sapply"><i class="fa fa-check"></i><b>9.1.3</b> <code>sapply</code></a></li>
+<li class="chapter" data-level="9.1.4" data-path="functions-and-packages.html"><a href="functions-and-packages.html#tapply"><i class="fa fa-check"></i><b>9.1.4</b> <code>tapply</code></a></li>
+<li class="chapter" data-level="9.1.5" data-path="functions-and-packages.html"><a href="functions-and-packages.html#sweep"><i class="fa fa-check"></i><b>9.1.5</b> <code>sweep</code></a></li>
+<li class="chapter" data-level="9.1.6" data-path="functions-and-packages.html"><a href="functions-and-packages.html#by"><i class="fa fa-check"></i><b>9.1.6</b> <code>by</code></a></li>
+<li class="chapter" data-level="9.1.7" data-path="functions-and-packages.html"><a href="functions-and-packages.html#vapply-and-more"><i class="fa fa-check"></i><b>9.1.7</b> <code>vapply</code> And more</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="functions-and-packages.html"><a href="functions-and-packages.html#plyr"><i class="fa fa-check"></i><b>9.2</b> <code>plyr</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html"><i class="fa fa-check"></i><b>10</b> Using SQL syntax on an R dataframe</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html#sql"><i class="fa fa-check"></i><b>10.1</b> SQL</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html#select-and-from"><i class="fa fa-check"></i><b>10.1.1</b> <code>SELECT</code> and <code>FROM</code></a></li>
+<li class="chapter" data-level="10.1.2" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html#where"><i class="fa fa-check"></i><b>10.1.2</b> <code>WHERE</code></a></li>
+<li class="chapter" data-level="10.1.3" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html#functions-2"><i class="fa fa-check"></i><b>10.1.3</b> Functions</a></li>
+<li class="chapter" data-level="10.1.4" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html#having"><i class="fa fa-check"></i><b>10.1.4</b> <code>HAVING</code></a></li>
+<li class="chapter" data-level="10.1.5" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html#withas-and-subqueries"><i class="fa fa-check"></i><b>10.1.5</b> <code>WITH</code>/<code>AS</code> and Subqueries</a></li>
+<li class="chapter" data-level="10.1.6" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html#joins"><i class="fa fa-check"></i><b>10.1.6</b> Joins</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html#the-sqldf-package"><i class="fa fa-check"></i><b>10.2</b> The <code>sqldf</code> package</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="machine-learning.html"><a href="machine-learning.html"><i class="fa fa-check"></i><b>11</b> Machine Learning</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="machine-learning.html"><a href="machine-learning.html#supervised-learning"><i class="fa fa-check"></i><b>11.1</b> Supervised Learning</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="machine-learning.html"><a href="machine-learning.html#the-gist"><i class="fa fa-check"></i><b>11.1.1</b> The Gist</a></li>
+<li class="chapter" data-level="11.1.2" data-path="machine-learning.html"><a href="machine-learning.html#what-could-go-wrong"><i class="fa fa-check"></i><b>11.1.2</b> What could go wrong?</a></li>
+<li class="chapter" data-level="11.1.3" data-path="machine-learning.html"><a href="machine-learning.html#example-predicting-presidential-elections-with-vote-share"><i class="fa fa-check"></i><b>11.1.3</b> Example: Predicting presidential elections with vote share</a></li>
+<li class="chapter" data-level="11.1.4" data-path="machine-learning.html"><a href="machine-learning.html#the-complexity-of-keeping-it-simple"><i class="fa fa-check"></i><b>11.1.4</b> The complexity of keeping it simple</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="machine-learning.html"><a href="machine-learning.html#classification"><i class="fa fa-check"></i><b>11.2</b> Classification</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="machine-learning.html"><a href="machine-learning.html#classification-basics-binary-outcomes"><i class="fa fa-check"></i><b>11.2.1</b> Classification basics: Binary outcomes</a></li>
+<li class="chapter" data-level="11.2.2" data-path="machine-learning.html"><a href="machine-learning.html#the-linear-classifier-aka-logit"><i class="fa fa-check"></i><b>11.2.2</b> The linear classifier (AKA Logit)</a></li>
+<li class="chapter" data-level="11.2.3" data-path="machine-learning.html"><a href="machine-learning.html#more-models"><i class="fa fa-check"></i><b>11.2.3</b> More models</a></li>
+<li class="chapter" data-level="11.2.4" data-path="machine-learning.html"><a href="machine-learning.html#random-forests"><i class="fa fa-check"></i><b>11.2.4</b> Random forests</a></li>
+<li class="chapter" data-level="11.2.5" data-path="machine-learning.html"><a href="machine-learning.html#k-nearest-neighbors"><i class="fa fa-check"></i><b>11.2.5</b> K Nearest Neighbors</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="machine-learning.html"><a href="machine-learning.html#putting-that-in-action"><i class="fa fa-check"></i><b>11.3</b> Putting that in action</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="causality.html"><a href="causality.html"><i class="fa fa-check"></i><b>12</b> Causality</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="causality.html"><a href="causality.html#correlation-and-causation"><i class="fa fa-check"></i><b>12.1</b> Correlation and causation</a></li>
+<li class="chapter" data-level="12.2" data-path="causality.html"><a href="causality.html#a-formal-definition"><i class="fa fa-check"></i><b>12.2</b> A formal definition</a></li>
+<li class="chapter" data-level="12.3" data-path="causality.html"><a href="causality.html#formal-presentation-of-an-ate"><i class="fa fa-check"></i><b>12.3</b> Formal presentation of an ATE</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="causality.html"><a href="causality.html#danger"><i class="fa fa-check"></i><b>12.3.1</b> Danger!</a></li>
+<li class="chapter" data-level="12.3.2" data-path="causality.html"><a href="causality.html#does-drinking-make-you-more-educated"><i class="fa fa-check"></i><b>12.3.2</b> Does drinking make you more educated?</a></li>
+<li class="chapter" data-level="12.3.3" data-path="causality.html"><a href="causality.html#problem-it-can-be-way-more-subtle"><i class="fa fa-check"></i><b>12.3.3</b> Problem: It can be way more subtle</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="causality.html"><a href="causality.html#estimating-ate"><i class="fa fa-check"></i><b>12.4</b> Estimating ATE</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="causality.html"><a href="causality.html#filling-in-the-potential-values"><i class="fa fa-check"></i><b>12.4.1</b> Filling in the potential values</a></li>
+<li class="chapter" data-level="12.4.2" data-path="causality.html"><a href="causality.html#good-causal-inference"><i class="fa fa-check"></i><b>12.4.2</b> Good causal inference</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="causality.html"><a href="causality.html#experiments-ab-testing"><i class="fa fa-check"></i><b>12.5</b> Experiments: A/B Testing</a>
+<ul>
+<li class="chapter" data-level="12.5.1" data-path="causality.html"><a href="causality.html#what-to-do-when-you-cant-experiment"><i class="fa fa-check"></i><b>12.5.1</b> What to do when you can’t experiment:</a></li>
+</ul></li>
+<li class="chapter" data-level="12.6" data-path="causality.html"><a href="causality.html#panel-data-and-fixed-effects"><i class="fa fa-check"></i><b>12.6</b> Panel data and fixed effects</a>
+<ul>
+<li class="chapter" data-level="12.6.1" data-path="causality.html"><a href="causality.html#example-are-elections-fought-over-non-economic-issues-more-when-globalization-increases"><i class="fa fa-check"></i><b>12.6.1</b> Example: Are elections fought over non-economic issues more when globalization increases?</a></li>
+<li class="chapter" data-level="12.6.2" data-path="causality.html"><a href="causality.html#naive-regression"><i class="fa fa-check"></i><b>12.6.2</b> Naive regression</a></li>
+<li class="chapter" data-level="12.6.3" data-path="causality.html"><a href="causality.html#fixed-effects"><i class="fa fa-check"></i><b>12.6.3</b> Fixed effects</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="causality.html"><a href="causality.html#difference-in-differences"><i class="fa fa-check"></i><b>12.7</b> Difference-in-differences</a>
+<ul>
+<li class="chapter" data-level="12.7.1" data-path="causality.html"><a href="causality.html#did-in-practice"><i class="fa fa-check"></i><b>12.7.1</b> DID in practice</a></li>
+<li class="chapter" data-level="12.7.2" data-path="causality.html"><a href="causality.html#regression-discontinuity"><i class="fa fa-check"></i><b>12.7.2</b> Regression discontinuity</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Political Data Science</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="machine-learning" class="section level1" number="11">
+<h1><span class="header-section-number">11</span> Machine Learning</h1>
+<div id="supervised-learning" class="section level2" number="11.1">
+<h2><span class="header-section-number">11.1</span> Supervised Learning</h2>
+<div id="the-gist" class="section level3" number="11.1.1">
+<h3><span class="header-section-number">11.1.1</span> The Gist</h3>
+<ol style="list-style-type: decimal">
+<li><p>We want to build some function <span class="math inline">\(f(X)\)</span> that explains/predicts/correlates with observed outcome <span class="math inline">\(y\)</span>.</p>
+<ul>
+<li>Note that the capital <span class="math inline">\(X\)</span> denotes an entire dataset</li>
+<li>Typically we say that <span class="math inline">\(X\)</span> is a n-by-d matrix, where n is the number of datapoints and d is the number of dimensions each datapoint has</li>
+</ul></li>
+<li><p>A function, <span class="math inline">\(f(X)\)</span>, can be something simple like a line or something more complex.</p></li>
+<li><p>We are going to use this function to:</p>
+<ul>
+<li>Predict <span class="math inline">\(y\)</span> for a new <span class="math inline">\(x_hat\)</span></li>
+<li>Identify elements of <span class="math inline">\(X\)</span> that seem important</li>
+<li>Explore interesting relationships</li>
+<li>Maybe for theory testing, but will need to be careful</li>
+</ul></li>
+</ol>
+</div>
+<div id="what-could-go-wrong" class="section level3" number="11.1.2">
+<h3><span class="header-section-number">11.1.2</span> What could go wrong?</h3>
+<p><strong>Problem 1</strong>: Infinity is a big number
+- The are an infinite number of potential functions, <span class="math inline">\(f(\cdot)\)</span>.
+- We can’t try all possible functions. That problem isn’t clearly defined.</p>
+<p><strong>Problem 2</strong>: Not enough data
+- Even if we knew a subset of <span class="math inline">\(f(\cdot)\)</span> to consider, we may not have enough data
+- If <span class="math inline">\(f(\cdot)\)</span> is complex, can be particularly hard to approximate unless large <span class="math inline">\(n\)</span></p>
+<p><strong>Problem 3</strong>: What are the right features?
+- Even if we have some idea of <span class="math inline">\(f(\cdot)\)</span> and a lot of data, we don’t always know the right features to include.
+- And in some cases there are <em>a lot</em> of features.</p>
+<p><strong>Problem 4</strong>: Is it signal or is it error?
+- A lot of outcomes we want to study are “noisy”
+- We are usually not interested in the noise
+- One way to think of this is that <span class="math inline">\(f(\cdot)\)</span> can be divided into two compoenents
+* Systematic component
+* Error component</p>
+<p>Example: The linear regression</p>
+<p><span class="math display">\[f(X) = \underbrace{\beta_0 + \beta_1x_1 + \beta_2 x_2}_{systematic} + \underbrace{\epsilon}_{error}\]</span>
+<span class="math display">\[\epsilon  \sim N(0, \sigma^2)\]</span></p>
+<p><strong>Problem 5</strong>: Putting it all together</p>
+<ul>
+<li>We don’t know if we have the right “set” of functions to consider.</li>
+<li>Even if we did, we don’t have infinite data.</li>
+<li>And we don’t even know if we are using the right features.</li>
+<li>So we can’t ever be sure we are separating out the systematic and error portions.</li>
+</ul>
+<p><strong>Problem 6</strong>: Meta problems
+- In many settings, the DGP is not static.
+- There may be unknown unknowns.
+- It is difficult or impossible to know if the data used to train your model is useful for the task at hand.</p>
+</div>
+<div id="example-predicting-presidential-elections-with-vote-share" class="section level3" number="11.1.3">
+<h3><span class="header-section-number">11.1.3</span> Example: Predicting presidential elections with vote share</h3>
+<p>Today we are going to use the results of US presidential elections since 1948</p>
+<div class="sourceCode" id="cb789"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb789-1"><a href="machine-learning.html#cb789-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb789-2"><a href="machine-learning.html#cb789-2"></a>electData&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;http://politicaldatascience.com/PDS/Datasets/presElect.csv&quot;</span>)</span></code></pre></div>
+<ul>
+<li><strong>Year</strong>: Year of the election</li>
+<li><strong>q2gdp</strong>: GDP in the second quarter</li>
+<li><strong>vote</strong>: Share of the two-party vote that went to the <strong>incumbent party.</strong></li>
+<li><strong>term</strong>: 1=Incumbent party has served more than one term; 0 = First term for incumbent party</li>
+<li><strong>JuneApp</strong>: Approval as recorded in June prior to the election.</li>
+<li><strong>Inc</strong>: Indicator if the <strong>incumbent party</strong> candidate is the current incumbent (meaning they are a first-term incument).</li>
+</ul>
+<div id="linear-regression" class="section level4" number="11.1.3.1">
+<h4><span class="header-section-number">11.1.3.1</span> Linear regression</h4>
+<p><img src="images/unnamed-chunk-241-1.png" width="1152" /></p>
+<p>We’ll use the <code>lm</code> function to generate a linear model</p>
+<div class="sourceCode" id="cb790"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb790-1"><a href="machine-learning.html#cb790-1"></a>Model1&lt;-<span class="kw">lm</span>(vote<span class="op">~</span>q2gdp, <span class="dt">data=</span>electData)</span>
+<span id="cb790-2"><a href="machine-learning.html#cb790-2"></a><span class="kw">summary</span>(Model1)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = vote ~ q2gdp, data = electData)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -6.0116 -3.2421  0.1261  1.8912  8.4869 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  49.2711     1.3478  36.557  &lt; 2e-16 ***
+## q2gdp         0.7536     0.2477   3.043  0.00775 ** 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4.339 on 16 degrees of freedom
+## Multiple R-squared:  0.3666, Adjusted R-squared:  0.327 
+## F-statistic: 9.259 on 1 and 16 DF,  p-value: 0.007753</code></pre>
+<p>Inuition for the linear model</p>
+<p><span class="math display">\[f(X) = \underbrace{\beta_0 + \beta_1x_1 + \beta_2 x_2}_{systematic} + \underbrace{\epsilon}_{error}\]</span>
+<span class="math display">\[\epsilon  \sim N(0, \sigma^2)\]</span></p>
+<ul>
+<li><p>The “Multiple R-squared” is a fit statistic.</p>
+<ul>
+<li>Ranges from 0 to 1</li>
+<li>Closer to 1 is better</li>
+</ul></li>
+<li><p>The “Estimate” is the coefficient</p></li>
+<li><p>The “Std. Error” is what we talked about in our previous lecture and is used to construct confidence intervals.</p></li>
+<li><p>Smaller p-values mean there is more evidence that that specific variable matters (sort of)</p></li>
+</ul>
+</div>
+<div id="prediction" class="section level4" number="11.1.3.2">
+<h4><span class="header-section-number">11.1.3.2</span> Prediction</h4>
+<p>Let’s train our model using the data before 2016, then see what it predicts the vote will be for the 2016 election.</p>
+<div class="sourceCode" id="cb792"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb792-1"><a href="machine-learning.html#cb792-1"></a>electData<span class="op">$</span>vote[electData<span class="op">$</span>year<span class="op">==</span><span class="dv">2016</span>]</span></code></pre></div>
+<pre><code>## [1] 50.5</code></pre>
+<div class="sourceCode" id="cb794"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb794-1"><a href="machine-learning.html#cb794-1"></a>Model2&lt;-<span class="kw">lm</span>(vote<span class="op">~</span>q2gdp<span class="op">+</span>JuneApp, <span class="dt">data=</span>electData[electData<span class="op">$</span>year<span class="op">!=</span><span class="dv">2016</span>,])</span>
+<span id="cb794-2"><a href="machine-learning.html#cb794-2"></a><span class="kw">predict</span>(Model2, <span class="dt">newdata=</span>electData[electData<span class="op">$</span>year<span class="op">==</span><span class="dv">2016</span>,])</span></code></pre></div>
+<pre><code>##       18 
+## 50.88913</code></pre>
+<p>Pretty good!</p>
+</div>
+<div id="feature-selection" class="section level4" number="11.1.3.3">
+<h4><span class="header-section-number">11.1.3.3</span> Feature selection</h4>
+<div class="sourceCode" id="cb796"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb796-1"><a href="machine-learning.html#cb796-1"></a>Model3&lt;-<span class="kw">lm</span>(vote<span class="op">~</span>q2gdp<span class="op">+</span>JuneApp, <span class="dt">data=</span>electData)</span>
+<span id="cb796-2"><a href="machine-learning.html#cb796-2"></a><span class="kw">summary</span>(Model3)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = vote ~ q2gdp + JuneApp, data = electData)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -5.3026 -1.6785  0.2673  1.1366  4.6499 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 49.34677    0.81828  60.305  &lt; 2e-16 ***
+## q2gdp        0.45075    0.16072   2.805   0.0133 *  
+## JuneApp      0.14721    0.02761   5.331 8.39e-05 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.634 on 15 degrees of freedom
+## Multiple R-squared:  0.7812, Adjusted R-squared:  0.752 
+## F-statistic: 26.77 on 2 and 15 DF,  p-value: 1.124e-05</code></pre>
+<ul>
+<li>R-squared for the simpler model was 0.366</li>
+<li>Adding June approval bumps it to 0.752 – way bigger</li>
+</ul>
+<p>What does that mean? The R-squared denotes the portion of the variation in the y value that is explained or predicted by the x values.</p>
+<p>Adding more predictors <em>always</em> increases <span class="math inline">\(R^2\)</span>.</p>
+</div>
+<div id="exploration" class="section level4" number="11.1.3.4">
+<h4><span class="header-section-number">11.1.3.4</span> Exploration</h4>
+<div class="sourceCode" id="cb798"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb798-1"><a href="machine-learning.html#cb798-1"></a>Model4&lt;-<span class="kw">lm</span>(vote<span class="op">~</span>JuneApp<span class="op">+</span>Inc, <span class="dt">data=</span>electData)</span>
+<span id="cb798-2"><a href="machine-learning.html#cb798-2"></a><span class="kw">summary</span>(Model4)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = vote ~ JuneApp + Inc, data = electData)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.0471 -1.5652 -0.3451  1.2670  5.6167 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 49.47384    0.88618  55.828  &lt; 2e-16 ***
+## JuneApp      0.14911    0.02963   5.033 0.000149 ***
+## Inc          3.27994    1.43304   2.289 0.037016 *  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.8 on 15 degrees of freedom
+## Multiple R-squared:  0.7528, Adjusted R-squared:  0.7198 
+## F-statistic: 22.84 on 2 and 15 DF,  p-value: 2.807e-05</code></pre>
+<ul>
+<li>So that’s interesting.</li>
+<li>When a party is running for a second term, they do better.
+<ul>
+<li>Yes: Eisenhower, Kennedy, Nixon, Reagan, Clinton, Bush II, Obama</li>
+<li>No: Carter</li>
+</ul></li>
+<li>Might be worth looking into more.</li>
+</ul>
+</div>
+<div id="theory-testing" class="section level4" number="11.1.3.5">
+<h4><span class="header-section-number">11.1.3.5</span> Theory testing?</h4>
+<ul>
+<li>Is this data by itself evidence that incumbent candidate is always at an advantage?</li>
+<li>Not really that convincing. Many other explanations.</li>
+</ul>
+</div>
+</div>
+<div id="the-complexity-of-keeping-it-simple" class="section level3" number="11.1.4">
+<h3><span class="header-section-number">11.1.4</span> The complexity of keeping it simple</h3>
+<ul>
+<li>Simple models can be good, especially with small samples.</li>
+<li>But more complex models <em>might</em> be better:
+<ul>
+<li>Maybe a more flexible <span class="math inline">\(f(\cdot)\)</span> than a line?</li>
+<li>Maybe more options for <span class="math inline">\(X\)</span>?</li>
+</ul></li>
+<li>We want to aim for models that are:
+<ul>
+<li>Complex enough to capture important aspects of reality</li>
+<li>Not so complex they confuse signal with noise</li>
+</ul></li>
+</ul>
+<div id="a-new-example" class="section level4" number="11.1.4.1">
+<h4><span class="header-section-number">11.1.4.1</span> A new example</h4>
+<div class="sourceCode" id="cb800"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb800-1"><a href="machine-learning.html#cb800-1"></a><span class="kw">library</span>(readr)</span>
+<span id="cb800-2"><a href="machine-learning.html#cb800-2"></a>senateData&lt;-<span class="kw">read_csv</span>(<span class="st">&quot;http://politicaldatascience.com/PDS/Datasets/SenateForecast/CandidateLevel.csv&quot;</span>)</span></code></pre></div>
+<p>This is data on US Senate elections from 1992-2016.
+- <strong>VotePercentage</strong>: Percentage of the vote for that candidate
+- <strong>Republican</strong>: 1=Republican, 0=Any other
+- <strong>Democrat</strong>: 1=Democrat, 0=Any other
+- <strong>Experienced</strong>: 1=Candidate has held elected office, 0=otherwise
+- <strong>weightexperience</strong>: 1 = no experience, 4=held statewide office
+- <strong>pvi</strong>: Presidential vote index (Higher values mean more friendly to Democrats)
+- <strong>Generic Ballot</strong>: Generic ballot polling for that candidate’s party in that year
+- <strong>Incumbent</strong>: -1 = Running against incument, 0=open seat, 1 = Is the incumbent
+- <strong>PercentageRaised</strong>: Percent of money for that race raised by that candidate</p>
+<p>Model 1: Simple</p>
+<div class="sourceCode" id="cb801"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb801-1"><a href="machine-learning.html#cb801-1"></a>SimpleModelFull&lt;-<span class="kw">lm</span>(VotePercentage<span class="op">~</span>pvi<span class="op">*</span>Republican<span class="op">+</span>Incumbent, <span class="dt">data=</span>senateData)</span>
+<span id="cb801-2"><a href="machine-learning.html#cb801-2"></a><span class="kw">summary</span>(SimpleModelFull)<span class="op">$</span>r.squared</span></code></pre></div>
+<pre><code>## [1] 0.5895867</code></pre>
+<p>Model 2: Complex</p>
+<div class="sourceCode" id="cb803"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb803-1"><a href="machine-learning.html#cb803-1"></a>ComplexModelFull&lt;-<span class="kw">lm</span>(VotePercentage<span class="op">~</span>pvi<span class="op">*</span>Republican<span class="op">+</span>weightexperience </span>
+<span id="cb803-2"><a href="machine-learning.html#cb803-2"></a>                 <span class="op">+</span><span class="st"> </span>GenericBallotSept<span class="op">*</span>Republican <span class="op">+</span><span class="st"> </span>Incumbent, <span class="dt">data=</span>senateData)</span>
+<span id="cb803-3"><a href="machine-learning.html#cb803-3"></a><span class="kw">summary</span>(ComplexModelFull)<span class="op">$</span>r.squared</span></code></pre></div>
+<pre><code>## [1] 0.6457033</code></pre>
+<p>Seems a little better</p>
+<p>So what’s that mean?</p>
+<ul>
+<li><p>Looks like the complex model is doing much better</p></li>
+<li><p>But is that real, or illusory?</p></li>
+<li><p>We can partially resolve that by doing a <strong>cross validation</strong></p></li>
+<li><p>Several ways to do this, but here is a very easy one.</p>
+<ul>
+<li>Divide your data into two parts, training and validation</li>
+<li>Fit your model on your training data</li>
+<li>Test on your validation data (the data you didn’t use to fit the model)</li>
+</ul></li>
+</ul>
+</div>
+<div id="cross-validation" class="section level4" number="11.1.4.2">
+<h4><span class="header-section-number">11.1.4.2</span> Cross Validation</h4>
+<div class="sourceCode" id="cb805"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb805-1"><a href="machine-learning.html#cb805-1"></a><span class="kw">library</span>(rsample)</span>
+<span id="cb805-2"><a href="machine-learning.html#cb805-2"></a>split_senateData&lt;-<span class="kw">initial_split</span>(senateData, <span class="dt">prop=</span>.<span class="dv">8</span>)</span>
+<span id="cb805-3"><a href="machine-learning.html#cb805-3"></a>senate_train&lt;-<span class="kw">training</span>(split_senateData)</span>
+<span id="cb805-4"><a href="machine-learning.html#cb805-4"></a>senate_test&lt;-<span class="kw">testing</span>(split_senateData)</span></code></pre></div>
+<p>Let’s look at those:</p>
+<div class="sourceCode" id="cb806"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb806-1"><a href="machine-learning.html#cb806-1"></a><span class="kw">dim</span>(senate_train)</span></code></pre></div>
+<pre><code>## [1] 665  14</code></pre>
+<div class="sourceCode" id="cb808"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb808-1"><a href="machine-learning.html#cb808-1"></a><span class="kw">dim</span>(senate_test)</span></code></pre></div>
+<pre><code>## [1] 165  14</code></pre>
+<p>Let’s test out the simple model</p>
+<div class="sourceCode" id="cb810"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb810-1"><a href="machine-learning.html#cb810-1"></a>SimpleModelTrain&lt;-<span class="kw">lm</span>(VotePercentage<span class="op">~</span>pvi<span class="op">*</span>Republican<span class="op">+</span>Incumbent, <span class="dt">data=</span>senate_train)</span>
+<span id="cb810-2"><a href="machine-learning.html#cb810-2"></a>SimpleModelPredictions&lt;-<span class="kw">predict</span>(SimpleModelTrain, <span class="dt">newdata=</span>senate_test)</span></code></pre></div>
+<p>Now we will calculate the root mean squared error (RMSE) comparing the predictions, <span class="math inline">\(y^\ast\)</span>, with what we actually observed, <span class="math inline">\(y\)</span>.</p>
+<p><span class="math display">\[RMSE=\sqrt{\frac{\sum_i^n(y_i^\ast-y_i)^2}{n}}\]</span></p>
+<div class="sourceCode" id="cb811"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb811-1"><a href="machine-learning.html#cb811-1"></a><span class="kw">sqrt</span>(<span class="kw">mean</span>((SimpleModelPredictions<span class="op">-</span>senate_test<span class="op">$</span>VotePercentage)<span class="op">^</span><span class="dv">2</span>))</span></code></pre></div>
+<pre><code>## [1] 8.411281</code></pre>
+<p>Let’s do the same for the more complex model</p>
+<ul>
+<li>Fit the model</li>
+<li>Make predictions for the training set</li>
+</ul>
+<div class="sourceCode" id="cb813"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb813-1"><a href="machine-learning.html#cb813-1"></a>ComplexModelTrain&lt;-<span class="kw">lm</span>(VotePercentage<span class="op">~</span>pvi<span class="op">*</span>Republican<span class="op">+</span>weightexperience </span>
+<span id="cb813-2"><a href="machine-learning.html#cb813-2"></a>                 <span class="op">+</span><span class="st"> </span>GenericBallotSept<span class="op">*</span>Republican <span class="op">+</span><span class="st"> </span>Incumbent, <span class="dt">data=</span>senate_train)</span>
+<span id="cb813-3"><a href="machine-learning.html#cb813-3"></a>ComplexModelPredictions&lt;-<span class="kw">predict</span>(ComplexModelTrain, <span class="dt">newdata=</span>senate_test)</span></code></pre></div>
+<div class="sourceCode" id="cb814"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb814-1"><a href="machine-learning.html#cb814-1"></a><span class="kw">sqrt</span>(<span class="kw">mean</span>((ComplexModelPredictions<span class="op">-</span>senate_test<span class="op">$</span>VotePercentage)<span class="op">^</span><span class="dv">2</span>))</span></code></pre></div>
+<pre><code>## [1] 7.725798</code></pre>
+<p>More on cross-validation</p>
+<ul>
+<li>One problem here is that the result may be somewhat sensitive to the particular way you partition your data. Maybe that 20% you pulled out were unusual?</li>
+<li>k-fold cross-validation tries to get around this by:
+<ul>
+<li>Randomly dividing the data into k groups</li>
+<li>Each group serves as the test sample once</li>
+<li>So We have “out-of-sample” predictions for all cases</li>
+</ul></li>
+<li>You can also do Monte Carlo cross-validation, where you do this 90-10 random partitioning multiple times.</li>
+</ul>
+<p>Summary</p>
+<ul>
+<li>There is a tension between complexity and predictive accuracy</li>
+<li>More complex models may better explain the data you have, but may do worse in prediction.</li>
+<li>Cross validation is a fundamental tool for addressing this dilemma.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="classification" class="section level2" number="11.2">
+<h2><span class="header-section-number">11.2</span> Classification</h2>
+<div id="classification-basics-binary-outcomes" class="section level3" number="11.2.1">
+<h3><span class="header-section-number">11.2.1</span> Classification basics: Binary outcomes</h3>
+<ul>
+<li><p>The difference between regression and classification is that we look at a special type of function, <span class="math inline">\(f(X)\)</span>.</p></li>
+<li><p>We want a function that will:</p>
+<ul>
+<li>Take in a dataset <span class="math inline">\(X\)</span> that can take on all kinds of values (binary, continuous, etc.)</li>
+<li>But it will “squash” all of these features so that <span class="math inline">\(f(X) \in [0, 1]\)</span>.<br />
+</li>
+<li>We then say that the probability that <span class="math inline">\(y=1\)</span> is equal to <span class="math inline">\(f(x)\)</span>, or
+<span class="math display">\[Pr(y=1) = f(x)\]</span></li>
+</ul></li>
+<li><p>Intuitively, we are imagining a weighted coin flip where the pobability of a “success” is determined by <span class="math inline">\(f(x)\)</span>.</p></li>
+</ul>
+<p>Motivating example: Turnout in the 2008 election</p>
+<ul>
+<li>Imagine we are trying to build a model to predict turnout (0 or 1)</li>
+<li>We have the following features:
+<ul>
+<li>State</li>
+<li>Ethnicity (White/Black/Hispanic/Other)</li>
+<li>Age (Divided into quartiles)</li>
+<li>Income (Divided into quitiles)</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb816"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb816-1"><a href="machine-learning.html#cb816-1"></a>turnout&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;http://politicaldatascience.com/PDS/Datasets/SimpleTurnout2008.csv&quot;</span>)</span>
+<span id="cb816-2"><a href="machine-learning.html#cb816-2"></a><span class="kw">dim</span>(turnout)</span></code></pre></div>
+<pre><code>## [1] 73033     6</code></pre>
+</div>
+<div id="the-linear-classifier-aka-logit" class="section level3" number="11.2.2">
+<h3><span class="header-section-number">11.2.2</span> The linear classifier (AKA Logit)</h3>
+<ul>
+<li>Logit is a member of a family of models called a “generalized linear model”</li>
+<li>These models have two basic parts:
+<ul>
+<li>A <em>linear</em> component</li>
+<li>A <em>squashing</em> component</li>
+</ul></li>
+</ul>
+<p>The linear part:</p>
+<p>We might for instance, set up an equation of:</p>
+<p><span class="math display">\[\Lambda=\beta_0 + \beta_1 \text{Income}+ \beta_2 \text{Age}\]</span></p>
+<ul>
+<li><p>This is the same basic idea as normal regression models.</p></li>
+<li><p>But this linear combination can take on any value between <span class="math inline">\(-\infty\)</span> and <span class="math inline">\(\infty\)</span> (depending on what the <span class="math inline">\(\beta\)</span> values are)</p></li>
+<li><p><span class="math inline">\(\beta_0 = 16\)</span></p></li>
+<li><p><span class="math inline">\(\beta_1=2\)</span></p></li>
+<li><p><span class="math inline">\(\beta_2 = 1.5\)</span></p></li>
+<li><p>Income = 2</p></li>
+<li><p>Age = 2</p></li>
+</ul>
+<p><span class="math display">\[23 = 16 + 2\times 2 + 1.5\times2\]</span></p>
+<p>The squashing part:</p>
+<ul>
+<li><p>But we can’t use numbers like 23 to talk about turnout directly.</p></li>
+<li><p>And there is nothing keeping this from evaluating to -200 or 3,272</p></li>
+<li><p>So the strategy will be to push <span class="math inline">\(\Lambda\)</span> through a squasher</p></li>
+<li><p>These are often shaped like an “s”, and are sometimes called a <em>sigmoid</em>.</p></li>
+<li><p>I am going to notate this as <span class="math inline">\(\sigma(\cdot)\)</span></p></li>
+</ul>
+<p><span class="math display">\[f(X) = \sigma(\Lambda)\]</span></p>
+<p>The logistic squasher:</p>
+<ul>
+<li>A very common choice for <span class="math inline">\(\sigma(\cdot)\)</span> is the logistic function:</li>
+</ul>
+<p><span class="math display">\[\sigma(\Lambda) = \frac{1}{1+\exp(-\Lambda)} = \frac{\exp(\Lambda)}{1+\exp(\Lambda)}\]</span></p>
+<div class="sourceCode" id="cb818"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb818-1"><a href="machine-learning.html#cb818-1"></a>myLogistic&lt;-<span class="cf">function</span>(Lambda){</span>
+<span id="cb818-2"><a href="machine-learning.html#cb818-2"></a>  <span class="kw">return</span>(<span class="dv">1</span><span class="op">/</span>(<span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(<span class="op">-</span><span class="dv">1</span><span class="op">*</span>Lambda)))</span>
+<span id="cb818-3"><a href="machine-learning.html#cb818-3"></a>}</span>
+<span id="cb818-4"><a href="machine-learning.html#cb818-4"></a>testValues&lt;-<span class="kw">seq</span>(<span class="op">-</span><span class="dv">8</span>, <span class="dv">8</span>, <span class="dt">by=</span>.<span class="dv">1</span>)</span>
+<span id="cb818-5"><a href="machine-learning.html#cb818-5"></a><span class="kw">plot</span>(testValues, <span class="kw">myLogistic</span>(testValues), <span class="dt">type=</span><span class="st">&quot;l&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Pred. Prob.&quot;</span>)</span></code></pre></div>
+<p><img src="images/unnamed-chunk-256-1.png" width="768" /></p>
+<p>So let’s take a minute:</p>
+<ul>
+<li>Use the function from before and assume that:</li>
+</ul>
+<p><span class="math display">\[\Lambda = -2 + (1 \times \text{Income}) + (0.7\times \text{Age})  \]</span></p>
+<ul>
+<li>What is <span class="math inline">\(\Lambda\)</span> when Income=2 and Age=4?</li>
+<li>Put that through our squasher and find out what the predicted probability will be.</li>
+<li>Do both calculations again but now assume Income=4 and Age=4</li>
+</ul>
+<p>In general,</p>
+<ul>
+<li>Do the linear part first to get <span class="math inline">\(\Lambda\)</span>.</li>
+<li>Then use the function <code>myLogistic</code>to calculate the predicted probability.</li>
+</ul>
+<div id="the-linear-classifier-in-theory" class="section level4" number="11.2.2.1">
+<h4><span class="header-section-number">11.2.2.1</span> The linear classifier in theory</h4>
+<ul>
+<li>Remember what we are trying to do: find some function <span class="math inline">\(f(X)\)</span>.</li>
+<li>We have a linear portion like <span class="math inline">\(\beta_1 \text{Income}+ \beta_2 \text{Age}\)</span></li>
+<li>We put it through a squasher like the logistic function on Slide 9.</li>
+<li>When we combine this we get:</li>
+</ul>
+<p><span class="math display">\[Pr(y=1) = \frac{\exp(\beta_0 + \beta_1 \text{Income}+ \beta_2 \text{Age})}{1+\exp(\beta_0 + \beta_1 \text{Income}+ \beta_2 \text{Age})} \]</span></p>
+<ul>
+<li>But how do we figure out the <span class="math inline">\(\beta\)</span> coefficients?</li>
+</ul>
+</div>
+<div id="the-linear-classifier-in-practice" class="section level4" number="11.2.2.2">
+<h4><span class="header-section-number">11.2.2.2</span> The linear classifier in practice</h4>
+<ul>
+<li>For this class we’ll use something maximum likelihood estimation.</li>
+<li>Basically, the computer will find the values of <span class="math inline">\(\beta\)</span> that minimize a specific form of loss</li>
+<li>All you really need to know is how to do it.
+<ul>
+<li>We use the <code>glm</code> function.</li>
+<li>We specify that the data is binary by using the <code>family="binomial"</code> argument.</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb819"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb819-1"><a href="machine-learning.html#cb819-1"></a>Model1&lt;-<span class="kw">glm</span>(turnout <span class="op">~</span><span class="st"> </span>inc <span class="op">+</span><span class="st"> </span>age, <span class="dt">family=</span><span class="st">&quot;binomial&quot;</span>, <span class="dt">data=</span>turnout)</span>
+<span id="cb819-2"><a href="machine-learning.html#cb819-2"></a><span class="kw">summary</span>(Model1)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = turnout ~ inc + age, family = &quot;binomial&quot;, data = turnout)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -2.1708  -1.2979   0.6462   0.9014   1.3915  
+## 
+## Coefficients:
+##              Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept) -1.273471   0.030836  -41.30   &lt;2e-16 ***
+## inc          0.398235   0.007284   54.67   &lt;2e-16 ***
+## age          0.384711   0.008255   46.60   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 90693  on 73032  degrees of freedom
+## Residual deviance: 85681  on 73030  degrees of freedom
+## AIC: 85687
+## 
+## Number of Fisher Scoring iterations: 4</code></pre>
+<p>A couple of takeaways:</p>
+<ul>
+<li>The coefficients reported here are from the linear part of the model.
+<ul>
+<li>You want to focus on the sign of the coefficients</li>
+<li>And again you can get standard errors and p-values</li>
+</ul></li>
+<li>The AIC number is a fit statistic, and we want it to be small (but hard to interpret)</li>
+<li>We can use the same <code>predict</code> approach we used before.
+<ul>
+<li>If we don’t specify new data, it generates “in sample” predictions.</li>
+<li>You want to use the option <code>type</code> to make sure you get the predicted probability part back and not the linear part.</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb821"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb821-1"><a href="machine-learning.html#cb821-1"></a>Model1preds&lt;-<span class="kw">predict</span>(Model1, <span class="dt">type=</span><span class="st">&quot;response&quot;</span>)</span></code></pre></div>
+<p>Let’s look at the predicted probabilities for each value of Age in the dataset.</p>
+<div class="sourceCode" id="cb822"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb822-1"><a href="machine-learning.html#cb822-1"></a><span class="kw">boxplot</span>(Model1preds<span class="op">~</span>turnout<span class="op">$</span>inc, <span class="dt">xlab=</span><span class="st">&quot;Income&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Predicted Probabilities&quot;</span>)</span></code></pre></div>
+<p><img src="images/unnamed-chunk-259-1.png" width="768" /></p>
+<p>Now it’s your turn:</p>
+<ul>
+<li>Fit your own linear classifier to this data using the data I’ve provided.</li>
+<li>You might try some new variables or even recoding a covariate if you want.</li>
+<li>Look at the output and make sure you understand what the coefficients are telling you (more or less).</li>
+</ul>
+</div>
+<div id="fit-statistics" class="section level4" number="11.2.2.3">
+<h4><span class="header-section-number">11.2.2.3</span> Fit statistics</h4>
+<ul>
+<li><p>When we talked about regression, I emphasized the importance of out-of-sample testing to keep from “overfitting the data.”</p>
+<ul>
+<li>Complex models might seem to fit the data well, but do poorly out of sample.</li>
+<li>Ths reflects a model that is confusing the “systematic” part of the data with the “error” part of the data.</li>
+</ul></li>
+<li><p>I introduced RMSE as a metric. But what should we use for binary cases?</p></li>
+<li><p>There are a lot of choices here, and this is again a large topic I will only touch on.</p></li>
+<li><p>The easiest place to start is a “confusion matrix”</p></li>
+</ul>
+<p><span class="math display">\[\begin{array}{lcc}
+&amp; \text{Truth=0} &amp; \text{Truth=1}\\
+\text{Prediction = 0} &amp; \text{True negatives} &amp; \text{False negatives}\\
+\text{Prediction = 1} &amp; \text{False positives} &amp; \text{True Positives}\\
+\end{array}\]</span></p>
+<ul>
+<li><p>The main diagnonal of this matrix are your correct predictions.</p></li>
+<li><p>Should you weight positives or negatives more?</p>
+<ul>
+<li>Depends on the context</li>
+<li>You will want to balance or weight.</li>
+</ul></li>
+<li><p>One appproach is to look at precision and recall</p>
+<ul>
+<li><strong>Precision</strong> <span class="math display">\[\frac{\text{True positives}}{\text{True positives + False positives}}\]</span></li>
+<li><strong>Recall</strong> <span class="math display">\[\frac{\text{True positives}}{\text{True positives + False negatives}}\]</span></li>
+</ul></li>
+<li><p>You can also recombine these in a bunch of ways to get things like false discovery rate, specificity, sensitivity, F1 scores, and more.</p></li>
+<li><p>Another one is called the Brier Score, which is just RMSE. Let <span class="math inline">\(p_i\)</span> be our predicted probabilty for unit <span class="math inline">\(i\)</span>.</p></li>
+</ul>
+<p><span class="math display">\[\sqrt{\frac{\sum_i^n{(y_i-p_i)^2}}{n}}\]</span></p>
+<p>Going back to turnout:</p>
+<div class="sourceCode" id="cb823"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb823-1"><a href="machine-learning.html#cb823-1"></a>binaryPred&lt;-(Model1preds<span class="op">&gt;</span><span class="fl">0.5</span>)<span class="op">*</span><span class="dv">1</span></span>
+<span id="cb823-2"><a href="machine-learning.html#cb823-2"></a><span class="kw">table</span>(binaryPred, turnout<span class="op">$</span>turnout)</span></code></pre></div>
+<pre><code>##           
+## binaryPred     0     1
+##          0  4283  3809
+##          1 18523 46418</code></pre>
+<ul>
+<li>This is the confusion matrix where columns are the “truth” and rows are the predictions</li>
+<li>Using this table and the formulas above, we can calculate the precision, recall, and accuracy (the percent of observations this model gets right)</li>
+</ul>
+</div>
+</div>
+<div id="more-models" class="section level3" number="11.2.3">
+<h3><span class="header-section-number">11.2.3</span> More models</h3>
+<ul>
+<li>Of course, logistic regression is only one way to build <span class="math inline">\(f(X)\)</span>. There are many more.</li>
+<li>Today I’ll introduce two pretty easy ones:
+<ul>
+<li>Tree models (sometimes called decision trees)</li>
+<li>K-nearest neighbors</li>
+</ul></li>
+<li>Others you might look into include support vector machines, naive Bayes classifiers, neural networks, Gaussian process regression, and much, much, more.</li>
+<li>If you’re interested in learning about these, there’s tons of information on the internet, or you can take a introductory Machine Learning course.</li>
+</ul>
+<div id="tree-models" class="section level4" number="11.2.3.1">
+<h4><span class="header-section-number">11.2.3.1</span> Tree models</h4>
+<div class="figure">
+<embed src="../Slides/Images/Turnout1.pdf" />
+<p class="caption">map</p>
+</div>
+<p><embed src="../Slides/Images/Turnout2.pdf" /> <img src="../Slides/Images/Trees1.jpeg" /></p>
+<p><embed src="../Slides/Images/Turnout3.pdf" /> <img src="../Slides/Images/Trees2.jpeg" /></p>
+<p><embed src="../Slides/Images/Turnout4.pdf" /> <img src="../Slides/Images/Trees3.jpeg" /></p>
+<p><embed src="../Slides/Images/Turnout5.pdf" /> <img src="../Slides/Images/Trees4.jpeg" /></p>
+<p><embed src="../Slides/Images/Turnout6.pdf" /> <img src="../Slides/Images/Trees5.jpeg" /></p>
+<p>Here’s some code that will create a tree model for us.</p>
+<div class="sourceCode" id="cb825"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb825-1"><a href="machine-learning.html#cb825-1"></a><span class="kw">library</span>(rpart)</span>
+<span id="cb825-2"><a href="machine-learning.html#cb825-2"></a>equation&lt;-<span class="kw">as.formula</span>(<span class="st">&quot;turnout~eth+inc+age&quot;</span>)</span>
+<span id="cb825-3"><a href="machine-learning.html#cb825-3"></a>tree_mod1&lt;-<span class="kw">rpart</span>(equation, <span class="dt">data=</span>turnout)</span></code></pre></div>
+<div class="sourceCode" id="cb826"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb826-1"><a href="machine-learning.html#cb826-1"></a>tree_mod1</span></code></pre></div>
+<pre><code>## n= 73033 
+## 
+## node), split, n, deviance, yval
+##       * denotes terminal node
+## 
+## 1) root 73033 15684.380 0.6877302  
+##   2) inc&lt; 2.5 26982  6555.365 0.5839449  
+##     4) age&lt; 2.5 11531  2881.491 0.4895499 *
+##     5) age&gt;=2.5 15451  3494.450 0.6543913 *
+##   3) inc&gt;=2.5 46051  8668.089 0.7485397  
+##     6) age&lt; 1.5 8495  2044.887 0.5963508 *
+##     7) age&gt;=1.5 37556  6381.940 0.7829641 *</code></pre>
+<ul>
+<li>This tells us how the tree is constructed</li>
+<li>Better to look at it visually</li>
+</ul>
+<div class="sourceCode" id="cb828"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb828-1"><a href="machine-learning.html#cb828-1"></a><span class="kw">plot</span>(tree_mod1)</span>
+<span id="cb828-2"><a href="machine-learning.html#cb828-2"></a><span class="kw">text</span>(tree_mod1, <span class="dt">use.n=</span><span class="ot">TRUE</span>, <span class="dt">all =</span> <span class="ot">TRUE</span>, <span class="dt">cex=</span><span class="fl">0.8</span>)</span></code></pre></div>
+<p><img src="images/unnamed-chunk-263-1.png" width="960" /></p>
+<p>Tuning parameters:</p>
+<ul>
+<li>Many ML models have <em>tuning parameters</em>, sometimes called <em>hyperparamaters</em> or <em>hyperpriors</em>.</li>
+<li>These are parameters that control how the function, but which typically are not estimated from the data.</li>
+<li>These are set by the analyst, often using some sort of cross-validation.</li>
+<li>Most often, these parameters control model complexity.</li>
+</ul>
+<div class="sourceCode" id="cb829"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb829-1"><a href="machine-learning.html#cb829-1"></a>tree_mod2&lt;-<span class="kw">rpart</span>(equation, <span class="dt">data=</span>turnout, <span class="dt">control=</span><span class="kw">rpart.control</span>(<span class="dt">cp=</span>.<span class="dv">0002</span>))</span>
+<span id="cb829-2"><a href="machine-learning.html#cb829-2"></a><span class="kw">plot</span>(tree_mod2)</span>
+<span id="cb829-3"><a href="machine-learning.html#cb829-3"></a><span class="kw">text</span>(tree_mod1, <span class="dt">use.n=</span><span class="ot">TRUE</span>, <span class="dt">all =</span> <span class="ot">TRUE</span>, <span class="dt">cex=</span><span class="fl">0.7</span>)</span></code></pre></div>
+<p><img src="images/unnamed-chunk-264-1.png" width="768" /></p>
+<p>Complex or simple:</p>
+<div class="sourceCode" id="cb830"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb830-1"><a href="machine-learning.html#cb830-1"></a>treePreds1&lt;-<span class="kw">predict</span>(tree_mod1)</span>
+<span id="cb830-2"><a href="machine-learning.html#cb830-2"></a>treePreds2&lt;-<span class="kw">predict</span>(tree_mod2)</span></code></pre></div>
+<ul>
+<li>Compare the accuracy of these two models using a confusion matrix.</li>
+<li>Do the same use the Brier score</li>
+<li>Now make your own tree using a different value of <code>cp</code>.</li>
+</ul>
+</div>
+</div>
+<div id="random-forests" class="section level3" number="11.2.4">
+<h3><span class="header-section-number">11.2.4</span> Random forests</h3>
+<ul>
+<li>These models sometimes do not end up performing very well.</li>
+<li>Especially when the relationship between variables is smooth and not discontinuous.</li>
+<li>And they can be very sensitive to seemingly small changes to the data.</li>
+</ul>
+<p><embed src="../Slides/Images/Sample1.pdf" /> <embed src="../Slides/Images/Sample2.pdf" /></p>
+<p><embed src="../Slides/Images/Sample4.pdf" /> <embed src="../Slides/Images/Sample3.pdf" /></p>
+<p><embed src="../Slides/Images/Sample5.pdf" /></p>
+<div id="intuition-for-random-forests" class="section level4" number="11.2.4.1">
+<h4><span class="header-section-number">11.2.4.1</span> Intuition for random forests</h4>
+<ul>
+<li>One idea is to take advantage of this sensitivity by <em>bootstrapping</em> the sample to create many trees and average their predictions for each unit.</li>
+<li>Does better with smooth, additive functions, and on the whole less sensitive to small changes in the data.</li>
+<li>The model will:
+<ul>
+<li>Randomly select rows of the data with replacement.</li>
+<li>Randomly select <code>mtry</code> variables from the dataset</li>
+<li>Build a tree</li>
+<li>Repeat this <code>ntree</code> times and average the results</li>
+</ul></li>
+</ul>
+</div>
+<div id="implementation-for-random-forests" class="section level4" number="11.2.4.2">
+<h4><span class="header-section-number">11.2.4.2</span> Implementation for random forests</h4>
+<div class="sourceCode" id="cb831"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb831-1"><a href="machine-learning.html#cb831-1"></a><span class="kw">library</span>(randomForest)</span>
+<span id="cb831-2"><a href="machine-learning.html#cb831-2"></a>turnout<span class="op">$</span>turnout&lt;-<span class="kw">as.factor</span>(turnout<span class="op">$</span>turnout) <span class="co"># Leave as continuous for regression</span></span>
+<span id="cb831-3"><a href="machine-learning.html#cb831-3"></a>mod1_forest&lt;-<span class="kw">randomForest</span>(equation, <span class="dt">data=</span>turnout, </span>
+<span id="cb831-4"><a href="machine-learning.html#cb831-4"></a>                          <span class="dt">ntree=</span><span class="dv">201</span>, <span class="dt">mtry=</span><span class="dv">2</span>)</span>
+<span id="cb831-5"><a href="machine-learning.html#cb831-5"></a>mod1_forest <span class="co"># This confusion matrix is &quot;out of bag&quot;</span></span></code></pre></div>
+<pre><code>## 
+## Call:
+##  randomForest(formula = equation, data = turnout, ntree = 201,      mtry = 2) 
+##                Type of random forest: classification
+##                      Number of trees: 201
+## No. of variables tried at each split: 2
+## 
+##         OOB estimate of  error rate: 30.19%
+## Confusion matrix:
+##      0     1 class.error
+## 0 3617 19189  0.84140139
+## 1 2858 47369  0.05690167</code></pre>
+</div>
+</div>
+<div id="k-nearest-neighbors" class="section level3" number="11.2.5">
+<h3><span class="header-section-number">11.2.5</span> K Nearest Neighbors</h3>
+<ul>
+<li>Another simple approach is just to look at observations that are “near” eachother.</li>
+<li>“Near” here just means that they have a similar in terms of their predictor variables.</li>
+</ul>
+<div class="figure">
+<embed src="../Slides/Images/Turnout1.pdf" />
+<p class="caption">map</p>
+</div>
+</div>
+</div>
+<div id="putting-that-in-action" class="section level2" number="11.3">
+<h2><span class="header-section-number">11.3</span> Putting that in action</h2>
+<ul>
+<li>Weird problem in this data is that there can be too many ties.<br />
+</li>
+<li>So many observations share the same value.</li>
+<li>So (just for this example) I’ll add a bit of noise</li>
+</ul>
+<div class="sourceCode" id="cb833"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb833-1"><a href="machine-learning.html#cb833-1"></a><span class="kw">library</span>(class)</span>
+<span id="cb833-2"><a href="machine-learning.html#cb833-2"></a>turnoutX&lt;-turnout[,<span class="kw">c</span>(<span class="st">&quot;eth&quot;</span>, <span class="st">&quot;inc&quot;</span>, <span class="st">&quot;age&quot;</span>)]</span>
+<span id="cb833-3"><a href="machine-learning.html#cb833-3"></a>turnoutX<span class="op">$</span>inc&lt;-turnoutX<span class="op">$</span>inc<span class="op">+</span><span class="kw">rnorm</span>(<span class="kw">length</span>(turnoutX<span class="op">$</span>inc), <span class="dv">0</span>, <span class="fl">.001</span>)</span>
+<span id="cb833-4"><a href="machine-learning.html#cb833-4"></a>mod1_knn&lt;-<span class="kw">knn</span>(turnoutX, <span class="dt">test=</span>turnoutX, <span class="dt">cl=</span>turnout<span class="op">$</span>turnout, <span class="dt">k=</span><span class="dv">10</span>)</span>
+<span id="cb833-5"><a href="machine-learning.html#cb833-5"></a><span class="kw">table</span>(mod1_knn, turnout<span class="op">$</span>turnout)</span></code></pre></div>
+<pre><code>##         
+## mod1_knn     0     1
+##        0  8123  4989
+##        1 14683 45238</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="using-sql-syntax-on-an-r-dataframe.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="causality.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

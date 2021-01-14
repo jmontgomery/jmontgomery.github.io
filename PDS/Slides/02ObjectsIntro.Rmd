@@ -18,17 +18,6 @@ output:
 
 ---
 
-## Introductions 2
-
-Just for new students today
-
-- Who are you?
-- What are you going to study?
-- What is the last math class you took?
-- What was the most exciting/fun thing you did this summer?
-
----
-
 ## Orientation for today
 
 We are going to:
@@ -38,10 +27,9 @@ We are going to:
 3. Learn about your friend the vector
 
 
-
 ---
 
-## 2.1: Review: Objects and named storage
+## 1: Review: Objects and named storage
 
 What if we wanted to calculate the % of eligible voters who turnout in the 06 elections in Alaska. (Data source: http://www.electproject.org/2006g)
 
@@ -79,7 +67,7 @@ But Object names cannot start with numbers
 
 ---
 
-## 2.2 Objects in the global environment
+## 2 Objects in the global environment
 
 - Named objects are stored in the "global environment", which means that they can be accessed at any time by any function you might run.
 - They are "global" variables (which makes them different from "local" variables).
@@ -143,7 +131,7 @@ Anything that starts with a "." will be there, but are hidden
 
 ---
 
-## 2.3 Functions
+## 3 Functions
 
 - Functions are objects that contain a list of instructions
 - We "call" a function to execute a command
@@ -202,7 +190,7 @@ exp(log(1)) # e^ln(1) = 1
 
 ---
 
-## 2.4: Vectors
+## 4: Vectors
 
 The c() function is used to collect/concatenate things together into a vector
 
@@ -291,7 +279,7 @@ numbers5to20+rev(numbers5to20)
 
 ---
 
-Other functions operate on a functions work more directly
+Other functions operate on on the whole vector
 
 ```{r}
 sum(numbers5to20)
@@ -320,7 +308,7 @@ Some math "reminders"
 
 ---
 
-## 2.5: Getting to know your friend the vector
+## 5: Getting to know your friend the vector
 
 - Enough with the lame coding.  Let's us some data.  
 - *Voting age population* and *total votes* cast for the 50 states and DC in 2006
@@ -422,7 +410,7 @@ x[c(-2,3)]
 
 ---
 
-## 2.6: Vector operations and useful vector functions
+## 6: Vector operations and useful vector functions
 
 Basic vector operations
 
@@ -608,11 +596,6 @@ rep(c(1,4), each=3)
 ```
 
 
-
----
-
-
-## Activity 2
 
 
 

@@ -1,4 +1,4 @@
-### R Selenium example
+### R Selenium example: Make sure you load the Rselenium library, tidyvers, rvest, and plyr
 
 ## This works for me for getting a server running
 rsDriver(browser="chrome", port=4445L)
@@ -39,7 +39,6 @@ thisElement3$getElementAttribute("id")
 
 ### Sending key presses and clicks
 thisElement2$sendKeysToElement(list("02/01/2020"))
-thisElement$sendKeysToElement(list("02/01/2020"))
 
 thisElement4<-remDr$findElement(using="xpath", value='//*[@id="courtId"]/option[26]')
 thisElement4$clickElement()
@@ -82,7 +81,7 @@ remDr$executeScript("goToThisCase('20SL-CC00807', 'CT21')") # navigage
 remDr$getPageSource()[[1]] %>% #scrape
   read_html() %>% 
   html_nodes('table.detailRecordTable') %>%
-  html_table
+  html_table()
 
 
 ## Let's go and get all of the cases we were looking at before
@@ -100,7 +99,7 @@ cases
 remDr$goBack() # Get back to the starting page
 ## A function that goes through the navigation/scraping steps
 grabCaseDetails<-function(x){
-    string<-paste0("goToThisCase('", i, "', 'CT21')")
+    string<-paste0("goToThisCase('", x, "', 'CT21')")
     remDr$executeScript(string)
     output<-remDr$getPageSource()[[1]] %>%
        read_html() %>% 
@@ -119,7 +118,7 @@ grabCaseDetails(cases[6])
 ### Hmm ... maybe going to fast?
 
 grabCaseDetails<-function(x){
-  string<-paste0("goToThisCase('", i, "', 'CT21')")
+  string<-paste0("goToThisCase('", x, "', 'CT21')")
   Sys.sleep(2) # pause for 2 seconds
   remDr$executeScript(string)
   output<-remDr$getPageSource()[[1]] %>%

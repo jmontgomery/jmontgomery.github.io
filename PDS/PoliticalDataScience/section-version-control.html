@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 Version Control | Political Data Science</title>
+  <meta name="description" content="5 Version Control | Political Data Science" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 Version Control | Political Data Science" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 Version Control | Political Data Science" />
+  
+  
+  
+
+<meta name="author" content="Jacob Montgomery and Mariah Yelenick" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="section-files-for-loops-and-functions.html"/>
+<link rel="next" href="section-data-visualization-in-r.html"/>
+<script src="libs/header-attrs-2.1/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Don’t be a clown</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#section-as-easy-as-cake"><i class="fa fa-check"></i><b>1.1</b> As easy as cake</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#section-coding"><i class="fa fa-check"></i><b>1.1.1</b> Coding</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#section-data-acquision"><i class="fa fa-check"></i><b>1.1.2</b> Data acquision</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#section-algorithms"><i class="fa fa-check"></i><b>1.1.3</b> Algorithms</a></li>
+<li class="chapter" data-level="1.1.4" data-path="index.html"><a href="index.html#section-domain-knowledge"><i class="fa fa-check"></i><b>1.1.4</b> Domain knowledge</a></li>
+<li class="chapter" data-level="1.1.5" data-path="index.html"><a href="index.html#section-putting-it-together"><i class="fa fa-check"></i><b>1.1.5</b> Putting it together</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#section-class-structures"><i class="fa fa-check"></i><b>1.2</b> Class structures</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#section-learning-objective-1-team-based-learning"><i class="fa fa-check"></i><b>1.2.1</b> Learning objective #1: Team based learning</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#section-learning-objective-2-show-up-ready"><i class="fa fa-check"></i><b>1.2.2</b> Learning objective #2: Show up ready</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#section-learning-objective-3-how-is-this-going-to-work"><i class="fa fa-check"></i><b>1.2.3</b> Learning objective #3: How is this going to work?</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#section-interactive-r-environment-not-currently-working"><i class="fa fa-check"></i><b>1.3</b> Interactive R Environment (not currently working)</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="section-getting-started-in-r.html"><a href="section-getting-started-in-r.html"><i class="fa fa-check"></i><b>2</b> Getting Started in R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="section-getting-started-in-r.html"><a href="section-getting-started-in-r.html#section-learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="section-getting-started-in-r.html"><a href="section-getting-started-in-r.html#section-assigning-values-to-objects"><i class="fa fa-check"></i><b>2.2</b> Assigning values to objects</a></li>
+<li class="chapter" data-level="2.3" data-path="section-getting-started-in-r.html"><a href="section-getting-started-in-r.html#section-r-as-a-calculator"><i class="fa fa-check"></i><b>2.3</b> R as a calculator</a></li>
+<li class="chapter" data-level="2.4" data-path="section-getting-started-in-r.html"><a href="section-getting-started-in-r.html#section-the-global-environment-and-how-to-clean-it"><i class="fa fa-check"></i><b>2.4</b> The global environment and how to clean it</a></li>
+<li class="chapter" data-level="2.5" data-path="section-getting-started-in-r.html"><a href="section-getting-started-in-r.html#section-getting-help"><i class="fa fa-check"></i><b>2.5</b> Getting help</a></li>
+<li class="chapter" data-level="2.6" data-path="section-getting-started-in-r.html"><a href="section-getting-started-in-r.html#section-installing-packages"><i class="fa fa-check"></i><b>2.6</b> Installing packages</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="section-data-types-in-r.html"><a href="section-data-types-in-r.html"><i class="fa fa-check"></i><b>3</b> Data Types in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="section-data-types-in-r.html"><a href="section-data-types-in-r.html#section-functions"><i class="fa fa-check"></i><b>3.1</b> Functions</a></li>
+<li class="chapter" data-level="3.2" data-path="section-data-types-in-r.html"><a href="section-data-types-in-r.html#section-vectors"><i class="fa fa-check"></i><b>3.2</b> Vectors</a></li>
+<li class="chapter" data-level="3.3" data-path="section-data-types-in-r.html"><a href="section-data-types-in-r.html#section-functions-and-vectors"><i class="fa fa-check"></i><b>3.3</b> Functions and vectors</a></li>
+<li class="chapter" data-level="3.4" data-path="section-data-types-in-r.html"><a href="section-data-types-in-r.html#section-logicalsbooleans"><i class="fa fa-check"></i><b>3.4</b> Logicals/Booleans</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="section-data-types-in-r.html"><a href="section-data-types-in-r.html#section-boolean-logic"><i class="fa fa-check"></i><b>3.4.1</b> Boolean logic</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="section-data-types-in-r.html"><a href="section-data-types-in-r.html#section-charactersstrings"><i class="fa fa-check"></i><b>3.5</b> Characters/Strings</a></li>
+<li class="chapter" data-level="3.6" data-path="section-data-types-in-r.html"><a href="section-data-types-in-r.html#section-matrices"><i class="fa fa-check"></i><b>3.6</b> Matrices</a></li>
+<li class="chapter" data-level="3.7" data-path="section-data-types-in-r.html"><a href="section-data-types-in-r.html#section-matrix-algebra-optional"><i class="fa fa-check"></i><b>3.7</b> Matrix algebra (optional)</a></li>
+<li class="chapter" data-level="3.8" data-path="section-data-types-in-r.html"><a href="section-data-types-in-r.html#section-lists"><i class="fa fa-check"></i><b>3.8</b> Lists</a></li>
+<li class="chapter" data-level="3.9" data-path="section-data-types-in-r.html"><a href="section-data-types-in-r.html#section-arrays"><i class="fa fa-check"></i><b>3.9</b> Arrays</a></li>
+<li class="chapter" data-level="3.10" data-path="section-data-types-in-r.html"><a href="section-data-types-in-r.html#section-dataframes"><i class="fa fa-check"></i><b>3.10</b> Dataframes</a></li>
+<li class="chapter" data-level="3.11" data-path="section-data-types-in-r.html"><a href="section-data-types-in-r.html#section-general-info"><i class="fa fa-check"></i><b>3.11</b> General info</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="section-files-for-loops-and-functions.html"><a href="section-files-for-loops-and-functions.html"><i class="fa fa-check"></i><b>4</b> Files, For Loops, and Functions</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="section-files-for-loops-and-functions.html"><a href="section-files-for-loops-and-functions.html#section-the-working-directory"><i class="fa fa-check"></i><b>4.1</b> The working directory</a></li>
+<li class="chapter" data-level="4.2" data-path="section-files-for-loops-and-functions.html"><a href="section-files-for-loops-and-functions.html#section-input-and-output"><i class="fa fa-check"></i><b>4.2</b> Input and output</a></li>
+<li class="chapter" data-level="4.3" data-path="section-files-for-loops-and-functions.html"><a href="section-files-for-loops-and-functions.html#section-if-else-ifelse"><i class="fa fa-check"></i><b>4.3</b> if, else, ifelse</a></li>
+<li class="chapter" data-level="4.4" data-path="section-files-for-loops-and-functions.html"><a href="section-files-for-loops-and-functions.html#section-repeat-and-while"><i class="fa fa-check"></i><b>4.4</b> repeat and while</a></li>
+<li class="chapter" data-level="4.5" data-path="section-files-for-loops-and-functions.html"><a href="section-files-for-loops-and-functions.html#section-for-loops"><i class="fa fa-check"></i><b>4.5</b> for loops</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="section-files-for-loops-and-functions.html"><a href="section-files-for-loops-and-functions.html#section-next-and-break"><i class="fa fa-check"></i><b>4.5.1</b> next and break</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="section-files-for-loops-and-functions.html"><a href="section-files-for-loops-and-functions.html#section-functions-1"><i class="fa fa-check"></i><b>4.6</b> Functions</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="section-files-for-loops-and-functions.html"><a href="section-files-for-loops-and-functions.html#section-the-basics"><i class="fa fa-check"></i><b>4.6.1</b> The basics</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="section-files-for-loops-and-functions.html"><a href="section-files-for-loops-and-functions.html#section-setting-defaults"><i class="fa fa-check"></i><b>4.7</b> Setting defaults</a></li>
+<li class="chapter" data-level="4.8" data-path="section-files-for-loops-and-functions.html"><a href="section-files-for-loops-and-functions.html#section-scope"><i class="fa fa-check"></i><b>4.8</b> Scope</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="section-files-for-loops-and-functions.html"><a href="section-files-for-loops-and-functions.html#section-advanced-scope-topics"><i class="fa fa-check"></i><b>4.8.1</b> Advanced scope topics</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="section-files-for-loops-and-functions.html"><a href="section-files-for-loops-and-functions.html#section-debugging"><i class="fa fa-check"></i><b>4.9</b> Debugging</a></li>
+<li class="chapter" data-level="4.10" data-path="section-files-for-loops-and-functions.html"><a href="section-files-for-loops-and-functions.html#section-benchmarking-and-code-improvements"><i class="fa fa-check"></i><b>4.10</b> Benchmarking and code improvements</a>
+<ul>
+<li class="chapter" data-level="4.10.1" data-path="section-files-for-loops-and-functions.html"><a href="section-files-for-loops-and-functions.html#section-vectorizing"><i class="fa fa-check"></i><b>4.10.1</b> Vectorizing</a></li>
+<li class="chapter" data-level="4.10.2" data-path="section-files-for-loops-and-functions.html"><a href="section-files-for-loops-and-functions.html#section-pastecollapse-and-copies"><i class="fa fa-check"></i><b>4.10.2</b> Paste/collapse and copies</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="section-version-control.html"><a href="section-version-control.html"><i class="fa fa-check"></i><b>5</b> Version Control</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="section-version-control.html"><a href="section-version-control.html#section-why-version-control"><i class="fa fa-check"></i><b>5.1</b> Why version control?</a></li>
+<li class="chapter" data-level="5.2" data-path="section-version-control.html"><a href="section-version-control.html#section-setup"><i class="fa fa-check"></i><b>5.2</b> Setup</a></li>
+<li class="chapter" data-level="5.3" data-path="section-version-control.html"><a href="section-version-control.html#section-workflow"><i class="fa fa-check"></i><b>5.3</b> Workflow</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="section-version-control.html"><a href="section-version-control.html#section-pull"><i class="fa fa-check"></i><b>5.3.1</b> Pull</a></li>
+<li class="chapter" data-level="5.3.2" data-path="section-version-control.html"><a href="section-version-control.html#section-commit"><i class="fa fa-check"></i><b>5.3.2</b> Commit</a></li>
+<li class="chapter" data-level="5.3.3" data-path="section-version-control.html"><a href="section-version-control.html#section-push"><i class="fa fa-check"></i><b>5.3.3</b> Push</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="section-version-control.html"><a href="section-version-control.html#section-branches"><i class="fa fa-check"></i><b>5.4</b> Branches</a></li>
+<li class="chapter" data-level="5.5" data-path="section-version-control.html"><a href="section-version-control.html#section-forking"><i class="fa fa-check"></i><b>5.5</b> Forking</a></li>
+<li class="chapter" data-level="5.6" data-path="section-version-control.html"><a href="section-version-control.html#section-reverting"><i class="fa fa-check"></i><b>5.6</b> Reverting</a></li>
+<li class="chapter" data-level="5.7" data-path="section-version-control.html"><a href="section-version-control.html#section-conflict-management"><i class="fa fa-check"></i><b>5.7</b> Conflict management</a></li>
+<li class="chapter" data-level="5.8" data-path="section-version-control.html"><a href="section-version-control.html#section-version-control-in-rstudio"><i class="fa fa-check"></i><b>5.8</b> Version Control in RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="section-data-visualization-in-r.html"><a href="section-data-visualization-in-r.html"><i class="fa fa-check"></i><b>6</b> Data Visualization in R</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="section-data-visualization-in-r.html"><a href="section-data-visualization-in-r.html#section-intro-to-ggplot2"><i class="fa fa-check"></i><b>6.1</b> Intro to ggplot2</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="section-data-visualization-in-r.html"><a href="section-data-visualization-in-r.html#section-example"><i class="fa fa-check"></i><b>6.1.1</b> Example</a></li>
+<li class="chapter" data-level="6.1.2" data-path="section-data-visualization-in-r.html"><a href="section-data-visualization-in-r.html#section-aesthetics"><i class="fa fa-check"></i><b>6.1.2</b> Aesthetics</a></li>
+<li class="chapter" data-level="6.1.3" data-path="section-data-visualization-in-r.html"><a href="section-data-visualization-in-r.html#section-facets"><i class="fa fa-check"></i><b>6.1.3</b> Facets</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="section-data-visualization-in-r.html"><a href="section-data-visualization-in-r.html#section-more-geom-options"><i class="fa fa-check"></i><b>6.2</b> More <code>geom</code> options</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html"><i class="fa fa-check"></i><b>7</b> dplyr and tidy</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-into-the-tidyverse"><i class="fa fa-check"></i><b>7.1</b> Into the tidyverse</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-our-example"><i class="fa fa-check"></i><b>7.1.1</b> Our example</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-back-to-dplyr"><i class="fa fa-check"></i><b>7.2</b> Back to <code>dplyr</code></a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-filter"><i class="fa fa-check"></i><b>7.2.1</b> <code>filter</code></a></li>
+<li class="chapter" data-level="7.2.2" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-arrange"><i class="fa fa-check"></i><b>7.2.2</b> <code>arrange</code></a></li>
+<li class="chapter" data-level="7.2.3" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-select"><i class="fa fa-check"></i><b>7.2.3</b> <code>select</code></a></li>
+<li class="chapter" data-level="7.2.4" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-mutate"><i class="fa fa-check"></i><b>7.2.4</b> <code>mutate</code></a></li>
+<li class="chapter" data-level="7.2.5" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-summarise"><i class="fa fa-check"></i><b>7.2.5</b> <code>summarise</code></a></li>
+<li class="chapter" data-level="7.2.6" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-piping"><i class="fa fa-check"></i><b>7.2.6</b> Piping</a></li>
+<li class="chapter" data-level="7.2.7" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-pivots"><i class="fa fa-check"></i><b>7.2.7</b> Pivots</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-relational-data"><i class="fa fa-check"></i><b>7.3</b> Relational data</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-mutating-join"><i class="fa fa-check"></i><b>7.3.1</b> Mutating join</a></li>
+<li class="chapter" data-level="7.3.2" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-joins-topography"><i class="fa fa-check"></i><b>7.3.2</b> Joins topography</a></li>
+<li class="chapter" data-level="7.3.3" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-many-and-one-to-many"><i class="fa fa-check"></i><b>7.3.3</b> Many and one-to-many</a></li>
+<li class="chapter" data-level="7.3.4" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-filtering-joins"><i class="fa fa-check"></i><b>7.3.4</b> Filtering joins</a></li>
+<li class="chapter" data-level="7.3.5" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-set-operations"><i class="fa fa-check"></i><b>7.3.5</b> Set operations</a></li>
+<li class="chapter" data-level="7.3.6" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-exercise"><i class="fa fa-check"></i><b>7.3.6</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-stringr"><i class="fa fa-check"></i><b>7.4</b> <code>stringr</code></a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-things-you-havent-thought-about-strings"><i class="fa fa-check"></i><b>7.4.1</b> Things you haven’t thought about strings</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-pipes-and-maps"><i class="fa fa-check"></i><b>7.5</b> Pipes and maps</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-limitations-of-pipes"><i class="fa fa-check"></i><b>7.5.1</b> Limitations of Pipes</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-map"><i class="fa fa-check"></i><b>7.6</b> <code>map</code></a></li>
+<li class="chapter" data-level="7.7" data-path="section-dplyr-and-tidy.html"><a href="section-dplyr-and-tidy.html#section-walk-purrr-and-more"><i class="fa fa-check"></i><b>7.7</b> walk, purrr, and more</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="section-more-useful-packages.html"><a href="section-more-useful-packages.html"><i class="fa fa-check"></i><b>8</b> More useful packages</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="section-more-useful-packages.html"><a href="section-more-useful-packages.html#section-stringr-1"><i class="fa fa-check"></i><b>8.1</b> <code>stringr</code></a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="section-more-useful-packages.html"><a href="section-more-useful-packages.html#section-things-you-havent-thought-about-strings-1"><i class="fa fa-check"></i><b>8.1.1</b> Things you haven’t thought about strings</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="section-functions-and-packages.html"><a href="section-functions-and-packages.html"><i class="fa fa-check"></i><b>9</b> Functions and Packages</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="section-functions-and-packages.html"><a href="section-functions-and-packages.html#section-apply-and-its-friends"><i class="fa fa-check"></i><b>9.1</b> <code>apply</code> and its friends</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="section-functions-and-packages.html"><a href="section-functions-and-packages.html#section-apply"><i class="fa fa-check"></i><b>9.1.1</b> <code>apply</code></a></li>
+<li class="chapter" data-level="9.1.2" data-path="section-functions-and-packages.html"><a href="section-functions-and-packages.html#section-lapply"><i class="fa fa-check"></i><b>9.1.2</b> <code>lapply</code></a></li>
+<li class="chapter" data-level="9.1.3" data-path="section-functions-and-packages.html"><a href="section-functions-and-packages.html#section-sapply"><i class="fa fa-check"></i><b>9.1.3</b> <code>sapply</code></a></li>
+<li class="chapter" data-level="9.1.4" data-path="section-functions-and-packages.html"><a href="section-functions-and-packages.html#section-tapply"><i class="fa fa-check"></i><b>9.1.4</b> <code>tapply</code></a></li>
+<li class="chapter" data-level="9.1.5" data-path="section-functions-and-packages.html"><a href="section-functions-and-packages.html#section-sweep"><i class="fa fa-check"></i><b>9.1.5</b> <code>sweep</code></a></li>
+<li class="chapter" data-level="9.1.6" data-path="section-functions-and-packages.html"><a href="section-functions-and-packages.html#section-by"><i class="fa fa-check"></i><b>9.1.6</b> <code>by</code></a></li>
+<li class="chapter" data-level="9.1.7" data-path="section-functions-and-packages.html"><a href="section-functions-and-packages.html#section-vapply-and-more"><i class="fa fa-check"></i><b>9.1.7</b> <code>vapply</code> And more</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="section-functions-and-packages.html"><a href="section-functions-and-packages.html#section-plyr"><i class="fa fa-check"></i><b>9.2</b> <code>plyr</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="section-using-sql-syntax-on-an-r-dataframe.html"><a href="section-using-sql-syntax-on-an-r-dataframe.html"><i class="fa fa-check"></i><b>10</b> Using SQL syntax on an R dataframe</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="section-using-sql-syntax-on-an-r-dataframe.html"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-sql"><i class="fa fa-check"></i><b>10.1</b> SQL</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="section-using-sql-syntax-on-an-r-dataframe.html"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-select-and-from"><i class="fa fa-check"></i><b>10.1.1</b> <code>SELECT</code> and <code>FROM</code></a></li>
+<li class="chapter" data-level="10.1.2" data-path="section-using-sql-syntax-on-an-r-dataframe.html"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-where"><i class="fa fa-check"></i><b>10.1.2</b> <code>WHERE</code></a></li>
+<li class="chapter" data-level="10.1.3" data-path="section-using-sql-syntax-on-an-r-dataframe.html"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-functions-2"><i class="fa fa-check"></i><b>10.1.3</b> Functions</a></li>
+<li class="chapter" data-level="10.1.4" data-path="section-using-sql-syntax-on-an-r-dataframe.html"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-having"><i class="fa fa-check"></i><b>10.1.4</b> <code>HAVING</code></a></li>
+<li class="chapter" data-level="10.1.5" data-path="section-using-sql-syntax-on-an-r-dataframe.html"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-withas-and-subqueries"><i class="fa fa-check"></i><b>10.1.5</b> <code>WITH</code>/<code>AS</code> and Subqueries</a></li>
+<li class="chapter" data-level="10.1.6" data-path="section-using-sql-syntax-on-an-r-dataframe.html"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-joins"><i class="fa fa-check"></i><b>10.1.6</b> Joins</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="section-using-sql-syntax-on-an-r-dataframe.html"><a href="section-using-sql-syntax-on-an-r-dataframe.html#section-the-sqldf-package"><i class="fa fa-check"></i><b>10.2</b> The <code>sqldf</code> package</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="section-machine-learning.html"><a href="section-machine-learning.html"><i class="fa fa-check"></i><b>11</b> Machine Learning</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="section-machine-learning.html"><a href="section-machine-learning.html#section-supervised-learning"><i class="fa fa-check"></i><b>11.1</b> Supervised Learning</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="section-machine-learning.html"><a href="section-machine-learning.html#section-the-gist"><i class="fa fa-check"></i><b>11.1.1</b> The Gist</a></li>
+<li class="chapter" data-level="11.1.2" data-path="section-machine-learning.html"><a href="section-machine-learning.html#section-what-could-go-wrong"><i class="fa fa-check"></i><b>11.1.2</b> What could go wrong?</a></li>
+<li class="chapter" data-level="11.1.3" data-path="section-machine-learning.html"><a href="section-machine-learning.html#section-example-predicting-presidential-elections-with-vote-share"><i class="fa fa-check"></i><b>11.1.3</b> Example: Predicting presidential elections with vote share</a></li>
+<li class="chapter" data-level="11.1.4" data-path="section-machine-learning.html"><a href="section-machine-learning.html#section-the-complexity-of-keeping-it-simple"><i class="fa fa-check"></i><b>11.1.4</b> The complexity of keeping it simple</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="section-machine-learning.html"><a href="section-machine-learning.html#section-classification"><i class="fa fa-check"></i><b>11.2</b> Classification</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="section-machine-learning.html"><a href="section-machine-learning.html#section-classification-basics-binary-outcomes"><i class="fa fa-check"></i><b>11.2.1</b> Classification basics: Binary outcomes</a></li>
+<li class="chapter" data-level="11.2.2" data-path="section-machine-learning.html"><a href="section-machine-learning.html#section-the-linear-classifier-aka-logit"><i class="fa fa-check"></i><b>11.2.2</b> The linear classifier (AKA Logit)</a></li>
+<li class="chapter" data-level="11.2.3" data-path="section-machine-learning.html"><a href="section-machine-learning.html#section-more-models"><i class="fa fa-check"></i><b>11.2.3</b> More models</a></li>
+<li class="chapter" data-level="11.2.4" data-path="section-machine-learning.html"><a href="section-machine-learning.html#section-random-forests"><i class="fa fa-check"></i><b>11.2.4</b> Random forests</a></li>
+<li class="chapter" data-level="11.2.5" data-path="section-machine-learning.html"><a href="section-machine-learning.html#section-k-nearest-neighbors"><i class="fa fa-check"></i><b>11.2.5</b> K Nearest Neighbors</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="section-machine-learning.html"><a href="section-machine-learning.html#section-putting-that-in-action"><i class="fa fa-check"></i><b>11.3</b> Putting that in action</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="section-causality.html"><a href="section-causality.html"><i class="fa fa-check"></i><b>12</b> Causality</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="section-causality.html"><a href="section-causality.html#section-correlation-and-causation"><i class="fa fa-check"></i><b>12.1</b> Correlation and causation</a></li>
+<li class="chapter" data-level="12.2" data-path="section-causality.html"><a href="section-causality.html#section-a-formal-definition"><i class="fa fa-check"></i><b>12.2</b> A formal definition</a></li>
+<li class="chapter" data-level="12.3" data-path="section-causality.html"><a href="section-causality.html#section-formal-presentation-of-an-ate"><i class="fa fa-check"></i><b>12.3</b> Formal presentation of an ATE</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="section-causality.html"><a href="section-causality.html#section-danger"><i class="fa fa-check"></i><b>12.3.1</b> Danger!</a></li>
+<li class="chapter" data-level="12.3.2" data-path="section-causality.html"><a href="section-causality.html#section-does-drinking-make-you-more-educated"><i class="fa fa-check"></i><b>12.3.2</b> Does drinking make you more educated?</a></li>
+<li class="chapter" data-level="12.3.3" data-path="section-causality.html"><a href="section-causality.html#section-problem-it-can-be-way-more-subtle"><i class="fa fa-check"></i><b>12.3.3</b> Problem: It can be way more subtle</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="section-causality.html"><a href="section-causality.html#section-estimating-ate"><i class="fa fa-check"></i><b>12.4</b> Estimating ATE</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="section-causality.html"><a href="section-causality.html#section-filling-in-the-potential-values"><i class="fa fa-check"></i><b>12.4.1</b> Filling in the potential values</a></li>
+<li class="chapter" data-level="12.4.2" data-path="section-causality.html"><a href="section-causality.html#section-good-causal-inference"><i class="fa fa-check"></i><b>12.4.2</b> Good causal inference</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="section-causality.html"><a href="section-causality.html#section-experiments-ab-testing"><i class="fa fa-check"></i><b>12.5</b> Experiments: A/B Testing</a>
+<ul>
+<li class="chapter" data-level="12.5.1" data-path="section-causality.html"><a href="section-causality.html#section-what-to-do-when-you-cant-experiment"><i class="fa fa-check"></i><b>12.5.1</b> What to do when you can’t experiment:</a></li>
+</ul></li>
+<li class="chapter" data-level="12.6" data-path="section-causality.html"><a href="section-causality.html#section-panel-data-and-fixed-effects"><i class="fa fa-check"></i><b>12.6</b> Panel data and fixed effects</a>
+<ul>
+<li class="chapter" data-level="12.6.1" data-path="section-causality.html"><a href="section-causality.html#section-example-are-elections-fought-over-non-economic-issues-more-when-globalization-increases"><i class="fa fa-check"></i><b>12.6.1</b> Example: Are elections fought over non-economic issues more when globalization increases?</a></li>
+<li class="chapter" data-level="12.6.2" data-path="section-causality.html"><a href="section-causality.html#section-naive-regression"><i class="fa fa-check"></i><b>12.6.2</b> Naive regression</a></li>
+<li class="chapter" data-level="12.6.3" data-path="section-causality.html"><a href="section-causality.html#section-fixed-effects"><i class="fa fa-check"></i><b>12.6.3</b> Fixed effects</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="section-causality.html"><a href="section-causality.html#section-difference-in-differences"><i class="fa fa-check"></i><b>12.7</b> Difference-in-differences</a>
+<ul>
+<li class="chapter" data-level="12.7.1" data-path="section-causality.html"><a href="section-causality.html#section-did-in-practice"><i class="fa fa-check"></i><b>12.7.1</b> DID in practice</a></li>
+<li class="chapter" data-level="12.7.2" data-path="section-causality.html"><a href="section-causality.html#section-regression-discontinuity"><i class="fa fa-check"></i><b>12.7.2</b> Regression discontinuity</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Political Data Science</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="section-version-control" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Version Control</h1>
+<div id="section-why-version-control" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Why version control?</h2>
+<p>Have you ever … (Source: Stack overflow)
+- Made a change to code, realised it was a mistake and wanted to revert back?
+- Lost code or had a backup that was too old?
+- Had to maintain multiple versions of a product?
+- Wanted to see the difference between two (or more) versions of your code?
+- Wanted to prove that a particular change broke or fixed a piece of code?
+- Wanted to review the history of some code?
+- Wanted to submit a change to someone else’s code?
+- Wanted to share your code, or let other people work on your code?
+- Wanted to see how much work is being done, and where, when and by whom?
+- Wanted to experiment with a new feature without interfering with working code?</p>
+</div>
+<div id="section-setup" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Setup</h2>
+<ul>
+<li>Install Git: <a href="http://git-scm.com/book/en/Getting-Started-Installing-Git" class="uri">http://git-scm.com/book/en/Getting-Started-Installing-Git</a></li>
+<li>Sign up for GitHub</li>
+<li>Install the GUI
+<ul>
+<li><a href="http://mac.github.com/" class="uri">http://mac.github.com/</a></li>
+<li><a href="http://windows.github.com/" class="uri">http://windows.github.com/</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="section-workflow" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Workflow</h2>
+<p>Every time you work on a group project that is stored in git, you should pull right away, do your work, then commit and push immediately.
+I recommend doing this workflow every time you make a significant change or start working on something else. It backs up your work so that
+you can go back to an earlier version in case you mess something up later.</p>
+<p><img src="images/githubDesktop.jpg" /></p>
+<div id="section-pull" class="section level3" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Pull</h3>
+<p>This updates your repository to the newest version so that when other people on your team make changes, you will be able to have the most recently
+updated version of the code/repository.</p>
+<p>In the picture above, to pull, click on “Fetch origin”.</p>
+</div>
+<div id="section-commit" class="section level3" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Commit</h3>
+<p>This is step 1 of adding your changes to GitHub (push is step 2). Committing your changes requires that you specify which changed files you want
+to commit as well as a brief commit message summarizing what you changed since the last commit.</p>
+<p>In the picture above, to commit, click on “Commit to master” once you’ve selected the files to commit in the left pane.</p>
+</div>
+<div id="section-push" class="section level3" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> Push</h3>
+<p>This is step 2 of adding your changes to GitHub. You can think of committimg as wrapping up a gift that you made and pushing is mailing it to the recipient.
+They don’t “open” the gift until they Pull and see what you pushed. Pushing uploads all un-pushed commits to GitHub so that you can see them
+in GitHub desktop as well as your repository online.</p>
+<p><img src="images/githubDesktop2.jpg" /></p>
+<p>In the picture above, after you’ve committed, to push, click on “Push origin”.</p>
+</div>
+</div>
+<div id="section-branches" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Branches</h2>
+<p>Large software projects use branches to have a production environment that is always working, and other branches for new feature development.
+Once a feature is ready, the development branch can be merged with the production branch (typically master). You’ll have to manually choose which
+version of each file to keep.</p>
+<p>In the picture above, to switch branches, click on the “Current branch” button and either create a new branch or select an existing one.</p>
+</div>
+<div id="section-forking" class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> Forking</h2>
+<p>If you see someone’s repository and want to copy it and make your own changes without affecting their repository (and potentially without them even knowing),
+you can “fork” the repository. This gives you your own copy of it to mess with as you please.</p>
+</div>
+<div id="section-reverting" class="section level2" number="5.6">
+<h2><span class="header-section-number">5.6</span> Reverting</h2>
+<p>If you make a mistake and commit and push it (or your team member does), you can revert to a prior commit. This is why it’s super useful
+to commit and push regularly!!! You can revert from any commit which will set your current repository state back to exactly what it looked
+like at that exact moment in time.</p>
+</div>
+<div id="section-conflict-management" class="section level2" number="5.7">
+<h2><span class="header-section-number">5.7</span> Conflict management</h2>
+<p>To create a conflict, you’ll need two people with access to the same repository (or two computers that both have the repo cloned).
+- Both people/computers sync back up
+- Person/computer 1 should add a new file
+- Person/computer 1 should commit and push their new file
+- Person/computer 2 should pull and see the new file
+- Person/computer 1 should type something in this file like “hello world”
+- Person/computer 1 should commit and push
+- Person/computer 2 should type something in this file like “helol world”
+- When person/computer 2 commits and pushes, it will cause a conflict that they will have to resolve</p>
+<p>Here’s a gif of how merge conflicts work in GitHub desktop</p>
+<p><img src="images/githubdesktop.gif" /></p>
+</div>
+<div id="section-version-control-in-rstudio" class="section level2" number="5.8">
+<h2><span class="header-section-number">5.8</span> Version Control in RStudio</h2>
+<p>If you have a GitHub repository that you want to open in RStudio, here are the steps:</p>
+<ol style="list-style-type: decimal">
+<li>Open RStudio</li>
+<li>File -&gt; New Project -&gt; Version Control -&gt; Git</li>
+<li>Paste your repository URL and change where you want it to clone the repository on your local machine</li>
+<li>All of the files in the repository are now found in the “files” tab in RStudio.</li>
+<li>To pull, open the “git” tab and click the blue down arrow.</li>
+<li>To commit, select the check boxes next to the changed files you wish to commit and click the “commit” button.</li>
+<li>To push, click the green up arrow.</li>
+</ol>
+<p>Note: if you want to switch branches, you can click on “master” in the git tab. To switch projects, click on the cube icon in the top right
+corner. This gives you options for creating a new project, viewing recent projects, and opening existing projects.</p>
+<p>For more info, check out <a href="https://support.rstudio.com/hc/en-us/articles/200532077?version=1.1.463&amp;mode=desktop">this link</a> or this video:
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kL6L2MNqPHg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="section-files-for-loops-and-functions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="section-data-visualization-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
