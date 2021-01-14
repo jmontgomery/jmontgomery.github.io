@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Basics on APIs</title>
+    <meta charset="utf-8" />
+    <meta name="date" content="2020-01-01" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Basics on APIs
+### <p>Jacob M. Montgomery<br />
+<em>Washington University in St. Louis</em><br />
+<em>Department of Political Science</em></p>
+### 2020
+
+---
+
+
+&lt;style type="text/css"&gt;
+body, td {
+   font-size: 14px;
+}
+code.r{
+  font-size: 14px;
+}
+pre {
+  font-size: 4px;
+}
+&lt;/style&gt;
+
+
+## Orientation for this component
+
+Last time
+
+1. Getting data from the web (basics)
+2. Getting data from the web (more tips)
+
+--
+
+Now
+
+
+1. **Getting data from APIs**
+
+--
+
+Next
+
+1. Making html documents/website (Dom)
+2. R Shiny
+
+
+--
+
+But Really
+
+**Work on your group projects**
+
+
+---
+## Getting started
+
+- Application program interfaces (APIs) are a way for people (and programs) to access data in standard format 
+- Allows others to build products/software around your data without full access to your data.
+- Allows for sharing of data in a controlled way.
+    - Only access at a given rate
+    - Only access pre-specified fields
+- Usually much mor systematic and organized than webscraping
+    - But also more powerful (can search their entire dataset)
+    - Data comes back with expected structure
+    - Documentation!!
+- Huge enterprises like OpenSecrets, Twitter, Reddit, Wikipedia, and much more provide these.
+- Could be used for making "live" webpages that re-render some kind of data viz. when a page is refreshed to represent changing data. 
+
+
+---
+## Remembering from last time
+
+
+- We briefly discussed using `http` including commands
+
+- `GET`, `POST`, and `PUT` will give you much of what you need.
+
+- We also learned about the JSON object format, which is similar to a list in R.
+
+--
+
+- This time we are going to use the `httr` and `jsonlite` packages.
+
+- The overall enterprise is to:
+    1. Use `http` so pass the right arguments to the right API endpint.
+    2. Get a JSON object back.
+    3. Optionally use that result to structure a query to another endpoint.
+    4. Repeat (3) until you have the data you want.
+
+---
+## Some API basics/terminology
+
+- APIs have *endpoints* -- think of these as function that are available.
+    - In the documentation (which you should read) it will explain what arguments these endpoints accept.
+    - These are (sometiems) passed in via the `http` request.
+    - They will then return to you a message (did it work) and an object 
+    
+----
+    
+- Most APIs have *rate limits* that control how much data they will return to you.  Try not to wine about people who are giving you free data.
+- APIs typically *time out* if your request takes too long to execture, or else the endpint might have a workaround.
+- Many will require that you have *authentication* often using a *key*
+    - Note that some (e.g., Open Secrets and Twitter) require you to register or even apply
+
+---
+## Rough outline for today
+
+- I'll run through a very simple toy example
+- We'll do something slightly more complex with the open secrets API.  
+    - You'll need to register on your own to follow this example fully.
+- The only assignment we will have is I'd like each of you to identify *one* potentially interseting API for the class.  Bonus if you show the result of a query.
+
+---
+## Where is the space station?
+
+- Here is a silly little API that tell us at any given time where the International Space Station is located.
+- http://open-notify.org/
+- If you go to the right url, you can see the answer:
+http://api.open-notify.org/iss-now.json
+
+---
+
+- JSON object organized as key: value pairs
+
+----
+
+- "timestamp": 1587069040, 
+- "message": "success"
+-  "iss_position": 
+    * "latitude": "-49.1436"
+    * "longitude": "25.2204"
+
+----
+
+- Note that the last elment (iss_position) is itself composes of two elements.
+
+
+---- 
+
+So we are going to:
+1. Send a "GET" request
+2. Receive:
+    
+      a. A response code 
+      
+      b. Response data
+
+
+
+```r
+library("httr"); library("jsonlite")
+iss=GET("http://api.open-notify.org/iss-now.json")
+length(iss)
+```
+
+```
+## [1] 10
+```
+---
+
+- Not really the same as just navigating there.
+- 200 is the "status response" and indicates success.
+- Also includes a lot of details about the call (e.g., time and GET command)
+
+--
+
+- But the actual output we wanted is still there
+- And we can pull this out as a "list of lists"
+
+
+```r
+library("httr"); library("jsonlite")
+fromJSON(rawToChar(iss$content))
+```
+
+```
+## $timestamp
+## [1] 1587240162
+## 
+## $iss_position
+## $iss_position$latitude
+## [1] "27.1194"
+## 
+## $iss_position$longitude
+## [1] "-69.7802"
+## 
+## 
+## $message
+## [1] "success"
+```
+
+---
+## End part A
+
+Go play!  See if you can figure out how many people are currently in space.
+
+http://open-notify.org/Open-Notify-API/People-In-Space/
+
+---
+
+## APIs with arguments
+
+- So this one is designed to tell you when the ISS is set to pass over a specific location
+
+http://open-notify.org/Open-Notify-API/ISS-Pass-Times/
+
+- But it requires parameters, just like arguments for a function.
+- We need:
+    - Latitude 
+    - Longitude
+- We could try to hack together the url ourselves    
+    
+http://api.open-notify.org/iss-pass.json?lat=40.7&amp;lon=-74
+
+- But `GET` will do that for us
+
+---
+
+
+
+```r
+iss_pass=GET("http://api.open-notify.org/iss-pass.json", 
+             query=list(lat=38.6486009, lon=-90.3128798, n=1))
+fromJSON(rawToChar(iss_pass$content))
+```
+
+```
+## $message
+## [1] "success"
+## 
+## $request
+## $request$altitude
+## [1] 100
+## 
+## $request$datetime
+## [1] 1587240163
+## 
+## $request$latitude
+## [1] 38.6486
+## 
+## $request$longitude
+## [1] -90.31288
+## 
+## $request$passes
+## [1] 1
+## 
+## 
+## $response
+##   duration   risetime
+## 1      577 1587245337
+```
+
+- This is when the ISS will pass over Seigle Hall
+
+
+
+---
+
+## Ok that's fun, but kind of dumb
+
+- Let's go look at the Google civic API
+
+https://developers.google.com/civic-information/docs/v2/representatives/representativeInfoByAddress
+
+
+- And look it has a handy GUI thing
+
+---
+
+### Well ... let's look some more
+
+https://console.developers.google.com/apis/credentials?pli=1
+
+
+- You are going to need to get your authentication key
+- And you you have to click a button in their system to confirm/authorize it.
+- But you can borrow mine for now.
+- Let's go back and look at this
+
+https://developers.google.com/civic-information/docs/v2/representatives/representativeInfoByAddress
+
+
+
+---
+
+
+
+
+```r
+myKey="AIzaSyDkCLZcCeC_Uc0d2ItcBBTUqJgk7Pl4ivQ"
+
+SK&lt;-GET("https://www.googleapis.com/civicinfo/v2/representatives",
+         query=list(address="6186 McPherson Ave. St. Louis",
+                    includeOffices="true",
+                    levels="country",
+                    roles="legislatorLowerBody", 
+                    key="AIzaSyDkCLZcCeC_Uc0d2ItcBBTUqJgk7Pl4ivQ"))
+SK
+```
+
+```
+## Response [https://www.googleapis.com/civicinfo/v2/representatives?address=6186%20McPherson%20Ave.%20St.%20Louis&amp;includeOffices=true&amp;levels=country&amp;roles=legislatorLowerBody&amp;key=AIzaSyDkCLZcCeC_Uc0d2ItcBBTUqJgk7Pl4ivQ]
+##   Date: 2020-04-18 20:02
+##   Status: 200
+##   Content-Type: application/json; charset=UTF-8
+##   Size: 1.11 kB
+## {
+##  "kind": "civicinfo#representativeInfoResponse",
+##  "normalizedInput": {
+##   "line1": "6186 McPherson Avenue",
+##   "city": "St. Louis",
+##   "state": "MO",
+##   "zip": "63108"
+##  },
+##  "divisions": {
+##   "ocd-division/country:us/state:mo/cd:1": {
+## ...
+```
+
+
+
+---
+
+
+
+```r
+fromJSON(rawToChar(SK$content))
+```
+
+```
+## $kind
+## [1] "civicinfo#representativeInfoResponse"
+## 
+## $normalizedInput
+## $normalizedInput$line1
+## [1] "6186 McPherson Avenue"
+## 
+## $normalizedInput$city
+## [1] "St. Louis"
+## 
+## $normalizedInput$state
+## [1] "MO"
+## 
+## $normalizedInput$zip
+## [1] "63108"
+## 
+## 
+## $divisions
+## $divisions$`ocd-division/country:us/state:mo/cd:1`
+## $divisions$`ocd-division/country:us/state:mo/cd:1`$name
+## [1] "Missouri's 1st congressional district"
+## 
+## $divisions$`ocd-division/country:us/state:mo/cd:1`$officeIndices
+## [1] 0
+## 
+## 
+## 
+## $offices
+##                  name                            divisionId  levels
+## 1 U.S. Representative ocd-division/country:us/state:mo/cd:1 country
+##                 roles officialIndices
+## 1 legislatorLowerBody               0
+## 
+## $officials
+##            name                                                   address
+## 1 Wm. Lacy Clay 2428 Rayburn House Office Building, Washington, DC, 20515
+##              party         phones                       urls
+## 1 Democratic Party (202) 225-2406 http://lacyclay.house.gov/
+##                                                                    channels
+## 1 Facebook, Twitter, YouTube, 109135405838588, LacyClayMO1, WilliamLacyClay
+```
+
+---
+
+
+
+```r
+fromJSON(rawToChar(SK$content))$officials
+```
+
+```
+##            name                                                   address
+## 1 Wm. Lacy Clay 2428 Rayburn House Office Building, Washington, DC, 20515
+##              party         phones                       urls
+## 1 Democratic Party (202) 225-2406 http://lacyclay.house.gov/
+##                                                                    channels
+## 1 Facebook, Twitter, YouTube, 109135405838588, LacyClayMO1, WilliamLacyClay
+```
+
+
+---
+### End Part B
+
+- See if you can get this to work for a different address.
+- If you want to go crazy try and get this endpoint to work instead
+
+https://developers.google.com/civic-information/docs/v2/elections/voterInfoQuery
+
+
+- use electionID="2000"
+
+
+---
+## API packages
+
+- Smart people have made some R packages for specific APIs.
+- So real quick I'll show you how to use the `ropensecretsapi`
+
+---
+
+## A first example
+
+
+
+```r
+ropensecretsapi::SetAPIKey("4b774257ece93adea87064e2933ffbae")
+params &lt;- list (id="MO")
+MoLegislators &lt;- ropensecretsapi::GetLegislatorsData(params)
+MoLegislators
+```
+
+```
+## $response
+## $response$legislator
+## $response$legislator[[1]]
+## $response$legislator[[1]]$`@attributes`
+##                                       cid 
+##                               "N00012460" 
+##                                 firstlast 
+##                      "William L Clay Jr." 
+##                                  lastname 
+##                                    "CLAY" 
+##                                     party 
+##                                       "D" 
+##                                    office 
+##                                    "MO01" 
+##                                    gender 
+##                                       "M" 
+##                             first_elected 
+##                                    "2000" 
+##                                 exit_code 
+##                                       "0" 
+##                                  comments 
+##                                        "" 
+##                                     phone 
+##                            "202-225-2406" 
+##                                       fax 
+##                            "202-226-3717" 
+##                                   website 
+##              "https://lacyclay.house.gov" 
+##                                   webform 
+## "http://lacyclay.house.gov/contact-form/" 
+##                           congress_office 
+##      "2428 Rayburn House Office Building" 
+##                               bioguide_id 
+##                                 "C001049" 
+##                              votesmart_id 
+##                                    "8967" 
+##                                 feccandid 
+##                               "H0MO01066" 
+##                                twitter_id 
+##                             "LacyClayMO1" 
+##                               youtube_url 
+##     "https://youtube.com/WilliamLacyClay" 
+##                               facebook_id 
+##                         "109135405838588" 
+##                                 birthdate 
+##                              "1956-07-27" 
+## 
+## 
+## $response$legislator[[2]]
+## $response$legislator[[2]]$`@attributes`
+##                                         cid 
+##                                 "N00033106" 
+##                                   firstlast 
+##                              "Ann L Wagner" 
+##                                    lastname 
+##                                    "WAGNER" 
+##                                       party 
+##                                         "R" 
+##                                      office 
+##                                      "MO02" 
+##                                      gender 
+##                                         "F" 
+##                               first_elected 
+##                                      "2012" 
+##                                   exit_code 
+##                                         "0" 
+##                                    comments 
+##                                          "" 
+##                                       phone 
+##                              "202-225-1621" 
+##                                         fax 
+##                              "202-225-2563" 
+##                                     website 
+##                   "http://wagner.house.gov" 
+##                                     webform 
+## "https://wagner.house.gov/contact/email-me" 
+##                             congress_office 
+##          "435 Cannon House Office Building" 
+##                                 bioguide_id 
+##                                   "W000812" 
+##                                votesmart_id 
+##                                    "136083" 
+##                                   feccandid 
+##                                 "H2MO02102" 
+##                                  twitter_id 
+##                              "RepAnnWagner" 
+##                                 youtube_url 
+##                                          "" 
+##                                 facebook_id 
+##                              "RepAnnWagner" 
+##                                   birthdate 
+##                                "1962-09-13" 
+## 
+## 
+## $response$legislator[[3]]
+## $response$legislator[[3]]$`@attributes`
+##                                                 cid 
+##                                         "N00030026" 
+##                                           firstlast 
+##                                "Blaine Luetkemeyer" 
+##                                            lastname 
+##                                       "LUETKEMEYER" 
+##                                               party 
+##                                                 "R" 
+##                                              office 
+##                                              "MO03" 
+##                                              gender 
+##                                                 "M" 
+##                                       first_elected 
+##                                              "2008" 
+##                                           exit_code 
+##                                                 "0" 
+##                                            comments 
+##                                                  "" 
+##                                               phone 
+##                                      "202-225-2956" 
+##                                                 fax 
+##                                      "202-225-5712" 
+##                                             website 
+##                      "http://luetkemeyer.house.gov" 
+##                                             webform 
+## "https://luetkemeyer.house.gov/forms/writeyourrep/" 
+##                                     congress_office 
+##                "2230 Rayburn House Office Building" 
+##                                         bioguide_id 
+##                                           "L000569" 
+##                                        votesmart_id 
+##                                             "20400" 
+##                                           feccandid 
+##                                         "H8MO09153" 
+##                                          twitter_id 
+##                                    "RepBlainePress" 
+##                                         youtube_url 
+##                  "https://youtube.com/BLuetkemeyer" 
+##                                         facebook_id 
+##                                 "BlaineLuetkemeyer" 
+##                                           birthdate 
+##                                        "1952-05-07" 
+## 
+## 
+## $response$legislator[[4]]
+## $response$legislator[[4]]$`@attributes`
+##                                              cid 
+##                                      "N00031005" 
+##                                        firstlast 
+##                                 "Vicky Hartzler" 
+##                                         lastname 
+##                                       "HARTZLER" 
+##                                            party 
+##                                              "R" 
+##                                           office 
+##                                           "MO04" 
+##                                           gender 
+##                                              "F" 
+##                                    first_elected 
+##                                           "2010" 
+##                                        exit_code 
+##                                              "0" 
+##                                         comments 
+##                                               "" 
+##                                            phone 
+##                                   "202-225-2876" 
+##                                              fax 
+##                                   "202-225-0148" 
+##                                          website 
+##                     "https://hartzler.house.gov" 
+##                                          webform 
+## "https://hartzler.house.gov/contact-me/email-me" 
+##                                  congress_office 
+##             "2235 Rayburn House Office Building" 
+##                                      bioguide_id 
+##                                        "H001053" 
+##                                     votesmart_id 
+##                                           "8783" 
+##                                        feccandid 
+##                                      "H0MO04086" 
+##                                       twitter_id 
+##                                    "RepHartzler" 
+##                                      youtube_url 
+##           "https://youtube.com/repvickyhartzler" 
+##                                      facebook_id 
+##                         "Congresswoman.Hartzler" 
+##                                        birthdate 
+##                                     "1960-10-13" 
+## 
+## 
+## $response$legislator[[5]]
+## $response$legislator[[5]]$`@attributes`
+##                                          cid 
+##                                  "N00026790" 
+##                                    firstlast 
+##                            "Emanuel Cleaver" 
+##                                     lastname 
+##                                    "CLEAVER" 
+##                                        party 
+##                                          "D" 
+##                                       office 
+##                                       "MO05" 
+##                                       gender 
+##                                          "M" 
+##                                first_elected 
+##                                       "2004" 
+##                                    exit_code 
+##                                          "0" 
+##                                     comments 
+##                                           "" 
+##                                        phone 
+##                               "202-225-4535" 
+##                                          fax 
+##                               "202-225-4403" 
+##                                      website 
+##                   "http://cleaver.house.gov" 
+##                                      webform 
+## "https://cleaver.house.gov/contact/email-me" 
+##                              congress_office 
+##         "2335 Rayburn House Office Building" 
+##                                  bioguide_id 
+##                                    "C001061" 
+##                                 votesmart_id 
+##                                      "39507" 
+##                                    feccandid 
+##                                  "H4MO05234" 
+##                                   twitter_id 
+##                                 "RepCleaver" 
+##                                  youtube_url 
+##             "https://youtube.com/repcleaver" 
+##                                  facebook_id 
+##                           "emanuelcleaverii" 
+##                                    birthdate 
+##                                 "1944-10-26" 
+## 
+## 
+## $response$legislator[[6]]
+## $response$legislator[[6]]$`@attributes`
+##                                       cid 
+##                               "N00013323" 
+##                                 firstlast 
+##                              "Sam Graves" 
+##                                  lastname 
+##                                  "GRAVES" 
+##                                     party 
+##                                       "R" 
+##                                    office 
+##                                    "MO06" 
+##                                    gender 
+##                                       "M" 
+##                             first_elected 
+##                                    "2000" 
+##                                 exit_code 
+##                                       "0" 
+##                                  comments 
+##                                        "" 
+##                                     phone 
+##                            "202-225-7041" 
+##                                       fax 
+##                            "202-225-8221" 
+##                                   website 
+##                "https://graves.house.gov" 
+##                                   webform 
+## "https://gravesforms.house.gov/email-sam" 
+##                           congress_office 
+##    "1135 Longworth House Office Building" 
+##                               bioguide_id 
+##                                 "G000546" 
+##                              votesmart_id 
+##                                    "9425" 
+##                                 feccandid 
+##                               "H0MO06073" 
+##                                twitter_id 
+##                            "RepSamGraves" 
+##                               youtube_url 
+##                                        "" 
+##                               facebook_id 
+##                            "118514606128" 
+##                                 birthdate 
+##                              "1963-11-07" 
+## 
+## 
+## $response$legislator[[7]]
+## $response$legislator[[7]]$`@attributes`
+##                                       cid 
+##                               "N00030676" 
+##                                 firstlast 
+##                              "Billy Long" 
+##                                  lastname 
+##                                    "LONG" 
+##                                     party 
+##                                       "R" 
+##                                    office 
+##                                    "MO07" 
+##                                    gender 
+##                                       "M" 
+##                             first_elected 
+##                                    "2010" 
+##                                 exit_code 
+##                                       "0" 
+##                                  comments 
+##                                        "" 
+##                                     phone 
+##                            "202-225-6536" 
+##                                       fax 
+##                            "202-225-5604" 
+##                                   website 
+##                  "https://long.house.gov" 
+##                                   webform 
+## "https://longforms.house.gov/email-billy" 
+##                           congress_office 
+##      "2454 Rayburn House Office Building" 
+##                               bioguide_id 
+##                                 "L000576" 
+##                              votesmart_id 
+##                                  "123401" 
+##                                 feccandid 
+##                               "H0MO07113" 
+##                                twitter_id 
+##                               "USRepLong" 
+##                               youtube_url 
+##         "https://youtube.com/MOdistrict7" 
+##                               facebook_id 
+##                          "Rep.Billy.Long" 
+##                                 birthdate 
+##                              "1955-08-11" 
+## 
+## 
+## $response$legislator[[8]]
+## $response$legislator[[8]]$`@attributes`
+##                                             cid 
+##                                     "N00035282" 
+##                                       firstlast 
+##                                   "Jason Smith" 
+##                                        lastname 
+##                                         "SMITH" 
+##                                           party 
+##                                             "R" 
+##                                          office 
+##                                          "MO08" 
+##                                          gender 
+##                                             "M" 
+##                                   first_elected 
+##                                          "2013" 
+##                                       exit_code 
+##                                             "0" 
+##                                        comments 
+##                                              "" 
+##                                           phone 
+##                                  "202-225-4404" 
+##                                             fax 
+##                                  "202-226-0326" 
+##                                         website 
+##                  "https://jasonsmith.house.gov" 
+##                                         webform 
+## "https://jasonsmith.house.gov/contact/email-me" 
+##                                 congress_office 
+##          "1118 Longworth House Office Building" 
+##                                     bioguide_id 
+##                                       "S001195" 
+##                                    votesmart_id 
+##                                         "59318" 
+##                                       feccandid 
+##                                     "H4MO08162" 
+##                                      twitter_id 
+##                                 "RepJasonSmith" 
+##                                     youtube_url 
+##             "https://youtube.com/RepJasonSmith" 
+##                                     facebook_id 
+##                                 "repjasonsmith" 
+##                                       birthdate 
+##                                    "1980-06-16" 
+## 
+## 
+## $response$legislator[[9]]
+## $response$legislator[[9]]$`@attributes`
+##                                                         cid 
+##                                                 "N00005195" 
+##                                                   firstlast 
+##                                                 "Roy Blunt" 
+##                                                    lastname 
+##                                                     "BLUNT" 
+##                                                       party 
+##                                                         "R" 
+##                                                      office 
+##                                                      "MOS1" 
+##                                                      gender 
+##                                                         "M" 
+##                                               first_elected 
+##                                                      "2010" 
+##                                                   exit_code 
+##                                                         "0" 
+##                                                    comments 
+##                                                          "" 
+##                                                       phone 
+##                                              "202-224-5721" 
+##                                                         fax 
+##                                              "202-224-8149" 
+##                                                     website 
+##                       "https://www.blunt.senate.gov/public" 
+##                                                     webform 
+## "https://www.blunt.senate.gov/public/index.cfm/contact-roy" 
+##                                             congress_office 
+##                        "260 Russell Senate Office Building" 
+##                                                 bioguide_id 
+##                                                   "B000575" 
+##                                                votesmart_id 
+##                                                       "418" 
+##                                                   feccandid 
+##                                                 "H6MO07128" 
+##                                                  twitter_id 
+##                                                  "RoyBlunt" 
+##                                                 youtube_url 
+##                          "https://youtube.com/SenatorBlunt" 
+##                                                 facebook_id 
+##                                              "SenatorBlunt" 
+##                                                   birthdate 
+##                                                "1950-01-10" 
+## 
+## 
+## $response$legislator[[10]]
+## $response$legislator[[10]]$`@attributes`
+##                                   cid 
+##                           "N00041620" 
+##                             firstlast 
+##                         "Josh Hawley" 
+##                              lastname 
+##                              "Hawley" 
+##                                 party 
+##                                   "R" 
+##                                office 
+##                                "MOS2" 
+##                                gender 
+##                                   "M" 
+##                         first_elected 
+##                                "2018" 
+##                             exit_code 
+##                                   "0" 
+##                              comments 
+##                                    "" 
+##                                 phone 
+##                        "202-224-6154" 
+##                                   fax 
+##                                    "" 
+##                               website 
+##       "https://www.hawley.senate.gov" 
+##                               webform 
+##                                    "" 
+##                       congress_office 
+## "B40a Dirksen Senate Office Building" 
+##                           bioguide_id 
+##                             "H001089" 
+##                          votesmart_id 
+##                                    "" 
+##                             feccandid 
+##                                    "" 
+##                            twitter_id 
+##                                    "" 
+##                           youtube_url 
+##                                    "" 
+##                           facebook_id 
+##                                    "" 
+##                             birthdate 
+##                          "1979-12-31"
+```
+
+
+---
+## Just get the cid
+
+
+
+```r
+MoLegislators$response$legislator[[1]]$`@attributes`[1]
+```
+
+```
+##         cid 
+## "N00012460"
+```
+
+---
+
+
+
+```r
+MoLegislators$response$legislator[[1]]$`@attributes`[1]
+```
+
+```
+##         cid 
+## "N00012460"
+```
+
+---
+
+
+
+```r
+IDsForMO&lt;-rep(NA, length(MoLegislators$response$legislator))
+for(i in 1:length(MoLegislators$response$legislator)){
+  IDsForMO[i]&lt;-MoLegislators$response$legislator[[i]]$`@attributes`[1]
+}
+```
+
+---
+
+
+
+```r
+IDsForMO
+```
+
+```
+##  [1] "N00012460" "N00033106" "N00030026" "N00031005" "N00026790"
+##  [6] "N00013323" "N00030676" "N00035282" "N00005195" "N00041620"
+```
+
+---
+
+
+
+```r
+getTopDonors&lt;-function(x){
+    params&lt;-list(cid=x, cycle="2018")
+    ropensecretsapi::GetCandContribData(params)
+}
+getTopDonors(IDsForMO[1])
+```
+
+```
+## $response
+## $response$contributors
+## $response$contributors$`@attributes`
+##                                                                                                                                                                                   cand_name 
+##                                                                                                                                                                    "William L Clay Jr. (D)" 
+##                                                                                                                                                                                         cid 
+##                                                                                                                                                                                 "N00012460" 
+##                                                                                                                                                                                       cycle 
+##                                                                                                                                                                                      "2018" 
+##                                                                                                                                                                                      origin 
+##                                                                                                                                                            "Center for Responsive Politics" 
+##                                                                                                                                                                                      source 
+##                                                                                                     "https://www.opensecrets.org/members-of-congress/contributors?cid=N00012460&amp;cycle=2018" 
+##                                                                                                                                                                                      notice 
+## "The organizations themselves did not donate, rather the money came from the organization's PAC, its individual members or employees or owners, and those individuals' immediate families." 
+## 
+## $response$contributors$contributor
+## $response$contributors$contributor[[1]]
+## $response$contributors$contributor[[1]]$`@attributes`
+##                                org_name 
+## "National Air Traffic Controllers Assn" 
+##                                   total 
+##                                 "11000" 
+##                                    pacs 
+##                                 "11000" 
+##                                  indivs 
+##                                     "0" 
+## 
+## 
+## $response$contributors$contributor[[2]]
+## $response$contributors$contributor[[2]]$`@attributes`
+##   org_name      total       pacs     indivs 
+## "AT&amp;T Inc"    "10700"    "10700"        "0" 
+## 
+## 
+## $response$contributors$contributor[[3]]
+## $response$contributors$contributor[[3]]$`@attributes`
+##      org_name         total          pacs        indivs 
+## "Ameren Corp"       "10000"       "10000"           "0" 
+## 
+## 
+## $response$contributors$contributor[[4]]
+## $response$contributors$contributor[[4]]$`@attributes`
+##                                org_name 
+## "American Society of Anesthesiologists" 
+##                                   total 
+##                                 "10000" 
+##                                    pacs 
+##                                 "10000" 
+##                                  indivs 
+##                                     "0" 
+## 
+## 
+## $response$contributors$contributor[[5]]
+## $response$contributors$contributor[[5]]$`@attributes`
+##          org_name             total              pacs            indivs 
+## "Bank of America"           "10000"           "10000"               "0" 
+## 
+## 
+## $response$contributors$contributor[[6]]
+## $response$contributors$contributor[[6]]$`@attributes`
+##    org_name       total        pacs      indivs 
+## "Boeing Co"     "10000"     "10000"         "0" 
+## 
+## 
+## $response$contributors$contributor[[7]]
+## $response$contributors$contributor[[7]]$`@attributes`
+##                 org_name                    total                     pacs 
+## "Charter Communications"                  "10000"                  "10000" 
+##                   indivs 
+##                      "0" 
+## 
+## 
+## $response$contributors$contributor[[8]]
+## $response$contributors$contributor[[8]]$`@attributes`
+##       org_name          total           pacs         indivs 
+## "Deloitte LLP"        "10000"        "10000"            "0" 
+## 
+## 
+## $response$contributors$contributor[[9]]
+## $response$contributors$contributor[[9]]$`@attributes`
+##          org_name             total              pacs            indivs 
+## "Express Scripts"           "10000"           "10000"               "0" 
+## 
+## 
+## $response$contributors$contributor[[10]]
+## $response$contributors$contributor[[10]]$`@attributes`
+##                                          org_name 
+## "National Assn of Insurance &amp; Financial Advisors" 
+##                                             total 
+##                                           "10000" 
+##                                              pacs 
+##                                           "10000" 
+##                                            indivs 
+##                                               "0"
+```
+
+---
+
+
+
+```r
+MoTopDonors2018&lt;-plyr::llply(IDsForMO, getTopDonors)
+str(MoTopDonors2018)
+```
+
+```
+## List of 10
+##  $ :List of 1
+##   ..$ response:List of 1
+##   .. ..$ contributors:List of 2
+##   .. .. ..$ @attributes: Named chr [1:6] "William L Clay Jr. (D)" "N00012460" "2018" "Center for Responsive Politics" ...
+##   .. .. .. ..- attr(*, "names")= chr [1:6] "cand_name" "cid" "cycle" "origin" ...
+##   .. .. ..$ contributor:List of 10
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "National Air Traffic Controllers Assn" "11000" "11000" "0"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "AT&amp;T Inc" "10700" "10700" "0"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Ameren Corp" "10000" "10000" "0"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "American Society of Anesthesiologists" "10000" "10000" "0"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Bank of America" "10000" "10000" "0"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Boeing Co" "10000" "10000" "0"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Charter Communications" "10000" "10000" "0"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Deloitte LLP" "10000" "10000" "0"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Express Scripts" "10000" "10000" "0"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "National Assn of Insurance &amp; Financial Advisors" "10000" "10000" "0"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##  $ :List of 1
+##   ..$ response:List of 1
+##   .. ..$ contributors:List of 2
+##   .. .. ..$ @attributes: Named chr [1:6] "Ann L Wagner (R)" "N00033106" "2018" "Center for Responsive Politics" ...
+##   .. .. .. ..- attr(*, "names")= chr [1:6] "cand_name" "cid" "cycle" "origin" ...
+##   .. .. ..$ contributor:List of 10
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Enterprise Holdings" "103250" "0" "103250"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Northwestern Mutual Life Insurance" "49950" "10000" "39950"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Edward Jones" "43200" "10000" "33200"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Ameren Corp" "30100" "10000" "20100"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Charter Communications" "25750" "10000" "15750"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Express Scripts" "25021" "0" "25021"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Quicken Loans" "24850" "10000" "14850"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Enterprise Rent-A-Car" "24600" "0" "24600"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Husch Blackwell LLP" "24222" "5200" "19022"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Anheuser-Busch" "23500" "10000" "13500"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##  $ :List of 1
+##   ..$ response:List of 1
+##   .. ..$ contributors:List of 2
+##   .. .. ..$ @attributes: Named chr [1:6] "Blaine Luetkemeyer (R)" "N00030026" "2018" "Center for Responsive Politics" ...
+##   .. .. .. ..- attr(*, "names")= chr [1:6] "cand_name" "cid" "cycle" "origin" ...
+##   .. .. ..$ contributor:List of 10
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Edward Jones" "33600" "7500" "26100"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Prudential Financial" "32200" "15000" "17200"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Boeing Co" "15400" "10000" "5400"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Diamond Pet Foods" "14450" "0" "14450"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "US Bancorp" "14000" "14000" "0"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "The Hartford" "13750" "0" "13750"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Consumer Bankers Assn" "13200" "9500" "3700"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "State Street Bank &amp; Trust" "12800" "7500" "5300"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Regions Financial" "12700" "10000" "2700"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Citizens Financial Group" "12500" "10000" "2500"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##  $ :List of 1
+##   ..$ response:List of 1
+##   .. ..$ contributors:List of 2
+##   .. .. ..$ @attributes: Named chr [1:6] "Vicky Hartzler (R)" "N00031005" "2018" "Center for Responsive Politics" ...
+##   .. .. .. ..- attr(*, "names")= chr [1:6] "cand_name" "cid" "cycle" "origin" ...
+##   .. .. ..$ contributor:List of 10
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Boeing Co" "15400" "10000" "5400"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Northrop Grumman" "12700" "10000" "2700"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Bartlett Grain" "10800" "0" "10800"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Colt Energy" "10800" "0" "10800"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Midway Usa" "10800" "0" "10800"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Ms Management" "10800" "0" "10800"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Ozarks Coca-Cola &amp; Dr Pepper Bottling" "10800" "0" "10800"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "TC Jacoby &amp; Co" "10800" "0" "10800"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Willard Asphalt" "10800" "0" "10800"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Ameren Corp" "10000" "10000" "0"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##  $ :List of 1
+##   ..$ response:List of 1
+##   .. ..$ contributors:List of 2
+##   .. .. ..$ @attributes: Named chr [1:6] "Emanuel Cleaver (D)" "N00026790" "2018" "Center for Responsive Politics" ...
+##   .. .. .. ..- attr(*, "names")= chr [1:6] "cand_name" "cid" "cycle" "origin" ...
+##   .. .. ..$ contributor:List of 10
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Hallmark Cards" "34525" "7000" "27525"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Asurion Corp" "10400" "5000" "5400"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "PricewaterhouseCoopers" "10400" "10000" "400"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Honeywell International" "10215" "10000" "215"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "American Council of Life Insurers" "10000" "10000" "0"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "American Federation of State/Cnty/Munic Employees" "10000" "10000" "0"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "American Society of Anesthesiologists" "10000" "10000" "0"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Burns &amp; McDonnell" "10000" "10000" "0"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Deloitte LLP" "10000" "10000" "0"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "H&amp;R Block" "10000" "10000" "0"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##  $ :List of 1
+##   ..$ response:List of 1
+##   .. ..$ contributors:List of 2
+##   .. .. ..$ @attributes: Named chr [1:6] "Sam Graves (R)" "N00013323" "2018" "Center for Responsive Politics" ...
+##   .. .. .. ..- attr(*, "names")= chr [1:6] "cand_name" "cid" "cycle" "origin" ...
+##   .. .. ..$ contributor:List of 10
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "BNSF Railway" "24000" "10000" "14000"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Hallmark Cards" "22200" "6000" "16200"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Airlines for America" "11000" "10000" "1000"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Norfolk Southern" "11000" "10000" "1000"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "CRH Americas" "10500" "10000" "500"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Enterprise Rent-A-Car" "10500" "10000" "500"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Air Line Pilots Assn" "10000" "10000" "0"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Aircraft Owners &amp; Pilots Assn" "10000" "10000" "0"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Ameren Corp" "10000" "10000" "0"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "American Bankers Assn" "10000" "10000" "0"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##  $ :List of 1
+##   ..$ response:List of 1
+##   .. ..$ contributors:List of 2
+##   .. .. ..$ @attributes: Named chr [1:6] "Billy Long (R)" "N00030676" "2018" "Center for Responsive Politics" ...
+##   .. .. .. ..- attr(*, "names")= chr [1:6] "cand_name" "cid" "cycle" "origin" ...
+##   .. .. ..$ contributor:List of 10
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Pinegar Chevrolet" "21454" "0" "21454"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Leggett &amp; Platt" "20200" "10000" "10200"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Ozarks Coca-Cola Bottling" "16200" "0" "16200"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Prime Inc" "16200" "0" "16200"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Mercy" "15550" "0" "15550"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Emerson Electric" "12000" "12000" "0"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Society of Interventional Radiology" "11000" "11000" "0"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Harbour Group Industries" "10800" "0" "10800"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "TAMKO Building Products" "10800" "0" "10800"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "National Assn of Broadcasters" "10500" "10000" "500"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##  $ :List of 1
+##   ..$ response:List of 1
+##   .. ..$ contributors:List of 2
+##   .. .. ..$ @attributes: Named chr [1:6] "Jason Smith (R)" "N00035282" "2018" "Center for Responsive Politics" ...
+##   .. .. .. ..- attr(*, "names")= chr [1:6] "cand_name" "cid" "cycle" "origin" ...
+##   .. .. ..$ contributor:List of 10
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "DaVita Inc" "19000" "10000" "9000"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Anheuser-Busch" "15400" "10000" "5400"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Bryan, Cave et al" "15000" "6250" "8750"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Northwestern Mutual Life Insurance" "14950" "10000" "4950"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Boeing Co" "13400" "8000" "5400"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Enterprise Rent-A-Car" "12900" "7500" "5400"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Eli Lilly &amp; Co" "12500" "8500" "4000"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Emerson Electric" "12500" "10000" "2500"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Leggett &amp; Platt" "12500" "10000" "2500"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Comcast Corp" "11500" "10000" "1500"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##  $ :List of 1
+##   ..$ response:List of 1
+##   .. ..$ contributors:List of 2
+##   .. .. ..$ @attributes: Named chr [1:6] "Roy Blunt (R)" "N00005195" "2018" "Center for Responsive Politics" ...
+##   .. .. .. ..- attr(*, "names")= chr [1:6] "cand_name" "cid" "cycle" "origin" ...
+##   .. .. ..$ contributor:List of 10
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Monsanto Co" "92900" "10000" "82900"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Goldman Sachs" "84650" "7500" "77150"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Enterprise Rent-A-Car" "80200" "7500" "72700"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Edward Jones" "76500" "4000" "72500"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Capital One Financial" "70000" "10000" "60000"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "General Electric" "57735" "10000" "47735"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Bryan, Cave et al" "56540" "7500" "49040"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Boeing Co" "52591" "10000" "42591"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Emerson Electric" "52100" "7500" "44600"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Blackstone Group" "51500" "0" "51500"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##  $ :List of 1
+##   ..$ response:List of 1
+##   .. ..$ contributors:List of 2
+##   .. .. ..$ @attributes: Named chr [1:6] "Josh Hawley (R)" "N00041620" "2018" "Center for Responsive Politics" ...
+##   .. .. .. ..- attr(*, "names")= chr [1:6] "cand_name" "cid" "cycle" "origin" ...
+##   .. .. ..$ contributor:List of 10
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Club for Growth" "299301" "0" "299301"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Senate Conservatives Fund" "247189" "0" "247189"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "National Republican Senatorial Cmte" "47400" "47400" "0"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Emerson Electric" "46900" "10000" "36900"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Herzog Contracting" "44800" "5000" "39800"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Diamond Pet Foods" "43200" "0" "43200"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Alliance Coal" "33466" "10000" "23466"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Kirkland &amp; Ellis" "29928" "0" "29928"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Leggett &amp; Platt" "26000" "10000" "16000"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+##   .. .. .. ..$ :List of 1
+##   .. .. .. .. ..$ @attributes: Named chr [1:4] "Durham Co" "25600" "0" "25600"
+##   .. .. .. .. .. ..- attr(*, "names")= chr [1:4] "org_name" "total" "pacs" "indivs"
+```
+
+
+---
+
+### Tasks
+
+
+Group work:
+
+- Talk to your group about your group project
+- By the start of next class please have booked a meeting between me and most of your group.
+
+
+Individual work
+
+- Find a useful API for the class and post it up online. 
+- Bonus if you can figure out how to use it.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

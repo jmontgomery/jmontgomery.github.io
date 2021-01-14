@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7 dplyr and tidy | Political Data Science</title>
   <meta name="description" content="7 dplyr and tidy | Political Data Science" />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7 dplyr and tidy | Political Data Science" />
   <meta property="og:type" content="book" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="data-visualization-in-r.html"/>
-<link rel="next" href="functions-and-packages.html"/>
+<link rel="next" href="more-useful-packages.html"/>
 <script src="libs/header-attrs-2.1/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -144,6 +144,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#learning-objective-2-show-up-ready"><i class="fa fa-check"></i><b>1.2.2</b> Learning objective #2: Show up ready</a></li>
 <li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#learning-objective-3-how-is-this-going-to-work"><i class="fa fa-check"></i><b>1.2.3</b> Learning objective #3: How is this going to work?</a></li>
 </ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#interactive-r-environment"><i class="fa fa-check"></i><b>1.3</b> Interactive R Environment</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html"><i class="fa fa-check"></i><b>2</b> Getting Started in R</a>
 <ul>
@@ -259,32 +260,89 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.6" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#map"><i class="fa fa-check"></i><b>7.6</b> <code>map</code></a></li>
 <li class="chapter" data-level="7.7" data-path="dplyr-and-tidy.html"><a href="dplyr-and-tidy.html#walk-purrr-and-more"><i class="fa fa-check"></i><b>7.7</b> walk, purrr, and more</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="functions-and-packages.html"><a href="functions-and-packages.html"><i class="fa fa-check"></i><b>8</b> Functions and Packages</a>
+<li class="chapter" data-level="8" data-path="more-useful-packages.html"><a href="more-useful-packages.html"><i class="fa fa-check"></i><b>8</b> More useful packages</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="functions-and-packages.html"><a href="functions-and-packages.html#apply-and-its-friends"><i class="fa fa-check"></i><b>8.1</b> <code>apply</code> and its friends</a>
+<li class="chapter" data-level="8.1" data-path="more-useful-packages.html"><a href="more-useful-packages.html#stringr-1"><i class="fa fa-check"></i><b>8.1</b> <code>stringr</code></a>
 <ul>
-<li class="chapter" data-level="8.1.1" data-path="functions-and-packages.html"><a href="functions-and-packages.html#apply"><i class="fa fa-check"></i><b>8.1.1</b> <code>apply</code></a></li>
-<li class="chapter" data-level="8.1.2" data-path="functions-and-packages.html"><a href="functions-and-packages.html#lapply"><i class="fa fa-check"></i><b>8.1.2</b> <code>lapply</code></a></li>
-<li class="chapter" data-level="8.1.3" data-path="functions-and-packages.html"><a href="functions-and-packages.html#sapply"><i class="fa fa-check"></i><b>8.1.3</b> <code>sapply</code></a></li>
-<li class="chapter" data-level="8.1.4" data-path="functions-and-packages.html"><a href="functions-and-packages.html#tapply"><i class="fa fa-check"></i><b>8.1.4</b> <code>tapply</code></a></li>
-<li class="chapter" data-level="8.1.5" data-path="functions-and-packages.html"><a href="functions-and-packages.html#sweep"><i class="fa fa-check"></i><b>8.1.5</b> <code>sweep</code></a></li>
-<li class="chapter" data-level="8.1.6" data-path="functions-and-packages.html"><a href="functions-and-packages.html#by"><i class="fa fa-check"></i><b>8.1.6</b> <code>by</code></a></li>
-<li class="chapter" data-level="8.1.7" data-path="functions-and-packages.html"><a href="functions-and-packages.html#vapply-and-more"><i class="fa fa-check"></i><b>8.1.7</b> <code>vapply</code> And more</a></li>
+<li class="chapter" data-level="8.1.1" data-path="more-useful-packages.html"><a href="more-useful-packages.html#things-you-havent-thought-about-strings-1"><i class="fa fa-check"></i><b>8.1.1</b> Things you haven’t thought about strings</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="functions-and-packages.html"><a href="functions-and-packages.html#plyr"><i class="fa fa-check"></i><b>8.2</b> <code>plyr</code></a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html"><i class="fa fa-check"></i><b>9</b> Using SQL syntax on an R dataframe</a>
+<li class="chapter" data-level="9" data-path="functions-and-packages.html"><a href="functions-and-packages.html"><i class="fa fa-check"></i><b>9</b> Functions and Packages</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html#sql"><i class="fa fa-check"></i><b>9.1</b> SQL</a>
+<li class="chapter" data-level="9.1" data-path="functions-and-packages.html"><a href="functions-and-packages.html#apply-and-its-friends"><i class="fa fa-check"></i><b>9.1</b> <code>apply</code> and its friends</a>
 <ul>
-<li class="chapter" data-level="9.1.1" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html#select-and-from"><i class="fa fa-check"></i><b>9.1.1</b> <code>SELECT</code> and <code>FROM</code></a></li>
-<li class="chapter" data-level="9.1.2" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html#where"><i class="fa fa-check"></i><b>9.1.2</b> <code>WHERE</code></a></li>
-<li class="chapter" data-level="9.1.3" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html#functions-2"><i class="fa fa-check"></i><b>9.1.3</b> Functions</a></li>
-<li class="chapter" data-level="9.1.4" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html#having"><i class="fa fa-check"></i><b>9.1.4</b> <code>HAVING</code></a></li>
-<li class="chapter" data-level="9.1.5" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html#withas-and-subqueries"><i class="fa fa-check"></i><b>9.1.5</b> <code>WITH</code>/<code>AS</code> and Subqueries</a></li>
-<li class="chapter" data-level="9.1.6" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html#joins"><i class="fa fa-check"></i><b>9.1.6</b> Joins</a></li>
+<li class="chapter" data-level="9.1.1" data-path="functions-and-packages.html"><a href="functions-and-packages.html#apply"><i class="fa fa-check"></i><b>9.1.1</b> <code>apply</code></a></li>
+<li class="chapter" data-level="9.1.2" data-path="functions-and-packages.html"><a href="functions-and-packages.html#lapply"><i class="fa fa-check"></i><b>9.1.2</b> <code>lapply</code></a></li>
+<li class="chapter" data-level="9.1.3" data-path="functions-and-packages.html"><a href="functions-and-packages.html#sapply"><i class="fa fa-check"></i><b>9.1.3</b> <code>sapply</code></a></li>
+<li class="chapter" data-level="9.1.4" data-path="functions-and-packages.html"><a href="functions-and-packages.html#tapply"><i class="fa fa-check"></i><b>9.1.4</b> <code>tapply</code></a></li>
+<li class="chapter" data-level="9.1.5" data-path="functions-and-packages.html"><a href="functions-and-packages.html#sweep"><i class="fa fa-check"></i><b>9.1.5</b> <code>sweep</code></a></li>
+<li class="chapter" data-level="9.1.6" data-path="functions-and-packages.html"><a href="functions-and-packages.html#by"><i class="fa fa-check"></i><b>9.1.6</b> <code>by</code></a></li>
+<li class="chapter" data-level="9.1.7" data-path="functions-and-packages.html"><a href="functions-and-packages.html#vapply-and-more"><i class="fa fa-check"></i><b>9.1.7</b> <code>vapply</code> And more</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html#the-sqldf-package"><i class="fa fa-check"></i><b>9.2</b> The <code>sqldf</code> package</a></li>
+<li class="chapter" data-level="9.2" data-path="functions-and-packages.html"><a href="functions-and-packages.html#plyr"><i class="fa fa-check"></i><b>9.2</b> <code>plyr</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html"><i class="fa fa-check"></i><b>10</b> Using SQL syntax on an R dataframe</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html#sql"><i class="fa fa-check"></i><b>10.1</b> SQL</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html#select-and-from"><i class="fa fa-check"></i><b>10.1.1</b> <code>SELECT</code> and <code>FROM</code></a></li>
+<li class="chapter" data-level="10.1.2" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html#where"><i class="fa fa-check"></i><b>10.1.2</b> <code>WHERE</code></a></li>
+<li class="chapter" data-level="10.1.3" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html#functions-2"><i class="fa fa-check"></i><b>10.1.3</b> Functions</a></li>
+<li class="chapter" data-level="10.1.4" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html#having"><i class="fa fa-check"></i><b>10.1.4</b> <code>HAVING</code></a></li>
+<li class="chapter" data-level="10.1.5" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html#withas-and-subqueries"><i class="fa fa-check"></i><b>10.1.5</b> <code>WITH</code>/<code>AS</code> and Subqueries</a></li>
+<li class="chapter" data-level="10.1.6" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html#joins"><i class="fa fa-check"></i><b>10.1.6</b> Joins</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="using-sql-syntax-on-an-r-dataframe.html"><a href="using-sql-syntax-on-an-r-dataframe.html#the-sqldf-package"><i class="fa fa-check"></i><b>10.2</b> The <code>sqldf</code> package</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="machine-learning.html"><a href="machine-learning.html"><i class="fa fa-check"></i><b>11</b> Machine Learning</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="machine-learning.html"><a href="machine-learning.html#supervised-learning"><i class="fa fa-check"></i><b>11.1</b> Supervised Learning</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="machine-learning.html"><a href="machine-learning.html#the-gist"><i class="fa fa-check"></i><b>11.1.1</b> The Gist</a></li>
+<li class="chapter" data-level="11.1.2" data-path="machine-learning.html"><a href="machine-learning.html#what-could-go-wrong"><i class="fa fa-check"></i><b>11.1.2</b> What could go wrong?</a></li>
+<li class="chapter" data-level="11.1.3" data-path="machine-learning.html"><a href="machine-learning.html#example-predicting-presidential-elections-with-vote-share"><i class="fa fa-check"></i><b>11.1.3</b> Example: Predicting presidential elections with vote share</a></li>
+<li class="chapter" data-level="11.1.4" data-path="machine-learning.html"><a href="machine-learning.html#the-complexity-of-keeping-it-simple"><i class="fa fa-check"></i><b>11.1.4</b> The complexity of keeping it simple</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="machine-learning.html"><a href="machine-learning.html#classification"><i class="fa fa-check"></i><b>11.2</b> Classification</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="machine-learning.html"><a href="machine-learning.html#classification-basics-binary-outcomes"><i class="fa fa-check"></i><b>11.2.1</b> Classification basics: Binary outcomes</a></li>
+<li class="chapter" data-level="11.2.2" data-path="machine-learning.html"><a href="machine-learning.html#the-linear-classifier-aka-logit"><i class="fa fa-check"></i><b>11.2.2</b> The linear classifier (AKA Logit)</a></li>
+<li class="chapter" data-level="11.2.3" data-path="machine-learning.html"><a href="machine-learning.html#more-models"><i class="fa fa-check"></i><b>11.2.3</b> More models</a></li>
+<li class="chapter" data-level="11.2.4" data-path="machine-learning.html"><a href="machine-learning.html#random-forests"><i class="fa fa-check"></i><b>11.2.4</b> Random forests</a></li>
+<li class="chapter" data-level="11.2.5" data-path="machine-learning.html"><a href="machine-learning.html#k-nearest-neighbors"><i class="fa fa-check"></i><b>11.2.5</b> K Nearest Neighbors</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="machine-learning.html"><a href="machine-learning.html#putting-that-in-action"><i class="fa fa-check"></i><b>11.3</b> Putting that in action</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="causality.html"><a href="causality.html"><i class="fa fa-check"></i><b>12</b> Causality</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="causality.html"><a href="causality.html#correlation-and-causation"><i class="fa fa-check"></i><b>12.1</b> Correlation and causation</a></li>
+<li class="chapter" data-level="12.2" data-path="causality.html"><a href="causality.html#a-formal-definition"><i class="fa fa-check"></i><b>12.2</b> A formal definition</a></li>
+<li class="chapter" data-level="12.3" data-path="causality.html"><a href="causality.html#formal-presentation-of-an-ate"><i class="fa fa-check"></i><b>12.3</b> Formal presentation of an ATE</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="causality.html"><a href="causality.html#danger"><i class="fa fa-check"></i><b>12.3.1</b> Danger!</a></li>
+<li class="chapter" data-level="12.3.2" data-path="causality.html"><a href="causality.html#does-drinking-make-you-more-educated"><i class="fa fa-check"></i><b>12.3.2</b> Does drinking make you more educated?</a></li>
+<li class="chapter" data-level="12.3.3" data-path="causality.html"><a href="causality.html#problem-it-can-be-way-more-subtle"><i class="fa fa-check"></i><b>12.3.3</b> Problem: It can be way more subtle</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="causality.html"><a href="causality.html#estimating-ate"><i class="fa fa-check"></i><b>12.4</b> Estimating ATE</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="causality.html"><a href="causality.html#filling-in-the-potential-values"><i class="fa fa-check"></i><b>12.4.1</b> Filling in the potential values</a></li>
+<li class="chapter" data-level="12.4.2" data-path="causality.html"><a href="causality.html#good-causal-inference"><i class="fa fa-check"></i><b>12.4.2</b> Good causal inference</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="causality.html"><a href="causality.html#experiments-ab-testing"><i class="fa fa-check"></i><b>12.5</b> Experiments: A/B Testing</a>
+<ul>
+<li class="chapter" data-level="12.5.1" data-path="causality.html"><a href="causality.html#what-to-do-when-you-cant-experiment"><i class="fa fa-check"></i><b>12.5.1</b> What to do when you can’t experiment:</a></li>
+</ul></li>
+<li class="chapter" data-level="12.6" data-path="causality.html"><a href="causality.html#panel-data-and-fixed-effects"><i class="fa fa-check"></i><b>12.6</b> Panel data and fixed effects</a>
+<ul>
+<li class="chapter" data-level="12.6.1" data-path="causality.html"><a href="causality.html#example-are-elections-fought-over-non-economic-issues-more-when-globalization-increases"><i class="fa fa-check"></i><b>12.6.1</b> Example: Are elections fought over non-economic issues more when globalization increases?</a></li>
+<li class="chapter" data-level="12.6.2" data-path="causality.html"><a href="causality.html#naive-regression"><i class="fa fa-check"></i><b>12.6.2</b> Naive regression</a></li>
+<li class="chapter" data-level="12.6.3" data-path="causality.html"><a href="causality.html#fixed-effects"><i class="fa fa-check"></i><b>12.6.3</b> Fixed effects</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="causality.html"><a href="causality.html#difference-in-differences"><i class="fa fa-check"></i><b>12.7</b> Difference-in-differences</a>
+<ul>
+<li class="chapter" data-level="12.7.1" data-path="causality.html"><a href="causality.html#did-in-practice"><i class="fa fa-check"></i><b>12.7.1</b> DID in practice</a></li>
+<li class="chapter" data-level="12.7.2" data-path="causality.html"><a href="causality.html#regression-discontinuity"><i class="fa fa-check"></i><b>12.7.2</b> Regression discontinuity</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -315,19 +373,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="our-example" class="section level3" number="7.1.1">
 <h3><span class="header-section-number">7.1.1</span> Our example</h3>
 <p>Data comes from fivethirtyeight.com</p>
-<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb493-1"><a href="dplyr-and-tidy.html#cb493-1"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb493-2"><a href="dplyr-and-tidy.html#cb493-2"></a><span class="kw">library</span>(tidyr)</span>
-<span id="cb493-3"><a href="dplyr-and-tidy.html#cb493-3"></a><span class="kw">library</span>(readr)</span>
-<span id="cb493-4"><a href="dplyr-and-tidy.html#cb493-4"></a>primaryPolls&lt;-<span class="kw">read_csv</span>(<span class="st">&#39;https://jmontgomery.github.io/PDS/Datasets/president_primary_polls_feb2020.csv&#39;</span>)</span>
-<span id="cb493-5"><a href="dplyr-and-tidy.html#cb493-5"></a>primaryPolls<span class="op">$</span>start_date&lt;-<span class="kw">as.Date</span>(primaryPolls<span class="op">$</span>start_date, <span class="st">&quot;%m/%d/%y&quot;</span>)</span>
-<span id="cb493-6"><a href="dplyr-and-tidy.html#cb493-6"></a></span>
-<span id="cb493-7"><a href="dplyr-and-tidy.html#cb493-7"></a><span class="kw">class</span>(primaryPolls)</span></code></pre></div>
+<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="dplyr-and-tidy.html#cb502-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb502-2"><a href="dplyr-and-tidy.html#cb502-2"></a><span class="kw">library</span>(tidyr)</span>
+<span id="cb502-3"><a href="dplyr-and-tidy.html#cb502-3"></a><span class="kw">library</span>(readr)</span>
+<span id="cb502-4"><a href="dplyr-and-tidy.html#cb502-4"></a>primaryPolls&lt;-<span class="kw">read_csv</span>(<span class="st">&#39;https://jmontgomery.github.io/PDS/Datasets/president_primary_polls_feb2020.csv&#39;</span>)</span>
+<span id="cb502-5"><a href="dplyr-and-tidy.html#cb502-5"></a>primaryPolls<span class="op">$</span>start_date&lt;-<span class="kw">as.Date</span>(primaryPolls<span class="op">$</span>start_date, <span class="st">&quot;%m/%d/%y&quot;</span>)</span>
+<span id="cb502-6"><a href="dplyr-and-tidy.html#cb502-6"></a></span>
+<span id="cb502-7"><a href="dplyr-and-tidy.html#cb502-7"></a><span class="kw">class</span>(primaryPolls)</span></code></pre></div>
 <pre><code>## [1] &quot;spec_tbl_df&quot; &quot;tbl_df&quot;      &quot;tbl&quot;         &quot;data.frame&quot;</code></pre>
 <ul>
 <li>A tibble is basically a data frame</li>
 <li>They are both friendlier and more structured than traditional data frames</li>
 </ul>
-<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="dplyr-and-tidy.html#cb495-1"></a>primaryPolls</span></code></pre></div>
+<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="dplyr-and-tidy.html#cb504-1"></a>primaryPolls</span></code></pre></div>
 <pre><code>## # A tibble: 16,661 x 33
 ##    question_id poll_id cycle state pollster_id pollster sponsor_ids sponsors
 ##          &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;   
@@ -350,7 +408,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## #   stage &lt;chr&gt;, party &lt;chr&gt;, answer &lt;chr&gt;, candidate_id &lt;dbl&gt;,
 ## #   candidate_name &lt;chr&gt;, pct &lt;dbl&gt;</code></pre>
 <p>You can also print the first 10 rows of all the columns</p>
-<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="dplyr-and-tidy.html#cb497-1"></a><span class="kw">print</span>(primaryPolls, <span class="dt">width=</span><span class="ot">Inf</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="dplyr-and-tidy.html#cb506-1"></a><span class="kw">print</span>(primaryPolls, <span class="dt">width=</span><span class="ot">Inf</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 16,661 x 33
 ##    question_id poll_id cycle state         pollster_id pollster         
 ##          &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;            
@@ -462,7 +520,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><code>filter</code> allows you to easily subset data using conditions as we have done before using accessors</li>
 </ul>
-<div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb499-1"><a href="dplyr-and-tidy.html#cb499-1"></a><span class="kw">filter</span>(primaryPolls, candidate_name <span class="op">==</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Amy Klobuchar&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb508-1"><a href="dplyr-and-tidy.html#cb508-1"></a><span class="kw">filter</span>(primaryPolls, candidate_name <span class="op">==</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Amy Klobuchar&quot;</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 874 x 33
 ##    question_id poll_id cycle state pollster_id pollster sponsor_ids sponsors
 ##          &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;   
@@ -487,9 +545,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Or you can include multiple conditions</li>
 </ul>
-<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="dplyr-and-tidy.html#cb501-1"></a><span class="kw">filter</span>(primaryPolls, </span>
-<span id="cb501-2"><a href="dplyr-and-tidy.html#cb501-2"></a>       candidate_name <span class="op">==</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Amy Klobuchar&quot;</span>), </span>
-<span id="cb501-3"><a href="dplyr-and-tidy.html#cb501-3"></a>       state<span class="op">==</span><span class="st">&quot;New Hampshire&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb510-1"><a href="dplyr-and-tidy.html#cb510-1"></a><span class="kw">filter</span>(primaryPolls, </span>
+<span id="cb510-2"><a href="dplyr-and-tidy.html#cb510-2"></a>       candidate_name <span class="op">==</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Amy Klobuchar&quot;</span>), </span>
+<span id="cb510-3"><a href="dplyr-and-tidy.html#cb510-3"></a>       state<span class="op">==</span><span class="st">&quot;New Hampshire&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 84 x 33
 ##    question_id poll_id cycle state pollster_id pollster sponsor_ids sponsors
 ##          &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;   
@@ -520,7 +578,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><code>arrange</code> does the same thing, but organizes data by rows insead of subsetting by rows.</li>
 </ul>
-<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="dplyr-and-tidy.html#cb503-1"></a><span class="kw">arrange</span>(primaryPolls, state, pollster_id)</span></code></pre></div>
+<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="dplyr-and-tidy.html#cb512-1"></a><span class="kw">arrange</span>(primaryPolls, state, pollster_id)</span></code></pre></div>
 <pre><code>## # A tibble: 16,661 x 33
 ##    question_id poll_id cycle state pollster_id pollster sponsor_ids sponsors
 ##          &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;   
@@ -545,7 +603,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Or in descending order</li>
 </ul>
-<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="dplyr-and-tidy.html#cb505-1"></a><span class="kw">arrange</span>(primaryPolls, state, <span class="kw">desc</span>(pollster_id))</span></code></pre></div>
+<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="dplyr-and-tidy.html#cb514-1"></a><span class="kw">arrange</span>(primaryPolls, state, <span class="kw">desc</span>(pollster_id))</span></code></pre></div>
 <pre><code>## # A tibble: 16,661 x 33
 ##    question_id poll_id cycle state pollster_id pollster sponsor_ids sponsors
 ##          &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;   
@@ -573,7 +631,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Select is just a much easier way to subset by column</li>
 </ul>
-<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="dplyr-and-tidy.html#cb507-1"></a><span class="kw">select</span>(primaryPolls, state, candidate_name, start_date)</span></code></pre></div>
+<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="dplyr-and-tidy.html#cb516-1"></a><span class="kw">select</span>(primaryPolls, state, candidate_name, start_date)</span></code></pre></div>
 <pre><code>## # A tibble: 16,661 x 3
 ##    state         candidate_name      start_date
 ##    &lt;chr&gt;         &lt;chr&gt;               &lt;date&gt;    
@@ -596,7 +654,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Similar functionality for <code>ends_with</code>, <code>contains</code>, and matches</li>
 </ul>
 <p>A fun trick to move your favorite variables to the front, but keep it all:</p>
-<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="dplyr-and-tidy.html#cb509-1"></a><span class="kw">select</span>(primaryPolls, state, candidate_name, start_date, <span class="kw">everything</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb518-1"><a href="dplyr-and-tidy.html#cb518-1"></a><span class="kw">select</span>(primaryPolls, state, candidate_name, start_date, <span class="kw">everything</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 16,661 x 33
 ##    state candidate_name start_date question_id poll_id cycle pollster_id
 ##    &lt;chr&gt; &lt;chr&gt;          &lt;date&gt;           &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;
@@ -622,8 +680,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Note here that <code>rename</code> is the mythical easy way to rename a column, although syntax seems backwards</li>
 <li>You have to specify the new column name on the left side of the equal sign and the old column name on the right</li>
 </ul>
-<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="dplyr-and-tidy.html#cb511-1"></a>basicPolls&lt;-<span class="kw">select</span>(primaryPolls, state, candidate_name, start_date, pct)</span>
-<span id="cb511-2"><a href="dplyr-and-tidy.html#cb511-2"></a><span class="kw">rename</span>(basicPolls, <span class="dt">candidate =</span> candidate_name)</span></code></pre></div>
+<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="dplyr-and-tidy.html#cb520-1"></a>basicPolls&lt;-<span class="kw">select</span>(primaryPolls, state, candidate_name, start_date, pct)</span>
+<span id="cb520-2"><a href="dplyr-and-tidy.html#cb520-2"></a><span class="kw">rename</span>(basicPolls, <span class="dt">candidate =</span> candidate_name)</span></code></pre></div>
 <pre><code>## # A tibble: 16,661 x 4
 ##    state         candidate           start_date   pct
 ##    &lt;chr&gt;         &lt;chr&gt;               &lt;date&gt;     &lt;dbl&gt;
@@ -648,7 +706,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Otherwise it will just print it out and throw the results away</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb513-1"><a href="dplyr-and-tidy.html#cb513-1"></a><span class="kw">mutate</span>(basicPolls, <span class="dt">proportion=</span>pct<span class="op">/</span><span class="dv">100</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="dplyr-and-tidy.html#cb522-1"></a><span class="kw">mutate</span>(basicPolls, <span class="dt">proportion=</span>pct<span class="op">/</span><span class="dv">100</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 16,661 x 5
 ##    state         candidate_name      start_date   pct proportion
 ##    &lt;chr&gt;         &lt;chr&gt;               &lt;date&gt;     &lt;dbl&gt;      &lt;dbl&gt;
@@ -663,11 +721,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9 &lt;NA&gt;          Bernard Sanders     2020-02-06    20       0.2 
 ## 10 &lt;NA&gt;          Joseph R. Biden Jr. 2020-02-06    17       0.17
 ## # ... with 16,651 more rows</code></pre>
-<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="dplyr-and-tidy.html#cb515-1"></a>basicPolls &lt;-<span class="st"> </span><span class="kw">mutate</span>(basicPolls, <span class="dt">proportion=</span>pct<span class="op">/</span><span class="dv">100</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb524-1"><a href="dplyr-and-tidy.html#cb524-1"></a>basicPolls &lt;-<span class="st"> </span><span class="kw">mutate</span>(basicPolls, <span class="dt">proportion=</span>pct<span class="op">/</span><span class="dv">100</span>)</span></code></pre></div>
 <ul>
 <li>transmute creates and returns a new tibble with only the mutated variable(s)</li>
 </ul>
-<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="dplyr-and-tidy.html#cb516-1"></a><span class="kw">transmute</span>(basicPolls, <span class="dt">proportion=</span>pct<span class="op">/</span><span class="dv">100</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="dplyr-and-tidy.html#cb525-1"></a><span class="kw">transmute</span>(basicPolls, <span class="dt">proportion=</span>pct<span class="op">/</span><span class="dv">100</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 16,661 x 1
 ##    proportion
 ##         &lt;dbl&gt;
@@ -682,7 +740,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9       0.2 
 ## 10       0.17
 ## # ... with 16,651 more rows</code></pre>
-<div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb518-1"><a href="dplyr-and-tidy.html#cb518-1"></a><span class="kw">transmute</span>(primaryPolls, <span class="dt">numberRespondents=</span><span class="kw">round</span>((pct<span class="op">/</span><span class="dv">100</span>)<span class="op">*</span>sample_size))</span></code></pre></div>
+<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb527-1"><a href="dplyr-and-tidy.html#cb527-1"></a><span class="kw">transmute</span>(primaryPolls, <span class="dt">numberRespondents=</span><span class="kw">round</span>((pct<span class="op">/</span><span class="dv">100</span>)<span class="op">*</span>sample_size))</span></code></pre></div>
 <pre><code>## # A tibble: 16,661 x 1
 ##    numberRespondents
 ##                &lt;dbl&gt;
@@ -697,10 +755,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9               111
 ## 10                95
 ## # ... with 16,651 more rows</code></pre>
-<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="dplyr-and-tidy.html#cb520-1"></a><span class="kw">transmute</span>(primaryPolls, </span>
-<span id="cb520-2"><a href="dplyr-and-tidy.html#cb520-2"></a>          <span class="dt">proportion=</span>pct<span class="op">/</span><span class="dv">100</span>,</span>
-<span id="cb520-3"><a href="dplyr-and-tidy.html#cb520-3"></a>          <span class="dt">numberRespondents=</span><span class="kw">round</span>(proportion<span class="op">*</span>sample_size),</span>
-<span id="cb520-4"><a href="dplyr-and-tidy.html#cb520-4"></a>          )</span></code></pre></div>
+<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb529-1"><a href="dplyr-and-tidy.html#cb529-1"></a><span class="kw">transmute</span>(primaryPolls, </span>
+<span id="cb529-2"><a href="dplyr-and-tidy.html#cb529-2"></a>          <span class="dt">proportion=</span>pct<span class="op">/</span><span class="dv">100</span>,</span>
+<span id="cb529-3"><a href="dplyr-and-tidy.html#cb529-3"></a>          <span class="dt">numberRespondents=</span><span class="kw">round</span>(proportion<span class="op">*</span>sample_size),</span>
+<span id="cb529-4"><a href="dplyr-and-tidy.html#cb529-4"></a>          )</span></code></pre></div>
 <pre><code>## # A tibble: 16,661 x 2
 ##    proportion numberRespondents
 ##         &lt;dbl&gt;             &lt;dbl&gt;
@@ -720,7 +778,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>A useful one is <code>n()</code>, which just counts the number of observations</li>
 <li>This includes logical comparisons</li>
 </ul>
-<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="dplyr-and-tidy.html#cb522-1"></a><span class="kw">mutate</span>(basicPolls, <span class="dt">top_tier=</span>(pct<span class="op">&gt;</span><span class="dv">10</span>)<span class="op">*</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="dplyr-and-tidy.html#cb531-1"></a><span class="kw">mutate</span>(basicPolls, <span class="dt">top_tier=</span>(pct<span class="op">&gt;</span><span class="dv">10</span>)<span class="op">*</span><span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 16,661 x 6
 ##    state         candidate_name      start_date   pct proportion top_tier
 ##    &lt;chr&gt;         &lt;chr&gt;               &lt;date&gt;     &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;
@@ -741,7 +799,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>We can easily extract summary statistics</li>
 </ul>
-<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb524-1"><a href="dplyr-and-tidy.html#cb524-1"></a><span class="kw">summarise</span>(basicPolls, <span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="dplyr-and-tidy.html#cb533-1"></a><span class="kw">summarise</span>(basicPolls, <span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 1 x 2
 ##   average_candidate count
 ##               &lt;dbl&gt; &lt;int&gt;
@@ -749,8 +807,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>This is more powerful when also using the <code>group_by</code> function</li>
 </ul>
-<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb526-1"><a href="dplyr-and-tidy.html#cb526-1"></a>basicPolls_grouped&lt;-<span class="kw">group_by</span>(basicPolls, candidate_name)</span>
-<span id="cb526-2"><a href="dplyr-and-tidy.html#cb526-2"></a><span class="kw">summarise</span>(basicPolls_grouped, <span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="dplyr-and-tidy.html#cb535-1"></a>basicPolls_grouped&lt;-<span class="kw">group_by</span>(basicPolls, candidate_name)</span>
+<span id="cb535-2"><a href="dplyr-and-tidy.html#cb535-2"></a><span class="kw">summarise</span>(basicPolls_grouped, <span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 76 x 3
 ##    candidate_name   average_candidate count
 ##    &lt;chr&gt;                        &lt;dbl&gt; &lt;int&gt;
@@ -765,8 +823,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9 Bob Corker                   0.611    36
 ## 10 Charles D. Baker            31.5       2
 ## # ... with 66 more rows</code></pre>
-<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="dplyr-and-tidy.html#cb528-1"></a>basicPolls_grouped&lt;-<span class="kw">group_by</span>(basicPolls, candidate_name, state)</span>
-<span id="cb528-2"><a href="dplyr-and-tidy.html#cb528-2"></a><span class="kw">summarise</span>(basicPolls_grouped, <span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="dplyr-and-tidy.html#cb537-1"></a>basicPolls_grouped&lt;-<span class="kw">group_by</span>(basicPolls, candidate_name, state)</span>
+<span id="cb537-2"><a href="dplyr-and-tidy.html#cb537-2"></a><span class="kw">summarise</span>(basicPolls_grouped, <span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 1,024 x 4
 ## # Groups:   candidate_name [76]
 ##    candidate_name state      average_candidate count
@@ -790,9 +848,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>The <code>%?%</code> syntax allows us to pass on the results of one line to another</li>
 <li>The result from the left side of the <code>%&gt;%</code> is passed as the first parameter of the next function</li>
 </ul>
-<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="dplyr-and-tidy.html#cb530-1"></a>basicPolls <span class="op">%&gt;%</span></span>
-<span id="cb530-2"><a href="dplyr-and-tidy.html#cb530-2"></a><span class="st">  </span><span class="kw">group_by</span>(candidate_name, state) <span class="op">%&gt;%</span></span>
-<span id="cb530-3"><a href="dplyr-and-tidy.html#cb530-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb539-1"><a href="dplyr-and-tidy.html#cb539-1"></a>basicPolls <span class="op">%&gt;%</span></span>
+<span id="cb539-2"><a href="dplyr-and-tidy.html#cb539-2"></a><span class="st">  </span><span class="kw">group_by</span>(candidate_name, state) <span class="op">%&gt;%</span></span>
+<span id="cb539-3"><a href="dplyr-and-tidy.html#cb539-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 1,024 x 4
 ## # Groups:   candidate_name [76]
 ##    candidate_name state      average_candidate count
@@ -811,7 +869,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>The above code is equivalent to the following:</li>
 </ul>
-<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="dplyr-and-tidy.html#cb532-1"></a><span class="kw">summarise</span>(<span class="kw">group_by</span>(basicPolls, candidate_name, state), <span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="dplyr-and-tidy.html#cb541-1"></a><span class="kw">summarise</span>(<span class="kw">group_by</span>(basicPolls, candidate_name, state), <span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 1,024 x 4
 ## # Groups:   candidate_name [76]
 ##    candidate_name state      average_candidate count
@@ -830,8 +888,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Which is equivalent to this:</li>
 </ul>
-<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="dplyr-and-tidy.html#cb534-1"></a>grouped_by &lt;-<span class="st"> </span><span class="kw">group_by</span>(basicPolls, candidate_name, state)</span>
-<span id="cb534-2"><a href="dplyr-and-tidy.html#cb534-2"></a><span class="kw">summarise</span>(grouped_by, <span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="dplyr-and-tidy.html#cb543-1"></a>grouped_by &lt;-<span class="st"> </span><span class="kw">group_by</span>(basicPolls, candidate_name, state)</span>
+<span id="cb543-2"><a href="dplyr-and-tidy.html#cb543-2"></a><span class="kw">summarise</span>(grouped_by, <span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 1,024 x 4
 ## # Groups:   candidate_name [76]
 ##    candidate_name state      average_candidate count
@@ -850,10 +908,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>See assigned readings for more useful summary variables and <code>ungroup</code></li>
 </ul>
-<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="dplyr-and-tidy.html#cb536-1"></a>basicPolls <span class="op">%&gt;%</span></span>
-<span id="cb536-2"><a href="dplyr-and-tidy.html#cb536-2"></a><span class="st">  </span><span class="kw">group_by</span>(candidate_name, state) <span class="op">%&gt;%</span></span>
-<span id="cb536-3"><a href="dplyr-and-tidy.html#cb536-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>()) <span class="op">%&gt;%</span></span>
-<span id="cb536-4"><a href="dplyr-and-tidy.html#cb536-4"></a><span class="st">  </span><span class="kw">filter</span>(count<span class="op">&gt;</span><span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="dplyr-and-tidy.html#cb545-1"></a>basicPolls <span class="op">%&gt;%</span></span>
+<span id="cb545-2"><a href="dplyr-and-tidy.html#cb545-2"></a><span class="st">  </span><span class="kw">group_by</span>(candidate_name, state) <span class="op">%&gt;%</span></span>
+<span id="cb545-3"><a href="dplyr-and-tidy.html#cb545-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>()) <span class="op">%&gt;%</span></span>
+<span id="cb545-4"><a href="dplyr-and-tidy.html#cb545-4"></a><span class="st">  </span><span class="kw">filter</span>(count<span class="op">&gt;</span><span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 206 x 4
 ## # Groups:   candidate_name [44]
 ##    candidate_name state          average_candidate count
@@ -869,12 +927,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9 Amy Klobuchar  Wisconsin                   2.52    16
 ## 10 Amy Klobuchar  &lt;NA&gt;                        1.62   503
 ## # ... with 196 more rows</code></pre>
-<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="dplyr-and-tidy.html#cb538-1"></a>primaryPolls <span class="op">%&gt;%</span></span>
-<span id="cb538-2"><a href="dplyr-and-tidy.html#cb538-2"></a><span class="st">  </span><span class="kw">group_by</span>(candidate_name, state) <span class="op">%&gt;%</span></span>
-<span id="cb538-3"><a href="dplyr-and-tidy.html#cb538-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>()) <span class="op">%&gt;%</span></span>
-<span id="cb538-4"><a href="dplyr-and-tidy.html#cb538-4"></a><span class="st">  </span><span class="kw">filter</span>(count<span class="op">&gt;</span><span class="dv">10</span>) <span class="op">%&gt;%</span></span>
-<span id="cb538-5"><a href="dplyr-and-tidy.html#cb538-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">average_prop=</span>average_candidate<span class="op">/</span><span class="dv">100</span>) <span class="op">%&gt;%</span></span>
-<span id="cb538-6"><a href="dplyr-and-tidy.html#cb538-6"></a><span class="st">  </span><span class="kw">select</span>(average_prop, candidate_name, state, count)</span></code></pre></div>
+<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="dplyr-and-tidy.html#cb547-1"></a>primaryPolls <span class="op">%&gt;%</span></span>
+<span id="cb547-2"><a href="dplyr-and-tidy.html#cb547-2"></a><span class="st">  </span><span class="kw">group_by</span>(candidate_name, state) <span class="op">%&gt;%</span></span>
+<span id="cb547-3"><a href="dplyr-and-tidy.html#cb547-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">average_candidate=</span><span class="kw">mean</span>(pct), <span class="dt">count=</span><span class="kw">n</span>()) <span class="op">%&gt;%</span></span>
+<span id="cb547-4"><a href="dplyr-and-tidy.html#cb547-4"></a><span class="st">  </span><span class="kw">filter</span>(count<span class="op">&gt;</span><span class="dv">10</span>) <span class="op">%&gt;%</span></span>
+<span id="cb547-5"><a href="dplyr-and-tidy.html#cb547-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">average_prop=</span>average_candidate<span class="op">/</span><span class="dv">100</span>) <span class="op">%&gt;%</span></span>
+<span id="cb547-6"><a href="dplyr-and-tidy.html#cb547-6"></a><span class="st">  </span><span class="kw">select</span>(average_prop, candidate_name, state, count)</span></code></pre></div>
 <pre><code>## # A tibble: 206 x 4
 ## # Groups:   candidate_name [44]
 ##    average_prop candidate_name state          count
@@ -902,11 +960,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>In our running example we have one entry for each poll. How could we combine these to list the result from each unique poll togehter?</p></li>
 <li><p>The key here is that the <em>values</em> of interest are in the <code>pct</code> column and the <em>groupings</em> of interest are in the candidates column</p></li>
 </ul>
-<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="dplyr-and-tidy.html#cb540-1"></a>nevadaPrimaries&lt;-primaryPolls <span class="op">%&gt;%</span></span>
-<span id="cb540-2"><a href="dplyr-and-tidy.html#cb540-2"></a><span class="st"> </span><span class="kw">filter</span>(candidate_name <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Amy Klobuchar&quot;</span>, <span class="st">&quot;Bernard Sanders&quot;</span>, <span class="st">&quot;Elizabeth Warren&quot;</span>, <span class="st">&quot;Joseph R. Biden Jr.&quot;</span>, <span class="st">&quot;Michael Bloomberg&quot;</span>, <span class="st">&quot;Pete Buttigieg&quot;</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb540-3"><a href="dplyr-and-tidy.html#cb540-3"></a><span class="st">  </span><span class="kw">filter</span>(state<span class="op">==</span><span class="st">&quot;Nevada&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb540-4"><a href="dplyr-and-tidy.html#cb540-4"></a><span class="st">  </span><span class="kw">select</span>(candidate_name, pct, start_date, sample_size)</span>
-<span id="cb540-5"><a href="dplyr-and-tidy.html#cb540-5"></a><span class="kw">print</span>(nevadaPrimaries, <span class="dt">n=</span><span class="ot">Inf</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="dplyr-and-tidy.html#cb549-1"></a>nevadaPrimaries&lt;-primaryPolls <span class="op">%&gt;%</span></span>
+<span id="cb549-2"><a href="dplyr-and-tidy.html#cb549-2"></a><span class="st"> </span><span class="kw">filter</span>(candidate_name <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Amy Klobuchar&quot;</span>, <span class="st">&quot;Bernard Sanders&quot;</span>, <span class="st">&quot;Elizabeth Warren&quot;</span>, <span class="st">&quot;Joseph R. Biden Jr.&quot;</span>, <span class="st">&quot;Michael Bloomberg&quot;</span>, <span class="st">&quot;Pete Buttigieg&quot;</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb549-3"><a href="dplyr-and-tidy.html#cb549-3"></a><span class="st">  </span><span class="kw">filter</span>(state<span class="op">==</span><span class="st">&quot;Nevada&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb549-4"><a href="dplyr-and-tidy.html#cb549-4"></a><span class="st">  </span><span class="kw">select</span>(candidate_name, pct, start_date, sample_size)</span>
+<span id="cb549-5"><a href="dplyr-and-tidy.html#cb549-5"></a><span class="kw">print</span>(nevadaPrimaries, <span class="dt">n=</span><span class="ot">Inf</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 76 x 4
 ##    candidate_name        pct start_date sample_size
 ##    &lt;chr&gt;               &lt;dbl&gt; &lt;date&gt;           &lt;dbl&gt;
@@ -990,8 +1048,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>setting <code>n=Inf</code> in the print will ensure that all rows are shown (the equivalent for columns is <code>width=Inf</code>)</li>
 <li><code>nevadaPrimaries</code> contains one row for every combination of a Nevada poll (specified by <code>start_date</code> and <code>sample_size</code>) and a candidate</li>
 </ul>
-<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="dplyr-and-tidy.html#cb542-1"></a>wideNevada&lt;-<span class="kw">pivot_wider</span>(nevadaPrimaries, <span class="dt">names_from =</span> candidate_name, <span class="dt">values_from =</span> pct)</span>
-<span id="cb542-2"><a href="dplyr-and-tidy.html#cb542-2"></a><span class="kw">print</span>(wideNevada, <span class="dt">width=</span><span class="ot">Inf</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="dplyr-and-tidy.html#cb551-1"></a>wideNevada&lt;-<span class="kw">pivot_wider</span>(nevadaPrimaries, <span class="dt">names_from =</span> candidate_name, <span class="dt">values_from =</span> pct)</span>
+<span id="cb551-2"><a href="dplyr-and-tidy.html#cb551-2"></a><span class="kw">print</span>(wideNevada, <span class="dt">width=</span><span class="ot">Inf</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 15 x 8
 ##    start_date sample_size `Joseph R. Biden Jr.` `Bernard Sanders`
 ##    &lt;date&gt;           &lt;dbl&gt;                 &lt;dbl&gt;             &lt;dbl&gt;
@@ -1030,16 +1088,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><code>wideNevada</code> contains one row for every Nevada poll and a column for the pct each candidate got</li>
 </ul>
-<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="dplyr-and-tidy.html#cb544-1"></a><span class="kw">dim</span>(nevadaPrimaries)</span></code></pre></div>
+<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="dplyr-and-tidy.html#cb553-1"></a><span class="kw">dim</span>(nevadaPrimaries)</span></code></pre></div>
 <pre><code>## [1] 76  4</code></pre>
-<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="dplyr-and-tidy.html#cb546-1"></a><span class="kw">dim</span>(wideNevada)</span></code></pre></div>
+<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="dplyr-and-tidy.html#cb555-1"></a><span class="kw">dim</span>(wideNevada)</span></code></pre></div>
 <pre><code>## [1] 15  8</code></pre>
 <ul>
 <li>Or we could organize it into a time series ….</li>
 </ul>
-<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="dplyr-and-tidy.html#cb548-1"></a>timeNevada&lt;-<span class="kw">pivot_wider</span>(nevadaPrimaries, <span class="dt">id_cols=</span>candidate_name, </span>
-<span id="cb548-2"><a href="dplyr-and-tidy.html#cb548-2"></a>                        <span class="dt">names_from =</span> <span class="kw">c</span>(start_date), <span class="dt">values_from =</span> pct)</span>
-<span id="cb548-3"><a href="dplyr-and-tidy.html#cb548-3"></a><span class="kw">print</span>(timeNevada, <span class="dt">width=</span><span class="ot">Inf</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="dplyr-and-tidy.html#cb557-1"></a>timeNevada&lt;-<span class="kw">pivot_wider</span>(nevadaPrimaries, <span class="dt">id_cols=</span>candidate_name, </span>
+<span id="cb557-2"><a href="dplyr-and-tidy.html#cb557-2"></a>                        <span class="dt">names_from =</span> <span class="kw">c</span>(start_date), <span class="dt">values_from =</span> pct)</span>
+<span id="cb557-3"><a href="dplyr-and-tidy.html#cb557-3"></a><span class="kw">print</span>(timeNevada, <span class="dt">width=</span><span class="ot">Inf</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 16
 ##   candidate_name      `2020-01-08` `2020-01-06` `2020-01-05` `2019-11-10`
 ##   &lt;chr&gt;                      &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;
@@ -1069,9 +1127,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Of course sometimes we want to do the reverse using <code>pivot_longer</code></li>
 <li>In this case, we no longer have a single indicator variable for the values of <code>start_date</code></li>
 </ul>
-<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="dplyr-and-tidy.html#cb550-1"></a>timeNevada <span class="op">%&gt;%</span></span>
-<span id="cb550-2"><a href="dplyr-and-tidy.html#cb550-2"></a><span class="st">  </span><span class="kw">select</span>(candidate_name, <span class="st">`</span><span class="dt">2020-01-08</span><span class="st">`</span>, <span class="st">`</span><span class="dt">2020-01-06</span><span class="st">`</span>) <span class="op">%&gt;%</span></span>
-<span id="cb550-3"><a href="dplyr-and-tidy.html#cb550-3"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="kw">c</span>(<span class="st">`</span><span class="dt">2020-01-08</span><span class="st">`</span>, <span class="st">`</span><span class="dt">2020-01-06</span><span class="st">`</span>), <span class="dt">names_to =</span> <span class="st">&quot;start_date_test&quot;</span>, <span class="dt">values_to =</span> <span class="st">&quot;pct_test&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="dplyr-and-tidy.html#cb559-1"></a>timeNevada <span class="op">%&gt;%</span></span>
+<span id="cb559-2"><a href="dplyr-and-tidy.html#cb559-2"></a><span class="st">  </span><span class="kw">select</span>(candidate_name, <span class="st">`</span><span class="dt">2020-01-08</span><span class="st">`</span>, <span class="st">`</span><span class="dt">2020-01-06</span><span class="st">`</span>) <span class="op">%&gt;%</span></span>
+<span id="cb559-3"><a href="dplyr-and-tidy.html#cb559-3"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="kw">c</span>(<span class="st">`</span><span class="dt">2020-01-08</span><span class="st">`</span>, <span class="st">`</span><span class="dt">2020-01-06</span><span class="st">`</span>), <span class="dt">names_to =</span> <span class="st">&quot;start_date_test&quot;</span>, <span class="dt">values_to =</span> <span class="st">&quot;pct_test&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 12 x 3
 ##    candidate_name      start_date_test pct_test
 ##    &lt;chr&gt;               &lt;chr&gt;              &lt;dbl&gt;
@@ -1111,12 +1169,12 @@ user information, one for each tweet and its author, one for each like, the user
 <li>Download and unzip the following: <a href="https://github.com/jmontgomery/jmontgomery.github.io/blob/master/PDS/Datasets/Tweets.csv.zip" class="uri">https://github.com/jmontgomery/jmontgomery.github.io/blob/master/PDS/Datasets/Tweets.csv.zip</a></li>
 <li>Read these in using the correct file address</li>
 </ul>
-<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="dplyr-and-tidy.html#cb552-1"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb552-2"><a href="dplyr-and-tidy.html#cb552-2"></a>mayors&lt;-<span class="kw">read_csv</span>(<span class="dt">file=</span><span class="st">&quot;https://raw.githubusercontent.com/jmontgomery/jmontgomery.github.io/master/PDS/Datasets/Mayors.csv&quot;</span>)</span>
-<span id="cb552-3"><a href="dplyr-and-tidy.html#cb552-3"></a>tweets&lt;-<span class="kw">read_csv</span>(<span class="st">&quot;C:/Users/maria/OneDrive/WUSTL/2019-20/PDS/Tweets.csv&quot;</span>)</span>
-<span id="cb552-4"><a href="dplyr-and-tidy.html#cb552-4"></a><span class="kw">print</span>(<span class="kw">object.size</span>(mayors), <span class="dt">units=</span><span class="st">&quot;auto&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="dplyr-and-tidy.html#cb561-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb561-2"><a href="dplyr-and-tidy.html#cb561-2"></a>mayors &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;../Datasets/Mayors.csv&quot;</span>)</span>
+<span id="cb561-3"><a href="dplyr-and-tidy.html#cb561-3"></a>tweets&lt;-<span class="kw">read_csv</span>(<span class="st">&quot;C:/Users/maria/OneDrive/WUSTL/2019-20/PDS/Tweets.csv&quot;</span>)</span>
+<span id="cb561-4"><a href="dplyr-and-tidy.html#cb561-4"></a><span class="kw">print</span>(<span class="kw">object.size</span>(mayors), <span class="dt">units=</span><span class="st">&quot;auto&quot;</span>)</span></code></pre></div>
 <pre><code>## 1.5 Mb</code></pre>
-<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="dplyr-and-tidy.html#cb554-1"></a><span class="kw">print</span>(<span class="kw">object.size</span>(tweets), <span class="dt">units=</span><span class="st">&quot;auto&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="dplyr-and-tidy.html#cb563-1"></a><span class="kw">print</span>(<span class="kw">object.size</span>(tweets), <span class="dt">units=</span><span class="st">&quot;auto&quot;</span>)</span></code></pre></div>
 <pre><code>## 180.1 Mb</code></pre>
 <p>There are various ways we might want to work across levels</p>
 <ul>
@@ -1124,7 +1182,7 @@ user information, one for each tweet and its author, one for each like, the user
 <li><em>Filtering joins</em>, where you filter cases based on whether they match across. E.g., filter to mayors who have tweets.</li>
 <li><em>Combining</em> the datasets in various ways to construct new databases with rows and columns that meet desired specifications. E.g., Tweets of all moyors from Indiana.</li>
 </ul>
-<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="dplyr-and-tidy.html#cb556-1"></a>mayors</span></code></pre></div>
+<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb565-1"><a href="dplyr-and-tidy.html#cb565-1"></a>mayors</span></code></pre></div>
 <pre><code>## # A tibble: 1,473 x 51
 ##       X1 MayorID FullName LastName FirstName GenderMale GenderFemale RaceWhite
 ##    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;        &lt;dbl&gt;     &lt;dbl&gt;
@@ -1151,7 +1209,7 @@ user information, one for each tweet and its author, one for each like, the user
 ## #   CityHispanic &lt;dbl&gt;, CityOwner &lt;dbl&gt;, CityRenter &lt;dbl&gt;, GovWebsite &lt;chr&gt;,
 ## #   FacebookPageName &lt;chr&gt;, FacebookPageID &lt;dbl&gt;, FacebookLink &lt;chr&gt;,
 ## #   TwitterHandle &lt;chr&gt;, TwitterLink &lt;chr&gt;</code></pre>
-<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="dplyr-and-tidy.html#cb558-1"></a>tweets</span></code></pre></div>
+<div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb567-1"><a href="dplyr-and-tidy.html#cb567-1"></a>tweets</span></code></pre></div>
 <pre><code>## # A tibble: 604,818 x 17
 ##       X1 TweetID ScreenName Text  CreatedTime         Favorited FavoritesCount
 ##    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt; &lt;dttm&gt;                  &lt;dbl&gt;          &lt;dbl&gt;
@@ -1176,8 +1234,8 @@ user information, one for each tweet and its author, one for each like, the user
 <li>These variables will serve to link across datasets.</li>
 <li>Let’s rename so they are the same</li>
 </ul>
-<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="dplyr-and-tidy.html#cb560-1"></a>tweets &lt;-<span class="st"> </span><span class="kw">rename</span>(tweets, <span class="dt">TwitterHandle=</span>ScreenName)</span>
-<span id="cb560-2"><a href="dplyr-and-tidy.html#cb560-2"></a>tweets</span></code></pre></div>
+<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="dplyr-and-tidy.html#cb569-1"></a>tweets &lt;-<span class="st"> </span><span class="kw">rename</span>(tweets, <span class="dt">TwitterHandle=</span>ScreenName)</span>
+<span id="cb569-2"><a href="dplyr-and-tidy.html#cb569-2"></a>tweets</span></code></pre></div>
 <pre><code>## # A tibble: 604,818 x 17
 ##       X1 TweetID TwitterHandle Text  CreatedTime         Favorited
 ##    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt; &lt;dttm&gt;                  &lt;dbl&gt;
@@ -1199,18 +1257,18 @@ user information, one for each tweet and its author, one for each like, the user
 <li>But each dataset will also need a <code>key</code> – a unique identier</li>
 <li>Let’s actually look to see if these are unique identifiers?</li>
 </ul>
-<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="dplyr-and-tidy.html#cb562-1"></a>mayors <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb562-2"><a href="dplyr-and-tidy.html#cb562-2"></a><span class="st">  </span><span class="kw">count</span>(TwitterHandle) <span class="op">%&gt;%</span></span>
-<span id="cb562-3"><a href="dplyr-and-tidy.html#cb562-3"></a><span class="st">  </span><span class="kw">filter</span>(n<span class="op">&gt;</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="dplyr-and-tidy.html#cb571-1"></a>mayors <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb571-2"><a href="dplyr-and-tidy.html#cb571-2"></a><span class="st">  </span><span class="kw">count</span>(TwitterHandle) <span class="op">%&gt;%</span></span>
+<span id="cb571-3"><a href="dplyr-and-tidy.html#cb571-3"></a><span class="st">  </span><span class="kw">filter</span>(n<span class="op">&gt;</span><span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 2
 ##   TwitterHandle      n
 ##   &lt;chr&gt;          &lt;int&gt;
 ## 1 robertgarcialb     2
 ## 2 rodhiggins2017     2
 ## 3 &lt;NA&gt;             743</code></pre>
-<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb564-1"><a href="dplyr-and-tidy.html#cb564-1"></a>tweets <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb564-2"><a href="dplyr-and-tidy.html#cb564-2"></a><span class="st">  </span><span class="kw">count</span>(TweetID) <span class="op">%&gt;%</span></span>
-<span id="cb564-3"><a href="dplyr-and-tidy.html#cb564-3"></a><span class="st">  </span><span class="kw">filter</span>(n<span class="op">&gt;</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="dplyr-and-tidy.html#cb573-1"></a>tweets <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb573-2"><a href="dplyr-and-tidy.html#cb573-2"></a><span class="st">  </span><span class="kw">count</span>(TweetID) <span class="op">%&gt;%</span></span>
+<span id="cb573-3"><a href="dplyr-and-tidy.html#cb573-3"></a><span class="st">  </span><span class="kw">filter</span>(n<span class="op">&gt;</span><span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 2 x 2
 ##   TweetID     n
 ##     &lt;dbl&gt; &lt;int&gt;
@@ -1222,9 +1280,9 @@ user information, one for each tweet and its author, one for each like, the user
 <ul>
 <li>A mutating join adds variables to the right on your datset</li>
 </ul>
-<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb566-1"><a href="dplyr-and-tidy.html#cb566-1"></a>tweets <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb566-2"><a href="dplyr-and-tidy.html#cb566-2"></a><span class="st">  </span><span class="kw">left_join</span>(<span class="kw">select</span>(mayors, TwitterHandle, LastName), </span>
-<span id="cb566-3"><a href="dplyr-and-tidy.html#cb566-3"></a>            <span class="dt">by=</span><span class="st">&quot;TwitterHandle&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="dplyr-and-tidy.html#cb575-1"></a>tweets <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb575-2"><a href="dplyr-and-tidy.html#cb575-2"></a><span class="st">  </span><span class="kw">left_join</span>(<span class="kw">select</span>(mayors, TwitterHandle, LastName), </span>
+<span id="cb575-3"><a href="dplyr-and-tidy.html#cb575-3"></a>            <span class="dt">by=</span><span class="st">&quot;TwitterHandle&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 608,006 x 18
 ##       X1 TweetID TwitterHandle Text  CreatedTime         Favorited
 ##    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt; &lt;dttm&gt;                  &lt;dbl&gt;
@@ -1293,11 +1351,11 @@ user information, one for each tweet and its author, one for each like, the user
 <div id="exercise" class="section level3" number="7.3.6">
 <h3><span class="header-section-number">7.3.6</span> Exercise</h3>
 <p>Add a third set of data — mentions</p>
-<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="dplyr-and-tidy.html#cb568-1"></a>mentions &lt;-<span class="kw">read_csv</span>(<span class="dt">file=</span><span class="st">&quot;https://raw.githubusercontent.com/jmontgomery/jmontgomery.github.io/master/PDS/Datasets/TwitterMentions.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="dplyr-and-tidy.html#cb577-1"></a>mentions &lt;-<span class="kw">read_csv</span>(<span class="st">&quot;../Datasets/TwitterMentions.csv&quot;</span>)</span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>For each mayor, calculate the number of times they were mentioned</li>
 </ol>
-<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="dplyr-and-tidy.html#cb569-1"></a>mentions</span></code></pre></div>
+<div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb578-1"><a href="dplyr-and-tidy.html#cb578-1"></a>mentions</span></code></pre></div>
 <pre><code>## # A tibble: 61,570 x 18
 ##       X1 TweetID ScreenName Text  MayorHandle CreatedTime         Favorited
 ##    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;       &lt;dttm&gt;                  &lt;dbl&gt;
@@ -1315,7 +1373,7 @@ user information, one for each tweet and its author, one for each like, the user
 ## #   IsRetweet &lt;dbl&gt;, RetweetCount &lt;dbl&gt;, Retweeted &lt;dbl&gt;, ReplyToSN &lt;chr&gt;,
 ## #   ReplyToSID &lt;dbl&gt;, ReplyToUID &lt;dbl&gt;, Truncated &lt;dbl&gt;, StatusSource &lt;chr&gt;,
 ## #   Longitude &lt;dbl&gt;, Latitude &lt;dbl&gt;</code></pre>
-<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="dplyr-and-tidy.html#cb571-1"></a>mayors</span></code></pre></div>
+<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="dplyr-and-tidy.html#cb580-1"></a>mayors</span></code></pre></div>
 <pre><code>## # A tibble: 1,473 x 51
 ##       X1 MayorID FullName LastName FirstName GenderMale GenderFemale RaceWhite
 ##    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;        &lt;dbl&gt;     &lt;dbl&gt;
@@ -1342,10 +1400,10 @@ user information, one for each tweet and its author, one for each like, the user
 ## #   CityHispanic &lt;dbl&gt;, CityOwner &lt;dbl&gt;, CityRenter &lt;dbl&gt;, GovWebsite &lt;chr&gt;,
 ## #   FacebookPageName &lt;chr&gt;, FacebookPageID &lt;dbl&gt;, FacebookLink &lt;chr&gt;,
 ## #   TwitterHandle &lt;chr&gt;, TwitterLink &lt;chr&gt;</code></pre>
-<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="dplyr-and-tidy.html#cb573-1"></a>mentions &lt;-<span class="st"> </span><span class="kw">rename</span>(mentions, <span class="dt">TwitterHandle =</span> <span class="st">&quot;ScreenName&quot;</span>)</span>
-<span id="cb573-2"><a href="dplyr-and-tidy.html#cb573-2"></a>mentionsCount &lt;-<span class="st"> </span>mentions <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(MayorHandle) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tally</span>()</span>
-<span id="cb573-3"><a href="dplyr-and-tidy.html#cb573-3"></a>answer1 &lt;-<span class="st"> </span>mayors <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(mentionsCount, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;TwitterHandle&quot;</span> =<span class="st"> &quot;MayorHandle&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(TwitterHandle, FullName, n) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(n))</span>
-<span id="cb573-4"><a href="dplyr-and-tidy.html#cb573-4"></a>answer1</span></code></pre></div>
+<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="dplyr-and-tidy.html#cb582-1"></a>mentions &lt;-<span class="st"> </span><span class="kw">rename</span>(mentions, <span class="dt">TwitterHandle =</span> <span class="st">&quot;ScreenName&quot;</span>)</span>
+<span id="cb582-2"><a href="dplyr-and-tidy.html#cb582-2"></a>mentionsCount &lt;-<span class="st"> </span>mentions <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(MayorHandle) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tally</span>()</span>
+<span id="cb582-3"><a href="dplyr-and-tidy.html#cb582-3"></a>answer1 &lt;-<span class="st"> </span>mayors <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(mentionsCount, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;TwitterHandle&quot;</span> =<span class="st"> &quot;MayorHandle&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(TwitterHandle, FullName, n) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(n))</span>
+<span id="cb582-4"><a href="dplyr-and-tidy.html#cb582-4"></a>answer1</span></code></pre></div>
 <pre><code>## # A tibble: 1,473 x 3
 ##    TwitterHandle   FullName                    n
 ##    &lt;chr&gt;           &lt;chr&gt;                   &lt;int&gt;
@@ -1363,9 +1421,9 @@ user information, one for each tweet and its author, one for each like, the user
 <ol start="2" style="list-style-type: decimal">
 <li>Add to the mayors datset the number of times each mayor tweeted.</li>
 </ol>
-<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="dplyr-and-tidy.html#cb575-1"></a>tweetCounts &lt;-<span class="st"> </span>tweets <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(TwitterHandle) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tally</span>()</span>
-<span id="cb575-2"><a href="dplyr-and-tidy.html#cb575-2"></a>answer2 &lt;-<span class="st"> </span>mayors <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(tweetCounts, <span class="dt">by=</span><span class="st">&quot;TwitterHandle&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(n))</span>
-<span id="cb575-3"><a href="dplyr-and-tidy.html#cb575-3"></a>answer2</span></code></pre></div>
+<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="dplyr-and-tidy.html#cb584-1"></a>tweetCounts &lt;-<span class="st"> </span>tweets <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(TwitterHandle) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tally</span>()</span>
+<span id="cb584-2"><a href="dplyr-and-tidy.html#cb584-2"></a>answer2 &lt;-<span class="st"> </span>mayors <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(tweetCounts, <span class="dt">by=</span><span class="st">&quot;TwitterHandle&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(n))</span>
+<span id="cb584-3"><a href="dplyr-and-tidy.html#cb584-3"></a>answer2</span></code></pre></div>
 <pre><code>## # A tibble: 1,473 x 52
 ##       X1 MayorID FullName LastName FirstName GenderMale GenderFemale RaceWhite
 ##    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;        &lt;dbl&gt;     &lt;dbl&gt;
@@ -1395,9 +1453,9 @@ user information, one for each tweet and its author, one for each like, the user
 <ol start="3" style="list-style-type: decimal">
 <li>Create a combined dataset of all tweets from the tweets and mentions data. Subset down to overlapping columns (and rename where needed) to make this easy.</li>
 </ol>
-<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="dplyr-and-tidy.html#cb577-1"></a>allData &lt;-<span class="st"> </span><span class="kw">full_join</span>(tweets, mentions)</span></code></pre></div>
+<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb586-1"><a href="dplyr-and-tidy.html#cb586-1"></a>allData &lt;-<span class="st"> </span><span class="kw">full_join</span>(tweets, mentions)</span></code></pre></div>
 <pre><code>## Joining, by = c(&quot;X1&quot;, &quot;TweetID&quot;, &quot;TwitterHandle&quot;, &quot;Text&quot;, &quot;CreatedTime&quot;, &quot;Favorited&quot;, &quot;FavoritesCount&quot;, &quot;IsRetweet&quot;, &quot;RetweetCount&quot;, &quot;Retweeted&quot;, &quot;ReplyToSN&quot;, &quot;ReplyToSID&quot;, &quot;ReplyToUID&quot;, &quot;Truncated&quot;, &quot;StatusSource&quot;, &quot;Longitude&quot;, &quot;Latitude&quot;)</code></pre>
-<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="dplyr-and-tidy.html#cb579-1"></a>allData</span></code></pre></div>
+<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="dplyr-and-tidy.html#cb588-1"></a>allData</span></code></pre></div>
 <pre><code>## # A tibble: 666,388 x 18
 ##       X1 TweetID TwitterHandle Text  CreatedTime         Favorited
 ##    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt; &lt;dttm&gt;                  &lt;dbl&gt;
@@ -1420,16 +1478,16 @@ user information, one for each tweet and its author, one for each like, the user
 <div id="stringr" class="section level2" number="7.4">
 <h2><span class="header-section-number">7.4</span> <code>stringr</code></h2>
 <p><code>stringr</code> is a tidy package that is used for processing strings and text data</p>
-<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="dplyr-and-tidy.html#cb581-1"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb581-2"><a href="dplyr-and-tidy.html#cb581-2"></a>tweets&lt;-<span class="kw">read_csv</span>(<span class="st">&quot;C:/Users/maria/OneDrive/WUSTL/2019-20/PDS/Tweets.csv&quot;</span>)</span>
-<span id="cb581-3"><a href="dplyr-and-tidy.html#cb581-3"></a></span>
-<span id="cb581-4"><a href="dplyr-and-tidy.html#cb581-4"></a>aTweet&lt;-tweets[<span class="dv">1</span>,]<span class="op">$</span>Text</span>
-<span id="cb581-5"><a href="dplyr-and-tidy.html#cb581-5"></a>aTweet</span></code></pre></div>
+<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="dplyr-and-tidy.html#cb590-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb590-2"><a href="dplyr-and-tidy.html#cb590-2"></a>tweets&lt;-<span class="kw">read_csv</span>(<span class="st">&quot;C:/Users/maria/OneDrive/WUSTL/2019-20/PDS/Tweets.csv&quot;</span>)</span>
+<span id="cb590-3"><a href="dplyr-and-tidy.html#cb590-3"></a></span>
+<span id="cb590-4"><a href="dplyr-and-tidy.html#cb590-4"></a>aTweet&lt;-tweets[<span class="dv">1</span>,]<span class="op">$</span>Text</span>
+<span id="cb590-5"><a href="dplyr-and-tidy.html#cb590-5"></a>aTweet</span></code></pre></div>
 <pre><code>## [1] &quot;Many thanks to everyone involved in Alexandria&#39;s #EarthDay celebration. Together, we are reducing pollution and was… https://t.co/wwMOIg4t1w&quot;</code></pre>
-<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb583-1"><a href="dplyr-and-tidy.html#cb583-1"></a><span class="kw">str_length</span>(aTweet)</span></code></pre></div>
+<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="dplyr-and-tidy.html#cb592-1"></a><span class="kw">str_length</span>(aTweet)</span></code></pre></div>
 <pre><code>## [1] 140</code></pre>
-<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="dplyr-and-tidy.html#cb585-1"></a>words&lt;-<span class="kw">str_split</span>(aTweet, <span class="dt">pattern =</span> <span class="st">&quot; &quot;</span>)</span>
-<span id="cb585-2"><a href="dplyr-and-tidy.html#cb585-2"></a>words</span></code></pre></div>
+<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="dplyr-and-tidy.html#cb594-1"></a>words&lt;-<span class="kw">str_split</span>(aTweet, <span class="dt">pattern =</span> <span class="st">&quot; &quot;</span>)</span>
+<span id="cb594-2"><a href="dplyr-and-tidy.html#cb594-2"></a>words</span></code></pre></div>
 <pre><code>## [[1]]
 ##  [1] &quot;Many&quot;                    &quot;thanks&quot;                 
 ##  [3] &quot;to&quot;                      &quot;everyone&quot;               
@@ -1440,9 +1498,9 @@ user information, one for each tweet and its author, one for each like, the user
 ## [13] &quot;reducing&quot;                &quot;pollution&quot;              
 ## [15] &quot;and&quot;                     &quot;was…&quot;                   
 ## [17] &quot;https://t.co/wwMOIg4t1w&quot;</code></pre>
-<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="dplyr-and-tidy.html#cb587-1"></a><span class="kw">str_c</span>(words)</span></code></pre></div>
+<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="dplyr-and-tidy.html#cb596-1"></a><span class="kw">str_c</span>(words)</span></code></pre></div>
 <pre><code>## [1] &quot;c(\&quot;Many\&quot;, \&quot;thanks\&quot;, \&quot;to\&quot;, \&quot;everyone\&quot;, \&quot;involved\&quot;, \&quot;in\&quot;, \&quot;Alexandria&#39;s\&quot;, \&quot;#EarthDay\&quot;, \&quot;celebration.\&quot;, \&quot;Together,\&quot;, \&quot;we\&quot;, \&quot;are\&quot;, \&quot;reducing\&quot;, \&quot;pollution\&quot;, \&quot;and\&quot;, \&quot;was…\&quot;, \&quot;https://t.co/wwMOIg4t1w\&quot;)&quot;</code></pre>
-<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="dplyr-and-tidy.html#cb589-1"></a><span class="kw">str_c</span>(<span class="kw">unlist</span>(words))</span></code></pre></div>
+<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="dplyr-and-tidy.html#cb598-1"></a><span class="kw">str_c</span>(<span class="kw">unlist</span>(words))</span></code></pre></div>
 <pre><code>##  [1] &quot;Many&quot;                    &quot;thanks&quot;                 
 ##  [3] &quot;to&quot;                      &quot;everyone&quot;               
 ##  [5] &quot;involved&quot;                &quot;in&quot;                     
@@ -1452,7 +1510,7 @@ user information, one for each tweet and its author, one for each like, the user
 ## [13] &quot;reducing&quot;                &quot;pollution&quot;              
 ## [15] &quot;and&quot;                     &quot;was…&quot;                   
 ## [17] &quot;https://t.co/wwMOIg4t1w&quot;</code></pre>
-<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="dplyr-and-tidy.html#cb591-1"></a><span class="kw">str_c</span>(<span class="kw">unlist</span>(words), <span class="st">&quot;Added&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="dplyr-and-tidy.html#cb600-1"></a><span class="kw">str_c</span>(<span class="kw">unlist</span>(words), <span class="st">&quot;Added&quot;</span>)</span></code></pre></div>
 <pre><code>##  [1] &quot;ManyAdded&quot;                    &quot;thanksAdded&quot;                 
 ##  [3] &quot;toAdded&quot;                      &quot;everyoneAdded&quot;               
 ##  [5] &quot;involvedAdded&quot;                &quot;inAdded&quot;                     
@@ -1462,7 +1520,7 @@ user information, one for each tweet and its author, one for each like, the user
 ## [13] &quot;reducingAdded&quot;                &quot;pollutionAdded&quot;              
 ## [15] &quot;andAdded&quot;                     &quot;was…Added&quot;                   
 ## [17] &quot;https://t.co/wwMOIg4t1wAdded&quot;</code></pre>
-<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="dplyr-and-tidy.html#cb593-1"></a><span class="kw">str_c</span>(<span class="kw">unlist</span>(words), <span class="st">&quot;Added&quot;</span>, <span class="dt">sep=</span><span class="st">&quot; &quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="dplyr-and-tidy.html#cb602-1"></a><span class="kw">str_c</span>(<span class="kw">unlist</span>(words), <span class="st">&quot;Added&quot;</span>, <span class="dt">sep=</span><span class="st">&quot; &quot;</span>)</span></code></pre></div>
 <pre><code>##  [1] &quot;Many Added&quot;                    &quot;thanks Added&quot;                 
 ##  [3] &quot;to Added&quot;                      &quot;everyone Added&quot;               
 ##  [5] &quot;involved Added&quot;                &quot;in Added&quot;                     
@@ -1472,7 +1530,7 @@ user information, one for each tweet and its author, one for each like, the user
 ## [13] &quot;reducing Added&quot;                &quot;pollution Added&quot;              
 ## [15] &quot;and Added&quot;                     &quot;was… Added&quot;                   
 ## [17] &quot;https://t.co/wwMOIg4t1w Added&quot;</code></pre>
-<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="dplyr-and-tidy.html#cb595-1"></a><span class="kw">str_c</span>(<span class="st">&quot;Before&quot;</span>, <span class="kw">unlist</span>(words), <span class="st">&quot;Added&quot;</span>, <span class="dt">sep=</span><span class="st">&quot; &quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb604-1"><a href="dplyr-and-tidy.html#cb604-1"></a><span class="kw">str_c</span>(<span class="st">&quot;Before&quot;</span>, <span class="kw">unlist</span>(words), <span class="st">&quot;Added&quot;</span>, <span class="dt">sep=</span><span class="st">&quot; &quot;</span>)</span></code></pre></div>
 <pre><code>##  [1] &quot;Before Many Added&quot;                   
 ##  [2] &quot;Before thanks Added&quot;                 
 ##  [3] &quot;Before to Added&quot;                     
@@ -1491,7 +1549,7 @@ user information, one for each tweet and its author, one for each like, the user
 ## [16] &quot;Before was… Added&quot;                   
 ## [17] &quot;Before https://t.co/wwMOIg4t1w Added&quot;</code></pre>
 <p>Or you may want to assemble it all into all back into a coherent whole</p>
-<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="dplyr-and-tidy.html#cb597-1"></a><span class="kw">str_c</span>(<span class="kw">unlist</span>(words), <span class="dt">collapse=</span><span class="st">&quot; &quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="dplyr-and-tidy.html#cb606-1"></a><span class="kw">str_c</span>(<span class="kw">unlist</span>(words), <span class="dt">collapse=</span><span class="st">&quot; &quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Many thanks to everyone involved in Alexandria&#39;s #EarthDay celebration. Together, we are reducing pollution and was… https://t.co/wwMOIg4t1w&quot;</code></pre>
 <div id="things-you-havent-thought-about-strings" class="section level3" number="7.4.1">
 <h3><span class="header-section-number">7.4.1</span> Things you haven’t thought about strings</h3>
@@ -1500,10 +1558,10 @@ user information, one for each tweet and its author, one for each like, the user
 <li>You can use the function <code>writeLines</code> to see how a function would atually render to a reader (as opposed to how it is stored in the computer.)</li>
 <li>The big confusion is that special characters have to be “escaped” or else they get in the way (From R4DS)</li>
 </ul>
-<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="dplyr-and-tidy.html#cb599-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;</span><span class="ch">\&quot;</span><span class="st">&quot;</span>, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">&quot;</span>)</span>
-<span id="cb599-2"><a href="dplyr-and-tidy.html#cb599-2"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="dplyr-and-tidy.html#cb608-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;</span><span class="ch">\&quot;</span><span class="st">&quot;</span>, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">&quot;</span>)</span>
+<span id="cb608-2"><a href="dplyr-and-tidy.html#cb608-2"></a>x</span></code></pre></div>
 <pre><code>## [1] &quot;\&quot;&quot; &quot;\\&quot;</code></pre>
-<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb601-1"><a href="dplyr-and-tidy.html#cb601-1"></a><span class="kw">writeLines</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb610-1"><a href="dplyr-and-tidy.html#cb610-1"></a><span class="kw">writeLines</span>(x)</span></code></pre></div>
 <pre><code>## &quot;
 ## \</code></pre>
 <ul>
@@ -1511,18 +1569,18 @@ user information, one for each tweet and its author, one for each like, the user
 <li><p><code>na</code> is a problem, so you might use <code>str_replace_na</code></p></li>
 <li><p><code>stringr</code> replicates a lot of the functions we have already used for characters with (sometimes) slightly different syntax</p></li>
 </ul>
-<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb603-1"><a href="dplyr-and-tidy.html#cb603-1"></a>colors &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;magenta&quot;</span>, <span class="st">&quot;cyan&quot;</span>)</span>
-<span id="cb603-2"><a href="dplyr-and-tidy.html#cb603-2"></a><span class="kw">str_sub</span>(colors, <span class="dv">1</span>, <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb612-1"><a href="dplyr-and-tidy.html#cb612-1"></a>colors &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;magenta&quot;</span>, <span class="st">&quot;cyan&quot;</span>)</span>
+<span id="cb612-2"><a href="dplyr-and-tidy.html#cb612-2"></a><span class="kw">str_sub</span>(colors, <span class="dv">1</span>, <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;red&quot; &quot;yel&quot; &quot;blu&quot; &quot;gre&quot; &quot;mag&quot; &quot;cya&quot;</code></pre>
-<div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb605-1"><a href="dplyr-and-tidy.html#cb605-1"></a><span class="kw">str_sub</span>(colors, <span class="dv">-3</span>, <span class="dv">-1</span>) <span class="co">#count back from the end</span></span></code></pre></div>
+<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb614-1"><a href="dplyr-and-tidy.html#cb614-1"></a><span class="kw">str_sub</span>(colors, <span class="dv">-3</span>, <span class="dv">-1</span>) <span class="co">#count back from the end</span></span></code></pre></div>
 <pre><code>## [1] &quot;red&quot; &quot;low&quot; &quot;lue&quot; &quot;een&quot; &quot;nta&quot; &quot;yan&quot;</code></pre>
-<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="dplyr-and-tidy.html#cb607-1"></a><span class="kw">str_sub</span>(colors, <span class="dv">1</span>, <span class="dv">10</span>) <span class="co"># Robust to going out of index</span></span></code></pre></div>
+<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="dplyr-and-tidy.html#cb616-1"></a><span class="kw">str_sub</span>(colors, <span class="dv">1</span>, <span class="dv">10</span>) <span class="co"># Robust to going out of index</span></span></code></pre></div>
 <pre><code>## [1] &quot;red&quot;     &quot;yellow&quot;  &quot;blue&quot;    &quot;green&quot;   &quot;magenta&quot; &quot;cyan&quot;</code></pre>
-<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb609-1"><a href="dplyr-and-tidy.html#cb609-1"></a><span class="kw">str_sub</span>(colors, <span class="dv">1</span>, <span class="dv">3</span>)&lt;-<span class="kw">str_to_upper</span>(<span class="kw">str_sub</span>(colors, <span class="dv">1</span>, <span class="dv">3</span>))</span>
-<span id="cb609-2"><a href="dplyr-and-tidy.html#cb609-2"></a>colors</span></code></pre></div>
+<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="dplyr-and-tidy.html#cb618-1"></a><span class="kw">str_sub</span>(colors, <span class="dv">1</span>, <span class="dv">3</span>)&lt;-<span class="kw">str_to_upper</span>(<span class="kw">str_sub</span>(colors, <span class="dv">1</span>, <span class="dv">3</span>))</span>
+<span id="cb618-2"><a href="dplyr-and-tidy.html#cb618-2"></a>colors</span></code></pre></div>
 <pre><code>## [1] &quot;RED&quot;     &quot;YELlow&quot;  &quot;BLUe&quot;    &quot;GREen&quot;   &quot;MAGenta&quot; &quot;CYAn&quot;</code></pre>
-<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb611-1"><a href="dplyr-and-tidy.html#cb611-1"></a>colors&lt;-<span class="kw">str_to_lower</span>(colors)</span>
-<span id="cb611-2"><a href="dplyr-and-tidy.html#cb611-2"></a>colors</span></code></pre></div>
+<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb620-1"><a href="dplyr-and-tidy.html#cb620-1"></a>colors&lt;-<span class="kw">str_to_lower</span>(colors)</span>
+<span id="cb620-2"><a href="dplyr-and-tidy.html#cb620-2"></a>colors</span></code></pre></div>
 <pre><code>## [1] &quot;red&quot;     &quot;yellow&quot;  &quot;blue&quot;    &quot;green&quot;   &quot;magenta&quot; &quot;cyan&quot;</code></pre>
 <p>Example:</p>
 <ol style="list-style-type: decimal">
@@ -1531,11 +1589,11 @@ user information, one for each tweet and its author, one for each like, the user
 <li>Take all of the words she has used and reduce them down to only their first five letters. Repeat (2) and compare.</li>
 </ol>
 <p>Question 2</p>
-<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb613-1"><a href="dplyr-and-tidy.html#cb613-1"></a>hertweets &lt;-<span class="st"> </span><span class="kw">filter</span>(tweets, ScreenName <span class="op">==</span><span class="st"> &quot;lydakrewson&quot;</span>)[<span class="st">&quot;Text&quot;</span>]</span>
-<span id="cb613-2"><a href="dplyr-and-tidy.html#cb613-2"></a>numWords &lt;-<span class="st"> </span>hertweets <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb613-3"><a href="dplyr-and-tidy.html#cb613-3"></a><span class="st">    </span><span class="kw">rowwise</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb613-4"><a href="dplyr-and-tidy.html#cb613-4"></a><span class="st">    </span><span class="kw">transmute</span>(<span class="dt">numWords=</span> <span class="kw">length</span>(<span class="kw">unlist</span>(<span class="kw">str_split</span>(Text, <span class="st">&quot; &quot;</span>))))</span>
-<span id="cb613-5"><a href="dplyr-and-tidy.html#cb613-5"></a>numWords</span></code></pre></div>
+<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="dplyr-and-tidy.html#cb622-1"></a>hertweets &lt;-<span class="st"> </span><span class="kw">filter</span>(tweets, ScreenName <span class="op">==</span><span class="st"> &quot;lydakrewson&quot;</span>)[<span class="st">&quot;Text&quot;</span>]</span>
+<span id="cb622-2"><a href="dplyr-and-tidy.html#cb622-2"></a>numWords &lt;-<span class="st"> </span>hertweets <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb622-3"><a href="dplyr-and-tidy.html#cb622-3"></a><span class="st">    </span><span class="kw">rowwise</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb622-4"><a href="dplyr-and-tidy.html#cb622-4"></a><span class="st">    </span><span class="kw">transmute</span>(<span class="dt">numWords=</span> <span class="kw">length</span>(<span class="kw">unlist</span>(<span class="kw">str_split</span>(Text, <span class="st">&quot; &quot;</span>))))</span>
+<span id="cb622-5"><a href="dplyr-and-tidy.html#cb622-5"></a>numWords</span></code></pre></div>
 <pre><code>## Source: local data frame [3,191 x 1]
 ## Groups: &lt;by row&gt;
 ## 
@@ -1553,12 +1611,12 @@ user information, one for each tweet and its author, one for each like, the user
 ##  9       19
 ## 10       13
 ## # ... with 3,181 more rows</code></pre>
-<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb615-1"><a href="dplyr-and-tidy.html#cb615-1"></a><span class="kw">mean</span>(numWords<span class="op">$</span>numWords)</span></code></pre></div>
+<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="dplyr-and-tidy.html#cb624-1"></a><span class="kw">mean</span>(numWords<span class="op">$</span>numWords)</span></code></pre></div>
 <pre><code>## [1] 16.58602</code></pre>
-<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb617-1"><a href="dplyr-and-tidy.html#cb617-1"></a><span class="kw">length</span>(<span class="kw">unique</span>(<span class="kw">unlist</span>(<span class="kw">str_split</span>(hertweets<span class="op">$</span>Text, <span class="st">&quot; &quot;</span>))))</span></code></pre></div>
+<div class="sourceCode" id="cb626"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb626-1"><a href="dplyr-and-tidy.html#cb626-1"></a><span class="kw">length</span>(<span class="kw">unique</span>(<span class="kw">unlist</span>(<span class="kw">str_split</span>(hertweets<span class="op">$</span>Text, <span class="st">&quot; &quot;</span>))))</span></code></pre></div>
 <pre><code>## [1] 15960</code></pre>
 <p>Question 3</p>
-<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb619-1"><a href="dplyr-and-tidy.html#cb619-1"></a><span class="kw">length</span>(<span class="kw">unique</span>(<span class="kw">str_sub</span>(<span class="kw">unlist</span>(<span class="kw">str_split</span>(hertweets<span class="op">$</span>Text, <span class="st">&quot; &quot;</span>)), <span class="dv">1</span>, <span class="dv">5</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb628"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb628-1"><a href="dplyr-and-tidy.html#cb628-1"></a><span class="kw">length</span>(<span class="kw">unique</span>(<span class="kw">str_sub</span>(<span class="kw">unlist</span>(<span class="kw">str_split</span>(hertweets<span class="op">$</span>Text, <span class="st">&quot; &quot;</span>)), <span class="dv">1</span>, <span class="dv">5</span>)))</span></code></pre></div>
 <pre><code>## [1] 9831</code></pre>
 </div>
 </div>
@@ -1568,8 +1626,8 @@ user information, one for each tweet and its author, one for each like, the user
 <li>Download: <a href="https://www.voterstudygroup.org/publication/2019-voter-survey-full-data-set" class="uri">https://www.voterstudygroup.org/publication/2019-voter-survey-full-data-set</a></li>
 <li>Codebook: <a href="https://www.voterstudygroup.org/publication/2019-voter-survey-full-data-set" class="uri">https://www.voterstudygroup.org/publication/2019-voter-survey-full-data-set</a></li>
 </ul>
-<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb621-1"><a href="dplyr-and-tidy.html#cb621-1"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb621-2"><a href="dplyr-and-tidy.html#cb621-2"></a>VSG&lt;-<span class="kw">read_csv</span>(<span class="st">&quot;C:/Users/maria/OneDrive/WUSTL/2019-20/PDS/VOTER_Survey_Jan217_Release1-csv.csv&quot;</span>, <span class="dt">col_types=</span><span class="kw">cols</span>(<span class="dt">weight_18_24_2018=</span><span class="st">&quot;d&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb630"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb630-1"><a href="dplyr-and-tidy.html#cb630-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb630-2"><a href="dplyr-and-tidy.html#cb630-2"></a>VSG&lt;-<span class="kw">read_csv</span>(<span class="st">&quot;C:/Users/maria/OneDrive/WUSTL/2019-20/PDS/VOTER_Survey_Jan217_Release1-csv.csv&quot;</span>, <span class="dt">col_types=</span><span class="kw">cols</span>(<span class="dt">weight_18_24_2018=</span><span class="st">&quot;d&quot;</span>))</span></code></pre></div>
 <p>Question: Is there a lane?</p>
 <p>We are going to:</p>
 <ul>
@@ -1578,21 +1636,21 @@ user information, one for each tweet and its author, one for each like, the user
 <li>Find the proportion of respondents who either approve or disapprove of <em>both</em></li>
 </ul>
 <p>One strategy is just to make new datsets for each step</p>
-<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="dplyr-and-tidy.html#cb622-1"></a>VSG.two &lt;-<span class="st"> </span><span class="kw">select</span>(VSG, fav_sanders_<span class="dv">2019</span>, fav_warren_<span class="dv">2019</span>)</span>
-<span id="cb622-2"><a href="dplyr-and-tidy.html#cb622-2"></a>VSG.three&lt;-<span class="kw">mutate</span>(VSG.two, <span class="dt">fav_sanders_binary =</span> (fav_sanders_<span class="dv">2019</span><span class="op">&lt;=</span><span class="dv">2</span>))</span>
-<span id="cb622-3"><a href="dplyr-and-tidy.html#cb622-3"></a>VSG.four&lt;-<span class="kw">mutate</span>(VSG.three, <span class="dt">fav_sanders_binary=</span> <span class="kw">na_if</span>(fav_sanders_<span class="dv">2019</span>, fav_sanders_<span class="dv">2019</span><span class="op">&gt;</span><span class="dv">4</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb631"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb631-1"><a href="dplyr-and-tidy.html#cb631-1"></a>VSG.two &lt;-<span class="st"> </span><span class="kw">select</span>(VSG, fav_sanders_<span class="dv">2019</span>, fav_warren_<span class="dv">2019</span>)</span>
+<span id="cb631-2"><a href="dplyr-and-tidy.html#cb631-2"></a>VSG.three&lt;-<span class="kw">mutate</span>(VSG.two, <span class="dt">fav_sanders_binary =</span> (fav_sanders_<span class="dv">2019</span><span class="op">&lt;=</span><span class="dv">2</span>))</span>
+<span id="cb631-3"><a href="dplyr-and-tidy.html#cb631-3"></a>VSG.four&lt;-<span class="kw">mutate</span>(VSG.three, <span class="dt">fav_sanders_binary=</span> <span class="kw">na_if</span>(fav_sanders_<span class="dv">2019</span>, fav_sanders_<span class="dv">2019</span><span class="op">&gt;</span><span class="dv">4</span>))</span></code></pre></div>
 <p>This is bad because we’re wasting a lot of memory in our environment that we’ll never use again.</p>
 <p>Another strategy is just to overwrite the same dataset</p>
-<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="dplyr-and-tidy.html#cb623-1"></a>VSG &lt;-<span class="st"> </span><span class="kw">select</span>(VSG, fav_sanders_<span class="dv">2019</span>, fav_warren_<span class="dv">2019</span>)</span>
-<span id="cb623-2"><a href="dplyr-and-tidy.html#cb623-2"></a>VSG <span class="op">&lt;</span><span class="st"> </span><span class="op">-</span><span class="kw">mutate</span>(VSG, <span class="dt">fav_sanders_binary =</span> (fav_sanders_<span class="dv">2019</span><span class="op">&lt;=</span><span class="dv">2</span>)<span class="op">*</span><span class="dv">1</span>)</span>
-<span id="cb623-3"><a href="dplyr-and-tidy.html#cb623-3"></a>VSG &lt;-<span class="st"> </span><span class="kw">mutate</span>(VSG, <span class="dt">fav_sanders_binary=</span> <span class="kw">na_if</span>(fav_sanders_<span class="dv">2019</span>, fav_sanders_<span class="dv">2019</span><span class="op">&gt;</span><span class="dv">4</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb632"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb632-1"><a href="dplyr-and-tidy.html#cb632-1"></a>VSG &lt;-<span class="st"> </span><span class="kw">select</span>(VSG, fav_sanders_<span class="dv">2019</span>, fav_warren_<span class="dv">2019</span>)</span>
+<span id="cb632-2"><a href="dplyr-and-tidy.html#cb632-2"></a>VSG <span class="op">&lt;</span><span class="st"> </span><span class="op">-</span><span class="kw">mutate</span>(VSG, <span class="dt">fav_sanders_binary =</span> (fav_sanders_<span class="dv">2019</span><span class="op">&lt;=</span><span class="dv">2</span>)<span class="op">*</span><span class="dv">1</span>)</span>
+<span id="cb632-3"><a href="dplyr-and-tidy.html#cb632-3"></a>VSG &lt;-<span class="st"> </span><span class="kw">mutate</span>(VSG, <span class="dt">fav_sanders_binary=</span> <span class="kw">na_if</span>(fav_sanders_<span class="dv">2019</span>, fav_sanders_<span class="dv">2019</span><span class="op">&gt;</span><span class="dv">4</span>))</span></code></pre></div>
 <p>This still wastes a lot of memory because of the way memory is managed in R. It also would be terrible to debug if something goes wrong.</p>
 <p>An even more difficult way would be write a function where the output of each stage are passed onto an outer layer.</p>
 <p>Or we can use the pipes</p>
-<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="dplyr-and-tidy.html#cb624-1"></a>VSG <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb624-2"><a href="dplyr-and-tidy.html#cb624-2"></a><span class="st">  </span><span class="kw">select</span>(fav_sanders_<span class="dv">2019</span>, fav_warren_<span class="dv">2019</span>) <span class="op">%&gt;%</span></span>
-<span id="cb624-3"><a href="dplyr-and-tidy.html#cb624-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">fav_sanders_binary=</span> <span class="kw">na_if</span>(fav_sanders_<span class="dv">2019</span>, fav_sanders_<span class="dv">2019</span><span class="op">&gt;</span><span class="dv">4</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb624-4"><a href="dplyr-and-tidy.html#cb624-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">fav_sanders_binary =</span> (fav_sanders_<span class="dv">2019</span><span class="op">&lt;=</span><span class="dv">2</span>)<span class="op">*</span><span class="dv">1</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb633"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb633-1"><a href="dplyr-and-tidy.html#cb633-1"></a>VSG <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb633-2"><a href="dplyr-and-tidy.html#cb633-2"></a><span class="st">  </span><span class="kw">select</span>(fav_sanders_<span class="dv">2019</span>, fav_warren_<span class="dv">2019</span>) <span class="op">%&gt;%</span></span>
+<span id="cb633-3"><a href="dplyr-and-tidy.html#cb633-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">fav_sanders_binary=</span> <span class="kw">na_if</span>(fav_sanders_<span class="dv">2019</span>, fav_sanders_<span class="dv">2019</span><span class="op">&gt;</span><span class="dv">4</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb633-4"><a href="dplyr-and-tidy.html#cb633-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">fav_sanders_binary =</span> (fav_sanders_<span class="dv">2019</span><span class="op">&lt;=</span><span class="dv">2</span>)<span class="op">*</span><span class="dv">1</span>) </span></code></pre></div>
 <div id="limitations-of-pipes" class="section level3" number="7.5.1">
 <h3><span class="header-section-number">7.5.1</span> Limitations of Pipes</h3>
 <ul>
@@ -1609,14 +1667,14 @@ user information, one for each tweet and its author, one for each like, the user
 <li><p>The <code>magrittr</code> package comes with some other tools for using in specific situations</p></li>
 <li><p>The <code>%T&gt;%</code> pipe works by calling the function to the right, but returning the function to the left</p></li>
 </ul>
-<div class="sourceCode" id="cb625"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb625-1"><a href="dplyr-and-tidy.html#cb625-1"></a><span class="kw">library</span>(magrittr)</span>
-<span id="cb625-2"><a href="dplyr-and-tidy.html#cb625-2"></a>VSG&lt;-<span class="kw">read_csv</span>(<span class="st">&quot;C:/Users/maria/OneDrive/WUSTL/2019-20/PDS/VOTER_Survey_Jan217_Release1-csv.csv&quot;</span>, <span class="dt">col_types=</span><span class="kw">cols</span>(<span class="dt">weight_18_24_2018=</span><span class="st">&quot;d&quot;</span>))</span>
-<span id="cb625-3"><a href="dplyr-and-tidy.html#cb625-3"></a>VSG <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb625-4"><a href="dplyr-and-tidy.html#cb625-4"></a><span class="st">  </span><span class="kw">select</span>(fav_sanders_<span class="dv">2019</span>, fav_warren_<span class="dv">2019</span>) <span class="op">%&gt;%</span></span>
-<span id="cb625-5"><a href="dplyr-and-tidy.html#cb625-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">fav_sanders_binary=</span> <span class="kw">na_if</span>(fav_sanders_<span class="dv">2019</span>, fav_sanders_<span class="dv">2019</span><span class="op">&gt;</span><span class="dv">4</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb625-6"><a href="dplyr-and-tidy.html#cb625-6"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">fav_sanders_binary =</span> (fav_sanders_<span class="dv">2019</span><span class="op">&lt;=</span><span class="dv">2</span>)<span class="op">*</span><span class="dv">1</span>) <span class="op">%T&gt;%</span></span>
-<span id="cb625-7"><a href="dplyr-and-tidy.html#cb625-7"></a><span class="st">  </span><span class="kw">plot</span>()</span></code></pre></div>
-<p><img src="images/unnamed-chunk-186-1.png" width="672" /></p>
+<div class="sourceCode" id="cb634"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb634-1"><a href="dplyr-and-tidy.html#cb634-1"></a><span class="kw">library</span>(magrittr)</span>
+<span id="cb634-2"><a href="dplyr-and-tidy.html#cb634-2"></a>VSG&lt;-<span class="kw">read_csv</span>(<span class="st">&quot;C:/Users/maria/OneDrive/WUSTL/2019-20/PDS/VOTER_Survey_Jan217_Release1-csv.csv&quot;</span>, <span class="dt">col_types=</span><span class="kw">cols</span>(<span class="dt">weight_18_24_2018=</span><span class="st">&quot;d&quot;</span>))</span>
+<span id="cb634-3"><a href="dplyr-and-tidy.html#cb634-3"></a>VSG <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb634-4"><a href="dplyr-and-tidy.html#cb634-4"></a><span class="st">  </span><span class="kw">select</span>(fav_sanders_<span class="dv">2019</span>, fav_warren_<span class="dv">2019</span>) <span class="op">%&gt;%</span></span>
+<span id="cb634-5"><a href="dplyr-and-tidy.html#cb634-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">fav_sanders_binary=</span> <span class="kw">na_if</span>(fav_sanders_<span class="dv">2019</span>, fav_sanders_<span class="dv">2019</span><span class="op">&gt;</span><span class="dv">4</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb634-6"><a href="dplyr-and-tidy.html#cb634-6"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">fav_sanders_binary =</span> (fav_sanders_<span class="dv">2019</span><span class="op">&lt;=</span><span class="dv">2</span>)<span class="op">*</span><span class="dv">1</span>) <span class="op">%T&gt;%</span></span>
+<span id="cb634-7"><a href="dplyr-and-tidy.html#cb634-7"></a><span class="st">  </span><span class="kw">plot</span>()</span></code></pre></div>
+<p><img src="images/unnamed-chunk-187-1.png" width="672" /></p>
 <pre><code>## # A tibble: 9,548 x 3
 ##    fav_sanders_2019 fav_warren_2019 fav_sanders_binary
 ##               &lt;dbl&gt;           &lt;dbl&gt;              &lt;dbl&gt;
@@ -1634,114 +1692,72 @@ user information, one for each tweet and its author, one for each like, the user
 <ul>
 <li>We may also want to use specific elements from a dataframe using the <code>%$%</code> operator</li>
 </ul>
-<div class="sourceCode" id="cb627"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb627-1"><a href="dplyr-and-tidy.html#cb627-1"></a>VSG&lt;-<span class="st"> </span>VSG <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb627-2"><a href="dplyr-and-tidy.html#cb627-2"></a><span class="st">  </span><span class="kw">select</span>(fav_sanders_<span class="dv">2019</span>, fav_warren_<span class="dv">2019</span>) <span class="op">%&gt;%</span></span>
-<span id="cb627-3"><a href="dplyr-and-tidy.html#cb627-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">fav_sanders_binary=</span> <span class="kw">na_if</span>(fav_sanders_<span class="dv">2019</span>, fav_sanders_<span class="dv">2019</span><span class="op">&gt;</span><span class="dv">4</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb627-4"><a href="dplyr-and-tidy.html#cb627-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">fav_sanders_binary =</span> (fav_sanders_<span class="dv">2019</span><span class="op">&lt;=</span><span class="dv">2</span>)<span class="op">*</span><span class="dv">1</span>) <span class="op">%&gt;%</span></span>
-<span id="cb627-5"><a href="dplyr-and-tidy.html#cb627-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">fav_warren_binary=</span> <span class="kw">na_if</span>(fav_warren_<span class="dv">2019</span>, fav_warren_<span class="dv">2019</span><span class="op">&gt;</span><span class="dv">4</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb627-6"><a href="dplyr-and-tidy.html#cb627-6"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">fav_warren_binary =</span> (fav_warren_<span class="dv">2019</span><span class="op">&lt;=</span><span class="dv">2</span>)<span class="op">*</span><span class="dv">1</span>)</span>
-<span id="cb627-7"><a href="dplyr-and-tidy.html#cb627-7"></a></span>
-<span id="cb627-8"><a href="dplyr-and-tidy.html#cb627-8"></a><span class="kw">library</span>(magrittr)</span>
-<span id="cb627-9"><a href="dplyr-and-tidy.html#cb627-9"></a>VSG&lt;-<span class="st"> </span>VSG <span class="op">%$%</span><span class="st"> </span></span>
-<span id="cb627-10"><a href="dplyr-and-tidy.html#cb627-10"></a><span class="st">  </span><span class="kw">plot</span>(<span class="kw">table</span>(fav_sanders_binary, fav_warren_binary))</span></code></pre></div>
-<p><img src="images/unnamed-chunk-187-1.png" width="672" /></p>
+<div class="sourceCode" id="cb636"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb636-1"><a href="dplyr-and-tidy.html#cb636-1"></a>VSG&lt;-<span class="st"> </span>VSG <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb636-2"><a href="dplyr-and-tidy.html#cb636-2"></a><span class="st">  </span><span class="kw">select</span>(fav_sanders_<span class="dv">2019</span>, fav_warren_<span class="dv">2019</span>) <span class="op">%&gt;%</span></span>
+<span id="cb636-3"><a href="dplyr-and-tidy.html#cb636-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">fav_sanders_binary=</span> <span class="kw">na_if</span>(fav_sanders_<span class="dv">2019</span>, fav_sanders_<span class="dv">2019</span><span class="op">&gt;</span><span class="dv">4</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb636-4"><a href="dplyr-and-tidy.html#cb636-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">fav_sanders_binary =</span> (fav_sanders_<span class="dv">2019</span><span class="op">&lt;=</span><span class="dv">2</span>)<span class="op">*</span><span class="dv">1</span>) <span class="op">%&gt;%</span></span>
+<span id="cb636-5"><a href="dplyr-and-tidy.html#cb636-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">fav_warren_binary=</span> <span class="kw">na_if</span>(fav_warren_<span class="dv">2019</span>, fav_warren_<span class="dv">2019</span><span class="op">&gt;</span><span class="dv">4</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb636-6"><a href="dplyr-and-tidy.html#cb636-6"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">fav_warren_binary =</span> (fav_warren_<span class="dv">2019</span><span class="op">&lt;=</span><span class="dv">2</span>)<span class="op">*</span><span class="dv">1</span>)</span>
+<span id="cb636-7"><a href="dplyr-and-tidy.html#cb636-7"></a></span>
+<span id="cb636-8"><a href="dplyr-and-tidy.html#cb636-8"></a><span class="kw">library</span>(magrittr)</span>
+<span id="cb636-9"><a href="dplyr-and-tidy.html#cb636-9"></a>VSG&lt;-<span class="st"> </span>VSG <span class="op">%$%</span><span class="st"> </span></span>
+<span id="cb636-10"><a href="dplyr-and-tidy.html#cb636-10"></a><span class="st">  </span><span class="kw">plot</span>(<span class="kw">table</span>(fav_sanders_binary, fav_warren_binary))</span></code></pre></div>
+<p><img src="images/unnamed-chunk-188-1.png" width="672" /></p>
 </div>
 </div>
 <div id="map" class="section level2" number="7.6">
 <h2><span class="header-section-number">7.6</span> <code>map</code></h2>
-<div class="sourceCode" id="cb628"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb628-1"><a href="dplyr-and-tidy.html#cb628-1"></a>VSG&lt;-<span class="kw">read_csv</span>(<span class="st">&quot;C:/Users/maria/OneDrive/WUSTL/2019-20/PDS/VOTER_Survey_Jan217_Release1-csv.csv&quot;</span>, <span class="dt">col_types=</span><span class="kw">cols</span>(<span class="dt">weight_18_24_2018=</span><span class="st">&quot;d&quot;</span>))</span>
-<span id="cb628-2"><a href="dplyr-and-tidy.html#cb628-2"></a>VSG.fav&lt;-VSG <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb628-3"><a href="dplyr-and-tidy.html#cb628-3"></a><span class="st">  </span><span class="kw">select</span>(<span class="kw">starts_with</span>(<span class="st">&quot;fav&quot;</span>)) </span></code></pre></div>
+<div class="sourceCode" id="cb637"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb637-1"><a href="dplyr-and-tidy.html#cb637-1"></a>VSG&lt;-<span class="kw">read_csv</span>(<span class="st">&quot;C:/Users/maria/OneDrive/WUSTL/2019-20/PDS/VOTER_Survey_Jan217_Release1-csv.csv&quot;</span>, <span class="dt">col_types=</span><span class="kw">cols</span>(<span class="dt">weight_18_24_2018=</span><span class="st">&quot;d&quot;</span>))</span>
+<span id="cb637-2"><a href="dplyr-and-tidy.html#cb637-2"></a>VSG.fav&lt;-VSG <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb637-3"><a href="dplyr-and-tidy.html#cb637-3"></a><span class="st">  </span><span class="kw">select</span>(<span class="kw">starts_with</span>(<span class="st">&quot;fav&quot;</span>)) </span></code></pre></div>
 <p>We want to loop over these data and recode all of the columns according to our rules</p>
 <ul>
 <li>Anything above a 4 gets moved to NA</li>
 <li>Then we turn them into a binary based on whether they are 2 and less or not</li>
 </ul>
-<div class="sourceCode" id="cb629"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb629-1"><a href="dplyr-and-tidy.html#cb629-1"></a>output&lt;-<span class="kw">as.data.frame</span>(<span class="kw">matrix</span>(<span class="ot">NA</span>, <span class="kw">nrow</span>(VSG.fav), <span class="kw">ncol</span>(VSG.fav)))</span>
-<span id="cb629-2"><a href="dplyr-and-tidy.html#cb629-2"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="kw">seq_along</span>(VSG.fav)){</span>
-<span id="cb629-3"><a href="dplyr-and-tidy.html#cb629-3"></a>  output[,i]&lt;-(VSG.fav[,i]<span class="op">&lt;=</span><span class="dv">2</span>)<span class="op">*</span><span class="dv">1</span></span>
-<span id="cb629-4"><a href="dplyr-and-tidy.html#cb629-4"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb638"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb638-1"><a href="dplyr-and-tidy.html#cb638-1"></a>output&lt;-<span class="kw">as.data.frame</span>(<span class="kw">matrix</span>(<span class="ot">NA</span>, <span class="kw">nrow</span>(VSG.fav), <span class="kw">ncol</span>(VSG.fav)))</span>
+<span id="cb638-2"><a href="dplyr-and-tidy.html#cb638-2"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="kw">seq_along</span>(VSG.fav)){</span>
+<span id="cb638-3"><a href="dplyr-and-tidy.html#cb638-3"></a>  output[,i]&lt;-(VSG.fav[,i]<span class="op">&lt;=</span><span class="dv">2</span>)<span class="op">*</span><span class="dv">1</span></span>
+<span id="cb638-4"><a href="dplyr-and-tidy.html#cb638-4"></a>}</span></code></pre></div>
 <ul>
 <li>We could do this without making a new object</li>
 </ul>
-<div class="sourceCode" id="cb630"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb630-1"><a href="dplyr-and-tidy.html#cb630-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="kw">seq_along</span>(VSG.fav)){</span>
-<span id="cb630-2"><a href="dplyr-and-tidy.html#cb630-2"></a>  VSG.fav[,i]=<span class="st"> </span><span class="kw">na_if</span>(VSG.fav[[i]],VSG.fav[[i]]<span class="op">&gt;</span><span class="dv">4</span>)</span>
-<span id="cb630-3"><a href="dplyr-and-tidy.html#cb630-3"></a>  VSG.fav[,i]&lt;-(VSG.fav[,i]<span class="op">&lt;=</span><span class="dv">2</span>)<span class="op">*</span><span class="dv">1</span></span>
-<span id="cb630-4"><a href="dplyr-and-tidy.html#cb630-4"></a>}</span>
-<span id="cb630-5"><a href="dplyr-and-tidy.html#cb630-5"></a><span class="kw">head</span>(VSG.fav)</span></code></pre></div>
+<div class="sourceCode" id="cb639"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb639-1"><a href="dplyr-and-tidy.html#cb639-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="kw">seq_along</span>(VSG.fav)){</span>
+<span id="cb639-2"><a href="dplyr-and-tidy.html#cb639-2"></a>  VSG.fav[,i]=<span class="st"> </span><span class="kw">na_if</span>(VSG.fav[[i]],VSG.fav[[i]]<span class="op">&gt;</span><span class="dv">4</span>)</span>
+<span id="cb639-3"><a href="dplyr-and-tidy.html#cb639-3"></a>  VSG.fav[,i]&lt;-(VSG.fav[,i]<span class="op">&lt;=</span><span class="dv">2</span>)<span class="op">*</span><span class="dv">1</span></span>
+<span id="cb639-4"><a href="dplyr-and-tidy.html#cb639-4"></a>}</span>
+<span id="cb639-5"><a href="dplyr-and-tidy.html#cb639-5"></a><span class="kw">head</span>(VSG.fav)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 68
-##   fav_trump_2019[~ fav_obama_2019[~ fav_hrc_2019[,&quot;~ fav_sanders_201~
-##              &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
-## 1                0                1                1                1
-## 2               NA               NA               NA               NA
-## 3                0                1                1                1
-## 4                0                1                0                0
-## 5                1                1                0                0
-## 6                0                1                1                0
-## # ... with 64 more variables: fav_putin_2019[,&quot;fav_putin_2019&quot;] &lt;dbl&gt;,
-## #   fav_schumer_2019[,&quot;fav_schumer_2019&quot;] &lt;dbl&gt;,
-## #   fav_pelosi_2019[,&quot;fav_pelosi_2019&quot;] &lt;dbl&gt;,
-## #   fav_comey_2019[,&quot;fav_comey_2019&quot;] &lt;dbl&gt;,
-## #   fav_mueller_2019[,&quot;fav_mueller_2019&quot;] &lt;dbl&gt;,
-## #   fav_mcconnell_2019[,&quot;fav_mcconnell_2019&quot;] &lt;dbl&gt;,
-## #   fav_kavanaugh_2019[,&quot;fav_kavanaugh_2019&quot;] &lt;dbl&gt;,
-## #   fav_biden_2019[,&quot;fav_biden_2019&quot;] &lt;dbl&gt;,
-## #   fav_warren_2019[,&quot;fav_warren_2019&quot;] &lt;dbl&gt;,
-## #   fav_harris_2019[,&quot;fav_harris_2019&quot;] &lt;dbl&gt;,
-## #   fav_gillibrand_2019[,&quot;fav_gillibrand_2019&quot;] &lt;dbl&gt;,
-## #   fav_patrick_2019[,&quot;fav_patrick_2019&quot;] &lt;dbl&gt;,
-## #   fav_booker_2019[,&quot;fav_booker_2019&quot;] &lt;dbl&gt;,
-## #   fav_garcetti_2019[,&quot;fav_garcetti_2019&quot;] &lt;dbl&gt;,
-## #   fav_klobuchar_2019[,&quot;fav_klobuchar_2019&quot;] &lt;dbl&gt;,
-## #   fav_gorsuch_2019[,&quot;fav_gorsuch_2019&quot;] &lt;dbl&gt;,
-## #   fav_kasich_2019[,&quot;fav_kasich_2019&quot;] &lt;dbl&gt;,
-## #   fav_haley_2019[,&quot;fav_haley_2019&quot;] &lt;dbl&gt;,
-## #   fav_bloomberg_2019[,&quot;fav_bloomberg_2019&quot;] &lt;dbl&gt;,
-## #   fav_holder_2019[,&quot;fav_holder_2019&quot;] &lt;dbl&gt;,
-## #   fav_avenatti_2019[,&quot;fav_avenatti_2019&quot;] &lt;dbl&gt;,
-## #   fav_castro_2019[,&quot;fav_castro_2019&quot;] &lt;dbl&gt;,
-## #   fav_landrieu_2019[,&quot;fav_landrieu_2019&quot;] &lt;dbl&gt;,
-## #   fav_orourke_2019[,&quot;fav_orourke_2019&quot;] &lt;dbl&gt;,
-## #   fav_hickenlooper_2019[,&quot;fav_hickenlooper_2019&quot;] &lt;dbl&gt;,
-## #   fav_pence_2019[,&quot;fav_pence_2019&quot;] &lt;dbl&gt;,
-## #   favorhealth_2019[,&quot;favorhealth_2019&quot;] &lt;dbl&gt;,
-## #   fav_trump_2018[,&quot;fav_trump_2018&quot;] &lt;dbl&gt;,
-## #   fav_ryan_2018[,&quot;fav_ryan_2018&quot;] &lt;dbl&gt;,
-## #   fav_obama_2018[,&quot;fav_obama_2018&quot;] &lt;dbl&gt;,
-## #   fav_hrc_2018[,&quot;fav_hrc_2018&quot;] &lt;dbl&gt;,
-## #   fav_sanders_2018[,&quot;fav_sanders_2018&quot;] &lt;dbl&gt;,
-## #   fav_putin_2018[,&quot;fav_putin_2018&quot;] &lt;dbl&gt;,
-## #   fav_schumer_2018[,&quot;fav_schumer_2018&quot;] &lt;dbl&gt;,
-## #   fav_pelosi_2018[,&quot;fav_pelosi_2018&quot;] &lt;dbl&gt;,
-## #   fav_comey_2018[,&quot;fav_comey_2018&quot;] &lt;dbl&gt;,
-## #   fav_mueller_2018[,&quot;fav_mueller_2018&quot;] &lt;dbl&gt;,
-## #   fav_mcconnell_2018[,&quot;fav_mcconnell_2018&quot;] &lt;dbl&gt;,
-## #   fav_trump_2017[,&quot;fav_trump_2017&quot;] &lt;dbl&gt;,
-## #   fav_ryan_2017[,&quot;fav_ryan_2017&quot;] &lt;dbl&gt;,
-## #   fav_obama_2017[,&quot;fav_obama_2017&quot;] &lt;dbl&gt;,
-## #   fav_hrc_2017[,&quot;fav_hrc_2017&quot;] &lt;dbl&gt;,
-## #   fav_sanders_2017[,&quot;fav_sanders_2017&quot;] &lt;dbl&gt;,
-## #   fav_putin_2017[,&quot;fav_putin_2017&quot;] &lt;dbl&gt;,
-## #   fav_trump_2016[,&quot;fav_trump_2016&quot;] &lt;dbl&gt;,
-## #   fav_cruz_2016[,&quot;fav_cruz_2016&quot;] &lt;dbl&gt;,
-## #   fav_ryan_2016[,&quot;fav_ryan_2016&quot;] &lt;dbl&gt;,
-## #   fav_romn_2016[,&quot;fav_romn_2016&quot;] &lt;dbl&gt;,
-## #   fav_obama_2016[,&quot;fav_obama_2016&quot;] &lt;dbl&gt;,
-## #   fav_hrc_2016[,&quot;fav_hrc_2016&quot;] &lt;dbl&gt;,
-## #   fav_sanders_2016[,&quot;fav_sanders_2016&quot;] &lt;dbl&gt;,
-## #   fav_rubio_2016[,&quot;fav_rubio_2016&quot;] &lt;dbl&gt;,
-## #   fav_grid_row_rnd_2016[,&quot;fav_grid_row_rnd_2016&quot;] &lt;dbl&gt;,
-## #   fav_grid_col_rnd_2016[,&quot;fav_grid_col_rnd_2016&quot;] &lt;dbl&gt;,
-## #   fav_romn_baseline[,&quot;fav_romn_baseline&quot;] &lt;dbl&gt;,
-## #   fav_ging_baseline[,&quot;fav_ging_baseline&quot;] &lt;dbl&gt;,
-## #   fav_hunt_baseline[,&quot;fav_hunt_baseline&quot;] &lt;dbl&gt;,
-## #   fav_bach_baseline[,&quot;fav_bach_baseline&quot;] &lt;dbl&gt;,
-## #   fav_ronp_baseline[,&quot;fav_ronp_baseline&quot;] &lt;dbl&gt;,
-## #   fav_sant_baseline[,&quot;fav_sant_baseline&quot;] &lt;dbl&gt;,
-## #   fav_perr_baseline[,&quot;fav_perr_baseline&quot;] &lt;dbl&gt;,
-## #   fav_obama_baseline[,&quot;fav_obama_baseline&quot;] &lt;dbl&gt;,
-## #   fav_hrc_baseline[,&quot;fav_hrc_baseline&quot;] &lt;dbl&gt;,
-## #   fav_biden_baseline[,&quot;fav_biden_baseline&quot;] &lt;dbl&gt;</code></pre>
+##   fav_trump_2019 fav_obama_2019 fav_hrc_2019 fav_sanders_2019 fav_putin_2019
+##            &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;            &lt;dbl&gt;          &lt;dbl&gt;
+## 1              0              1            1                1              0
+## 2             NA             NA           NA               NA             NA
+## 3              0              1            1                1              0
+## 4              0              1            0                0              0
+## 5              1              1            0                0              0
+## 6              0              1            1                0              0
+## # ... with 63 more variables: fav_schumer_2019 &lt;dbl&gt;, fav_pelosi_2019 &lt;dbl&gt;,
+## #   fav_comey_2019 &lt;dbl&gt;, fav_mueller_2019 &lt;dbl&gt;, fav_mcconnell_2019 &lt;dbl&gt;,
+## #   fav_kavanaugh_2019 &lt;dbl&gt;, fav_biden_2019 &lt;dbl&gt;, fav_warren_2019 &lt;dbl&gt;,
+## #   fav_harris_2019 &lt;dbl&gt;, fav_gillibrand_2019 &lt;dbl&gt;, fav_patrick_2019 &lt;dbl&gt;,
+## #   fav_booker_2019 &lt;dbl&gt;, fav_garcetti_2019 &lt;dbl&gt;, fav_klobuchar_2019 &lt;dbl&gt;,
+## #   fav_gorsuch_2019 &lt;dbl&gt;, fav_kasich_2019 &lt;dbl&gt;, fav_haley_2019 &lt;dbl&gt;,
+## #   fav_bloomberg_2019 &lt;dbl&gt;, fav_holder_2019 &lt;dbl&gt;, fav_avenatti_2019 &lt;dbl&gt;,
+## #   fav_castro_2019 &lt;dbl&gt;, fav_landrieu_2019 &lt;dbl&gt;, fav_orourke_2019 &lt;dbl&gt;,
+## #   fav_hickenlooper_2019 &lt;dbl&gt;, fav_pence_2019 &lt;dbl&gt;, favorhealth_2019 &lt;dbl&gt;,
+## #   fav_trump_2018 &lt;dbl&gt;, fav_ryan_2018 &lt;dbl&gt;, fav_obama_2018 &lt;dbl&gt;,
+## #   fav_hrc_2018 &lt;dbl&gt;, fav_sanders_2018 &lt;dbl&gt;, fav_putin_2018 &lt;dbl&gt;,
+## #   fav_schumer_2018 &lt;dbl&gt;, fav_pelosi_2018 &lt;dbl&gt;, fav_comey_2018 &lt;dbl&gt;,
+## #   fav_mueller_2018 &lt;dbl&gt;, fav_mcconnell_2018 &lt;dbl&gt;, fav_trump_2017 &lt;dbl&gt;,
+## #   fav_ryan_2017 &lt;dbl&gt;, fav_obama_2017 &lt;dbl&gt;, fav_hrc_2017 &lt;dbl&gt;,
+## #   fav_sanders_2017 &lt;dbl&gt;, fav_putin_2017 &lt;dbl&gt;, fav_trump_2016 &lt;dbl&gt;,
+## #   fav_cruz_2016 &lt;dbl&gt;, fav_ryan_2016 &lt;dbl&gt;, fav_romn_2016 &lt;dbl&gt;,
+## #   fav_obama_2016 &lt;dbl&gt;, fav_hrc_2016 &lt;dbl&gt;, fav_sanders_2016 &lt;dbl&gt;,
+## #   fav_rubio_2016 &lt;dbl&gt;, fav_grid_row_rnd_2016 &lt;dbl&gt;,
+## #   fav_grid_col_rnd_2016 &lt;dbl&gt;, fav_romn_baseline &lt;dbl&gt;,
+## #   fav_ging_baseline &lt;dbl&gt;, fav_hunt_baseline &lt;dbl&gt;, fav_bach_baseline &lt;dbl&gt;,
+## #   fav_ronp_baseline &lt;dbl&gt;, fav_sant_baseline &lt;dbl&gt;, fav_perr_baseline &lt;dbl&gt;,
+## #   fav_obama_baseline &lt;dbl&gt;, fav_hrc_baseline &lt;dbl&gt;, fav_biden_baseline &lt;dbl&gt;</code></pre>
 <ul>
 <li><p>We can also loop where we aren’t sure how long the final output is</p></li>
 <li><p>This can be done by adding each element to the end of a vector as we did in some previous lectures</p></li>
@@ -1765,7 +1781,7 @@ user information, one for each tweet and its author, one for each like, the user
 <li>For a comparison, check <a href="https://jennybc.github.io/purrr-tutorial/bk01_base-functions.html#lapply()_vs_purrr::map()">this</a> link out</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb632"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb632-1"><a href="dplyr-and-tidy.html#cb632-1"></a><span class="kw">map</span>(VSG.fav, mean, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb641"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb641-1"><a href="dplyr-and-tidy.html#cb641-1"></a><span class="kw">map</span>(VSG.fav, mean, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</span></code></pre></div>
 <pre><code>## $fav_trump_2019
 ## [1] 0.4214486
 ## 
@@ -1969,7 +1985,7 @@ user information, one for each tweet and its author, one for each like, the user
 ## 
 ## $fav_biden_baseline
 ## [1] 0.4600448</code></pre>
-<div class="sourceCode" id="cb634"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb634-1"><a href="dplyr-and-tidy.html#cb634-1"></a><span class="kw">map_dbl</span>(VSG.fav, mean, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb643"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb643-1"><a href="dplyr-and-tidy.html#cb643-1"></a><span class="kw">map_dbl</span>(VSG.fav, mean, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</span></code></pre></div>
 <pre><code>##        fav_trump_2019        fav_obama_2019          fav_hrc_2019 
 ##            0.42144859            0.53119929            0.39076560 
 ##      fav_sanders_2019        fav_putin_2019      fav_schumer_2019 
@@ -2016,7 +2032,7 @@ user information, one for each tweet and its author, one for each like, the user
 ##            0.37764501            0.30669654            0.48145382 
 ##      fav_hrc_baseline    fav_biden_baseline 
 ##            0.58924571            0.46004481</code></pre>
-<div class="sourceCode" id="cb636"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb636-1"><a href="dplyr-and-tidy.html#cb636-1"></a><span class="kw">map_chr</span>(VSG.fav, mean, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb645"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb645-1"><a href="dplyr-and-tidy.html#cb645-1"></a><span class="kw">map_chr</span>(VSG.fav, mean, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</span></code></pre></div>
 <pre><code>##        fav_trump_2019        fav_obama_2019          fav_hrc_2019 
 ##            &quot;0.421449&quot;            &quot;0.531199&quot;            &quot;0.390766&quot; 
 ##      fav_sanders_2019        fav_putin_2019      fav_schumer_2019 
@@ -2087,7 +2103,7 @@ user information, one for each tweet and its author, one for each like, the user
         </div>
       </div>
 <a href="data-visualization-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="functions-and-packages.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="more-useful-packages.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -2137,6 +2153,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

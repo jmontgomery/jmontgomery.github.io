@@ -7,6 +7,7 @@ documentclass: book
 output:
   bookdown::gitbook: default
   bookdown::pdf_book: default
+runtime: shiny
 ---
 
 ```{r opts, echo = FALSE}
@@ -16,22 +17,6 @@ knitr::opts_chunk$set(
 ```
 
 # Don't be a clown
-
-<a href="https://imgflip.com/i/3m0rs1"><img src="https://i.imgflip.com/3m0rs1.jpg" title="made at imgflip.com"/></a>
-
-
-> I see miracles all around me <br> 
-Stop and look around, it's all astounding <br> 
-Water, fire, air and dirt <br> 
-Fucking magnets, how do they work? <br> 
-And I don't wanna talk to a scientist <br> 
-Y'all motherfuckers lying, and getting me pissed <br> 
-<br>
-<br>
---- Insane Clown Posse, *Miracles*
-
-[Link](https://genius.com/Insane-clown-posse-miracles-lyrics) if you don't know what I'm talking about
-
 
 > Pollsters are wizards, shamans, diviners. They toss numbers around the way astragalomancers once tossed bones to foretell events to come. (The name comes from the Greek astragalos, meaning “knucklebone.” But you knew that.) <br>
 
@@ -138,3 +123,13 @@ The goal is for you to see and use information in multiple ways to improve learn
 3. You will apply your knowledge during in-class team assignments.  If you have any questions or run into problems, I will be right there to give you help.  To keep the team motivated, these assignments will be graded.
 
 4. You will apply your knowledge on your own (or with friends) in your problem sets and final project.
+
+
+## Interactive R Environment (not currently working)
+
+You might want to bookmark this page to test code quickly without opening RStudio.
+
+The username is the first name of the professor of this course and the password is the last name of the professor of this course
+```{r, echo=F}
+# runGist("e600b55b64cd2fc067e20622f5efc2ff")
+```
