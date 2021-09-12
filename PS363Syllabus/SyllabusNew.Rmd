@@ -46,8 +46,6 @@ In today’s information world, data are available everywhere and the role of st
 
 
 
-
-
 #### Learning objectives
 
 By the end of this course, you should be able to:
@@ -58,32 +56,29 @@ By the end of this course, you should be able to:
 - Understand linear regression in theory and practice (i.e., be able to read and interpret regression tables in academic articles)
 - Work collaboratively with other students to complete problem sets that apply concepts from class readings and short lectures
 - Independently gather, analyze, interpret, and present your own data
+- Be able to apply basic programming concepts in the R language to tasks like collecting and re-coding data
 
+#### Class Logistics
 
-
-#### Class information
-
-
-
+The class will consist of two weekly lecture sessions and one (required) lab session.  The lectures will be a combination of lectures and in-class activities focused on the relevant course materials.  The labs will be a chance to work more intensively with your peers to focus on the computational aspects of the class and to prepare yourself for the problem sets.
 
 
 ##### Lecture
-Monday and Wednesday  
-1:00 -- 2:00  
-Seigle Hall 304
+Class Days
+Class Times
+Class Location
 
 ##### Labs
 
-Seigle Hall L016  
-Lab A: Thursday 9:00--10:00  
-Lab B: Thursday 10:00 -- 11:00  
-Lab C: Friday 9:00 -- 10:00  
-Lab D: Friday 10:00 -- 11:00  
+Location  
+Lab A: Day/Time
+Lab B: Day/Time
 
 
 #### Instructor Information
 
-Jacob M. Montgomery, Ph.D.  
+Instructor Name
+Instructor Information
 Associate Professor, Department of Political Science  
 **Office**: Seigle 285  
 **E-mail**: jacob.montgomery@wustl.edu  
