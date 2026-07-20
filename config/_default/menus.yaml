@@ -1,0 +1,27 @@
+# Navigation Links
+
+main:
+  - name: Home
+    url: /
+    weight: 10
+  - name: CV
+    url: /uploads/cv/jmmCV-06-30-2026.pdf
+    weight: 20
+  - name: Research
+    url: /research/
+    weight: 30
+  - name: Teaching
+    url: /teaching/
+    weight: 40
+  - name: Lab
+    url: /lab/
+    weight: 50
+  - name: Software
+    url: /software/
+    weight: 60
+  - name: Data
+    url: /data/
+    weight: 70
+  - name: News
+    url: /blog/
+    weight: 80

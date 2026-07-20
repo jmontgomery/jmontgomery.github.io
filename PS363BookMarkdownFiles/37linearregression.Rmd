@@ -1,4 +1,0 @@
-# Basic Linear Regression in R 
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/66z_MRwtFJM" frameborder="0" allowfullscreen></iframe>  
-

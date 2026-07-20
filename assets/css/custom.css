@@ -1,0 +1,9 @@
+/* Override CV download button — remove red-to-green gradient, use solid WashU red */
+.resume-biography a[href*=".pdf"] {
+  background-image: none !important;
+  background-color: #BA0C2F !important;
+}
+
+.resume-biography a[href*=".pdf"]:hover {
+  background-color: #971B2F !important;
+}

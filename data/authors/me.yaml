@@ -1,0 +1,99 @@
+schema: hugoblox/author/v1
+slug: me
+is_owner: true
+name:
+  display: Jacob M. Montgomery
+  given: Jacob
+  family: Montgomery
+  alternate: ''
+  pronunciation: ''
+  pronouns: ''
+postnominals:
+  - PhD
+role: Professor of Political Science
+bio: |
+  Jacob Montgomery is a Professor of Political Science at Washington University
+  in St. Louis. A political methodologist by training, he develops statistical
+  and computational tools for the social sciences — including AI, machine
+  learning, and Bayesian methods — and applies them to substantive questions
+  about democratic politics. His research spans political behavior, public opinion,
+  and political communication, with a sustained focus on how technology shapes
+  political life, particularly artificial intelligence, social media, online
+  political advertising, and the spread of misinformation.
+
+  He has received multiple awards including the Warren Miller Prize and the Emerging
+  Scholar Award from the Society for Political Methodology, and has published across
+  disciplinary boundaries in leading outlets including *PNAS*, the *American Political
+  Science Review*, the *American Journal of Political Science*, and *NeurIPS*. This
+  research has been supported by the National Science Foundation, the Carnegie Corporation
+  of New York, and the Democracy Fund, with total external funding exceeding $1.2 million.
+
+  He received his PhD in Political Science and MS in Statistical Sciences from
+  Duke University, and his BA in Mathematical Economics and Political Science
+  from Wake Forest University. He has also
+  served as Founding Director of the Transdisciplinary Institute in Applied
+  Data Sciences (2022–2024) and Director of The American Social Survey at the
+  Weidenbaum Center (2020–2023).
+
+affiliations:
+  - name: Washington University in St. Louis
+    url: https://wustl.edu/
+
+links:
+  - icon: at-symbol
+    url: mailto:jacob.montgomery@wustl.edu
+    label: E-mail Me
+  - icon: brands/linkedin
+    url: https://www.linkedin.com/in/jacob-montgomery-2a6ab4286/
+    label: LinkedIn
+  - icon: academicons/google-scholar
+    url: https://scholar.google.com/citations?user=GaWC-J4AAAAJ&hl=en
+    label: Google Scholar
+  - icon: brands/bluesky
+    url: https://bsky.app/profile/jacobmontgomery.bsky.social
+    label: Bluesky
+  - icon: brands/x
+    url: https://x.com/  # TODO: add Twitter/X handle or remove this line
+  - icon: academicons/orcid
+    url: https://orcid.org/0000-0001-5632-2437
+    label: ORCID
+
+interests: []
+
+education: []
+
+experience:
+  - role: Professor of Political Science
+    org: Washington University in St. Louis
+    start: 2023-07-01
+  - role: Associate Professor of Political Science
+    org: Washington University in St. Louis
+    start: 2017-07-01
+    end: 2023-06-30
+  - role: Assistant Professor of Political Science
+    org: Washington University in St. Louis
+    start: 2011-07-01
+    end: 2017-06-30
+
+awards:
+  - title: Graduate and Professional Student Council Outstanding Faculty Award
+    awarder: Washington University in St. Louis
+    date: "2026-01-01"
+    icon: hero/trophy
+  - title: Warren Miller Prize, Best Paper in Political Analysis
+    awarder: Society for Political Methodology
+    date: "2024-01-01"
+    icon: hero/trophy
+  - title: Emerging Scholar Award
+    awarder: Society for Political Methodology
+    date: "2020-01-01"
+    summary: Honoring a young researcher making notable contributions to political methodology.
+    icon: hero/star
+  - title: Hahn-Sigelman Prize, Best Article in American Politics Research
+    awarder: American Politics Research
+    date: "2017-01-01"
+    icon: hero/trophy
+  - title: NSF Graduate Research Fellow
+    awarder: National Science Foundation
+    date: "2007-09-01"
+    icon: hero/academic-cap
