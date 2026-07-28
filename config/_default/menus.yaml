@@ -16,9 +16,3 @@ main:
   - name: Software
     url: /software/
     weight: 60
-  - name: Data
-    url: /data/
-    weight: 70
-  - name: News
-    url: /blog/
-    weight: 80
