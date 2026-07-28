@@ -89,14 +89,12 @@ Current tag buttons in Browse by Topic (alphabetical):
 Rules: tags removed = Electoral Politics, Methodology. Tags added = Political Behavior, Political Communication, Bayesian Statistics, Text/Image (renamed from NLP/Natural Language Processing).
 
 ## Author profile (`data/authors/me.yaml`)
-- Bio paragraph 1: research spans political behavior, public opinion, and political communication; technology focus (AI, social media, online political advertising, misinformation)
+- Bio paragraph 1: develops advanced statistical and computational methods; applies to public opinion, political behavior, political communication; recent focus on AI, social media, online political advertising, misinformation, online populism
 - Bio paragraph 2: awards (Warren Miller Prize, Emerging Scholar Award); journals (PNAS, APSR, AJPS, NeurIPS); funders (NSF, Carnegie, Democracy Fund, >$1.2M)
-- Bio paragraph 3: PhD + MS from Duke, BA from Wake Forest; Founding Director TIADS (2022–2024), Director American Social Survey (2020–2023)
+- Bio paragraph 3: PhD + MS from Duke, BA from Wake Forest; Founding Director TIADS (2022–2024)
 - TODO: Add Google Scholar URL (currently placeholder)
-- TODO: Remove or update Twitter/X link
 
 ## TODOs — profile/config cleanup
-- Add Twitter/X handle to `data/authors/me.yaml` or remove that link entirely
 - Clean up ORCID entry at https://orcid.org/0000-0001-5632-2437 (make sure it's current)
 - Add/verify GitHub profile at https://github.com/jmontgomery
 - GitHub link hidden for now (profile needs cleanup before showing)
@@ -105,6 +103,7 @@ Rules: tags removed = Electoral Politics, Methodology. Tags added = Political Be
 - Confirm professional email is correct (`jacob.montgomery@wustl.edu`)
 
 ## TODOs — publications
+- **Audit all publication entries** — review each `content/publications/<slug>/index.md` for accuracy: titles, authors, year, venue, volume/issue/pages, tags, abstract, and PDF links
 - PolAds2 working paper: pending co-author + posting decision (Li, Zhang, McCoy, Edelson); add card once decided
 - Book (Montgomery & Rossiter 2022, Cambridge UP): link to https://doi.org/10.1017/9781108862516 rather than hosting PDF
 - Write a blog post explaining the adaptive inventories method accessibly, to post on the site

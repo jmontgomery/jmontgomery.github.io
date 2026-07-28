@@ -13,27 +13,28 @@ postnominals:
 role: Professor of Political Science
 bio: |
   Jacob Montgomery is a Professor of Political Science at Washington University
-  in St. Louis. A political methodologist by training, he develops statistical
-  and computational tools for the social sciences — including AI, machine
-  learning, and Bayesian methods — and applies them to substantive questions
-  about democratic politics. His research spans political behavior, public opinion,
-  and political communication, with a sustained focus on how technology shapes
-  political life, particularly artificial intelligence, social media, online
-  political advertising, and the spread of misinformation.
+  in St. Louis. He develops advanced statistical and computational methods for
+  the social sciences and applies them to public opinion, political behavior,
+  and political communication. His methodological work focuses on AI and machine learning,
+  Bayesian methods, and text and image analysis. Substantively, his recent work
+  focuses on how technology shapes democratic politics, including artificial
+  intelligence, social media, online political advertising, misinformation, and
+  online populism.
 
   He has received multiple awards including the Warren Miller Prize and the Emerging
-  Scholar Award from the Society for Political Methodology, and has published across
-  disciplinary boundaries in leading outlets including *PNAS*, the *American Political
-  Science Review*, the *American Journal of Political Science*, and *NeurIPS*. This
-  research has been supported by the National Science Foundation, the Carnegie Corporation
-  of New York, and the Democracy Fund, with total external funding exceeding $1.2 million.
+  Scholar Award from the Society for Political Methodology, and has published over 40
+  papers in peer-reviewed outlets including leading venues like *PNAS*, the *American
+  Political Science Review*, the *American Journal of Political Science*, *Political
+  Analysis*, and *NeurIPS*. This research has been supported by the National Science
+  Foundation, the Carnegie Corporation of New York, and the Democracy Fund, with total
+  external funding exceeding $1.2 million.
 
   He received his PhD in Political Science and MS in Statistical Sciences from
   Duke University, and his BA in Mathematical Economics and Political Science
   from Wake Forest University. He has also
   served as Founding Director of the Transdisciplinary Institute in Applied
-  Data Sciences (2022–2024) and Director of The American Social Survey at the
-  Weidenbaum Center (2020–2023).
+  Data Sciences (2022–2024). He currently serves as Vice President of the
+  Society for Political Methodology.
 
 affiliations:
   - name: Washington University in St. Louis
@@ -53,7 +54,8 @@ links:
     url: https://bsky.app/profile/jacobmontgomery.bsky.social
     label: Bluesky
   - icon: brands/x
-    url: https://x.com/  # TODO: add Twitter/X handle or remove this line
+    url: https://x.com/Jacob_Montg
+    label: X
   - icon: academicons/orcid
     url: https://orcid.org/0000-0001-5632-2437
     label: ORCID

@@ -10,9 +10,11 @@ sections:
     content:
       username: me
       text: ''
-      button:
-        text: Download CV
-        url: uploads/cv/jmmCV-06-30-2026.pdf
+      buttons:
+        - text: Short CV
+          url: uploads/cv/jmmCV-short.pdf
+        - text: Full CV
+          url: uploads/cv/jmmCV-07-28-2026.pdf
       headings:
         about: 'Jacob Montgomery'
         education: ''

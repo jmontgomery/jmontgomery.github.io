@@ -82,7 +82,7 @@
   {{ end }}
 {{ end }}
 
-<div class="resume-biography py-4 px-4 sm:py-6 md:py-8 lg:py-12 xl:py-16 relative overflow-hidden">
+<div class="resume-biography py-8 px-4 sm:py-12 md:py-16 lg:py-24 xl:py-32 relative overflow-hidden">
   {{/* Add subtle top gradient for navbar transition */}}
   <div class="max-w-7xl mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start">
@@ -351,6 +351,9 @@
         {{ with $bio_content }}
         <div class="mb-12">
           <div class="flex items-center gap-4 mb-8">
+            <div class="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/50 rounded-full flex items-center justify-center">
+              {{ partial "functions/get_icon" (dict "name" "identification" "attributes" "class='w-6 h-6 text-primary-600 dark:text-primary-400'") }}
+            </div>
             {{ $i18n_about := i18n "about_me" }}
             {{ $about_default := cond (eq $i18n_about "about_me") "Professional Summary" $i18n_about }}
             {{ $about_heading := $about_default }}
@@ -404,7 +407,7 @@
               {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
             {{ end }}
             <a href="{{ $button_link | safeURL }}" {{ $target | safeHTMLAttr }}
-               class="inline-flex items-center px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+               class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
               {{ partial "functions/get_icon" (dict "name" "document-arrow-down" "attributes" "class='w-5 h-5 mr-3'") }}
               {{ $button_text }}
             </a>

@@ -1,0 +1,738 @@
+\documentclass[10pt]{article}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\definecolor{washu}{RGB}{186,12,47}
+
+\usepackage{hyperref}
+
+\hypersetup{
+  letterpaper,
+  colorlinks,
+  urlcolor=washu,
+  pdfpagemode=none,
+  pdftitle={Curriculum vitae},
+  pdfauthor={Jacob Montgomery},
+  pdfsubject={},
+}
+
+\usepackage[T1]{fontenc}
+\usepackage{mathpazo}
+\usepackage{microtype}
+\usepackage{CV}
+\usepackage[left=1in, right=1in ,top=1in,bottom=1in]{geometry}
+
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{12}
+{0mm}
+{1.5\baselineskip}
+{0.7\baselineskip}
+{\large\bfseries\scshape\color{washu}\hrule\vspace{0.8\baselineskip}}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}
+{0mm}
+{0.8\baselineskip}
+{0.3\baselineskip}
+{\normalsize\scshape}}
+\makeatother
+
+% Reduce CV list left margin
+\renewenvironment{CV}
+  {\begin{list}{}
+    {\renewcommand{\makelabel}{\entrylabel}
+    \setlength{\labelwidth}{55pt}
+    \setlength{\leftmargin}{62pt}
+  }}
+  {\end{list}}
+
+% Wider label column for Professional Activities
+\newenvironment{CVwide}
+  {\begin{list}{}
+    {\renewcommand{\makelabel}{\entrylabel}
+    \setlength{\labelwidth}{85pt}
+    \setlength{\leftmargin}{92pt}
+  }}
+  {\end{list}}
+
+% Subnote command for prizes, media coverage, etc.
+\newcommand{\cvnote}[1]{\\[0.1em]{\hspace*{0.5em}\small\itshape #1}}
+
+% Student co-author asterisk
+\newcommand{\student}[1]{#1$^{*}$}
+
+\pagestyle{plain}
+\newcommand{\danlee}[1]
+    {
+   % \section{#1}
+    \markboth{#1 \hfill}{#1 \hfill}
+    }
+
+\begin{document}
+\danlee{Jacob Michael Montgomery}
+\begin{center}
+{\LARGE\scshape Jacob Michael Montgomery}\\[0.4em]
+{\color{washu}\rule{\linewidth}{0.8pt}}\\[0.3em]
+{\small Department of Political Science $\cdot$ Washington University in St. Louis $\cdot$ St. Louis, MO 63130}\\[0.2em]
+{\small \href{mailto:jacob.montgomery@wustl.edu}{jacob.montgomery@wustl.edu} $\cdot$ \href{http://jacobmontgomery.com}{jacobmontgomery.com} $\cdot$ \href{http://politicaldatascience.com}{politicaldatascience.com}}\\[0.2em]
+{\small Last updated: July 28, 2026}
+\end{center}
+
+
+\section*{Employment}
+
+
+
+\begin{CV}
+
+ \item[\textsc{Washington University in St. Louis (Political Science)}] 
+\item[2023--]  Professor
+\item[2020--2024] Director of Data Science Training
+\item[2017--2023]  Associate Professor
+\item[2011--2017] Assistant Professor
+
+
+   \item[\textsc{Washington University in St. Louis (Other)}] 
+\item[2022--2024] Founding Director, Transdisciplinary Institute in Applied Data Sciences (TIADS), School of Arts \& Sciences
+\item[2020--2023] Director, The American Social Survey (TASS), Weidenbaum Center on the Economy, Government, and Public Policy
+\item[2018--2025] Track Chair, Division of Computational Data Sciences
+
+
+  
+
+
+
+
+\end{CV}
+
+
+\section*{Education}
+\begin{CV}
+\item[2011] \textsc{Duke University}\\ 
+Ph.D., Political Science
+
+\item[2009] \textsc{Duke University}\\
+M.S., Statistical Sciences
+
+ \item[2004] \textsc{Victoria University of Wellington} \\
+   B.A. (Honors), Political Science
+
+
+\item[2002] \textsc{Wake Forest University} (\emph{Summa Cum Laude, Phi Beta Kappa})\\
+B.A., Mathematical-Economics and Political Science (Honors) 
+
+\end{CV}
+
+
+
+% \section*{Other Education}
+% \begin{CV}
+
+% \item[Summer 2008]\textsc{Santa Fe Institute}\\
+%   Graduate Workshop in Computational Social Science Modeling and
+%   Complexity
+
+%  \item[Summer 2007]\textsc{ICPSR Summer Short Course}\\
+%  Designing, Conducting, and Analyzing Field Experiments
+
+% \end{CV}
+
+
+
+
+
+\section*{Publications}
+
+
+
+
+\subsection*{Refereed Journal Publications}
+
+
+
+\begin{CV}
+
+
+\item[] \student{Kim, Dahjin}, \student{Taishi Muraoka}, Christopher Lucas, Jacob Montgomery, and Margit Tavits. Forthcoming. ``Polarization but Not Populism Strengthens the Association Between Presidential Election Results and Emotions.'' \textit{Political Science Research and Methods.}
+
+  \item[]  Park, Ju Yeon and Jacob M. Montgomery. Forthcoming. ``Towards a Framework for Creating Trustworthy Measures
+with Supervised Machine Learning.'' \textit{Political Science Research and Methods}.
+
+\item[] \student{Jeon, Soyeon}, \student{Messi H.J. Lee}, Jacob M. Montgomery, and Calvin K. Lai.  Forthcoming. ``From Faces to Politics: Vision-Language Models (Sometimes) Link Visual Demographic Characteristics to Ideological Labels.'' \textit{Political Analysis}.
+
+  \item[]  Edelson, Laura, \student{Dominique Lockett}, \student{Zhaozhi Li}, Tobias Lauinger, Celia Guillard, Jacob Montgomery, and Damon McCoy. 2026. ``What Drives Perceptions of the Political in Online Advertising?: The Source, Content, and Political Orientation.'' \textit{Journal of Experimental Political Science} 13 (1): 36-50.
+  
+
+ \item[]  \student{Muraoka, Taishi}, \student{Dahjin Kim},
+   Christopher Lucas, Jacob Montgomery, and Margit Tavits. 2026. ``Speaking Their Language?: Descriptive
+   Representation of Language Constituencies in Global Democracies.'' \textit{American Journal of Political Science} 70 (2): 752–767.
+\cvnote{Media coverage in \href{https://source.washu.edu/2026/05/study-reveals-how-when-political-parties-communicate-with-citizens-in-multiple-languages/}{The Source}.}
+ 
+
+ \item[] Lyons, Benjamin, Jacob M. Montgomery, and Jason Reifler. 2024. ``Partisanship and Older Americans' Engagement with
+     Dubious Political News.''  \textit{Public Opinion Quarterly} 88 (3): 962-990.
+
+ \item[] \student{Lee, Messi H.J.}, Jacob M. Montgomery, and Calvin
+   Lai. 2024. ``America's Racial Framework of Superiority and Americanness
+    Embedded in Natural Language.'' \emph{PNAS Nexus} 3 (1): pgad485.
+
+ \item[]  \student{Duck-Mayr, JBrandon} and Jacob
+   M. Montgomery.  2023. ``Ends Against the Middle: Measuring Latent
+Traits When Opposites Respond the Same Way
+for Antithetical Reasons.'' 
+   \emph{Political Analysis} 31 (4): 606-625.
+\cvnote{Warren Miller Prize, Best Paper in \emph{Political Analysis}, 
+Society for Political Methodology}
+
+\item[]  Berlinski, Nicolas,  Margaret Doyle, Andrew
+  M. Guess, Gabrielle Levy, Benjamin Lyons, Jacob Montgomery, Brendan
+  Nyhan, and Jason Reifler. 2023. ``The Effects of
+  Unsubstantiated Claims of Voter Fraud on Confidence in Elections.''
+  \textit{Journal of Experimental Political Science} 10 (1): 34-49.\cvnote{Media coverage in \href{https://www.theatlantic.com/ideas/archive/2020/06/election-confidence-fraud/612358/}{The Atlantic},  \href{https://www.news5cleveland.com/news/national/despite-his-claims-expert-says-president-donald-trump-would-likely-benefit-from-mail-in-voting}{News 5 Cleveland}, \href{https://www.propublica.org/article/outright-lies-voting-misinformation-flourishes-on-facebook}{ProPublica}, \href{https://www.theguardian.com/us-news/2021/jul/01/researchers-reveal-corrosive-power-of-trump-lie-of-a-stolen-election}{The Guardian}, \href{https://www.cnn.com/2021/10/07/opinions/facebook-misinformation-and-how-to-fix-it-himelfarb-howard/index.html}{CNN}}
+  
+ 
+\item[] \student{Ying, Luwei}, Jacob M. Montgomery, and
+   Brandon M. Stewart. 2022. ``Topics, Concepts, and Measurement:
+A Crowdsourced Procedure for Validating Topics as Measures.''
+\emph{Political Analysis} 30 (4): 570-589.
+
+ \item[] Montgomery, Jacob M. and \student{Min Hee Seo}. 2022. ``Closeness and Strategic Participation: Does the
+   Closeness of the U.S. Presidential Election Shape Where College
+   Students Register to Vote?'' \textit{Journal of Politics} 84 (2): 1250-1255.
+ 
+
+\item[] \student{Chen, Yehu}, Roman Garnett, and Jacob
+  M. Montgomery. 2022. ``Polls, Context, and Time: A Dynamic Bayesian
+  Forecasting Model for US Senate Elections.'' \emph{Political
+    Analysis} 30 (2): 236-249.
+   
+\item[]  Lyons, Benjamin A., Jacob M. Montgomery,
+  Andrew M. Guess, Brendan Nyhan, and Jason
+  Reifler. 2021. ``Overconfidence in news judgments is
+  associated with false news susceptibility.''  \textit{Proceedings of
+    the National Academy of Sciences} 118 (23): e2019527118.\cvnote{Media coverage in \href{https://www.theguardian.com/media/2021/may/31/confident-spotting-fake-news-if-so-more-likely-fall-victim#}{The Guardian}, \href{https://www.snopes.com/news/2021/05/31/misinformation-duped-study/}{Snopes}, \href{https://www.cnn.com/2021/05/31/health/fake-news-study/index.html}{CNN}, \href{https://www.nydailynews.com/news/crime/ny-americans-fake-news-20210601-ulimjxy5czamrjv3erevx7e75q-story.html}{New York Daily News}}
+  
+\item[]   \student{Muraoka, Taishi}, Jacob Montgomery, Christopher Lucas, and Margit Tavits. 2021. ``Love and Anger in Global Party Politics: Facebook Reactions to Political Party Posts in 79 Democracies.'' \textit{Journal of Quantitative Description: Digital Media} 1: 1-38.
+
+
+\item[] Montgomery, Jacob M. and \student{Erin L. Rossiter}. 2020. ``So Many Questions, So Little
+Time: Adaptive Personality Inventories for Survey Research.'' \textit{Journal of Survey Statistics
+  and Methodology} 8 (4): 667-690.
+
+\item[] Guess, Andrew,  Michael Lerner, Benjamin
+  Lyons, Jacob Montgomery, Brendan Nyhan, Jason Reifler, and Neelanjan
+  Sircar. 2020. ``A digital media literacy intervention increases
+  discernment between mainstream and false news in the United States
+  and India.'' \textit{Proceedings of the National Academy of
+    Sciences} 117 (27): 15536--15545.\cvnote{Honorable Mention, Walter Lippmann Best Published Article Award,
+APSA Section for Political Communication}\cvnote{Media coverage in
+\href{https://www.nytimes.com/2020/09/11/health/misinformation-social-media-elderly.html}{New
+  York Times},
+\href{https://www.consumerreports.org/social-media/facebook-gave-tips-to-spot-fake-news-a-study-says-they-work/}{Consumer
+  Reports},
+ \href{https://www.youtube.com/channel/UCzhtAFR4aiLOr8IWqA92-5w}{KSHB
+   Kansas City}, \href{https://tinyurl.com/evph5884}{NiemanLab}}
+                               
+
+\item[] Guess, Andrew M., \student{Dominique Lockett},
+  Benjamin Lyons, Jacob M. Montgomery, Brendan Nyhan, and Jason
+  Reifler. 2020. ``Fake news may have limited effects beyond
+  increasing beliefs in false claims.'' \textit{Harvard Kennedy School
+    Misinformation Review} 1 (1).
+
+\item[] \student{Tucker, Patrick D.}, Jacob
+  M. Montgomery, and Steven S. Smith.  2019. ``Party Identification in
+  the Age of Obama: Evidence on the Sources of Stability and
+  Systematic Change in Party Identification from a Long-Term Panel
+  Survey.'' \textit{Political Research Quarterly} 72 (2): 309-328.
+
+\item[] Hollenbach, Florian, Jacob M. Montgomery, and
+  \student{Adriana Crespo-Tenorio}. 2019. ``Bayesian Versus Maximum Likelihood Estimation of Treatment Effects in Bivariate Probit Instrumental Variable Models.'' \textit{Political Science Research and Methods} 7 (3): 651-659.
+
+\item[] Montgomery, Jacob M., and \student{Santiago Olivella}.  2018. ``Tree-Based Models for Political Science Data.'' \textit{American Journal of Political Science} 62 (3): 729-744.
+
+\item[] Montgomery, Jacob M., Brendan Nyhan, and
+  \student{Michelle Torres}.  2018. ``How Conditioning on Post-Treatment Variables
+  Can Ruin Your Experiment and What to Do About It.''  
+  \textit{American Journal of Political Science} 62 (3): 760-775.\cvnote{Featured in
+\href{https://onlinelibrary.wiley.com/page/journal/15405907/homepage/vimostrecent}{a
+  2019 virtual issue} of twenty highly-cited articles from the
+journal;  most cited article in AJPS published in the
+last 5 years.}
+
+\item[] \student{Butler, Ryden}, Brendan Nyhan, Jacob
+  M. Montgomery, and \student{Michelle Torres}. 2018. ``Revisiting White
+  Backlash: How Race Affects Death Penalty Opinion Today.''
+  \textit{Research and Politics} 5 (1).
+  
+
+\item[] \student{Carlson, David} and Jacob
+  M. Montgomery. 2017. ``A Pairwise Comparison Framework for Fast, Flexible, and
+Reliable Human Coding of Political Texts.'' \textit{American Political
+  Science Review} 111 (4): 835-843.
+
+\item[] Montgomery, Jacob M., and Brendan
+  Nyhan. 2017. ``The
+    Effects of Congressional Staff Networks in the U.S. House of
+    Representatives.'' \textit{Journal of Politics} 79 (3): 745-761.
+
+\item[] Hazelton, Morgan, Jacob M. Montgomery, and Brendan Nyhan. 2016.  ``Does Public Financing Affect Judicial Behavior? Evidence from the North Carolina Supreme Court.''  \textit{American Politics Research} 44 (4): 587-617.
+
+
+
+\item[] Freeze, Melanie and Jacob M. Montgomery. 2016. ``Static Stability and Evolving Constraint: Preference Stability and Ideological Structure in the Mass Public.''  \textit{American Politics Research} 44 (3): 415-447.\cvnote{Awarded the Hahn-Sigelman prize for the best article published in
+\textit{American Politics Research} in 2016}
+
+\item[] Montgomery, Jacob M., \student{Santiago Olivella}, Joshua D. Potter, and
+  Brian Crisp. 2015. ``An
+    Informed Forensics Approach to Detecting Vote Irregularities.''
+  \textit{Political Analysis} 23 (4): 488-505.
+
+
+
+
+\item[] Nyhan, Brendan and Jacob M. Montgomery. 2015. ``Connecting
+  the Candidates: Consultant Networks and the Diffusion of Campaign
+  Strategy in American Congressional Elections.'' \textit{American Journal of Political Science} 59 (2): 292-308.\cvnote{Awarded the Political Ties Award by the Political Networks Section of APSA}
+
+\item[] Montgomery, Jacob M., Florian M. Hollenbach, and Michael D. Ward. 2014.  ``Calibrating Ensemble Forecasting Models with Sparse Data in the Social Sciences.''    \textit{International Journal of Forecasting} 31 (3): 930-942.
+
+  
+\item[] Aldrich, John H., Jacob M. Montgomery, and David Sparks. 2014. ``Polarization and Ideology: Partisan Sources of Low Dimensionality in Scaled Roll-Call Analyses.'' \textit{Political Analysis} 22 (4): 435-456.
+
+
+
+
+\item[] Montgomery, Jacob M. and Josh Cutler. 2013. ``Computerized Adaptive Testing for Public Opinion Surveys.'' \textit{Political Analysis} 21 (2): 141-171.\cvnote{Included in \textit{Political Analysis} virtual issue ``Greatest Hits''}
+
+
+
+
+\item[] Montgomery, Jacob M., Florian Hollenbach, and Michael D. Ward. 2012. ``Improving Predictions Using Ensemble Bayesian Model
+  Averaging.'' \textit{Political Analysis} 20 (3): 271-291.\cvnote{Included in \textit{Political Analysis} virtual issue ``Big Data in Political Science''}
+
+\item[] Aldrich, John H., Jacob M. Montgomery, and Wendy Wood. 2011.
+  ``Turnout as a Habit.'' \emph{Political Behavior} 33 (4): 535-563.
+\cvnote{Media coverage in \href{https://thehill.com/opinion/campaign/456934-how-voting-becomes-a-habit}{The Hill}}
+
+\item[] Montgomery, Jacob M. and Brendan Nyhan. 2010. ``Bayesian Model Averaging: Theoretical Developments and Practical Applications.'' \textit{Political Analysis} 18 (2): 245-270.
+
+\item[] Montgomery, Jacob M., Jerry Reiter, Alexandra Cooper, and Shuo Guan. 2008. ``Nonresponse Bias on Dimensions of Political Activity
+Amongst Political Elites.'' \emph{International Journal of Public Opinion Research} 20 (4): 494-506.
+
+
+\item[] Montgomery, Jacob M., Kristie Long Foley, and Mark Wolfson.  2006.  ``Enforcing the Minimum Drinking Age: State, Local, and
+Agency Characteristics Associated With Compliance Checks and Cops in
+Shops Programs.'' \emph{Addiction} 101 (2): 223-231.
+
+
+
+
+\end{CV}
+
+
+\subsection*{Peer-Reviewed Conference Publications}
+
+\begin{CV}
+
+\item[] \student{Chen, Yehu},  \student{Muchen Xi}, Jacob Montgomery, Joshua Jackson, and Roman Garnett. 2024. ``Idiographic Personality Gaussian Process for Psychological Assessment.''  \emph{The 2024 Conference on Neural Information Processing Systems (NeurIPS)}.
+
+\item[]  \student{Lee, Messi H.J.}, Jacob M. Montgomery, and Calvin
+   Lai.  2024. ``Large Language Models Portray
+   Socially Subordinate Groups as More Homogeneous, Consistent with a
+   Bias Observed in Humans.'' \emph{The 2024 ACM Conference on
+     Fairness, Accountability, and Transparency (FAccT)}.
+
+\item[] \student{Chen, Yehu}, \student{Annamaria Prati},  Jacob
+  Montgomery,  and Roman Garnett.  2023. ``Inferring Time-varying
+  Treatment Effects in Panel Data via Multi-Task Gaussian Processes.''
+  \textit{Proceedings of The 26th International Conference on
+    Artificial Intelligence and Statistics (AIStats)}, PMLR 206:4068-4088.
+
+\item[] \student{Duck-Mayr, JBrandon}, Roman Garnett, and
+  Jacob M. Montgomery. 2020. ``GPIRT: A Gaussian Process Model for
+  Item Response Theory.'' \emph{Proceedings of the Thirty-Sixth
+    Conference on Uncertainty in Artificial Intelligence (UAI)}.
+
+\end{CV}
+
+ \subsection*{Books}
+
+\begin{CV}
+
+ \item[]  Montgomery, Jacob M. and \student{Erin L. Rossiter}. 2022. ``Adaptive Inventories: A Practical Guide for Applied
+  Researchers.'' \textit{Cambridge University Press}.
+
+\end{CV}
+
+
+\subsection*{Edited publications}
+
+\begin{CV}
+
+\item[] Hollenbach, Florian and Jacob M. Montgomery. 2020. ``Bayesian Model Selection, Model Comparison, and Model Averaging.'' In \textit{SAGE Handbook of Research Methods in Political Science and International Relations}, eds. Luigi Curini and Robert Franzese. SAGE Publications.
+
+\item[] Moore, Ryan T. and Jacob M. Montgomery. 2014.  ``Building and Maintaining R Packages with \texttt{devtools} and \texttt{roxygen2}.''   \textit{The Political Methodologist} 22 (1): 26-31.
+
+\item[] Gomez, Brad T. and Jacob M. Montgomery.  2013.  ``Why John Aldrich?''   \textit{PS: Political Science and Politics} 46 (4): 857-864.
+
+
+
+\item[] Montgomery, Jacob M., Florian Hollenbach, and Michael D. Ward. 2013.  ``Aggregation and Ensembles: Principled Combinations of Data.''  \textit{PS: Political Science and Politics} 46 (1): 43-44.
+
+\item[]  Montgomery, Jacob M., Florian Hollenbach, and Michael
+  D. Ward.  2012. ``Ensemble Predictions of the 2012 US Presidential  Election.''   \textit{PS: Political Science and Politics} 45
+  (4): 651-654.
+
+
+\end{CV}
+
+
+
+
+\subsection*{Software}
+
+\begin{CV}
+
+ \item[] \student{Ying, Luwei}, Jacob Montgomery, and Brandon
+   Stewart.  \texttt{validateIt}.  \url{https://cran.r-project.org/web/packages/validateIt/}
+
+  
+\item[] \student{Duck-Mayr, JBrandon} and Jacob
+  Montgomery. \texttt{bggum}. \url{https://cran.r-project.org/web/packages/bggum/}
+  
+
+\item[] \student{Rossiter, Erin L.} and Jacob M. Montgomery.  \texttt{catSurv}.
+\url{http://cran.r-project.org/web/packages/catSurv/}
+
+\item[] Montgomery, Jacob M., Florian Hollenbach, and Michael D. Ward.  \texttt{EBMAforecast}.
+\url{http://cran.r-project.org/web/packages/EBMAforecast/}
+\end{CV}
+
+\vspace{0.5em}
+\noindent{\small $^{*}$Co-author was a current or former student at Washington University in St. Louis.}
+
+
+
+
+
+ \section*{Additional Work}
+ 
+\subsection*{Public reports}
+
+\begin{CV}
+
+\item ``Fake news, Facebook ads, and misperceptions: Assessing
+  information quality in the 2018 U.S. midterm election campaign.''
+  With Andrew Guess, Benjamin Lyons, Brendan Nyhan,  and Jason
+  Reifler. Report prepared for the Democracy Fund.
+  
+ \end{CV}
+
+ 
+
+
+
+%\subsection*{Under review}
+
+%\begin{CV}
+
+
+%\item ``The perils of overconfidence: Consuming, sharing, and
+ % believing false news content.'' With Andrew M. Guess,  Benjamin
+% A. Lyons, Brendan Nyhan, and Jason Reifler.
+
+%\end{CV}
+
+
+%\subsection*{Papers invited to revise and resubmit}
+ 
+ %\begin{CV}
+
+
+%\end{CV}
+    
+ \subsection*{Papers under review}
+
+ 
+ \begin{CV}
+
+  \item[] ``Short, Precise, and Valid: A Computerized Adaptive Approach to Measuring the Big Five.'' With \student{Muchen Xi}, \student{Erin L. Rossiter}, and Joshua Jackson.
+
+  \item[] ``What the Public Wants Regulated: User Preferences on Online Political Advertising in Six Policy Domains.'' With Laura Edelson, Damon McCoy, \student{Zhaozhi Li}, and \student{Debra Zhang}.
+
+  \item[] ``Measuring Google AI Overviews: Activation, Source Quality, Claim Fidelity, and Publisher Impact.'' With \student{Haofei Xu} and Umar Iqbal.
+
+\end{CV}
+
+\subsection*{Papers in preparation}
+
+\begin{CV}
+
+\item[] ``One Language is Enough: Using Transfer Learning to Detect Populist Rhetoric Across 25 Languages Without Translation.'' With \student{Cecilia Sui}, \student{Soyeon Jeon}, Christopher Lucas, and Margit Tavits.
+
+\item[] ``Encoding Structure and Flexibility: A Gaussian Process Approach to Modeling Dynamic Political Data.'' With \student{Annamaria Prati}, \student{Yehu Chen}, and Roman Garnett.
+
+\item[] ``GD-GPIRT: A Generalized Dynamic Gaussian Process Model for Item Response Theory with Longitudinal Observations.'' With \student{Yehu Chen} and Roman Garnett.
+
+\item[] ``The Emotional Architecture of Populism: The Divergent Effects of Anti-Elite and People-Centric Frames.'' With \student{Ruilin Lai}, Christopher Lucas, and Margit Tavits.
+
+\item[] ``Visual Cues of Gender and Race are Associated with Stereotyping in Vision-Language Models.'' With \student{Messi H.J. Lee}, \student{Soyeon Jeon}, and Calvin K. Lai.
+
+\item[] ``Preregistration as Cheap Talk: The Strengths and Limits of Self-Enforcing Plans in Scientific Research.'' With \student{Zion Little} and Keith Schnakenberg.
+
+\end{CV}
+
+\vspace{0.5em}
+\noindent{\small $^{*}$Co-author was a current or former student at Washington University in St. Louis.}
+
+
+\section*{Grants}
+\subsection*{External grants}
+\begin{CV}
+
+\item[2023] Carnegie Foundation.
+  \emph{Proposal Title}: The Role of International Cooperation in Combating the Populist Threat to Democracies. (\$330,000) PI with Christopher Lucas (Co-PI) and
+  Margit Tavits (Co-PI).
+  
+\item[2022] National Science Foundation, Security and Preparedness.
+  \emph{Proposal Title}: HNDS-R: Populist Rhetoric on Social Media and
+  Its Effects on Democracies. (\$571,005) PI with Christopher Lucas (Co-PI) and
+  Margit Tavits (Co-PI).
+  
+\item[2020] National Science Foundation, Accountable Institutions and
+  Behavior. \emph{Proposal Title}: DDRIG: When Does Interparty
+  Conversation Harm or Heal Affective Polarization? (\$23,298) Co-PI
+  with Erin Rossiter.
+  
+ \item[2018] Democracy Fund.  (\$8,500)
+
+\item[2016] National Science Foundation, Methodology, Measurement, and Statistics. \emph{Proposal Title}: Computerized Adaptive Testing for Public Opinion Research. (\$291,644)
+
+\item[2010] National Science Foundation Dissertation Improvement Grant. \emph{Proposal Title}: The Causes, Consequences, and
+  Measurement of Perceived Political Control. (\$12,000) Co-PI with
+  John Aldrich.
+
+\end{CV}
+
+
+
+\subsection*{Internal grants}
+
+\noindent Murray Weidenbaum Center on the Economy, Government, and Public Policy, Washington University in St. Louis: 13 awards (2011--2026) totaling over \$240,000, including Faculty Research Grants and a Postdoctoral Research Fellowship (\$118,935).
+
+
+
+
+
+
+\section*{Fellowships and Awards}
+\begin{CV}
+
+\item[2026] Graduate and Professional Student Council (GPSC) Outstanding Faculty Award, Washington University in St. Louis.
+
+\item[2025] Winner, Teaching Innovation Showcase, Arts \& Sciences Office of Interdisciplinary Initiatives and Innovation.
+
+\item[2024] Warren Miller Prize for best work appearing in \emph{Political Analysis} the preceding year, Society for Political Methodology.
+
+\item[2021] Honorable Mention, APSA Political Communication Section Walter Lippmann Best Published Article Award.
+
+\item[2020] Emerging Scholar Award, Society for Political Methodology.
+
+\item[2017] Hahn-Sigelman Prize for the best article published in \emph{American Politics Research}.
+
+\item[2015] Political Ties Award for best paper, Political Networks Section of APSA.
+
+\item[2010] Robert K. Steel Family Graduate Fellowship.
+
+\item[2007--2010] National Science Foundation Graduate Research Fellow.
+
+\item[2009] Robert R. Wilson Graduate Fellow in American Politics.
+
+\item[2005] Jaffrey Endowed Fellowship.
+
+\item[2003] Rotary Ambassadorial Scholar.
+
+\item[2002] Jack D. Fleer Award for Excellence in Honors in Political Science.
+
+\item[1998--2002] Wake Forest University Reynolds Scholar.
+
+\end{CV}
+
+
+
+%\section*{Research and Teaching Interests}
+
+%\begin{CV}
+%\item[] Statistical Methods, American Institutions, American Political Parties
+%\end{CV}
+
+
+\section*{Public Talks and Conference Participation}
+
+\subsection*{Invited Talks}
+
+\begin{CV}
+\item[2026] University of Wisconsin; Washington University in St.\ Louis (Statistics and Data Science).
+\item[2024] California Institute of Technology; Wake Forest University; Ohio State University; Vanderbilt University; Emory University.
+\item[2021] UC Davis.
+\item[2019] Washington University in St.\ Louis (Psychological and Brain Sciences); University of Georgia; Stanford University; MIT; Koc University (Istanbul).
+\item[2017] Texas A\&M University; University of Illinois.
+\item[2016] Princeton University.
+\item[2015] New York University; Duke University; Dartmouth College; University of Chicago.
+\end{CV}
+
+\subsection*{Workshops and Small Conferences}
+
+\begin{CV}
+\item[2025] Keynote Speaker, TILEC Workshop on Economic Governance of Social Media.
+\item[2023] Panel Organizer, Digital Health and AI Summit, Washington University in St.\ Louis.
+\item[2018] International Total Survey Error Workshop (ITSEW).
+\item[2016] New York Area Methods Meeting, New York University; ANES Advisory Board, Stanford University; APSA Section on Legislative Studies Virtual Workshop.
+\item[2015] Conference on Ideal Point Models, MIT; Conference Celebrating the Center for Political Institutions and Public Choice (PIPC), Duke University.
+\item[2013] Political Economy and Public Law Conference (PEPL), Washington University Law School.
+\item[2012] St.\ Louis Area Methods Meeting (SLAMM), Washington University in St.\ Louis.
+\item[2011] American Politics Conference, MIT.
+\end{CV}
+
+
+\subsection*{Major Conference Presentations}
+
+\noindent American Political Science Association (2010--2012, 2014--2020, 2022--2025);
+Society for Political Methodology (2012--2013, 2016, 2019--2020, 2022, 2024--2025);
+Midwest Political Science Association (2007--2016, 2022--2024);
+Southern Political Science Association (2006, 2026);
+Latin American PolMeth (2020, 2022, 2024);
+Asian Methods Meeting (2015, 2017, 2026);
+European Political Science Association (2023);
+American Association for Public Opinion Research (2013, 2019);
+Political Networks Conference (2010, 2016);
+Public Choice Society (2009).
+
+
+
+\section*{Teaching}
+
+
+\subsection*{Washington University in St. Louis}
+
+\noindent The Politics of Technology and the Technology of Politics (2025, \href{https://source.washu.edu/2025/08/the-intersection-of-technology-and-politics/}{featured in \emph{The Source}});
+Quantitative Political Methods II (2017--2025);
+Data Science for Politics (2021--2023, 2025);
+Applied Statistical Programming (2014, 2016--2018, 2022);
+Digital Politics, Social Media, and Misinformation (2021);
+Math for Political Science (2017--2021);
+Political Data Science (2020);
+Quantitative Political Methodology (2011--2013, 2016--2017);
+Measurement and Latent Trait Models (2013, 2016);
+American Political Parties (2011, 2013);
+Experimental Politics (2012).
+
+
+
+
+\subsection*{Dissertation Committees (chair or co-chair)}
+\begin{CV}
+\item[Current]  Cecilia Sui,  Soyeon Jeon, Chanhyuk Park, Carlos López de la Cerda (DCDS), Haofei Xu (DCDS)
+\item[Past] Ryden Butler, David Carlson, Yehu Chen (DCDS), Messi Lee (DCDS), Gechun Lin, Dominique Lockett, Bryant Moy, Erin Rossiter, Annamaria Prati
+  
+\end{CV}
+
+\subsection*{Dissertation Committees (member)}
+\begin{CV}
+\item[Current]  Alexis Jang,  Zhaozhi Li,  Xiangyu Song, Leon Zhao, Rachel Goodman,  Dihan Shi
+\item[Past] Muchen Xi, Annie Jarmon, Raduan Meira, Tsung-Han Tsai, Viktoryia Schnose, Adrián Lucardi, Taeyong
+  Park, Emily Moore, Michelle Torres, Constanza F. Schibber, Jae Hee
+  Jung, Miguel Pereira, Patrick Silva, Min Hee Seo, Luwei Ying, Patrick Rickert, Dahjin Kim.
+\end{CV}
+
+\subsection*{Third Year Committees}
+\begin{CV}
+\item[Chair]  Hongyu Yu, Chanhyuk Park, Soyeon Jeon, Cecilia Sui, Annamaria Prati, Gechun Lin, Ryan Johnson, Dominique Lockett, Erin Rossiter, Ryden Butler 
+  \item[Member] Dihan Shi,  Xiangyu Song, Zhaozhi Li, Lucas Boschelli, Dahjin Kim, Ipek Ece Sener, Michelle Torres, David Carlson 
+\end{CV}
+
+\subsection*{Senior Theses}
+\begin{CV}
+\item[] Jaime Zucker, Eli Scher-Zagier (Antoinette Dames Senior Thesis
+  Award), Sarah Ambrose (Grossman-Alexander Prize), John Li (Antoinette Dames Senior Thesis
+  Award), Debra Zhang.
+\end{CV}
+
+
+
+
+
+
+
+\section*{Professional Activities}
+
+
+
+\subsection*{National Service}
+
+%% DDRIG commiittee.
+%% program committee polmeth 2020
+
+\begin{CVwide}
+\item[\textbf{Leadership}] Vice President, Society for Political Methodology (current).
+
+\item[\textbf{Review Panels}] National Science Foundation.
+
+\item[\textbf{Editorial Boards}] \emph{American Political Science Review}; \emph{Political Analysis}; \emph{American Journal of Political Science}.
+
+\item[\textbf{Awards}] \textit{Chair}: Gosnell Prize Committee, Society for Political Methodology (2025); Robert H. Durr Award Committee, Midwest Political Science Association (2023); Society for Political Methodology Mentoring Award Committee (2018); Hahn-Sigelman Prize Committee (2018). \textit{Member}: APSA Doctoral Dissertation Improvement Grant Award Committee (2020); Political Ties Award for Best Published Article Committee, APSA Political Networks Section (2015--2016).
+
+\item[\textbf{Conferences}] Program Chair, Society for Political Methodology Annual Meeting (2026); Organizer, Society for Political Methodology Annual Meeting (2022); Organizer, Saint Louis Area Methods Meeting (2021); Member, Program Committee, Society for Political Methodology Annual Meeting (2019--2022); Section Head, Political Networks, American Political Science Association (2017); Section Head, Political Methodology, American Political Science Association (2015); Co-organizer, Political Networks Workshops \& Conference (2015--2016).
+\end{CVwide}
+
+\subsection*{University Service}
+\begin{CVwide}
+\item[\textbf{Leadership}] Founding Director, Transdisciplinary Institute in Applied Data Sciences (2022--2024); Director, The American Social Survey (2020--2023).
+
+\item[\textbf{Grant Review}] Here \& Next Transcend Initiative Grant Review Committee (2024--2025); Carnegie Foundation Internal Selection Committee (2025); OVCR Seed Grant Review Committee (2025).
+
+\item[\textbf{Advisory}] Danforth Campus IRB Advisory Council (2023--2026); IRB Social Media Advisory Committee (2024--2025); Internal Advisory Committee, Digital Transformations/Here and Next Strategic Plan (2023--2024); Arts \& Sciences Research Computing Steering Committee (2023--2024); Strategic Planning Working Group on the Research Enterprise (2021); \textit{Ad Hoc} Committee on creation of Division of Computing and Data Science (2017); University Committee on Course Evaluations (2013--2016); Board of Directors, Campus YMCA (2014--2019).
+
+\item[\textbf{Searches}] Department of Psychological \& Brain Sciences (2021); Data Science for Humanity, Department of Computer Science and Engineering (2020--2021); Digital Transformations Cluster Hiring Committee (2020).
+\end{CVwide}
+
+\subsection*{Department Service}
+\begin{CVwide}
+\item[\textbf{Leadership}] Director of Data Science Training (2020--2024); Director, Departmental Speaker Series (2016--2019); IRB Liaison (2023--present); Departmental Library Liaison (2011--2016).
+
+\item[\textbf{Subfield}] Methods Field Committee, \textit{Chair} (2019--2023), \textit{Member} (2012--present); Founding Director, Political Data Science Lab (2015--2022); Organizer, Summer Methods Short Courses (2014--2020).
+
+\item[\textbf{Advisory}] PhD Admissions Committee (2023--2024); Graduate Program Review Committee (2026); Diversity Committee, Chair (2020--2021), Member (2018--2021); \textit{Ad Hoc} Committee on Graduate Methods Review (2020); \textit{Ad Hoc} Committee on Graduate Program Curriculum (2016).
+
+\item[\textbf{Searches}] Chair (2017); Member (2012, 2018, 2024).
+
+\item[\textbf{Conferences}] Co-organizer, Building Data Science Conference (2018); Organizer, Conference on Political Data Science (2016).
+\end{CVwide}
+
+
+
+%\subsection*{Conference presentations}
+
+%\subsection*{Discussant}
+
+%\subsection*{Referee}
+%\begin{CV}
+%\item[] \emph{American Political Science Review}, \emph{American
+ %   Journal of Political Science}, \emph{Journal of Politics}, \textit{Nature Human Behavior},
+ % \emph{Political Analysis}, \textit{Proceedings of Association for the
+ % Advancement of Artificial Intelligence (AAAI)}, \textit{Proceedings of the International Conference on
+%Artificial Intelligence and Statistics (AISTATS)},
+%\emph{Public Opinion Quarterly}, \emph{Journal of the Royal
+ % Statistical Society}, \emph{Transactions on Computer-Human Interaction}, \emph{Political Behavior}, \emph{American Political Research},  \emph{Electoral Studies}, \emph{Journal of Conflict Resolution}, 
+%\emph{Political Research Quarterly}, \emph{Political Science Research
+ % and Methods},   \textit{Journal of Experimental Political Science},
+%\emph{State Politics \& Policy Quarterly}, \emph{Election Law Review}, \emph{International Journal of Forecasting}, \emph{Party Politics}, \emph{Public Choice}, 
+%\emph{Politics and Policy Review},  \textit{The American Statistician}, \emph{Journal of Elections Public Opinion and Parties}, \textit{German Politics}
+%\end{CV}
+
+
+
+
+
+
+
+
+\end{document}
