@@ -1,0 +1,174 @@
+\documentclass[10pt]{article}
+\usepackage{xcolor}
+\definecolor{washu}{RGB}{186,12,47}
+\usepackage{hyperref}
+\hypersetup{
+  letterpaper,
+  colorlinks,
+  urlcolor=black,
+  pdfpagemode=none,
+  pdftitle={Curriculum vitae},
+  pdfauthor={Jacob Montgomery},
+}
+\usepackage[T1]{fontenc}
+\usepackage{mathpazo}
+\usepackage{microtype}
+\usepackage{CV}
+\usepackage[left=0.7in, right=0.7in, top=0.7in, bottom=0.7in]{geometry}
+
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{12}
+{0mm}
+{1.1\baselineskip}
+{0.5\baselineskip}
+{\large\bfseries\scshape\hrule\vspace{0.6\baselineskip}}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}
+{0mm}
+{0.6\baselineskip}
+{0.2\baselineskip}
+{\normalsize\scshape}}
+\makeatother
+
+\renewenvironment{CV}
+  {\begin{list}{}
+    {\renewcommand{\makelabel}{\entrylabel}
+    \setlength{\labelwidth}{55pt}
+    \setlength{\leftmargin}{62pt}
+    \setlength{\itemsep}{2pt}
+    \setlength{\parsep}{0pt}
+  }}
+  {\end{list}}
+
+% Hanging-indent list for publications (no year label)
+\newenvironment{CVpub}
+  {\begin{list}{}
+    {\setlength{\labelwidth}{0pt}
+    \setlength{\leftmargin}{14pt}
+    \setlength{\itemindent}{-14pt}
+    \setlength{\itemsep}{3pt}
+    \setlength{\parsep}{0pt}
+  }}
+  {\end{list}}
+
+\pagestyle{plain}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\scshape Jacob Michael Montgomery}\\[0.4em]
+{\rule{\linewidth}{0.8pt}}\\[0.3em]
+{\small Department of Political Science $\cdot$ Washington University in St.\ Louis $\cdot$ St.\ Louis, MO 63130}\\[0.2em]
+{\small \href{mailto:jacob.montgomery@wustl.edu}{jacob.montgomery@wustl.edu} $\cdot$ \href{http://jacobmontgomery.com}{jacobmontgomery.com} $\cdot$ \href{http://politicaldatascience.com}{politicaldatascience.com}}\\[0.2em]
+{\small Last updated: July 28, 2026}
+\end{center}
+
+
+\section*{Profile}
+
+\noindent Jacob Montgomery is Professor of Political Science at Washington University in St.\ Louis, where he develops advanced statistical and machine learning methods and applies them to the study of political behavior, public opinion, and the societal implications of new technologies. His research appears in leading social science journals (\textit{PNAS}, \textit{APSR}, \textit{AJPS}, \textit{Political Analysis}) and premier AI/ML venues (NeurIPS, FAccT, AIStats). He is the author of more than 40 peer-reviewed articles and conference papers, a recipient of the Warren Miller Prize for best paper in \textit{Political Analysis} and the Emerging Scholar Award from the Society for Political Methodology, and has secured over \$1.2 million in external funding from the National Science Foundation and private foundations.
+
+\vspace{2pt}
+\noindent{\small \textit{Google Scholar} (July 2026): 5,292 total citations $\cdot$ \textit{h}-index: 26 $\cdot$ \textit{i}10-index: 36}
+
+
+\section*{Employment}
+
+\begin{CV}
+\item[\textsc{Washington University in St.\ Louis}]
+\item[2023--] Professor of Political Science
+\item[2022--2024] Founding Director, Transdisciplinary Institute in Applied Data Sciences (TRIADS)
+\item[2017--2023] Associate Professor of Political Science
+\item[2011--2017] Assistant Professor of Political Science
+\end{CV}
+
+
+\section*{Education}
+
+\begin{CV}
+\item[2011] Ph.D., Political Science, \textsc{Duke University}
+\item[2009] M.S., Statistical Sciences, \textsc{Duke University}
+\item[2002] B.A., Mathematical-Economics and Political Science, \textsc{Wake Forest University}
+\end{CV}
+
+
+\section*{Research Expertise}
+
+\noindent AI \& Computational Social Science $\cdot$ American Politics $\cdot$ Machine Learning \& Bayesian Methods $\cdot$ Misinformation \& Online Political Communication $\cdot$ Natural Language Processing \& Computer Vision $\cdot$ Survey Methods \& Adaptive Measurement
+
+
+\section*{Selected Publications}
+
+\begin{CVpub}
+
+\item[] Jeon, Soyeon, Messi H.J. Lee, Jacob M. Montgomery, and Calvin K. Lai. Forthcoming. ``From Faces to Politics: Vision-Language Models (Sometimes) Link Visual Demographic Characteristics to Ideological Labels.'' \textit{Political Analysis}.
+
+\item[] Chen, Yehu, Muchen Xi, Jacob Montgomery, Joshua Jackson, and Roman Garnett. 2024. ``Idiographic Personality Gaussian Process for Psychological Assessment.'' \emph{NeurIPS 2024}.
+
+\item[] Lee, Messi H.J., Jacob M. Montgomery, and Calvin Lai. 2024. ``Large Language Models Portray Socially Subordinate Groups as More Homogeneous, Consistent with a Bias Observed in Humans.'' \emph{FAccT 2024}.
+
+\item[] Chen, Yehu, Annamaria Prati, Jacob Montgomery, and Roman Garnett. 2023. ``Inferring Time-varying Treatment Effects in Panel Data via Multi-Task Gaussian Processes.'' \textit{AIStats 2023}, PMLR 206:4068--4088.
+
+\item[] Duck-Mayr, JBrandon and Jacob M. Montgomery. 2023. ``Ends Against the Middle: Measuring Latent Traits When Opposites Respond the Same Way for Antithetical Reasons.'' \emph{Political Analysis} 31 (4): 606--625.\\[0.1em]
+{\small\itshape Warren Miller Prize, Best Paper in \emph{Political Analysis}, Society for Political Methodology.}
+
+\item[] Lyons, Benjamin A., Jacob M. Montgomery, Andrew M. Guess, Brendan Nyhan, and Jason Reifler. 2021. ``Overconfidence in news judgments is associated with false news susceptibility.'' \textit{PNAS} 118 (23): e2019527118.
+
+\item[] Montgomery, Jacob M., Brendan Nyhan, and Michelle Torres. 2018. ``How Conditioning on Post-Treatment Variables Can Ruin Your Experiment and What to Do About It.'' \textit{American Journal of Political Science} 62 (3): 760--775.
+
+\item[] Montgomery, Jacob M. and Santiago Olivella. 2018. ``Tree-Based Models for Political Science Data.'' \textit{American Journal of Political Science} 62 (3): 729--744.
+
+\item[] Carlson, David and Jacob M. Montgomery. 2017. ``A Pairwise Comparison Framework for Fast, Flexible, and Reliable Human Coding of Political Texts.'' \textit{American Political Science Review} 111 (4): 835--843.
+
+\item[] Nyhan, Brendan and Jacob M. Montgomery. 2015. ``Connecting the Candidates: Consultant Networks and the Diffusion of Campaign Strategy in American Congressional Elections.'' \textit{American Journal of Political Science} 59 (2): 292--308.
+
+\end{CVpub}
+
+
+\section*{Recent \& Working Papers}
+
+\begin{CVpub}
+
+\item[] Muraoka, Taishi, Dahjin Kim, Christopher Lucas, Jacob Montgomery, and Margit Tavits. 2026. ``Speaking Their Language?: Descriptive Representation of Language Constituencies in Global Democracies.'' \textit{American Journal of Political Science} 70 (2): 752--767.
+
+\item[] Park, Ju Yeon and Jacob M. Montgomery. Forthcoming. ``Towards a Framework for Creating Trustworthy Measures with Supervised Machine Learning.'' \textit{Political Science Research and Methods}.
+
+\item[] Montgomery, Jacob M., Haofei Xu, and Umar Iqbal. ``Measuring Google AI Overviews: Activation, Source Quality, Claim Fidelity, and Publisher Impact.'' \textit{Under review}.
+
+\item[] Xi, Muchen, Erin L. Rossiter, Joshua Jackson, and Jacob M. Montgomery. ``Short, Precise, and Valid: A Computerized Adaptive Approach to Measuring the Big Five.'' \textit{Under review}.
+
+\item[] Lai, Ruilin, Christopher Lucas, Margit Tavits, and Jacob M. Montgomery. ``The Emotional Architecture of Populism: The Divergent Effects of Anti-Elite and People-Centric Frames.'' \textit{In preparation}.
+
+\item[] Little, Zion, Jacob M. Montgomery, and Keith Schnakenberg. ``Preregistration as Cheap Talk: The Strengths and Limits of Self-Enforcing Plans in Scientific Research.'' \textit{In preparation}.
+
+\end{CVpub}
+
+
+\section*{Selected Grants}
+
+\begin{CV}
+\item[2023] Carnegie Foundation. \textit{The Role of International Cooperation in Combating the Populist Threat to Democracies.} (\$330,000) PI with Christopher Lucas and Margit Tavits.
+\item[2022] National Science Foundation. \textit{Populist Rhetoric on Social Media and Its Effects on Democracies.} (\$571,005) PI with Christopher Lucas and Margit Tavits.
+\item[2016] National Science Foundation. \textit{Computerized Adaptive Testing for Public Opinion Research.} (\$291,644)
+\end{CV}
+
+
+\section*{Selected Fellowships \& Awards}
+
+\begin{CV}
+\item[2024] Warren Miller Prize, best paper in \emph{Political Analysis}, Society for Political Methodology.
+\item[2020] Emerging Scholar Award, Society for Political Methodology.
+\item[2017] Hahn-Sigelman Prize, best article in \emph{American Politics Research}.
+\item[2015] Political Ties Award, best published article, Political Networks Section of APSA.
+\end{CV}
+
+
+\section*{Mentorship \& Teaching}
+
+\noindent Dissertation committee chair or co-chair for 14 PhD students (5 current); committee member for 23 additional students; co-authored with 24 current or former students. Teaches graduate and undergraduate courses in quantitative methods, machine learning, and American politics; recipient of the 2025 Teaching Innovation Showcase Award and the 2026 Graduate and Professional Student Council Outstanding Faculty Award.
+
+
+\section*{Service}
+
+\noindent Vice President, Society for Political Methodology (current); Program Chair, SPM Annual Meeting (2026); Organizer, SPM Annual Meeting (2022); Section Head, APSA (Political Methodology, 2015; Political Networks, 2017); Grant Review Panelist, NSF. Editorial boards: \textit{American Political Science Review}; \textit{Political Analysis}; \textit{American Journal of Political Science}.
+
+\end{document}
