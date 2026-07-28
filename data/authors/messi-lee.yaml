@@ -1,0 +1,12 @@
+schema: hugoblox/author/v1
+slug: messi-lee
+name:
+  display: Messi Y. H. Lee
+  given: Messi
+  family: Lee
+role: PhD, Washington University in St. Louis
+user_groups:
+  - Alumni
+affiliations:
+  - name: Division of Computational and Data Sciences
+bio: ''

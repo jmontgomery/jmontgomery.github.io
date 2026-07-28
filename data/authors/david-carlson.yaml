@@ -1,0 +1,10 @@
+schema: hugoblox/author/v1
+slug: david-carlson
+name:
+  display: David Carlson
+  given: David
+  family: Carlson
+role: PhD, Washington University in St. Louis
+user_groups:
+  - Alumni
+bio: ''

@@ -1,0 +1,12 @@
+schema: hugoblox/author/v1
+slug: yehu-chen
+name:
+  display: Yehu Chen
+  given: Yehu
+  family: Chen
+role: PhD, Washington University in St. Louis
+user_groups:
+  - Alumni
+affiliations:
+  - name: Division of Computational and Data Sciences
+bio: ''

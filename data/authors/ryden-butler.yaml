@@ -1,0 +1,10 @@
+schema: hugoblox/author/v1
+slug: ryden-butler
+name:
+  display: Ryden Butler
+  given: Ryden
+  family: Butler
+role: PhD, Washington University in St. Louis
+user_groups:
+  - Alumni
+bio: ''

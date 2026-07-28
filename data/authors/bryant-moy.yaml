@@ -1,0 +1,10 @@
+schema: hugoblox/author/v1
+slug: bryant-moy
+name:
+  display: Bryant Moy
+  given: Bryant
+  family: Moy
+role: PhD, Washington University in St. Louis
+user_groups:
+  - Alumni
+bio: ''

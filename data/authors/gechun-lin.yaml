@@ -1,0 +1,10 @@
+schema: hugoblox/author/v1
+slug: gechun-lin
+name:
+  display: Gechun Lin
+  given: Gechun
+  family: Lin
+role: PhD, Washington University in St. Louis
+user_groups:
+  - Alumni
+bio: ''

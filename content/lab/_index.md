@@ -3,25 +3,17 @@ title: Lab
 type: landing
 
 sections:
-  - block: people
+  - block: team-showcase
     content:
-      title: Current Students
+      title: ''
       user_groups:
         - Current Students
-    design:
-      show_interests: false
-      show_role: true
-      show_social: false
-
-  - block: people
-    content:
-      title: Alumni
-      user_groups:
         - Alumni
     design:
       show_interests: false
       show_role: true
       show_social: false
+      max_columns: 4
 
   - block: markdown
     content:

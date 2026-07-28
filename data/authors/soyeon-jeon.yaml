@@ -1,0 +1,12 @@
+schema: hugoblox/author/v1
+slug: soyeon-jeon
+name:
+  display: Soyeon Jeon
+  given: Soyeon
+  family: Jeon
+role: PhD Candidate
+user_groups:
+  - Current Students
+affiliations:
+  - name: Washington University in St. Louis
+bio: ''

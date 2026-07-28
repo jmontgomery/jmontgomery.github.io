@@ -1,0 +1,12 @@
+schema: hugoblox/author/v1
+slug: cecilia-sui
+name:
+  display: Cecilia Sui
+  given: Cecilia
+  family: Sui
+role: PhD Candidate
+user_groups:
+  - Current Students
+affiliations:
+  - name: Washington University in St. Louis
+bio: ''

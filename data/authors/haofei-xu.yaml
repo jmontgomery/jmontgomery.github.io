@@ -1,0 +1,12 @@
+schema: hugoblox/author/v1
+slug: haofei-xu
+name:
+  display: Haofei Xu
+  given: Haofei
+  family: Xu
+role: PhD Candidate
+user_groups:
+  - Current Students
+affiliations:
+  - name: Washington University in St. Louis (Division of Computational and Data Sciences)
+bio: ''

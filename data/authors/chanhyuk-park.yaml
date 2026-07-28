@@ -1,0 +1,12 @@
+schema: hugoblox/author/v1
+slug: chanhyuk-park
+name:
+  display: Chanhyuk Park
+  given: Chanhyuk
+  family: Park
+role: PhD Candidate
+user_groups:
+  - Current Students
+affiliations:
+  - name: Washington University in St. Louis
+bio: ''

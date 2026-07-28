@@ -1,0 +1,12 @@
+schema: hugoblox/author/v1
+slug: carlos-lopez
+name:
+  display: Carlos López de la Cerda
+  given: Carlos
+  family: López de la Cerda
+role: PhD Candidate
+user_groups:
+  - Current Students
+affiliations:
+  - name: Washington University in St. Louis (Division of Computational and Data Sciences)
+bio: ''
