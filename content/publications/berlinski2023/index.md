@@ -26,6 +26,7 @@ tags:
   - Misinformation
   - Public Opinion
   - Political Behavior
+  - American Politics
 links:
   - name: PDF
     url: /uploads/papers/berlinski2023.pdf

@@ -19,6 +19,7 @@ summary: 'Applies ensemble forecasting methods to predict the outcome of the 201
 featured: false
 tags:
   - Political Behavior
+  - American Politics
 links:
   - name: PDF
     url: /uploads/papers/montgomery2012b.pdf

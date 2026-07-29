@@ -18,7 +18,7 @@ summary: 'Standard political measurement tools assume that people who give the s
 featured: true
 tags:
   - Bayesian Statistics
-  - Measurement
+  - Measurement/Surveys
   - Featured
 links:
   - name: PDF

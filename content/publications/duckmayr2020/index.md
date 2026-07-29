@@ -16,8 +16,8 @@ summary: 'Proposes GPIRT, a Gaussian process extension of item response theory t
 featured: false
 tags:
   - Bayesian Statistics
-  - Machine Learning
-  - Measurement
+  - AI/Machine Learning
+  - Measurement/Surveys
 links:
   - name: PDF
     url: /uploads/papers/duckmayr2020.pdf

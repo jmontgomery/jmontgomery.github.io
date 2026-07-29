@@ -19,7 +19,7 @@ abstract: ''
 summary: 'Develops a statistically principled approach to detecting electoral fraud using forensic analysis of vote return distributions. By incorporating prior knowledge about legitimate electoral patterns, the method improves detection of irregularities while reducing false positives compared to naive approaches.'
 featured: false
 tags:
-  - Measurement
+  - Measurement/Surveys
   - Political Behavior
 links:
   - name: PDF

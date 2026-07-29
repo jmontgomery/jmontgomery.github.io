@@ -19,7 +19,8 @@ abstract: ''
 summary: 'Investigates nonresponse bias in surveys of political elites across multiple dimensions of political activity. The study provides methodological guidance for researchers concerned about whether elite survey nonresponse distorts inferences about the political behavior and attitudes of officeholders and candidates.'
 featured: false
 tags:
-  - Measurement
+  - Measurement/Surveys
+  - American Politics
 links:
   - name: PDF
     url: /uploads/papers/montgomery2008.pdf

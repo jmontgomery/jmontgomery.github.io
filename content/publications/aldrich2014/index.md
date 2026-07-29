@@ -18,8 +18,10 @@ abstract: ''
 summary: 'Examines why roll-call scaling models find low dimensionality in legislative voting. The authors argue that partisan polarization, rather than genuine ideological constraint, drives the apparent unidimensionality, with important implications for how we measure and interpret legislative ideology.'
 featured: false
 tags:
-  - Measurement
+  - Measurement/Surveys
   - Political Behavior
+  - Congress
+  - American Politics
 links:
   - name: PDF
     url: /uploads/papers/aldrich2014.pdf

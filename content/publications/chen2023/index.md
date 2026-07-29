@@ -16,7 +16,7 @@ abstract: ''
 summary: 'Introduces a Gaussian process framework for estimating treatment effects that vary over time in panel data. The multi-task approach borrows strength across units and time periods, improving estimation of heterogeneous and dynamic causal effects in social science applications.'
 featured: false
 tags:
-  - Machine Learning
+  - AI/Machine Learning
   - Causal Inference
 links:
   - name: PDF

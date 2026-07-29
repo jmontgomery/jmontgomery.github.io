@@ -20,6 +20,7 @@ featured: false
 tags:
   - Public Opinion
   - Causal Inference
+  - American Politics
 links:
   - name: PDF
     url: /uploads/papers/butler2018.pdf

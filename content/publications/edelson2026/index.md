@@ -26,6 +26,7 @@ tags:
   - Social Media
   - Public Opinion
   - Political Communication
+  - American Politics
 links:
   - name: PDF
     url: /uploads/papers/edelson2026.pdf

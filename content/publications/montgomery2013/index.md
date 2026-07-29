@@ -17,7 +17,7 @@ abstract: ''
 summary: 'Introduces computerized adaptive testing (CAT) methods to public opinion surveys, allowing researchers to measure latent attitudes more efficiently. By tailoring question selection to respondents in real time, CAT can achieve the same measurement precision with far fewer questions than traditional fixed-form surveys.'
 featured: false
 tags:
-  - Measurement
+  - Measurement/Surveys
   - Public Opinion
 links:
   - name: PDF

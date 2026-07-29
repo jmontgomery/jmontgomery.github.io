@@ -17,8 +17,8 @@ abstract: ''
 summary: 'Personality psychology has long been caught between two competing visions: models that describe everyone the same way, and models tailored uniquely to each individual. This paper proposes an elegant middle path — a flexible statistical framework that captures shared personality structure across a population while also allowing each person''s factor structure to deviate in ways unique to them. Drawing on longitudinal survey data and Gaussian process methods, the approach outperforms standard models at predicting individual responses and reveals personality clusters that standard taxonomies miss.'
 featured: true
 tags:
-  - Machine Learning
-  - Measurement
+  - AI/Machine Learning
+  - Measurement/Surveys
   - Featured
 links:
   - name: PDF

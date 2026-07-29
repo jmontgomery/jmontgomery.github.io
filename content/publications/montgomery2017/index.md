@@ -18,6 +18,8 @@ summary: 'Examines how networks of congressional staff influence legislative beh
 featured: false
 tags:
   - Political Behavior
+  - Congress
+  - American Politics
 links:
   - name: PDF
     url: /uploads/papers/montgomery2017.pdf

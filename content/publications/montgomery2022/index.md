@@ -19,6 +19,7 @@ featured: false
 tags:
   - Public Opinion
   - Political Behavior
+  - American Politics
 links:
   - name: PDF
     url: /uploads/papers/montgomery2022.pdf

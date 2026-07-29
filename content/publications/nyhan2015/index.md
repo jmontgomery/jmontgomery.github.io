@@ -19,6 +19,8 @@ featured: false
 tags:
   - Political Communication
   - Political Behavior
+  - Congress
+  - American Politics
 links:
   - name: PDF
     url: /uploads/papers/nyhan2015.pdf

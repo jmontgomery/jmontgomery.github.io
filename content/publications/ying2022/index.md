@@ -18,7 +18,7 @@ abstract: ''
 summary: 'Topic models have become one of the most popular tools for analyzing political text at scale — but are researchers actually checking whether the topics they find measure what they claim? This paper surveys recent practice in top journals and finds that rigorous validation is increasingly rare, then proposes a practical crowdsourced fix: a suite of validation exercises using online workers to check whether topics are internally coherent and whether researcher-assigned labels actually match the content. The method comes with free software and is designed to raise the floor for measurement quality across the field, making it easier for researchers to catch problems before they become published conclusions.'
 featured: true
 tags:
-  - Measurement
+  - Measurement/Surveys
   - Text/Image
   - Featured
 links:

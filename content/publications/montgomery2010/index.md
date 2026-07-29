@@ -17,7 +17,7 @@ abstract: ''
 summary: 'Provides a theoretical and practical introduction to Bayesian model averaging for political scientists. The paper shows how BMA improves out-of-sample prediction and addresses model uncertainty compared to standard model selection approaches, with applications to forecasting and causal inference.'
 featured: false
 tags:
-  - Machine Learning
+  - AI/Machine Learning
 links:
   - name: PDF
     url: /uploads/papers/montgomery2010.pdf

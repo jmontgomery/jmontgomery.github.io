@@ -18,8 +18,9 @@ summary: 'Investigates the stability of individual policy preferences and ideolo
 featured: false
 tags:
   - Public Opinion
-  - Measurement
+  - Measurement/Surveys
   - Political Behavior
+  - American Politics
 links:
   - name: PDF
     url: /uploads/papers/freeze2016.pdf

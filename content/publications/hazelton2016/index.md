@@ -20,6 +20,7 @@ featured: false
 tags:
   - Causal Inference
   - Political Behavior
+  - American Politics
 links:
   - name: PDF
     url: /uploads/papers/hazelton2016.pdf

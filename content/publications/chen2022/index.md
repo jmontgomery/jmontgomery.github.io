@@ -18,8 +18,10 @@ abstract: ''
 summary: 'Develops a dynamic Bayesian model for forecasting US Senate elections that integrates polling data, contextual factors, and temporal dynamics. The approach outperforms simpler models by coherently combining information from multiple sources as election day approaches.'
 featured: false
 tags:
-  - Machine Learning
+  - AI/Machine Learning
   - Political Behavior
+  - Congress
+  - American Politics
 links:
   - name: PDF
     url: /uploads/papers/chen2022.pdf

@@ -18,7 +18,7 @@ abstract: ''
 summary: 'Addresses the challenge of calibrating ensemble forecasting models when training data are sparse, a common problem in social science prediction. The paper develops methods for combining model predictions that remain well-calibrated even with limited historical data.'
 featured: false
 tags:
-  - Machine Learning
+  - AI/Machine Learning
 links:
   - name: PDF
     url: /uploads/papers/montgomery2014.pdf

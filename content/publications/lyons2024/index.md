@@ -21,6 +21,7 @@ tags:
   - Misinformation
   - Public Opinion
   - Political Behavior
+  - American Politics
 links:
   - name: PDF
     url: /uploads/papers/lyons2024.pdf

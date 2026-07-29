@@ -16,7 +16,7 @@ summary: 'Psychologists have long known that people tend to perceive minority an
 featured: true
 tags:
   - AI & Politics
-  - Machine Learning
+  - AI/Machine Learning
   - Featured
 links:
   - name: PDF

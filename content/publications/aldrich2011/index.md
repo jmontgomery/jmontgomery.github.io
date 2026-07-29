@@ -20,6 +20,7 @@ featured: false
 tags:
   - Public Opinion
   - Political Behavior
+  - American Politics
 links:
   - name: PDF
     url: /uploads/papers/aldrich2011.pdf
