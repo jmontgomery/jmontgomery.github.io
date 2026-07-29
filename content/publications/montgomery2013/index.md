@@ -1,4 +1,5 @@
 ---
+sort_key: montgomery2013
 title: 'Computerized Adaptive Testing for Public Opinion Surveys'
 authors:
   - Jacob M. Montgomery

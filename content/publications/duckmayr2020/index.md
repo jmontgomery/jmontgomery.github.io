@@ -1,4 +1,5 @@
 ---
+sort_key: duckmayr2020
 title: 'GPIRT: A Gaussian Process Model for Item Response Theory'
 authors:
   - JBrandon Duck-Mayr

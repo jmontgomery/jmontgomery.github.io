@@ -1,4 +1,5 @@
 ---
+sort_key: lee2024
 title: 'Large Language Models Portray Socially Subordinate Groups as More Homogeneous, Consistent with a Bias Observed in Humans'
 authors:
   - Messi H.J. Lee

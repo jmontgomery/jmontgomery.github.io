@@ -1,4 +1,5 @@
 ---
+sort_key: montgomery2018a
 title: 'Tree-Based Models for Political Science Data'
 authors:
   - Jacob M. Montgomery

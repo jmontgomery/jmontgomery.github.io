@@ -1,4 +1,5 @@
 ---
+sort_key: jeon-forthcoming
 title: 'From Faces to Politics: Vision-Language Models (Sometimes) Link Visual Demographic Characteristics to Ideological Labels'
 authors:
   - Soyeon Jeon

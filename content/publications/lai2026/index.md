@@ -1,4 +1,5 @@
 ---
+sort_key: lai2026
 title: 'Populism Without Persuasion: Evidence from Three Democracies'
 authors:
   - Ruilin Lai

@@ -1,4 +1,5 @@
 ---
+sort_key: aldrich2011
 title: 'Turnout as a Habit'
 authors:
   - John H. Aldrich

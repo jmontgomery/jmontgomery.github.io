@@ -1,4 +1,5 @@
 ---
+sort_key: muraoka2026
 title: 'Speaking Their Language?: Descriptive Representation of Language Constituencies in Global Democracies'
 authors:
   - Taishi Muraoka

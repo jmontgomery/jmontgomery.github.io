@@ -1,4 +1,5 @@
 ---
+sort_key: montgomery2012b
 title: 'Ensemble Predictions of the 2012 US Presidential Election'
 authors:
   - Jacob M. Montgomery

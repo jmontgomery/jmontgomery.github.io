@@ -1,4 +1,5 @@
 ---
+sort_key: lyons2021
 title: 'Overconfidence in News Judgments is Associated with False News Susceptibility'
 authors:
   - Benjamin Lyons

@@ -1,4 +1,5 @@
 ---
+sort_key: montgomery2018b
 title: 'How Conditioning on Post-Treatment Variables Can Ruin Your Experiment and What to Do About It'
 authors:
   - Jacob M. Montgomery

@@ -1,4 +1,5 @@
 ---
+sort_key: butler2018
 title: 'Revisiting White Backlash: How Race Affects Death Penalty Opinion Today'
 authors:
   - Ryden Butler

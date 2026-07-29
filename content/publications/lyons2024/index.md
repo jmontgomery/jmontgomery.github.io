@@ -1,4 +1,5 @@
 ---
+sort_key: lyons2024
 title: 'Partisanship and Older Americans'' Engagement with Dubious Political News'
 authors:
   - Benjamin Lyons

@@ -1,4 +1,5 @@
 ---
+sort_key: chen2024
 title: 'Idiographic Personality Gaussian Process for Psychological Assessment'
 authors:
   - Yehu Chen

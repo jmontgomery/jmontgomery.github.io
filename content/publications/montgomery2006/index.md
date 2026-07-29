@@ -1,4 +1,5 @@
 ---
+sort_key: montgomery2006
 title: 'Enforcing the Minimum Drinking Age: State, Local, and Agency Characteristics Associated With Compliance Checks and Cops in Shops Programs'
 authors:
   - Jacob M. Montgomery

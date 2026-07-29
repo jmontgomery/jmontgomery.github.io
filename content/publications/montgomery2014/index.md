@@ -1,4 +1,5 @@
 ---
+sort_key: montgomery2014
 title: 'Calibrating Ensemble Forecasting Models with Sparse Data in the Social Sciences'
 authors:
   - Jacob M. Montgomery

@@ -1,4 +1,5 @@
 ---
+sort_key: montgomery2012
 title: 'Improving Predictions Using Ensemble Bayesian Model Averaging'
 authors:
   - Jacob M. Montgomery

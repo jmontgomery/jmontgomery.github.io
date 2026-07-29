@@ -1,4 +1,5 @@
 ---
+sort_key: chen2023
 title: 'Inferring Time-varying Treatment Effects in Panel Data via Multi-Task Gaussian Processes'
 authors:
   - Yehu Chen

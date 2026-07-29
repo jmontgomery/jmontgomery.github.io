@@ -1,4 +1,5 @@
 ---
+sort_key: guess2020
 title: 'A Digital Media Literacy Intervention Increases Discernment Between Mainstream and False News in the United States and India'
 authors:
   - Andrew M. Guess

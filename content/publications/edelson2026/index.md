@@ -1,4 +1,5 @@
 ---
+sort_key: edelson2026
 title: 'What Drives Perceptions of the Political in Online Advertising?: The Source, Content, and Political Orientation'
 authors:
   - Laura Edelson

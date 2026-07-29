@@ -1,4 +1,5 @@
 ---
+sort_key: nyhan2015
 title: 'Connecting the Candidates: Consultant Networks and the Diffusion of Campaign Strategy in American Congressional Elections'
 authors:
   - Brendan Nyhan

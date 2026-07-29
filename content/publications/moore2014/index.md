@@ -1,4 +1,5 @@
 ---
+sort_key: moore2014
 title: 'Building and Maintaining R Packages with devtools and roxygen2'
 authors:
   - Ryan T. Moore

@@ -1,4 +1,5 @@
 ---
+sort_key: xi2026
 title: 'Short, Precise, and Valid: A Computerized Adaptive Approach to Measuring the Big Five'
 authors:
   - Muchen Xi

@@ -1,4 +1,5 @@
 ---
+sort_key: montgomery-rossiter2022
 title: 'Adaptive Inventories: A Practical Guide for Applied Researchers'
 authors:
   - Jacob M. Montgomery

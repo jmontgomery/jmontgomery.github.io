@@ -1,4 +1,5 @@
 ---
+sort_key: hollenbach2019
 title: 'Bayesian Versus Maximum Likelihood Estimation of Treatment Effects in Bivariate Probit Instrumental Variable Models'
 authors:
   - Florian Hollenbach

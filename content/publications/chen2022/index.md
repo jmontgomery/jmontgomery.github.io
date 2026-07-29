@@ -1,4 +1,5 @@
 ---
+sort_key: chen2022
 title: 'Polls, Context, and Time: A Dynamic Bayesian Forecasting Model for US Senate Elections'
 authors:
   - Yehu Chen

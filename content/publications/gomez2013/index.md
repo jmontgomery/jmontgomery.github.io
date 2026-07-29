@@ -1,4 +1,5 @@
 ---
+sort_key: gomez2013
 title: 'Why John Aldrich?'
 authors:
   - Brad T. Gomez

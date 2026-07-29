@@ -1,4 +1,5 @@
 ---
+sort_key: montgomery2010
 title: 'Bayesian Model Averaging: Theoretical Developments and Practical Applications'
 authors:
   - Jacob M. Montgomery

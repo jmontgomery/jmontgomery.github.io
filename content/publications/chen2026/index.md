@@ -1,4 +1,5 @@
 ---
+sort_key: chen2026
 title: 'A Dynamic, Ordinal Gaussian Process Item Response Theoretic Model'
 authors:
   - Yehu Chen

@@ -1,4 +1,5 @@
 ---
+sort_key: hollenbach2020
 title: 'Bayesian Model Selection, Model Comparison, and Model Averaging'
 authors:
   - Florian Hollenbach

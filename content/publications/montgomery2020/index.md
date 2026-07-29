@@ -1,4 +1,5 @@
 ---
+sort_key: montgomery2020
 title: 'So Many Questions, So Little Time: Adaptive Personality Inventories for Survey Research'
 authors:
   - Jacob M. Montgomery

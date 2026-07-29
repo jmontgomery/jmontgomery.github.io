@@ -60,7 +60,7 @@ sections:
     content:
       title: Citations for Published Work
       count: 0
-      sort_by: Title
+      sort_by: Params.sort_key
       sort_ascending: true
       filters:
         folders:

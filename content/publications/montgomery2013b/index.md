@@ -1,4 +1,5 @@
 ---
+sort_key: montgomery2013b
 title: 'Aggregation and Ensembles: Principled Combinations of Data'
 authors:
   - Jacob M. Montgomery

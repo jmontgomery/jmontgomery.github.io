@@ -1,4 +1,5 @@
 ---
+sort_key: freeze2016
 title: 'Static Stability and Evolving Constraint: Preference Stability and Ideological Structure in the Mass Public'
 authors:
   - Melanie Freeze

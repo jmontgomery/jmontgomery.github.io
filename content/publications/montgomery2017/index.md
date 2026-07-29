@@ -1,4 +1,5 @@
 ---
+sort_key: montgomery2017
 title: 'The Effects of Congressional Staff Networks in the U.S. House of Representatives'
 authors:
   - Jacob M. Montgomery

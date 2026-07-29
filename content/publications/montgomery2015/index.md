@@ -1,4 +1,5 @@
 ---
+sort_key: montgomery2015
 title: 'An Informed Forensics Approach to Detecting Vote Irregularities'
 authors:
   - Jacob M. Montgomery

@@ -1,4 +1,5 @@
 ---
+sort_key: kim-forthcoming
 title: 'Polarization but Not Populism Strengthens the Association Between Presidential Election Results and Emotions'
 authors:
   - Dahjin Kim

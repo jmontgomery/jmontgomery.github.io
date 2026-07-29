@@ -1,4 +1,5 @@
 ---
+sort_key: muraoka2021
 title: 'Love and Anger in Global Party Politics: Facebook Reactions to Political Party Posts in 79 Democracies'
 authors:
   - Taishi Muraoka
