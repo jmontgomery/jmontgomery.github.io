@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: berlinski2023
 title: 'The Effects of Unsubstantiated Claims of Voter Fraud on Confidence in Elections'
 authors:

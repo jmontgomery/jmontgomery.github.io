@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: moore2014
 title: 'Building and Maintaining R Packages with devtools and roxygen2'
 authors:

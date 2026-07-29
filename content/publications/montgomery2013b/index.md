@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: montgomery2013b
 title: 'Aggregation and Ensembles: Principled Combinations of Data'
 authors:

@@ -196,9 +196,10 @@
     {{ end }}
   </div>
 
-  {{/* Filter Buttons */}}
+  {{/* Filter Buttons — each __sep__ closes one row and opens a new one */}}
   {{ if gt (len $buttons) 1 }}
-  <div class="flex flex-wrap justify-center gap-2 mb-10">
+  <div class="flex flex-col items-center gap-3 mb-10">
+    <div class="flex flex-wrap justify-center gap-2">
     {{ range $idx, $button := $buttons }}
     {{ if reflect.IsMap $button }}
     {{ $button_name := "" }}
@@ -206,7 +207,8 @@
     {{ $button_tag := "*" }}
     {{ with index $button "tag" }}{{ $button_tag = strings.TrimSpace (printf "%v" .) }}{{ end }}
     {{ if eq $button_tag "__sep__" }}
-    <div class="basis-full h-0"></div>
+    </div>
+    <div class="flex flex-wrap justify-center gap-2">
     {{ else }}
     <button
       @click="activeFilter = {{ $button_tag | jsonify }}"
@@ -220,6 +222,7 @@
     {{ end }}
     {{ end }}
     {{ end }}
+    </div>
   </div>
   {{ end }}
 
@@ -344,11 +347,11 @@
             {{ $summary = strings.TrimSpace (printf "%v" $summary_raw) }}
           {{ end }}
           {{ if $summary }}
-          <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-4">
+          <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-3 mb-4">
             {{ $summary | $page.RenderString }}
           </p>
           {{ else }}
-          <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-4">
+          <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-3 mb-4">
             {{ $item.Summary | truncate 100 }}
           </p>
           {{ end }}

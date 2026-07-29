@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: park-forthcoming
 title: 'Towards a Framework for Creating Trustworthy Measures with Supervised Machine Learning'
 authors:

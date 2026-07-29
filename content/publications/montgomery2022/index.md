@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: montgomery2022
 title: 'Closeness and Strategic Participation: Does the Closeness of the U.S. Presidential Election Shape Where College Students Register to Vote?'
 authors:

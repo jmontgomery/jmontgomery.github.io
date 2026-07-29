@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: ying2022
 title: 'Topics, Concepts, and Measurement: A Crowdsourced Procedure for Validating Topics as Measures'
 authors:

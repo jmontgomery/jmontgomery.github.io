@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: hazelton2016
 title: 'Does Public Financing Affect Judicial Behavior? Evidence from the North Carolina Supreme Court'
 authors:

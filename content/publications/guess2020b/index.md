@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: guess2020b
 title: 'Fake news may have limited effects beyond increasing beliefs in false claims'
 authors:

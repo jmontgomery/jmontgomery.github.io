@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: aldrich2014
 title: 'Polarization and Ideology: Partisan Sources of Low Dimensionality in Scaled Roll-Call Analyses'
 authors:

@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: prati2026
 title: 'Structured Flexibility: Gaussian Process Regression as a Complement to Linear Models in Political Science'
 authors:

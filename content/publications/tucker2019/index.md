@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: tucker2019
 title: 'Party Identification in the Age of Obama: Evidence on the Sources of Stability and Systematic Change in Party Identification from a Long-Term Panel Survey'
 authors:

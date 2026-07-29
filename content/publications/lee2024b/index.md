@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: lee2024b
 title: "America's Racial Framework of Superiority and Americanness Embedded in Natural Language"
 authors:

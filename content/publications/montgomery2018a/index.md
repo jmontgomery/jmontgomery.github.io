@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: montgomery2018a
 title: 'Tree-Based Models for Political Science Data'
 authors:

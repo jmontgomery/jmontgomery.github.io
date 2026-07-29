@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: butler2018
 title: 'Revisiting White Backlash: How Race Affects Death Penalty Opinion Today'
 authors:

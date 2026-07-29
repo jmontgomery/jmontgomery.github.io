@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: little2026
 title: 'Preregistration as Cheap Talk: The Logic and Limits of Self-Enforcing Plans in Scientific Research'
 authors:

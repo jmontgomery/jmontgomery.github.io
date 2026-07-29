@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: montgomery2012
 title: 'Improving Predictions Using Ensemble Bayesian Model Averaging'
 authors:

@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: chen2024
 title: 'Idiographic Personality Gaussian Process for Psychological Assessment'
 authors:

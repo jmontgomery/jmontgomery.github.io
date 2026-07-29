@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: gomez2013
 title: 'Why John Aldrich?'
 authors:

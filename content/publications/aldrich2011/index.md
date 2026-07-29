@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: aldrich2011
 title: 'Turnout as a Habit'
 authors:

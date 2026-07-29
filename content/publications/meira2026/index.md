@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: meira2026
 title: 'Nested Incentives to Campaign Online: Institutional, National, Party, and Individual Determinants of Candidate Facebook Use Across Democracies'
 authors:

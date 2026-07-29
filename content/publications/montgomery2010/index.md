@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: montgomery2010
 title: 'Bayesian Model Averaging: Theoretical Developments and Practical Applications'
 authors:

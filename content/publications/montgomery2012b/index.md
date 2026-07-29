@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: montgomery2012b
 title: 'Ensemble Predictions of the 2012 US Presidential Election'
 authors:

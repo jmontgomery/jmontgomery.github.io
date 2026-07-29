@@ -1,0 +1,149 @@
+{{ define "main" }}
+
+{{ $pub_type_csl := "" }}
+{{ $pub_type_display := "" }}
+{{ if .Params.publication_types }}
+  {{ if reflect.IsSlice .Params.publication_types }}
+    {{ $pub_type_csl = index .Params.publication_types 0 }}
+    {{ $pub_type_display = i18n (printf "pub_%s" (strings.Replace $pub_type_csl "-" "_")) | default (strings.Title $pub_type_csl) }}
+  {{ end }}
+{{ end }}
+
+{{/* Page Cover */}}
+{{ partial "components/cover.html" . }}
+
+<div class="mx-auto flex max-w-screen-xl">
+  {{ partial "components/sidebar.html" (dict "context" . "no_sidebar" true) }}
+  {{ partial "components/toc.html" . }}
+  <article class="w-full break-words flex min-h-[calc(100vh-var(--navbar-height))] min-w-0 justify-center pb-8 pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+    <main class="w-full min-w-0 max-w-6xl px-6 pt-4 md:px-12">
+
+      {{ if .Params.show_breadcrumb }}
+      <div class="mb-4">
+        {{ partial "components/breadcrumb.html" . }}
+      </div>
+      {{ end }}
+
+      {{/* Add spacing if cover has overlapping icon */}}
+      {{ $cover := partial "functions/get_cover_image.html" . }}
+      {{ $has_overlap_icon := false }}
+      {{ if $cover }}
+        {{ $icon_config := .Params.cover.icon | default (dict) }}
+        {{ if or $icon_config.name $icon_config.emoji }}
+          {{ $icon_position := $icon_config.position | default "overlap" }}
+          {{ if eq $icon_position "overlap" }}
+            {{ $has_overlap_icon = true }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+
+      <h1 class="{{ if $has_overlap_icon }}mt-12{{ else }}mt-2{{ end }} text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100" data-pagefind-meta="title" data-pagefind-body>
+        {{- .Title -}}
+      </h1>
+
+      <div class="mt-4 mb-16">
+
+        {{/* Authors — rendered as plain comma-separated text to avoid flex-wrap comma splitting */}}
+        {{ if .Params.authors }}
+        <p class="text-gray-500 dark:text-gray-300 text-sm">
+          {{ range $i, $slug := .Params.authors }}
+            {{- $profile := partial "functions/get_author_profile" $slug -}}
+            {{- if $i }}, {{ end -}}
+            {{- with $profile.url }}<a href="{{ . }}" class="hover:underline">{{ end -}}
+            {{- $profile.title -}}
+            {{- with $profile.url }}</a>{{ end -}}
+          {{ end }}
+        </p>
+        {{ end }}
+
+        <div class="mt-3">
+          {{ partial "page_links_div.html" . }}
+        </div>
+
+        {{/* Awards skim row */}}
+        {{ with .Params.awards }}
+        <div class="mt-4 flex flex-wrap gap-2">
+          {{ range . }}
+            {{ partial "components/award_badge.html" (dict "award" . "page" $ "variant" "pill") }}
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
+
+      {{/* No featured image on publication detail pages (preview_only: true handles this,
+           but publications never want the banner image inline) */}}
+
+      {{/* PUBLICATION METADATA GRID */}}
+      {{ $pub := partial "functions/resolve_publication.html" . }}
+      {{ if .Params.abstract | or (eq .Type "publications") }}
+        <div class="max-w-prose grid grid-cols-1 md:grid-cols-[200px_auto] gap-4 my-6">
+
+        {{ if .Params.abstract }}
+          <div class="font-bold text-2xl">{{ i18n "abstract" }}</div>
+          <div>{{ .Params.abstract | markdownify }}</div>
+        {{ end }}
+
+        {{ if not $pub.is_empty }}
+          <div class="font-bold text-2xl">{{ i18n "publication" }}</div>
+          <div>{{ $pub.display | markdownify }}{{ with $pub.publisher }}. {{ . | markdownify }}{{ end }}</div>
+        {{ end }}
+
+        <div class="font-bold text-2xl">Year</div>
+        <div>{{ .Date.Format "2006" }}</div>
+
+        {{ $flags := slice }}
+        {{ if eq .Params.peer_reviewed true }}{{ $flags = $flags | append (i18n "peer_reviewed") }}{{ end }}
+        {{ if eq .Params.open_access true }}{{ $flags = $flags | append (i18n "open_access") }}{{ end }}
+        {{ with $flags }}
+          <div class="font-bold text-2xl">{{ i18n "status" | default "Status" }}</div>
+          <div class="flex flex-wrap gap-2">
+            {{ range . }}
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium bg-emerald-100 text-emerald-900 dark:bg-emerald-900/40 dark:text-emerald-200 ring-1 ring-emerald-500/30">{{ . }}</span>
+            {{ end }}
+          </div>
+        {{ end }}
+
+        {{ with .Params.awards }}
+          <div class="font-bold text-2xl">{{ i18n "awards" }}</div>
+          <div class="space-y-3">
+            {{ range . }}
+              {{ partial "components/award_badge.html" (dict "award" . "page" $ "variant" "row") }}
+            {{ end }}
+          </div>
+        {{ end }}
+
+        {{ with .Params.funding }}
+          <div class="font-bold text-2xl">{{ i18n "funding" }}</div>
+          <div class="space-y-1">
+            {{ range . }}
+              <div>
+                {{ if .url }}<a href="{{ .url }}" target="_blank" rel="noopener" class="hover:underline">{{ .funder }}</a>{{ else }}{{ .funder }}{{ end }}{{ with .grant }} <span class="text-gray-500 dark:text-gray-400">({{ . }})</span>{{ end }}
+              </div>
+            {{ end }}
+          </div>
+        {{ end }}
+
+        </div>
+      {{ end }}
+
+      <div class="prose prose-slate lg:prose-xl dark:prose-invert" data-pagefind-body>
+        {{ with .Section }}
+          <span data-pagefind-filter="type" style="display:none;">{{ . }}</span>
+        {{ end }}
+        {{ with .Params.categories }}
+          <span data-pagefind-filter="category" style="display:none;">{{ index . 0 }}</span>
+        {{ end }}
+        {{ .Content }}
+      </div>
+
+      <div class="mt-16"></div>
+
+      <div class="container mx-auto prose prose-slate lg:prose-xl dark:prose-invert mt-5">
+        {{ .Scratch.Set "invert_pager" true }}
+        {{ partial "page_footer" . }}
+      </div>
+
+    </main>
+  </article>
+</div>
+{{ end }}

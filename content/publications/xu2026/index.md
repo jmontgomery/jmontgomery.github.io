@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: xu2026
 title: 'Measuring Google AI Overviews: Activation, Source Quality, Claim Fidelity, and Publisher Impact'
 authors:

@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: carlson2017
 title: 'A Pairwise Comparison Framework for Fast, Flexible, and Reliable Human Coding of Political Texts'
 authors:

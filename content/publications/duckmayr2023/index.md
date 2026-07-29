@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: duckmayr2023
 title: 'Ends Against the Middle: Measuring Latent Traits When Opposites Respond the Same Way for Antithetical Reasons'
 authors:

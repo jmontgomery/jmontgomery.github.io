@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: montgomery2015
 title: 'An Informed Forensics Approach to Detecting Vote Irregularities'
 authors:

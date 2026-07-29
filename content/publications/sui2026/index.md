@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: sui2026
 title: 'One Language is Enough: Using Transfer Learning to Detect Populist Rhetoric Across 25 Languages Without Translation'
 authors:

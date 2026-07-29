@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: montgomery2013
 title: 'Computerized Adaptive Testing for Public Opinion Surveys'
 authors:

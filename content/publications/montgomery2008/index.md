@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: montgomery2008
 title: 'Nonresponse Bias on Dimensions of Political Activity Amongst Political Elites'
 authors:

@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: lyons2024
 title: 'Partisanship and Older Americans'' Engagement with Dubious Political News'
 authors:

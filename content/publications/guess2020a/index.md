@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: guess2020a
 title: 'A digital media literacy intervention increases discernment between mainstream and false news in the United States and India'
 authors:

@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: duckmayr2020
 title: 'GPIRT: A Gaussian Process Model for Item Response Theory'
 authors:

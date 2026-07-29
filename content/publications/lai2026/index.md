@@ -1,4 +1,6 @@
 ---
+show_date: false
+reading_time: false
 sort_key: lai2026
 title: 'Populism Without Persuasion: Evidence from Three Democracies'
 authors:
