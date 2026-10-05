@@ -30,4 +30,6 @@ links:
     url: /uploads/papers/montgomery2017-effects-congressional-staff.pdf
   - name: DOI
     url: https://doi.org/10.1086/690301
+  - name: Replication
+    url: https://doi.org/10.7910/DVN/ONDIIU
 ---

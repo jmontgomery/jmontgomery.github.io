@@ -30,4 +30,6 @@ links:
     url: /uploads/papers/carlson2017-pairwise-comparison-framework.pdf
   - name: DOI
     url: https://doi.org/10.1017/S0003055417000302
+  - name: Replication
+    url: https://doi.org/10.7910/DVN/0ZRGEE
 ---

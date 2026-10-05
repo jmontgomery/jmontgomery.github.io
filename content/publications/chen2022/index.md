@@ -31,4 +31,6 @@ links:
     url: /uploads/papers/chen2022-polls-context-time.pdf
   - name: DOI
     url: https://doi.org/10.1017/pan.2021.42
+  - name: Replication
+    url: https://doi.org/10.7910/DVN/GNHESM
 ---

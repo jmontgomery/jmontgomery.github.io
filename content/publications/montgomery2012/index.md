@@ -29,4 +29,6 @@ links:
     url: /uploads/papers/montgomery2012-improving-predictions-ensemble.pdf
   - name: DOI
     url: https://doi.org/10.1093/pan/mps002
+  - name: Replication
+    url: https://doi.org/10.7910/DVN/KLW6KY
 ---

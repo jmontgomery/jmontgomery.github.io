@@ -30,4 +30,6 @@ links:
     url: /uploads/papers/duckmayr2023-ends-against-middle.pdf
   - name: DOI
     url: https://doi.org/10.1017/pan.2022.33
+  - name: Replication
+    url: https://doi.org/10.7910/DVN/HXORK9
 ---

@@ -36,4 +36,6 @@ links:
     url: /uploads/papers/berlinski2023-effects-unsubstantiated-claims.pdf
   - name: DOI
     url: https://doi.org/10.1017/XPS.2021.18
+  - name: Replication
+    url: https://doi.org/10.7910/DVN/530JGJ
 ---

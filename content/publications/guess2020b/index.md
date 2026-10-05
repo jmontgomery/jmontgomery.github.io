@@ -32,4 +32,6 @@ links:
     url: /uploads/papers/guess2020-fake-news-may.pdf
   - name: DOI
     url: https://doi.org/10.37016/mr-2020-004
+  - name: Replication
+    url: https://doi.org/10.7910/DVN/YOGY5W
 ---

@@ -29,4 +29,6 @@ links:
     url: /uploads/papers/hollenbach2019-bayesian-versus-maximum.pdf
   - name: DOI
     url: https://doi.org/10.1017/psrm.2018.15
+  - name: Replication
+    url: https://doi.org/10.7910/DVN/GQQUQU
 ---

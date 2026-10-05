@@ -31,4 +31,6 @@ links:
     url: /uploads/papers/nyhan2015-connecting-candidates-consultant.pdf
   - name: DOI
     url: https://doi.org/10.1111/ajps.12143
+  - name: Replication
+    url: https://doi.org/10.7910/DVN/26467
 ---

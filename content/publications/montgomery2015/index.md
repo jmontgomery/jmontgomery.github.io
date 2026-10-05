@@ -31,4 +31,6 @@ links:
     url: /uploads/papers/montgomery2015-informed-forensics-approach.pdf
   - name: DOI
     url: https://doi.org/10.1093/pan/mpv023
+  - name: Replication
+    url: https://doi.org/10.7910/DVN/IZWWBC
 ---

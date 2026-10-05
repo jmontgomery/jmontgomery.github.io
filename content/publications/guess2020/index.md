@@ -35,4 +35,6 @@ links:
     url: /uploads/papers/guess2020-digital-media-literacy.pdf
   - name: DOI
     url: https://doi.org/10.1073/pnas.1920498117
+  - name: Replication
+    url: https://doi.org/10.7910/DVN/Q5QINN
 ---

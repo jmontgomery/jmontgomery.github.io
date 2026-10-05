@@ -30,4 +30,6 @@ links:
     url: /uploads/papers/muraoka2021-love-anger-global.pdf
   - name: DOI
     url: https://doi.org/10.51685/jqd.2021.005
+  - name: Replication
+    url: https://doi.org/10.7910/DVN/RFMQIG
 ---

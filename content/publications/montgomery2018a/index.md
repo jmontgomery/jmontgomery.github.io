@@ -29,4 +29,6 @@ links:
     url: /uploads/papers/montgomery2018-tree-based-models.pdf
   - name: DOI
     url: https://doi.org/10.1111/ajps.12361
+  - name: Replication
+    url: https://doi.org/10.7910/DVN/8ZJBLI
 ---

@@ -28,4 +28,6 @@ links:
     url: /uploads/papers/duckmayr2020-gpirt-gaussian-process.pdf
   - name: DOI
     url: https://arxiv.org/pdf/2006.09900.pdf
+  - name: Replication
+    url: https://doi.org/10.7910/DVN/UZILPJ
 ---

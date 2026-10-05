@@ -28,4 +28,6 @@ links:
     url: /uploads/papers/chen2023-inferring-time-varying.pdf
   - name: DOI
     url: https://proceedings.mlr.press/v206/chen23d/chen23d.pdf
+  - name: Code
+    url: https://github.com/yahoochen97/aistats2023_606
 ---

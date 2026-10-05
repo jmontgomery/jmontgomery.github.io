@@ -27,4 +27,6 @@ links:
     url: /uploads/papers/park2025-framework-creating-trustworthy.pdf
   - name: DOI
     url: https://doi.org/10.1017/psrm.2025.10042
+  - name: Replication
+    url: https://doi.org/10.7910/DVN/AFBW80
 ---

@@ -31,4 +31,6 @@ links:
     url: /uploads/papers/butler2018-revisiting-white-backlash.pdf
   - name: DOI
     url: https://doi.org/10.1177/2053168017751250
+  - name: Replication
+    url: https://doi.org/10.7910/DVN/3WGSR0
 ---
