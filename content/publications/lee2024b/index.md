@@ -31,4 +31,6 @@ links:
     url: /uploads/papers/lee2024-americas-racial-framework.pdf
   - name: DOI
     url: https://doi.org/10.1093/pnasnexus/pgad485
+  - name: Replication
+    url: https://osf.io/n5xyk/
 ---
