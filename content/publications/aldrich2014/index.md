@@ -24,7 +24,7 @@ image:
   preview_only: true
 tags:
   - Measurement/Surveys
-  - Political Behavior
+  - Public Opinion/Behavior
   - American Politics
 links:
   - name: PDF

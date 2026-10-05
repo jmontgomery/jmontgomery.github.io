@@ -24,8 +24,7 @@ image:
   preview_only: true
 tags:
   - Political Communication
-  - Public Opinion
-  - Political Behavior
+  - Public Opinion/Behavior
   - American Politics
 links:
   - name: PDF

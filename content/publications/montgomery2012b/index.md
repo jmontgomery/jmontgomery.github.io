@@ -23,7 +23,7 @@ featured: false
 image:
   preview_only: true
 tags:
-  - Political Behavior
+  - Public Opinion/Behavior
   - American Politics
 links:
   - name: PDF

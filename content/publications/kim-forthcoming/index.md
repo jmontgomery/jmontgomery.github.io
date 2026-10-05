@@ -27,7 +27,7 @@ image:
 tags:
   - Featured
   - Comparative Politics
-  - Political Behavior
+  - Public Opinion/Behavior
   - Political Communication
 links:
   - name: PDF

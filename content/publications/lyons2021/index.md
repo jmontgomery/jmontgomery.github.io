@@ -26,7 +26,7 @@ image:
 tags:
   - Featured
   - Political Communication
-  - Public Opinion
+  - Public Opinion/Behavior
 links:
   - name: PDF
     url: /uploads/papers/lyons2021-overconfidence-news-judgments.pdf

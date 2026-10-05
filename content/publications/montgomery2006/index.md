@@ -23,7 +23,7 @@ featured: false
 image:
   preview_only: true
 tags:
-  - Public Opinion
+  - Public Opinion/Behavior
 links:
   - name: PDF
     url: /uploads/papers/montgomery2006-enforcing-minimum-drinking.pdf

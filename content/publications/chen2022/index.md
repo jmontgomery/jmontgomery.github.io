@@ -24,7 +24,7 @@ image:
   preview_only: true
 tags:
   - AI/Machine Learning
-  - Political Behavior
+  - Public Opinion/Behavior
   - American Politics
 links:
   - name: PDF

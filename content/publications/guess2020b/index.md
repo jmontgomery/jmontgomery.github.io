@@ -26,7 +26,7 @@ image:
   preview_only: true
 tags:
   - Political Communication
-  - Public Opinion
+  - Public Opinion/Behavior
 links:
   - name: PDF
     url: /uploads/papers/guess2020-fake-news-may.pdf

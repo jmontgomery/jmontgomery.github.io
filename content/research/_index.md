@@ -42,10 +42,10 @@ sections:
           tag: American Politics
         - name: Comparative Politics
           tag: Comparative Politics
-        - name: Political Behavior
-          tag: Political Behavior
         - name: Political Communication
           tag: Political Communication
+        - name: Public Opinion/Behavior
+          tag: Public Opinion/Behavior
     design:
       view: card
 

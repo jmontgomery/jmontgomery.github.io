@@ -23,7 +23,7 @@ image:
   preview_only: true
 tags:
   - Measurement/Surveys
-  - Public Opinion
+  - Public Opinion/Behavior
 links:
   - name: PDF
     url: /uploads/papers/montgomery2013-computerized-adaptive-testing.pdf

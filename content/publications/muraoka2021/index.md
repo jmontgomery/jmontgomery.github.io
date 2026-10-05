@@ -24,8 +24,7 @@ image:
   preview_only: true
 tags:
   - Political Communication
-  - Public Opinion
-  - Political Behavior
+  - Public Opinion/Behavior
 links:
   - name: PDF
     url: /uploads/papers/muraoka2021-love-anger-global.pdf

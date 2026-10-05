@@ -23,7 +23,7 @@ image:
 tags:
   - Featured
   - Measurement/Surveys
-  - Public Opinion
+  - Public Opinion/Behavior
 links:
   - name: Publisher
     url: https://doi.org/10.1017/9781108862516

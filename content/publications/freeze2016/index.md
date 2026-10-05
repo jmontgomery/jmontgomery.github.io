@@ -22,9 +22,8 @@ featured: false
 image:
   preview_only: true
 tags:
-  - Public Opinion
+  - Public Opinion/Behavior
   - Measurement/Surveys
-  - Political Behavior
   - American Politics
 links:
   - name: PDF

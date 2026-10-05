@@ -23,7 +23,7 @@ image:
 tags:
   - American Politics
   - Political Communication
-  - Public Opinion
+  - Public Opinion/Behavior
   - Working Papers
 links:
   - name: PDF

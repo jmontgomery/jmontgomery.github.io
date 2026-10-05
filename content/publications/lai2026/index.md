@@ -18,7 +18,7 @@ abstract: ''
 summary: 'Does populist rhetoric actually win over mass audiences? Analyzing more than 28 million Facebook posts from over 26,000 candidates and 1,600 parties across 90 countries, this paper finds that anti-elite posts attract far more likes, comments, and shares, but the reactions they provoke turn negative. An AI-assisted conjoint experiment on nationally representative samples in the United States, Germany, and Poland (N = 6,750) shows consistently negative effects: anti-elitism lowers candidate evaluations and vote intention in all three countries, people-centric framing softens but does not undo the damage, and no audience segment responds positively. Wherever populist rhetoric''s influence lies, it does not lie in mass persuasion.'
 featured: false
 tags:
-  - Public Opinion
+  - Public Opinion/Behavior
   - Political Communication
   - Working Papers
 ---

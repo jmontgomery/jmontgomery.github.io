@@ -23,7 +23,7 @@ featured: false
 image:
   preview_only: true
 tags:
-  - Public Opinion
+  - Public Opinion/Behavior
   - Causal Inference
   - American Politics
 links:

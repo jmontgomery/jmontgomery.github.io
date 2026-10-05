@@ -26,7 +26,7 @@ tags:
   - Featured
   - AI & Politics
   - Text/Image
-  - Public Opinion
+  - Public Opinion/Behavior
 links:
   - name: PDF
     url: /uploads/papers/lee2024-americas-racial-framework.pdf

@@ -23,7 +23,7 @@ image:
   preview_only: true
 tags:
   - Measurement/Surveys
-  - Public Opinion
+  - Public Opinion/Behavior
 links:
   - name: PDF
     url: /uploads/papers/montgomery2020-so-many-questions.pdf

@@ -24,7 +24,7 @@ image:
 tags:
   - Featured
   - Political Communication
-  - Political Behavior
+  - Public Opinion/Behavior
   - American Politics
 links:
   - name: PDF

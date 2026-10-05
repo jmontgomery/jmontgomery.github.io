@@ -25,7 +25,7 @@ image:
   preview_only: true
 tags:
   - Measurement/Surveys
-  - Political Behavior
+  - Public Opinion/Behavior
 links:
   - name: PDF
     url: /uploads/papers/montgomery2015-informed-forensics-approach.pdf
