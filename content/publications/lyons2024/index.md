@@ -31,4 +31,6 @@ links:
     url: /uploads/papers/lyons2024-partisanship-older-americans.pdf
   - name: DOI
     url: https://doi.org/10.1093/poq/nfae044
+  - name: Replication
+    url: https://osf.io/zax5k/
 ---
