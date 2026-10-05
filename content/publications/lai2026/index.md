@@ -2,7 +2,7 @@
 show_date: false
 reading_time: false
 sort_key: lai2026
-title: 'Populism Without Persuasion: Evidence from Three Democracies'
+title: 'Populist Rhetoric Engages but Does Not Persuade: Evidence from 90 Countries and Three Experiments'
 authors:
   - Ruilin Lai
   - Christopher Lucas
@@ -15,7 +15,7 @@ publication_types:
 publication:
   name: Working Paper
 abstract: ''
-summary: 'Tests the persuasive power of populist rhetoric using a novel AI-assisted conjoint experiment with 6,750 observations from nationally representative samples in the United States, Germany, and Poland. Populism fails on three dimensions: it actively reduces candidate support across all three countries, its two canonical components produce different responses and no synergy when combined, and populist attitudes do not moderate these negative effects. The findings cast doubt on populism as a unified rhetorical strategy and suggest its broader consequences for democracy operate through channels other than mass persuasion.'
+summary: 'Does populist rhetoric actually win over mass audiences? Analyzing more than 28 million Facebook posts from over 26,000 candidates and 1,600 parties across 90 countries, this paper finds that anti-elite posts attract far more likes, comments, and shares, but the reactions they provoke turn negative. An AI-assisted conjoint experiment on nationally representative samples in the United States, Germany, and Poland (N = 6,750) shows consistently negative effects: anti-elitism lowers candidate evaluations and vote intention in all three countries, people-centric framing softens but does not undo the damage, and no audience segment responds positively. Wherever populist rhetoric''s influence lies, it does not lie in mass persuasion.'
 featured: false
 tags:
   - AI & Politics
