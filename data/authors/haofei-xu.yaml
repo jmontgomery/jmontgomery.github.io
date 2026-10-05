@@ -14,3 +14,10 @@ interests:
 - Internet and platform measurement
 - AI and the information ecosystem
 - Complex data pipelines
+links:
+- icon: academicons/google-scholar
+  url: https://scholar.google.com/citations?user=ZMrZauUAAAAJ
+  label: Google Scholar
+- icon: hero/link
+  url: https://haofeix.github.io/
+  label: Website
