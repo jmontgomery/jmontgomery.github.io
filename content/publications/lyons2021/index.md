@@ -34,5 +34,5 @@ links:
   - name: DOI
     url: https://doi.org/10.1073/pnas.2019527118
   - name: Replication
-    url: https://osf.io/xygwt/
+    url: https://osf.io/krz7f/
 ---
