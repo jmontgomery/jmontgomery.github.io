@@ -24,6 +24,8 @@ tags:
   - Text/Image
   - Working Papers
 links:
+  - name: PDF
+    url: /uploads/papers/lee2026.pdf
   - name: arXiv
     url: https://arxiv.org/abs/2503.05093
 ---
