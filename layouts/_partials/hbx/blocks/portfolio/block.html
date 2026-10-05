@@ -292,14 +292,14 @@
               <img
                 src="{{ $image.RelPermalink }}"
                 alt="{{ $item.Title }}"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                class="w-full h-full object-contain bg-white dark:bg-zinc-900 p-2 transition-transform duration-500 group-hover:scale-105"
               >
             {{ else }}
-              {{ $img := $image.Fill "600x400 webp" }}
-              <img 
-                src="{{ $img.RelPermalink }}" 
+              {{ $img := $image.Fit "800x533 webp" }}
+              <img
+                src="{{ $img.RelPermalink }}"
                 alt="{{ $item.Title }}"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                class="w-full h-full object-contain bg-white dark:bg-zinc-900 p-2 transition-transform duration-500 group-hover:scale-105"
               >
             {{ end }}
           {{ else }}

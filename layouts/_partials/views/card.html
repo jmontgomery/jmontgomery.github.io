@@ -11,6 +11,7 @@
 {{ $image_params := partial "functions/get_page_image_params.html" $item }}
 {{ $anchor := $image_params.focal_point | default "Center" }}
 {{ $fill_image := .config.fill_image | default true }}
+{{ $show_image := .config.show_image | default true }}
 {{ $showDate := .config.show_date | default true }}
 {{ $showReadTime := .config.show_read_time | default true }}
 {{ $showReadMore := .config.show_read_more | default true }}
@@ -24,6 +25,7 @@
 
 <div class="group bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm rounded-2xl ring-1 ring-zinc-900/5 dark:ring-white/10 shadow-lg overflow-hidden transition-all duration-300 ease-out hover:shadow-xl hover:shadow-primary-500/10 hover:-translate-y-2 focus-within:ring-2 focus-within:ring-primary-500/50" role="article" aria-labelledby="card-title-{{ $item.File.UniqueID }}">
     <!-- Image Section -->
+    {{ if $show_image }}
     <div class="relative overflow-hidden aspect-[16/9] bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900">
       {{/* Award badge takes priority over trending — awards are higher-signal */}}
       {{ $top_award := "" }}
@@ -49,7 +51,7 @@
         {{ $canProcess := and (reflect.IsImageResourceProcessable .) (ne .MediaType.SubType "gif") }}
         {{ if not $canProcess }}
           <a href="{{ $link }}" {{ $target | safeHTMLAttr }} class="block">
-            <img class="w-full h-full transition-transform duration-500 ease-out group-hover:scale-105 {{ if $fill_image }}object-fill{{ else }}object-contain{{ end }}"
+            <img class="w-full h-full transition-transform duration-500 ease-out group-hover:scale-105 {{ if $fill_image }}object-cover{{ else }}object-contain{{ end }}"
                  src="{{ .RelPermalink }}"
                  loading="lazy"
                  decoding="async"
@@ -71,7 +73,7 @@
               "formats" (slice "avif" "webp" "jpg")
           ) }}
           <a href="{{ $link }}" {{ $target | safeHTMLAttr }} class="block">
-            <img class="w-full h-full transition-transform duration-500 ease-out group-hover:scale-105 {{ if $fill_image }}object-fill{{ else }}object-contain{{ end }}" 
+            <img class="w-full h-full transition-transform duration-500 ease-out group-hover:scale-105 {{ if $fill_image }}object-cover{{ else }}object-contain{{ end }}" 
                  srcset="{{ $responsive.srcset }}"
                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                  src="{{ $responsive.fallback.RelPermalink }}" 
@@ -100,6 +102,7 @@
       <!-- Subtle overlay for better text contrast (allow clicks to pass through) -->
       <div class="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
     </div>
+    {{ end }}
 
     <!-- Content Section -->
     <div class="p-8 space-y-4">

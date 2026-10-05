@@ -20,6 +20,8 @@ publication:
 abstract: ''
 summary: 'Revisits the white backlash hypothesis in the context of death penalty opinion. Using experimental methods, the study examines how racial cues in criminal justice contexts shape white Americans'' policy preferences, contributing to debates about race and public opinion.'
 featured: false
+image:
+  preview_only: true
 tags:
   - Public Opinion
   - Causal Inference

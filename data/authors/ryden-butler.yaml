@@ -4,7 +4,16 @@ name:
   display: Ryden Butler
   given: Ryden
   family: Butler
-role: PhD, Washington University in St. Louis
+role: Data Science Leader, YouGov
 user_groups:
-  - Alumni
+- Alumni
 bio: ''
+affiliations:
+- name: YouGov
+links:
+- icon: academicons/google-scholar
+  url: https://scholar.google.com/citations?user=z36AX2EAAAAJ
+  label: Google Scholar
+- icon: hero/link
+  url: https://rydenbutler.org/
+  label: Website

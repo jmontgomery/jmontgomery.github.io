@@ -113,4 +113,48 @@
     color: #444;
     margin: 0;
   }
+
+  /* Homepage call-to-action buttons */
+  .home-cta {
+    text-align: center;
+    padding: 1rem 0 2.5rem;
+  }
+  .home-cta p {
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+  }
+  .home-cta .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .home-cta a.cta-btn {
+    display: inline-block;
+    padding: 0.7rem 1.6rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .home-cta a.cta-primary {
+    background: #BA0C2F;
+    color: #fff;
+  }
+  .home-cta a.cta-primary:hover {
+    background: #90081f;
+  }
+  .home-cta a.cta-secondary {
+    border: 2px solid #BA0C2F;
+    color: #BA0C2F;
+  }
+  .home-cta a.cta-secondary:hover {
+    background: #BA0C2F;
+    color: #fff;
+  }
+  :root[data-theme="dark"] .home-cta a.cta-secondary,
+  .dark .home-cta a.cta-secondary {
+    border-color: #f87171;
+    color: #f87171;
+  }
 </style>

@@ -6,7 +6,11 @@ name:
   family: Xu
 role: PhD Candidate
 user_groups:
-  - Current Students
+- Current Students
 affiliations:
-  - name: Washington University in St. Louis (Division of Computational and Data Sciences)
+- name: Washington University in St. Louis (Division of Computational and Data Sciences)
 bio: ''
+interests:
+- Internet and platform measurement
+- AI and the information ecosystem
+- Misinformation

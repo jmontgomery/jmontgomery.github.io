@@ -19,6 +19,8 @@ publication:
 abstract: ''
 summary: 'Investigates whether the perceived closeness of presidential elections influences where college students choose to register to vote. The study finds evidence of strategic registration behavior, with students more likely to register in competitive states when they perceive the election as close.'
 featured: false
+image:
+  preview_only: true
 tags:
   - Public Opinion
   - Political Behavior

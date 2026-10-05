@@ -20,6 +20,8 @@ publication:
 abstract: ''
 summary: 'Tests whether public campaign financing changes how judges decide cases, using variation in North Carolina''s judicial public financing program. The findings provide evidence on whether removing private money from judicial elections affects judicial independence and decision-making.'
 featured: false
+image:
+  preview_only: true
 tags:
   - Causal Inference
   - Political Behavior

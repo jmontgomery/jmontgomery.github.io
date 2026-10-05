@@ -20,6 +20,8 @@ publication:
 abstract: ''
 summary: 'Investigates whether voting is habitual behavior that persists over time. Using panel data, the authors find strong evidence that past voting behavior predicts future turnout independent of other factors, suggesting that civic participation becomes self-reinforcing once established.'
 featured: false
+image:
+  preview_only: true
 tags:
   - Public Opinion
   - Political Behavior

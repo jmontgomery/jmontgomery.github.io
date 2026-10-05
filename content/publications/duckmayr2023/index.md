@@ -19,6 +19,8 @@ publication:
 abstract: ''
 summary: 'Standard political measurement tools assume that people who give the same answer do so for the same reason — but what if a liberal and a conservative both vote "no" for completely opposite motivations? This paper introduces a new measurement model that can detect when ideological opposites converge on the same response for antithetical reasons, a pattern that breaks conventional scaling methods. Applied to Supreme Court voting, congressional roll calls, and survey data, the method outperforms standard approaches and comes packaged in a free, open-source R package. For anyone trying to measure where politicians or voters really stand, this offers a more honest reckoning with how political disagreement actually works.'
 featured: true
+image:
+  preview_only: true
 tags:
   - Bayesian Statistics
   - Measurement/Surveys

@@ -22,6 +22,8 @@ publication:
 abstract: ''
 summary: 'Challenges the prevailing view that fake news has broad effects on political attitudes and behavior. While exposure to false claims does increase belief in those claims, the study finds limited evidence of downstream effects on voting intentions or other political outcomes.'
 featured: false
+image:
+  preview_only: true
 tags:
   - Misinformation
   - Public Opinion

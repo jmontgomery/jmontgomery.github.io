@@ -19,6 +19,8 @@ publication:
 abstract: ''
 summary: 'Examines how political consultant networks facilitate the diffusion of campaign strategies across congressional elections. By mapping consultant ties between campaigns, the study shows that shared consultants transmit tactical innovations, explaining why similar campaign practices spread rapidly across the political system.'
 featured: false
+image:
+  preview_only: true
 tags:
   - Political Communication
   - Political Behavior

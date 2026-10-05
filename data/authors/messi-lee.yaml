@@ -4,9 +4,16 @@ name:
   display: Messi H.J. Lee
   given: Messi
   family: Lee
-role: PhD, Washington University in St. Louis
+role: AI Researcher, MTS Company, Seoul
 user_groups:
-  - Alumni
+- Alumni
 affiliations:
-  - name: Division of Computational and Data Sciences
+- name: MTS Company
 bio: ''
+links:
+- icon: academicons/google-scholar
+  url: https://scholar.google.com/citations?user=qUz4nA8AAAAJ
+  label: Google Scholar
+- icon: hero/link
+  url: https://lee-messi.github.io/
+  label: Website

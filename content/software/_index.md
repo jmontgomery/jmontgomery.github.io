@@ -14,4 +14,5 @@ sections:
     design:
       view: card
       columns: '1'
+      show_image: false
 ---

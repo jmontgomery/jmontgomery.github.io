@@ -19,6 +19,8 @@ publication:
 abstract: ''
 summary: 'Demonstrates how adaptive testing methods can dramatically reduce the number of survey questions needed to measure personality traits without sacrificing measurement accuracy. The paper makes personality measurement practical for large-scale survey research by tailoring item selection to each respondent.'
 featured: false
+image:
+  preview_only: true
 tags:
   - Measurement/Surveys
   - Public Opinion

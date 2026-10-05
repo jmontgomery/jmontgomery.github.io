@@ -20,6 +20,8 @@ publication:
 abstract: ''
 summary: 'Compares Bayesian and maximum likelihood approaches to estimating treatment effects in bivariate probit models with instrumental variables. The analysis provides practical guidance for researchers dealing with binary outcomes and endogenous treatments in observational studies.'
 featured: false
+image:
+  preview_only: true
 tags:
   - Causal Inference
 links:

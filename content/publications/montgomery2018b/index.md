@@ -20,6 +20,8 @@ publication:
 abstract: ''
 summary: 'Randomized experiments are political science''s gold standard for causal inference — but a surprisingly common set of analytic choices can quietly destroy the advantage randomization provides. This paper documents that nearly half of experimental studies published in the field''s top journals condition on post-treatment variables, a practice that can bias results in any direction by any amount. With clear visual demonstrations and real-data re-analyses, the paper shows just how badly this can distort conclusions, then offers practical guidance for avoiding the trap. Essential reading for anyone who runs, reads, or reviews experimental research.'
 featured: true
+image:
+  preview_only: true
 tags:
   - Causal Inference
   - Research Design

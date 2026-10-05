@@ -16,6 +16,8 @@ publication:
 abstract: ''
 summary: 'Models preregistration as a form of cheap talk — a costless, non-binding announcement that nonetheless shapes reviewer expectations and creates informal discipline through rational belief updating. The model shows preregistration can be self-enforcing without third-party oversight, but the same logic leads to a troubling conclusion: researchers optimally choose plans that retain substantial flexibility for selective reporting while preserving credibility benefits. Better institutional designs — such as requiring disclosure of all preregistered results and ensuring plans are specific enough to be meaningful — would more reliably achieve preregistration''s intended goals.'
 featured: false
+image:
+  preview_only: true
 tags:
   - Research Design
   - Working Papers

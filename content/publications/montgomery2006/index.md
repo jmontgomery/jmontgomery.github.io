@@ -20,6 +20,8 @@ publication:
 abstract: ''
 summary: 'Examines which state, local, and agency characteristics predict enforcement of minimum drinking age laws. The study identifies key organizational and political factors that explain variation in compliance check programs, informing policy efforts to reduce underage drinking.'
 featured: false
+image:
+  preview_only: true
 tags:
   - Public Opinion
 links:

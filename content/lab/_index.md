@@ -10,16 +10,19 @@ sections:
         - Current Students
         - Alumni
     design:
-      show_interests: false
+      show_interests: true
       show_role: true
-      show_social: false
+      show_social: true
       max_columns: 4
 
   - block: markdown
+    id: join
     content:
       title: Joining the Lab
       text: |
-        Students interested in working with me should apply to the [Washington University in St. Louis Department of Political Science PhD program](https://polisci.wustl.edu/graduate). Applicants interested in computational and data science approaches may also consider the [Division of Computational and Data Sciences](https://dcds.wustl.edu/).
+        My research group welcomes people of all backgrounds, identities, skill sets, and interests who share a curiosity about politics, data, and emerging technologies. Mentoring and advising are a core component of my research process, and nearly everything the lab produces is the result of sustained collaboration between faculty and students.
 
-        **Please do not contact me directly about PhD admissions.** Admission decisions are made by the department as a whole, and I am unable to respond to individual inquiries about your chances of admission or to pre-commit to advising specific students before admission.
+        Students interested in working with me should apply to the [Washington University in St. Louis Department of Political Science PhD program](https://polisci.wustl.edu/graduate). WashU offers one of the strongest quantitative methods training environments in the discipline, fully funded PhD positions, and a deeply collaborative culture that spans political science, statistics, and data science.
+
+        I am always happy to hear from students interested in the lab and its research. Please keep in mind, however, that admission decisions are made by the department as a whole, so I cannot assess your chances of admission or commit to advising specific students before they are admitted.
 ---

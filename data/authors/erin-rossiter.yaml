@@ -4,7 +4,14 @@ name:
   display: Erin L. Rossiter
   given: Erin
   family: Rossiter
-role: PhD, Washington University in St. Louis
+role: Nancy Reeves Dreux Assistant Professor of Political Science, University of Notre
+  Dame
 user_groups:
-  - Alumni
+- Alumni
 bio: ''
+affiliations:
+- name: University of Notre Dame
+links:
+- icon: academicons/google-scholar
+  url: https://scholar.google.com/citations?user=4g02Np0AAAAJ
+  label: Google Scholar

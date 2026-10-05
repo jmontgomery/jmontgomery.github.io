@@ -19,6 +19,8 @@ publication:
 abstract: ''
 summary: 'Examines how networks of congressional staff influence legislative behavior in the U.S. House. The study finds that shared staff connections between offices facilitate the diffusion of legislative strategies and policy ideas, highlighting the underappreciated role of staff in shaping congressional output.'
 featured: false
+image:
+  preview_only: true
 tags:
   - Political Behavior
   - Congress

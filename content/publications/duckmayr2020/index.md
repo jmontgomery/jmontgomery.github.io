@@ -17,6 +17,8 @@ publication:
 abstract: ''
 summary: 'Proposes GPIRT, a Gaussian process extension of item response theory that relaxes parametric assumptions about how respondents relate to latent traits. The model provides more flexible and accurate measurement of latent constructs from survey and test data.'
 featured: false
+image:
+  preview_only: true
 tags:
   - Bayesian Statistics
   - AI/Machine Learning

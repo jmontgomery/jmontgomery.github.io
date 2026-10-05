@@ -4,7 +4,13 @@ name:
   display: Gechun Lin
   given: Gechun
   family: Lin
-role: PhD, Washington University in St. Louis
+role: Assistant Professor of Political Science, Texas A&M University
 user_groups:
-  - Alumni
+- Alumni
 bio: ''
+affiliations:
+- name: Texas A&M University
+links:
+- icon: academicons/google-scholar
+  url: https://scholar.google.com/citations?user=rp4d5WUAAAAJ
+  label: Google Scholar

@@ -19,6 +19,8 @@ publication:
 abstract: ''
 summary: 'Investigates the stability of individual policy preferences and ideological constraint over time. The findings challenge assumptions about mass ideological consistency, showing that while individual preferences can be stable, the structure of constraint evolves in ways inconsistent with elite-driven models. This paper received the Hahn-Sigelman Prize from the journal.'
 featured: false
+image:
+  preview_only: true
 tags:
   - Public Opinion
   - Measurement/Surveys

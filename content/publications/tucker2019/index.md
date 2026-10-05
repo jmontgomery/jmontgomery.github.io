@@ -20,6 +20,8 @@ publication:
 abstract: ''
 summary: 'Uses long-term panel data spanning the Obama era to examine the sources of stability and change in party identification. The study finds that while party ID is generally stable, the Obama presidency produced systematic shifts among specific demographic groups, advancing understanding of when and why partisan attachments change.'
 featured: false
+image:
+  preview_only: true
 tags:
   - Public Opinion
   - Political Behavior

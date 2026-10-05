@@ -20,6 +20,8 @@ publication:
 abstract: ''
 summary: 'Analyzes Facebook emoji reactions to political party posts across 79 democracies to study emotional responses to partisan political communication. The study reveals systematic cross-national patterns in how citizens emotionally engage with parties, providing new insights into affective polarization and political communication at global scale.'
 featured: false
+image:
+  preview_only: true
 tags:
   - Social Media
   - Public Opinion

@@ -25,6 +25,8 @@ publication:
 abstract: ''
 summary: 'Experimentally tests how exposure to unsubstantiated voter fraud claims affects public confidence in elections. The study finds that such claims meaningfully reduce trust in electoral integrity, raising concerns about the downstream effects of election misinformation on democratic legitimacy.'
 featured: false
+image:
+  preview_only: true
 tags:
   - Misinformation
   - Public Opinion

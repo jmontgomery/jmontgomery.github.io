@@ -19,6 +19,8 @@ publication:
 abstract: ''
 summary: 'A tribute and scholarly assessment of John Aldrich''s contributions to political science, examining the scope and influence of his work on parties, voting, and political behavior.'
 featured: false
+image:
+  preview_only: true
 tags:
 links:
   - name: PDF

@@ -20,6 +20,8 @@ publication:
 abstract: ''
 summary: 'Uses computational analysis of large language corpora to uncover racial hierarchies embedded in American English. The study reveals systematic associations between race, perceived superiority, and Americanness in natural language, providing evidence that racial biases are encoded in the language itself.'
 featured: false
+image:
+  preview_only: true
 tags:
   - AI & Politics
   - Text/Image

@@ -4,7 +4,13 @@ name:
   display: Annamaria Prati
   given: Annamaria
   family: Prati
-role: PhD, Washington University in St. Louis
+role: Faculty Fellow, NYU Center for Data Science
 user_groups:
-  - Alumni
+- Alumni
 bio: ''
+affiliations:
+- name: New York University
+links:
+- icon: hero/link
+  url: https://afprati.github.io/
+  label: Website

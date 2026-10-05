@@ -19,6 +19,8 @@ publication:
 abstract: ''
 summary: 'A practical guide to building and maintaining R software packages using the devtools and roxygen2 tools. Written for political methodologists, the article lowers the barrier to sharing replication code and statistical software with the discipline.'
 featured: false
+image:
+  preview_only: true
 tags:
 links:
   - name: PDF

@@ -20,6 +20,8 @@ publication:
 abstract: ''
 summary: 'Investigates why older Americans disproportionately engage with dubious political news online. The study finds that partisan motivation plays a central role: older partisans are more likely to share and believe politically congenial misinformation, suggesting age differences in news engagement are driven by motivational factors rather than digital literacy alone.'
 featured: false
+image:
+  preview_only: true
 tags:
   - Misinformation
   - Public Opinion

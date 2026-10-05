@@ -20,6 +20,8 @@ publication:
 abstract: ''
 summary: 'A brief methodological contribution outlining principled approaches to combining data from multiple sources through ensemble and aggregation methods. Argues for a coherent Bayesian framework for data fusion in political forecasting and social science research.'
 featured: false
+image:
+  preview_only: true
 tags:
 links:
   - name: PDF

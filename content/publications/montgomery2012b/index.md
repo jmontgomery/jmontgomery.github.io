@@ -20,6 +20,8 @@ publication:
 abstract: ''
 summary: 'Applies ensemble forecasting methods to predict the outcome of the 2012 US presidential election. Demonstrates the practical utility of combining multiple models, with the ensemble approach providing well-calibrated predictions ahead of election day.'
 featured: false
+image:
+  preview_only: true
 tags:
   - Political Behavior
   - American Politics

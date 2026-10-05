@@ -16,5 +16,10 @@ publication:
 abstract: ''
 summary: 'An invited handbook chapter providing a comprehensive overview of Bayesian approaches to model selection, comparison, and averaging for political scientists. Covers practical implementation and the theoretical foundations of Bayesian model uncertainty.'
 featured: false
+image:
+  preview_only: true
+links:
+  - name: PDF
+    url: /uploads/papers/hollenbach2020.pdf
 tags:
 ---

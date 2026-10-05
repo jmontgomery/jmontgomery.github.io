@@ -16,6 +16,8 @@ publication:
 abstract: ''
 summary: 'Proposes a framework for evaluating the validity and trustworthiness of measures created using supervised machine learning. The paper argues that standard validation practices from psychometrics and measurement theory should be adapted and applied to ML-based measures in social science, providing practical guidance for researchers.'
 featured: false
+image:
+  preview_only: true
 tags:
   - AI/Machine Learning
   - Measurement/Surveys

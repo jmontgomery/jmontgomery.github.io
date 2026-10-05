@@ -4,7 +4,13 @@ name:
   display: Bryant Moy
   given: Bryant
   family: Moy
-role: PhD, Washington University in St. Louis
+role: Assistant Professor of Politics, New York University
 user_groups:
-  - Alumni
+- Alumni
 bio: ''
+affiliations:
+- name: New York University
+links:
+- icon: academicons/google-scholar
+  url: https://scholar.google.com/citations?user=x0cS3e4AAAAJ
+  label: Google Scholar

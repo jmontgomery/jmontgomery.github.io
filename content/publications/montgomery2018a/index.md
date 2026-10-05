@@ -19,6 +19,8 @@ publication:
 abstract: ''
 summary: 'Political scientists are drowning in data — large surveys, social media, administrative records — but their standard statistical toolkit was built for a simpler world. This paper makes the case for tree-based machine learning methods (decision trees, random forests, and their relatives) as practical tools for political scientists dealing with high-dimensional data, complex interactions, and nonlinear relationships that regression simply can''t capture. Through simulations and real-data applications, the authors show when and why these methods outperform traditional approaches, while being honest about their limits for causal inference and theory testing.'
 featured: true
+image:
+  preview_only: true
 tags:
   - AI/Machine Learning
   - Featured

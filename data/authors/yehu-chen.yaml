@@ -4,9 +4,16 @@ name:
   display: Yehu Chen
   given: Yehu
   family: Chen
-role: PhD, Washington University in St. Louis
+role: Software Engineer (AI/ML), Google
 user_groups:
-  - Alumni
+- Alumni
 affiliations:
-  - name: Division of Computational and Data Sciences
+- name: Google
 bio: ''
+links:
+- icon: academicons/google-scholar
+  url: https://scholar.google.com/citations?user=4vgdwjUAAAAJ
+  label: Google Scholar
+- icon: hero/link
+  url: https://yahoochen97.github.io/
+  label: Website

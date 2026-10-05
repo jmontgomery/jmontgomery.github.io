@@ -20,6 +20,8 @@ publication:
 abstract: ''
 summary: 'Extends Bayesian model averaging to ensemble methods, showing how combining multiple models improves prediction in political science. The paper demonstrates practical gains in forecasting accuracy and provides accessible implementation guidance for applied researchers.'
 featured: false
+image:
+  preview_only: true
 tags:
   - AI/Machine Learning
 links:

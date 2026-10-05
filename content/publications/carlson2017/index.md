@@ -19,6 +19,8 @@ publication:
 abstract: ''
 summary: 'Content-coding political texts is one of the most labor-intensive tasks in the discipline — but what if you could reliably outsource thousands of judgments to online workers without sacrificing quality? This paper introduces a crowdsourced platform that sidesteps the unreliability of traditional coding scales by asking workers to make simple pairwise comparisons ("which of these two ads is more negative?") rather than absolute judgments. Validated on Senate campaign ads and State Department human rights reports, the method matches or outperforms expert coders at a fraction of the cost and comes with free R software.'
 featured: true
+image:
+  preview_only: true
 tags:
   - Text/Image
   - Political Communication

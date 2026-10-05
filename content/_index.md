@@ -28,4 +28,17 @@ sections:
       avatar:
         size: xl
         shape: circle
+
+  - block: markdown
+    id: get-involved
+    content:
+      title: ''
+      text: |
+        <div class="home-cta">
+        <p>Interested in working with us or helping advance the lab's research?</p>
+        <div class="cta-buttons">
+        <a class="cta-btn cta-primary" href="lab/#join">Join Our Lab</a>
+        <a class="cta-btn cta-secondary" href="support/">Support Our Research</a>
+        </div>
+        </div>
 ---
