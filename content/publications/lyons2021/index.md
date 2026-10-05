@@ -18,6 +18,7 @@ publication:
   short_name: PNAS
   volume: "118"
   issue: "23"
+  pages: e2019527118
 abstract: ''
 summary: 'Most people think they''re pretty good at spotting fake news — but this paper shows that the gap between how good people think they are and how good they actually are is itself a major predictor of whether they fall for misinformation. Drawing on a large national sample, the study finds that overconfident news consumers are significantly more likely to perceive false headlines as accurate and to say they would share them, even after controlling for actual ability, political knowledge, and media use. The implication is pointed: interventions aimed at improving media literacy may need to tackle inflated self-assessments, not just build skills.'
 featured: true
