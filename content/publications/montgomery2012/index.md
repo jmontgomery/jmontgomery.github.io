@@ -26,7 +26,7 @@ tags:
   - AI/Machine Learning
 links:
   - name: PDF
-    url: /uploads/papers/montgomery2012.pdf
+    url: /uploads/papers/montgomery2012-improving-predictions-ensemble.pdf
   - name: DOI
     url: https://doi.org/10.1093/pan/mps002
 ---

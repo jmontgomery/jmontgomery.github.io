@@ -25,12 +25,12 @@ featured: true
 image:
   preview_only: true
 tags:
-  - Comparative Politics
   - Featured
+  - Comparative Politics
   - Political Communication
 links:
   - name: PDF
-    url: /uploads/papers/muraoka2026.pdf
+    url: /uploads/papers/muraoka2026-speaking-language-multilingualism.pdf
   - name: DOI
     url: https://doi.org/10.1111/ajps.12976
   - name: Replication

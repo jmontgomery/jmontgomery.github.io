@@ -18,16 +18,17 @@ publication:
   pages: 292-308
 abstract: ''
 summary: 'Examines how political consultant networks facilitate the diffusion of campaign strategies across congressional elections. By mapping consultant ties between campaigns, the study shows that shared consultants transmit tactical innovations, explaining why similar campaign practices spread rapidly across the political system.'
-featured: false
+featured: true
 image:
   preview_only: true
 tags:
+  - Featured
   - Political Communication
   - Political Behavior
   - American Politics
 links:
   - name: PDF
-    url: /uploads/papers/nyhan2015.pdf
+    url: /uploads/papers/nyhan2015-connecting-candidates-consultant.pdf
   - name: DOI
     url: https://doi.org/10.1111/ajps.12143
 ---

@@ -27,12 +27,12 @@ featured: true
 image:
   preview_only: true
 tags:
+  - Featured
   - Political Communication
   - Public Opinion
-  - Featured
 links:
   - name: PDF
-    url: /uploads/papers/guess2020.pdf
+    url: /uploads/papers/guess2020-digital-media-literacy.pdf
   - name: DOI
     url: https://doi.org/10.1073/pnas.1920498117
 ---

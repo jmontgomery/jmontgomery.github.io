@@ -27,5 +27,5 @@ tags:
   - Working Papers
 links:
   - name: PDF
-    url: /uploads/papers/edelson2026b.pdf
+    url: /uploads/papers/edelson2026-public-wants-regulated.pdf
 ---

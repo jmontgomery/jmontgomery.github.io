@@ -20,6 +20,6 @@ image:
   preview_only: true
 links:
   - name: PDF
-    url: /uploads/papers/hollenbach2020.pdf
+    url: /uploads/papers/hollenbach2020-bayesian-model-selection.pdf
 tags:
 ---

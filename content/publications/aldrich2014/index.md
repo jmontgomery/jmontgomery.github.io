@@ -28,7 +28,7 @@ tags:
   - American Politics
 links:
   - name: PDF
-    url: /uploads/papers/aldrich2014.pdf
+    url: /uploads/papers/aldrich2014-polarization-ideology-partisan.pdf
   - name: DOI
     url: https://doi.org/10.1093/pan/mpt048
 ---

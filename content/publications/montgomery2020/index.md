@@ -26,7 +26,7 @@ tags:
   - Public Opinion
 links:
   - name: PDF
-    url: /uploads/papers/montgomery2020.pdf
+    url: /uploads/papers/montgomery2020-so-many-questions.pdf
   - name: DOI
     url: https://doi.org/10.1093/jssam/smz027
 ---

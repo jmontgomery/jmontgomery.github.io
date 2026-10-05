@@ -22,12 +22,12 @@ featured: true
 image:
   preview_only: true
 tags:
+  - Featured
   - Text/Image
   - Political Communication
-  - Featured
 links:
   - name: PDF
-    url: /uploads/papers/carlson2017.pdf
+    url: /uploads/papers/carlson2017-pairwise-comparison-framework.pdf
   - name: DOI
     url: https://doi.org/10.1017/S0003055417000302
 ---

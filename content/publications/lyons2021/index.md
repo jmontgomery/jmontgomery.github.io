@@ -24,12 +24,12 @@ featured: true
 image:
   preview_only: true
 tags:
+  - Featured
   - Political Communication
   - Public Opinion
-  - Featured
 links:
   - name: PDF
-    url: /uploads/papers/lyons2021.pdf
+    url: /uploads/papers/lyons2021-overconfidence-news-judgments.pdf
   - name: DOI
     url: https://doi.org/10.1073/pnas.2019527118
 ---

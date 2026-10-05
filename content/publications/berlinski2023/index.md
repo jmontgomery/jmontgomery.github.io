@@ -34,7 +34,7 @@ tags:
   - American Politics
 links:
   - name: PDF
-    url: /uploads/papers/berlinski2023.pdf
+    url: /uploads/papers/berlinski2023-effects-unsubstantiated-claims.pdf
   - name: DOI
     url: https://doi.org/10.1017/XPS.2021.18
 ---

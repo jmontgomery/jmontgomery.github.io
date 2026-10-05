@@ -28,7 +28,7 @@ tags:
   - American Politics
 links:
   - name: PDF
-    url: /uploads/papers/hazelton2016.pdf
+    url: /uploads/papers/hazelton2016-public-financing-affect.pdf
   - name: DOI
     url: https://doi.org/10.1177/1532673X15599839
 ---

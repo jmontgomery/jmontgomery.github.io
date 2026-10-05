@@ -21,9 +21,9 @@ image:
   focal_point: ''
   preview_only: true
 tags:
+  - Featured
   - Measurement/Surveys
   - Public Opinion
-  - Featured
 links:
   - name: Publisher
     url: https://doi.org/10.1017/9781108862516

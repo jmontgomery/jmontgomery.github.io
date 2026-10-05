@@ -29,7 +29,7 @@ tags:
   - American Politics
 links:
   - name: PDF
-    url: /uploads/papers/lyons2024.pdf
+    url: /uploads/papers/lyons2024-partisanship-older-americans.pdf
   - name: DOI
     url: https://doi.org/10.1093/poq/nfae044
 ---

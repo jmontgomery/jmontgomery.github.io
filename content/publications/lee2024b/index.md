@@ -19,16 +19,17 @@ publication:
   pages: pgad485
 abstract: ''
 summary: 'Uses computational analysis of large language corpora to uncover racial hierarchies embedded in American English. The study reveals systematic associations between race, perceived superiority, and Americanness in natural language, providing evidence that racial biases are encoded in the language itself.'
-featured: false
+featured: true
 image:
   preview_only: true
 tags:
+  - Featured
   - AI & Politics
   - Text/Image
   - Public Opinion
 links:
   - name: PDF
-    url: /uploads/papers/lee2024b.pdf
+    url: /uploads/papers/lee2024-americas-racial-framework.pdf
   - name: DOI
     url: https://doi.org/10.1093/pnasnexus/pgad485
 ---

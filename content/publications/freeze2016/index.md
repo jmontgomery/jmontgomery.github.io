@@ -28,7 +28,7 @@ tags:
   - American Politics
 links:
   - name: PDF
-    url: /uploads/papers/freeze2016.pdf
+    url: /uploads/papers/freeze2016-static-stability-evolving.pdf
   - name: DOI
     url: https://doi.org/10.1177/1532673X15607299
 ---

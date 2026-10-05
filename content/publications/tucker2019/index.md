@@ -28,7 +28,7 @@ tags:
   - American Politics
 links:
   - name: PDF
-    url: /uploads/papers/tucker2019.pdf
+    url: /uploads/papers/tucker2019-party-identification-age.pdf
   - name: DOI
     url: https://doi.org/10.1177/1065912918784215
 ---

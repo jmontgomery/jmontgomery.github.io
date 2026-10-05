@@ -32,7 +32,7 @@ tags:
   - Political Communication
 links:
   - name: PDF
-    url: /uploads/papers/edelson2026.pdf
+    url: /uploads/papers/edelson2026-drives-perceptions-political.pdf
   - name: DOI
     url: https://doi.org/10.1017/XPS.2025.4
   - name: Replication

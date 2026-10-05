@@ -23,7 +23,7 @@ tags:
   - Measurement/Surveys
 links:
   - name: PDF
-    url: /uploads/papers/park-forthcoming.pdf
+    url: /uploads/papers/park2025-framework-creating-trustworthy.pdf
   - name: DOI
     url: https://doi.org/10.1017/psrm.2025.10042
 ---

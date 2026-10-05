@@ -28,7 +28,7 @@ tags:
   - Political Behavior
 links:
   - name: PDF
-    url: /uploads/papers/montgomery2015.pdf
+    url: /uploads/papers/montgomery2015-informed-forensics-approach.pdf
   - name: DOI
     url: https://doi.org/10.1093/pan/mpv023
 ---

@@ -22,11 +22,11 @@ featured: true
 image:
   preview_only: true
 tags:
-  - AI/Machine Learning
   - Featured
+  - AI/Machine Learning
 links:
   - name: PDF
-    url: /uploads/papers/montgomery2018a.pdf
+    url: /uploads/papers/montgomery2018-tree-based-models.pdf
   - name: DOI
     url: https://doi.org/10.1111/ajps.12361
 ---

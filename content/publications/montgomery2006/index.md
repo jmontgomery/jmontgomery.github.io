@@ -26,7 +26,7 @@ tags:
   - Public Opinion
 links:
   - name: PDF
-    url: /uploads/papers/montgomery2006.pdf
+    url: /uploads/papers/montgomery2006-enforcing-minimum-drinking.pdf
   - name: DOI
     url: https://doi.org/10.1111/j.1360-0443.2006.01328.x
 ---

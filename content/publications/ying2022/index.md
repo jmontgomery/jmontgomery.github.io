@@ -23,12 +23,12 @@ featured: true
 image:
   preview_only: true
 tags:
+  - Featured
   - Measurement/Surveys
   - Text/Image
-  - Featured
 links:
   - name: PDF
-    url: /uploads/papers/ying2022.pdf
+    url: /uploads/papers/ying2022-topics-concepts-measurement.pdf
   - name: DOI
     url: https://doi.org/10.1017/pan.2021.33
 ---

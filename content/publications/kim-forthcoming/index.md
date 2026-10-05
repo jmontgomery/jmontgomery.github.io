@@ -30,7 +30,7 @@ tags:
   - Political Communication
 links:
   - name: PDF
-    url: /uploads/papers/kim-forthcoming.pdf
+    url: /uploads/papers/kim2026-polarization-but-populism.pdf
   - name: DOI
     url: https://doi.org/10.1017/psrm.2025.22
   - name: Replication

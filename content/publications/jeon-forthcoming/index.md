@@ -24,14 +24,14 @@ featured: true
 image:
   preview_only: true
 tags:
+  - Featured
   - AI & Politics
   - AI/Machine Learning
-  - Featured
   - Measurement/Surveys
   - Text/Image
 links:
   - name: PDF
-    url: /uploads/papers/jeon-forthcoming.pdf
+    url: /uploads/papers/jeon2026-faces-politics-vision.pdf
   - name: DOI
     url: https://doi.org/10.1017/pan.2026.10038
   - name: Replication

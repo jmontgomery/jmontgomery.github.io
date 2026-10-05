@@ -25,7 +25,7 @@ image:
 tags:
 links:
   - name: PDF
-    url: /uploads/papers/montgomery2013b.pdf
+    url: /uploads/papers/montgomery2013-aggregation-ensembles-principled.pdf
   - name: DOI
     url: https://doi.org/10.1017/S1049096512001552
 ---

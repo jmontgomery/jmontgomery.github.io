@@ -28,7 +28,7 @@ tags:
   - American Politics
 links:
   - name: PDF
-    url: /uploads/papers/butler2018.pdf
+    url: /uploads/papers/butler2018-revisiting-white-backlash.pdf
   - name: DOI
     url: https://doi.org/10.1177/2053168017751250
 ---

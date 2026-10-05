@@ -22,12 +22,12 @@ featured: true
 image:
   preview_only: true
 tags:
+  - Featured
   - Bayesian Statistics
   - Measurement/Surveys
-  - Featured
 links:
   - name: PDF
-    url: /uploads/papers/duckmayr2023.pdf
+    url: /uploads/papers/duckmayr2023-ends-against-middle.pdf
   - name: DOI
     url: https://doi.org/10.1017/pan.2022.33
 ---

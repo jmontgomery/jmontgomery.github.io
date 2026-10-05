@@ -28,7 +28,7 @@ tags:
   - Political Behavior
 links:
   - name: PDF
-    url: /uploads/papers/muraoka2021.pdf
+    url: /uploads/papers/muraoka2021-love-anger-global.pdf
   - name: DOI
     url: https://doi.org/10.51685/jqd.2021.005
 ---

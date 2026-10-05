@@ -25,7 +25,7 @@ tags:
   - Measurement/Surveys
 links:
   - name: PDF
-    url: /uploads/papers/duckmayr2020.pdf
+    url: /uploads/papers/duckmayr2020-gpirt-gaussian-process.pdf
   - name: DOI
     url: https://arxiv.org/pdf/2006.09900.pdf
 ---

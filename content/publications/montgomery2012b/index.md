@@ -27,7 +27,7 @@ tags:
   - American Politics
 links:
   - name: PDF
-    url: /uploads/papers/montgomery2012b.pdf
+    url: /uploads/papers/montgomery2012-ensemble-predictions-2012.pdf
   - name: DOI
     url: https://doi.org/10.1017/S1049096512000959
 ---

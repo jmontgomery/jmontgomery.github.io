@@ -26,7 +26,7 @@ tags:
   - AI/Machine Learning
 links:
   - name: PDF
-    url: /uploads/papers/montgomery2014.pdf
+    url: /uploads/papers/montgomery2014-calibrating-ensemble-forecasting.pdf
   - name: DOI
     url: https://doi.org/10.1016/j.ijforecast.2014.08.001
 ---

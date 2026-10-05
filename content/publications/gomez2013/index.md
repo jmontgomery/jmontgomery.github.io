@@ -24,7 +24,7 @@ image:
 tags:
 links:
   - name: PDF
-    url: /uploads/papers/gomez2013.pdf
+    url: /uploads/papers/gomez2013-john-aldrich.pdf
   - name: DOI
     url: https://doi.org/10.1017/S1049096513001157
 ---

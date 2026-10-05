@@ -18,16 +18,17 @@ publication:
   pages: 1250-1255
 abstract: ''
 summary: 'Investigates whether the perceived closeness of presidential elections influences where college students choose to register to vote. The study finds evidence of strategic registration behavior, with students more likely to register in competitive states when they perceive the election as close.'
-featured: false
+featured: true
 image:
   preview_only: true
 tags:
+  - Featured
   - Public Opinion
   - Political Behavior
   - American Politics
 links:
   - name: PDF
-    url: /uploads/papers/montgomery2022.pdf
+    url: /uploads/papers/montgomery2022-closeness-strategic-participation.pdf
   - name: DOI
     url: https://doi.org/10.1086/716287
 ---

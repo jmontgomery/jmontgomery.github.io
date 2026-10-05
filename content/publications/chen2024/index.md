@@ -22,12 +22,12 @@ featured: true
 image:
   preview_only: true
 tags:
+  - Featured
   - AI/Machine Learning
   - Measurement/Surveys
-  - Featured
 links:
   - name: PDF
-    url: /uploads/papers/chen2024.pdf
+    url: /uploads/papers/chen2024-idiographic-personality-gaussian.pdf
   - name: DOI
     url: https://doi.org/10.48550/arXiv.2407.04970
 ---

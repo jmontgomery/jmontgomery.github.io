@@ -25,7 +25,7 @@ tags:
   - Working Papers
 links:
   - name: PDF
-    url: /uploads/papers/lee2026.pdf
+    url: /uploads/papers/lee2026-visual-cues-gender.pdf
   - name: arXiv
     url: https://arxiv.org/abs/2503.05093
 ---

@@ -26,7 +26,7 @@ tags:
   - Causal Inference
 links:
   - name: PDF
-    url: /uploads/papers/hollenbach2019.pdf
+    url: /uploads/papers/hollenbach2019-bayesian-versus-maximum.pdf
   - name: DOI
     url: https://doi.org/10.1017/psrm.2018.15
 ---

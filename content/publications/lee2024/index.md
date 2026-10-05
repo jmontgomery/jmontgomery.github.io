@@ -20,13 +20,13 @@ featured: true
 image:
   preview_only: true
 tags:
+  - Featured
   - AI & Politics
   - AI/Machine Learning
-  - Featured
   - Text/Image
 links:
   - name: PDF
-    url: /uploads/papers/lee2024.pdf
+    url: /uploads/papers/lee2024-large-language-models.pdf
   - name: DOI
     url: https://dl.acm.org/doi/10.1145/3630106.3658975
   - name: Replication

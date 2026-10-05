@@ -24,5 +24,5 @@ tags:
   - Working Papers
 links:
   - name: PDF
-    url: /uploads/papers/xi2026.pdf
+    url: /uploads/papers/xi2026-short-precise-valid.pdf
 ---

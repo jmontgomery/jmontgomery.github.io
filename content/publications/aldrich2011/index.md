@@ -28,7 +28,7 @@ tags:
   - American Politics
 links:
   - name: PDF
-    url: /uploads/papers/aldrich2011.pdf
+    url: /uploads/papers/aldrich2011-turnout-as-habit.pdf
   - name: DOI
     url: https://doi.org/10.1007/s11109-010-9148-3
 ---

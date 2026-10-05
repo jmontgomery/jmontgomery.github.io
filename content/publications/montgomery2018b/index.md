@@ -23,12 +23,12 @@ featured: true
 image:
   preview_only: true
 tags:
+  - Featured
   - Causal Inference
   - Research Design
-  - Featured
 links:
   - name: PDF
-    url: /uploads/papers/montgomery2018b.pdf
+    url: /uploads/papers/montgomery2018-conditioning-post-treatment.pdf
   - name: DOI
     url: https://doi.org/10.1111/ajps.12357
 ---
