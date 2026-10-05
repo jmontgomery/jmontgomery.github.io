@@ -12,9 +12,9 @@ sections:
       text: ''
       buttons:
         - text: Short CV
-          url: uploads/cv/jmmCV-short-07-28-2026.pdf
+          url: uploads/cv/jmmCV-short-10-04-2026.pdf
         - text: Full CV
-          url: uploads/cv/jmmCV-07-28-2026.pdf
+          url: uploads/cv/jmmCV-10-04-2026.pdf
       headings:
         about: 'Jacob Montgomery'
         education: ''

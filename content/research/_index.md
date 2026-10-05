@@ -60,16 +60,12 @@ sections:
     content:
       title: Citations for Published Work
       count: 0
-      sort_by: Params.sort_key
-      sort_ascending: true
+      sort_by: Date
+      sort_ascending: false
       filters:
         folders:
           - publications
-        publication_types:
-          - article-journal
-          - paper-conference
-          - book
-          - chapter
+        exclude_publication_type: preprint
     design:
       view: citation
 ---

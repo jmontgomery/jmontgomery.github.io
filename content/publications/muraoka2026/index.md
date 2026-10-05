@@ -2,7 +2,7 @@
 show_date: false
 reading_time: false
 sort_key: muraoka2026
-title: 'Speaking Their Language?: Descriptive Representation of Language Constituencies in Global Democracies'
+title: 'Speaking Their Language?: Multilingualism in Party Communication Across Democracies'
 authors:
   - Taishi Muraoka
   - Dahjin Kim
