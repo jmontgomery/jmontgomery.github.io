@@ -15,3 +15,6 @@ links:
 - icon: academicons/google-scholar
   url: https://scholar.google.com/citations?user=4g02Np0AAAAJ
   label: Google Scholar
+- icon: hero/link
+  url: https://politicalscience.nd.edu/people/erin-rossiter/
+  label: Website
