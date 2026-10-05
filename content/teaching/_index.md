@@ -9,7 +9,6 @@ sections:
       text: |
         <div class="teaching-page">
         <h1 class="teaching-header">Recent Courses</h1>
-        <p class="teaching-awards">Recipient of the 2025 Teaching Innovation Showcase Award and the 2026 Graduate and Professional Student Council Outstanding Faculty Award.</p>
 
         <div class="teaching-course">
           <div class="course-meta">Undergraduate &nbsp;·&nbsp; POLSCI 2400 &nbsp;·&nbsp; Last taught Fall 2025 &nbsp;·&nbsp; Next offered Fall 2027</div>
