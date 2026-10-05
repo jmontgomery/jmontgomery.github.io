@@ -82,3 +82,7 @@ _vendor/
 cv/*.aux
 cv/*.log
 cv/*.out
+
+# Local-only
+cv/*.pdf
+working-papers-drafts/

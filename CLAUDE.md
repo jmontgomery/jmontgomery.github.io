@@ -1,122 +1,55 @@
 # jacobmontgomery.com — Personal Academic Website
 
 ## Project overview
-Professional academic website for Jacob Montgomery, Professor of Political Science at Washington University in St. Louis. Hosted on GitHub Pages at `jacobmontgomery.com`. Built with Hugo Blox (formerly Wowchemy/Hugo Academic).
+Professional academic website for Jacob Montgomery, Professor of Political Science at Washington University in St. Louis. Built with Hugo Blox (academic-cv template), hosted on GitHub Pages at `jacobmontgomery.com` (live, HTTPS enforced).
 
 ## Key facts
-- GitHub repo: `jmontgomery/jmontgomery.github.io`
-- Custom domain: `jacobmontgomery.com` (configured via CNAME)
-- This is a complete rebuild from the old R Markdown site
-- Note: `politicaldatascience.com` is now a separate site
-- Archive of old site: private GitHub repo at `https://github.com/jmontgomery/old-website`
+- GitHub repo: `jmontgomery/jmontgomery.github.io`, branch `master`
+- Custom domain `jacobmontgomery.com` set in Pages settings (DNS: A records → GitHub IPs; www CNAME → apex). No CNAME file in repo.
+- `politicaldatascience.com` is a separate site. Old site archive: private repo `jmontgomery/old-website`; old sites.wustl.edu page being retired.
 
-## Tech stack
-- Hugo (static site generator)
-- Hugo Blox (academic theme)
-- GitHub Pages (hosting)
-
-## Development workflow
-- Edit source files locally in this directory
-- Build: `hugo` (generates `public/` directory)
-- Deploy: push to GitHub (GitHub Pages serves from `main` branch)
-
-## Directory structure (Hugo Blox)
-- `content/` — all page content (.md files)
-- `config/` — Hugo configuration files
-- `assets/` — images, custom CSS
-- `static/uploads/cv/` — long CV and short CV PDFs
-- `static/uploads/papers/` — paper PDFs
-- `static/uploads/talks/` — slides and talk materials
-- `static/uploads/teaching/` — syllabi and course materials (add per-course subdirs as needed)
-- `public/` — generated output (do not edit manually)
+## Build & deploy
+- Local preview: `hugo server` → http://localhost:1313 (the dev server occasionally crashes with a watcher panic under heavy file churn — just restart it)
+- Deploy: push to `master` → `.github/workflows/deploy.yml` (GitHub Actions, Pages build_type=workflow). CI Hugo version pinned in `hugoblox.yaml` — keep it matching the local Hugo version (template partials require >= 0.163).
+- Package manager is pnpm (`pnpm-lock.yaml`); do not add a package-lock.json.
 
 ## Hugo Blox template override paths
-Hugo Blox mounts its own partials under `blox/` in its module. Local overrides live at:
-- `layouts/_partials/views/` — card, citation, etc. view templates
-- `layouts/_partials/hbx/blocks/` — block templates (e.g. portfolio/block.html)
-- `layouts/_partials/hooks/head-end/custom-styles.html` — inject custom CSS
-The mount path is defined in `hugo.yaml` under `module.mounts`. Do NOT use `layouts/blox/`.
+Local overrides live at (mounts defined in `hugo.yaml`; do NOT use `layouts/blox/`):
+- `layouts/_partials/views/` — card, citation view templates
+- `layouts/_partials/hbx/blocks/` — portfolio, content-collection, team-showcase, resume-biography-3 overrides
+- `layouts/_partials/page_author_card.html` — author bylines render as plain text (no /authors/ pages exist)
+- `layouts/_partials/hooks/head-end/custom-styles.html` — JSON-LD Person schema + custom CSS (teaching page, homepage CTA, course quotes)
+Key customizations: portfolio block uses `.Fit` + `object-contain` so card figures aren't cropped; card view supports `show_image: false` (used on software page); team-showcase links member names to their "Website"-labeled link only.
 
-## Research page architecture (`content/research/_index.md`)
-Five blocks in order:
-1. `markdown` (id: `research-subnav`) — sticky anchor nav with links to each section
-2. `content-collection` (id: `featured`) — featured papers, card view, 3-col grid
-3. `content-collection` (id: `working-papers`) — preprint type, card view, 3-col grid
-4. `portfolio` (id: `browse-by-topic`) — tag filter buttons (see current tag list below)
-5. `content-collection` (id: `all-publications`) — citation view, sorted by date
+## Research page (`content/research/_index.md`)
+1. `portfolio` block (id: papers) — cards with filter buttons: Featured, Published, Working Papers | methods: AI/Machine Learning, Bayesian Statistics, Causal Inference, Measurement/Surveys, Research Design, Text/Image | topics: AI & Politics, American Politics, Comparative Politics, Political Communication, Public Opinion/Behavior
+2. `content-collection` (id: citation-list) — "Citations for Published Work", citation view, reverse-chron (`sort_by: Date`), `filters.exclude_publication_type: preprint` (the block supports only the singular `publication_type`/`exclude_publication_type` keys)
 
-CSS for 3-col grid is in `custom-styles.html` targeting `#featured .grid` and `#working-papers .grid`.
+## Publications (`content/publications/<slug>/index.md`)
+~56 entries; every card has a `featured.png/jpg` image (figure from the paper, title-block screenshot, or book cover) with `image.preview_only: true`. Abstracts are verbatim from the published papers. 31 entries have verified Replication/Code links.
+- Structured venue YAML (`publication.name/short_name/volume/issue/pages`); quote names containing colons.
+- PDFs in `static/uploads/papers/` named `{firstauthor}{year}-{short-title}.pdf`.
+- Venue display: always `resolve_publication` partial, never pipe the publication map to markdownify.
+- **NEVER post working-paper/draft PDFs or link them unless Jacob explicitly says to post that specific paper** (see memory). Draft PDFs live OUTSIDE the repo in `~/Documents/working-papers-drafts/`. Working papers use `publication_types: [preprint]`.
+- Featured = `featured: true` + `Featured` tag (currently: top-3 poli sci journal papers, AI papers, NeurIPS, book, Ends Against the Middle, PNAS papers, ying2022, Kim PSRM, Park PSRM, Congressional staff networks).
 
-## Publication content files (`content/publications/<slug>/index.md`)
-~55 total: ~12 featured, ~8 working papers (preprint type), rest featured: false.
-Structured publication YAML format used throughout:
-```yaml
-publication:
-  name: American Political Science Review
-  short_name: APSR
-  volume: "115"
-  issue: "3"
-  pages: 800-815
-```
-WARNING: publication names with colons must be quoted, e.g. `name: "PS: Political Science and Politics"`.
+## CVs (`cv/*.tex`)
+- Source of truth: `cv/jmmCV-July2026.tex` (long) and `cv/jmmCV-short-July2026.tex` (2 pages — must stay 2 pages).
+- Build: `pdflatex` twice; deploy by copying PDFs to `static/uploads/cv/jmmCV[-short]-MM-DD-YYYY.pdf` and updating the homepage button URLs in `content/_index.md`. Compiled PDFs are gitignored in `cv/`.
+- `\student{}` marks WashU student co-authors (long CV). Keep titles/authors/citations in sync with publication pages (site is ground truth).
 
-Working papers: use `publication_types: [preprint]` and omit PDF links until posted.
-Featured papers: set `featured: true`.
+## Lab page
+`team-showcase` block + `data/authors/*.yaml`. Alumni show current positions; links list (Google Scholar/Website/LinkedIn) renders as icons; names/photos link to the "Website" entry. Avatars: `assets/media/authors/<slug>.jpg`.
 
-### Publication template override
-`layouts/_partials/views/card.html` — local override. Key customization:
-- Shows all tags (not just first): `{{ range $item.GetTerms "tags" }}`
-- Uses `{{ $pub := partial "functions/resolve_publication.html" $item }}` then `{{ $pub.display_short | markdownify }}` for venue display
-- Never pipe the publication map directly to markdownify — use resolve_publication first
+## Other pages
+- Teaching: hand-built HTML in markdown block; no colons/em-dashes in course blurbs; student eval pull quotes (never publish eval numbers — see memory on eval handling)
+- Homepage: resume-biography-3 (visible email under CV buttons) + CTA block (Join Our Lab → /lab/#join, Support Our Research → /support/)
+- Software, Support: built. Blog: scaffolded, no posts yet.
 
-`layouts/_partials/hbx/blocks/portfolio/block.html` — local override for Browse by Topic section.
-Same resolve_publication pattern needed here (portfolio block renders its own cards, does not use card.html).
-
-## Tag taxonomy
-Current tag buttons in Browse by Topic (alphabetical):
-- AI & Politics
-- Bayesian Statistics
-- Causal Inference
-- Machine Learning
-- Measurement
-- Misinformation
-- Political Behavior
-- Political Communication
-- Public Opinion
-- Social Media
-- Text/Image
-
-Rules: tags removed = Electoral Politics, Methodology. Tags added = Political Behavior, Political Communication, Bayesian Statistics, Text/Image (renamed from NLP/Natural Language Processing).
-
-## Author profile (`data/authors/me.yaml`)
-- Bio paragraph 1: develops advanced statistical and computational methods; applies to public opinion, political behavior, political communication; recent focus on AI, social media, online political advertising, misinformation, online populism
-- Bio paragraph 2: awards (Warren Miller Prize, Emerging Scholar Award); journals (PNAS, APSR, AJPS, NeurIPS); funders (NSF, Carnegie, Democracy Fund, >$1.2M)
-- Bio paragraph 3: PhD + MS from Duke, BA from Wake Forest; Founding Director TIADS (2022–2024)
-- TODO: Add Google Scholar URL (currently placeholder)
-
-## TODOs — profile/config cleanup
-- Clean up ORCID entry at https://orcid.org/0000-0001-5632-2437 (make sure it's current)
-- Add/verify GitHub profile at https://github.com/jmontgomery
-- GitHub link hidden for now (profile needs cleanup before showing)
-- Get LinkedIn verified (linkedin.com/in/jacob-montgomery-2a6ab4286/)
-- Download remaining papers into `static/uploads/papers/`
-- Confirm professional email is correct (`jacob.montgomery@wustl.edu`)
-
-## TODOs — publications
-- **Audit all publication entries** — review each `content/publications/<slug>/index.md` for accuracy: titles, authors, year, venue, volume/issue/pages, tags, abstract, and PDF links
-- PolAds2 working paper: pending co-author + posting decision (Li, Zhang, McCoy, Edelson); add card once decided
-- Book (Montgomery & Rossiter 2022, Cambridge UP): link to https://doi.org/10.1017/9781108862516 rather than hosting PDF
-- Write a blog post explaining the adaptive inventories method accessibly, to post on the site
-
-## TODOs — CV
-- Create a short CV (source materials in Dropbox: "cv and related" folder)
-- Add short CV PDF to `static/uploads/cv/` and link it from the homepage alongside the long CV
-
-## Pages not yet built
-- **Teaching** page
-- **Lab** page (lab members, current and former)
-- **Software** page
-- **Data** page
-- **News/Blog** — already scaffolded in `content/blog/`; just needs posts
-- **Donate/support page**
-- **Letter of recommendation page**
+## Remaining TODOs
+- Hongyu Yu headshot (none exists online — waiting on Jacob)
+- Replication archives: montgomery2022 (JOP) and xu2026 data/code, if located
+- PolAds2 (edelson2026b) author order needs confirmation; xi2026 + edelson2026b PDFs are blinded review copies — swap when unblinded versions available
+- lee2024 local PDF is the arXiv preprint; swap for ACM camera-ready if desired
+- Blog posts (incl. accessible adaptive-inventories explainer); letter-of-recommendation page
+- Old drafts remain in git HISTORY (removed from HEAD 2026-10-05); full purge needs git filter-repo + force push if desired
