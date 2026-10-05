@@ -27,7 +27,7 @@ image:
 tags:
   - Comparative Politics
   - Political Behavior
-  - Social Media
+  - Political Communication
 links:
   - name: PDF
     url: /uploads/papers/kim-forthcoming.pdf

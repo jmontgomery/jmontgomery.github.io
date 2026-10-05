@@ -25,7 +25,6 @@ image:
 tags:
   - AI/Machine Learning
   - Political Behavior
-  - Congress
   - American Politics
 links:
   - name: PDF

@@ -28,7 +28,6 @@ tags:
   - Comparative Politics
   - Featured
   - Political Communication
-  - Social Media
 links:
   - name: PDF
     url: /uploads/papers/muraoka2026.pdf

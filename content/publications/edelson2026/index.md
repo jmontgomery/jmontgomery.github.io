@@ -30,7 +30,6 @@ tags:
   - American Politics
   - Political Behavior
   - Political Communication
-  - Social Media
 links:
   - name: PDF
     url: /uploads/papers/edelson2026.pdf

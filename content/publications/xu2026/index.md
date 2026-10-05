@@ -22,7 +22,7 @@ image:
   preview_only: true
 tags:
   - AI & Politics
-  - Misinformation
+  - Political Communication
 links:
   - name: PDF
     url: /uploads/papers/xu2026.pdf

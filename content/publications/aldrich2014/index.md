@@ -25,7 +25,6 @@ image:
 tags:
   - Measurement/Surveys
   - Political Behavior
-  - Congress
   - American Politics
 links:
   - name: PDF

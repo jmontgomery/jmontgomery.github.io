@@ -42,16 +42,10 @@ sections:
           tag: American Politics
         - name: Comparative Politics
           tag: Comparative Politics
-        - name: Congress
-          tag: Congress
-        - name: Misinformation
-          tag: Misinformation
         - name: Political Behavior
           tag: Political Behavior
         - name: Political Communication
           tag: Political Communication
-        - name: Social Media
-          tag: Social Media
     design:
       view: card
 

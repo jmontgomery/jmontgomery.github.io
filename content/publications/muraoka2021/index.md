@@ -23,9 +23,8 @@ featured: false
 image:
   preview_only: true
 tags:
-  - Social Media
-  - Public Opinion
   - Political Communication
+  - Public Opinion
   - Political Behavior
 links:
   - name: PDF

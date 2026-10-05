@@ -23,7 +23,6 @@ image:
   preview_only: true
 tags:
   - Political Behavior
-  - Congress
   - American Politics
 links:
   - name: PDF

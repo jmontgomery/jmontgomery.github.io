@@ -19,7 +19,6 @@ featured: false
 image:
   preview_only: true
 tags:
-  - Social Media
   - Political Communication
   - Working Papers
 ---

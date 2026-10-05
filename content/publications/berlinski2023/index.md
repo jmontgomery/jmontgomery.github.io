@@ -28,7 +28,7 @@ featured: false
 image:
   preview_only: true
 tags:
-  - Misinformation
+  - Political Communication
   - Public Opinion
   - Political Behavior
   - American Politics

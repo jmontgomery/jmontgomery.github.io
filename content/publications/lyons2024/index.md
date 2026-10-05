@@ -23,7 +23,7 @@ featured: false
 image:
   preview_only: true
 tags:
-  - Misinformation
+  - Political Communication
   - Public Opinion
   - Political Behavior
   - American Politics
@@ -31,5 +31,5 @@ links:
   - name: PDF
     url: /uploads/papers/lyons2024.pdf
   - name: DOI
-    url: https://doi.org/10.1093/poq/nfae052
+    url: https://doi.org/10.1093/poq/nfae044
 ---

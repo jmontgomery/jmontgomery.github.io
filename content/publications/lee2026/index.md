@@ -17,8 +17,13 @@ publication:
 abstract: ''
 summary: 'Examines how vision-language models respond to visual cues of gender and race, documenting systematic associations between demographic features in images and stereotyped outputs. The findings extend earlier work on bias in language models to the multimodal setting, where models process faces and other visual information alongside text.'
 featured: false
+image:
+  preview_only: true
 tags:
   - AI & Politics
   - Text/Image
   - Working Papers
+links:
+  - name: arXiv
+    url: https://arxiv.org/abs/2503.05093
 ---

@@ -25,7 +25,7 @@ featured: false
 image:
   preview_only: true
 tags:
-  - Misinformation
+  - Political Communication
   - Public Opinion
 links:
   - name: PDF

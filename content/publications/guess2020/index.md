@@ -27,7 +27,7 @@ featured: true
 image:
   preview_only: true
 tags:
-  - Misinformation
+  - Political Communication
   - Public Opinion
   - Featured
 links:

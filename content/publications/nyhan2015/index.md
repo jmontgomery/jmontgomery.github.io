@@ -24,7 +24,6 @@ image:
 tags:
   - Political Communication
   - Political Behavior
-  - Congress
   - American Politics
 links:
   - name: PDF
