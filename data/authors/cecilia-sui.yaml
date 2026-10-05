@@ -11,9 +11,10 @@ affiliations:
 - name: Washington University in St. Louis
 bio: ''
 interests:
+- Large language models
+- Transfer learning
 - Political communication
 - Computational social science
-- Multimodal ML for measurement
 links:
 - icon: academicons/google-scholar
   url: https://scholar.google.com/citations?user=EVj19WwAAAAJ
