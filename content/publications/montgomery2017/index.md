@@ -23,8 +23,6 @@ image:
   preview_only: true
 tags:
   - Featured
-  - Bayesian Statistics
-  - Public Opinion/Behavior
   - American Politics
 links:
   - name: PDF
