@@ -17,7 +17,7 @@ publication:
   volume: "31"
   issue: "3"
   pages: 930-942
-abstract: ''
+abstract: 'We consider ensemble Bayesian model averaging (EBMA) in the context of small-n prediction tasks in the presence of large numbers of component models. With large numbers of observations for calibrating ensembles, relatively small numbers of component forecasts, and low rates of missingness, the standard approach to calibrating forecasting ensembles introduced by Raftery et al. (2005) performs well. However, data in the social sciences generally do not fulfill these requirements. In these circumstances, EBMA models may miss-weight components, undermining the advantages of the ensemble approach to prediction. In this article, we explore these issues and introduce a ''wisdom of the crowds'' parameter to the standard EBMA framework, which improves its performance. Specifically, we show that this solution improves the accuracy of EBMA forecasts in predicting the 2012 US presidential election and the US unemployment rate.'
 summary: 'Addresses the challenge of calibrating ensemble forecasting models when training data are sparse, a common problem in social science prediction. The paper develops methods for combining model predictions that remain well-calibrated even with limited historical data.'
 featured: false
 image:

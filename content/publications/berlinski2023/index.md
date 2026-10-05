@@ -22,7 +22,7 @@ publication:
   volume: "10"
   issue: "1"
   pages: 34-49
-abstract: ''
+abstract: 'Political elites sometimes seek to delegitimize election results using unsubstantiated claims of fraud. Most recently, Donald Trump sought to overturn his loss in the 2020 US presidential election by falsely alleging widespread fraud. Our study provides new evidence demonstrating the corrosive effect of fraud claims like these on trust in the election system. Using a nationwide survey experiment conducted after the 2018 midterm elections – a time when many prominent Republicans also made unsubstantiated fraud claims – we show that exposure to claims of voter fraud reduces confidence in electoral integrity, though not support for democracy itself. The effects are concentrated among Republicans and Trump approvers. Worryingly, corrective messages from mainstream sources do not measurably reduce the damage these accusations inflict. These results suggest that unsubstantiated voter-fraud claims undermine confidence in elections, particularly when the claims are politically congenial, and that their effects cannot easily be mitigated by fact-checking.'
 summary: 'Experimentally tests how exposure to unsubstantiated voter fraud claims affects public confidence in elections. The study finds that such claims meaningfully reduce trust in electoral integrity, raising concerns about the downstream effects of election misinformation on democratic legitimacy.'
 featured: false
 image:

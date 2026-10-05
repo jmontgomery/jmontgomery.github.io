@@ -18,7 +18,7 @@ publication:
   volume: "23"
   issue: "4"
   pages: 488-505
-abstract: ''
+abstract: 'Electoral forensics involves examining election results for anomalies to efficiently identify patterns indicative of electoral irregularities. However, there is disagreement about which, if any, forensics tool is most effective at identifying fraud, and there is no method for integrating multiple tools. Moreover, forensic efforts have failed to systematically take advantage of country-specific details that might aid in diagnosing fraud. We deploy a Bayesian additive regression trees (BART) model—a machine-learning technique—on a large cross-national data set to explore the dense network of potential relationships between various forensic indicators of anomalies and electoral fraud risk factors, on the one hand, and the likelihood of fraud, on the other. This approach allows us to arbitrate between the relative importance of different forensic and contextual features for identifying electoral fraud and results in a diagnostic tool that can be relatively easily implemented in cross-national research.'
 summary: 'Develops a statistically principled approach to detecting electoral fraud using forensic analysis of vote return distributions. By incorporating prior knowledge about legitimate electoral patterns, the method improves detection of irregularities while reducing false positives compared to naive approaches.'
 featured: false
 image:

@@ -13,7 +13,7 @@ publication_types:
 publication:
   name: Political Science Research and Methods
   short_name: PSRM
-abstract: ''
+abstract: 'Supervised learning is increasingly used in social science research to quantify abstract concepts in textual data. However, a review of recent studies reveals inconsistencies in reporting practices and validation standards. To address this issue, we propose a framework that systematically outlines the process of transforming text into a quantitative measure, emphasizing key reporting decisions at each stage. Clear and comprehensive validation is crucial, enabling readers to critically evaluate both the methodology and the resulting measure. To illustrate our framework, we develop and validate a measure assessing the tone of questions posed to nominees during U.S. Senate confirmation hearings. This study contributes to the growing literature advocating for transparency and rigor in applying machine learning methods within computational social sciences.'
 summary: 'Proposes a framework for evaluating the validity and trustworthiness of measures created using supervised machine learning. The paper argues that standard validation practices from psychometrics and measurement theory should be adapted and applied to ML-based measures in social science, providing practical guidance for researchers.'
 featured: true
 image:

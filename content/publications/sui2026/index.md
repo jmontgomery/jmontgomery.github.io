@@ -15,7 +15,7 @@ publication_types:
   - preprint
 publication:
   name: Working Paper
-abstract: ''
+abstract: 'Social scientists increasingly analyze text data across multiple languages, yet current methods typically rely on costly translation or require labeled training data for multiple languages. We demonstrate how multilingual language models enable cross-lingual text analysis without translation. Using a new dataset of populist rhetoric labeled in 25 languages, we find that fine-tuning a multilingual model on just one language matches the performance of models trained on 25 languages, eliminating the need for translation or language-specific training data. We validate this approach through out-of-sample testing, comparison to expert surveys, and an analysis of campaign rhetoric in Switzerland. Our results provide evidence that multilingual language models offer a practical, efficient solution for global comparative research, dramatically reducing the data requirements for cross-lingual political text analysis while still producing accurate, valid measures.'
 summary: 'Demonstrates how multilingual language models enable cross-lingual text analysis without translation. Fine-tuning a multilingual model on just one language matches the performance of models trained on 25 languages, eliminating the need for translation or language-specific training data. The approach is validated through out-of-sample testing, expert surveys, and an analysis of campaign rhetoric in Switzerland.'
 featured: false
 image:

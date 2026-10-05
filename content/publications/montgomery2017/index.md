@@ -16,7 +16,7 @@ publication:
   volume: "79"
   issue: "3"
   pages: 745-761
-abstract: ''
+abstract: 'Standard accounts of legislative behavior typically neglect the activities of professional staff, who are treated as extensions of the elected officials they serve. However, staff appear to have substantial independent effects on observed levels of legislator productivity and policy preferences. In this article, we use a novel data set of comprehensive longitudinal employment records from the US House of Representatives to estimate the effects of congressional staff on legislative behavior. Specifically, results from a series of heteroskedastic Bayesian spatial autoregressive models indicate that members of Congress who exchange important staff members across congresses are more similar in their legislative effectiveness and voting patterns than we would otherwise expect. These findings suggest that scholars should reconsider the role of staff in the legislative process.'
 summary: 'Examines how networks of congressional staff influence legislative behavior in the U.S. House. The study finds that shared staff connections between offices facilitate the diffusion of legislative strategies and policy ideas, highlighting the underappreciated role of staff in shaping congressional output.'
 featured: true
 image:

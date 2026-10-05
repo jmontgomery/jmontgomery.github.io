@@ -15,7 +15,7 @@ publication_types:
 publication:
   name: Proceedings of the 26th International Conference on Artificial Intelligence and Statistics (AIStats)
   short_name: AIStats
-abstract: ''
+abstract: 'We introduce a Bayesian multi-task Gaussian process model for estimating treatment effects from panel data, where an intervention outside the observer''s control influences a subset of the observed units. Our model encodes structured temporal dynamics both within and across the treatment and control groups and incorporates a flexible prior for the evolution of treatment effects over time. These innovations aid in inferring posteriors for dynamic treatment effects that encode our uncertainty about the likely trajectories of units in the absence of treatment. We also discuss the asymptotic properties of the joint posterior over counterfactual outcomes and treatment effects, which exhibits intuitive behavior in the large-sample limit. In experiments on both synthetic and real data, our approach performs no worse than existing methods and significantly better when standard assumptions are violated.'
 summary: 'Introduces a Gaussian process framework for estimating treatment effects that vary over time in panel data. The multi-task approach borrows strength across units and time periods, improving estimation of heterogeneous and dynamic causal effects in social science applications.'
 featured: false
 image:

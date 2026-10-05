@@ -17,7 +17,7 @@ publication:
   volume: "33"
   issue: "4"
   pages: 535-563
-abstract: ''
+abstract: 'It is conventional to speak of voting as ''habitual.'' But what does this mean? In psychology, habits are cognitive associations between repeated responses and stable features of the performance context. Thus, ''turnout habit'' is best measured by an index of repeated behavior and a consistent performance setting. Once habit associations form, the response can be cued even in the absence of supporting beliefs and motivations. Therefore, variables that form part of the standard cognitive-based accounts of turnout should be more weakly related to turnout among those with a strong habit. We draw evidence from a large array of ANES surveys to test these hypotheses and find strong support.'
 summary: 'Investigates whether voting is habitual behavior that persists over time. Using panel data, the authors find strong evidence that past voting behavior predicts future turnout independent of other factors, suggesting that civic participation becomes self-reinforcing once established.'
 featured: false
 image:

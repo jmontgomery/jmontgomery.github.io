@@ -17,7 +17,7 @@ publication:
   volume: "20"
   issue: "3"
   pages: 271-291
-abstract: ''
+abstract: 'We present ensemble Bayesian model averaging (EBMA) and illustrate its ability to aid scholars in the social sciences to make more accurate forecasts of future events. In essence, EBMA improves prediction by pooling information from multiple forecast models to generate ensemble predictions similar to a weighted average of component forecasts. The weight assigned to each forecast is calibrated via its performance in some validation period. The aim is not to choose some ''best'' model, but rather to incorporate the insights and knowledge implicit in various forecasting efforts via statistical postprocessing. After presenting the method, we show that EBMA increases the accuracy of out-of-sample forecasts relative to component models in three applied examples: predicting the occurrence of insurgencies around the Pacific Rim, forecasting vote shares in U.S. presidential elections, and predicting the votes of U.S. Supreme Court Justices.'
 summary: 'Extends Bayesian model averaging to ensemble methods, showing how combining multiple models improves prediction in political science. The paper demonstrates practical gains in forecasting accuracy and provides accessible implementation guidance for applied researchers.'
 featured: false
 image:

@@ -16,7 +16,7 @@ publication:
   volume: "59"
   issue: "2"
   pages: 292-308
-abstract: ''
+abstract: 'Modern American political campaigns are typically conceptualized as "candidate-centered" and treated as conditionally independent in quantitative analyses. In reality, however, these campaigns are linked by professional consulting firms, which are important agents of campaign strategy diffusion within the extended party networks of the contemporary era. To test our hypothesis that consultants disseminate campaign strategies among their clients, we analyze new data on U.S. House elections derived from Federal Election Commission records. Using spatial autoregressive models, we find that candidates who share consultants are more likely to use similar campaign strategies than we would otherwise expect, conditional on numerous explanatory variables. These results, which largely withstand an extensive series of robustness and falsification tests, suggest that consultants play a key role in diffusing strategies among congressional campaigns.'
 summary: 'Examines how political consultant networks facilitate the diffusion of campaign strategies across congressional elections. By mapping consultant ties between campaigns, the study shows that shared consultants transmit tactical innovations, explaining why similar campaign practices spread rapidly across the political system.'
 featured: true
 image:

@@ -16,7 +16,7 @@ publication:
   volume: "18"
   issue: "2"
   pages: 245-270
-abstract: ''
+abstract: 'Political science researchers typically conduct an idiosyncratic search of possible model configurations and then present a single specification to readers. This approach systematically understates the uncertainty of our results, generates fragile model specifications, and leads to the estimation of bloated models with too many control variables. Bayesian model averaging (BMA) offers a systematic method for analyzing specification uncertainty and checking the robustness of one''s results to alternative model specifications, but it has not come into wide usage within the discipline. In this paper, we introduce important recent developments in BMA and show how they enable a different approach to using the technique in applied social science research. We illustrate the methodology by reanalyzing data from three recent studies using BMA software we have modified to respect statistical conventions within political science.'
 summary: 'Provides a theoretical and practical introduction to Bayesian model averaging for political scientists. The paper shows how BMA improves out-of-sample prediction and addresses model uncertainty compared to standard model selection approaches, with applications to forecasting and causal inference.'
 featured: false
 image:

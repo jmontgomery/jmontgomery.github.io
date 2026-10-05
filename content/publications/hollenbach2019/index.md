@@ -17,7 +17,7 @@ publication:
   volume: "7"
   issue: "3"
   pages: 651-659
-abstract: ''
+abstract: 'Bivariate probit models are a common choice for scholars wishing to estimate causal effects in instrumental variable models where both the treatment and outcome are binary. However, standard maximum likelihood approaches for estimating bivariate probit models are problematic. Numerical routines in popular software suites frequently generate inaccurate parameter estimates and even estimated correctly, maximum likelihood routines provide no straightforward way to produce estimates of uncertainty for causal quantities of interest. In this note, we show that adopting a Bayesian approach provides more accurate estimates of key parameters and facilitates the direct calculation of causal quantities along with their attendant measures of uncertainty.'
 summary: 'Compares Bayesian and maximum likelihood approaches to estimating treatment effects in bivariate probit models with instrumental variables. The analysis provides practical guidance for researchers dealing with binary outcomes and endogenous treatments in observational studies.'
 featured: false
 image:
