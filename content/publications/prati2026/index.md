@@ -17,6 +17,8 @@ publication:
 abstract: ''
 summary: 'Introduces Gaussian process regression (GPR) as a complement to standard linear models in political science, combining theoretical structure with flexibility about functional forms. GPR places priors directly on functions rather than parameters, allowing researchers to encode theoretical knowledge while remaining agnostic where theory is uncertain. The paper demonstrates GPR''s versatility through three applications: analyzing social media trends around critical events, modeling individual-level trajectories with common shocks, and estimating treatment effects in panel data with unit-specific patterns.'
 featured: false
+image:
+  preview_only: true
 tags:
   - AI/Machine Learning
   - Working Papers
