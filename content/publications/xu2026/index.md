@@ -21,4 +21,9 @@ featured: false
 tags:
   - AI & Politics
   - Misinformation
+links:
+  - name: PDF
+    url: /uploads/papers/xu2026.pdf
+  - name: DOI
+    url: https://doi.org/10.1145/3777912.3839818
 ---
