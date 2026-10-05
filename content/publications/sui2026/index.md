@@ -18,6 +18,8 @@ publication:
 abstract: ''
 summary: 'Demonstrates how multilingual language models enable cross-lingual text analysis without translation. Fine-tuning a multilingual model on just one language matches the performance of models trained on 25 languages, eliminating the need for translation or language-specific training data. The approach is validated through out-of-sample testing, expert surveys, and an analysis of campaign rhetoric in Switzerland.'
 featured: false
+image:
+  preview_only: true
 tags:
   - Text/Image
   - Political Communication

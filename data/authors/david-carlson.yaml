@@ -4,13 +4,16 @@ name:
   display: David Carlson
   given: David
   family: Carlson
-role: Assistant Professor of International Relations, Koç University
+role: Quant Analytics Manager, KeyBank
 user_groups:
 - Alumni
 bio: ''
 affiliations:
-- name: Koç University
+- name: KeyBank
 links:
 - icon: academicons/google-scholar
   url: https://scholar.google.com/citations?user=JggXPFIAAAAJ
   label: Google Scholar
+- icon: hero/link
+  url: https://carlson9.github.io
+  label: Website
