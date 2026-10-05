@@ -22,4 +22,6 @@ links:
   - name: PDF
     url: /uploads/papers/hollenbach2020-bayesian-model-selection.pdf
 tags:
+  - AI/Machine Learning
+  - Bayesian Statistics
 ---

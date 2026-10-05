@@ -24,6 +24,7 @@ image:
 tags:
   - Featured
   - AI/Machine Learning
+  - Bayesian Statistics
   - Measurement/Surveys
 links:
   - name: PDF

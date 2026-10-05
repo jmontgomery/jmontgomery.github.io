@@ -20,6 +20,7 @@ featured: false
 image:
   preview_only: true
 tags:
+  - Bayesian Statistics
   - Measurement/Surveys
   - Working Papers
 links:

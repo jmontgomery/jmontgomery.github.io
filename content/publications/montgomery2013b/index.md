@@ -23,6 +23,8 @@ featured: false
 image:
   preview_only: true
 tags:
+  - AI/Machine Learning
+  - Bayesian Statistics
 links:
   - name: PDF
     url: /uploads/papers/montgomery2013-aggregation-ensembles-principled.pdf

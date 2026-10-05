@@ -24,6 +24,8 @@ featured: false
 image:
   preview_only: true
 tags:
+  - AI/Machine Learning
+  - Bayesian Statistics
   - Measurement/Surveys
   - Public Opinion/Behavior
 links:

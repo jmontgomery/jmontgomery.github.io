@@ -21,5 +21,6 @@ image:
   preview_only: true
 tags:
   - AI/Machine Learning
+  - Bayesian Statistics
   - Working Papers
 ---

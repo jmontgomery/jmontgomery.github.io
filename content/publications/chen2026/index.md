@@ -20,6 +20,7 @@ image:
   preview_only: true
 tags:
   - AI/Machine Learning
+  - Bayesian Statistics
   - Measurement/Surveys
   - Working Papers
 links:

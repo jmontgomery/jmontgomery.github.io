@@ -22,6 +22,7 @@ image:
   preview_only: true
 tags:
   - Featured
+  - Bayesian Statistics
   - Measurement/Surveys
   - Public Opinion/Behavior
 links:

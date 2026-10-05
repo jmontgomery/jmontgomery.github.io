@@ -23,6 +23,7 @@ image:
   preview_only: true
 tags:
   - AI/Machine Learning
+  - Bayesian Statistics
 links:
   - name: PDF
     url: /uploads/papers/montgomery2010-bayesian-model-averaging.pdf

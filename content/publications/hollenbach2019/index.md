@@ -23,6 +23,7 @@ featured: false
 image:
   preview_only: true
 tags:
+  - Bayesian Statistics
   - Causal Inference
 links:
   - name: PDF

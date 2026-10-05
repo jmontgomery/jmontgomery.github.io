@@ -24,7 +24,6 @@ image:
   preview_only: true
 tags:
   - Public Opinion/Behavior
-  - Causal Inference
   - American Politics
 links:
   - name: PDF

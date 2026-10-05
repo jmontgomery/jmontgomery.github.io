@@ -26,6 +26,7 @@ image:
   preview_only: true
 tags:
   - Featured
+  - Bayesian Statistics
   - Comparative Politics
   - Public Opinion/Behavior
   - Political Communication

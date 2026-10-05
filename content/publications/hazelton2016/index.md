@@ -23,7 +23,7 @@ featured: false
 image:
   preview_only: true
 tags:
-  - Causal Inference
+  - Bayesian Statistics
   - Public Opinion/Behavior
   - American Politics
 links:
