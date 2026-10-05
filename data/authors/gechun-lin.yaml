@@ -14,3 +14,6 @@ links:
 - icon: academicons/google-scholar
   url: https://scholar.google.com/citations?user=rp4d5WUAAAAJ
   label: Google Scholar
+- icon: hero/link
+  url: https://bush.tamu.edu/gechun-lin/
+  label: Website
