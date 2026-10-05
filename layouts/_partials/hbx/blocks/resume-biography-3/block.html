@@ -416,6 +416,11 @@
         </div>
         {{ end }}
 
+        {{/* Visible email address */}}
+        <p class="-mt-10 mb-16 text-lg text-gray-700 dark:text-gray-300">
+          {{ partial "functions/get_icon" (dict "name" "hero/envelope" "attributes" "class='w-5 h-5 mr-2 inline-block align-text-bottom'") }}<a href="mailto:jacob.montgomery@wustl.edu" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">jacob.montgomery@wustl.edu</a>
+        </p>
+
         {{/* Education Section */}}
         {{ $education_raw := $profile.education }}
         {{ $education := slice }}
