@@ -31,4 +31,6 @@ links:
     url: /uploads/papers/chen2024-idiographic-personality-gaussian.pdf
   - name: DOI
     url: https://doi.org/10.48550/arXiv.2407.04970
+  - name: Code
+    url: https://github.com/yahoochen97/GP-Idiographic-Measurement
 ---
