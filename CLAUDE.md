@@ -10,16 +10,36 @@ Professional academic website for Jacob Montgomery, Professor of Political Scien
 
 ## Build & deploy
 - Local preview: `hugo server` → http://localhost:1313 (the dev server occasionally crashes with a watcher panic under heavy file churn — just restart it)
-- Deploy: push to `master` → `.github/workflows/deploy.yml` (GitHub Actions, Pages build_type=workflow). CI Hugo version pinned in `hugoblox.yaml` — keep it matching the local Hugo version (template partials require >= 0.163).
+- Deploy: push to `master` → `.github/workflows/deploy.yml` (GitHub Actions, Pages build_type=workflow). The deploy & build workflows BOTH watch `branches: ['master']` — do not change to `main` (there is no main branch).
+- CI Hugo version pinned in `hugoblox.yaml` — keep it matching the local Hugo version (template partials require >= 0.163).
 - Package manager is pnpm (`pnpm-lock.yaml`); do not add a package-lock.json.
+
+## Domain + Pages setup (don't break this)
+- Custom domain `jacobmontgomery.com` is configured in GitHub Pages (`gh api repos/.../pages`), not via a CNAME file in the repo. HTTPS is enforced.
+- DNS at the registrar (GoDaddy): A records on `@` → `185.199.108.153 .109.153 .110.153 .111.153` (GitHub Pages IPs); CNAME on `www` → `jmontgomery.github.io`. No forwarding rule — the old one pointed at sites.wustl.edu/montgomery.
+- `jmontgomery.github.io` 301-redirects to the custom domain; this is correct.
+- If the live site breaks after a push: check `gh run list --workflow=deploy.yml` first; the workflow failing is almost always the issue, not DNS.
+- To temporarily serve the raw site at `jmontgomery.github.io` (e.g. to view before DNS fixes), clear the Pages cname via API, trigger a redeploy, then re-set the cname when done.
 
 ## Hugo Blox template override paths
 Local overrides live at (mounts defined in `hugo.yaml`; do NOT use `layouts/blox/`):
 - `layouts/_partials/views/` — card, citation view templates
 - `layouts/_partials/hbx/blocks/` — portfolio, content-collection, team-showcase, resume-biography-3 overrides
 - `layouts/_partials/page_author_card.html` — author bylines render as plain text (no /authors/ pages exist)
-- `layouts/_partials/hooks/head-end/custom-styles.html` — JSON-LD Person schema + custom CSS (teaching page, homepage CTA, course quotes)
-Key customizations: portfolio block uses `.Fit` + `object-contain` so card figures aren't cropped; card view supports `show_image: false` (used on software page); team-showcase links member names to their "Website"-labeled link only.
+- `layouts/_partials/hooks/head-end/custom-styles.html` — JSON-LD Person schema + custom CSS (teaching, CTA, course quotes, mobile overrides — see below)
+
+Key customizations the theme does NOT do out of the box:
+- **portfolio block**: card figures use `.Fit` + `object-contain` (not `.Fill` + `object-cover`) so they aren't cropped. Each card's `allowed_filters` list is augmented with `"*"` so a `*` activeFilter shows everything — the mobile default relies on this.
+- **portfolio block mobile**: filter pill row is hidden (`hidden md:flex`) and mobile `activeFilter` defaults to `"*"` via `window.matchMedia`. A scheduled job replaces this with a dropdown; when it lands, remove both.
+- **card view**: supports `show_image: false` design flag (used on software page). `object-cover` not `object-fill`.
+- **team-showcase**: member name/photo links go to the "Website"-labeled link only (no `/authors/<slug>/` pages exist in this site).
+- **resume-biography-3**: CV buttons + visible email appear ABOVE the bio (user intent: CV is the primary action). Avatar wrapper has fixed inline sizing — any mobile size override must target `.avatar-wrapper`, not just the inner `img.avatar`, or the box will overflow and shift the circle off-center.
+
+## Mobile overrides (in custom-styles.html)
+Narrow screens get specific overrides that must survive future template edits:
+- `@media (max-width: 639px)`: homepage avatar wrapper + img forced to 300×300; social icon buttons shrink from 48px → 36px (icons 1.1rem).
+- Research page (portfolio override, inline): filter row hidden `md:` and up only; `activeFilter` chosen at runtime based on viewport width.
+When editing the homepage layout or portfolio block, re-verify on a narrow viewport (<640px) before pushing — the mobile customizations are brittle to upstream template changes.
 
 ## Research page (`content/research/_index.md`)
 1. `portfolio` block (id: papers) — cards with filter buttons: Featured, Published, Working Papers | methods: AI/Machine Learning, Bayesian Statistics, Causal Inference, Measurement/Surveys, Research Design, Text/Image | topics: AI & Politics, American Politics, Comparative Politics, Political Communication, Public Opinion/Behavior
