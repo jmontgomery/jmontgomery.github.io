@@ -234,6 +234,10 @@
       {{ $item_key := $item.RelPermalink }}
       {{ $card_allowed_filters := index $allowed_map $item_key }}
       {{ if not $card_allowed_filters }}{{ $card_allowed_filters = slice "*" }}{{ end }}
+      {{/* Mobile "show all" default uses "*", so every card must include it */}}
+      {{ if not (in $card_allowed_filters "*") }}
+        {{ $card_allowed_filters = $card_allowed_filters | append "*" }}
+      {{ end }}
       {{ $card_allowed_filters_json := $card_allowed_filters | jsonify }}
 
       {{/* Get tags as comma-separated string */}}
