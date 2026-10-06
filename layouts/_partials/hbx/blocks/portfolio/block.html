@@ -197,8 +197,10 @@
   </div>
 
   {{/* Filter Buttons — each __sep__ closes one row and opens a new one */}}
+  {{/* Hidden on mobile (< 768px): the pill row is too cluttered on phones. */}}
+  {{/* Fallback until the dropdown lands: phones just see all cards. */}}
   {{ if gt (len $buttons) 1 }}
-  <div class="flex flex-col items-center gap-3 mb-10">
+  <div class="hidden md:flex flex-col items-center gap-3 mb-10">
     <div class="flex flex-wrap justify-center gap-2">
     {{ range $idx, $button := $buttons }}
     {{ if reflect.IsMap $button }}
