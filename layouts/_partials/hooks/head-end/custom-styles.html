@@ -79,6 +79,19 @@
     font-size: 1.05rem;
   }
 
+  /* Shrink homepage headshot on narrow phone screens so it doesn't dominate */
+  @media (max-width: 639px) {
+    .resume-biography .md\:col-span-4 img[alt=""],
+    .resume-biography .md\:col-span-4 .rounded-full {
+      max-width: 220px !important;
+      max-height: 220px !important;
+      width: 220px !important;
+      height: 220px !important;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
   /* Teaching page */
   .teaching-page {
     padding: 1rem 0 3rem;
