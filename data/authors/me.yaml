@@ -42,9 +42,6 @@ affiliations:
     url: https://wustl.edu/
 
 links:
-  - icon: at-symbol
-    url: mailto:jacob.montgomery@wustl.edu
-    label: E-mail Me
   - icon: brands/linkedin
     url: https://www.linkedin.com/in/jacob-montgomery-2a6ab4286/
     label: LinkedIn
