@@ -1,0 +1,20 @@
+schema: hugoblox/author/v1
+slug: xiangyu-song
+name:
+  display: Xiangyu Song
+  given: Xiangyu
+  family: Song
+role: PhD Student
+user_groups:
+  - Current Students
+affiliations:
+  - name: Washington University in St. Louis
+bio: ''
+interests:
+  - Political methodology
+  - Machine learning and causal inference
+  - Conformal inference
+links:
+  - icon: hero/link
+    url: https://xiangyusong.com
+    label: Website

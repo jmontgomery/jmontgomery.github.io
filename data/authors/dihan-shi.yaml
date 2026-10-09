@@ -1,0 +1,20 @@
+schema: hugoblox/author/v1
+slug: dihan-shi
+name:
+  display: Dihan Shi
+  given: Dihan
+  family: Shi
+role: PhD Student
+user_groups:
+  - Current Students
+affiliations:
+  - name: Washington University in St. Louis
+bio: ''
+interests:
+  - Conflict and security
+  - Territory
+  - Geospatial analysis
+links:
+  - icon: hero/link
+    url: https://dihan.org
+    label: Website
