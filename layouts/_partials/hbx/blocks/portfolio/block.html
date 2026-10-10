@@ -180,7 +180,7 @@
   {{ $fallback_icon = $fallback_raw }}
 {{ end }}
 
-<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16" x-data="{ activeFilter: (window.matchMedia && window.matchMedia('(max-width: 767px)').matches) ? '*' : {{ $default_tag | jsonify }} }">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16" x-data="{ activeFilter: '*' }">
   
   {{/* Header */}}
   <div class="text-center mb-12">
@@ -196,34 +196,90 @@
     {{ end }}
   </div>
 
-  {{/* Filter Buttons — each __sep__ closes one row and opens a new one */}}
-  {{/* Hidden on mobile (< 768px): the pill row is too cluttered on phones. */}}
-  {{/* Fallback until the dropdown lands: phones just see all cards. */}}
+  {{/* Filter Dropdown — single compact control replacing the former pill row. */}}
+  {{/* Groups come from the three segments separated by __sep__ entries in the  */}}
+  {{/* buttons list.  Headings: Show / Methods / Topics.                       */}}
   {{ if gt (len $buttons) 1 }}
-  <div class="hidden md:flex flex-col items-center gap-3 mb-10">
-    <div class="flex flex-wrap justify-center gap-2">
-    {{ range $idx, $button := $buttons }}
-    {{ if reflect.IsMap $button }}
-    {{ $button_name := "" }}
-    {{ with index $button "name" }}{{ $button_name = strings.TrimSpace (printf "%v" .) }}{{ end }}
-    {{ $button_tag := "*" }}
-    {{ with index $button "tag" }}{{ $button_tag = strings.TrimSpace (printf "%v" .) }}{{ end }}
-    {{ if eq $button_tag "__sep__" }}
-    </div>
-    <div class="flex flex-wrap justify-center gap-2">
-    {{ else }}
+  {{/* Build a tag -> display-name lookup for the dropdown label.             */}}
+  {{ $tagNames := dict "*" "All" }}
+  {{ range $buttons }}
+    {{ if reflect.IsMap . }}
+      {{ $t := index . "tag" }}
+      {{ $n := index . "name" }}
+      {{ if and $t $n (ne (printf "%v" $t) "__sep__") }}
+        {{ $tagNames = merge $tagNames (dict (printf "%v" $t) (printf "%v" $n)) }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  {{/* Group index (0=Show, 1=Methods, 2=Topics) assigned by counting __sep__ */}}
+  {{/* entries as we walk the buttons list in order below.                    */}}
+  {{ $groupHeadings := slice "Show" "Methods" "Topics" }}
+
+  <div class="flex justify-center mb-10 relative" x-data="{ open: false }"
+       @keydown.escape.window="open = false">
     <button
-      @click="activeFilter = {{ $button_tag | jsonify }}"
-      :class="activeFilter === {{ $button_tag | jsonify }}
-        ? 'bg-primary-600 text-white border-primary-600 shadow-lg shadow-primary-500/25'
-        : 'bg-gray-100 dark:bg-white/5 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-white/10 hover:bg-gray-200 dark:hover:bg-white/10 hover:border-gray-300 dark:hover:border-white/20'"
-      class="px-5 py-2.5 rounded-full text-sm font-medium border backdrop-blur-sm transition-all duration-300 ease-out cursor-pointer"
-    >
-      {{ $button_name | default "All" }}
+      @click="open = !open"
+      :aria-expanded="open ? 'true' : 'false'"
+      aria-haspopup="listbox"
+      class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium border backdrop-blur-sm transition-all duration-300 ease-out cursor-pointer bg-primary-600 text-white border-primary-600 shadow-lg shadow-primary-500/25 hover:bg-primary-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500/70">
+      <span>Filter:</span>
+      <span class="font-semibold" x-text="({{ $tagNames | jsonify }})[activeFilter] || 'All'"></span>
+      <svg class="w-4 h-4 transition-transform duration-200" :class="open ? 'rotate-180' : ''"
+           fill="none" viewBox="0 0 20 20" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 8l4 4 4-4"/>
+      </svg>
     </button>
-    {{ end }}
-    {{ end }}
-    {{ end }}
+    <div
+      x-show="open"
+      x-cloak
+      @click.outside="open = false"
+      role="listbox"
+      aria-label="Filter papers"
+      x-transition:enter="transition ease-out duration-150"
+      x-transition:enter-start="opacity-0 scale-95 -translate-y-1"
+      x-transition:enter-end="opacity-100 scale-100 translate-y-0"
+      x-transition:leave="transition ease-in duration-100"
+      x-transition:leave-start="opacity-100 scale-100 translate-y-0"
+      x-transition:leave-end="opacity-0 scale-95 -translate-y-1"
+      class="absolute top-full mt-2 w-72 max-h-[70vh] overflow-y-auto rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-zinc-900 shadow-xl backdrop-blur-sm z-30 p-2"
+    >
+      {{/* "All" option at the very top */}}
+      <button role="option"
+        @click="activeFilter = '*'; open = false"
+        :aria-selected="activeFilter === '*' ? 'true' : 'false'"
+        :class="activeFilter === '*' ? 'bg-primary-600 text-white' : 'text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-white/10'"
+        class="w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-colors">
+        All
+      </button>
+
+      {{/* Walk the buttons once, emitting a heading each time we start a new   */}}
+      {{/* group (either at index 0 or just after a __sep__).                   */}}
+      {{ $gi := 0 }}
+      {{ $justOpenedGroup := true }}
+      {{ range $buttons }}
+        {{ if reflect.IsMap . }}
+          {{ $bt := printf "%v" (index . "tag") }}
+          {{ $bn := printf "%v" (index . "name") }}
+          {{ if eq $bt "__sep__" }}
+            {{ $gi = add $gi 1 }}
+            {{ $justOpenedGroup = true }}
+          {{ else }}
+            {{ if $justOpenedGroup }}
+              <div class="mt-2 px-3 pt-2 pb-1 text-[11px] font-semibold tracking-wider uppercase text-gray-500 dark:text-gray-400 border-t border-gray-100 dark:border-white/5 first:border-t-0">
+                {{ index $groupHeadings $gi | default "" }}
+              </div>
+              {{ $justOpenedGroup = false }}
+            {{ end }}
+            <button role="option"
+              @click="activeFilter = {{ $bt | jsonify }}; open = false"
+              :aria-selected="activeFilter === {{ $bt | jsonify }} ? 'true' : 'false'"
+              :class="activeFilter === {{ $bt | jsonify }} ? 'bg-primary-600 text-white' : 'text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-white/10'"
+              class="w-full text-left px-3 py-2 rounded-lg text-sm transition-colors">
+              {{ $bn }}
+            </button>
+          {{ end }}
+        {{ end }}
+      {{ end }}
     </div>
   </div>
   {{ end }}
