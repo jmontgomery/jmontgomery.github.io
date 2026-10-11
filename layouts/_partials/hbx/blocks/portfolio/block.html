@@ -196,10 +196,40 @@
     {{ end }}
   </div>
 
-  {{/* Filter Dropdown — single compact control replacing the former pill row. */}}
-  {{/* Groups come from the three segments separated by __sep__ entries in the  */}}
-  {{/* buttons list.  Headings: Show / Methods / Topics.                       */}}
+  {{/* Responsive filter UI:                                                   */}}
+  {{/*   Desktop (>=768px): the classic pill-row of filter buttons.             */}}
+  {{/*   Mobile (<768px):   a single compact "Filter: X ▾" dropdown.            */}}
+  {{/* Both drive the same Alpine `activeFilter` state (set on the outer wrap). */}}
   {{ if gt (len $buttons) 1 }}
+
+  {{/* ---- Desktop button row ---- */}}
+  <div class="hidden md:flex flex-col items-center gap-3 mb-10">
+    <div class="flex flex-wrap justify-center gap-2">
+    {{ range $buttons }}
+      {{ if reflect.IsMap . }}
+      {{ $button_name := "" }}
+      {{ with index . "name" }}{{ $button_name = strings.TrimSpace (printf "%v" .) }}{{ end }}
+      {{ $button_tag := "*" }}
+      {{ with index . "tag" }}{{ $button_tag = strings.TrimSpace (printf "%v" .) }}{{ end }}
+      {{ if eq $button_tag "__sep__" }}
+    </div>
+    <div class="flex flex-wrap justify-center gap-2">
+      {{ else }}
+      <button
+        @click="activeFilter = {{ $button_tag | jsonify }}"
+        :class="activeFilter === {{ $button_tag | jsonify }}
+          ? 'bg-primary-600 text-white border-primary-600 shadow-lg shadow-primary-500/25'
+          : 'bg-gray-100 dark:bg-white/5 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-white/10 hover:bg-gray-200 dark:hover:bg-white/10 hover:border-gray-300 dark:hover:border-white/20'"
+        class="px-5 py-2.5 rounded-full text-sm font-medium border backdrop-blur-sm transition-all duration-300 ease-out cursor-pointer">
+        {{ $button_name | default "All" }}
+      </button>
+      {{ end }}
+      {{ end }}
+    {{ end }}
+    </div>
+  </div>
+
+  {{/* ---- Mobile dropdown ---- */}}
   {{/* Build a tag -> display-name lookup for the dropdown label.             */}}
   {{ $tagNames := dict "*" "All" }}
   {{ range $buttons }}
@@ -215,7 +245,7 @@
   {{/* entries as we walk the buttons list in order below.                    */}}
   {{ $groupHeadings := slice "Show" "Methods" "Topics" }}
 
-  <div class="flex justify-center mb-10 relative" x-data="{ open: false }"
+  <div class="md:hidden flex justify-center mb-10 relative" x-data="{ open: false }"
        @keydown.escape.window="open = false">
     <button
       @click="open = !open"
