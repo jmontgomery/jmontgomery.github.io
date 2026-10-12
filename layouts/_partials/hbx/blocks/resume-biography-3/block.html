@@ -382,9 +382,21 @@
         {{ end }}
 
         {{/* Visible email address */}}
-        <p class="-mt-10 mb-16 text-lg text-gray-700 dark:text-gray-300">
+        <p class="-mt-10 mb-6 text-lg text-gray-700 dark:text-gray-300">
           {{ partial "functions/get_icon" (dict "name" "hero/envelope" "attributes" "class='w-5 h-5 mr-2 inline-block align-text-bottom'") }}<a href="mailto:jacob.montgomery@wustl.edu" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">jacob.montgomery@wustl.edu</a>
         </p>
+
+        {{/* Office + mailing address */}}
+        <address class="not-italic mb-16 text-base text-gray-600 dark:text-gray-400 leading-relaxed">
+          {{ partial "functions/get_icon" (dict "name" "hero/map-pin" "attributes" "class='w-5 h-5 mr-2 inline-block align-text-bottom'") }}Seigle Hall 285<br>
+          <span class="pl-7 block">
+            Department of Political Science<br>
+            Washington University<br>
+            MSC 1063-228-249<br>
+            One Brookings Drive<br>
+            St. Louis, MO 63130-4899
+          </span>
+        </address>
 
         {{/* Bio Section */}}
         {{ $bio_content := "" }}

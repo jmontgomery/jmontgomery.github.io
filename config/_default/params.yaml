@@ -106,7 +106,7 @@ hugoblox:
     style: minimal # minimal | columns | centered
     language_switcher: true
     # Custom footer text (HTML supported)
-    text: ""
+    text: 'Seigle Hall 285 &middot; Washington University &middot; MSC 1063-228-249 &middot; One Brookings Drive &middot; St. Louis, MO 63130-4899'
 
   # ────────────────────────────────────────────────────────────────────────────
   # COPYRIGHT
