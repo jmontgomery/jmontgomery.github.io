@@ -1,0 +1,20 @@
+schema: hugoblox/author/v1
+slug: alexis-jang
+name:
+  display: Alexis Jang
+  given: Alexis
+  family: Jang
+role: PhD Student
+user_groups:
+  - Current Students
+affiliations:
+  - name: Washington University in St. Louis
+bio: ''
+interests:
+  - Conflict and security
+  - Political representation
+  - Electoral preference
+links:
+  - icon: hero/link
+    url: https://alexisjang.github.io/
+    label: Website
