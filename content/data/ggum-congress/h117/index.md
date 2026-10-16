@@ -1,0 +1,43 @@
+---
+title: "117th House — GGUM scores"
+date: "2026-10-15"
+show_date: false
+reading_time: false
+summary: "GGUM θ for the 117th House. 443 members scored of 455; max PSRF 1.032."
+tags:
+  - House
+  - GGUM
+image:
+  caption: "117th House scatter"
+  focal_point: ""
+  preview_only: false
+---
+
+GGUM ideal point estimates for the 117th House (members scored: 443 of 455; max PSRF: 1.032).
+
+![117th House — GGUM θ vs DW-NOMINATE dim-1](/uploads/ggum-congress/plots/H117-ggum-vs-nominate.png)
+
+### Download
+
+[Download `H117-ggum-scores.csv`](/uploads/ggum-congress/H117-ggum-scores.csv) &mdash; 455 members, 25 columns (Voteview metadata + GGUM θ, θ SD, PSRF).
+
+### Off-diagonal members
+
+The following 12 members fall more than 2.5σ off the OLS fit of GGUM θ on DW-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
+
+| Member | Party | State | nominate | GGUM θ | residual |
+|---|---|---|---|---|---|
+| BUSH | D | MO | -0.25 | -2.64 | -1.75 |
+| TLAIB | D | MI | -0.29 | -2.54 | -1.49 |
+| OMAR | D | MN | -0.30 | -2.47 | -1.40 |
+| OCASIO-CORTEZ | D | NY | -0.33 | -2.48 | -1.27 |
+| FLETCHER | D | TX | -0.55 | -0.76 | +1.26 |
+| HERRELL | R | NM | +0.94 | +2.39 | -1.20 |
+| BOWMAN | D | NY | -0.36 | -2.43 | -1.13 |
+| PRESSLEY | D | MA | -0.38 | -2.38 | -1.01 |
+| UNDERWOOD | D | IL | -0.60 | -1.23 | +0.98 |
+| PORTER | D | CA | -0.24 | -1.68 | -0.84 |
+| SLOTKIN | D | MI | -0.37 | -0.51 | +0.83 |
+| AUCHINCLOSS | D | MA | -0.27 | -1.81 | -0.83 |
+
+[&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)

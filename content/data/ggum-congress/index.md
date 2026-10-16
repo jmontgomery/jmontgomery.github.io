@@ -6,8 +6,8 @@ authors:
 date: "2026-10-15"
 show_date: false
 reading_time: false
-summary: "GGUM-based ideal point estimates for every member of the US House and Senate, Congresses 100 to 119. Paired with Voteview member metadata so the files merge directly into existing DW-NOMINATE workflows. 37 of 40 chamber-fits included in this initial release; three chambers awaiting a verified refit."
-abstract: "We release GGUM (Generalized Graded Unfolding Model) ideal point estimates for every member of the US House and Senate, Congresses 100 through 119, paired with Voteview member metadata. Unlike monotonic scaling methods like DW-NOMINATE, GGUM separates legislators who vote with their party-line extremes from those who vote-no-from-the-flank for antithetical reasons. 37 of 40 chamber-fits are included in this initial release; three House chambers from the late 1980s and early 1990s are being refit with NOMINATE-seeded initial values and will be added once verified."
+summary: "GGUM-based ideal point estimates for every member of the US House and Senate, Congresses 100 to 119.  Paired with Voteview member metadata so the files merge directly into existing DW-NOMINATE workflows."
+abstract: "We release GGUM (Generalized Graded Unfolding Model) ideal point estimates for every member of the US House and Senate, Congresses 100 through 119, paired with Voteview member metadata.  Unlike monotonic scaling methods like DW-NOMINATE, GGUM separates legislators who vote with their party-line extremes from those who vote-no-from-the-flank for antithetical reasons.  37 of 40 chamber-fits are included in this initial release; three House chambers from the late 1980s and early 1990s are being refit with NOMINATE-seeded initial values and will be added once verified."
 tags:
   - Measurement/Surveys
   - Bayesian Statistics
@@ -46,47 +46,12 @@ A scatterplot of GGUM theta against DW-NOMINATE first-dimension scores for the 1
 
 ### Downloads
 
-For most workflows the single combined file is easiest: [**`ggum-congress-all.csv`**](/uploads/ggum-congress/ggum-congress-all.csv) stacks every member-congress-chamber row from the full release into one table, with `congress` and `chamber` columns so you can filter in whatever way fits your analysis. If you prefer per-chamber files, [**`ggum-congress-csvs.zip`**](/uploads/ggum-congress/ggum-congress-csvs.zip) packages each chamber as its own CSV. The table below has direct links to each individual chamber CSV. The "scored / total" column reports how many of the Voteview-listed members received a GGUM theta estimate; the remainder are present in the file with `NA` theta, having been excluded from the fit for insufficient yea/nay roll calls or other data-quality reasons.
+For most workflows the single combined file is easiest: it stacks every member-congress-chamber row into one table with `congress` and `chamber` columns so you can filter however you like. If you prefer per-chamber files, grab the zip bundle instead. Click any chamber tile below to see that chamber's scatter plot and off-diagonal members, or hit the download icon on a tile to grab just that chamber's CSV.
 
-| Congress | Chamber | Members (scored / total) | File |
-|---|---|---|---|
-| 119 | House | 444 / 452 | [H119-ggum-scores.csv](/uploads/ggum-congress/H119-ggum-scores.csv) |
-| 119 | Senate | 101 / 104 | [S119-ggum-scores.csv](/uploads/ggum-congress/S119-ggum-scores.csv) |
-| 118 | House | 448 / 451 | [H118-ggum-scores.csv](/uploads/ggum-congress/H118-ggum-scores.csv) |
-| 118 | Senate | 103 / 105 | [S118-ggum-scores.csv](/uploads/ggum-congress/S118-ggum-scores.csv) |
-| 117 | House | 443 / 455 | [H117-ggum-scores.csv](/uploads/ggum-congress/H117-ggum-scores.csv) |
-| 117 | Senate | 100 / 102 | [S117-ggum-scores.csv](/uploads/ggum-congress/S117-ggum-scores.csv) |
-| 116 | House | 445 / 451 | [H116-ggum-scores.csv](/uploads/ggum-congress/H116-ggum-scores.csv) |
-| 116 | Senate | 101 / 102 | [S116-ggum-scores.csv](/uploads/ggum-congress/S116-ggum-scores.csv) |
-| 115 | House | 438 / 450 | [H115-ggum-scores.csv](/uploads/ggum-congress/H115-ggum-scores.csv) |
-| 115 | Senate | 104 / 105 | [S115-ggum-scores.csv](/uploads/ggum-congress/S115-ggum-scores.csv) |
-| 114 | House | 435 / 441 | [H114-ggum-scores.csv](/uploads/ggum-congress/H114-ggum-scores.csv) |
-| 114 | Senate | 100 / 100 | [S114-ggum-scores.csv](/uploads/ggum-congress/S114-ggum-scores.csv) |
-| 113 | House | 439 / 444 | [H113-ggum-scores.csv](/uploads/ggum-congress/H113-ggum-scores.csv) |
-| 113 | Senate | 103 / 105 | [S113-ggum-scores.csv](/uploads/ggum-congress/S113-ggum-scores.csv) |
-| 112 | House | 437 / 445 | [H112-ggum-scores.csv](/uploads/ggum-congress/H112-ggum-scores.csv) |
-| 112 | Senate | 101 / 102 | [S112-ggum-scores.csv](/uploads/ggum-congress/S112-ggum-scores.csv) |
-| 111 | House | 447 / 454 | [H111-ggum-scores.csv](/uploads/ggum-congress/H111-ggum-scores.csv) |
-| 111 | Senate | 103 / 111 | [S111-ggum-scores.csv](/uploads/ggum-congress/S111-ggum-scores.csv) |
-| 110 | House | 448 / 453 | [H110-ggum-scores.csv](/uploads/ggum-congress/H110-ggum-scores.csv) |
-| 110 | Senate | 102 / 102 | [S110-ggum-scores.csv](/uploads/ggum-congress/S110-ggum-scores.csv) |
-| 109 | House | 438 / 440 | [H109-ggum-scores.csv](/uploads/ggum-congress/H109-ggum-scores.csv) |
-| 109 | Senate | 101 / 101 | [S109-ggum-scores.csv](/uploads/ggum-congress/S109-ggum-scores.csv) |
-| 108 | House | 439 / 440 | [H108-ggum-scores.csv](/uploads/ggum-congress/H108-ggum-scores.csv) |
-| 108 | Senate | 100 / 100 | [S108-ggum-scores.csv](/uploads/ggum-congress/S108-ggum-scores.csv) |
-| 107 | House | 440 / 444 | [H107-ggum-scores.csv](/uploads/ggum-congress/H107-ggum-scores.csv) |
-| 107 | Senate | 101 / 102 | [S107-ggum-scores.csv](/uploads/ggum-congress/S107-ggum-scores.csv) |
-| 106 | House | 437 / 440 | [H106-ggum-scores.csv](/uploads/ggum-congress/H106-ggum-scores.csv) |
-| 106 | Senate | 102 / 102 | [S106-ggum-scores.csv](/uploads/ggum-congress/S106-ggum-scores.csv) |
-| 105 | House | 441 / 444 | [H105-ggum-scores.csv](/uploads/ggum-congress/H105-ggum-scores.csv) |
-| 105 | Senate | 100 / 100 | [S105-ggum-scores.csv](/uploads/ggum-congress/S105-ggum-scores.csv) |
-| 104 | Senate | 103 / 103 | [S104-ggum-scores.csv](/uploads/ggum-congress/S104-ggum-scores.csv) |
-| 103 | House | 441 / 447 | [H103-ggum-scores.csv](/uploads/ggum-congress/H103-ggum-scores.csv) |
-| 103 | Senate | 101 / 102 | [S103-ggum-scores.csv](/uploads/ggum-congress/S103-ggum-scores.csv) |
-| 102 | Senate | 101 / 102 | [S102-ggum-scores.csv](/uploads/ggum-congress/S102-ggum-scores.csv) |
-| 101 | House | 437 / 445 | [H101-ggum-scores.csv](/uploads/ggum-congress/H101-ggum-scores.csv) |
-| 101 | Senate | 101 / 102 | [S101-ggum-scores.csv](/uploads/ggum-congress/S101-ggum-scores.csv) |
-| 100 | Senate | 100 / 101 | [S100-ggum-scores.csv](/uploads/ggum-congress/S100-ggum-scores.csv) |
+<div class="ggum-bulk-downloads">
+<a class="ggum-bulk-btn" href="/uploads/ggum-congress/ggum-congress-all.csv" download>Combined CSV &mdash; <span>9,649 rows, all chambers</span></a>
+<a class="ggum-bulk-btn ggum-bulk-btn-secondary" href="/uploads/ggum-congress/ggum-congress-csvs.zip" download>Zip bundle &mdash; <span>37 per-chamber CSVs</span></a>
+</div>
 
 ### Codebook
 
@@ -104,128 +69,49 @@ For most workflows the single combined file is easiest: [**`ggum-congress-all.cs
 
 All other Voteview member columns (chamber, district_code, occupancy, and so on) are passed through unchanged.
 
-### Chamber-by-chamber scatter plots
+### Browse by chamber
 
-#### 119th Congress
+Each tile links to that chamber's detail page (scatter plot + off-diagonal members). The download icon grabs just that chamber's CSV without leaving this page.
 
-![119th House — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/H119-ggum-vs-nominate.png)
-
-![119th Senate — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/S119-ggum-vs-nominate.png)
-
-#### 118th Congress
-
-![118th House — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/H118-ggum-vs-nominate.png)
-
-![118th Senate — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/S118-ggum-vs-nominate.png)
-
-#### 117th Congress
-
-![117th House — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/H117-ggum-vs-nominate.png)
-
-![117th Senate — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/S117-ggum-vs-nominate.png)
-
-#### 116th Congress
-
-![116th House — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/H116-ggum-vs-nominate.png)
-
-![116th Senate — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/S116-ggum-vs-nominate.png)
-
-#### 115th Congress
-
-![115th House — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/H115-ggum-vs-nominate.png)
-
-![115th Senate — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/S115-ggum-vs-nominate.png)
-
-#### 114th Congress
-
-![114th House — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/H114-ggum-vs-nominate.png)
-
-![114th Senate — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/S114-ggum-vs-nominate.png)
-
-#### 113th Congress
-
-![113th House — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/H113-ggum-vs-nominate.png)
-
-![113th Senate — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/S113-ggum-vs-nominate.png)
-
-#### 112th Congress
-
-![112th House — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/H112-ggum-vs-nominate.png)
-
-![112th Senate — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/S112-ggum-vs-nominate.png)
-
-#### 111th Congress
-
-![111th House — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/H111-ggum-vs-nominate.png)
-
-![111th Senate — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/S111-ggum-vs-nominate.png)
-
-#### 110th Congress
-
-![110th House — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/H110-ggum-vs-nominate.png)
-
-![110th Senate — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/S110-ggum-vs-nominate.png)
-
-#### 109th Congress
-
-![109th House — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/H109-ggum-vs-nominate.png)
-
-![109th Senate — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/S109-ggum-vs-nominate.png)
-
-#### 108th Congress
-
-![108th House — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/H108-ggum-vs-nominate.png)
-
-![108th Senate — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/S108-ggum-vs-nominate.png)
-
-#### 107th Congress
-
-![107th House — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/H107-ggum-vs-nominate.png)
-
-![107th Senate — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/S107-ggum-vs-nominate.png)
-
-#### 106th Congress
-
-![106th House — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/H106-ggum-vs-nominate.png)
-
-![106th Senate — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/S106-ggum-vs-nominate.png)
-
-#### 105th Congress
-
-![105th House — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/H105-ggum-vs-nominate.png)
-
-![105th Senate — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/S105-ggum-vs-nominate.png)
-
-#### 104th Congress
-
-*104th House: refit in progress — plot and CSV will appear here when verification completes.*
-
-![104th Senate — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/S104-ggum-vs-nominate.png)
-
-#### 103rd Congress
-
-![103rd House — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/H103-ggum-vs-nominate.png)
-
-![103rd Senate — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/S103-ggum-vs-nominate.png)
-
-#### 102nd Congress
-
-*102nd House: refit in progress — plot and CSV will appear here when verification completes.*
-
-![102nd Senate — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/S102-ggum-vs-nominate.png)
-
-#### 101st Congress
-
-![101st House — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/H101-ggum-vs-nominate.png)
-
-![101st Senate — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/S101-ggum-vs-nominate.png)
-
-#### 100th Congress
-
-*100th House: refit in progress — plot and CSV will appear here when verification completes.*
-
-![100th Senate — GGUM θ vs DW-NOMINATE](/uploads/ggum-congress/plots/S100-ggum-vs-nominate.png)
-
+<div class="ggum-chamber-grid">
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/h119/"><span class="ggum-tile-title">119th House</span><span class="ggum-tile-sub">444 scored &middot; 452 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/H119-ggum-scores.csv" title="Download H119 CSV" aria-label="Download H119 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/s119/"><span class="ggum-tile-title">119th Senate</span><span class="ggum-tile-sub">101 scored &middot; 104 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/S119-ggum-scores.csv" title="Download S119 CSV" aria-label="Download S119 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/h118/"><span class="ggum-tile-title">118th House</span><span class="ggum-tile-sub">448 scored &middot; 451 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/H118-ggum-scores.csv" title="Download H118 CSV" aria-label="Download H118 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/s118/"><span class="ggum-tile-title">118th Senate</span><span class="ggum-tile-sub">103 scored &middot; 105 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/S118-ggum-scores.csv" title="Download S118 CSV" aria-label="Download S118 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/h117/"><span class="ggum-tile-title">117th House</span><span class="ggum-tile-sub">443 scored &middot; 455 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/H117-ggum-scores.csv" title="Download H117 CSV" aria-label="Download H117 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/s117/"><span class="ggum-tile-title">117th Senate</span><span class="ggum-tile-sub">100 scored &middot; 102 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/S117-ggum-scores.csv" title="Download S117 CSV" aria-label="Download S117 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/h116/"><span class="ggum-tile-title">116th House</span><span class="ggum-tile-sub">445 scored &middot; 451 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/H116-ggum-scores.csv" title="Download H116 CSV" aria-label="Download H116 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/s116/"><span class="ggum-tile-title">116th Senate</span><span class="ggum-tile-sub">101 scored &middot; 102 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/S116-ggum-scores.csv" title="Download S116 CSV" aria-label="Download S116 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/h115/"><span class="ggum-tile-title">115th House</span><span class="ggum-tile-sub">438 scored &middot; 450 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/H115-ggum-scores.csv" title="Download H115 CSV" aria-label="Download H115 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/s115/"><span class="ggum-tile-title">115th Senate</span><span class="ggum-tile-sub">104 scored &middot; 105 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/S115-ggum-scores.csv" title="Download S115 CSV" aria-label="Download S115 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/h114/"><span class="ggum-tile-title">114th House</span><span class="ggum-tile-sub">435 scored &middot; 441 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/H114-ggum-scores.csv" title="Download H114 CSV" aria-label="Download H114 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/s114/"><span class="ggum-tile-title">114th Senate</span><span class="ggum-tile-sub">100 scored &middot; 100 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/S114-ggum-scores.csv" title="Download S114 CSV" aria-label="Download S114 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/h113/"><span class="ggum-tile-title">113th House</span><span class="ggum-tile-sub">439 scored &middot; 444 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/H113-ggum-scores.csv" title="Download H113 CSV" aria-label="Download H113 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/s113/"><span class="ggum-tile-title">113th Senate</span><span class="ggum-tile-sub">103 scored &middot; 105 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/S113-ggum-scores.csv" title="Download S113 CSV" aria-label="Download S113 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/h112/"><span class="ggum-tile-title">112th House</span><span class="ggum-tile-sub">437 scored &middot; 445 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/H112-ggum-scores.csv" title="Download H112 CSV" aria-label="Download H112 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/s112/"><span class="ggum-tile-title">112th Senate</span><span class="ggum-tile-sub">101 scored &middot; 102 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/S112-ggum-scores.csv" title="Download S112 CSV" aria-label="Download S112 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/h111/"><span class="ggum-tile-title">111th House</span><span class="ggum-tile-sub">447 scored &middot; 454 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/H111-ggum-scores.csv" title="Download H111 CSV" aria-label="Download H111 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/s111/"><span class="ggum-tile-title">111th Senate</span><span class="ggum-tile-sub">103 scored &middot; 111 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/S111-ggum-scores.csv" title="Download S111 CSV" aria-label="Download S111 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/h110/"><span class="ggum-tile-title">110th House</span><span class="ggum-tile-sub">448 scored &middot; 453 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/H110-ggum-scores.csv" title="Download H110 CSV" aria-label="Download H110 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/s110/"><span class="ggum-tile-title">110th Senate</span><span class="ggum-tile-sub">102 scored &middot; 102 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/S110-ggum-scores.csv" title="Download S110 CSV" aria-label="Download S110 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/h109/"><span class="ggum-tile-title">109th House</span><span class="ggum-tile-sub">438 scored &middot; 440 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/H109-ggum-scores.csv" title="Download H109 CSV" aria-label="Download H109 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/s109/"><span class="ggum-tile-title">109th Senate</span><span class="ggum-tile-sub">101 scored &middot; 101 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/S109-ggum-scores.csv" title="Download S109 CSV" aria-label="Download S109 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/h108/"><span class="ggum-tile-title">108th House</span><span class="ggum-tile-sub">439 scored &middot; 440 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/H108-ggum-scores.csv" title="Download H108 CSV" aria-label="Download H108 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/s108/"><span class="ggum-tile-title">108th Senate</span><span class="ggum-tile-sub">100 scored &middot; 100 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/S108-ggum-scores.csv" title="Download S108 CSV" aria-label="Download S108 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/h107/"><span class="ggum-tile-title">107th House</span><span class="ggum-tile-sub">440 scored &middot; 444 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/H107-ggum-scores.csv" title="Download H107 CSV" aria-label="Download H107 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/s107/"><span class="ggum-tile-title">107th Senate</span><span class="ggum-tile-sub">101 scored &middot; 102 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/S107-ggum-scores.csv" title="Download S107 CSV" aria-label="Download S107 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/h106/"><span class="ggum-tile-title">106th House</span><span class="ggum-tile-sub">437 scored &middot; 440 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/H106-ggum-scores.csv" title="Download H106 CSV" aria-label="Download H106 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/s106/"><span class="ggum-tile-title">106th Senate</span><span class="ggum-tile-sub">102 scored &middot; 102 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/S106-ggum-scores.csv" title="Download S106 CSV" aria-label="Download S106 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/h105/"><span class="ggum-tile-title">105th House</span><span class="ggum-tile-sub">441 scored &middot; 444 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/H105-ggum-scores.csv" title="Download H105 CSV" aria-label="Download H105 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/s105/"><span class="ggum-tile-title">105th Senate</span><span class="ggum-tile-sub">100 scored &middot; 100 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/S105-ggum-scores.csv" title="Download S105 CSV" aria-label="Download S105 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/s104/"><span class="ggum-tile-title">104th Senate</span><span class="ggum-tile-sub">103 scored &middot; 103 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/S104-ggum-scores.csv" title="Download S104 CSV" aria-label="Download S104 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/h103/"><span class="ggum-tile-title">103rd House</span><span class="ggum-tile-sub">441 scored &middot; 447 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/H103-ggum-scores.csv" title="Download H103 CSV" aria-label="Download H103 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/s103/"><span class="ggum-tile-title">103rd Senate</span><span class="ggum-tile-sub">101 scored &middot; 102 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/S103-ggum-scores.csv" title="Download S103 CSV" aria-label="Download S103 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/s102/"><span class="ggum-tile-title">102nd Senate</span><span class="ggum-tile-sub">101 scored &middot; 102 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/S102-ggum-scores.csv" title="Download S102 CSV" aria-label="Download S102 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/h101/"><span class="ggum-tile-title">101st House</span><span class="ggum-tile-sub">437 scored &middot; 445 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/H101-ggum-scores.csv" title="Download H101 CSV" aria-label="Download H101 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/s101/"><span class="ggum-tile-title">101st Senate</span><span class="ggum-tile-sub">101 scored &middot; 102 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/S101-ggum-scores.csv" title="Download S101 CSV" aria-label="Download S101 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+<div class="ggum-tile"><a class="ggum-tile-main" href="/data/ggum-congress/s100/"><span class="ggum-tile-title">100th Senate</span><span class="ggum-tile-sub">100 scored &middot; 101 total</span></a><a class="ggum-tile-dl" href="/uploads/ggum-congress/S100-ggum-scores.csv" title="Download S100 CSV" aria-label="Download S100 CSV" download><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a></div>
+</div>
 
 ### Citation
 

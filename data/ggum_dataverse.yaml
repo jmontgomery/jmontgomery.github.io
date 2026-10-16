@@ -1,0 +1,66 @@
+# GGUM-for-Congress Dataverse mapping — single source of truth for
+# download URLs on /data/ggum-congress/ and its 37 chamber sub-pages.
+#
+# BEFORE the Dataverse deposit: leave `dataset_doi` and all `files.*` values
+# empty.  The generator scripts fall back to /uploads/ggum-congress/<file>.
+#
+# AFTER the Dataverse deposit: fill in `dataset_doi`, `dataset_url`, and
+# each file's `url` from the Harvard Dataverse "file access URL".  Re-run:
+#
+#   cd ~/GitHub/jmontgomery.github.io
+#   Rscript /path/to/make-chamber-pages.R
+#   Rscript /path/to/compose.R
+#   hugo
+#
+# Every download button, inline link, and citation block will swap in one
+# shot, and a "Permanent archive" badge appears on the master page.
+
+dataset_doi: ""           # e.g. "10.7910/DVN/ABCDEF"
+dataset_url: ""           # e.g. "https://doi.org/10.7910/DVN/ABCDEF"
+dataset_version: ""       # e.g. "V1" — included in the citation when set
+
+# Harvard Dataverse file-access URL for each release artifact.  The template
+# is:  https://dataverse.harvard.edu/api/access/datafile/:persistentId/?persistentId=doi:10.7910/DVN/XXX/YYY
+files:
+  ggum-congress-all.csv: ""
+  ggum-congress-csvs.zip: ""
+  H100-ggum-scores.csv: ""
+  H101-ggum-scores.csv: ""
+  H102-ggum-scores.csv: ""
+  H103-ggum-scores.csv: ""
+  H104-ggum-scores.csv: ""
+  H105-ggum-scores.csv: ""
+  H106-ggum-scores.csv: ""
+  H107-ggum-scores.csv: ""
+  H108-ggum-scores.csv: ""
+  H109-ggum-scores.csv: ""
+  H110-ggum-scores.csv: ""
+  H111-ggum-scores.csv: ""
+  H112-ggum-scores.csv: ""
+  H113-ggum-scores.csv: ""
+  H114-ggum-scores.csv: ""
+  H115-ggum-scores.csv: ""
+  H116-ggum-scores.csv: ""
+  H117-ggum-scores.csv: ""
+  H118-ggum-scores.csv: ""
+  H119-ggum-scores.csv: ""
+  S100-ggum-scores.csv: ""
+  S101-ggum-scores.csv: ""
+  S102-ggum-scores.csv: ""
+  S103-ggum-scores.csv: ""
+  S104-ggum-scores.csv: ""
+  S105-ggum-scores.csv: ""
+  S106-ggum-scores.csv: ""
+  S107-ggum-scores.csv: ""
+  S108-ggum-scores.csv: ""
+  S109-ggum-scores.csv: ""
+  S110-ggum-scores.csv: ""
+  S111-ggum-scores.csv: ""
+  S112-ggum-scores.csv: ""
+  S113-ggum-scores.csv: ""
+  S114-ggum-scores.csv: ""
+  S115-ggum-scores.csv: ""
+  S116-ggum-scores.csv: ""
+  S117-ggum-scores.csv: ""
+  S118-ggum-scores.csv: ""
+  S119-ggum-scores.csv: ""

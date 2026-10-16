@@ -196,4 +196,84 @@
     border-color: #f87171;
     color: #f87171;
   }
+
+  /* ===== GGUM dataset page ===== */
+  .ggum-bulk-downloads {
+    display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1rem 0 1.5rem;
+  }
+  .ggum-bulk-btn {
+    display: inline-flex; align-items: baseline; gap: 0.5rem;
+    padding: 0.75rem 1.1rem; border-radius: 10px;
+    background: #BA0C2F; color: #fff !important;
+    font-weight: 600; text-decoration: none !important;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .ggum-bulk-btn:hover { background: #90081f; transform: translateY(-1px); }
+  .ggum-bulk-btn span {
+    font-weight: 400; font-size: 0.9em; opacity: 0.88;
+  }
+  .ggum-bulk-btn-secondary {
+    background: transparent; color: #BA0C2F !important;
+    border: 2px solid #BA0C2F;
+  }
+  .ggum-bulk-btn-secondary:hover {
+    background: #BA0C2F; color: #fff !important;
+  }
+  :root[data-theme="dark"] .ggum-bulk-btn-secondary,
+  .dark .ggum-bulk-btn-secondary {
+    color: #f87171 !important; border-color: #f87171;
+  }
+  :root[data-theme="dark"] .ggum-bulk-btn-secondary:hover,
+  .dark .ggum-bulk-btn-secondary:hover {
+    background: #f87171; color: #1a1a1a !important;
+  }
+
+  .ggum-chamber-grid {
+    display: grid; gap: 0.6rem;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    margin: 1rem 0 1.5rem;
+  }
+  .ggum-tile {
+    display: flex; align-items: stretch;
+    border: 1px solid rgba(0, 0, 0, 0.09);
+    border-radius: 10px; overflow: hidden;
+    background: rgba(255, 255, 255, 0.65);
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+  }
+  :root[data-theme="dark"] .ggum-tile,
+  .dark .ggum-tile {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  .ggum-tile:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); transform: translateY(-1px);
+  }
+  .ggum-tile-main {
+    flex: 1; padding: 0.6rem 0.75rem;
+    display: flex; flex-direction: column; gap: 0.1rem;
+    text-decoration: none !important; color: inherit;
+    min-width: 0;
+  }
+  .ggum-tile-title {
+    font-weight: 600; font-size: 0.95rem; color: inherit;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .ggum-tile-sub {
+    font-size: 0.78rem; color: #6b7280;
+  }
+  :root[data-theme="dark"] .ggum-tile-sub,
+  .dark .ggum-tile-sub { color: #9ca3af; }
+  .ggum-tile-dl {
+    display: flex; align-items: center; justify-content: center;
+    width: 44px; border-left: 1px solid rgba(0, 0, 0, 0.07);
+    color: #BA0C2F !important; text-decoration: none !important;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  :root[data-theme="dark"] .ggum-tile-dl,
+  .dark .ggum-tile-dl {
+    color: #f87171 !important; border-left-color: rgba(255, 255, 255, 0.08);
+  }
+  .ggum-tile-dl:hover {
+    background: #BA0C2F; color: #fff !important;
+  }
 </style>

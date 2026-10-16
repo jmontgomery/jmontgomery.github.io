@@ -1,0 +1,37 @@
+---
+title: "103rd House — GGUM scores"
+date: "2026-10-15"
+show_date: false
+reading_time: false
+summary: "GGUM θ for the 103rd House. 441 members scored of 447; max PSRF 1.007."
+tags:
+  - House
+  - GGUM
+image:
+  caption: "103rd House scatter"
+  focal_point: ""
+  preview_only: false
+---
+
+GGUM ideal point estimates for the 103rd House (members scored: 441 of 447; max PSRF: 1.007).
+
+![103rd House — GGUM θ vs DW-NOMINATE dim-1](/uploads/ggum-congress/plots/H103-ggum-vs-nominate.png)
+
+### Download
+
+[Download `H103-ggum-scores.csv`](/uploads/ggum-congress/H103-ggum-scores.csv) &mdash; 447 members, 25 columns (Voteview metadata + GGUM θ, θ SD, PSRF).
+
+### Off-diagonal members
+
+The following 6 members fall more than 2.5σ off the OLS fit of GGUM θ on DW-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
+
+| Member | Party | State | nominate | GGUM θ | residual |
+|---|---|---|---|---|---|
+| CLAY | D | MO | -0.49 | -2.79 | -1.47 |
+| SYNAR | D | OK | -0.32 | -1.64 | -0.83 |
+| INGLIS | R | SC | +0.52 | +0.98 | -0.76 |
+| STUPAK | D | MI | -0.40 | -0.34 | +0.69 |
+| COSTELLO | D | IL | -0.32 | -0.10 | +0.69 |
+| KINGSTON | R | GA | +0.54 | +1.13 | -0.67 |
+
+[&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)
