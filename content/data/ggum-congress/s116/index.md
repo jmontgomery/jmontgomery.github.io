@@ -26,7 +26,7 @@ GGUM ideal point estimates for the 116th Senate (members scored: 101 of 102; max
 
 ### Off-diagonal members
 
-The following 3 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
+The following 3 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  We flag these as diagnostic cases where the two scalings most disagree.
 
 | Member | Party | State | nominate | GGUM θ | residual |
 |---|---|---|---|---|---|
@@ -39,8 +39,8 @@ The following 3 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOM
 
 The following GGUM placements in this chamber conflict with external records and should be interpreted with caution:
 
-- **KLOBUCHAR.** Klobuchar is placed at -3.33, more extreme-left than Sanders or Warren have scored in any chamber, which contradicts her 'centrist workhorse' reputation.
+- **KLOBUCHAR.** Klobuchar is commonly viewed as a centrist Democrat.  GGUM places her at the extreme-left pole, left of Sanders and Warren in this chamber.
 
-- **ROMNEY.** Romney is overstated at the right pole given his well-known moderate, anti-Trump positioning.
+- **ROMNEY.** Romney is commonly viewed as a moderate Republican.  GGUM places him near the right pole.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)

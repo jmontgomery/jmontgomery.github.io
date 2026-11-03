@@ -26,7 +26,7 @@ GGUM ideal point estimates for the 118th House (members scored: 448 of 451; max 
 
 ### Off-diagonal members
 
-The following 15 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
+The following 15 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  We flag these as diagnostic cases where the two scalings most disagree.
 
 | Member | Party | State | nominate | GGUM θ | residual |
 |---|---|---|---|---|---|

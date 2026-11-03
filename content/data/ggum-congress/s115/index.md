@@ -26,7 +26,7 @@ GGUM ideal point estimates for the 115th Senate (members scored: 104 of 105; max
 
 ### Off-diagonal members
 
-The following 3 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
+The following 3 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  We flag these as diagnostic cases where the two scalings most disagree.
 
 | Member | Party | State | nominate | GGUM θ | residual |
 |---|---|---|---|---|---|
@@ -39,8 +39,8 @@ The following 3 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOM
 
 The following GGUM placements in this chamber conflict with external records and should be interpreted with caution:
 
-- **GILLIBRAND.** GGUM places Gillibrand at the most extreme-left score in the entire 40-chamber release (-3.56), more extreme than any Squad member in any later Congress.  A five-chain seeded-init refit reproduces the placement.
+- **GILLIBRAND.** Gillibrand is commonly viewed as a mainstream progressive Democrat.  GGUM places her at the most extreme-left position in the entire 40-chamber release.
 
-- **CRUZ.** Cruz is understated at +1.55 given his widely recognized hard-right reputation and leading role in Senate opposition tactics.
+- **CRUZ.** Cruz is commonly viewed as among the most conservative Republicans in the Senate.  GGUM places him in the middle of the Republican range.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)

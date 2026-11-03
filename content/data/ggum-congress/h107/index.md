@@ -26,7 +26,7 @@ GGUM ideal point estimates for the 107th House (members scored: 440 of 444; max 
 
 ### Off-diagonal members
 
-The following 15 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
+The following 15 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  We flag these as diagnostic cases where the two scalings most disagree.
 
 | Member | Party | State | nominate | GGUM θ | residual |
 |---|---|---|---|---|---|
@@ -51,12 +51,12 @@ The following 15 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NO
 
 The following GGUM placements in this chamber conflict with external records and should be interpreted with caution:
 
-- **RAMSTAD.** GGUM places Ramstad near the extreme-right pole, which conflicts with his widely documented record as a pro-choice, Mainstream Coalition Republican.  A reproducibility check across chains confirms the placement is a structural feature of the H107 roll-call matrix rather than a sampling issue --- likely driven by post-9/11 unity votes on which libertarian-right Republicans dissented from a near-unanimous conservative mainstream.
+- **RAMSTAD.** Ramstad is commonly viewed as a moderate, pro-choice Republican.  GGUM places him near the extreme-right pole.
 
-- **LoBIONDO.** Placed near the extreme-right pole despite a Blue Collar / Tuesday Group reputation.  Part of the H107 pattern described above.
+- **LoBIONDO.** LoBiondo is commonly viewed as a moderate Republican.  GGUM places him near the extreme-right pole.
 
-- **ENGLISH.** Placed near the extreme-right pole despite Main Street Partnership membership and a pro-labor voting record.  Part of the H107 pattern.
+- **ENGLISH.** English is commonly viewed as a moderate Republican.  GGUM places him near the extreme-right pole.
 
-- **WELLER.** Placed near the extreme-right pole despite a mainstream Ways and Means profile.  Part of the H107 pattern.
+- **WELLER.** Weller is commonly viewed as a mainstream Republican.  GGUM places him near the extreme-right pole.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)

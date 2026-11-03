@@ -26,7 +26,7 @@ GGUM ideal point estimates for the 115th House (members scored: 438 of 450; max 
 
 ### Off-diagonal members
 
-The following 11 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
+The following 11 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  We flag these as diagnostic cases where the two scalings most disagree.
 
 | Member | Party | State | nominate | GGUM θ | residual |
 |---|---|---|---|---|---|
@@ -47,10 +47,10 @@ The following 11 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NO
 
 The following GGUM placements in this chamber conflict with external records and should be interpreted with caution:
 
-- **SMITH.** GGUM places Smith at Squad-adjacent extremity (-2.14), which conflicts with his record as a centrist Armed Services ranking member.  The placement is reproducible under five-chain seeded-init refits.
+- **SMITH.** Smith is commonly viewed as a centrist Democrat.  GGUM places him at the extreme-left end of the chamber.
 
-- **BACON.** Overstated at the right pole given Bacon's documented centrist, bipartisan reputation.
+- **BACON.** Bacon is commonly viewed as a bipartisan, centrist Republican.  GGUM places him at the right pole.
 
-- **GRIFFITH.** Overstated at the right pole given a mainstream conservative reputation.
+- **GRIFFITH.** Griffith is commonly viewed as a mainstream conservative Republican.  GGUM places him at the extreme-right pole.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)

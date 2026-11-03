@@ -26,7 +26,7 @@ GGUM ideal point estimates for the 102nd House (members scored: 436 of 441; max 
 
 ### Off-diagonal members
 
-The following 10 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
+The following 10 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  We flag these as diagnostic cases where the two scalings most disagree.
 
 | Member | Party | State | nominate | GGUM θ | residual |
 |---|---|---|---|---|---|
@@ -46,6 +46,6 @@ The following 10 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NO
 
 The following GGUM placements in this chamber conflict with external records and should be interpreted with caution:
 
-- **SIKORSKI.** GGUM places Sikorski to the left of Bernie Sanders in this chamber, which conflicts with his historical record as a mainstream suburban Minnesota liberal rather than an ultra-left figure.  A five-chain seeded-init refit reproduces the placement, so the result is a stable feature of the roll-call matrix rather than a sampling artifact.
+- **SIKORSKI.** Sikorski is commonly viewed as a mainstream Minnesota liberal.  GGUM places him at the extreme-left pole, left of Bernie Sanders in this chamber.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)

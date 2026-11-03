@@ -26,7 +26,7 @@ GGUM ideal point estimates for the 106th Senate (members scored: 102 of 102; max
 
 ### Off-diagonal members
 
-The following 4 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
+The following 4 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  We flag these as diagnostic cases where the two scalings most disagree.
 
 | Member | Party | State | nominate | GGUM θ | residual |
 |---|---|---|---|---|---|
@@ -40,6 +40,6 @@ The following 4 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOM
 
 The following GGUM placements in this chamber conflict with external records and should be interpreted with caution:
 
-- **MILLER.** GGUM places Zell Miller to the left of the Senate median, which conflicts sharply with his historical record as one of the most conservative Democrats to serve in the modern Senate (he keynoted the 2004 Republican National Convention and endorsed George W. Bush).  In other chambers in this release (notably S108) GGUM places him correctly on the conservative side.  The S106 estimate appears to be a chamber-specific artifact.
+- **MILLER.** Miller is commonly viewed as one of the most conservative Democrats in the modern Senate (he endorsed George W. Bush and keynoted the 2004 Republican National Convention).  GGUM places him to the left of the Senate median.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)

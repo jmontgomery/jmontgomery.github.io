@@ -26,7 +26,7 @@ GGUM ideal point estimates for the 119th Senate (members scored: 101 of 104; max
 
 ### Off-diagonal members
 
-The following 4 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
+The following 4 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  We flag these as diagnostic cases where the two scalings most disagree.
 
 | Member | Party | State | nominate | GGUM θ | residual |
 |---|---|---|---|---|---|
@@ -40,10 +40,10 @@ The following 4 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOM
 
 The following GGUM placements in this chamber conflict with external records and should be interpreted with caution:
 
-- **HAWLEY.** Hawley is understated relative to his hard-right reputation, likely because GGUM's unfolding reads his populist NO votes shared with left-flank Democrats (Ukraine aid, some anti-corporate measures) as evidence of less-partisan behavior.
+- **HAWLEY.** Hawley is commonly viewed as a strongly conservative Republican.  GGUM places him near the middle of the Republican range.
 
-- **TUBERVILLE.** Similar pattern to Hawley: populist NO votes shared with left-flank Democrats produce an unfolding-geometry shrinkage toward the center.  Reproducible under seeded-init refits.
+- **TUBERVILLE.** Tuberville is commonly viewed as among the most conservative Republicans in the Senate.  GGUM places him more moderately than his roll-call reputation would suggest.
 
-- **MURPHY.** Murphy is placed at -3.54, essentially tied with Sanders and Warren as the most extreme-left member of the chamber.  Murphy is a progressive on guns and foreign policy but has not historically been ranked among the most liberal senators.
+- **MURPHY.** Murphy is commonly viewed as a mainstream progressive.  GGUM places him at the extreme-left pole, essentially tied with Sanders and Warren.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)

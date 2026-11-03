@@ -26,7 +26,7 @@ GGUM ideal point estimates for the 104th House (members scored: 444 of 445; max 
 
 ### Off-diagonal members
 
-The following 10 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
+The following 10 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  We flag these as diagnostic cases where the two scalings most disagree.
 
 | Member | Party | State | nominate | GGUM θ | residual |
 |---|---|---|---|---|---|
@@ -46,14 +46,14 @@ The following 10 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NO
 
 The following GGUM placements in this chamber conflict with external records and should be interpreted with caution:
 
-- **MYERS.** GGUM places Myers near the extreme-right pole despite a modest DW-NOMINATE score (+0.24).  Part of a chamber-wide 'systematic reversal' pattern in H104 in which moderate Republicans are placed as extreme and hardline conservatives are compressed toward the center.
+- **MYERS.** Myers is commonly viewed as a moderate Republican.  GGUM places him near the extreme-right pole.
 
-- **JONES.** Jones is placed at the far-right pole, which anticipates his later anti-war maverick turn beginning in 2003 but is extreme relative to his H104 roll-call behavior.  Part of the systematic reversal pattern above.
+- **JONES.** Jones is commonly viewed as a moderate-conservative Republican in this period (before his later anti-war maverick turn).  GGUM places him at the far-right pole.
 
-- **SENSENBRENNER.** GGUM places Sensenbrenner near the center despite a clearly conservative DW-NOMINATE score (+0.64).  Part of the chamber-wide reversal pattern in H104.
+- **SENSENBRENNER.** Sensenbrenner is commonly viewed as a reliably conservative Republican.  GGUM places him near the center.
 
-- **DUNCAN.** Compressed toward the center despite a conservative DW-NOMINATE score (+0.60).  Same reversal pattern.
+- **DUNCAN.** Duncan is commonly viewed as a reliably conservative Republican.  GGUM places him near the center.
 
-- **SANFORD.** Compressed toward the center despite a strongly conservative DW-NOMINATE score (+0.69).  Same reversal pattern.
+- **SANFORD.** Sanford is commonly viewed as a strongly conservative Republican.  GGUM places him near the center.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)

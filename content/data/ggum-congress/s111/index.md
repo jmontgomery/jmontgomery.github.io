@@ -26,7 +26,7 @@ GGUM ideal point estimates for the 111th Senate (members scored: 102 of 111; max
 
 ### Off-diagonal members
 
-The following 1 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
+The following 1 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  We flag these as diagnostic cases where the two scalings most disagree.
 
 | Member | Party | State | nominate | GGUM θ | residual |
 |---|---|---|---|---|---|
@@ -37,6 +37,6 @@ The following 1 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOM
 
 The following GGUM placements in this chamber conflict with external records and should be interpreted with caution:
 
-- **FEINGOLD.** Russ Feingold's GGUM estimate here (-0.38) is substantially less extreme than in the chambers immediately before and after this one.  His historical record places him reliably among the most liberal members of the Senate.  The S111 estimate reverses that pattern without an obvious substantive justification, likely driven by his S111 (lame-duck 2010) record of NO votes on Patriot Act renewal and some financial reform cloture motions.
+- **FEINGOLD.** Feingold is commonly viewed as one of the most liberal members of the Senate.  GGUM places him near the Senate center in this chamber, breaking his pattern in surrounding Congresses.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)

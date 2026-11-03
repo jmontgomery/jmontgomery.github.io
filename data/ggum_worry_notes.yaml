@@ -3,65 +3,69 @@
 # section under the off-diagonal table on /data/ggum-congress/<tag>/.
 # The regen pipeline also sets `ggum_flag = "review"` in the CSV row for
 # each member listed here.
+#
+# Each note is short and descriptive: what the member is commonly viewed as,
+# and where GGUM is placing them.  We flag the disagreement without
+# speculating about why it arises; readers can draw their own conclusion.
 
 H102:
   - icpsr: 15059   # SIKORSKI, Gerald Edward (D-MN)
-    note: "GGUM places Sikorski to the left of Bernie Sanders in this chamber, which conflicts with his historical record as a mainstream suburban Minnesota liberal rather than an ultra-left figure.  A five-chain seeded-init refit reproduces the placement, so the result is a stable feature of the roll-call matrix rather than a sampling artifact."
+    note: "Sikorski is commonly viewed as a mainstream Minnesota liberal.  GGUM places him at the extreme-left pole, left of Bernie Sanders in this chamber."
 
 H104:
   - icpsr: 11036   # MYERS, John Thomas (R-IN)
-    note: "GGUM places Myers near the extreme-right pole despite a modest DW-NOMINATE score (+0.24).  Part of a chamber-wide 'systematic reversal' pattern in H104 in which moderate Republicans are placed as extreme and hardline conservatives are compressed toward the center."
+    note: "Myers is commonly viewed as a moderate Republican.  GGUM places him near the extreme-right pole."
   - icpsr: 29546   # JONES, Walter Beaman, Jr. (R-NC)
-    note: "Jones is placed at the far-right pole, which anticipates his later anti-war maverick turn beginning in 2003 but is extreme relative to his H104 roll-call behavior.  Part of the systematic reversal pattern above."
+    note: "Jones is commonly viewed as a moderate-conservative Republican in this period (before his later anti-war maverick turn).  GGUM places him at the far-right pole."
   - icpsr: 14657   # SENSENBRENNER, Frank James, Jr. (R-WI)
-    note: "GGUM places Sensenbrenner near the center despite a clearly conservative DW-NOMINATE score (+0.64).  Part of the chamber-wide reversal pattern in H104."
+    note: "Sensenbrenner is commonly viewed as a reliably conservative Republican.  GGUM places him near the center."
   - icpsr: 15455   # DUNCAN, John J., Jr. (R-TN)
-    note: "Compressed toward the center despite a conservative DW-NOMINATE score (+0.60).  Same reversal pattern."
+    note: "Duncan is commonly viewed as a reliably conservative Republican.  GGUM places him near the center."
   - icpsr: 29565   # SANFORD, Mark (R-SC)
-    note: "Compressed toward the center despite a strongly conservative DW-NOMINATE score (+0.69).  Same reversal pattern."
+    note: "Sanford is commonly viewed as a strongly conservative Republican.  GGUM places him near the center."
 
 H107:
   - icpsr: 29126   # RAMSTAD, James (Jim) (R-MN)
-    note: "GGUM places Ramstad near the extreme-right pole, which conflicts with his widely documented record as a pro-choice, Mainstream Coalition Republican.  A reproducibility check across chains confirms the placement is a structural feature of the H107 roll-call matrix rather than a sampling issue --- likely driven by post-9/11 unity votes on which libertarian-right Republicans dissented from a near-unanimous conservative mainstream."
+    note: "Ramstad is commonly viewed as a moderate, pro-choice Republican.  GGUM places him near the extreme-right pole."
   - icpsr: 29539   # LoBIONDO, Frank A. (R-NJ)
-    note: "Placed near the extreme-right pole despite a Blue Collar / Tuesday Group reputation.  Part of the H107 pattern described above."
+    note: "LoBiondo is commonly viewed as a moderate Republican.  GGUM places him near the extreme-right pole."
   - icpsr: 29563   # ENGLISH, Philip Sheridan (R-PA)
-    note: "Placed near the extreme-right pole despite Main Street Partnership membership and a pro-labor voting record.  Part of the H107 pattern."
+    note: "English is commonly viewed as a moderate Republican.  GGUM places him near the extreme-right pole."
   - icpsr: 29516   # WELLER, Gerald C. (Jerry) (R-IL)
-    note: "Placed near the extreme-right pole despite a mainstream Ways and Means profile.  Part of the H107 pattern."
+    note: "Weller is commonly viewed as a mainstream Republican.  GGUM places him near the extreme-right pole."
 
 H115:
   - icpsr: 29768   # SMITH, Adam (D-WA)
-    note: "GGUM places Smith at Squad-adjacent extremity (-2.14), which conflicts with his record as a centrist Armed Services ranking member.  The placement is reproducible under five-chain seeded-init refits."
+    note: "Smith is commonly viewed as a centrist Democrat.  GGUM places him at the extreme-left end of the chamber."
   - icpsr: 21701   # BACON, Donald J. (R-NE)
-    note: "Overstated at the right pole given Bacon's documented centrist, bipartisan reputation."
+    note: "Bacon is commonly viewed as a bipartisan, centrist Republican.  GGUM places him at the right pole."
   - icpsr: 21191   # GRIFFITH, H. Morgan (R-VA)
-    note: "Overstated at the right pole given a mainstream conservative reputation."
+    note: "Griffith is commonly viewed as a mainstream conservative Republican.  GGUM places him at the extreme-right pole."
 
 S106:
   - icpsr: 49904   # MILLER, Zell Bryan (D-GA)
-    note: "GGUM places Zell Miller to the left of the Senate median, which conflicts sharply with his historical record as one of the most conservative Democrats to serve in the modern Senate (he keynoted the 2004 Republican National Convention and endorsed George W. Bush).  In other chambers in this release (notably S108) GGUM places him correctly on the conservative side.  The S106 estimate appears to be a chamber-specific artifact."
+    note: "Miller is commonly viewed as one of the most conservative Democrats in the modern Senate (he endorsed George W. Bush and keynoted the 2004 Republican National Convention).  GGUM places him to the left of the Senate median."
 
 S111:
   - icpsr: 49309   # FEINGOLD, Russell D. (D-WI)
-    note: "Russ Feingold's GGUM estimate here (-0.38) is substantially less extreme than in the chambers immediately before and after this one.  His historical record places him reliably among the most liberal members of the Senate.  The S111 estimate reverses that pattern without an obvious substantive justification, likely driven by his S111 (lame-duck 2010) record of NO votes on Patriot Act renewal and some financial reform cloture motions."
+    note: "Feingold is commonly viewed as one of the most liberal members of the Senate.  GGUM places him near the Senate center in this chamber, breaking his pattern in surrounding Congresses."
 
 S115:
   - icpsr: 20735   # GILLIBRAND, Kirsten (D-NY)
-    note: "GGUM places Gillibrand at the most extreme-left score in the entire 40-chamber release (-3.56), more extreme than any Squad member in any later Congress.  A five-chain seeded-init refit reproduces the placement."
+    note: "Gillibrand is commonly viewed as a mainstream progressive Democrat.  GGUM places her at the most extreme-left position in the entire 40-chamber release."
   - icpsr: 41304   # CRUZ, Rafael Edward (Ted) (R-TX)
-    note: "Cruz is understated at +1.55 given his widely recognized hard-right reputation and leading role in Senate opposition tactics."
+    note: "Cruz is commonly viewed as among the most conservative Republicans in the Senate.  GGUM places him in the middle of the Republican range."
 
 S116:
   - icpsr: 40700   # KLOBUCHAR, Amy (D-MN)
-    note: "Klobuchar is placed at -3.33, more extreme-left than Sanders or Warren have scored in any chamber, which contradicts her 'centrist workhorse' reputation."
+    note: "Klobuchar is commonly viewed as a centrist Democrat.  GGUM places her at the extreme-left pole, left of Sanders and Warren in this chamber."
   - icpsr: 41902   # ROMNEY, Willard Mitt (Mitt) (R-UT)
-    note: "Romney is overstated at the right pole given his well-known moderate, anti-Trump positioning."
+    note: "Romney is commonly viewed as a moderate Republican.  GGUM places him near the right pole."
 
 S119:
   - icpsr: 41901   # HAWLEY, Joshua David (R-MO)
-    note: "Hawley is understated relative to his hard-right reputation, likely because GGUM's unfolding reads his populist NO votes shared with left-flank Democrats (Ukraine aid, some anti-corporate measures) as evidence of less-partisan behavior."
+    note: "Hawley is commonly viewed as a strongly conservative Republican.  GGUM places him near the middle of the Republican range."
   - icpsr: 42102   # TUBERVILLE, Thomas Hawley (Tommy) (R-AL)
-    note: "Similar pattern to Hawley: populist NO votes shared with left-flank Democrats produce an unfolding-geometry shrinkage toward the center.  Reproducible under seeded-init refits."
+    note: "Tuberville is commonly viewed as among the most conservative Republicans in the Senate.  GGUM places him more moderately than his roll-call reputation would suggest."
   - icpsr: 20707   # MURPHY, Christopher (D-CT)
-    note: "Murphy is placed at -3.54, essentially tied with Sanders and Warren as the most extreme-left member of the chamber.  Murphy is a progressive on guns and foreign policy but has not historically been ranked among the most liberal senators."
+    note: "Murphy is commonly viewed as a mainstream progressive.  GGUM places him at the extreme-left pole, essentially tied with Sanders and Warren."
