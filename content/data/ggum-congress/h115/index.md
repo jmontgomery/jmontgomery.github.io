@@ -7,15 +7,18 @@ summary: "GGUM θ for the 115th House. 438 members scored of 450; max PSRF 1.011
 tags:
   - House
   - GGUM
+profile: false
+build:
+  list: never
 image:
   caption: "115th House scatter"
   focal_point: ""
-  preview_only: false
+  preview_only: true
 ---
 
 GGUM ideal point estimates for the 115th House (members scored: 438 of 450; max PSRF: 1.011).
 
-![115th House — GGUM θ vs DW-NOMINATE dim-1](/uploads/ggum-congress/plots/H115-ggum-vs-nominate.png)
+![115th House — GGUM θ vs W-NOMINATE dim-1](/uploads/ggum-congress/plots/H115-ggum-vs-nominate.png)
 
 ### Download
 
@@ -23,7 +26,7 @@ GGUM ideal point estimates for the 115th House (members scored: 438 of 450; max 
 
 ### Off-diagonal members
 
-The following 11 members fall more than 2.5σ off the OLS fit of GGUM θ on DW-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
+The following 11 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
 
 | Member | Party | State | nominate | GGUM θ | residual |
 |---|---|---|---|---|---|
@@ -38,5 +41,16 @@ The following 11 members fall more than 2.5σ off the OLS fit of GGUM θ on DW-N
 | GARRETT | R | VA | +0.93 | +2.27 | -0.62 |
 | GONZALEZ | D | TX | -0.39 | -1.22 | +0.61 |
 | BACON | R | NE | +0.28 | +1.14 | +0.59 |
+
+
+### Noted concerns
+
+The following GGUM placements in this chamber conflict with external records and should be interpreted with caution:
+
+- **SMITH.** GGUM places Smith at Squad-adjacent extremity (-2.14), which conflicts with his record as a centrist Armed Services ranking member.  The placement is reproducible under five-chain seeded-init refits.
+
+- **BACON.** Overstated at the right pole given Bacon's documented centrist, bipartisan reputation.
+
+- **GRIFFITH.** Overstated at the right pole given a mainstream conservative reputation.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)

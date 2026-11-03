@@ -7,15 +7,18 @@ summary: "GGUM θ for the 107th House. 440 members scored of 444; max PSRF 1.013
 tags:
   - House
   - GGUM
+profile: false
+build:
+  list: never
 image:
   caption: "107th House scatter"
   focal_point: ""
-  preview_only: false
+  preview_only: true
 ---
 
 GGUM ideal point estimates for the 107th House (members scored: 440 of 444; max PSRF: 1.013).
 
-![107th House — GGUM θ vs DW-NOMINATE dim-1](/uploads/ggum-congress/plots/H107-ggum-vs-nominate.png)
+![107th House — GGUM θ vs W-NOMINATE dim-1](/uploads/ggum-congress/plots/H107-ggum-vs-nominate.png)
 
 ### Download
 
@@ -23,7 +26,7 @@ GGUM ideal point estimates for the 107th House (members scored: 440 of 444; max 
 
 ### Off-diagonal members
 
-The following 15 members fall more than 2.5σ off the OLS fit of GGUM θ on DW-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
+The following 15 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
 
 | Member | Party | State | nominate | GGUM θ | residual |
 |---|---|---|---|---|---|
@@ -42,5 +45,18 @@ The following 15 members fall more than 2.5σ off the OLS fit of GGUM θ on DW-N
 | HULSHOF | R | MO | +0.36 | +1.87 | +0.82 |
 | WICKER | R | MS | +0.38 | +1.90 | +0.81 |
 | MORAN | R | KS | +0.41 | +1.96 | +0.76 |
+
+
+### Noted concerns
+
+The following GGUM placements in this chamber conflict with external records and should be interpreted with caution:
+
+- **RAMSTAD.** GGUM places Ramstad near the extreme-right pole, which conflicts with his widely documented record as a pro-choice, Mainstream Coalition Republican.  A reproducibility check across chains confirms the placement is a structural feature of the H107 roll-call matrix rather than a sampling issue --- likely driven by post-9/11 unity votes on which libertarian-right Republicans dissented from a near-unanimous conservative mainstream.
+
+- **LoBIONDO.** Placed near the extreme-right pole despite a Blue Collar / Tuesday Group reputation.  Part of the H107 pattern described above.
+
+- **ENGLISH.** Placed near the extreme-right pole despite Main Street Partnership membership and a pro-labor voting record.  Part of the H107 pattern.
+
+- **WELLER.** Placed near the extreme-right pole despite a mainstream Ways and Means profile.  Part of the H107 pattern.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)

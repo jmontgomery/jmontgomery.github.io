@@ -7,15 +7,18 @@ summary: "GGUM θ for the 107th Senate. 101 members scored of 102; max PSRF 1.00
 tags:
   - Senate
   - GGUM
+profile: false
+build:
+  list: never
 image:
   caption: "107th Senate scatter"
   focal_point: ""
-  preview_only: false
+  preview_only: true
 ---
 
 GGUM ideal point estimates for the 107th Senate (members scored: 101 of 102; max PSRF: 1.008).
 
-![107th Senate — GGUM θ vs DW-NOMINATE dim-1](/uploads/ggum-congress/plots/S107-ggum-vs-nominate.png)
+![107th Senate — GGUM θ vs W-NOMINATE dim-1](/uploads/ggum-congress/plots/S107-ggum-vs-nominate.png)
 
 ### Download
 
@@ -23,10 +26,12 @@ GGUM ideal point estimates for the 107th Senate (members scored: 101 of 102; max
 
 ### Off-diagonal members
 
-The following 1 members fall more than 2.5σ off the OLS fit of GGUM θ on DW-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
+The following 1 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
 
 | Member | Party | State | nominate | GGUM θ | residual |
 |---|---|---|---|---|---|
 | FEINGOLD | D | WI | -0.31 | -2.15 | -1.36 |
+
+
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)

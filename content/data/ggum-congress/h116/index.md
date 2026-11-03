@@ -7,15 +7,18 @@ summary: "GGUM θ for the 116th House. 445 members scored of 451; max PSRF 1.025
 tags:
   - House
   - GGUM
+profile: false
+build:
+  list: never
 image:
   caption: "116th House scatter"
   focal_point: ""
-  preview_only: false
+  preview_only: true
 ---
 
 GGUM ideal point estimates for the 116th House (members scored: 445 of 451; max PSRF: 1.025).
 
-![116th House — GGUM θ vs DW-NOMINATE dim-1](/uploads/ggum-congress/plots/H116-ggum-vs-nominate.png)
+![116th House — GGUM θ vs W-NOMINATE dim-1](/uploads/ggum-congress/plots/H116-ggum-vs-nominate.png)
 
 ### Download
 
@@ -23,7 +26,7 @@ GGUM ideal point estimates for the 116th House (members scored: 445 of 451; max 
 
 ### Off-diagonal members
 
-The following 12 members fall more than 2.5σ off the OLS fit of GGUM θ on DW-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
+The following 12 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
 
 | Member | Party | State | nominate | GGUM θ | residual |
 |---|---|---|---|---|---|
@@ -39,5 +42,7 @@ The following 12 members fall more than 2.5σ off the OLS fit of GGUM θ on DW-N
 | SLOTKIN | D | MI | -0.37 | -0.27 | +0.94 |
 | AMASH | R | MI | +0.65 | +3.22 | +0.87 |
 | KIM | D | NJ | -0.43 | -0.57 | +0.85 |
+
+
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)

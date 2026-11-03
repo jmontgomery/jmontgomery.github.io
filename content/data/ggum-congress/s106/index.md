@@ -7,15 +7,18 @@ summary: "GGUM θ for the 106th Senate. 102 members scored of 102; max PSRF 1.00
 tags:
   - Senate
   - GGUM
+profile: false
+build:
+  list: never
 image:
   caption: "106th Senate scatter"
   focal_point: ""
-  preview_only: false
+  preview_only: true
 ---
 
 GGUM ideal point estimates for the 106th Senate (members scored: 102 of 102; max PSRF: 1.002).
 
-![106th Senate — GGUM θ vs DW-NOMINATE dim-1](/uploads/ggum-congress/plots/S106-ggum-vs-nominate.png)
+![106th Senate — GGUM θ vs W-NOMINATE dim-1](/uploads/ggum-congress/plots/S106-ggum-vs-nominate.png)
 
 ### Download
 
@@ -23,7 +26,7 @@ GGUM ideal point estimates for the 106th Senate (members scored: 102 of 102; max
 
 ### Off-diagonal members
 
-The following 4 members fall more than 2.5σ off the OLS fit of GGUM θ on DW-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
+The following 4 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
 
 | Member | Party | State | nominate | GGUM θ | residual |
 |---|---|---|---|---|---|
@@ -31,5 +34,12 @@ The following 4 members fall more than 2.5σ off the OLS fit of GGUM θ on DW-NO
 | BYRD | D | WV | -0.31 | -0.73 | +0.52 |
 | MILLER | D | GA | +0.15 | -0.30 | -0.49 |
 | ASHCROFT | R | MO | +0.54 | +0.95 | -0.47 |
+
+
+### Noted concerns
+
+The following GGUM placements in this chamber conflict with external records and should be interpreted with caution:
+
+- **MILLER.** GGUM places Zell Miller to the left of the Senate median, which conflicts sharply with his historical record as one of the most conservative Democrats to serve in the modern Senate (he keynoted the 2004 Republican National Convention and endorsed George W. Bush).  In other chambers in this release (notably S108) GGUM places him correctly on the conservative side.  The S106 estimate appears to be a chamber-specific artifact.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)

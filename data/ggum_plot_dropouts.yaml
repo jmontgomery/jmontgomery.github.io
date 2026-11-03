@@ -1,0 +1,16 @@
+# Members excluded from a chamber's scatter + off-diagonal table because
+# their roll-call behavior is distorted by institutional role (chamber
+# leadership votes NO on procedural motions to preserve the right to
+# reconsider, etc.).  The underlying CSV still contains their GGUM
+# estimate; only the diagnostic plot and off-diagonal list omit them.
+#
+# Format:  <TAG>: list of icpsr IDs to drop
+#
+# Add new entries as they arise; re-run code/regen-ggum-pages.R + copy
+# the regenerated plots into static/uploads/ggum-congress/plots/.
+S110:
+  - 15054   # Reid, Harry (D-NV) — Senate Majority Leader
+S111:
+  - 15054   # Reid, Harry (D-NV) — Senate Majority Leader
+S114:
+  - 15054   # Reid, Harry (D-NV) — Senate Minority Leader

@@ -7,15 +7,18 @@ summary: "GGUM θ for the 101st House. 437 members scored of 445; max PSRF 1.007
 tags:
   - House
   - GGUM
+profile: false
+build:
+  list: never
 image:
   caption: "101st House scatter"
   focal_point: ""
-  preview_only: false
+  preview_only: true
 ---
 
 GGUM ideal point estimates for the 101st House (members scored: 437 of 445; max PSRF: 1.007).
 
-![101st House — GGUM θ vs DW-NOMINATE dim-1](/uploads/ggum-congress/plots/H101-ggum-vs-nominate.png)
+![101st House — GGUM θ vs W-NOMINATE dim-1](/uploads/ggum-congress/plots/H101-ggum-vs-nominate.png)
 
 ### Download
 
@@ -23,7 +26,7 @@ GGUM ideal point estimates for the 101st House (members scored: 437 of 445; max 
 
 ### Off-diagonal members
 
-The following 8 members fall more than 2.5σ off the OLS fit of GGUM θ on DW-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
+The following 8 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
 
 | Member | Party | State | nominate | GGUM θ | residual |
 |---|---|---|---|---|---|
@@ -35,5 +38,7 @@ The following 8 members fall more than 2.5σ off the OLS fit of GGUM θ on DW-NO
 | PALLONE | D | NJ | -0.40 | -0.11 | +0.70 |
 | DUNCAN | R | TN | +0.60 | +1.10 | -0.64 |
 | STUMP | R | AZ | +0.70 | +2.60 | +0.61 |
+
+
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)

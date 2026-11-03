@@ -7,15 +7,18 @@ summary: "GGUM θ for the 119th House. 444 members scored of 452; max PSRF 1.017
 tags:
   - House
   - GGUM
+profile: false
+build:
+  list: never
 image:
   caption: "119th House scatter"
   focal_point: ""
-  preview_only: false
+  preview_only: true
 ---
 
 GGUM ideal point estimates for the 119th House (members scored: 444 of 452; max PSRF: 1.017).
 
-![119th House — GGUM θ vs DW-NOMINATE dim-1](/uploads/ggum-congress/plots/H119-ggum-vs-nominate.png)
+![119th House — GGUM θ vs W-NOMINATE dim-1](/uploads/ggum-congress/plots/H119-ggum-vs-nominate.png)
 
 ### Download
 
@@ -23,7 +26,7 @@ GGUM ideal point estimates for the 119th House (members scored: 444 of 452; max 
 
 ### Off-diagonal members
 
-The following 12 members fall more than 2.5σ off the OLS fit of GGUM θ on DW-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
+The following 12 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
 
 | Member | Party | State | nominate | GGUM θ | residual |
 |---|---|---|---|---|---|
@@ -39,5 +42,7 @@ The following 12 members fall more than 2.5σ off the OLS fit of GGUM θ on DW-N
 | MCCORMICK | R | GA | +0.89 | +1.90 | -0.93 |
 | SMITH | R | NJ | +0.18 | +1.12 | +0.88 |
 | MOYLAN | R | GU | +0.33 | -0.04 | -0.81 |
+
+
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)

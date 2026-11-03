@@ -7,15 +7,18 @@ summary: "GGUM θ for the 112th House. 437 members scored of 445; max PSRF 1.006
 tags:
   - House
   - GGUM
+profile: false
+build:
+  list: never
 image:
   caption: "112th House scatter"
   focal_point: ""
-  preview_only: false
+  preview_only: true
 ---
 
 GGUM ideal point estimates for the 112th House (members scored: 437 of 445; max PSRF: 1.006).
 
-![112th House — GGUM θ vs DW-NOMINATE dim-1](/uploads/ggum-congress/plots/H112-ggum-vs-nominate.png)
+![112th House — GGUM θ vs W-NOMINATE dim-1](/uploads/ggum-congress/plots/H112-ggum-vs-nominate.png)
 
 ### Download
 
@@ -23,7 +26,7 @@ GGUM ideal point estimates for the 112th House (members scored: 437 of 445; max 
 
 ### Off-diagonal members
 
-The following 10 members fall more than 2.5σ off the OLS fit of GGUM θ on DW-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
+The following 10 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
 
 | Member | Party | State | nominate | GGUM θ | residual |
 |---|---|---|---|---|---|
@@ -37,5 +40,7 @@ The following 10 members fall more than 2.5σ off the OLS fit of GGUM θ on DW-N
 | GREEN | D | TX | -0.45 | -1.02 | +0.55 |
 | COSTELLO | D | IL | -0.32 | -0.62 | +0.54 |
 | BOREN | D | OK | -0.11 | -0.01 | +0.53 |
+
+
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)

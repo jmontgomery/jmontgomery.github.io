@@ -7,15 +7,18 @@ summary: "GGUM θ for the 110th House. 448 members scored of 453; max PSRF 1.028
 tags:
   - House
   - GGUM
+profile: false
+build:
+  list: never
 image:
   caption: "110th House scatter"
   focal_point: ""
-  preview_only: false
+  preview_only: true
 ---
 
 GGUM ideal point estimates for the 110th House (members scored: 448 of 453; max PSRF: 1.028).
 
-![110th House — GGUM θ vs DW-NOMINATE dim-1](/uploads/ggum-congress/plots/H110-ggum-vs-nominate.png)
+![110th House — GGUM θ vs W-NOMINATE dim-1](/uploads/ggum-congress/plots/H110-ggum-vs-nominate.png)
 
 ### Download
 
@@ -23,7 +26,7 @@ GGUM ideal point estimates for the 110th House (members scored: 448 of 453; max 
 
 ### Off-diagonal members
 
-The following 14 members fall more than 2.5σ off the OLS fit of GGUM θ on DW-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
+The following 14 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
 
 | Member | Party | State | nominate | GGUM θ | residual |
 |---|---|---|---|---|---|
@@ -41,5 +44,7 @@ The following 14 members fall more than 2.5σ off the OLS fit of GGUM θ on DW-N
 | BLUMENAUER | D | OR | -0.43 | -1.99 | -0.54 |
 | WYNN | D | MD | -0.38 | -1.83 | -0.54 |
 | GOHMERT | R | TX | +0.64 | +1.75 | -0.52 |
+
+
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)

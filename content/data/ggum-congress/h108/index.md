@@ -7,15 +7,18 @@ summary: "GGUM θ for the 108th House. 439 members scored of 440; max PSRF 1.020
 tags:
   - House
   - GGUM
+profile: false
+build:
+  list: never
 image:
   caption: "108th House scatter"
   focal_point: ""
-  preview_only: false
+  preview_only: true
 ---
 
 GGUM ideal point estimates for the 108th House (members scored: 439 of 440; max PSRF: 1.020).
 
-![108th House — GGUM θ vs DW-NOMINATE dim-1](/uploads/ggum-congress/plots/H108-ggum-vs-nominate.png)
+![108th House — GGUM θ vs W-NOMINATE dim-1](/uploads/ggum-congress/plots/H108-ggum-vs-nominate.png)
 
 ### Download
 
@@ -23,7 +26,7 @@ GGUM ideal point estimates for the 108th House (members scored: 439 of 440; max 
 
 ### Off-diagonal members
 
-The following 7 members fall more than 2.5σ off the OLS fit of GGUM θ on DW-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
+The following 7 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
 
 | Member | Party | State | nominate | GGUM θ | residual |
 |---|---|---|---|---|---|
@@ -34,5 +37,7 @@ The following 7 members fall more than 2.5σ off the OLS fit of GGUM θ on DW-NO
 | BUTTERFIELD | D | NC | -0.40 | -0.87 | +0.54 |
 | KLECZKA | D | WI | -0.32 | -1.66 | -0.52 |
 | SCOTT | D | GA | -0.30 | -0.58 | +0.51 |
+
+
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)

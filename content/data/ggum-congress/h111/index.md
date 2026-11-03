@@ -7,15 +7,18 @@ summary: "GGUM θ for the 111th House. 447 members scored of 454; max PSRF 1.056
 tags:
   - House
   - GGUM
+profile: false
+build:
+  list: never
 image:
   caption: "111th House scatter"
   focal_point: ""
-  preview_only: false
+  preview_only: true
 ---
 
 GGUM ideal point estimates for the 111th House (members scored: 447 of 454; max PSRF: 1.056).
 
-![111th House — GGUM θ vs DW-NOMINATE dim-1](/uploads/ggum-congress/plots/H111-ggum-vs-nominate.png)
+![111th House — GGUM θ vs W-NOMINATE dim-1](/uploads/ggum-congress/plots/H111-ggum-vs-nominate.png)
 
 ### Download
 
@@ -23,7 +26,7 @@ GGUM ideal point estimates for the 111th House (members scored: 447 of 454; max 
 
 ### Off-diagonal members
 
-The following 7 members fall more than 2.5σ off the OLS fit of GGUM θ on DW-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
+The following 7 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
 
 | Member | Party | State | nominate | GGUM θ | residual |
 |---|---|---|---|---|---|
@@ -34,5 +37,7 @@ The following 7 members fall more than 2.5σ off the OLS fit of GGUM θ on DW-NO
 | GARAMENDI | D | CA | -0.31 | -1.31 | -0.49 |
 | CRITZ | D | PA | -0.33 | -0.38 | +0.49 |
 | DeFAZIO | D | OR | -0.43 | -0.70 | +0.48 |
+
+
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)

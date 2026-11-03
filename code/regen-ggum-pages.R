@@ -39,6 +39,32 @@ dv_cfg_path <- file.path(SITE, "data/ggum_dataverse.yaml")
 dv <- yaml::read_yaml(dv_cfg_path)
 has_dataverse <- !is.null(dv$dataset_doi) && nzchar(dv$dataset_doi)
 
+## ---- Load plot-dropout list (members excluded from scatter + off-diag) -----
+dropouts_path <- file.path(SITE, "data/ggum_plot_dropouts.yaml")
+dropouts <- if (file.exists(dropouts_path)) yaml::read_yaml(dropouts_path) else list()
+chamber_dropouts <- function(tag) {
+    v <- dropouts[[tag]]
+    if (is.null(v)) integer(0) else as.integer(v)
+}
+
+## ---- Load worry notes (chamber-specific caveats about implausible fits) ----
+worry_path <- file.path(SITE, "data/ggum_worry_notes.yaml")
+worry <- if (file.exists(worry_path)) yaml::read_yaml(worry_path) else list()
+chamber_worry_block <- function(tag, mem_df) {
+    entries <- worry[[tag]]
+    if (is.null(entries) || length(entries) == 0) return("")
+    lines <- character(0)
+    lines <- c(lines, "", "### Noted concerns",
+               "", paste("The following GGUM placements in this chamber conflict",
+                         "with external records and should be interpreted with caution:"))
+    for (e in entries) {
+        mrow <- subset(mem_df, icpsr == as.integer(e$icpsr))
+        name <- if (nrow(mrow) > 0) sub(",.*", "", mrow$bioname[1]) else sprintf("icpsr %s", e$icpsr)
+        lines <- c(lines, "", sprintf("- **%s.** %s", name, e$note))
+    }
+    paste(lines, collapse = "\n")
+}
+
 ## Return the right download URL for a given filename, with fallback.
 dl_url <- function(filename) {
     if (!is.null(dv$files) && !is.null(dv$files[[filename]]) &&
@@ -72,6 +98,10 @@ for (i in seq_len(nrow(meta))) {
     r <- meta[i, ]; tag <- r$tag; ord <- ordinal(r$congress)
     d <- read.csv(files[i])
     d_fit <- d[!is.na(d$ggum_theta) & !is.na(d$nominate_dim1), ]
+    drop_ids <- chamber_dropouts(tag)
+    if (length(drop_ids)) {
+        d_fit <- d_fit[!(d_fit$icpsr %in% drop_ids), ]
+    }
     fit <- lm(ggum_theta ~ nominate_dim1, data = d_fit)
     d_fit$resid <- resid(fit)
     thresh <- 2.5 * sd(d_fit$resid)
@@ -83,7 +113,7 @@ for (i in seq_len(nrow(meta))) {
       sprintf("GGUM ideal point estimates for the %s %s (members scored: %d of %d; max PSRF: %.3f).",
               ord, r$chamber, r$scored, r$total, r$max_psrf),
       "",
-      sprintf("![%s %s — GGUM θ vs DW-NOMINATE dim-1](/uploads/ggum-congress/plots/%s-ggum-vs-nominate.png)",
+      sprintf("![%s %s — GGUM θ vs W-NOMINATE dim-1](/uploads/ggum-congress/plots/%s-ggum-vs-nominate.png)",
               ord, r$chamber, tag),
       "",
       "### Download",
@@ -94,9 +124,9 @@ for (i in seq_len(nrow(meta))) {
       "### Off-diagonal members",
       "",
       if (nrow(outl) == 0) {
-          "No members fall more than 2.5σ off the OLS fit of GGUM θ on DW-NOMINATE dim-1. GGUM and NOMINATE agree closely for this chamber."
+          "No members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1. GGUM and NOMINATE agree closely for this chamber."
       } else {
-          c(sprintf("The following %d members fall more than 2.5σ off the OLS fit of GGUM θ on DW-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.",
+          c(sprintf("The following %d members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.",
                     nrow(outl)),
             "",
             "| Member | Party | State | nominate | GGUM θ | residual |",
@@ -109,6 +139,8 @@ for (i in seq_len(nrow(meta))) {
                            outl$nominate_dim1, outl$ggum_theta, outl$resid),
                    collapse = "\n"))
       },
+      "",
+      chamber_worry_block(tag, d),
       "",
       "[&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)"
     ), collapse = "\n")
@@ -124,9 +156,11 @@ for (i in seq_len(nrow(meta))) {
       "\"\n",
       "tags:\n",
       sprintf("  - %s\n  - GGUM\n", r$chamber),
+      "profile: false\n",
+      "build:\n  list: never\n",
       "image:\n",
       sprintf("  caption: \"%s %s scatter\"\n", ord, r$chamber),
-      "  focal_point: \"\"\n  preview_only: false\n---\n\n")
+      "  focal_point: \"\"\n  preview_only: true\n---\n\n")
 
     out_dir <- file.path(PARENT, tolower(tag))
     dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
@@ -223,13 +257,14 @@ authors:
 date: "2026-10-15"
 show_date: false
 reading_time: false
-summary: "GGUM-based ideal point estimates for every member of the US House and Senate, Congresses 100 to 119.  Paired with Voteview member metadata so the files merge directly into existing DW-NOMINATE workflows."
-abstract: "We release GGUM (Generalized Graded Unfolding Model) ideal point estimates for every member of the US House and Senate, Congresses 100 through 119, paired with Voteview member metadata.  Unlike monotonic scaling methods like DW-NOMINATE, GGUM separates legislators who vote with their party-line extremes from those who vote-no-from-the-flank for antithetical reasons.  37 of 40 chamber-fits are included in this initial release; three House chambers from the late 1980s and early 1990s are being refit with NOMINATE-seeded initial values and will be added once verified."
+profile: false
+summary: "GGUM-based ideal point estimates for every member of the US House and Senate, Congresses 100 to 119.  Paired with Voteview member metadata so the files merge directly into existing W-NOMINATE workflows."
+abstract: "We release GGUM (Generalized Graded Unfolding Model) ideal point estimates for every member of the US House and Senate, Congresses 100 through 119, paired with Voteview member metadata.  GGUM is designed to separate legislators who vote with their party-line extremes from those who vote no from the ideological flank for antithetical reasons -- a distinction that standard one-dimensional scalings tend to blur together.  All 40 chamber-level fits meet a Gelman-Rubin convergence threshold of PSRF < 1.1 for every scored legislator."
 tags:
   - Measurement/Surveys
   - Bayesian Statistics
 image:
-  caption: "H119 - GGUM theta vs DW-NOMINATE dim-1"
+  caption: "H119 - GGUM theta vs W-NOMINATE dim-1"
   focal_point: ""
   preview_only: false
 links:
@@ -249,7 +284,7 @@ if (has_dataverse) {
 frontmatter <- paste0(frontmatter, links_block, "---\n\n", archive_badge)
 
 writeLines(paste0(frontmatter, body),
-           file.path(PARENT, "index.md"))
+           file.path(PARENT, "_index.md"))
 
 message(sprintf("Wrote master page + %d chamber sub-pages", nrow(meta)))
 if (!has_dataverse) {

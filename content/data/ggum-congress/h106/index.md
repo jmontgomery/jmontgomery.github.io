@@ -7,15 +7,18 @@ summary: "GGUM θ for the 106th House. 437 members scored of 440; max PSRF 1.011
 tags:
   - House
   - GGUM
+profile: false
+build:
+  list: never
 image:
   caption: "106th House scatter"
   focal_point: ""
-  preview_only: false
+  preview_only: true
 ---
 
 GGUM ideal point estimates for the 106th House (members scored: 437 of 440; max PSRF: 1.011).
 
-![106th House — GGUM θ vs DW-NOMINATE dim-1](/uploads/ggum-congress/plots/H106-ggum-vs-nominate.png)
+![106th House — GGUM θ vs W-NOMINATE dim-1](/uploads/ggum-congress/plots/H106-ggum-vs-nominate.png)
 
 ### Download
 
@@ -23,7 +26,7 @@ GGUM ideal point estimates for the 106th House (members scored: 437 of 440; max 
 
 ### Off-diagonal members
 
-The following 7 members fall more than 2.5σ off the OLS fit of GGUM θ on DW-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
+The following 7 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
 
 | Member | Party | State | nominate | GGUM θ | residual |
 |---|---|---|---|---|---|
@@ -34,5 +37,7 @@ The following 7 members fall more than 2.5σ off the OLS fit of GGUM θ on DW-NO
 | SANFORD | R | SC | +0.69 | +2.39 | +0.60 |
 | DeFAZIO | D | OR | -0.43 | -1.85 | -0.53 |
 | POMBO | R | CA | +0.46 | +1.68 | +0.52 |
+
+
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)

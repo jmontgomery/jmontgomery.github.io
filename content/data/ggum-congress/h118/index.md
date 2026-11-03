@@ -7,15 +7,18 @@ summary: "GGUM θ for the 118th House. 448 members scored of 451; max PSRF 1.022
 tags:
   - House
   - GGUM
+profile: false
+build:
+  list: never
 image:
   caption: "118th House scatter"
   focal_point: ""
-  preview_only: false
+  preview_only: true
 ---
 
 GGUM ideal point estimates for the 118th House (members scored: 448 of 451; max PSRF: 1.022).
 
-![118th House — GGUM θ vs DW-NOMINATE dim-1](/uploads/ggum-congress/plots/H118-ggum-vs-nominate.png)
+![118th House — GGUM θ vs W-NOMINATE dim-1](/uploads/ggum-congress/plots/H118-ggum-vs-nominate.png)
 
 ### Download
 
@@ -23,7 +26,7 @@ GGUM ideal point estimates for the 118th House (members scored: 448 of 451; max 
 
 ### Off-diagonal members
 
-The following 15 members fall more than 2.5σ off the OLS fit of GGUM θ on DW-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
+The following 15 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
 
 | Member | Party | State | nominate | GGUM θ | residual |
 |---|---|---|---|---|---|
@@ -42,5 +45,7 @@ The following 15 members fall more than 2.5σ off the OLS fit of GGUM θ on DW-N
 | GONZALEZ | D | TX | -0.39 | -1.12 | +0.96 |
 | PORTER | D | CA | -0.24 | -2.44 | -0.94 |
 | MASSIE | R | KY | +0.65 | +2.83 | +0.91 |
+
+
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)

@@ -7,15 +7,18 @@ summary: "GGUM θ for the 113th Senate. 103 members scored of 105; max PSRF 1.02
 tags:
   - Senate
   - GGUM
+profile: false
+build:
+  list: never
 image:
   caption: "113th Senate scatter"
   focal_point: ""
-  preview_only: false
+  preview_only: true
 ---
 
 GGUM ideal point estimates for the 113th Senate (members scored: 103 of 105; max PSRF: 1.021).
 
-![113th Senate — GGUM θ vs DW-NOMINATE dim-1](/uploads/ggum-congress/plots/S113-ggum-vs-nominate.png)
+![113th Senate — GGUM θ vs W-NOMINATE dim-1](/uploads/ggum-congress/plots/S113-ggum-vs-nominate.png)
 
 ### Download
 
@@ -23,11 +26,13 @@ GGUM ideal point estimates for the 113th Senate (members scored: 103 of 105; max
 
 ### Off-diagonal members
 
-The following 2 members fall more than 2.5σ off the OLS fit of GGUM θ on DW-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
+The following 2 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
 
 | Member | Party | State | nominate | GGUM θ | residual |
 |---|---|---|---|---|---|
 | FLAKE | R | AZ | +0.85 | +1.77 | -1.71 |
 | WARREN | D | MA | -0.74 | -1.47 | +0.96 |
+
+
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)

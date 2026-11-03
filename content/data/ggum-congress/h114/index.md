@@ -7,15 +7,18 @@ summary: "GGUM θ for the 114th House. 435 members scored of 441; max PSRF 1.017
 tags:
   - House
   - GGUM
+profile: false
+build:
+  list: never
 image:
   caption: "114th House scatter"
   focal_point: ""
-  preview_only: false
+  preview_only: true
 ---
 
 GGUM ideal point estimates for the 114th House (members scored: 435 of 441; max PSRF: 1.017).
 
-![114th House — GGUM θ vs DW-NOMINATE dim-1](/uploads/ggum-congress/plots/H114-ggum-vs-nominate.png)
+![114th House — GGUM θ vs W-NOMINATE dim-1](/uploads/ggum-congress/plots/H114-ggum-vs-nominate.png)
 
 ### Download
 
@@ -23,7 +26,7 @@ GGUM ideal point estimates for the 114th House (members scored: 435 of 441; max 
 
 ### Off-diagonal members
 
-The following 7 members fall more than 2.5σ off the OLS fit of GGUM θ on DW-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
+The following 7 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOMINATE dim-1.  Common pattern: members who vote against their own party's bills from the ideological flank.
 
 | Member | Party | State | nominate | GGUM θ | residual |
 |---|---|---|---|---|---|
@@ -34,5 +37,7 @@ The following 7 members fall more than 2.5σ off the OLS fit of GGUM θ on DW-NO
 | PETERSON | D | MN | -0.15 | -0.33 | +0.54 |
 | HURD | R | TX | +0.29 | +1.14 | +0.52 |
 | HICE | R | GA | +0.80 | +1.86 | -0.51 |
+
+
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)
