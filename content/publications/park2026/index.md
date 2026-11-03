@@ -6,8 +6,8 @@ title: 'Toward a Framework for Creating Trustworthy Measures with Supervised Mac
 authors:
   - Ju Yeon Park
   - Jacob M. Montgomery
-date: '2025-09-29'
-publishDate: '2025-09-29'
+date: '2026-10-01'
+publishDate: '2026-10-01'
 publication_types:
   - article-journal
 publication:
