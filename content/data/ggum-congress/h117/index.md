@@ -44,6 +44,13 @@ The following 12 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NO
 | AUCHINCLOSS | D | MA | -0.27 | -1.81 | -0.83 |
 
 
+### Placements worth a second look
+
+GGUM's placement of the following members differs from what their established political reputations might lead a reader to expect.  We draw attention to these cases so that researchers can consider them before using the estimates for a particular analysis; we are not alleging error.
+
+- **COOPER.** Jim Cooper is commonly viewed as a longtime Blue Dog Democrat, frequently cited as among the most conservative House Democrats of his era.  GGUM places him solidly within the progressive range of the chamber.
+
+- **TORRES.** Torres has publicly distinguished himself from the chamber's Squad/AOC wing as a pragmatic, more centrist progressive.  GGUM places him near the extreme-left end of the chamber.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)
 

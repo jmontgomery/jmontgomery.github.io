@@ -34,6 +34,11 @@ The following 2 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOM
 | PRESSLER | R | SD | +0.21 | +1.40 | +0.54 |
 
 
+### Placements worth a second look
+
+GGUM's placement of the following members differs from what their established political reputations might lead a reader to expect.  We draw attention to these cases so that researchers can consider them before using the estimates for a particular analysis; we are not alleging error.
+
+- **DOLE.** Dole is commonly viewed as a Senate Republican leader and institutional dealmaker.  GGUM places him among the twenty most conservative senators in this Congress.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)
 

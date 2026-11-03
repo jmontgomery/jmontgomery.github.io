@@ -35,9 +35,9 @@ The following 3 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOM
 | FLAKE | R | AZ | +0.85 | +1.86 | -0.88 |
 
 
-### Noted concerns
+### Placements worth a second look
 
-The following GGUM placements in this chamber conflict with external records and should be interpreted with caution:
+GGUM's placement of the following members differs from what their established political reputations might lead a reader to expect.  We draw attention to these cases so that researchers can consider them before using the estimates for a particular analysis; we are not alleging error.
 
 - **GILLIBRAND.** Gillibrand is commonly viewed as a mainstream progressive Democrat.  GGUM places her near the extreme-left end of this chamber's range, 2nd-most-left of 104 senators and among the most left-leaning placements in the full 40-chamber release.
 

@@ -47,9 +47,9 @@ The following 15 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NO
 | MORAN | R | KS | +0.41 | +1.96 | +0.76 |
 
 
-### Noted concerns
+### Placements worth a second look
 
-The following GGUM placements in this chamber conflict with external records and should be interpreted with caution:
+GGUM's placement of the following members differs from what their established political reputations might lead a reader to expect.  We draw attention to these cases so that researchers can consider them before using the estimates for a particular analysis; we are not alleging error.
 
 - **RAMSTAD.** Ramstad is commonly viewed as a moderate, pro-choice Republican.  GGUM places him near the extreme-right pole.
 
@@ -58,6 +58,18 @@ The following GGUM placements in this chamber conflict with external records and
 - **ENGLISH.** English is commonly viewed as a moderate Republican.  GGUM places him near the extreme-right pole.
 
 - **WELLER.** Weller is commonly viewed as a mainstream Republican.  GGUM places him near the extreme-right pole.
+
+- **LATHAM.** Latham is commonly viewed as a pragmatic, appropriations-focused Iowa Republican.  GGUM places him near the top of the chamber's conservative range in this Congress, well above his usual placement in surrounding Congresses.
+
+- **SWEENEY.** Sweeney is commonly viewed as a mainstream upstate New York Republican.  GGUM places him near the top of the chamber's conservative range in this Congress, an outlier among his terms.
+
+- **GILLMOR.** Gillmor is commonly viewed as a low-profile institutionalist Ohio Republican.  GGUM places him near the top of the chamber's conservative range in this Congress, an outlier among his terms.
+
+- **THOMPSON.** Thompson is commonly viewed as a centrist Blue Dog Democrat from a competitive North Coast California seat.  GGUM places him near the bottom of the chamber's liberal range in this Congress, an outlier among his terms.
+
+- **STUPAK.** Stupak is commonly viewed as a centrist, Blue Dog-aligned Michigan Democrat.  GGUM places him near the bottom of the chamber's liberal range in this Congress, an outlier among his terms.
+
+- **COSTELLO.** Costello is commonly viewed as a moderate Illinois Democrat from a swing downstate district.  GGUM places him near the bottom of the chamber's liberal range in this Congress, an outlier among his terms.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)
 

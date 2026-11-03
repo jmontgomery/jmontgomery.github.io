@@ -36,9 +36,9 @@ The following 4 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOM
 | ASHCROFT | R | MO | +0.54 | +0.95 | -0.47 |
 
 
-### Noted concerns
+### Placements worth a second look
 
-The following GGUM placements in this chamber conflict with external records and should be interpreted with caution:
+GGUM's placement of the following members differs from what their established political reputations might lead a reader to expect.  We draw attention to these cases so that researchers can consider them before using the estimates for a particular analysis; we are not alleging error.
 
 - **MILLER.** Miller is commonly viewed as one of the most conservative Democrats in the modern Senate (he endorsed George W. Bush and keynoted the 2004 Republican National Convention).  GGUM places him to the left of the Senate median.
 

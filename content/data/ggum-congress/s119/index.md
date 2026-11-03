@@ -36,9 +36,9 @@ The following 4 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOM
 | SCHMITT | R | MO | +0.88 | +1.81 | -1.19 |
 
 
-### Noted concerns
+### Placements worth a second look
 
-The following GGUM placements in this chamber conflict with external records and should be interpreted with caution:
+GGUM's placement of the following members differs from what their established political reputations might lead a reader to expect.  We draw attention to these cases so that researchers can consider them before using the estimates for a particular analysis; we are not alleging error.
 
 - **HAWLEY.** Hawley is commonly viewed as a strongly conservative Republican.  GGUM places him toward the moderate end of the Republican range in this chamber, 6th-least-conservative of 54 Republicans.
 

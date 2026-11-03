@@ -33,6 +33,11 @@ The following 1 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOM
 | WARREN | D | MA | -0.74 | -1.93 | +0.86 |
 
 
+### Placements worth a second look
+
+GGUM's placement of the following members differs from what their established political reputations might lead a reader to expect.  We draw attention to these cases so that researchers can consider them before using the estimates for a particular analysis; we are not alleging error.
+
+- **HOEVEN.** Hoeven is commonly viewed as a pragmatic, deal-making former governor and appropriator, with a low-key institutionalist profile.  GGUM places him at an extreme-conservative tier.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)
 

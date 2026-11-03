@@ -34,6 +34,11 @@ The following 2 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOM
 | WARREN | D | MA | -0.74 | -1.47 | +0.96 |
 
 
+### Placements worth a second look
+
+GGUM's placement of the following members differs from what their established political reputations might lead a reader to expect.  We draw attention to these cases so that researchers can consider them before using the estimates for a particular analysis; we are not alleging error.
+
+- **ROBERTS.** Pat Roberts is commonly viewed as a low-key, institutionalist Agriculture Committee chair, not a movement ideologue.  GGUM places him among the chamber's most extreme conservatives, rivaling Cruz and Lee in GGUM score.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)
 

@@ -54,9 +54,12 @@ chamber_worry_block <- function(tag, mem_df) {
     entries <- worry[[tag]]
     if (is.null(entries) || length(entries) == 0) return("")
     lines <- character(0)
-    lines <- c(lines, "", "### Noted concerns",
-               "", paste("The following GGUM placements in this chamber conflict",
-                         "with external records and should be interpreted with caution:"))
+    lines <- c(lines, "", "### Placements worth a second look",
+               "", paste("GGUM's placement of the following members differs from",
+                         "what their established political reputations might lead a",
+                         "reader to expect.  We draw attention to these cases so that",
+                         "researchers can consider them before using the estimates",
+                         "for a particular analysis; we are not alleging error."))
     for (e in entries) {
         mrow <- subset(mem_df, icpsr == as.integer(e$icpsr))
         name <- if (nrow(mrow) > 0) sub(",.*", "", mrow$bioname[1]) else sprintf("icpsr %s", e$icpsr)
@@ -257,7 +260,7 @@ body_template <- paste(c(
   "",
   "### Known limitations",
   "",
-  "For some members in some Congresses, the GGUM estimates may not make more sense than traditional models such as W-NOMINATE.  The Senate Majority Leader is the one systematic case: the procedural voting that comes with the leadership role distorts the estimate, and we have excluded Harry Reid from the fit for the 110th, 111th, and 114th Senates (his rows carry `ggum_flag = procedural_role`).  Other flagged cases are each unique to their chamber; the specific concerns are listed on the sub-page for each affected chamber.",
+  "For some members in some Congresses, the GGUM estimates may not make more sense than traditional models such as W-NOMINATE.  The Senate Majority Leader is the one systematic case: the procedural voting that comes with the leadership role distorts the estimate, and we have excluded Harry Reid from the fit for the 110th, 111th, and 114th Senates (his rows carry `ggum_flag = procedural_role`).  For other members, we flag individual placements that differ from what the member's established political reputation might lead a reader to expect; these appear with `ggum_flag = review` in the CSV and are listed on each affected chamber's sub-page under \"Placements worth a second look.\"  We are drawing attention to these cases, not alleging error.",
   "",
   "### Codebook",
   "",

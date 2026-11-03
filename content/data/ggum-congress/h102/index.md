@@ -42,9 +42,9 @@ The following 10 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NO
 | MFUME | D | MD | -0.44 | -1.72 | -0.65 |
 
 
-### Noted concerns
+### Placements worth a second look
 
-The following GGUM placements in this chamber conflict with external records and should be interpreted with caution:
+GGUM's placement of the following members differs from what their established political reputations might lead a reader to expect.  We draw attention to these cases so that researchers can consider them before using the estimates for a particular analysis; we are not alleging error.
 
 - **SIKORSKI.** Sikorski is commonly viewed as a mainstream Minnesota liberal.  GGUM places him at the extreme-left pole, left of Bernie Sanders in this chamber.
 

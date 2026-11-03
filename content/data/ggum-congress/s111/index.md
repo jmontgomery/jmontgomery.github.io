@@ -33,11 +33,13 @@ The following 1 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOM
 | FEINGOLD | D | WI | -0.31 | -0.36 | +0.70 |
 
 
-### Noted concerns
+### Placements worth a second look
 
-The following GGUM placements in this chamber conflict with external records and should be interpreted with caution:
+GGUM's placement of the following members differs from what their established political reputations might lead a reader to expect.  We draw attention to these cases so that researchers can consider them before using the estimates for a particular analysis; we are not alleging error.
 
 - **FEINGOLD.** Feingold is commonly viewed as one of the most liberal members of the Senate.  GGUM places him near the Senate center in this chamber, breaking his pattern in surrounding Congresses.
+
+- **McCAIN.** McCain is commonly viewed as a self-styled maverick and repeat cross-party dealmaker.  GGUM places him among the twenty most conservative senators in this Congress.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)
 

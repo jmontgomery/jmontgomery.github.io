@@ -39,6 +39,13 @@ The following 7 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOM
 | HICE | R | GA | +0.80 | +1.86 | -0.51 |
 
 
+### Placements worth a second look
+
+GGUM's placement of the following members differs from what their established political reputations might lead a reader to expect.  We draw attention to these cases so that researchers can consider them before using the estimates for a particular analysis; we are not alleging error.
+
+- **SMITH.** Smith is commonly viewed as a centrist, defense-hawk Democrat (he was the ranking member on Armed Services).  GGUM places him well toward the chamber's progressive range.
+
+- **HURD.** Hurd is commonly viewed as one of the House GOP's most centrist, cross-party-friendly members.  GGUM places him solidly within the mainstream-conservative range.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)
 

@@ -37,6 +37,11 @@ The following 5 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOM
 | BLUMENAUER | D | OR | -0.43 | -2.17 | -0.70 |
 
 
+### Placements worth a second look
+
+GGUM's placement of the following members differs from what their established political reputations might lead a reader to expect.  We draw attention to these cases so that researchers can consider them before using the estimates for a particular analysis; we are not alleging error.
+
+- **PAUL.** Ron Paul is commonly viewed as the House's defining libertarian-conservative pole for three decades.  GGUM places him near the chamber median in this Congress only; every adjacent term places him among the twenty most conservative House members.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)
 

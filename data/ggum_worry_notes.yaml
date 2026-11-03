@@ -1,13 +1,16 @@
-# Chamber-specific caveats surfaced on the sub-page when a member's GGUM
-# placement conflicts with external records.  Rendered as a "Noted concerns"
-# section under the off-diagonal table on /data/ggum-congress/<tag>/.
-# The regen pipeline also sets `ggum_flag = "review"` in the CSV row for
-# each member listed here.
+# Chamber-specific "placements worth a second look" surfaced on each chamber's
+# sub-page.  For every member listed here, GGUM's placement differs enough from
+# what the member's established political reputation might lead a reader to
+# expect that researchers may want to inspect the case before using the
+# estimate for a particular analysis.  We are drawing attention, not alleging
+# error --- some of these may turn out to be substantively correct once the
+# chamber's roll-call dynamics are considered.
 #
-# Each note is short and descriptive: what the member is commonly viewed as,
-# and where GGUM is placing them.  Every quantitative or comparative claim
-# has been audited against the staged CSV data; see the "data audit" commit
-# for the verification record.
+# Each entry: a short, strictly accurate description of (a) the member's
+# commonly-held reputation and (b) where GGUM places them in this chamber.
+#
+# The regen pipeline also sets `ggum_flag = "review"` in the CSV row for each
+# member listed here.
 
 H102:
   - icpsr: 15059   # SIKORSKI, Gerald Edward (D-MN)
@@ -34,6 +37,38 @@ H107:
     note: "English is commonly viewed as a moderate Republican.  GGUM places him near the extreme-right pole."
   - icpsr: 29516   # WELLER, Gerald C. (Jerry) (R-IL)
     note: "Weller is commonly viewed as a mainstream Republican.  GGUM places him near the extreme-right pole."
+  - icpsr: 29522   # LATHAM, Thomas (R-IA)
+    note: "Latham is commonly viewed as a pragmatic, appropriations-focused Iowa Republican.  GGUM places him near the top of the chamber's conservative range in this Congress, well above his usual placement in surrounding Congresses."
+  - icpsr: 29927   # SWEENEY, John E. (R-NY)
+    note: "Sweeney is commonly viewed as a mainstream upstate New York Republican.  GGUM places him near the top of the chamber's conservative range in this Congress, an outlier among his terms."
+  - icpsr: 15604   # GILLMOR, Paul Eugene (R-OH)
+    note: "Gillmor is commonly viewed as a low-profile institutionalist Ohio Republican.  GGUM places him near the top of the chamber's conservative range in this Congress, an outlier among his terms."
+  - icpsr: 29901   # THOMPSON, Michael (D-CA)
+    note: "Thompson is commonly viewed as a centrist Blue Dog Democrat from a competitive North Coast California seat.  GGUM places him near the bottom of the chamber's liberal range in this Congress, an outlier among his terms."
+  - icpsr: 29360   # STUPAK, Bart T. (D-MI)
+    note: "Stupak is commonly viewed as a centrist, Blue Dog-aligned Michigan Democrat.  GGUM places him near the bottom of the chamber's liberal range in this Congress, an outlier among his terms."
+  - icpsr: 15453   # COSTELLO, Jerry Francis (D-IL)
+    note: "Costello is commonly viewed as a moderate Illinois Democrat from a swing downstate district.  GGUM places him near the bottom of the chamber's liberal range in this Congress, an outlier among his terms."
+
+H109:
+  - icpsr: 14290   # PAUL, Ronald Ernest (R-TX)
+    note: "Ron Paul is commonly viewed as the House's defining libertarian-conservative pole for three decades.  GGUM places him near the chamber median in this Congress only; every adjacent term places him among the twenty most conservative House members."
+
+H114:
+  - icpsr: 29768   # SMITH, Adam (D-WA)
+    note: "Smith is commonly viewed as a centrist, defense-hawk Democrat (he was the ranking member on Armed Services).  GGUM places him well toward the chamber's progressive range."
+  - icpsr: 21550   # HURD, William Ballard (R-TX)
+    note: "Hurd is commonly viewed as one of the House GOP's most centrist, cross-party-friendly members.  GGUM places him solidly within the mainstream-conservative range."
+
+H117:
+  - icpsr: 15019   # COOPER, James Hayes Shofner (D-TN)
+    note: "Jim Cooper is commonly viewed as a longtime Blue Dog Democrat, frequently cited as among the most conservative House Democrats of his era.  GGUM places him solidly within the progressive range of the chamber."
+  - icpsr: 22154   # TORRES, Ritchie (D-NY)
+    note: "Torres has publicly distinguished himself from the chamber's Squad/AOC wing as a pragmatic, more centrist progressive.  GGUM places him near the extreme-left end of the chamber."
+
+H119:
+  - icpsr: 21919   # FLETCHER, Elizabeth (Lizzie) (D-TX)
+    note: "Fletcher is commonly viewed as a pragmatic, swing-district Houston-area moderate Democrat.  GGUM places her near the chamber's left floor in this Congress, breaking her pattern in surrounding terms."
 
 H115:
   - icpsr: 29768   # SMITH, Adam (D-WA)
@@ -43,13 +78,43 @@ H115:
   - icpsr: 21191   # GRIFFITH, H. Morgan (R-VA)
     note: "Griffith is commonly viewed as a mainstream conservative Republican.  GGUM places him at the extreme-right pole."
 
+S100:
+  - icpsr: 7638    # PROXMIRE, William (D-WI)
+    note: "Proxmire is commonly viewed as an iconic Senate liberal maverick of his era (founder of the Golden Fleece Award), consistently rated among the chamber's most liberal members.  GGUM places him near the chamber median despite his having the single most liberal DW-NOMINATE score of any senator in this Congress."
+
+S102:
+  - icpsr: 10513   # DOLE, Robert Joseph (Bob) (R-KS)
+    note: "Dole is commonly viewed as a Senate Republican leader and institutional dealmaker who ran for president as a pragmatic centrist.  GGUM places him among the twenty most conservative senators in this Congress."
+  - icpsr: 14009   # COCHRAN, William Thad (R-MS)
+    note: "Cochran is commonly viewed as a mainstream appropriator, later primaried from the right in 2014 for being insufficiently conservative.  GGUM places him as the single most conservative senator in this Congress."
+
+S103:
+  - icpsr: 10513   # DOLE, Robert Joseph (Bob) (R-KS)
+    note: "Dole is commonly viewed as a Senate Republican leader and institutional dealmaker.  GGUM places him among the twenty most conservative senators in this Congress."
+
+S104:
+  - icpsr: 15039   # McCAIN, John Sidney, III (R-AZ)
+    note: "McCain is commonly viewed as a self-styled maverick and repeat cross-party dealmaker (co-sponsor of McCain-Feingold campaign-finance reform).  GGUM places him among the twenty most conservative senators in this Congress."
+
 S106:
   - icpsr: 49904   # MILLER, Zell Bryan (D-GA)
     note: "Miller is commonly viewed as one of the most conservative Democrats in the modern Senate (he endorsed George W. Bush and keynoted the 2004 Republican National Convention).  GGUM places him to the left of the Senate median."
 
+S108:
+  - icpsr: 29566   # GRAHAM, Lindsey O. (R-SC)
+    note: "Graham is commonly viewed as a Gang-of-14 bipartisan dealmaker who co-sponsored climate legislation with McCain and Lieberman around this period.  GGUM places him as the third-most conservative senator in this Congress."
+  - icpsr: 1366    # BYRD, Robert Carlyle (D-WV)
+    note: "Byrd is commonly viewed as a long-tenured West Virginia institutionalist, not among the chamber's most liberal members.  GGUM places him at the left floor in this Congress only; adjacent terms place him in the mid-30s/40s percentile."
+
 S111:
   - icpsr: 49309   # FEINGOLD, Russell D. (D-WI)
     note: "Feingold is commonly viewed as one of the most liberal members of the Senate.  GGUM places him near the Senate center in this chamber, breaking his pattern in surrounding Congresses."
+  - icpsr: 15039   # McCAIN, John Sidney, III (R-AZ)
+    note: "McCain is commonly viewed as a self-styled maverick and repeat cross-party dealmaker.  GGUM places him among the twenty most conservative senators in this Congress."
+
+S113:
+  - icpsr: 14852   # ROBERTS, Charles Patrick (Pat) (R-KS)
+    note: "Pat Roberts is commonly viewed as a low-key, institutionalist Agriculture Committee chair, not a movement ideologue.  GGUM places him among the chamber's most extreme conservatives, rivaling Cruz and Lee in GGUM score."
 
 S115:
   - icpsr: 20735   # GILLIBRAND, Kirsten (D-NY)
@@ -62,6 +127,16 @@ S116:
     note: "Klobuchar is commonly viewed as a centrist Democrat.  GGUM places her near the extreme-left pole in this chamber, 7th-most-left of 101 senators, though less extreme than several further-left colleagues."
   - icpsr: 41902   # ROMNEY, Willard Mitt (Mitt) (R-UT)
     note: "Romney is commonly viewed as a moderate Republican.  GGUM places him in the middle of the Republican range in this chamber, close to the median of 54 Republicans rather than toward either pole."
+
+S117:
+  - icpsr: 15015   # CARPER, Thomas Richard (D-DE)
+    note: "Carper is commonly viewed as one of the Senate's most consistently cited centrist/moderate Democrats.  GGUM places him solidly within the chamber's progressive range."
+  - icpsr: 20101   # BOOZMAN, John (R-AR)
+    note: "Boozman is commonly viewed as a quiet, standard-conservative Arkansas senator, not a national ideologue.  GGUM places him among the chamber's most extreme conservatives."
+
+S118:
+  - icpsr: 41107   # HOEVEN, John (R-ND)
+    note: "Hoeven is commonly viewed as a pragmatic, deal-making former governor and appropriator, with a low-key institutionalist profile.  GGUM places him at an extreme-conservative tier."
 
 S119:
   - icpsr: 41901   # HAWLEY, Joshua David (R-MO)

@@ -33,6 +33,13 @@ The following 1 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOM
 | WARREN | D | MA | -0.74 | -1.99 | +0.95 |
 
 
+### Placements worth a second look
+
+GGUM's placement of the following members differs from what their established political reputations might lead a reader to expect.  We draw attention to these cases so that researchers can consider them before using the estimates for a particular analysis; we are not alleging error.
+
+- **CARPER.** Carper is commonly viewed as one of the Senate's most consistently cited centrist/moderate Democrats.  GGUM places him solidly within the chamber's progressive range.
+
+- **BOOZMAN.** Boozman is commonly viewed as a quiet, standard-conservative Arkansas senator, not a national ideologue.  GGUM places him among the chamber's most extreme conservatives.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)
 

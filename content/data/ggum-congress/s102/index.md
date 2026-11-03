@@ -33,6 +33,13 @@ The following 1 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOM
 | HOLLINGS | D | SC | -0.29 | +0.08 | +0.63 |
 
 
+### Placements worth a second look
+
+GGUM's placement of the following members differs from what their established political reputations might lead a reader to expect.  We draw attention to these cases so that researchers can consider them before using the estimates for a particular analysis; we are not alleging error.
+
+- **DOLE.** Dole is commonly viewed as a Senate Republican leader and institutional dealmaker who ran for president as a pragmatic centrist.  GGUM places him among the twenty most conservative senators in this Congress.
+
+- **COCHRAN.** Cochran is commonly viewed as a mainstream appropriator, later primaried from the right in 2014 for being insufficiently conservative.  GGUM places him as the single most conservative senator in this Congress.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)
 
