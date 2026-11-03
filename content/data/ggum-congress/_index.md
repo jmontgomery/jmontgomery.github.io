@@ -33,8 +33,8 @@ GGUM-based ideal point estimates for every member of the US House and Senate, 10
 ### The data
 
 <div class="ggum-bulk-downloads">
-<a class="ggum-bulk-btn" href="/uploads/ggum-congress/ggum-congress-all.csv" download>Combined CSV &mdash; <span>9,649 rows, all chambers</span></a>
-<a class="ggum-bulk-btn ggum-bulk-btn-secondary" href="/uploads/ggum-congress/ggum-congress-csvs.zip" download>Zip bundle &mdash; <span>37 per-chamber CSVs</span></a>
+<a class="ggum-bulk-btn" href="/uploads/ggum-congress/ggum-congress-all.csv" download>Combined CSV &mdash; <span>10,976 rows, all 40 chambers</span></a>
+<a class="ggum-bulk-btn ggum-bulk-btn-secondary" href="/uploads/ggum-congress/ggum-congress-csvs.zip" download>Zip bundle &mdash; <span>40 per-chamber CSVs</span></a>
 </div>
 
 Each row below is one Congress, newest first, with the House on the left and the Senate on the right.  Clicking a tile opens that chamber's detail page --- scatter plot, off-diagonal members, and any chamber-specific notes --- while the download icon grabs just that chamber's CSV.  A small "notes" tag on a tile indicates that chamber's detail page has at least one interpretive caveat; the estimates themselves are available for every chamber.

@@ -178,10 +178,10 @@ zip_url      <- dl_url("ggum-congress-csvs.zip")
 
 bulk_block <- paste0(
   "<div class=\"ggum-bulk-downloads\">\n",
-  sprintf("<a class=\"ggum-bulk-btn\" href=\"%s\" download>Combined CSV &mdash; <span>9,649 rows, all chambers</span></a>\n",
-          combined_url),
-  sprintf("<a class=\"ggum-bulk-btn ggum-bulk-btn-secondary\" href=\"%s\" download>Zip bundle &mdash; <span>37 per-chamber CSVs</span></a>\n",
-          zip_url),
+  sprintf("<a class=\"ggum-bulk-btn\" href=\"%s\" download>Combined CSV &mdash; <span>%s rows, all %d chambers</span></a>\n",
+          combined_url, format(sum(meta$total), big.mark = ","), nrow(meta)),
+  sprintf("<a class=\"ggum-bulk-btn ggum-bulk-btn-secondary\" href=\"%s\" download>Zip bundle &mdash; <span>%d per-chamber CSVs</span></a>\n",
+          zip_url, nrow(meta)),
   "</div>")
 
 ## Chamber grid: newest Congress first, House before Senate
