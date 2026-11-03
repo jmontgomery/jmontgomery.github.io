@@ -3,18 +3,18 @@ title: Data
 type: landing
 
 sections:
-  - block: content-collection
+  - block: markdown
+    id: datasets
     content:
       title: Datasets
       subtitle: Public data releases from the lab's research
-      count: 0
-      filters:
-        folders:
-          - data
-      sort_by: Date
-      sort_order: desc
-    design:
-      view: card
-      columns: '1'
-      show_image: true
+      text: |
+        <a class="data-card" href="/data/ggum-congress/">
+          <div class="data-card-body">
+            <div class="data-card-title">GGUM Ideal Point Estimates for Congresses 100–119</div>
+            <div class="data-card-summary">GGUM-based ideal point estimates for every member of the US House and Senate, 100th through 119th Congresses. Forty chamber-level fits paired with Voteview member metadata so each file merges directly into existing W-NOMINATE workflows.</div>
+            <div class="data-card-meta">40 chambers &middot; 10,976 member-rows &middot; CSV + plots</div>
+          </div>
+          <div class="data-card-arrow">›</div>
+        </a>
 ---

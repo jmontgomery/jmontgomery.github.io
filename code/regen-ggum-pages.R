@@ -170,7 +170,7 @@ for (i in seq_len(nrow(meta))) {
 }
 
 ## ---- Build the master page -----------------------------------------------
-tpl <- readLines(file.path(SCRATCH, "ggum-blog-post.md"))
+## (body template is inlined below as `body_template`; previously read from SCRATCH)
 
 ## Bulk-download anchors use dl_url for the combined CSV and zip
 combined_url <- dl_url("ggum-congress-all.csv")
@@ -190,8 +190,11 @@ tiles <- character(nrow(meta_srt))
 for (i in seq_len(nrow(meta_srt))) {
     r <- meta_srt[i, ]
     csv_file <- sprintf("%s-ggum-scores.csv", r$tag)
+    has_notes <- length(chamber_dropouts(r$tag)) > 0 ||
+                 (!is.null(worry[[r$tag]]) && length(worry[[r$tag]]) > 0)
+    tile_class <- if (has_notes) "ggum-tile has-notes" else "ggum-tile"
     tiles[i] <- paste0(
-      "<div class=\"ggum-tile\">",
+      sprintf("<div class=\"%s\">", tile_class),
       sprintf("<a class=\"ggum-tile-main\" href=\"/data/ggum-congress/%s/\">", tolower(r$tag)),
       sprintf("<span class=\"ggum-tile-title\">%s %s</span>", ordinal(r$congress), r$chamber),
       sprintf("<span class=\"ggum-tile-sub\">%d scored &middot; %d total</span>", r$scored, r$total),
@@ -224,14 +227,64 @@ archive_badge <- if (has_dataverse) {
       dv$dataset_doi)
 } else ""
 
-body <- paste(tpl, collapse = "\n")
-body <- sub("^## [^\\n]+\\n+", "", body, perl = TRUE)
-body <- sub("{{DOWNLOAD_TABLE}}", bulk_block, body, fixed = TRUE)
+## ---- Slim release-page body (inline template) ----
+body_template <- paste(c(
+  "",
+  "GGUM-based ideal point estimates for every member of the US House and Senate, 100th through 119th Congresses (1987 to the current session).  Forty chamber-level fits, each paired with Voteview member metadata so each file merges directly into existing W-NOMINATE workflows.",
+  "",
+  "### The data",
+  "",
+  "{{BULK_DOWNLOADS}}",
+  "",
+  "Each row below is one Congress, newest first, with the House on the left and the Senate on the right.  Clicking a tile opens that chamber's detail page --- scatter plot, off-diagonal members, and any chamber-specific notes --- while the download icon grabs just that chamber's CSV.  An amber dot on a tile indicates that the chamber has at least one caveat flagged on its detail page.",
+  "",
+  "{{CHAMBER_GRID}}",
+  "",
+  "### Why GGUM",
+  "",
+  "Standard roll-call scalings including W-NOMINATE work well when a legislator's voting can be summarized by a single ideological dimension.  The GGUM is designed for the specific situation that less often fits that assumption: when ideologically opposite legislators vote the same way on a bill for antithetical reasons --- \"ends against the middle\" voting --- a pattern that pulls genuinely extreme, non-compromising members toward the center under monotonic scalings.",
+  "",
+  "### An example from the 119th House",
+  "",
+  "![119th House GGUM theta vs W-NOMINATE dim-1](/uploads/ggum-congress/plots/H119-ggum-vs-nominate.png)",
+  "",
+  "On the Democratic side, GGUM places Squad members (Tlaib, Omar, Ocasio-Cortez, Pressley) further left than W-NOMINATE; on the Republican side, Freedom Caucus members (Massie, Mace, McCormick) move further right.  Institutional conservatives (Harrigan, Chris Smith) and Blue Dog Democrats (Vicente Gonzalez) stay closer to the party line.  These distinctions emerge once vote-no-from-the-left and vote-no-from-the-right are allowed to look different from ordinary party-line voting.",
+  "",
+  "### Known limitations",
+  "",
+  "For some members in some Congresses, the GGUM estimates may not make more sense than traditional models such as W-NOMINATE.  The Senate Majority Leader is the one systematic case: the procedural voting that comes with the leadership role distorts the estimate, and we have excluded Harry Reid from the fit for the 110th, 111th, and 114th Senates (his rows carry `ggum_flag = procedural_role`).  Other flagged cases are each unique to their chamber; the specific concerns are listed on the sub-page for each affected chamber.",
+  "",
+  "### Codebook",
+  "",
+  "| Column | Description |",
+  "|---|---|",
+  "| `icpsr` | ICPSR member ID (joins to Voteview) |",
+  "| `bioname` | Member name (LAST, First) |",
+  "| `party_code` | 100 = Democrat, 200 = Republican, other = third-party / independent |",
+  "| `state_abbrev` | Two-letter state code |",
+  "| `nominate_dim1` | W-NOMINATE first dimension (from Voteview, included for comparison) |",
+  "| `nominate_dim2` | W-NOMINATE second dimension (from Voteview) |",
+  "| `ggum_theta` | GGUM posterior mean theta |",
+  "| `ggum_theta_sd` | Posterior standard deviation of GGUM theta |",
+  "| `ggum_psrf` | Gelman-Rubin PSRF across chains (close to 1.0; flagged above 1.1) |",
+  "| `ggum_flag` | Empty by default; `procedural_role` if excluded from the fit (NA theta); `review` if the placement has a chamber-specific caveat |",
+  "",
+  "All other Voteview member columns pass through unchanged.",
+  "",
+  "### Citation",
+  "",
+  "If you use these estimates, please cite the paper:",
+  "",
+  "Duck-Mayr, JB and Montgomery, JM (2023). Ends Against the Middle: Measuring Latent Traits When Opposites Respond the Same Way for Antithetical Reasons. *Political Analysis* 31(4): 606-625.  doi:10.1017/pan.2022.33",
+  "",
+  "### Acknowledgments",
+  "",
+  "We thank Voteview (voteview.com) for the roll-call and member metadata.  Estimation used the `bggum` R package (github.com/duckmayr/bggum)."
+), collapse = "\n")
+
+body <- body_template
+body <- sub("{{BULK_DOWNLOADS}}", bulk_block, body, fixed = TRUE)
 body <- sub("{{CHAMBER_GRID}}",   grid,       body, fixed = TRUE)
-## Replace the two bulk-download paragraph lines (combined + zip) when they
-## appear as the explicit CSV links — compose template has them as markdown
-## inside a paragraph, superseded by bulk_block above.  We inserted
-## bulk_block in place of {{DOWNLOAD_TABLE}}.
 
 ## Append an extra line to the Citation block when Dataverse is live.
 if (has_dataverse) {

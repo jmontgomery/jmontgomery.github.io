@@ -4,9 +4,8 @@ name:
   display: JBrandon Duck-Mayr
   given: JBrandon
   family: Duck-Mayr
-role: Assistant Professor, University of Texas at Austin
-user_groups:
-- Alumni
+role: Co-author (bggum)
+user_groups: []
 bio: ''
 affiliations:
 - name: University of Texas at Austin
