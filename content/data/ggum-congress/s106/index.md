@@ -43,3 +43,7 @@ The following GGUM placements in this chamber conflict with external records and
 - **MILLER.** Miller is commonly viewed as one of the most conservative Democrats in the modern Senate (he endorsed George W. Bush and keynoted the 2004 Republican National Convention).  GGUM places him to the left of the Senate median.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)
+
+---
+
+<small>The prose on this page was drafted with Anthropic's Claude Opus 4.7, with plausibility audits by Claude Sonnet 4.5 subagents.  The author edited and reviewed throughout.</small>

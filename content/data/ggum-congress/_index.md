@@ -122,3 +122,5 @@ Duck-Mayr, JB and Montgomery, JM (2023). Ends Against the Middle: Measuring Late
 ### Acknowledgments
 
 We thank Voteview (voteview.com) for the roll-call and member metadata.  Estimation used the `bggum` R package (github.com/duckmayr/bggum).
+
+The prose on this page and the chamber sub-pages was drafted with Anthropic's Claude Opus 4.7, with chamber-by-chamber plausibility audits conducted by Claude Sonnet 4.5 subagents.  The author edited and reviewed throughout.

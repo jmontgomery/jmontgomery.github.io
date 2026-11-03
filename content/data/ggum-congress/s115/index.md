@@ -44,3 +44,7 @@ The following GGUM placements in this chamber conflict with external records and
 - **CRUZ.** Cruz is commonly viewed as among the most conservative Republicans in the Senate.  GGUM places him in the upper portion of the Republican range in this chamber, 9th-most-conservative of 54 Republicans, just below the handful of most extreme members.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)
+
+---
+
+<small>The prose on this page was drafted with Anthropic's Claude Opus 4.7, with plausibility audits by Claude Sonnet 4.5 subagents.  The author edited and reviewed throughout.</small>

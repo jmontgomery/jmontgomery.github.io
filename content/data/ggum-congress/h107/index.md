@@ -60,3 +60,7 @@ The following GGUM placements in this chamber conflict with external records and
 - **WELLER.** Weller is commonly viewed as a mainstream Republican.  GGUM places him near the extreme-right pole.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)
+
+---
+
+<small>The prose on this page was drafted with Anthropic's Claude Opus 4.7, with plausibility audits by Claude Sonnet 4.5 subagents.  The author edited and reviewed throughout.</small>

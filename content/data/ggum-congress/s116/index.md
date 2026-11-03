@@ -44,3 +44,7 @@ The following GGUM placements in this chamber conflict with external records and
 - **ROMNEY.** Romney is commonly viewed as a moderate Republican.  GGUM places him in the middle of the Republican range in this chamber, close to the median of 54 Republicans rather than toward either pole.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)
+
+---
+
+<small>The prose on this page was drafted with Anthropic's Claude Opus 4.7, with plausibility audits by Claude Sonnet 4.5 subagents.  The author edited and reviewed throughout.</small>

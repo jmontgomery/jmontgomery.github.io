@@ -35,3 +35,7 @@ The following 1 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOM
 
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)
+
+---
+
+<small>The prose on this page was drafted with Anthropic's Claude Opus 4.7, with plausibility audits by Claude Sonnet 4.5 subagents.  The author edited and reviewed throughout.</small>

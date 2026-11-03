@@ -49,3 +49,7 @@ The following GGUM placements in this chamber conflict with external records and
 - **SIKORSKI.** Sikorski is commonly viewed as a mainstream Minnesota liberal.  GGUM places him at the extreme-left pole, left of Bernie Sanders in this chamber.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)
+
+---
+
+<small>The prose on this page was drafted with Anthropic's Claude Opus 4.7, with plausibility audits by Claude Sonnet 4.5 subagents.  The author edited and reviewed throughout.</small>
