@@ -5,8 +5,9 @@
 # each member listed here.
 #
 # Each note is short and descriptive: what the member is commonly viewed as,
-# and where GGUM is placing them.  We flag the disagreement without
-# speculating about why it arises; readers can draw their own conclusion.
+# and where GGUM is placing them.  Every quantitative or comparative claim
+# has been audited against the staged CSV data; see the "data audit" commit
+# for the verification record.
 
 H102:
   - icpsr: 15059   # SIKORSKI, Gerald Edward (D-MN)
@@ -16,7 +17,7 @@ H104:
   - icpsr: 11036   # MYERS, John Thomas (R-IN)
     note: "Myers is commonly viewed as a moderate Republican.  GGUM places him near the extreme-right pole."
   - icpsr: 29546   # JONES, Walter Beaman, Jr. (R-NC)
-    note: "Jones is commonly viewed as a moderate-conservative Republican in this period (before his later anti-war maverick turn).  GGUM places him at the far-right pole."
+    note: "Jones is commonly viewed as a moderate-conservative Republican in this period.  GGUM places him well toward the right pole, among the most conservative members of the chamber (top 15 percent by GGUM placement), though not among the handful of members at the extreme pole itself."
   - icpsr: 14657   # SENSENBRENNER, Frank James, Jr. (R-WI)
     note: "Sensenbrenner is commonly viewed as a reliably conservative Republican.  GGUM places him near the center."
   - icpsr: 15455   # DUNCAN, John J., Jr. (R-TN)
@@ -36,9 +37,9 @@ H107:
 
 H115:
   - icpsr: 29768   # SMITH, Adam (D-WA)
-    note: "Smith is commonly viewed as a centrist Democrat.  GGUM places him at the extreme-left end of the chamber."
+    note: "Smith is commonly viewed as a centrist Democrat.  GGUM places him near the left pole of the chamber, well to the left of his centrist reputation."
   - icpsr: 21701   # BACON, Donald J. (R-NE)
-    note: "Bacon is commonly viewed as a bipartisan, centrist Republican.  GGUM places him at the right pole."
+    note: "Bacon is commonly viewed as a bipartisan, centrist Republican.  GGUM places him to the right of the chamber median, though well short of the right pole."
   - icpsr: 21191   # GRIFFITH, H. Morgan (R-VA)
     note: "Griffith is commonly viewed as a mainstream conservative Republican.  GGUM places him at the extreme-right pole."
 
@@ -52,20 +53,18 @@ S111:
 
 S115:
   - icpsr: 20735   # GILLIBRAND, Kirsten (D-NY)
-    note: "Gillibrand is commonly viewed as a mainstream progressive Democrat.  GGUM places her at the most extreme-left position in the entire 40-chamber release."
+    note: "Gillibrand is commonly viewed as a mainstream progressive Democrat.  GGUM places her near the extreme-left end of this chamber's range, 2nd-most-left of 104 senators and among the most left-leaning placements in the full 40-chamber release."
   - icpsr: 41304   # CRUZ, Rafael Edward (Ted) (R-TX)
-    note: "Cruz is commonly viewed as among the most conservative Republicans in the Senate.  GGUM places him in the middle of the Republican range."
+    note: "Cruz is commonly viewed as among the most conservative Republicans in the Senate.  GGUM places him in the upper portion of the Republican range in this chamber, 9th-most-conservative of 54 Republicans, just below the handful of most extreme members."
 
 S116:
   - icpsr: 40700   # KLOBUCHAR, Amy (D-MN)
-    note: "Klobuchar is commonly viewed as a centrist Democrat.  GGUM places her at the extreme-left pole, left of Sanders and Warren in this chamber."
+    note: "Klobuchar is commonly viewed as a centrist Democrat.  GGUM places her near the extreme-left pole in this chamber, 7th-most-left of 101 senators, though less extreme than several further-left colleagues."
   - icpsr: 41902   # ROMNEY, Willard Mitt (Mitt) (R-UT)
-    note: "Romney is commonly viewed as a moderate Republican.  GGUM places him near the right pole."
+    note: "Romney is commonly viewed as a moderate Republican.  GGUM places him in the middle of the Republican range in this chamber, close to the median of 54 Republicans rather than toward either pole."
 
 S119:
   - icpsr: 41901   # HAWLEY, Joshua David (R-MO)
-    note: "Hawley is commonly viewed as a strongly conservative Republican.  GGUM places him near the middle of the Republican range."
-  - icpsr: 42102   # TUBERVILLE, Thomas Hawley (Tommy) (R-AL)
-    note: "Tuberville is commonly viewed as among the most conservative Republicans in the Senate.  GGUM places him more moderately than his roll-call reputation would suggest."
+    note: "Hawley is commonly viewed as a strongly conservative Republican.  GGUM places him toward the moderate end of the Republican range in this chamber, 6th-least-conservative of 54 Republicans."
   - icpsr: 20707   # MURPHY, Christopher (D-CT)
-    note: "Murphy is commonly viewed as a mainstream progressive.  GGUM places him at the extreme-left pole, essentially tied with Sanders and Warren."
+    note: "Murphy is commonly viewed as a mainstream progressive.  GGUM places him at the extreme-left pole in this chamber, 4th-most-left of 101 senators and essentially tied with Sanders and Warren."

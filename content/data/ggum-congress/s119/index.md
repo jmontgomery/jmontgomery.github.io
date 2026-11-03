@@ -40,10 +40,8 @@ The following 4 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOM
 
 The following GGUM placements in this chamber conflict with external records and should be interpreted with caution:
 
-- **HAWLEY.** Hawley is commonly viewed as a strongly conservative Republican.  GGUM places him near the middle of the Republican range.
+- **HAWLEY.** Hawley is commonly viewed as a strongly conservative Republican.  GGUM places him toward the moderate end of the Republican range in this chamber, 6th-least-conservative of 54 Republicans.
 
-- **TUBERVILLE.** Tuberville is commonly viewed as among the most conservative Republicans in the Senate.  GGUM places him more moderately than his roll-call reputation would suggest.
-
-- **MURPHY.** Murphy is commonly viewed as a mainstream progressive.  GGUM places him at the extreme-left pole, essentially tied with Sanders and Warren.
+- **MURPHY.** Murphy is commonly viewed as a mainstream progressive.  GGUM places him at the extreme-left pole in this chamber, 4th-most-left of 101 senators and essentially tied with Sanders and Warren.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)

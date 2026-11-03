@@ -47,9 +47,9 @@ The following 11 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NO
 
 The following GGUM placements in this chamber conflict with external records and should be interpreted with caution:
 
-- **SMITH.** Smith is commonly viewed as a centrist Democrat.  GGUM places him at the extreme-left end of the chamber.
+- **SMITH.** Smith is commonly viewed as a centrist Democrat.  GGUM places him near the left pole of the chamber, well to the left of his centrist reputation.
 
-- **BACON.** Bacon is commonly viewed as a bipartisan, centrist Republican.  GGUM places him at the right pole.
+- **BACON.** Bacon is commonly viewed as a bipartisan, centrist Republican.  GGUM places him to the right of the chamber median, though well short of the right pole.
 
 - **GRIFFITH.** Griffith is commonly viewed as a mainstream conservative Republican.  GGUM places him at the extreme-right pole.
 

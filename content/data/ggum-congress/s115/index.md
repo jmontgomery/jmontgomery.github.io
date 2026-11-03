@@ -39,8 +39,8 @@ The following 3 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOM
 
 The following GGUM placements in this chamber conflict with external records and should be interpreted with caution:
 
-- **GILLIBRAND.** Gillibrand is commonly viewed as a mainstream progressive Democrat.  GGUM places her at the most extreme-left position in the entire 40-chamber release.
+- **GILLIBRAND.** Gillibrand is commonly viewed as a mainstream progressive Democrat.  GGUM places her near the extreme-left end of this chamber's range, 2nd-most-left of 104 senators and among the most left-leaning placements in the full 40-chamber release.
 
-- **CRUZ.** Cruz is commonly viewed as among the most conservative Republicans in the Senate.  GGUM places him in the middle of the Republican range.
+- **CRUZ.** Cruz is commonly viewed as among the most conservative Republicans in the Senate.  GGUM places him in the upper portion of the Republican range in this chamber, 9th-most-conservative of 54 Republicans, just below the handful of most extreme members.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)

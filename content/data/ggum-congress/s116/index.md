@@ -39,8 +39,8 @@ The following 3 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOM
 
 The following GGUM placements in this chamber conflict with external records and should be interpreted with caution:
 
-- **KLOBUCHAR.** Klobuchar is commonly viewed as a centrist Democrat.  GGUM places her at the extreme-left pole, left of Sanders and Warren in this chamber.
+- **KLOBUCHAR.** Klobuchar is commonly viewed as a centrist Democrat.  GGUM places her near the extreme-left pole in this chamber, 7th-most-left of 101 senators, though less extreme than several further-left colleagues.
 
-- **ROMNEY.** Romney is commonly viewed as a moderate Republican.  GGUM places him near the right pole.
+- **ROMNEY.** Romney is commonly viewed as a moderate Republican.  GGUM places him in the middle of the Republican range in this chamber, close to the median of 54 Republicans rather than toward either pole.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)
