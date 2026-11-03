@@ -192,12 +192,13 @@ for (i in seq_len(nrow(meta_srt))) {
     csv_file <- sprintf("%s-ggum-scores.csv", r$tag)
     has_notes <- length(chamber_dropouts(r$tag)) > 0 ||
                  (!is.null(worry[[r$tag]]) && length(worry[[r$tag]]) > 0)
-    tile_class <- if (has_notes) "ggum-tile has-notes" else "ggum-tile"
+    notes_badge <- if (has_notes) " <span class=\"ggum-tile-notes\">notes</span>" else ""
     tiles[i] <- paste0(
-      sprintf("<div class=\"%s\">", tile_class),
+      "<div class=\"ggum-tile\">",
       sprintf("<a class=\"ggum-tile-main\" href=\"/data/ggum-congress/%s/\">", tolower(r$tag)),
       sprintf("<span class=\"ggum-tile-title\">%s %s</span>", ordinal(r$congress), r$chamber),
-      sprintf("<span class=\"ggum-tile-sub\">%d scored &middot; %d total</span>", r$scored, r$total),
+      sprintf("<span class=\"ggum-tile-sub\">%d scored &middot; %d total%s</span>",
+              r$scored, r$total, notes_badge),
       "</a>",
       sprintf("<a class=\"ggum-tile-dl\" href=\"%s\" title=\"Download %s CSV\" aria-label=\"Download %s CSV\" download>",
               dl_url(csv_file), r$tag, r$tag),
@@ -236,7 +237,7 @@ body_template <- paste(c(
   "",
   "{{BULK_DOWNLOADS}}",
   "",
-  "Each row below is one Congress, newest first, with the House on the left and the Senate on the right.  Clicking a tile opens that chamber's detail page --- scatter plot, off-diagonal members, and any chamber-specific notes --- while the download icon grabs just that chamber's CSV.  An amber dot on a tile indicates that the chamber has at least one caveat flagged on its detail page.",
+  "Each row below is one Congress, newest first, with the House on the left and the Senate on the right.  Clicking a tile opens that chamber's detail page --- scatter plot, off-diagonal members, and any chamber-specific notes --- while the download icon grabs just that chamber's CSV.  A small \"notes\" tag on a tile indicates that chamber's detail page has at least one interpretive caveat; the estimates themselves are available for every chamber.",
   "",
   "{{CHAMBER_GRID}}",
   "",

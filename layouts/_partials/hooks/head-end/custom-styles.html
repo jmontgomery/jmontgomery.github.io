@@ -275,17 +275,21 @@
     transition: box-shadow 0.15s ease, transform 0.15s ease,
                 border-color 0.15s ease;
   }
-  /* Small amber badge on tiles for chambers with worry notes or procedural drops */
-  .ggum-tile.has-notes::before {
-    content: "!";
-    position: absolute; top: 4px; right: 38px; z-index: 2;
-    width: 15px; height: 15px; line-height: 15px;
-    background: #d97706; color: #fff;
-    font-size: 10px; font-weight: 700; text-align: center;
-    border-radius: 50%;
+  /* Inline "notes" label on tiles for chambers with worry notes or procedural drops.
+     Placed in the tile sub-line (not near the download icon) so readers see it
+     as "this chamber has interpretive caveats on its detail page" rather than
+     "something is wrong with the download." */
+  .ggum-tile-notes {
+    display: inline-block;
+    font-size: 0.68rem; font-weight: 600;
+    color: #92400e; background: rgba(217, 119, 6, 0.14);
+    padding: 0 0.35rem; margin-left: 0.3rem;
+    border-radius: 3px; letter-spacing: 0.02em;
+    vertical-align: baseline;
   }
-  @media (max-width: 639px) {
-    .ggum-tile.has-notes::before { right: 32px; }
+  :root[data-theme="dark"] .ggum-tile-notes,
+  .dark .ggum-tile-notes {
+    color: #fbbf24; background: rgba(217, 119, 6, 0.22);
   }
   :root[data-theme="dark"] .ggum-tile,
   .dark .ggum-tile {
