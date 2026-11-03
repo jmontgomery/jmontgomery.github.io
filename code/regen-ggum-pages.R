@@ -199,7 +199,7 @@ for (i in seq_len(nrow(meta_srt))) {
     csv_file <- sprintf("%s-ggum-scores.csv", r$tag)
     has_notes <- length(chamber_dropouts(r$tag)) > 0 ||
                  (!is.null(worry[[r$tag]]) && length(worry[[r$tag]]) > 0)
-    notes_badge <- if (has_notes) " <span class=\"ggum-tile-notes\">notes</span>" else ""
+    notes_badge <- if (has_notes) " <span class=\"ggum-tile-notes\">see notes</span>" else ""
     tiles[i] <- paste0(
       "<div class=\"ggum-tile\">",
       sprintf("<a class=\"ggum-tile-main\" href=\"/data/ggum-congress/%s/\">", tolower(r$tag)),
@@ -244,7 +244,7 @@ body_template <- paste(c(
   "",
   "{{BULK_DOWNLOADS}}",
   "",
-  "Each row below is one Congress, newest first, with the House on the left and the Senate on the right.  Clicking a tile opens that chamber's detail page --- scatter plot, off-diagonal members, and any chamber-specific notes --- while the download icon grabs just that chamber's CSV.  A small \"notes\" tag on a tile indicates that chamber's detail page has at least one interpretive caveat; the estimates themselves are available for every chamber.",
+  "Each row below is one Congress, newest first, with the House on the left and the Senate on the right.  Clicking a tile opens that chamber's detail page --- scatter plot, off-diagonal members, and any chamber-specific notes --- while the download icon grabs just that chamber's CSV.  A small \"see notes\" tag indicates that the chamber's detail page lists one or more placements worth a second look; the estimates themselves are available for every chamber.",
   "",
   "{{CHAMBER_GRID}}",
   "",
