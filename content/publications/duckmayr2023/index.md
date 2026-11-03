@@ -32,4 +32,6 @@ links:
     url: https://doi.org/10.1017/pan.2022.33
   - name: Replication
     url: https://doi.org/10.7910/DVN/HXORK9
+  - name: Dataset
+    url: /data/ggum-congress/
 ---

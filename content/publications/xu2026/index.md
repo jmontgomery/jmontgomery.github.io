@@ -29,4 +29,6 @@ links:
     url: /uploads/papers/xu2026-measuring-google-ai.pdf
   - name: DOI
     url: https://doi.org/10.1145/3777912.3839818
+  - name: Podcast (PennyWise)
+    url: https://podcasts.apple.com/us/podcast/pennywise-personal-finance-travel-tips/id1550653869?i=1000799092798
 ---
