@@ -52,12 +52,6 @@ H109:
   - icpsr: 14290   # PAUL, Ronald Ernest (R-TX)
     note: "Ron Paul is commonly viewed as the House's defining libertarian-conservative pole for three decades.  GGUM places him near the chamber median in this Congress only; every adjacent term places him among the twenty most conservative House members."
 
-H117:
-  - icpsr: 15019   # COOPER, James Hayes Shofner (D-TN)
-    note: "Jim Cooper is commonly viewed as a longtime Blue Dog Democrat, frequently cited as among the most conservative House Democrats of his era.  GGUM places him solidly within the progressive range of the chamber."
-  - icpsr: 22154   # TORRES, Ritchie (D-NY)
-    note: "Torres has publicly distinguished himself from the chamber's Squad/AOC wing as a pragmatic, more centrist progressive.  GGUM places him near the extreme-left end of the chamber."
-
 H119:
   - icpsr: 21919   # FLETCHER, Elizabeth (Lizzie) (D-TX)
     note: "Fletcher is commonly viewed as a pragmatic, swing-district Houston-area moderate Democrat.  GGUM places her near the chamber's left floor in this Congress, breaking her pattern in surrounding terms."
