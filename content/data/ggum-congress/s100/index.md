@@ -36,7 +36,7 @@ The following 2 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOM
 
 ### Placements worth a second look
 
-GGUM's placement of the following members differs from what their established political reputations might lead a reader to expect.  We draw attention to these cases so that researchers can consider them before using the estimates for a particular analysis; we are not alleging error.
+GGUM's placement of the following members differs from what their established political reputations might lead a reader to expect.  This does not mean these estimates are necessarily wrong, but analysts might want to look.
 
 - **PROXMIRE.** Proxmire is commonly viewed as an iconic Senate liberal maverick of his era (founder of the Golden Fleece Award), consistently rated among the chamber's most liberal members.  GGUM places him near the chamber median despite his having the single most liberal DW-NOMINATE score of any senator in this Congress.
 

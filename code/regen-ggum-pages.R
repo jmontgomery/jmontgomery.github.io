@@ -57,9 +57,8 @@ chamber_worry_block <- function(tag, mem_df) {
     lines <- c(lines, "", "### Placements worth a second look",
                "", paste("GGUM's placement of the following members differs from",
                          "what their established political reputations might lead a",
-                         "reader to expect.  We draw attention to these cases so that",
-                         "researchers can consider them before using the estimates",
-                         "for a particular analysis; we are not alleging error."))
+                         "reader to expect.  This does not mean these estimates",
+                         "are necessarily wrong, but analysts might want to look."))
     for (e in entries) {
         mrow <- subset(mem_df, icpsr == as.integer(e$icpsr))
         name <- if (nrow(mrow) > 0) sub(",.*", "", mrow$bioname[1]) else sprintf("icpsr %s", e$icpsr)
@@ -250,7 +249,7 @@ body_template <- paste(c(
   "",
   "### Why GGUM",
   "",
-  "Standard roll-call scalings including W-NOMINATE work well when a legislator's voting can be summarized by a single ideological dimension.  The GGUM is designed for the specific situation that less often fits that assumption: when ideologically opposite legislators vote the same way on a bill for antithetical reasons --- \"ends against the middle\" voting --- a pattern that pulls genuinely extreme, non-compromising members toward the center under monotonic scalings.",
+  "Standard roll-call scalings, including W-NOMINATE, assume that a legislator's probability of voting yes on a bill moves monotonically with their ideology --- a reasonable assumption much of the time.  It fails when ideologically opposite legislators vote the same way on a bill for antithetical reasons: libertarian-right members voting no alongside progressive-left members on a moderate bill, for example.  The GGUM is designed to accommodate exactly this \"ends against the middle\" pattern.  In some (but not all) cases it therefore produces more reasonable estimates for the members involved than a monotonic scaling does.",
   "",
   "### An example from the 119th House",
   "",
@@ -260,7 +259,7 @@ body_template <- paste(c(
   "",
   "### Known limitations",
   "",
-  "For some members in some Congresses, the GGUM estimates may not make more sense than traditional models such as W-NOMINATE.  The Senate Majority Leader is the one systematic case: the procedural voting that comes with the leadership role distorts the estimate, and we have excluded Harry Reid from the fit for the 110th, 111th, and 114th Senates (his rows carry `ggum_flag = procedural_role`).  For other members, we flag individual placements that differ from what the member's established political reputation might lead a reader to expect; these appear with `ggum_flag = review` in the CSV and are listed on each affected chamber's sub-page under \"Placements worth a second look.\"  We are drawing attention to these cases, not alleging error.",
+  "For some members in some Congresses, the GGUM estimates may not make more sense than traditional models such as W-NOMINATE.  The Senate Majority Leader is the one systematic case: the procedural voting that comes with the leadership role distorts the estimate, and we have excluded Harry Reid from the fit for the 110th, 111th, and 114th Senates (his rows carry `ggum_flag = procedural_role`).  For other members, we flag individual placements that differ from what the member's established political reputation might lead a reader to expect; these appear with `ggum_flag = review` in the CSV and are listed on each affected chamber's sub-page under \"Placements worth a second look.\"  This does not mean these estimates are necessarily wrong, but analysts might want to look.",
   "",
   "### Codebook",
   "",
