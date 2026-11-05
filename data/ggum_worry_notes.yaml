@@ -26,6 +26,10 @@ H104:
   - icpsr: 29565   # SANFORD, Mark (R-SC)
     note: "Sanford is commonly viewed as a strongly conservative Republican.  GGUM places him near the center."
 
+H105:
+  - icpsr: 29748   # KUCINICH, Dennis John (D-OH)
+    note: "Kucinich is commonly viewed as one of the most liberal members of the House, and GGUM reliably places him at or near the left pole in surrounding Congresses (rank 1 of 439 in H108, rank 1 of 444 in H110, etc.).  In the 105th House he instead appears in the lower-middle of the chamber (rank 119 of 441), an outlier within his own cross-chamber pattern."
+
 H107:
   - icpsr: 29126   # RAMSTAD, James (Jim) (R-MN)
     note: "Ramstad is commonly viewed as a moderate, pro-choice Republican.  GGUM places him near the extreme-right pole."

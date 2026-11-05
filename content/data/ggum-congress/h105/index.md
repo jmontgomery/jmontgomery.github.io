@@ -42,6 +42,11 @@ The following 8 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOM
 
 
 
+### Placements worth a second look
+
+GGUM's placement of the following members differs from what their established political reputations might lead a reader to expect.  This does not mean these estimates are necessarily wrong, but analysts might want to look.
+
+- **KUCINICH.** Kucinich is commonly viewed as one of the most liberal members of the House, and GGUM reliably places him at or near the left pole in surrounding Congresses (rank 1 of 439 in H108, rank 1 of 444 in H110, etc.).  In the 105th House he instead appears in the lower-middle of the chamber (rank 119 of 441), an outlier within his own cross-chamber pattern.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)
 
