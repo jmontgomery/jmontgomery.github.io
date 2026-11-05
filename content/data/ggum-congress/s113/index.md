@@ -40,7 +40,7 @@ The following 2 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOM
 
 GGUM's placement of the following members differs from what their established political reputations might lead a reader to expect.  This does not mean these estimates are necessarily wrong, but analysts might want to look.
 
-- **ROBERTS.** Pat Roberts is commonly viewed as a low-key institutionalist Agriculture Committee chair --- a style-based rather than ideological label.  GGUM places him among the chamber's most extreme conservatives, which may reflect his roll-call record more directly than his institutional profile suggests.
+- **FLAKE.** Flake is commonly viewed as a strongly conservative Republican (fiscal hawk, House Freedom Caucus-adjacent before moving to the Senate).  GGUM places him among the more moderate Republicans in this chamber (6th-most-moderate of 46 Republicans by GGUM), despite his DW-NOMINATE score putting him near the top of the Republican range.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)
 

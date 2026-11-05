@@ -97,8 +97,8 @@ S111:
     note: "McCain's public reputation as a maverick and dealmaker is largely about procedural style rather than ideological moderation.  GGUM places him among the twenty most conservative senators in this Congress, which may be consistent with his underlying voting record even if it conflicts with the maverick framing."
 
 S113:
-  - icpsr: 14852   # ROBERTS, Charles Patrick (Pat) (R-KS)
-    note: "Pat Roberts is commonly viewed as a low-key institutionalist Agriculture Committee chair --- a style-based rather than ideological label.  GGUM places him among the chamber's most extreme conservatives, which may reflect his roll-call record more directly than his institutional profile suggests."
+  - icpsr: 20100   # FLAKE, Jeff (R-AZ)
+    note: "Flake is commonly viewed as a strongly conservative Republican (fiscal hawk, House Freedom Caucus-adjacent before moving to the Senate).  GGUM places him among the more moderate Republicans in this chamber (6th-most-moderate of 46 Republicans by GGUM), despite his DW-NOMINATE score putting him near the top of the Republican range."
 
 S115:
   - icpsr: 20735   # GILLIBRAND, Kirsten (D-NY)
