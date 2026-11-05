@@ -43,8 +43,6 @@ GGUM's placement of the following members differs from what their established po
 
 - **KLOBUCHAR.** Klobuchar is commonly viewed as a centrist Democrat.  GGUM places her near the extreme-left pole in this chamber, 7th-most-left of 101 senators, though less extreme than several further-left colleagues.
 
-- **ROMNEY.** Romney is commonly viewed as a moderate Republican.  GGUM places him in the middle of the Republican range in this chamber, close to the median of 54 Republicans rather than toward either pole.
-
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)
 
 ---
