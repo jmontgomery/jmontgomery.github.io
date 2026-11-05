@@ -52,10 +52,6 @@ H109:
   - icpsr: 14290   # PAUL, Ronald Ernest (R-TX)
     note: "Ron Paul is commonly viewed as the House's defining libertarian-conservative pole for three decades.  GGUM places him near the chamber median in this Congress only; every adjacent term places him among the twenty most conservative House members."
 
-H119:
-  - icpsr: 21919   # FLETCHER, Elizabeth (Lizzie) (D-TX)
-    note: "Fletcher is commonly viewed as a pragmatic, swing-district Houston-area moderate Democrat.  GGUM places her near the chamber's left floor in this Congress, breaking her pattern in surrounding terms."
-
 S100:
   - icpsr: 7638    # PROXMIRE, William (D-WI)
     note: "Proxmire's public profile combined socially liberal positions (civil rights, Genocide Convention advocacy) with a pronounced fiscal hawkishness that produced the Golden Fleece Award and routine opposition to federal spending.  GGUM places him near the chamber median despite his having the single most liberal DW-NOMINATE score in this Congress; this may partly reflect the cross-pressured voting record that a one-dimensional scaling smooths over."
