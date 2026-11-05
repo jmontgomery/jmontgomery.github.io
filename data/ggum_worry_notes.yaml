@@ -94,6 +94,10 @@ S113:
   - icpsr: 20100   # FLAKE, Jeff (R-AZ)
     note: "Flake is commonly viewed as a strongly conservative Republican (fiscal hawk, House Freedom Caucus-adjacent before moving to the Senate).  GGUM places him among the more moderate Republicans in this chamber (6th-most-moderate of 46 Republicans by GGUM), despite his DW-NOMINATE score putting him near the top of the Republican range."
 
+S114:
+  - icpsr: 20100   # FLAKE, Jeff (R-AZ)
+    note: "Flake is commonly viewed as a strongly conservative Republican (fiscal hawk, House Freedom Caucus-adjacent before moving to the Senate).  GGUM places him near the Republican median in this chamber (31st of 54 Republicans by GGUM), despite his DW-NOMINATE score putting him at the top of the Republican range."
+
 S115:
   - icpsr: 20735   # GILLIBRAND, Kirsten (D-NY)
     note: "Gillibrand is commonly viewed as a mainstream progressive Democrat.  GGUM places her near the extreme-left end of this chamber's range, 2nd-most-left of 104 senators and among the most left-leaning placements in the full 40-chamber release."
