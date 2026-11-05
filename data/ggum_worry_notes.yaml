@@ -82,12 +82,6 @@ S100:
   - icpsr: 7638    # PROXMIRE, William (D-WI)
     note: "Proxmire's public profile combined socially liberal positions (civil rights, Genocide Convention advocacy) with a pronounced fiscal hawkishness that produced the Golden Fleece Award and routine opposition to federal spending.  GGUM places him near the chamber median despite his having the single most liberal DW-NOMINATE score in this Congress; this may partly reflect the cross-pressured voting record that a one-dimensional scaling smooths over."
 
-S102:
-  - icpsr: 10513   # DOLE, Robert Joseph (Bob) (R-KS)
-    note: "Dole's public reputation is built around his role as Senate Republican leader and institutional dealmaker --- a style-based reputation that does not necessarily translate to ideological moderation.  GGUM places him among the twenty most conservative senators in this Congress, which may reflect his roll-call record more directly than the dealmaker framing suggests."
-  - icpsr: 14009   # COCHRAN, William Thad (R-MS)
-    note: "Cochran is commonly viewed as a mainstream appropriator, later primaried from the right in 2014 for being insufficiently conservative.  GGUM places him as the single most conservative senator in this Congress; the gap may partly reflect the distinction between his institutional style and his substantive voting record."
-
 S103:
   - icpsr: 10513   # DOLE, Robert Joseph (Bob) (R-KS)
     note: "Dole's public reputation centers on his role as Senate Republican leader and institutional dealmaker rather than on ideology.  GGUM places him among the twenty most conservative senators in this Congress, which may reflect his roll-call record more directly than the dealmaker framing suggests."
