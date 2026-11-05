@@ -47,6 +47,30 @@ chamber_dropouts <- function(tag) {
     if (is.null(v)) integer(0) else as.integer(v)
 }
 
+## ---- Procedural-exclusion block (makes 'see notes' honest on Reid chambers) -
+chamber_procedural_block <- function(tag, mem_df) {
+    ids <- chamber_dropouts(tag)
+    if (length(ids) == 0) return("")
+    labels <- character(0)
+    for (id in ids) {
+        r <- subset(mem_df, icpsr == id)
+        if (nrow(r) == 0) next
+        lab <- sprintf("%s (%s-%s)",
+                       sub(",.*", "", r$bioname[1]),
+                       ifelse(r$party_code[1] == 100, "D",
+                              ifelse(r$party_code[1] == 200, "R", "I")),
+                       r$state_abbrev[1])
+        labels <- c(labels, lab)
+    }
+    if (length(labels) == 0) return("")
+    paste(c("",
+            "### Procedural exclusions",
+            "",
+            sprintf("The following member was excluded from the GGUM fit for this Congress because the procedural voting that comes with their institutional role distorts the estimate: **%s**.  The row still appears in the released CSV with `ggum_flag = procedural_role` and `NA` for theta/SD/PSRF.",
+                    paste(labels, collapse = ", "))),
+          collapse = "\n")
+}
+
 ## ---- Load worry notes (chamber-specific caveats about implausible fits) ----
 worry_path <- file.path(SITE, "data/ggum_worry_notes.yaml")
 worry <- if (file.exists(worry_path)) yaml::read_yaml(worry_path) else list()
@@ -141,6 +165,8 @@ for (i in seq_len(nrow(meta))) {
                            outl$nominate_dim1, outl$ggum_theta, outl$resid),
                    collapse = "\n"))
       },
+      "",
+      chamber_procedural_block(tag, d),
       "",
       chamber_worry_block(tag, d),
       "",

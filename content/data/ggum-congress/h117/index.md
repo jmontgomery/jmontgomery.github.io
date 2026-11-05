@@ -44,6 +44,8 @@ The following 12 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NO
 | AUCHINCLOSS | D | MA | -0.27 | -1.81 | -0.83 |
 
 
+
+
 ### Placements worth a second look
 
 GGUM's placement of the following members differs from what their established political reputations might lead a reader to expect.  This does not mean these estimates are necessarily wrong, but analysts might want to look.

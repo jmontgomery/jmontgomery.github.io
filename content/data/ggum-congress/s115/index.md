@@ -35,6 +35,8 @@ The following 3 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOM
 | FLAKE | R | AZ | +0.85 | +1.86 | -0.88 |
 
 
+
+
 ### Placements worth a second look
 
 GGUM's placement of the following members differs from what their established political reputations might lead a reader to expect.  This does not mean these estimates are necessarily wrong, but analysts might want to look.

@@ -43,6 +43,8 @@ The following 11 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NO
 | BACON | R | NE | +0.28 | +1.14 | +0.59 |
 
 
+
+
 ### Placements worth a second look
 
 GGUM's placement of the following members differs from what their established political reputations might lead a reader to expect.  This does not mean these estimates are necessarily wrong, but analysts might want to look.

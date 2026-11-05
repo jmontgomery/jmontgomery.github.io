@@ -34,6 +34,11 @@ The following 2 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOM
 | JOHNSON | R | WI | +0.65 | +1.04 | -0.72 |
 
 
+### Procedural exclusions
+
+The following member was excluded from the GGUM fit for this Congress because the procedural voting that comes with their institutional role distorts the estimate: **REID (D-NV)**.  The row still appears in the released CSV with `ggum_flag = procedural_role` and `NA` for theta/SD/PSRF.
+
+
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)
 

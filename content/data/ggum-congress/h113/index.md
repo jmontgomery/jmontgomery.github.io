@@ -38,6 +38,8 @@ The following 5 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOM
 
 
 
+
+
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)
 
 ---
