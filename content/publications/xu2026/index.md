@@ -33,4 +33,6 @@ links:
     url: https://podcasts.apple.com/us/podcast/pennywise-personal-finance-travel-tips/id1550653869?i=1000799092798
   - name: Wired
     url: https://www.wired.com/story/google-is-forcing-ai-overviews-in-classrooms-schools-are-searching-for-a-way-out/
+  - name: PsyPost
+    url: https://www.psypost.org/how-google-ai-search-summaries-alter-online-information-and-publisher-revenue/
 ---
