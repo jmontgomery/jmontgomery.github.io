@@ -38,7 +38,7 @@ The following 2 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOM
 
 GGUM's placement of the following members differs from what their established political reputations might lead a reader to expect.  This does not mean these estimates are necessarily wrong, but analysts might want to look.
 
-- **McCAIN.** McCain is commonly viewed as a self-styled maverick and repeat cross-party dealmaker (co-sponsor of McCain-Feingold campaign-finance reform).  GGUM places him among the twenty most conservative senators in this Congress.
+- **McCAIN.** McCain's public reputation as a maverick and cross-party dealmaker (McCain-Feingold campaign-finance reform) is largely about procedural style rather than ideological moderation.  GGUM places him among the twenty most conservative senators in this Congress, which may be consistent with his underlying voting record even if it conflicts with the maverick framing.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)
 

@@ -38,7 +38,7 @@ The following 2 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOM
 
 GGUM's placement of the following members differs from what their established political reputations might lead a reader to expect.  This does not mean these estimates are necessarily wrong, but analysts might want to look.
 
-- **GRAHAM.** Graham is commonly viewed as a Gang-of-14 bipartisan dealmaker who co-sponsored climate legislation with McCain and Lieberman around this period.  GGUM places him as the third-most conservative senator in this Congress.
+- **GRAHAM.** Graham's public reputation in this period as a Gang-of-14 bipartisan dealmaker and co-sponsor of climate legislation with McCain and Lieberman is largely about procedural style.  GGUM places him as the third-most conservative senator in this Congress, which may be consistent with his underlying voting record even if it conflicts with the dealmaker framing.
 
 - **BYRD.** Byrd is commonly viewed as a long-tenured West Virginia institutionalist, not among the chamber's most liberal members.  GGUM places him at the left floor in this Congress only; adjacent terms place him in the mid-30s/40s percentile.
 

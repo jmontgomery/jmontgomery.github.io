@@ -37,7 +37,7 @@ The following 1 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOM
 
 GGUM's placement of the following members differs from what their established political reputations might lead a reader to expect.  This does not mean these estimates are necessarily wrong, but analysts might want to look.
 
-- **HOEVEN.** Hoeven is commonly viewed as a pragmatic, deal-making former governor and appropriator, with a low-key institutionalist profile.  GGUM places him at an extreme-conservative tier.
+- **HOEVEN.** Hoeven's public profile as a pragmatic, deal-making former governor and appropriator is largely about style rather than ideology.  GGUM places him at an extreme-conservative tier, which may reflect his underlying roll-call record more directly than his institutional profile suggests.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)
 

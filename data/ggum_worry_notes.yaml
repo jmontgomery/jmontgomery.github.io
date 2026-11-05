@@ -80,21 +80,21 @@ H115:
 
 S100:
   - icpsr: 7638    # PROXMIRE, William (D-WI)
-    note: "Proxmire is commonly viewed as an iconic Senate liberal maverick of his era (founder of the Golden Fleece Award), consistently rated among the chamber's most liberal members.  GGUM places him near the chamber median despite his having the single most liberal DW-NOMINATE score of any senator in this Congress."
+    note: "Proxmire's public profile combined socially liberal positions (civil rights, Genocide Convention advocacy) with a pronounced fiscal hawkishness that produced the Golden Fleece Award and routine opposition to federal spending.  GGUM places him near the chamber median despite his having the single most liberal DW-NOMINATE score in this Congress; this may partly reflect the cross-pressured voting record that a one-dimensional scaling smooths over."
 
 S102:
   - icpsr: 10513   # DOLE, Robert Joseph (Bob) (R-KS)
-    note: "Dole is commonly viewed as a Senate Republican leader and institutional dealmaker who ran for president as a pragmatic centrist.  GGUM places him among the twenty most conservative senators in this Congress."
+    note: "Dole's public reputation is built around his role as Senate Republican leader and institutional dealmaker --- a style-based reputation that does not necessarily translate to ideological moderation.  GGUM places him among the twenty most conservative senators in this Congress, which may reflect his roll-call record more directly than the dealmaker framing suggests."
   - icpsr: 14009   # COCHRAN, William Thad (R-MS)
-    note: "Cochran is commonly viewed as a mainstream appropriator, later primaried from the right in 2014 for being insufficiently conservative.  GGUM places him as the single most conservative senator in this Congress."
+    note: "Cochran is commonly viewed as a mainstream appropriator, later primaried from the right in 2014 for being insufficiently conservative.  GGUM places him as the single most conservative senator in this Congress; the gap may partly reflect the distinction between his institutional style and his substantive voting record."
 
 S103:
   - icpsr: 10513   # DOLE, Robert Joseph (Bob) (R-KS)
-    note: "Dole is commonly viewed as a Senate Republican leader and institutional dealmaker.  GGUM places him among the twenty most conservative senators in this Congress."
+    note: "Dole's public reputation centers on his role as Senate Republican leader and institutional dealmaker rather than on ideology.  GGUM places him among the twenty most conservative senators in this Congress, which may reflect his roll-call record more directly than the dealmaker framing suggests."
 
 S104:
   - icpsr: 15039   # McCAIN, John Sidney, III (R-AZ)
-    note: "McCain is commonly viewed as a self-styled maverick and repeat cross-party dealmaker (co-sponsor of McCain-Feingold campaign-finance reform).  GGUM places him among the twenty most conservative senators in this Congress."
+    note: "McCain's public reputation as a maverick and cross-party dealmaker (McCain-Feingold campaign-finance reform) is largely about procedural style rather than ideological moderation.  GGUM places him among the twenty most conservative senators in this Congress, which may be consistent with his underlying voting record even if it conflicts with the maverick framing."
 
 S106:
   - icpsr: 49904   # MILLER, Zell Bryan (D-GA)
@@ -102,7 +102,7 @@ S106:
 
 S108:
   - icpsr: 29566   # GRAHAM, Lindsey O. (R-SC)
-    note: "Graham is commonly viewed as a Gang-of-14 bipartisan dealmaker who co-sponsored climate legislation with McCain and Lieberman around this period.  GGUM places him as the third-most conservative senator in this Congress."
+    note: "Graham's public reputation in this period as a Gang-of-14 bipartisan dealmaker and co-sponsor of climate legislation with McCain and Lieberman is largely about procedural style.  GGUM places him as the third-most conservative senator in this Congress, which may be consistent with his underlying voting record even if it conflicts with the dealmaker framing."
   - icpsr: 1366    # BYRD, Robert Carlyle (D-WV)
     note: "Byrd is commonly viewed as a long-tenured West Virginia institutionalist, not among the chamber's most liberal members.  GGUM places him at the left floor in this Congress only; adjacent terms place him in the mid-30s/40s percentile."
 
@@ -110,11 +110,11 @@ S111:
   - icpsr: 49309   # FEINGOLD, Russell D. (D-WI)
     note: "Feingold is commonly viewed as one of the most liberal members of the Senate.  GGUM places him near the Senate center in this chamber, breaking his pattern in surrounding Congresses."
   - icpsr: 15039   # McCAIN, John Sidney, III (R-AZ)
-    note: "McCain is commonly viewed as a self-styled maverick and repeat cross-party dealmaker.  GGUM places him among the twenty most conservative senators in this Congress."
+    note: "McCain's public reputation as a maverick and dealmaker is largely about procedural style rather than ideological moderation.  GGUM places him among the twenty most conservative senators in this Congress, which may be consistent with his underlying voting record even if it conflicts with the maverick framing."
 
 S113:
   - icpsr: 14852   # ROBERTS, Charles Patrick (Pat) (R-KS)
-    note: "Pat Roberts is commonly viewed as a low-key, institutionalist Agriculture Committee chair, not a movement ideologue.  GGUM places him among the chamber's most extreme conservatives, rivaling Cruz and Lee in GGUM score."
+    note: "Pat Roberts is commonly viewed as a low-key institutionalist Agriculture Committee chair --- a style-based rather than ideological label.  GGUM places him among the chamber's most extreme conservatives, which may reflect his roll-call record more directly than his institutional profile suggests."
 
 S115:
   - icpsr: 20735   # GILLIBRAND, Kirsten (D-NY)
@@ -132,11 +132,11 @@ S117:
   - icpsr: 15015   # CARPER, Thomas Richard (D-DE)
     note: "Carper is commonly viewed as one of the Senate's most consistently cited centrist/moderate Democrats.  GGUM places him solidly within the chamber's progressive range."
   - icpsr: 20101   # BOOZMAN, John (R-AR)
-    note: "Boozman is commonly viewed as a quiet, standard-conservative Arkansas senator, not a national ideologue.  GGUM places him among the chamber's most extreme conservatives."
+    note: "Boozman's public profile is quiet and institutionalist rather than that of a movement ideologue.  GGUM places him among the chamber's most extreme conservatives, which may reflect his underlying roll-call record more directly than his public profile suggests."
 
 S118:
   - icpsr: 41107   # HOEVEN, John (R-ND)
-    note: "Hoeven is commonly viewed as a pragmatic, deal-making former governor and appropriator, with a low-key institutionalist profile.  GGUM places him at an extreme-conservative tier."
+    note: "Hoeven's public profile as a pragmatic, deal-making former governor and appropriator is largely about style rather than ideology.  GGUM places him at an extreme-conservative tier, which may reflect his underlying roll-call record more directly than his institutional profile suggests."
 
 S119:
   - icpsr: 41901   # HAWLEY, Joshua David (R-MO)

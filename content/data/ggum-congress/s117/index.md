@@ -39,7 +39,7 @@ GGUM's placement of the following members differs from what their established po
 
 - **CARPER.** Carper is commonly viewed as one of the Senate's most consistently cited centrist/moderate Democrats.  GGUM places him solidly within the chamber's progressive range.
 
-- **BOOZMAN.** Boozman is commonly viewed as a quiet, standard-conservative Arkansas senator, not a national ideologue.  GGUM places him among the chamber's most extreme conservatives.
+- **BOOZMAN.** Boozman's public profile is quiet and institutionalist rather than that of a movement ideologue.  GGUM places him among the chamber's most extreme conservatives, which may reflect his underlying roll-call record more directly than his public profile suggests.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)
 
