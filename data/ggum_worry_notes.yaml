@@ -52,12 +52,6 @@ H109:
   - icpsr: 14290   # PAUL, Ronald Ernest (R-TX)
     note: "Ron Paul is commonly viewed as the House's defining libertarian-conservative pole for three decades.  GGUM places him near the chamber median in this Congress only; every adjacent term places him among the twenty most conservative House members."
 
-H114:
-  - icpsr: 29768   # SMITH, Adam (D-WA)
-    note: "Smith is commonly viewed as a centrist, defense-hawk Democrat (he was the ranking member on Armed Services).  GGUM places him well toward the chamber's progressive range."
-  - icpsr: 21550   # HURD, William Ballard (R-TX)
-    note: "Hurd is commonly viewed as one of the House GOP's most centrist, cross-party-friendly members.  GGUM places him solidly within the mainstream-conservative range."
-
 H117:
   - icpsr: 15019   # COOPER, James Hayes Shofner (D-TN)
     note: "Jim Cooper is commonly viewed as a longtime Blue Dog Democrat, frequently cited as among the most conservative House Democrats of his era.  GGUM places him solidly within the progressive range of the chamber."
