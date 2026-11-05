@@ -19,8 +19,6 @@ H102:
 H104:
   - icpsr: 11036   # MYERS, John Thomas (R-IN)
     note: "Myers is commonly viewed as a moderate Republican.  GGUM places him near the extreme-right pole."
-  - icpsr: 29546   # JONES, Walter Beaman, Jr. (R-NC)
-    note: "Jones is commonly viewed as a moderate-conservative Republican in this period.  GGUM places him well toward the right pole, among the most conservative members of the chamber (top 15 percent by GGUM placement), though not among the handful of members at the extreme pole itself."
   - icpsr: 14657   # SENSENBRENNER, Frank James, Jr. (R-WI)
     note: "Sensenbrenner is commonly viewed as a reliably conservative Republican.  GGUM places him near the center."
   - icpsr: 15455   # DUNCAN, John J., Jr. (R-TN)
@@ -85,10 +83,6 @@ S100:
 S104:
   - icpsr: 15039   # McCAIN, John Sidney, III (R-AZ)
     note: "McCain's public reputation as a maverick and cross-party dealmaker (McCain-Feingold campaign-finance reform) is largely about procedural style rather than ideological moderation.  GGUM places him among the twenty most conservative senators in this Congress, which may be consistent with his underlying voting record even if it conflicts with the maverick framing."
-
-S106:
-  - icpsr: 49904   # MILLER, Zell Bryan (D-GA)
-    note: "Miller is commonly viewed as one of the most conservative Democrats in the modern Senate (he endorsed George W. Bush and keynoted the 2004 Republican National Convention).  GGUM places him to the left of the Senate median."
 
 S108:
   - icpsr: 29566   # GRAHAM, Lindsey O. (R-SC)

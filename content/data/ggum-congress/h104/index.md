@@ -48,8 +48,6 @@ GGUM's placement of the following members differs from what their established po
 
 - **MYERS.** Myers is commonly viewed as a moderate Republican.  GGUM places him near the extreme-right pole.
 
-- **JONES.** Jones is commonly viewed as a moderate-conservative Republican in this period.  GGUM places him well toward the right pole, among the most conservative members of the chamber (top 15 percent by GGUM placement), though not among the handful of members at the extreme pole itself.
-
 - **SENSENBRENNER.** Sensenbrenner is commonly viewed as a reliably conservative Republican.  GGUM places him near the center.
 
 - **DUNCAN.** Duncan is commonly viewed as a reliably conservative Republican.  GGUM places him near the center.
