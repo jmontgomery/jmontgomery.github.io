@@ -34,11 +34,6 @@ The following 2 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NOM
 | PRESSLER | R | SD | +0.21 | +1.40 | +0.54 |
 
 
-### Placements worth a second look
-
-GGUM's placement of the following members differs from what their established political reputations might lead a reader to expect.  This does not mean these estimates are necessarily wrong, but analysts might want to look.
-
-- **DOLE.** Dole's public reputation centers on his role as Senate Republican leader and institutional dealmaker rather than on ideology.  GGUM places him among the twenty most conservative senators in this Congress, which may reflect his roll-call record more directly than the dealmaker framing suggests.
 
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)
 
