@@ -48,7 +48,7 @@ The following 10 members fall more than 2.5σ off the OLS fit of GGUM θ on W-NO
 
 GGUM's placement of the following members differs from what their established political reputations might lead a reader to expect.  This does not mean these estimates are necessarily wrong, but analysts might want to look.
 
-- **MYERS.** Myers is commonly viewed as a moderate Republican.  GGUM places him near the extreme-right pole.
+- **COBURN.** Coburn is commonly viewed as a reliably conservative Republican, nicknamed "Dr. No" for routinely opposing spending bills.  GGUM places him near the Republican median in this chamber, roughly the 110th-most-conservative of 235 Republicans.
 
 - **SENSENBRENNER.** Sensenbrenner is commonly viewed as a reliably conservative Republican.  GGUM places him near the center.
 

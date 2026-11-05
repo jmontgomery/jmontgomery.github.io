@@ -17,8 +17,8 @@ H102:
     note: "Sikorski is commonly viewed as a mainstream Minnesota liberal.  GGUM places him at the extreme-left pole, left of Bernie Sanders in this chamber."
 
 H104:
-  - icpsr: 11036   # MYERS, John Thomas (R-IN)
-    note: "Myers is commonly viewed as a moderate Republican.  GGUM places him near the extreme-right pole."
+  - icpsr: 29555   # COBURN, Thomas Allen (R-OK)
+    note: "Coburn is commonly viewed as a reliably conservative Republican, nicknamed \"Dr. No\" for routinely opposing spending bills.  GGUM places him near the Republican median in this chamber, roughly the 110th-most-conservative of 235 Republicans."
   - icpsr: 14657   # SENSENBRENNER, Frank James, Jr. (R-WI)
     note: "Sensenbrenner is commonly viewed as a reliably conservative Republican.  GGUM places him near the center."
   - icpsr: 15455   # DUNCAN, John J., Jr. (R-TN)
