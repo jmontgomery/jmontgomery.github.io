@@ -62,14 +62,6 @@ H119:
   - icpsr: 21919   # FLETCHER, Elizabeth (Lizzie) (D-TX)
     note: "Fletcher is commonly viewed as a pragmatic, swing-district Houston-area moderate Democrat.  GGUM places her near the chamber's left floor in this Congress, breaking her pattern in surrounding terms."
 
-H115:
-  - icpsr: 29768   # SMITH, Adam (D-WA)
-    note: "Smith is commonly viewed as a centrist Democrat.  GGUM places him near the left pole of the chamber, well to the left of his centrist reputation."
-  - icpsr: 21701   # BACON, Donald J. (R-NE)
-    note: "Bacon is commonly viewed as a bipartisan, centrist Republican.  GGUM places him to the right of the chamber median, though well short of the right pole."
-  - icpsr: 21191   # GRIFFITH, H. Morgan (R-VA)
-    note: "Griffith is commonly viewed as a mainstream conservative Republican.  GGUM places him at the extreme-right pole."
-
 S100:
   - icpsr: 7638    # PROXMIRE, William (D-WI)
     note: "Proxmire's public profile combined socially liberal positions (civil rights, Genocide Convention advocacy) with a pronounced fiscal hawkishness that produced the Golden Fleece Award and routine opposition to federal spending.  GGUM places him near the chamber median despite his having the single most liberal DW-NOMINATE score in this Congress; this may partly reflect the cross-pressured voting record that a one-dimensional scaling smooths over."
