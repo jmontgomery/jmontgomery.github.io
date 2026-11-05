@@ -94,12 +94,6 @@ S116:
   - icpsr: 40700   # KLOBUCHAR, Amy (D-MN)
     note: "Klobuchar is commonly viewed as a centrist Democrat.  GGUM places her near the extreme-left pole in this chamber, 7th-most-left of 101 senators, though less extreme than several further-left colleagues."
 
-S117:
-  - icpsr: 15015   # CARPER, Thomas Richard (D-DE)
-    note: "Carper is commonly viewed as one of the Senate's most consistently cited centrist/moderate Democrats.  GGUM places him solidly within the chamber's progressive range."
-  - icpsr: 20101   # BOOZMAN, John (R-AR)
-    note: "Boozman's public profile is quiet and institutionalist rather than that of a movement ideologue.  GGUM places him among the chamber's most extreme conservatives, which may reflect his underlying roll-call record more directly than his public profile suggests."
-
 S118:
   - icpsr: 41107   # HOEVEN, John (R-ND)
     note: "Hoeven's public profile as a pragmatic, deal-making former governor and appropriator is largely about style rather than ideology.  GGUM places him at an extreme-conservative tier, which may reflect his underlying roll-call record more directly than his institutional profile suggests."
