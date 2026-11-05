@@ -44,8 +44,6 @@ GGUM's placement of the following members differs from what their established po
 
 - **FEINGOLD.** Feingold is commonly viewed as one of the most liberal members of the Senate.  GGUM places him near the Senate center in this chamber, breaking his pattern in surrounding Congresses.
 
-- **McCAIN.** McCain's public reputation as a maverick and dealmaker is largely about procedural style rather than ideological moderation.  GGUM places him among the twenty most conservative senators in this Congress, which may be consistent with his underlying voting record even if it conflicts with the maverick framing.
-
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)
 
 ---

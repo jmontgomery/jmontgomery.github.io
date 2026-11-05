@@ -67,12 +67,6 @@ GGUM's placement of the following members differs from what their established po
 
 - **GILLMOR.** Gillmor is commonly viewed as a low-profile institutionalist Ohio Republican.  GGUM places him near the top of the chamber's conservative range in this Congress, an outlier among his terms.
 
-- **THOMPSON.** Thompson is commonly viewed as a centrist Blue Dog Democrat from a competitive North Coast California seat.  GGUM places him near the bottom of the chamber's liberal range in this Congress, an outlier among his terms.
-
-- **STUPAK.** Stupak is commonly viewed as a centrist, Blue Dog-aligned Michigan Democrat.  GGUM places him near the bottom of the chamber's liberal range in this Congress, an outlier among his terms.
-
-- **COSTELLO.** Costello is commonly viewed as a moderate Illinois Democrat from a swing downstate district.  GGUM places him near the bottom of the chamber's liberal range in this Congress, an outlier among his terms.
-
 [&larr; Back to the GGUM-for-Congress release](/data/ggum-congress/)
 
 ---

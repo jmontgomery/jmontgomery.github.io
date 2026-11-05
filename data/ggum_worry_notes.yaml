@@ -41,12 +41,6 @@ H107:
     note: "Sweeney is commonly viewed as a mainstream upstate New York Republican.  GGUM places him near the top of the chamber's conservative range in this Congress, an outlier among his terms."
   - icpsr: 15604   # GILLMOR, Paul Eugene (R-OH)
     note: "Gillmor is commonly viewed as a low-profile institutionalist Ohio Republican.  GGUM places him near the top of the chamber's conservative range in this Congress, an outlier among his terms."
-  - icpsr: 29901   # THOMPSON, Michael (D-CA)
-    note: "Thompson is commonly viewed as a centrist Blue Dog Democrat from a competitive North Coast California seat.  GGUM places him near the bottom of the chamber's liberal range in this Congress, an outlier among his terms."
-  - icpsr: 29360   # STUPAK, Bart T. (D-MI)
-    note: "Stupak is commonly viewed as a centrist, Blue Dog-aligned Michigan Democrat.  GGUM places him near the bottom of the chamber's liberal range in this Congress, an outlier among his terms."
-  - icpsr: 15453   # COSTELLO, Jerry Francis (D-IL)
-    note: "Costello is commonly viewed as a moderate Illinois Democrat from a swing downstate district.  GGUM places him near the bottom of the chamber's liberal range in this Congress, an outlier among his terms."
 
 H109:
   - icpsr: 14290   # PAUL, Ronald Ernest (R-TX)
@@ -60,17 +54,9 @@ S104:
   - icpsr: 15039   # McCAIN, John Sidney, III (R-AZ)
     note: "McCain's public reputation as a maverick and cross-party dealmaker (McCain-Feingold campaign-finance reform) is largely about procedural style rather than ideological moderation.  GGUM places him among the twenty most conservative senators in this Congress, which may be consistent with his underlying voting record even if it conflicts with the maverick framing."
 
-S108:
-  - icpsr: 29566   # GRAHAM, Lindsey O. (R-SC)
-    note: "Graham's public reputation in this period as a Gang-of-14 bipartisan dealmaker and co-sponsor of climate legislation with McCain and Lieberman is largely about procedural style.  GGUM places him as the third-most conservative senator in this Congress, which may be consistent with his underlying voting record even if it conflicts with the dealmaker framing."
-  - icpsr: 1366    # BYRD, Robert Carlyle (D-WV)
-    note: "Byrd is commonly viewed as a long-tenured West Virginia institutionalist, not among the chamber's most liberal members.  GGUM places him at the left floor in this Congress only; adjacent terms place him in the mid-30s/40s percentile."
-
 S111:
   - icpsr: 49309   # FEINGOLD, Russell D. (D-WI)
     note: "Feingold is commonly viewed as one of the most liberal members of the Senate.  GGUM places him near the Senate center in this chamber, breaking his pattern in surrounding Congresses."
-  - icpsr: 15039   # McCAIN, John Sidney, III (R-AZ)
-    note: "McCain's public reputation as a maverick and dealmaker is largely about procedural style rather than ideological moderation.  GGUM places him among the twenty most conservative senators in this Congress, which may be consistent with his underlying voting record even if it conflicts with the maverick framing."
 
 S113:
   - icpsr: 20100   # FLAKE, Jeff (R-AZ)
